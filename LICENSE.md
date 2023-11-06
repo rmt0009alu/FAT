@@ -1,5 +1,5 @@
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-  <a property="dct:title" rel="cc:attributionURL" href="https://github.com/rmt0009alu/Pruebas_TFG">Pruebas_TFG</a> 
+  <a property="dct:title" rel="cc:attributionURL" href="https://github.com/rmt0009alu/TFG">Pruebas_TFG</a> 
   by 
   <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/rmt0009alu">Rodrigo Merino Tovar</a> 
   is licensed under 
