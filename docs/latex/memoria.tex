@@ -1,4 +1,6 @@
-\documentclass[a4paper,12pt,twoside]{memoir}
+% ORIGINAL:
+% \documentclass[a4paper,12pt,twoside]{memoir}
+\documentclass[a4paper,12pt,oneside]{memoir}
 
 % Castellano
 \usepackage[spanish,es-tabla]{babel}
@@ -8,11 +10,14 @@
 \usepackage{lmodern} % Scalable font
 \usepackage{microtype}
 \usepackage{placeins}
+% Para imágenes flotantes
+\usepackage{float}
 
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
 \RequirePackage{xtab}
 \RequirePackage{multirow}
+
 
 % Links
 \PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
@@ -22,6 +27,10 @@
 
 % Ecuaciones
 \usepackage{amsmath}
+
+% Bibliografía (mejor natbib que biblatex. Con [numbers, sort] indico que
+% se numeren las referencias y que se ordenen según el orden de citación)
+\usepackage[numbers]{natbib}
 
 % Rutas de fichero / paquete
 \newcommand{\ruta}[1]{{\sffamily #1}}
@@ -422,12 +431,14 @@ D. José Ignacio Santos Martín
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-En este primer apartado se hace una \textbf{breve} presentación del tema que se aborda en el proyecto.
+Cuando buscamos maximizar el rendimiento de nuestro patrimonio neto, nos enfrentamos a desafíos significativos, como la falta de información de calidad, la proliferación de rumores sesgados y nuestras propias limitaciones en educación financiera.
+
+Para abordar estos retos, este trabajo propone una herramienta digital que recopila información técnica y fundamental de empresas y sus productos cotizados. Esta herramienta presenta datos en gráficos y tablas de fácil comprensión, lo que permite tomar decisiones de inversión informadas y fiables, especialmente orientadas a inversiones a medio o largo plazo.
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-Palabras separadas por comas que identifiquen el contenido del proyecto Ej: servidor web, buscador de vuelos, android \ldots
+Servidor web, Python, SQLite, Django, finanzas, análisis técnico, análisis fundamental.
 \end{abstract}
 
 \clearpage
@@ -435,12 +446,14 @@ Palabras separadas por comas que identifiquen el contenido del proyecto Ej: serv
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-A \textbf{brief} presentation of the topic addressed in the project.
+When we seek to maximize the return of our net worth, we face significant challenges, such as a lack of high-quality information, the proliferation of biased rumors, and our own limitations in financial literacy.
+
+To address these challenges, this work proposes a digital tool that gathers technical and fundamental information about companies and their listed products. This tool presents data in easily understandable charts and tables, enabling informed and reliable investment decisions, particularly tailored to medium or long-term investments.
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
 \begin{abstract}
-keywords separated by commas.
+Web server, Python, SQLite, Django, finance, technical analysis, fundamental analysis.
 \end{abstract}
 
 \clearpage
@@ -469,5 +482,22 @@ keywords separated by commas.
 
 \bibliographystyle{plain}
 \bibliography{bibliografia}
+
+\newpage\null\thispagestyle{empty}
+
+% Imagen y texto de licencia al final de la memoria
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+
+\begin{bottompar}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4cm]{licencia}
+\end{figure}
+
+\begin{center}
+Este obra está bajo una licencia Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional\\
+(\href{https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1}{CC BY-NC-SA 4.0 DEED}).
+\end{center}
+\end{bottompar}
 
 \end{document}

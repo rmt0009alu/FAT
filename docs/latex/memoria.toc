@@ -1,10 +1,12 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{\'{I}ndice general}{\es@scroman {iii}}{section*.1}%
-\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iv}}{section*.2}%
-\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {v}}{section*.3}%
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {v}}{section*.2}%
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {vi}}{section*.3}%
 \contentsline {chapter}{1.\hskip .5em\relax Introducción}{1}{chapter*.4}%
-\contentsline {chapter}{2.\hskip .5em\relax Objetivos del proyecto}{3}{chapter*.5}%
+\contentsline {section}{\numberline {1.1}Estructura de la memoria}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Materiales adjuntos}{3}{section.1.2}%
+\contentsline {chapter}{2.\hskip .5em\relax Objetivos del proyecto}{4}{chapter*.5}%
 \contentsline {chapter}{3.\hskip .5em\relax Conceptos teóricos}{5}{chapter*.6}%
 \contentsline {section}{\numberline {3.1}Secciones}{5}{section.3.1}%
 \contentsline {subsection}{Subsecciones}{5}{section*.7}%
@@ -13,7 +15,11 @@
 \contentsline {section}{\numberline {3.3}Imágenes}{6}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Listas de items}{6}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Tablas}{7}{section.3.5}%
-\contentsline {chapter}{4.\hskip .5em\relax Técnicas y herramientas}{9}{chapter*.9}%
-\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{11}{chapter*.10}%
-\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{13}{chapter*.11}%
-\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{15}{chapter*.12}%
+\contentsline {chapter}{4.\hskip .5em\relax Técnicas y herramientas}{8}{chapter*.9}%
+\contentsline {section}{\numberline {4.1}Metodologías}{8}{section.4.1}%
+\contentsline {subsection}{Scrum}{8}{section*.10}%
+\contentsline {subsection}{\emph {Test-Driven Development} (TDD)}{8}{section*.11}%
+\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{9}{chapter*.12}%
+\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{10}{chapter*.13}%
+\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{11}{chapter*.14}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{12}{chapter*.15}%
