@@ -1,6 +1,6 @@
-### Carpeta con imágenes de los burndowns
+### Carpeta de documentación
 
-Carpeta que contiene las imágenes de los burndonws de la aplicación de gestión de tareas del proyecto [Zube](https://zube.io/).
+Carpeta que contiene la documentación de la herramienta.
 
 ---
 
