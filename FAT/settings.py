@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Meto a mano mi nueva app
+    'Analysis',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +77,7 @@ WSGI_APPLICATION = 'FAT.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # Modifico las rutas de las bases de datos
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'databases/db.sqlite3',
