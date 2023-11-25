@@ -32,17 +32,16 @@ for ticker in ibex35:
     stock = yf.Ticker(ticker)
     # Para ver las claves de un diccionario que contiene info. 
     # actualizada en el mismo día. Útil para mostrar datos 
-    # con llamada directa a API (sin usar BD)
-    # 
+    # con llamada directa a API (sin usar BD): 
     # data = stock.fast_info
     # print("Moneda: ", data['currency'], "Máx. 52s: ", data['yearHigh'])
     #
-    # Para ver todas las claves del diccionario
+    # Para ver todas las claves del diccionario:
     # print(data)
-
+    #
     # Para obtener info. histórica hay dos métodos:
     # history() y download(). Me gusta más history
-    # 
+    # Por ejemplo:
     # tickers = ["AAPL", "MSFT"]
     # historical_data = yf.download(tickers, start="2023-10-19", end="2023-11-19")
     #
@@ -53,10 +52,6 @@ for ticker in ibex35:
     # Cambio el nombre de los ticker para almacenarlo sin puntos
     # en los nombres de las tablas de la BD
     ticker_cambiado = ticker.replace(".", "_")
-    # hist['id'] = ticker_cambiado
-
-    # # Reordeno las columnas para poner el 'id' lo primero
-    # hist = hist['id', 'Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits']
 
     # Añadir columnas. MUY IMPORTANTE: INTERESA TENER NOMBRES 
     # EN INGLÉS PARA TRABAJAR CON OTRAS LIBRERÍAS COMO 'mplfinance'
@@ -72,14 +67,9 @@ for ticker in ibex35:
     hist['MM50'] = hist['Close'].rolling(window=50).mean()
     hist['MM200'] = hist['Close'].rolling(window=200).mean()
 
-
     # Conexión a la BD (si no existe, se crea)
-    # conn = sqlite3.connect('IBEX35.db')
-    # conn = sqlite3.connect('IBEX35.sqlite3')
     # conn = sqlite3.connect('./databases/db.sqlite3')
-    conn = sqlite3.connect('db.sqlite3')
-
-
+    conn = sqlite3.connect('databases/ibex35.sqlite3')
 
     # Pasar del DataFrame a la BD
     hist.to_sql(ticker_cambiado, conn, index=True, if_exists='replace')
