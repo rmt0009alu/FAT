@@ -15,8 +15,29 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # RECORDAR QUE DJNAGO RECOMIENDA QUE CADA APP TENGA
+    # SUS PROPIAS RUTAS URL. Por eso, se crea un "urls.py"
+    # en cada una de las apps y se mete esta info
+    
+    # Al dejarlo en blanco es como indicar que se visita la
+    # ruta principal y se lanza hello()
+    # path('', hello)
+    # path('', views.hello),
+    # Para acceder, entrar a http://localhost:8000/about
+    # path('about/', views.about)
+
+    path('', include('Analysis.urls'))
+    # Las rutas de Analysis van directas desde la página
+    # principal, pero si quiero que empiecen desde otra ruta
+    # puedo añadir aquí desde donde. P. ej:
+    #
+    # path('home/', include('miAppDePruebas.urls'))
+    #
+    # Así, para accederlas habría que poner http://localhost:8000/home
+    # o http://localhost:8000/home/about
 ]

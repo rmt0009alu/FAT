@@ -1,0 +1,31 @@
+<!-- templates/stocks/stock_data.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Data</title>
+</head>
+<body>
+    <h1>Stock Data</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+            <th>Volume</th>
+        </tr>
+        {% for data in ticker_data %}
+            <tr>
+                <td>{{ data.Date }}</td>
+                <td>{{ data.Open }}</td>
+                <td>{{ data.High }}</td>
+                <td>{{ data.Low }}</td>
+                <td>{{ data.Close }}</td>
+                <td>{{ data.Volume }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
