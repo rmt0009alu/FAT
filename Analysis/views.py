@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # from django.shortcuts import get_object_or_404, redirect
 # from .forms import CreateNewTaskForm, CreateNewProjectForm
-from django.db import connection
+from django.db import connection, connections
 # from .models import StockData
 # from django.apps import apps
 
@@ -22,7 +22,7 @@ def hello(request):
     return HttpResponse("<h1>BIENVENIDO A FAT: Financial Analysis Tool</h1>")
 
 
-def stock_data(request, ticker):
+def stock_data(request, ticker, nombre_bd):
     """Método que no usa los modelos/clases sino que accede 
     directamente a la BD, busca el nombre de la tabla con
     el ticker pasado a través de la barra de direcciones
@@ -40,7 +40,7 @@ def stock_data(request, ticker):
     
     # Use raw SQL to query the specific table
     query = f"SELECT * FROM {table_name};"
-    with connection.cursor() as cursor:
+    with connections[nombre_bd].cursor() as cursor:
         cursor.execute(query)
         # Fetch the results
         results = cursor.fetchall()

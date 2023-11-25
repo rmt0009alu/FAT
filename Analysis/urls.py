@@ -11,6 +11,6 @@ urlpatterns = [
 
     # path('prueba/', stock_data, name='prueba'),
     # path('stock_data/<str:ticker>/', stock_data, name='stock_data'),
-    path('stock_data/<str:ticker>/', stock_data, name='stock_data'),
+    path('<str:nombre_bd>/<str:ticker>/', stock_data, name='stock_data'),
     
 ]
