@@ -49,9 +49,18 @@ for ticker in ibex35:
     # hist = stock.history(period="1d")
     # hist = stock.history(period="max", interval="1wk")
     hist = stock.history(period="max", interval="1d")
+
+    # Cambio el nombre de los ticker para almacenarlo sin puntos
+    # en los nombres de las tablas de la BD
+    ticker_cambiado = ticker.replace(".", "_")
+    # hist['id'] = ticker_cambiado
+
+    # # Reordeno las columnas para poner el 'id' lo primero
+    # hist = hist['id', 'Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits']
+
     # Añadir columnas. MUY IMPORTANTE: INTERESA TENER NOMBRES 
     # EN INGLÉS PARA TRABAJAR CON OTRAS LIBRERÍAS COMO 'mplfinance'
-    hist['Ticker'] = ticker
+    hist['Ticker'] = ticker_cambiado
     hist['Previous_Close'] = hist['Close'].shift(1)
 
     # Añadir columna para el porcentaje de variación entre días
@@ -67,10 +76,13 @@ for ticker in ibex35:
     # Conexión a la BD (si no existe, se crea)
     # conn = sqlite3.connect('IBEX35.db')
     # conn = sqlite3.connect('IBEX35.sqlite3')
-    conn = sqlite3.connect('./databases/db.sqlite3')
+    # conn = sqlite3.connect('./databases/db.sqlite3')
+    conn = sqlite3.connect('db.sqlite3')
+
+
 
     # Pasar del DataFrame a la BD
-    hist.to_sql(ticker, conn, index=True, if_exists='replace')
+    hist.to_sql(ticker_cambiado, conn, index=True, if_exists='replace')
 
     # Cerrar conexión a la BD
     conn.close()
