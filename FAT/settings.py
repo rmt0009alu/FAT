@@ -76,7 +76,12 @@ WSGI_APPLICATION = 'FAT.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'databases/db.sqlite3',
+    },
+
+    'ibex35': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'databases/ibex35.sqlite3',
     }
 }
 
