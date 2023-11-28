@@ -2,7 +2,7 @@
 /venv
 
 # Para ignorar todas las carpetas de pychache
-_pycache__/
+__pycache__/
 
 # Para ignorar el archivo de creación de las BDs
 CrearBD.py
