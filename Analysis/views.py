@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # from .forms import CreateNewTaskForm, CreateNewProjectForm
 from django.db import connection, connections
 # from .models import StockData
-# from django.apps import apps
+from django.apps import apps
 
 
 def hello(request):
