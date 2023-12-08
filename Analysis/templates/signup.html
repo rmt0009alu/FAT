@@ -1,0 +1,22 @@
+<!-- templates/signup.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>signup</h1>
+  {{ error }}
+  <!-- Con POST para no mostrar en URL, ojo-->
+  <form action="/signup/" method="POST">
+      <!-- Código Jinja para evitar el warning de Django.
+      Esto asegura que el formulario es creado por mi servidor y no por un atacante, porque se genera un 
+      token de identficación única (no se puede clonar 
+      mi página y re-enviar un formulario porque el token
+      es diferente) -->
+      {% csrf_token %}
+
+      {{ form.as_p }}
+
+      <button>Signup</button>
+  </form>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+<!-- templates/mapa_stocks.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<h1>Mapa stocks</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Ticker</th>
+            <th>Fecha</th>
+            <th>Apertura</th>
+            <th>Mayor</th>
+            <th>Menor</th>
+            <th>Cierre</th>
+            <th>Volumen</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ticker, entry in datosFinStocks.items %}
+            <tr>
+                <td><a href="/ibex35/{{ ticker }}/chart">{{ ticker }}</a></td>
+                <td>{{ entry.0|date:"d/m/Y H:i" }}</td>
+                <td>{{ entry.1|floatformat:3 }}</td>
+                    <td>{{ entry.2|floatformat:3 }}</td>
+                    <td>{{ entry.3|floatformat:3 }}</td>
+                    <td>{{ entry.4|floatformat:3 }}</td>
+                    <td>{{ entry.5 }}</td>
+                <!-- Add more columns as needed -->
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+<!-- templates/stock_chart.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ nombre_ticker }}</h1>
+<div class="chart-container">
+  <img src="data:image/png;base64,{{ image_base64 }}" alt="Figure">
+</div>
+
+{% endblock %}
+

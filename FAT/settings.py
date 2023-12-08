@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-w__w_x1ao+ev9m3t_oc%dox)*ij!i0uk)r@1=@+)v%dbbrje6v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['takeiteasy.pythonanywhere.com']
+ALLOWED_HOSTS = ['takeiteasy.pythonanywhere.com',
+                 '127.0.0.1']
 
 
 # Application definition
@@ -125,6 +126,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Para controlar cuál es la página de login y poder 
+# usar el decorador de @login_required en views
+# de forma adecuada (dará error si no se indica aquí
+# cuál es la página de login para que redirija)
+LOGIN_URL = '/login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
