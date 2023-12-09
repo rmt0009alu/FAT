@@ -33,6 +33,14 @@ from django.contrib.auth.decorators import login_required
 
 
 def home(request):
+    """Para la página principal. 
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     return render(request, "home.html")
 
 

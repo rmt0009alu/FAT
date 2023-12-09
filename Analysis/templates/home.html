@@ -6,7 +6,14 @@
 {% block content %}
 <style>
   .custom-background {
-    background-color: #daf1f6; /* Mismo color que fondo de la imagen https://imagelr.com/*/
+    background-color: #daf1f6;
+    /* Mismo color que fondo de la imagen https://imagelr.com/*/
+  }
+
+  .btn-custom {
+    /* Estilo personalizado para botones*/
+    margin-top: 10px;
+    width: 150px;
   }
 </style>
 
@@ -15,11 +22,16 @@
     <h1 class="display-3">FAT: Financial Analysis Tool</h1>
     <img src="{% static 'image01_readme.jpg'%}" alt="" width="500" class="mx-auto">
 
-    <div class="text-center">
-      <a class="btn btn-secondary" href="/login/">Login</a>    
-      <a class="btn btn-dark" href="/signup/">Registro</a>    
+    <div class="container">
+      {% if user.is_authenticated %}
+      <!-- Sólo lo muestro si el usuario está registrado -->
+      <a class="btn btn-dark btn-custom" href="/logout/">Logout</a>
+      {% else %}
+      <!-- Sólo lo muestro si el usuario está sin registrar -->
+      <a class="btn btn-secondary btn-custom" href="/login/">Login</a>
+      <a class="btn btn-dark btn-custom" href="/signup/">Registro</a>
+      {% endif %}
     </div>
-    
   </section>
 </main>
 
