@@ -3,16 +3,43 @@
 
 {% block content %}
 
-<h1>Login</h1>
-
-{{ error }}
-<form action="/login/" method="POST">
-    {% csrf_token %}
-
-    {{ form.as_p }}
-
-    <button>Login</button>
-</form>
+<main class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 mt-5"> 
+        <!-- Con POST para no mostrar en URL, ojo-->
+        <form action="/login/" method="POST" class="card card-body">
+          <h1 class="text-center">Login</h1>
+          <p style="color: red;">{{ error }}</p>
+        
+          <!-- Código Jinja para evitar el warning de Django.
+              Esto asegura que el formulario es creado por mi servidor y no por un atacante, porque se genera un 
+              token de identficación única (no se puede clonar 
+              mi página y re-enviar un formulario porque el token
+              es diferente) -->
+          {% csrf_token %}
+          
+          <!-- Ya no uso el form pasado desde el método, sino
+          que para dar estilos uso las clases como se ve a continuación. 
+          En realidad, lo importante son los nombres e ids de los input, porque son los mismos que traía el 'form' -->
+          <!-- {{ form }} -->
+            
+          <div class="mb-3"> 
+            <label for="username">Usuario</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Nombre de usuario">
+          </div>
+  
+          <div class="mb-3"> 
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Pass">
+          </div>
+  
+          <button class="btn btn-dark">Login</button>
+        </form>
+      </div>
+  
+    </div>
+  
+  </main>
 
 
 {% endblock %}

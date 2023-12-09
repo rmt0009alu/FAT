@@ -4,16 +4,23 @@
 {% load static %}
 
 {% block content %}
+<style>
+  .custom-background {
+    background-color: #daf1f6; /* Mismo color que fondo de la imagen https://imagelr.com/*/
+  }
+</style>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>FAT: Financial Analysis Tool</title>
-</head>
-<body>
-    <h1>FAT: Financial Analysis Tool</h1>
-    <img src="{% static 'image01_readme.jpg'%}" alt="" width="250">
-</body>
-</html> 
+<main class="container py-5">
+  <section class="card card-body text-center custom-background">
+    <h1 class="display-3">FAT: Financial Analysis Tool</h1>
+    <img src="{% static 'image01_readme.jpg'%}" alt="" width="500" class="mx-auto">
+
+    <div class="text-center">
+      <a class="btn btn-secondary" href="/login/">Login</a>    
+      <a class="btn btn-dark" href="/signup/">Registro</a>    
+    </div>
+    
+  </section>
+</main>
 
 {% endblock %}
