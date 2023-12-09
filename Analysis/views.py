@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 
-# from django.http import HttpResponse
+# Para enviar un error (en fallo de conexión a BD, p. ej.)
+from django.http import HttpResponseServerError
+
 # from django.shortcuts import get_object_or_404, redirect
 # from .forms import CreateNewTaskForm, CreateNewProjectForm
 
@@ -13,6 +15,14 @@ import matplotlib.pyplot as plt
 # Para meter una imagen en un buffer
 from io import BytesIO
 import base64
+# Para usar un canvas en vez de imágenes
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+# Para charts dinámicos en lugar de imágenes estáticas
+import plotly.graph_objs as go
+from plotly.subplots import make_subplots
+
+# Para controlar errores de conexión a la BD
+import sqlite3
 
 # Para creación de formularios de signup y login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -289,58 +299,125 @@ def stock_chart(request, ticker, nombre_bd):
     Returns:
         _type_: _description_
     """
-    # Crear la conexión a la BD
-    conn = connections.create_connection(nombre_bd)
+    try:
+        # Crear la conexión a la BD
+        conn = connections.create_connection(nombre_bd)
+        
+        # Para llamar a la tabla que se pase como ticker
+        table_name = f"{ticker.upper()}"
 
-    # Para llamar a la tabla que se pase como ticker
-    table_name = f"{ticker.upper()}"
+        # Sentencia SQL para acceder a la tabla deseada
+        # y coger las últimas 200 filas/días
+        query = f"SELECT * FROM '{table_name}' ORDER BY ROWID DESC LIMIT 200;"
 
-    # Sentencia SQL para acceder a la tabla deseada
-    # y coger las últimas 200 filas/días
-    query = f"SELECT * FROM '{table_name}' ORDER BY ROWID DESC LIMIT 200;"
+        # Ejecutar la sentencia y pasar a DataFrame
+        ticker_data = pd.read_sql_query(query, conn)
+        
+        # Paso la colunma 'Date' a datetime y ordeno por fecha
+        ticker_data["Date"] = pd.to_datetime(ticker_data["Date"], utc=True)
+        ticker_data = ticker_data.sort_values(by="Date", ascending=True)
 
-    # Ejecutar la sentencia y pasar a DataFrame
-    ticker_data = pd.read_sql_query(query, conn)
+        # Para eliminar los días que no hay mercado hay que hacer más
+        # que un dropna() porque plotly hace su propia lista entre 
+        # fechas a la hora de mostrar y aunque no haya huecos los crea
+        # Idea sacada de: https://stackoverflow.com/questions/61895282/plotly-how-to-remove-empty-dates-from-x-axis
+        trading_days_data = ticker_data.dropna()
 
-    # Cerrar conexión
-    conn.close()
+        dt_all = pd.date_range(start=ticker_data['Date'].iloc[0],
+                               end=ticker_data['Date'].iloc[-1])
+        dt_obs = [d.strftime("%Y-%m-%d") for d in ticker_data['Date']]
+        dt_breaks = [d for d in dt_all.strftime("%Y-%m-%d").tolist() if not d in dt_obs]
 
-    # Paso la colunma 'Date' a datetime y ordeno por fecha
-    ticker_data["Date"] = pd.to_datetime(ticker_data["Date"], utc=True)
-    ticker_data = ticker_data.sort_values(by="Date", ascending=True)
+        # Pongo la columna como index
+        trading_days_data.set_index("Date", inplace=True)
+        
+        # Creo la figura para el gráfico de velas de plotly
+        fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.1,
+                            subplot_titles=['', 'Volumen'])
+        
+        # Añado el gráfico de velas
+        candlestick = go.Candlestick(x=trading_days_data.index,
+                                     open=trading_days_data['Open'],
+                                     high=trading_days_data['High'],
+                                     low=trading_days_data['Low'],
+                                     close=trading_days_data['Close'],
+                                     name='Velas')
+        fig.add_trace(candlestick, row=1, col=1)
 
-    # Pongo la columna como index
-    ticker_data.set_index("Date", inplace=True)
+        # Añado las medias móviles
+        mm20_trace = go.Scatter(x=trading_days_data.index,
+                               y=trading_days_data['MM20'],
+                               mode='lines',
+                               line=dict(width=1),
+                               marker_color='rgba(234, 113, 37, 0.8)', 
+                               name='MM20')
+        fig.add_trace(mm20_trace, row=1, col=1)
 
-    # Crear la figura
-    fig, ax = mpf.plot(
-        ticker_data,
-        type="candle",
-        style="yahoo",
-        title=str(ticker),
-        returnfig=True,
-        ylabel="Precio",
-        ylabel_lower="Volumen",
-        volume=True,
-        mav=(20, 50),
-        figsize=(14, 10),
-    )
+        mm50_trace = go.Scatter(x=trading_days_data.index,
+                               y=trading_days_data['MM50'],
+                               mode='lines',
+                               line=dict(width=1),
+                               marker_color='rgba(21, 50, 231, 0.8)', 
+                               name='MM50')
+        fig.add_trace(mm50_trace, row=1, col=1)
 
-    # Guardar la figura como una cadena codificada a base64.
-    # Todo esto me permite meter la imagen en un buffer y no
-    # guardarla directamente en una ruta del servidor
-    buffer = BytesIO()
-    plt.savefig(buffer, format="png")
-    buffer.seek(0)
-    image_base64 = base64.b64encode(buffer.read()).decode("utf-8")
-    buffer.close()
-    plt.close(fig)
+        # Volumen. Lo pongo en gris
+        volume_trace = go.Bar(x=trading_days_data.index,
+                              y=trading_days_data['Volume'],
+                              marker_color='rgba(51, 45, 48, 0.8)',  
+                              name='Volumen')
+        fig.add_trace(volume_trace, row=2, col=1)
+
+        # Actualizo los ejes y su disposición
+        fig.update_xaxes(
+            # Para que no coja las fechas auto creadas, sino las
+            # de datos reales, i.e., que no coja los días de 
+            # no trading
+            rangebreaks=[dict(values=dt_breaks)] 
+        )
+        # Para mostrar un selector de días, meses, años..
+        fig.update_xaxes(
+            # rangeslider_visible=True,
+            rangeselector=dict(
+                buttons=list([
+                    dict(count=1, label="1D", step="day", stepmode="todate"),
+                    dict(count=24, label="1M", step="day", stepmode="todate"),
+                    dict(count=365, label="1Y", step="day", stepmode="todate"),
+                    dict(step="all")
+                ])
+            )
+        )
+        fig.update_xaxes(title_text='Fecha', row=2, col=1,
+                         categoryorder='category ascending')
+        fig.update_yaxes(title_text='Precio', row=1, col=1)
+        fig.update_yaxes(title_text='Volumen', row=2, col=1)
+        fig.update_layout(showlegend=True, 
+                        #   height=800, 
+                        #   width=1000,
+                          autosize=True)
+
+        # Guardar la figura decodificada como base64 (prefiero en JSON)
+        # image_base64 = fig.to_html(full_html=False)
+
+        # Guardar la figura como una cadena de JSON
+        image_json = fig.to_json()
+
+    except sqlite3.Error as e:
+        return HttpResponseServerError(f"Error de conexión a la BD: {e}")
+    finally:
+        if conn:
+            # Cerrar conexión en cualquier caso
+            conn.close()
+
+    # Solo para mostrar el nombre más "bonito"
+    nombre_ticker = ticker.split('_')[0]
 
     # Contexto para el render
     context = {
-        "ticker_data": ticker_data,
-        "nombre_ticker": ticker,
-        "image_base64": image_base64,
+        # "ticker_data": ticker_data,
+        "nombre_ticker": nombre_ticker,
+        # "image_base64": image_base64,
+        "image_json": image_json,
     }
 
     return render(request, "stock_chart.html", context)
