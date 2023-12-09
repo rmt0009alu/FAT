@@ -9,14 +9,14 @@ from django.http import HttpResponseServerError
 from django.db import connections
 import pandas as pd
 # Para mostrar datos de forma más atractiva
-import mplfinance as mpf
-import matplotlib.pyplot as plt
+# import mplfinance as mpf
+# import matplotlib.pyplot as plt
 
 # Para meter una imagen en un buffer
-from io import BytesIO
-import base64
+# from io import BytesIO
+# import base64
 # Para usar un canvas en vez de imágenes
-from matplotlib.backends.backend_agg import FigureCanvasAgg
+# from matplotlib.backends.backend_agg import FigureCanvasAgg
 # Para charts dinámicos en lugar de imágenes estáticas
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
