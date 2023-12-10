@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,7 +34,7 @@ urlpatterns = [
     # Para acceder, entrar a http://localhost:8000/about
     # path('about/', views.about)
 
-    path('', include('Analysis.urls'))
+    path('', include('Analysis.urls')),
     # Las rutas de Analysis van directas desde la página
     # principal, pero si quiero que empiecen desde otra ruta
     # puedo añadir aquí desde donde. P. ej:

@@ -20,4 +20,4 @@ urlpatterns = [
     # Para gráficos
     path('<str:nombre_bd>/<str:ticker>/chart', stock_chart, name='stock_chart'),
     
-]
+] 
