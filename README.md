@@ -1,6 +1,6 @@
 # FAT: Financial Analysis Tool
 
-![Financial Analysis](static/img/Portada.jpg)
+![Financial Analysis](static/Portada.jpg)
 
 ## Welcome to FAT
 
