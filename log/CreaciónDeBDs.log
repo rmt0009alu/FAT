@@ -1,0 +1,79 @@
+2023-12-26 20:00:02,998 - INFO: 
+2023-12-26 20:00:02,999 - INFO: ------------------------------------------
+2023-12-26 20:00:03,000 - INFO: Creando base de datos:
+2023-12-26 20:00:03,000 - INFO: ------------------------------------------
+2023-12-26 20:00:05,547 - INFO:  - [OK] Apple Inc.
+2023-12-26 20:00:06,229 - INFO:  - [OK] Amgen Inc.
+2023-12-26 20:00:07,140 - INFO:  - [OK] American Express Company
+2023-12-26 20:00:08,206 - INFO:  - [OK] The Boeing Company
+2023-12-26 20:00:09,190 - INFO:  - [OK] Caterpillar Inc.
+2023-12-26 20:00:09,660 - INFO:  - [OK] Salesforce, Inc.
+2023-12-26 20:00:10,350 - INFO:  - [OK] Cisco Systems, Inc.
+2023-12-26 20:00:11,372 - INFO:  - [OK] Chevron Corporation
+2023-12-26 20:00:12,380 - INFO:  - [OK] The Walt Disney Company
+2023-12-26 20:00:12,840 - INFO:  - [OK] Dow Inc.
+2023-12-26 20:00:13,351 - INFO:  - [OK] The Goldman Sachs Group, Inc.
+2023-12-26 20:00:14,139 - INFO:  - [OK] The Home Depot, Inc.
+2023-12-26 20:00:15,296 - INFO:  - [OK] Honeywell International Inc.
+2023-12-26 20:00:16,423 - INFO:  - [OK] International Business Machines Corporation
+2023-12-26 20:00:17,250 - INFO:  - [OK] Intel Corporation
+2023-12-26 20:00:18,310 - INFO:  - [OK] Johnson & Johnson
+2023-12-26 20:00:19,190 - INFO:  - [OK] JPMorgan Chase & Co.
+2023-12-26 20:00:20,296 - INFO:  - [OK] The Coca-Cola Company
+2023-12-26 20:00:21,330 - INFO:  - [OK] McDonald's Corporation
+2023-12-26 20:00:22,433 - INFO:  - [OK] 3M Company
+2023-12-26 20:00:23,550 - INFO:  - [OK] Merck & Co., Inc.
+2023-12-26 20:00:24,570 - INFO:  - [OK] Microsoft Corporation
+2023-12-26 20:00:25,454 - INFO:  - [OK] NIKE, Inc.
+2023-12-26 20:00:26,519 - INFO:  - [OK] The Procter & Gamble Company
+2023-12-26 20:00:27,402 - INFO:  - [OK] The Travelers Companies, Inc.
+2023-12-26 20:00:28,295 - INFO:  - [OK] UnitedHealth Group Incorporated
+2023-12-26 20:00:28,760 - INFO:  - [OK] Visa Inc.
+2023-12-26 20:00:29,573 - INFO:  - [OK] Verizon Communications Inc.
+2023-12-26 20:00:30,300 - INFO:  - [OK] Walgreens Boots Alliance, Inc.
+2023-12-26 20:00:31,269 - INFO:  - [OK] Walmart Inc.
+2023-12-26 20:00:31,269 - INFO: 
+2023-12-26 20:00:31,269 - INFO: [OK] Base de datos creada.
+2023-12-26 20:00:31,269 - INFO: Proceso finalizado.
+2023-12-26 20:00:31,269 - INFO: 
+2023-12-26 20:00:31,269 - INFO: ------------------------------------------
+2023-12-26 20:00:31,269 - INFO: Creando base de datos:
+2023-12-26 20:00:31,269 - INFO: ------------------------------------------
+2023-12-26 20:00:31,860 - INFO:  - [OK] ACS, Actividades de Construcción y Servicios, S.A.
+2023-12-26 20:00:32,560 - INFO:  - [OK] Acerinox, S.A.
+2023-12-26 20:00:32,960 - INFO:  - [OK] Aena S.M.E., S.A.
+2023-12-26 20:00:33,479 - INFO:  - [OK] Amadeus IT Group, S.A.
+2023-12-26 20:00:34,102 - INFO:  - [OK] Acciona, S.A.
+2023-12-26 20:00:34,530 - INFO:  - [OK] Corporación Acciona Energías Renovables, S.A.
+2023-12-26 20:00:35,190 - INFO:  - [OK] Banco Bilbao Vizcaya Argentaria, S.A.
+2023-12-26 20:00:35,810 - INFO:  - [OK] Bankinter, S.A.
+2023-12-26 20:00:36,430 - INFO:  - [OK] CaixaBank, S.A.
+2023-12-26 20:00:36,853 - INFO:  - [OK] Cellnex Telecom, S.A.
+2023-12-26 20:00:37,420 - INFO:  - [OK] Inmobiliaria Colonial, SOCIMI, S.A.
+2023-12-26 20:00:38,075 - INFO:  - [OK] Endesa, S.A.
+2023-12-26 20:00:38,771 - INFO:  - [OK] Enagás, S.A.
+2023-12-26 20:00:39,230 - INFO:  - [OK] Fluidra, S.A.
+2023-12-26 20:00:39,840 - INFO:  - [OK] Ferrovial SE
+2023-12-26 20:00:40,460 - INFO:  - [OK] Grifols, S.A.
+2023-12-26 20:00:40,919 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2023-12-26 20:00:41,599 - INFO:  - [OK] Iberdrola, S.A.
+2023-12-26 20:00:42,270 - INFO:  - [OK] Indra Sistemas, S.A.
+2023-12-26 20:00:43,030 - INFO:  - [OK] Industria de Diseño Textil, S.A.
+2023-12-26 20:00:43,460 - INFO:  - [OK] Compañía de Distribución Integral Logista Holdings, S.A.
+2023-12-26 20:00:44,160 - INFO:  - [OK] Mapfre, S.A.
+2023-12-26 20:00:44,720 - INFO:  - [OK] Meliá Hotels International, S.A.
+2023-12-26 20:00:45,120 - INFO:  - [OK] MERLIN Properties SOCIMI, S.A.
+2023-12-26 20:00:45,650 - INFO:  - [OK] ArcelorMittal S.A.
+2023-12-26 20:00:46,210 - INFO:  - [OK] Naturgy Energy Group, S.A.
+2023-12-26 20:00:46,930 - INFO:  - [OK] Redeia Corporación, S.A.
+2023-12-26 20:00:47,550 - INFO:  - [OK] Repsol, S.A.
+2023-12-26 20:00:48,004 - INFO:  - [OK] Laboratorios Farmaceuticos Rovi, S.A.
+2023-12-26 20:00:48,704 - INFO:  - [OK] Banco de Sabadell, S.A.
+2023-12-26 20:00:49,330 - INFO:  - [OK] Banco Santander, S.A.
+2023-12-26 20:00:49,979 - INFO:  - [OK] Sacyr, S.A.
+2023-12-26 20:00:50,466 - INFO:  - [OK] Solaria Energía y Medio Ambiente, S.A.
+2023-12-26 20:00:50,960 - INFO:  - [OK] Telefónica, S.A.
+2023-12-26 20:00:51,349 - INFO:  - [OK] Unicaja Banco, S.A.
+2023-12-26 20:00:51,349 - INFO: 
+2023-12-26 20:00:51,349 - INFO: [OK] Base de datos creada.
+2023-12-26 20:00:51,360 - INFO: Proceso finalizado.

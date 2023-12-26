@@ -6,12 +6,13 @@
 <h1>{{ nombre_ticker }}</h1>
 <table>
     <tr>
-        <th>Date</th>
-        <th>Open</th>
-        <th>High</th>
-        <th>Low</th>
-        <th>Close</th>
-        <th>Volume</th>
+        <th>Fecha</th>
+        <th>Apertura</th>
+        <th>Máximo</th>
+        <th>Mínimo</th>
+        <th>Cierre</th>
+        <th>Volumen</th>
+        <th>Nombre</th>
     </tr>
     {% for data in ticker_data %}
         <tr>
@@ -21,6 +22,7 @@
             <td>{{ data.Low }}</td>
             <td>{{ data.Close }}</td>
             <td>{{ data.Volume }}</td>
+            <td>{{ data.Name }}</td>
         </tr>
     {% endfor %}
 </table>

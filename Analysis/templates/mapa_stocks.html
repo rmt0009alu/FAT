@@ -21,7 +21,7 @@
         <tbody class="table-group-divider">
             {% for ticker, entry in datosFinStocks.items %}
             <tr>
-                <td><a href="/ibex35/{{ ticker }}/chart">{{ ticker }}</a></td>
+                <td><a href="/{{ nombre_bd }}/{{ ticker }}/chart">{{ ticker }}</a></td>
                 <td>{{ entry.0|date:"d/m/Y H:i" }}</td>
                 <td>{{ entry.1|floatformat:3 }}</td>
                 <td>{{ entry.2|floatformat:3 }}</td>

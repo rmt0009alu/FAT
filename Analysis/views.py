@@ -170,7 +170,7 @@ def signin(request):
             return render(request, "login.html", context)
         else:
             login(request, user)
-            return redirect("mapa_stocks")
+            return redirect("home")
 
 
 
@@ -192,7 +192,7 @@ def formatearVolumen(volumen):
     
 
 @login_required
-def mapa_stocks(request):
+def mapa_stocks(request, nombre_bd):
     """Para mapear los stocks de una base de datos.
     Función protegida. Requiere login para ser accedida.
 
@@ -202,7 +202,7 @@ def mapa_stocks(request):
     Returns:
         _type_: _description_
     """
-    nombre_bd = "ibex35"
+    # nombre_bd = "ibex35"
 
     datosFinStocks = {}
 
@@ -231,6 +231,7 @@ def mapa_stocks(request):
     tickers = [table[0] for table in nombresStocks]
 
     context = {
+        "nombre_bd": nombre_bd,
         "tickers": tickers,
         "datosFinStocks": datosFinStocks,
     }
