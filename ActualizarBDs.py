@@ -4,7 +4,7 @@ import pandas as pd
 import logging
 
 from logging.handlers import RotatingFileHandler
-
+from datetime import datetime
 
 
 def crearLogger():
@@ -62,24 +62,23 @@ def actualizarBD(índice, bd, logger):
                 stock = yf.Ticker(ticker)
                 info = stock.info
 
-                # Flag para comprobar estado del mercado
-                abierto = bool
-
-                abierto = True
                 # Nombre de la compañía
                 nombre = info['longName']
+
+                # Flag para comprobar estado del mercado
+                # abierto = bool
                 
                 # Estado de actividad (si está en mercado
                 # abierto o cerrado). Cuando está cerrado
                 # regularMarketOpen es 0
-                if info.get('regularMarketOpen') == 0.0:
-                    abierto = False
-                else:
-                    abierto = True
-
-
-                if abierto:
-                    logger.info(" - [Mercado abierto ] No se puede actualizar. %s", nombre)
+                # if info.get('regularMarketOpen') == 0.0:
+                #     abierto = False
+                # else:
+                #     abierto = True
+                
+                # if abierto:
+                if not permiteActualizar(logger):
+                    logger.info(" - [Fuera de horario] No se puede actualizar. %s", nombre)
                 else:
                     # Obtener la última fecha registrada en la tabla
                     # Los ticker con sufijo pasan de '.' a '_'. Los 
@@ -189,6 +188,25 @@ def calcularMediasMoviles(conn, ticker, logger):
     return
 
 
+
+def permiteActualizar(logger):
+    try:
+        # Horario UTC actual
+        horarioUTC = datetime.utcnow()
+
+        # Horario permitido fuera de los tiempos
+        # de apertura y subastas
+        inicio = horarioUTC.replace(hour=4, minute=0, second=0, microsecond=0)
+        fin = horarioUTC.replace(hour=5, minute=30, second=0, microsecond=0)
+
+        # Comprobar si la ejecución está en
+        # el horario permitido
+        return inicio <= horarioUTC <= fin
+
+    except Exception as ex:
+        logger.error("[NO OK] Fallo horario. Error %s", ex)
+        return False
+    
 
 #######################################################
 if __name__ == "__main__":
