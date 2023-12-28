@@ -38,7 +38,7 @@ def crearLogger():
 
 
 
-def actualizarBD(índice, bd, logger):
+def actualizarBD(indice, bd, logger):
     """Para actualizar la BD sin tener que crear una nueva completa
     o sobreescribir todo lo que había en la BD. 
 
@@ -57,7 +57,7 @@ def actualizarBD(índice, bd, logger):
     try:
         # Uso una transacción para asegurar la atomicidad
         with conn:
-            for ticker in índice:
+            for ticker in indice:
                 
                 stock = yf.Ticker(ticker)
                 info = stock.info
