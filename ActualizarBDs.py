@@ -2,6 +2,7 @@ import yfinance as yf
 import sqlite3
 import pandas as pd
 import logging
+import os
 
 from logging.handlers import RotatingFileHandler
 from datetime import datetime
@@ -19,9 +20,17 @@ def crearLogger():
 
     # Configurar handler con nombre de archivo en el 
     # que almacenar el log
-    handlerArchivo = RotatingFileHandler('./log/ActualizacionesDeBDs.log', 
+    # IMPORTANTE: PARA USO LOCAL ES DISTINTO AL USO EN SERVER:
+    # El path por defecto es el de la máquina local
+    LOG_PATH = './log/ActualizacionesDeBDs.log'
+    # Si no existe ese path es porque estoy en el server
+    if not os.path.exists(LOG_PATH):
+        LOG_PATH = './FAT/log/ActualizacionesDeBDs.log'
+    
+    handlerArchivo = RotatingFileHandler(LOG_PATH, 
                                          maxBytes=10*1024*1024, backupCount=5, 
                                          encoding='utf-8')
+    
     handlerArchivo.setLevel(logging.INFO)
     handlerArchivo.setFormatter(formatter)
 
