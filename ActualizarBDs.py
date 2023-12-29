@@ -62,6 +62,7 @@ def actualizarBD(indice, bd, logger):
 
     DB_PATH = bd
 
+    # Comprobación de path y BD existente
     if not os.path.exists(DB_PATH):
         DB_PATH = './FAT/' + bd
 
