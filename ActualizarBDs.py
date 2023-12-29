@@ -60,8 +60,13 @@ def actualizarBD(indice, bd, logger):
     logger.info("Actualizando base de datos con los últimos datos:")
     logger.info("-------------------------------------------------")
 
+    DB_PATH = bd
+
+    if not os.path.exists(DB_PATH):
+        DB_PATH = './FAT/' + bd
+
     # Conexión a la BD
-    conn = sqlite3.connect(bd)
+    conn = sqlite3.connect(DB_PATH)
 
     try:
         # Uso una transacción para asegurar la atomicidad
