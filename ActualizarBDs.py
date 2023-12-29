@@ -19,7 +19,7 @@ def crearLogger():
 
     # Configurar handler con nombre de archivo en el 
     # que almacenar el log
-    handlerArchivo = RotatingFileHandler('log/ActualizacionesDeBDs.log', 
+    handlerArchivo = RotatingFileHandler('./log/ActualizacionesDeBDs.log', 
                                          maxBytes=10*1024*1024, backupCount=5, 
                                          encoding='utf-8')
     handlerArchivo.setLevel(logging.INFO)
