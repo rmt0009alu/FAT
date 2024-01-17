@@ -10,3 +10,9 @@ __pycache__/
 
 # Para ignorar mis anotaciones sobre Djnago y APIs
 VerInfoÚtil.py
+
+# Para ignorar los docs (así puedo hacer un clone desde pythonanywhere)
+/docs_2
+
+# Para ignorar archivos de pruebas
+/pruebas
