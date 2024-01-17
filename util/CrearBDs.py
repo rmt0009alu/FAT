@@ -1,8 +1,11 @@
+from logging.handlers import RotatingFileHandler
+from datetime import timedelta
+from tickers import Tickers_BDs
+
 import yfinance as yf
 import sqlite3
 import logging
-
-from logging.handlers import RotatingFileHandler
+import pandas as pd
 
 
 def crearLogger():
@@ -56,11 +59,34 @@ def crearBD(índice, bd, logger):
                 # Selecciono el máximo de datos posible de cada stock
                 hist = stock.history(period="max", interval="1d")
 
+                # Dejo la columna 'date' como columna normal
+                hist.reset_index(inplace=True)
+                # Aseguro que el formato de 'Date' será el adecuado 
+                # 'TIMESTAMP' en las BDs. Sumo horas para evitar
+                # problemas con los cambios horarios (si se cogen
+                # datos a las 00:00 +01 en UTC aparece como el día 
+                # anterior). Como solo me interesan los datos de cierre,
+                # con esto aseguro que las fechas serán adecuadas y, 
+                # además, lo almaceno con los horarios de cierre según
+                # hora española
+                if bd == 'databases/dj30.sqlite3':
+                    hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=17, minutes=30)
+                elif bd == 'databases/ibex35.sqlite3':
+                    hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=18, minutes=30)
+
+                # No uso una columna 'id' explícitamente. Es recomendable en
+                # Django, por eso lo tengo definido en los modelos dinámicos
+                # de manera autoincremental. En cualquier caso, podría ser así:
+                # hist['id'] = range(1, len(hist) + 1)
+                # hist.set_index('id', inplace=True)
+
                 # Guardo un nombre de Ticker igual al nombre de la tabla
                 # en la que se va a guardar. Los ticker que tienen sufijo
                 # cambian el '.' por '_'. Los que no tienen sufijo, se 
                 # mantienen igual
                 ticker_cambiado = ticker.replace(".", "_")
+                # Los índices, con prefijo ^, también se cambian
+                ticker_cambiado = ticker_cambiado.replace("^", "")
 
                 # Añadir columnas. MUY IMPORTANTE: INTERESA TENER NOMBRES 
                 # EN INGLÉS PARA TRABAJAR CON OTRAS LIBRERÍAS COMO 'mplfinance'
@@ -85,13 +111,15 @@ def crearBD(índice, bd, logger):
                 hist['Name'] = nombre
 
                 # Comprobar existencia de tabla
-                if not conn.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{ticker_cambiado}'").fetchone():
-                    # Pasar del DataFrame a la BD. Si no existe
-                    # la tabla, se crea
-                    hist.to_sql(ticker_cambiado, conn, index=True, if_exists='replace')
+                if conn.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{ticker_cambiado}'").fetchone():
+                    # Pasar del DataFrame a la BD. NOTA: AQUÍ SÍ
+                    # INDICO QUÉ COLUMNA SERÁ EL INDEX:
+                    hist.to_sql(ticker_cambiado, conn, index=True, index_label='id', if_exists='replace')
+                    # Mostrar el nombre de la compañía agregada a la BD
+                    logger.info(" - [OK] %s", nombre)
 
-                # Mostrar el nombre de la compañía agregada a la BD
-                logger.info(" - [OK] %s", nombre)
+                else:
+                    logger.error(" - [NO OK] Error en base de datos. Tabla %s no existe", nombre)
 
         # Si todo ha ido bien:
         logger.info("")
@@ -116,31 +144,18 @@ if __name__ == "__main__":
 
     logger = crearLogger()
 
-    # -----------------------------------------------------
-    # Actualizar la BD del DJ30 
-    dj30 = ['AAPL', 'AMGN', 'AXP', 'BA', 'CAT', 
-            'CRM', 'CSCO', 'CVX', 'DIS', 'DOW',
-            'GS', 'HD', 'HON', 'IBM', 'INTC', 
-            'JNJ', 'JPM', 'KO', 'MCD', 'MMM',
-            'MRK', 'MSFT', 'NKE', 'PG', 'TRV', 
-            'UNH', 'V', 'VZ', 'WBA', 'WMT']
-    
-    bd = 'databases/dj30.sqlite3'
+    # Para crear paso lista de tickers sin adaptar para hacer
+    # las llamadas adecuadas a la API de yfinance. Se adaptan en
+    # en el código
+
+    # Crear la BD del DJ30 
+    dj30 = Tickers_BDs.tickersDJ30()
+    bd = Tickers_BDs.ruta_bdDJ30()
     crearBD(dj30, bd, logger)
 
-    # -----------------------------------------------------
-    # Actualizar la BD del IBEX35
-    ibex35 = ['ACS.MC', 'ACX.MC', 'AENA.MC', 'AMS.MC', 
-         'ANA.MC', 'ANE.MC', 'BBVA.MC', 'BKT.MC', 
-         'CABK.MC', 'CLNX.MC', 'COL.MC', 'ELE.MC', 
-         'ENG.MC', 'FDR.MC', 'FER.MC', 'GRF.MC', 
-         'IAG.MC', 'IBE.MC', 'IDR.MC', 'ITX.MC', 
-         'LOG.MC', 'MAP.MC', 'MEL.MC', 'MRL.MC', 
-         'MTS.MC', 'NTGY.MC', 'RED.MC', 'REP.MC', 
-         'ROVI.MC', 'SAB.MC', 'SAN.MC', 'SCYR.MC', 
-         'SLR.MC', 'TEF.MC', 'UNI.MC']
-
-    bd = 'databases/ibex35.sqlite3'
+    # Crear la BD del IBEX35
+    ibex35 = Tickers_BDs.tickersIBEX35()
+    bd = Tickers_BDs.ruta_bdIBEX35()
     crearBD(ibex35, bd, logger)
 
 
