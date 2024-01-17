@@ -3,20 +3,9 @@ from django.shortcuts import render, redirect
 # Para enviar un error (en fallo de conexión a BD, p. ej.)
 from django.http import HttpResponseServerError
 
-# from django.shortcuts import get_object_or_404, redirect
-# from .forms import CreateNewTaskForm, CreateNewProjectForm
-
 from django.db import connections
 import pandas as pd
-# Para mostrar datos de forma más atractiva
-# import mplfinance as mpf
-# import matplotlib.pyplot as plt
 
-# Para meter una imagen en un buffer
-# from io import BytesIO
-# import base64
-# Para usar un canvas en vez de imágenes
-# from matplotlib.backends.backend_agg import FigureCanvasAgg
 # Para charts dinámicos en lugar de imágenes estáticas
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
@@ -30,7 +19,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 # Para crear la cookie de login
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout
 
 # Exception de violación de clave única. Da un IntegrityError
 # en caso de intentar registrar un usuario que ya existe,
@@ -41,18 +30,20 @@ from django.db import IntegrityError
 # sólo son accesibles si se está logueado
 from django.contrib.auth.decorators import login_required
 
+# Para obtener los tickers y los paths de las BDs
+from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices
 
-def home(request):
-    """Para la página principal. 
+# Para usar los modelos creados de forma dinámica
+from django.apps import apps
 
-    Args:
-        request (_type_): _description_
+# Para generar figuras sin repetir código
+from News.views import generarFigura
+import matplotlib.pyplot as plt 
+import mpld3
 
-    Returns:
-        _type_: _description_
-    """
-    return render(request, "home.html")
-
+# Para los RSS
+from util.rss.RSS import RSSIbex35, RSSDj30
+import feedparser
 
 
 def signup(request):
@@ -69,7 +60,7 @@ def signup(request):
         HttpResponse:
     """
     if request.method == "GET":
-        # print("Enviando form")
+        # Envío el 'form'
         context = {
             "form": UserCreationForm,
         }
@@ -79,25 +70,25 @@ def signup(request):
         # Comprobar que las contraseñas son iguales
         if request.POST["password1"] == request.POST["password2"]:
             try:
-                # Registrar usuario
-                print(request.POST)
-                print("Registrar usuario")
                 # Para crear el usuario y su contraseña (con lo que llega
                 # desde el request.POST del formulario de signup.html)
                 user = User.objects.create_user(
                     username=request.POST["username"],
-                    password=request.POST["password1"],
+                    # No hace falta securizar explícitamente las
+                    # contraseñas, Django lo hace por mí creando
+                    # un hash de la pass de los usuarios
+                    password=request.POST['password1'],
                 )
+                # Guardar usuario y dejarle ya logueado
                 user.save()
-                # return HttpResponse("usuario creado")
-                # context = {
-                #     "form": UserCreationForm,
-                # }
-                # return render(request, "signup.html", context)
                 login(request, user)
-                return redirect("mapa_stocks")
+
+                # Redireccionar para informar al usuario
+                context = {
+                    "msg": "Usuario creado correctamente."
+                }
+                return render(request, 'signup_ok.html', context)
             except IntegrityError:
-                # return  HttpResponse("usuario ya existe")
                 context = {
                     "form": UserCreationForm,
                     "error": "Error: Usuario ya existe",
@@ -109,9 +100,7 @@ def signup(request):
                     "error": "Error: error inesperado",
                 }
                 return render(request, "signup.html", context)
-
         else:
-            # return HttpResponse("Password no coinciden")
             context = {
                 "form": UserCreationForm,
                 "error": "Error: Password no coinciden",
@@ -120,7 +109,7 @@ def signup(request):
 
 
 
-def sigout(request):
+def signout(request):
     """Para realizar el logout. No lo llamo 'logout' para 
     que no haya conflicto de nombres con el método de Django
 
@@ -155,23 +144,27 @@ def signin(request):
         }
         return render(request, "login.html", context)
     else:
-        # Comprobar si el usuario existe en la BD. Si el usuario
-        # no es válido authenticate devuelve 'None'
-        user = authenticate(
-            request,
-            username=request.POST["username"],
-            password=request.POST["password"],
-        )
-        if user is None:
+        username = request.POST["username"]
+        password = request.POST["password"]
+
+        # Obtengo el objeto usuario:
+        user = User.objects.filter(username=username).first()
+
+        # Compruebo que el usuario exista y 
+        # checkeo su password cifrada. Si todo está
+        # bien, entonces hago login y redirijo a home
+        if user is not None and user.check_password(password):
+            # Hago el login
+            login(request, user)
+            return redirect("home")
+
+        else:
             context = {
                 "form": AuthenticationForm,
                 "error": "Usuario o contraseña incorrectos",
             }
             return render(request, "login.html", context)
-        else:
-            login(request, user)
-            return redirect("home")
-
+        
 
 
 def formatearVolumen(volumen):
@@ -191,6 +184,7 @@ def formatearVolumen(volumen):
         return str(volumen)
     
 
+
 @login_required
 def mapa_stocks(request, nombre_bd):
     """Para mapear los stocks de una base de datos.
@@ -202,93 +196,105 @@ def mapa_stocks(request, nombre_bd):
     Returns:
         _type_: _description_
     """
-    # nombre_bd = "ibex35"
+    if nombre_bd == 'dj30':
+        tickers = tickersAdaptadosDJ30()
+    elif nombre_bd == 'ibex35':
+        tickers = tickersAdaptadosIBEX35()
 
-    datosFinStocks = {}
+    miApp = 'Analysis'
 
-    # Para obtener el nombre de todas las tablas en la BD (usando
-    # SQLite3, ojo)
-    with connections[nombre_bd].cursor() as cursor:
-        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        nombresStocks = cursor.fetchall()
+    # Lista para los diccionarios de las últimas entradas
+    datosFinStocks = []
 
-        for stock in nombresStocks:
-            table_name = stock[0]
-            cursor.execute(f"SELECT * FROM {table_name} ORDER BY Date DESC LIMIT 1;")
-            últimaEntrada = cursor.fetchone()
+    # Figura del índice
+    figura = None
 
-            # Para poder ver el volumen con separador de miles
-            # hago un 'apaño' aquí porque no me funciona el filtro
-            # intcomma en html:
-            últimaEntrada = list(últimaEntrada)
-            # last_entry[5] = "{:,}".format(last_entry[5])
-            últimaEntrada[5] = formatearVolumen(últimaEntrada[5])
+    # Nombre del índice
+    nombreIndice = None
 
-            datosFinStocks[table_name] = últimaEntrada
-    
-    # Los nombres de los tickers son los mismos que los de
-    # las tablas
-    tickers = [table[0] for table in nombresStocks]
+    for t in tickers:
+        # No quiero que se muestren los índices con los 
+        # componentes del índice
+        if t not in tickersAdaptadosIndices():
+            dictMutable = {}
+            # Para obtener los modelos de forma dinámica
+            model = apps.get_model(miApp, t)
+            try:
+                # Cojo las última entrada de cada stock:
+                entrada = model.objects.using(nombre_bd).order_by('-date')[:1].values('ticker', 'close', 'high', 'low', 'previous_close', 'percent_variance', 'volume', 'date', 'name')
+                # 'entrada' es un QuerySet INMUTABLE y 'entrada[0]' es un Dict
+                dictMutable = entrada[0]
+                # Cambio la notación de _ de la BD a . para mostrar
+                dictMutable['ticker'] = dictMutable['ticker'].replace('_', '.')
+                dictMutable['variance'] = dictMutable['close'] - dictMutable['previous_close']
+                dictMutable['volume'] = formatearVolumen(dictMutable['volume'])
+                dictMutable['ticker_bd'] = t
+                datosFinStocks.append(dictMutable)
+            except Exception as ex:
+                print("[NO OK] Error mapa stocks: ", ex)
+        else:
+            nombreIndice = t
+            # Supuesto de ser el índice 
+            model = apps.get_model(miApp, t)
+            try:
+                entradas = model.objects.using(nombre_bd).order_by('-date')[:250].values('date', 'close', 'ticker', 'name')
+                figura = generarFigura(entradas)
+                figura = mpld3.fig_to_html(figura)
+                
+                # Conviene ir cerrando los plots para que no 
+                # haya problemas de memoria
+                plt.close()
+            except Exception as ex:
+                print("[NO OK] Error mapa stocks: ", ex)
+
+    listaRSS = getListaRSS(nombre_bd)
 
     context = {
         "nombre_bd": nombre_bd,
-        "tickers": tickers,
+        "nombreIndice": nombreIndice,
         "datosFinStocks": datosFinStocks,
+        "figura": figura,
+        "listaRSS": listaRSS,
     }
     return render(request, "mapa_stocks.html", context)
 
 
 
-@login_required
-def stock_data(request, ticker, nombre_bd):
-    """Método que no usa los modelos/clases sino que accede
-    directamente a la BD, busca el nombre de la tabla con
-    el ticker pasado a través de la barra de direcciones
-    y recoge toda su info.
-    Función protegida. Requiere login para ser accedida.
+def getListaRSS(nombre_bd):
+    """Para obtener una lista con noticias relacionadas
+    con los índices y otros mercados. 
 
     Args:
-        request (request): Variable pasada por Django en la
-                          que se recibe info. que el cliente
-                          esté enviando cuando visite esta función.
-        ticker (str): nombre del ticker del que quiero obtener la info.
-        nombre_bd (str): nombre de la BD a la que me quiero conectar.
+        nombre_bd (str): nombre de la base de datos, i.e.,
+            índice del que se recuperan los RSS.
 
     Returns:
-        render:
+        (list): lista con los RSS del índice.
     """
-    # Para llamar a la tabla que se pase como ticker
-    table_name = f"{ticker.lower()}"
+    RSS = []
+    listaRSS = []
+    if nombre_bd == 'dj30':
+        RSS = RSSDj30()
+    elif nombre_bd == 'ibex35':
+        RSS = RSSIbex35()
 
-    # Sentencia SQL para acceder a la tabla deseada
-    query = f"SELECT * FROM {table_name};"
+    numNoticiasPorFeed = 2
 
-    # Necesito indicar la BD a la que conectarme porque no estoy
-    # usando la que viene por defecto (además de que las BD las he
-    # puesto en una ruta distinta a la de por defecto, porque
-    # están es "./databases")
-    with connections[nombre_bd].cursor() as cursor:
-        cursor.execute(query)
-        # Fetch
-        results = cursor.fetchall()
+    for n in range(numNoticiasPorFeed):
+        for fuente in RSS:
+            feed = feedparser.parse(fuente)
+            # Cojo sólo la última entrada de cada RSS (que es 
+            # la última noticia en todos los casos)
+            entrada = feed["entries"][n]
+            diccionario = {'title': entrada.title, 'href': entrada.links[0]['href']}
+            listaRSS.append(diccionario)        
 
-    # Convertir los resultados a una lista de diccionarios
-    columns = [col[0] for col in cursor.description]
-    ticker_data = [dict(zip(columns, row)) for row in results]
-    
-    # Contexto para el render
-    context = {
-        "ticker_data": ticker_data,
-        "nombre_ticker": ticker,
-    }
-
-    return render(request, "stock_data.html", context)
-
+    return listaRSS
 
 
 
 @login_required
-def stock_chart(request, ticker, nombre_bd):
+def chart_y_datos(request, ticker, nombre_bd):
     """Para mostrar los últimos 200 días de un stock en una gráfica.
     Función protegida. Requiere login para ser accedida.
 
@@ -397,9 +403,6 @@ def stock_chart(request, ticker, nombre_bd):
                         #   width=1000,
                           autosize=True)
 
-        # Guardar la figura decodificada como base64 (prefiero en JSON)
-        # image_base64 = fig.to_html(full_html=False)
-
         # Guardar la figura como una cadena de JSON
         image_json = fig.to_json()
 
@@ -412,13 +415,49 @@ def stock_chart(request, ticker, nombre_bd):
 
     # Solo para mostrar el nombre más "bonito"
     nombre_ticker = ticker.split('_')[0]
+    
+    # Para obtener el nombre completo
+    model = apps.get_model('Analysis', ticker)
+    entradas = model.objects.using(nombre_bd)[:1].values('name')
 
     # Contexto para el render
     context = {
-        # "ticker_data": ticker_data,
         "nombre_ticker": nombre_ticker,
-        # "image_base64": image_base64,
+        "nombre_completo": entradas[0]['name'],
         "image_json": image_json,
+        "tabla_datos": get_datos(ticker, nombre_bd),
     }
 
-    return render(request, "stock_chart.html", context)
+    return render(request, "chart_y_datos.html", context)
+
+
+
+def get_datos(ticker, nombre_bd):
+    """Método que devuelve los datos del último mes (aprox.)
+    del stock seleccionado. 
+
+    Args:
+        ticker (str): nombre del ticker del que quiero obtener 
+            la info.
+        nombre_bd (str): nombre (no ruta) de la BD a la que me 
+            quiero conectar.
+
+    Returns:
+        (QuerySet): tabla con los datos del stock
+    """
+    # Los modelos se crean de forma dinámica desde 'Analysis'
+    # pero están disponibles para todas las apps
+    miApp = 'Analysis'
+    model = apps.get_model(miApp, ticker)
+
+    # Devuelvo los últimos 22 registros (aprox. 1 mes)
+    query_set = model.objects.using(nombre_bd).order_by('-date')[:22].all()
+    
+    # 'query_set' es un QuerySet INMUTABLE donde se puede acceder a 
+    # las entradas con query_set[1], query_set[21], ... y 'tabla_datos'
+    # es un Dict
+    for _ in range(len(query_set)):
+        # Dar formato adecuado al volumen
+        query_set[_].volume = formatearVolumen(query_set[_].volume)
+
+    return query_set

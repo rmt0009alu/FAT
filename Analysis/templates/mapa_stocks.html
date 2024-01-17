@@ -3,36 +3,179 @@
 
 {% block content %}
 
-<h1>Mapa stocks</h1>
+<style>
+    /* Para que aparezca una mano en los headers de las columnas 
+    por las que se puede ordenar */
+    table#tablaStocks th.ordenable {
+      cursor: pointer;
+      /* Color de fondo para las columnas ordenables */
+      background-color: #f2f5f7;
+    }
+
+    /* Estilo para el container */
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .barra {
+      background-color: #212428; 
+      color: #FFFEFE;
+      font-size: 18px;
+      font-family: 'Arial', sans-serif; 
+    }
+
+    #externo {
+        padding-left: 20px; 
+    }
+
+    #rss {
+        padding-left: 20px; 
+        padding-right: 20px; 
+        border-radius: 5px;
+        overflow: hidden; 
+        border: 2px solid #333; 
+        margin-bottom: 10px; 
+    }
+
+    #rss h4 {
+        margin-bottom: 3px;
+        font-size: 16px;
+        font-family: 'Arial', sans-serif; 
+        color: #333;
+    }
+
+    #rss a {
+        display: block;
+        margin-right: 10px;
+        text-decoration: none;
+        color: #007bff;
+    }
+</style>
+
+
+<div class="cabecera">
+  <br>
+  <p class="barra" style="text-align: center;">Índice {{ nombreIndice }}</p>
+  <br>
+</div>
 
 <div class="container">
-    <table class="table table-striped table-hover table-bordered table-sm">
-        <thead>
-            <tr>
-                <th scope="col">Ticker</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Apertura</th>
-                <th scope="col">Mayor</th>
-                <th scope="col">Menor</th>
-                <th scope="col">Cierre</th>
-                <th scope="col">Volumen</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider">
-            {% for ticker, entry in datosFinStocks.items %}
-            <tr>
-                <td><a href="/{{ nombre_bd }}/{{ ticker }}/chart">{{ ticker }}</a></td>
-                <td>{{ entry.0|date:"d/m/Y H:i" }}</td>
-                <td>{{ entry.1|floatformat:3 }}</td>
-                <td>{{ entry.2|floatformat:3 }}</td>
-                <td>{{ entry.3|floatformat:3 }}</td>
-                <td>{{ entry.4|floatformat:3 }}</td>
-                <td>{{ entry.5 }}</td>
-                <!-- Add more columns as needed -->
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+  <table id="tablaStocks" class="table table-sm">
+    <thead>
+      <tr>
+        <th data-sort="ticker">Nombre<span class="flecha"></span></th>
+        <th data-sort="close">Último</th>
+        <th data-sort="high">Máximo</th>
+        <th data-sort="low">Mínimo </th>
+        <th onclick="sortTable(4)" data-sort="variance" class="ordenable ordenable-header">Var. <span class="flecha"></span></th>
+        <th onclick="sortTable(5)" data-sort="percent_variance" class="ordenable ordenable-header">Var.(%) <span class="flecha"></span></th>
+        <th data-sort="volume">Volumen</th>
+        <th data-sort="date">Fecha</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for entry in datosFinStocks %}
+        <tr>
+          <td><a title="{{ entry.name }}" href="/{{ nombre_bd }}/{{ entry.ticker_bd }}/chart">{{ entry.ticker }}</a></td>
+          <td>{{ entry.close|floatformat:3 }}</td>
+          <td>{{ entry.high|floatformat:3 }}</td>
+          <td>{{ entry.low|floatformat:3 }}</td>
+          <td {% if entry.percent_variance < 0 %} style="color: red;" {% elif entry.percent_variance > 0 %} style="color: green;" {% endif %}>
+            {{ entry.variance|floatformat:3 }}
+          </td>
+          <td {% if entry.percent_variance < 0 %} style="color: red;" {% elif entry.percent_variance > 0 %} style="color: green;" {% endif %}>
+            {{ entry.percent_variance|floatformat:2 }}
+          </td>
+          <td>{{ entry.volume }}</td>
+          <td>{{ entry.date|date:"d/m/Y H:i" }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div style="padding-left: 20px">
+    <P class="barra" style="padding-left: 20px">Evolución último año</P>
+    <div id="figura">
+      <!-- Include your code to display the 'figura' here -->
+      {{ figura|safe }}
+    </div>
+    <br>
+    <P class="barra" style="padding-left: 20px">Noticias relacionadas</P>
+    <div id="externo">
+        {% for entry in listaRSS %}
+          <div id="rss">
+            <h4>{{ entry.title }}</h4>
+            <a href="{{ entry.href }}" style="float: right;">Leer más</a>
+          </div>
+        {% endfor %}
+    </div>
+  </div>
 </div>
+
+<!-- Script JavaScript para ordenar tablas.
+     
+    Fuente 1: https://www.w3schools.com/howto/howto_js_sort_table.asp con modificaciones para
+     negativos/positivos en 'percent_variance'
+     
+     Fuente 2: https://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript -->
+<script>
+    // 1 ascendente y -1 descendente
+    var orden = 1; 
+
+    function sortTable(idx_columna, dataType) {
+        var tabla, filas, flagDeCambio, i, x, y, debeCambiar;
+        tabla = document.getElementById("tablaStocks");
+        flagDeCambio = true;
+
+        var arrow = document.getElementsByClassName("flecha")[idx_columna - 3];
+        actualizarFlechas();
+        // Para seleccionar la flecha que aparece (arriba o abajo)
+        arrow.innerHTML = orden === 1 ? "&#9650;" : "&#9660;"; 
+
+        while (flagDeCambio) {
+        flagDeCambio = false;
+        filas = tabla.rows;
+
+        for (i = 1; i < filas.length - 1; i++) {
+            debeCambiar = false;
+            x = filas[i].getElementsByTagName("td")[idx_columna];
+            y = filas[i + 1].getElementsByTagName("td")[idx_columna];
+
+            var xValue = parsearColumnas(x.innerHTML, dataType);
+            var yValue = parsearColumnas(y.innerHTML, dataType);
+
+            if (orden === 1 ? xValue > yValue : xValue < yValue) {
+            debeCambiar = true;
+            break;
+            }
+        }
+
+        if (debeCambiar) {
+            filas[i].parentNode.insertBefore(filas[i + 1], filas[i]);
+            flagDeCambio = true;
+        }
+        }
+        
+        // Cambiar el orden
+        orden = -orden; 
+    }
+
+    function parsearColumnas(valor, dataType) {
+        if (dataType === "percent_variance") {
+            // Parsear un float y considerar positivos/negativos
+            return parseFloat(valor.replace("%", ""));
+        } else {
+            return parseFloat(valor);
+        }
+    }
+
+    function actualizarFlechas() {
+        var flechas = document.getElementsByClassName("flecha");
+        for (var i = 0; i < flechas.length; i++) {
+        flechas[i].innerHTML = "";
+        }
+    }
+</script>
 
 {% endblock %}

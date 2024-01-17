@@ -1,0 +1,38 @@
+<!-- templates/signup_ok.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    #cuadro {
+        text-align: center;
+    }
+</style>
+
+<link rel="stylesheet" href="{{ STATIC_URL }}signup_ok.css">
+
+<div id="cuadro">
+    <h1 style="color: #006699;"><br>BIENVENIDO/A</h1>
+    <p style="color: #003366;">{{ msg }}</p>
+
+    <div id="countdown">
+        <p>Redirigiendo: <span id="timer" style="color: #003366;"></span></p>
+    </div>
+</div>
+
+<script>
+    var secondsLeft = 3;
+    var timer = setInterval(function() {
+        if (secondsLeft <= 0) {
+            clearInterval(timer);
+            // Para redirigir al /home
+            window.location.href = '/';
+        } else {
+            document.getElementById('countdown').style.display = 'block';
+            document.getElementById('timer').textContent = secondsLeft;
+            secondsLeft--;
+        }
+    }, 1000);
+</script>
+
+{% endblock %}

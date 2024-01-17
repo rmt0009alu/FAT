@@ -1,0 +1,85 @@
+<!-- templates/stock_chart.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  @media (max-width: 600px) {
+    .container {
+      /* Para pantallas de menos de 600 px, una sola columna */
+      grid-template-columns: 1fr; 
+    }
+  }
+
+  @media (min-width: 600px) {
+    .chart-container {
+      width: 100%;
+      height: 750px;
+    }
+  }
+
+  /* Estilo para el container */
+  .container {
+    /* display: flex;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* One-third, two-thirds, two-thirds */
+  }
+
+  .barra {
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+  }
+</style>
+
+<div class="cabecera">
+  <br>
+  <p class="barra" style="text-align: center;">({{ nombre_ticker }})  {{ nombre_completo }}</p>
+  <br>
+</div>
+
+<div class="container">
+
+  <div id="plotly-chart" class="chart-container">
+    <!-- Para incluir el chart de Plotly -->
+    <script>
+      var chartData = {{ image_json|safe }};
+      Plotly.newPlot('plotly-chart', chartData.data, chartData.layout, {responsive: true});
+    </script>
+  </div>
+
+  <div>
+    <p class="barra" style="padding-left: 20px;">Último mes</p>
+    <table class="table-sm" caption-side="top">
+      <thead>
+          <tr>
+              <th>Fecha</th>
+              <th>Apertura</th>
+              <th>Máximo</th>
+              <th>Mínimo</th>
+              <th>Cierre</th>
+              <th>Var. (%)</th>
+              <th>Volumen</th>
+          </tr>
+      </thead>
+      <tbody class="table-group-divider">
+          {% for data in tabla_datos %}
+              <tr {% if data.percent_variance < 0 %} style="color: red;" {% elif data.percent_variance > 0 %} style="color: green;" {% endif %}>
+                  <td>{{ data.date|date:"d/m/Y" }}</td>
+                  <td>{{ data.open|floatformat:2 }}</td>
+                  <td>{{ data.high|floatformat:2 }}</td>
+                  <td>{{ data.low|floatformat:2 }}</td>
+                  <td>{{ data.close|floatformat:2 }}</td>
+                  <td>{{ data.percent_variance|floatformat:2 }}</td>
+                  <td>{{ data.volume }}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+{% endblock %}
