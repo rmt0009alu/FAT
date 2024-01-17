@@ -1,15 +1,8 @@
-# Para que este propio archivo no se suba al repo
-.gitignore
-
 # Para que se ignore la carpeta del entorno virtual
 /venv
 
 # Para ignorar todas las carpetas de pychache
 __pycache__/
-
-# Para ignorar el archivo de creación de las BDs
-# CrearBDs.py
-# ActualizarBDs.py
 
 # Para ignorar mis anotaciones sobre Djnago y APIs
 VerInfoÚtil.py
@@ -21,5 +14,4 @@ VerInfoÚtil.py
 /pruebas
 
 # Para ignorar los archivos antiguos
-/old_2
 /old
