@@ -24,14 +24,16 @@ from django.urls import path, include, re_path
 urlpatterns = [
 
     # -------------------------------------------------------
+    path('admin/', admin.site.urls),
+    
+    # -------------------------------------------------------
     # Redirijo para que Django sepa dónde están los archivos 
     # estáticos (además de haberlo indicado en el 'settings')
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
 
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 
-    # -------------------------------------------------------
-    path('admin/', admin.site.urls),
+    
     
     # RECORDAR QUE DJNAGO RECOMIENDA QUE CADA APP TENGA
     # SUS PROPIAS RUTAS URL. Por eso, se crea un "urls.py"
