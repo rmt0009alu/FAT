@@ -1,0 +1,33 @@
+INFO:Usuarios:
+INFO:Usuarios:----------------------------------
+INFO:Usuarios:TEST CREAR Y BORRAR USUARIOS
+INFO:Usuarios:----------------------------------
+INFO:Usuarios: - [OK] Crear usuarios de forma adecuada
+INFO:Usuarios: - [OK] Borrar usuarios de forma adecuada
+INFO:Usuarios:
+INFO:Usuarios:----------------------------------
+INFO:Usuarios:TEST SIGNUP
+INFO:Usuarios:----------------------------------
+INFO:Usuarios: - [OK] Que página de signup retorne '200 ok'
+INFO:Usuarios: - [OK] Asignar 'template' de signup y cargar base.html
+INFO:Usuarios: - [OK] No utilizar otros 'templates' por error
+INFO:Usuarios: - [OK] Hacer signup con usuario de forma adecuada
+INFO:Usuarios: - [OK] A la vez que se hace signup hacer login
+INFO:Usuarios: - [OK] Devolver página de espera e info. al usuario tras signup adecuado
+INFO:Usuarios: - [OK] No permite usuarios con el mismo nombre
+INFO:Usuarios:
+INFO:Usuarios:----------------------------------
+INFO:Usuarios:TEST SIGNIN
+INFO:Usuarios:----------------------------------
+INFO:Usuarios: - [OK] Que página de singin retorne '200 ok'
+INFO:Usuarios: - [OK] Asignar 'template' de signin y cargar base.html
+INFO:Usuarios: - [OK] No utilizar otros 'templates' por error
+INFO:Usuarios: - [OK] Hacer login de forma adecuada
+INFO:Usuarios: - [OK] No permitir login a usuarios inexistentes
+INFO:Usuarios: - [OK] Informar al usuario con mensaje de usuario no correcto
+INFO:Usuarios: - [OK] No redireccionar si usuario o pass incorrectos
+INFO:Usuarios:
+INFO:Usuarios:----------------------------------
+INFO:Usuarios:TEST SIGNOUT
+INFO:Usuarios:----------------------------------
+INFO:Usuarios: - [OK] Hacer logout
