@@ -12,7 +12,10 @@ __pycache__/
 VerInfoÚtil.py
 
 # Para ignorar los docs (así puedo hacer un clone desde pythonanywhere)
-/docs_2
+/docs
 
 # Para ignorar archivos de pruebas
 /pruebas
+
+# Para ignorar los archivos antiguos
+/old
