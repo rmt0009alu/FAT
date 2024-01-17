@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import *
+# Ojo, en server no se puede usar *, hay que indicar los métodos
+from .views import signup, signout, signin, chart_y_datos, mapa_stocks
 
 urlpatterns = [
 
