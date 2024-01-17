@@ -1,3 +1,6 @@
+# Para que este propio archivo no se suba al repo
+.gitignore
+
 # Para que se ignore la carpeta del entorno virtual
 /venv
 
