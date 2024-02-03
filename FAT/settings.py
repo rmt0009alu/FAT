@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Meto a mano mis nuevas app
+    # Meto a mano mis nuevas apps
     'Analysis',
     'News',
+    'DashBoard',
 ]
 
 MIDDLEWARE = [
