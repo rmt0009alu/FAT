@@ -86,6 +86,8 @@ class TestRSS(SimpleTestCase):
         for _ in tickersAdaptadosIBEX35():
             self.assertEquals(obtenerNombreBD(_), nombre_bdIBEX35())
 
+        self.assertEquals(obtenerNombreBD('testTicker'), None)
+
 
     def test_tickers_disponibles(self):
         tickers_1 = ['AAPL', 'AMGN', 'AXP', 'BA', 'CAT', 
