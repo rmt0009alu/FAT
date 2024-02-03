@@ -169,6 +169,16 @@ def actualizarBD(indice, bd, logger):
                             # Nombre de la compañía
                             hist['Name'] = nombre
 
+                            # Sector de la compañía
+                            info = stock.info
+                            sector = info.get('sector', 'Sector information not available')
+                            hist['Sector'] = sector
+
+                            # Moneda en la que cotiza
+                            # Para guardar la moneda en la que cotiza
+                            currency = info.get('currency', 'Currency information not available')
+                            hist['Currency'] = currency
+
                             # Elimino la primera fila porque es la del 
                             # último día registrado
                             hist = hist.iloc[1:]
@@ -252,8 +262,8 @@ def permiteActualizar(logger):
         # Horario permitido fuera de los tiempos
         # de apertura y subastas
         inicio = horarioUTC.replace(hour=4, minute=0, second=0, microsecond=0)
-        fin = horarioUTC.replace(hour=5, minute=30, second=0, microsecond=0)
-        
+        fin = horarioUTC.replace(hour=18, minute=30, second=0, microsecond=0)
+
         # Comprobar si la ejecución está en
         # el horario permitido
         return inicio <= horarioUTC <= fin

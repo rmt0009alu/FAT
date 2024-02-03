@@ -8,6 +8,7 @@ import logging
 import pandas as pd
 
 
+
 def crearLogger():
     """Para configurar un log de la creación de las 
     BD de los stocks. 
@@ -110,6 +111,14 @@ def crearBD(índice, bd, logger):
                 nombre = info['longName']
                 hist['Name'] = nombre
 
+                # Para guardar el sector al que pertenece la compañía
+                sector = info.get('sector', 'Sector information not available')
+                hist['Sector'] = sector
+
+                # Para guardar la moneda en la que cotiza
+                currency = info.get('currency', 'Currency information not available')
+                hist['Currency'] = currency
+
                 # Comprobar existencia de tabla
                 if conn.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{ticker_cambiado}'").fetchone():
                     # Pasar del DataFrame a la BD. NOTA: AQUÍ SÍ
@@ -139,23 +148,92 @@ def crearBD(índice, bd, logger):
     return
     
 
+
+def crearTablaSectores(índices, logger):
+
+    logger.info("")
+    logger.info("------------------------------------------")
+    logger.info("Creando tabla de sectores en 'db.sqlite3':")
+    logger.info("------------------------------------------")
+
+    # Conexión a la BD (si no existe, se crea)
+    
+
+    datos = []
+    for ticker in índices:
+        stock = yf.Ticker(ticker)
+
+        ticker_cambiado = ticker.replace(".", "_")
+        # Los índices, con prefijo ^, también se cambian
+        ticker_cambiado = ticker_cambiado.replace("^", "")
+
+        bd = Tickers_BDs.obtenerNombreBD(ticker_cambiado)
+
+        # Para bd, nombre largo y sector
+        info = stock.info
+        datos.append({'Ticker_bd': ticker_cambiado, 
+                      'BaseDatos': bd,
+                      'Ticker': ticker,
+                      'Nombre': info['longName'], 
+                      'Sector': info.get('sector', 'Sector information not available')})
+        
+    try:
+        conn = sqlite3.connect('databases/db.sqlite3')
+        cursor = conn.cursor()
+        # No puedo usar algo parecido a esto porque la tabla la relleno
+        # al ejecutar este script, i.e., lo modelos no están cargados. 
+        # Sectores.objects.bulk_create(datos)
+        #
+        # Así que accedo directamente a la BD:
+        for dato in datos:
+            # No hace falta el 'id' porque es autoincremental
+            query = """
+                INSERT INTO Analysis_sectores (Ticker_bd, BaseDatos, Ticker, Nombre, Sector)
+                VALUES (?, ?, ?, ?, ?)
+            """
+            cursor.execute(query, (dato['Ticker_bd'], dato['BaseDatos'], dato['Ticker'], dato['Nombre'], dato['Sector']))
+
+            # Mostrar el nombre de la compañía agregada a la BD
+            logger.info(" - [OK] %s", dato['Nombre'])
+
+        conn.commit()
+
+        # Si todo ha ido bien:
+        logger.info("")
+        logger.info("[OK] Tabla creada con éxito.")
+
+    except sqlite3.Error as ex1:
+        logger.error("[NO OK] Error SQLite: %s", ex1)
+
+    except Exception as ex2: 
+        logger.error("[NO OK] Fallo al crear la tabla. Error: %s", ex2)
+
+    finally:
+        # Cerrar conexión a la BD
+        conn.close()
+        logger.info("Proceso finalizado.")
+
+    return
 #######################################################
 if __name__ == "__main__":
 
     logger = crearLogger()
 
-    # Para crear paso lista de tickers sin adaptar para hacer
+    # Para insertar paso lista de tickers sin adaptar para hacer
     # las llamadas adecuadas a la API de yfinance. Se adaptan en
     # en el código
 
-    # Crear la BD del DJ30 
+    # Insertar datos en la BD del DJ30 
     dj30 = Tickers_BDs.tickersDJ30()
     bd = Tickers_BDs.ruta_bdDJ30()
     crearBD(dj30, bd, logger)
 
-    # Crear la BD del IBEX35
+    # Insertar datos en la BD del IBEX35
     ibex35 = Tickers_BDs.tickersIBEX35()
     bd = Tickers_BDs.ruta_bdIBEX35()
     crearBD(ibex35, bd, logger)
 
+    # Insertar datos en la tabla de sectores
+    índices = Tickers_BDs.tickersDJ30() + Tickers_BDs.tickersIBEX35()
+    crearTablaSectores(índices, logger)
 

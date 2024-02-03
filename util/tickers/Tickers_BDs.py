@@ -161,3 +161,34 @@ def nombre_bdIBEX35():
     """
     nombre = 'ibex35'
     return nombre
+
+
+
+def obtenerNombreBD(stock):
+    """Para obtener el nombre de la BD a la que pertenece un 
+    stock. No hay problema de identificación porque todos los 
+    stocks tienen un sufijo (excepto los del DJ30).
+
+    Args:
+        stock (str): string con el nombre del stock.
+
+    Returns:
+        (str): nombre de la BD a la que pertenece el stock.
+    """
+    if stock in (tickersIBEX35() + tickersAdaptadosIBEX35()):
+        return nombre_bdIBEX35()
+    elif stock in (tickersDJ30() + tickersAdaptadosDJ30()):
+        return nombre_bdDJ30()
+    else:
+        return None
+    
+
+
+def tickersDisponibles():
+    """Para obtener todos los tickers disponibles, con
+    índices y sin adaptar. 
+
+    Returns:
+        (list): lista con todos los tickers disponibles.
+    """
+    return tickersDJ30() + tickersIBEX35()
