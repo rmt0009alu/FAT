@@ -15,3 +15,6 @@ VerInfoÚtil.py
 
 # Para ignorar los archivos antiguos
 /old
+
+# Para ignorar el archivo de cobertura de tests
+.coverage
