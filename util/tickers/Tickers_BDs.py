@@ -51,6 +51,27 @@ def tickersIndices():
 
 
 
+def tickersAdaptadosDJ30():
+    """Para obtener los tickers del DJ30 con
+    formato adaptado y evitar la notación de '^' del 
+    ínidice porque puede dar problemas al acceder a 
+    las tablas de la BD.
+
+    Returns:
+        (list): lista con los tickers del DJ30 adaptados.
+    """
+    dj30 = tickersDJ30()
+
+    dj30adaptado = []
+    # Para evitar conflictos en BDs con la notación 
+    # de '^' del índice
+    for ticker in dj30:
+        dj30adaptado.append(ticker.replace("^", ""))
+
+    return dj30adaptado
+
+
+
 def tickersAdaptadosIBEX35():
     """Para obtener los tickers del IBEX35 con
     formato adaptado y evitar la notación de punto,
@@ -70,27 +91,6 @@ def tickersAdaptadosIBEX35():
         ibex35adaptado.append(ticker.replace(".", "_"))
 
     return ibex35adaptado
-
-
-
-def tickersAdaptadosDJ30():
-    """Para obtener los tickers del DJ30 con
-    formato adaptado y evitar la notación de '^' del 
-    ínidice porque puede dar problemas al acceder a 
-    las tablas de la BD.
-
-    Returns:
-        (list): lista con los tickers del DJ30 adaptados.
-    """
-    dj30 = tickersDJ30()
-
-    dj30adaptado = []
-    # Para evitar conflictos en BDs con la notación 
-    # de '^' del índice
-    for ticker in dj30:
-        dj30adaptado.append(ticker.replace("^", ""))
-
-    return dj30adaptado
 
 
 
