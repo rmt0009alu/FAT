@@ -802,303 +802,220 @@
 2024-01-11 11:46:15,643 - INFO: [OK] Base de datos actualizada.
 2024-01-11 11:46:15,649 - INFO: Proceso finalizado.
 
-2024-01-21 14:48:17,010 - INFO: 
-2024-01-21 14:48:17,010 - INFO: -------------------------------------------------
-2024-01-21 14:48:17,010 - INFO: Actualizando base de datos con los últimos datos:
-2024-01-21 14:48:17,019 - INFO: -------------------------------------------------
-2024-01-21 14:48:36,970 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
-2024-01-21 14:48:37,099 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
-2024-01-21 14:48:37,230 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
-2024-01-21 14:48:37,350 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
-2024-01-21 14:48:37,510 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
-2024-01-21 14:48:37,640 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
-2024-01-21 14:48:37,769 - INFO:  - [Fuera de horario] No se puede actualizar. Cisco Systems, Inc.
-2024-01-21 14:48:37,889 - INFO:  - [Fuera de horario] No se puede actualizar. Chevron Corporation
-2024-01-21 14:48:38,011 - INFO:  - [Fuera de horario] No se puede actualizar. The Walt Disney Company
-2024-01-21 14:48:38,138 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Inc.
-2024-01-21 14:48:38,259 - INFO:  - [Fuera de horario] No se puede actualizar. The Goldman Sachs Group, Inc.
-2024-01-21 14:48:38,379 - INFO:  - [Fuera de horario] No se puede actualizar. The Home Depot, Inc.
-2024-01-21 14:48:38,499 - INFO:  - [Fuera de horario] No se puede actualizar. Honeywell International Inc.
-2024-01-21 14:48:38,618 - INFO:  - [Fuera de horario] No se puede actualizar. International Business Machines Corporation
-2024-01-21 14:48:38,810 - INFO:  - [Fuera de horario] No se puede actualizar. Intel Corporation
-2024-01-21 14:48:38,929 - INFO:  - [Fuera de horario] No se puede actualizar. Johnson & Johnson
-2024-01-21 14:48:39,049 - INFO:  - [Fuera de horario] No se puede actualizar. JPMorgan Chase & Co.
-2024-01-21 14:48:39,169 - INFO:  - [Fuera de horario] No se puede actualizar. The Coca-Cola Company
-2024-01-21 14:48:39,301 - INFO:  - [Fuera de horario] No se puede actualizar. McDonald's Corporation
-2024-01-21 14:48:39,420 - INFO:  - [Fuera de horario] No se puede actualizar. 3M Company
-2024-01-21 14:48:39,550 - INFO:  - [Fuera de horario] No se puede actualizar. Merck & Co., Inc.
-2024-01-21 14:48:39,678 - INFO:  - [Fuera de horario] No se puede actualizar. Microsoft Corporation
-2024-01-21 14:48:39,790 - INFO:  - [Fuera de horario] No se puede actualizar. NIKE, Inc.
-2024-01-21 14:48:39,920 - INFO:  - [Fuera de horario] No se puede actualizar. The Procter & Gamble Company
-2024-01-21 14:48:40,039 - INFO:  - [Fuera de horario] No se puede actualizar. The Travelers Companies, Inc.
-2024-01-21 14:48:40,160 - INFO:  - [Fuera de horario] No se puede actualizar. UnitedHealth Group Incorporated
-2024-01-21 14:48:40,289 - INFO:  - [Fuera de horario] No se puede actualizar. Visa Inc.
-2024-01-21 14:48:40,409 - INFO:  - [Fuera de horario] No se puede actualizar. Verizon Communications Inc.
-2024-01-21 14:48:40,529 - INFO:  - [Fuera de horario] No se puede actualizar. Walgreens Boots Alliance, Inc.
-2024-01-21 14:48:40,651 - INFO:  - [Fuera de horario] No se puede actualizar. Walmart Inc.
-2024-01-21 14:48:40,768 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Jones Industrial Average
-2024-01-21 14:48:40,769 - INFO: 
-2024-01-21 14:48:40,769 - INFO: [OK] Base de datos actualizada.
-2024-01-21 14:48:40,769 - INFO: Proceso finalizado.
+2024-01-21 15:10:37,982 - INFO: 
+2024-01-21 15:10:37,983 - INFO: -------------------------------------------------
+2024-01-21 15:10:37,983 - INFO: Actualizando base de datos con los últimos datos:
+2024-01-21 15:10:37,984 - INFO: -------------------------------------------------
+2024-01-21 15:10:40,286 - INFO:  - [Actualizando... ] Apple Inc.
+2024-01-21 15:10:40,301 - INFO: 		[OK] Datos
+2024-01-21 15:10:40,461 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:40,734 - INFO:  - [Actualizando... ] Amgen Inc.
+2024-01-21 15:10:40,757 - INFO: 		[OK] Datos
+2024-01-21 15:10:40,921 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:41,224 - INFO:  - [Actualizando... ] American Express Company
+2024-01-21 15:10:41,246 - INFO: 		[OK] Datos
+2024-01-21 15:10:41,488 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:41,822 - INFO:  - [Actualizando... ] The Boeing Company
+2024-01-21 15:10:41,841 - INFO: 		[OK] Datos
+2024-01-21 15:10:42,110 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:42,551 - INFO:  - [Actualizando... ] Caterpillar Inc.
+2024-01-21 15:10:42,560 - INFO: 		[OK] Datos
+2024-01-21 15:10:42,811 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:43,095 - INFO:  - [Actualizando... ] Salesforce, Inc.
+2024-01-21 15:10:43,118 - INFO: 		[OK] Datos
+2024-01-21 15:10:43,221 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:43,481 - INFO:  - [Actualizando... ] Cisco Systems, Inc.
+2024-01-21 15:10:43,500 - INFO: 		[OK] Datos
+2024-01-21 15:10:43,651 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:43,931 - INFO:  - [Actualizando... ] Chevron Corporation
+2024-01-21 15:10:43,952 - INFO: 		[OK] Datos
+2024-01-21 15:10:44,210 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:44,621 - INFO:  - [Actualizando... ] The Walt Disney Company
+2024-01-21 15:10:44,630 - INFO: 		[OK] Datos
+2024-01-21 15:10:44,892 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:45,152 - INFO:  - [Actualizando... ] Dow Inc.
+2024-01-21 15:10:45,171 - INFO: 		[OK] Datos
+2024-01-21 15:10:45,220 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:45,514 - INFO:  - [Actualizando... ] The Goldman Sachs Group, Inc.
+2024-01-21 15:10:45,532 - INFO: 		[OK] Datos
+2024-01-21 15:10:45,670 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:46,002 - INFO:  - [Actualizando... ] The Home Depot, Inc.
+2024-01-21 15:10:46,010 - INFO: 		[OK] Datos
+2024-01-21 15:10:46,211 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:46,570 - INFO:  - [Actualizando... ] Honeywell International Inc.
+2024-01-21 15:10:46,587 - INFO: 		[OK] Datos
+2024-01-21 15:10:46,841 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:47,210 - INFO:  - [Actualizando... ] International Business Machines Corporation
+2024-01-21 15:10:47,234 - INFO: 		[OK] Datos
+2024-01-21 15:10:47,551 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:47,830 - INFO:  - [Actualizando... ] Intel Corporation
+2024-01-21 15:10:47,848 - INFO: 		[OK] Datos
+2024-01-21 15:10:48,062 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:48,441 - INFO:  - [Actualizando... ] Johnson & Johnson
+2024-01-21 15:10:48,465 - INFO: 		[OK] Datos
+2024-01-21 15:10:48,711 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:48,969 - INFO:  - [Actualizando... ] JPMorgan Chase & Co.
+2024-01-21 15:10:48,980 - INFO: 		[OK] Datos
+2024-01-21 15:10:49,140 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:49,479 - INFO:  - [Actualizando... ] The Coca-Cola Company
+2024-01-21 15:10:49,490 - INFO: 		[OK] Datos
+2024-01-21 15:10:49,730 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:50,020 - INFO:  - [Actualizando... ] McDonald's Corporation
+2024-01-21 15:10:50,048 - INFO: 		[OK] Datos
+2024-01-21 15:10:50,271 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:50,560 - INFO:  - [Actualizando... ] 3M Company
+2024-01-21 15:10:50,570 - INFO: 		[OK] Datos
+2024-01-21 15:10:50,821 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:51,212 - INFO:  - [Actualizando... ] Merck & Co., Inc.
+2024-01-21 15:10:51,236 - INFO: 		[OK] Datos
+2024-01-21 15:10:51,480 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:51,785 - INFO:  - [Actualizando... ] Microsoft Corporation
+2024-01-21 15:10:51,802 - INFO: 		[OK] Datos
+2024-01-21 15:10:51,970 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:52,262 - INFO:  - [Actualizando... ] NIKE, Inc.
+2024-01-21 15:10:52,281 - INFO: 		[OK] Datos
+2024-01-21 15:10:52,480 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:52,815 - INFO:  - [Actualizando... ] The Procter & Gamble Company
+2024-01-21 15:10:52,831 - INFO: 		[OK] Datos
+2024-01-21 15:10:53,091 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:53,382 - INFO:  - [Actualizando... ] The Travelers Companies, Inc.
+2024-01-21 15:10:53,408 - INFO: 		[OK] Datos
+2024-01-21 15:10:53,641 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:53,999 - INFO:  - [Actualizando... ] UnitedHealth Group Incorporated
+2024-01-21 15:10:54,021 - INFO: 		[OK] Datos
+2024-01-21 15:10:54,200 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:54,490 - INFO:  - [Actualizando... ] Visa Inc.
+2024-01-21 15:10:54,501 - INFO: 		[OK] Datos
+2024-01-21 15:10:54,598 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:54,970 - INFO:  - [Actualizando... ] Verizon Communications Inc.
+2024-01-21 15:10:54,990 - INFO: 		[OK] Datos
+2024-01-21 15:10:55,171 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:55,451 - INFO:  - [Actualizando... ] Walgreens Boots Alliance, Inc.
+2024-01-21 15:10:55,499 - INFO: 		[OK] Datos
+2024-01-21 15:10:55,721 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:56,035 - INFO:  - [Actualizando... ] Walmart Inc.
+2024-01-21 15:10:56,052 - INFO: 		[OK] Datos
+2024-01-21 15:10:56,270 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:56,491 - INFO:  - [Actualizando... ] Dow Jones Industrial Average
+2024-01-21 15:10:56,500 - INFO: 		[OK] Datos
+2024-01-21 15:10:56,651 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:56,660 - INFO: 
+2024-01-21 15:10:56,660 - INFO: [OK] Base de datos actualizada.
+2024-01-21 15:10:56,660 - INFO: Proceso finalizado.
 
-2024-01-21 14:48:40,769 - INFO: 
-2024-01-21 14:48:40,769 - INFO: -------------------------------------------------
-2024-01-21 14:48:40,769 - INFO: Actualizando base de datos con los últimos datos:
-2024-01-21 14:48:40,769 - INFO: -------------------------------------------------
-2024-01-21 14:48:40,901 - INFO:  - [Fuera de horario] No se puede actualizar. ACS, Actividades de Construcción y Servicios, S.A.
-2024-01-21 14:48:41,090 - INFO:  - [Fuera de horario] No se puede actualizar. Acerinox, S.A.
-2024-01-21 14:48:41,219 - INFO:  - [Fuera de horario] No se puede actualizar. Aena S.M.E., S.A.
-2024-01-21 14:48:41,339 - INFO:  - [Fuera de horario] No se puede actualizar. Amadeus IT Group, S.A.
-2024-01-21 14:48:41,469 - INFO:  - [Fuera de horario] No se puede actualizar. Acciona, S.A.
-2024-01-21 14:48:41,601 - INFO:  - [Fuera de horario] No se puede actualizar. Corporación Acciona Energías Renovables, S.A.
-2024-01-21 14:48:41,729 - INFO:  - [Fuera de horario] No se puede actualizar. Banco Bilbao Vizcaya Argentaria, S.A.
-2024-01-21 14:48:41,849 - INFO:  - [Fuera de horario] No se puede actualizar. Bankinter, S.A.
-2024-01-21 14:48:42,048 - INFO:  - [Fuera de horario] No se puede actualizar. CaixaBank, S.A.
-2024-01-21 14:48:42,179 - INFO:  - [Fuera de horario] No se puede actualizar. Cellnex Telecom, S.A.
-2024-01-21 14:48:42,302 - INFO:  - [Fuera de horario] No se puede actualizar. Inmobiliaria Colonial, SOCIMI, S.A.
-2024-01-21 14:48:42,438 - INFO:  - [Fuera de horario] No se puede actualizar. Endesa, S.A.
-2024-01-21 14:48:42,561 - INFO:  - [Fuera de horario] No se puede actualizar. Enagás, S.A.
-2024-01-21 14:48:42,760 - INFO:  - [Fuera de horario] No se puede actualizar. Fluidra, S.A.
-2024-01-21 14:48:42,879 - INFO:  - [Fuera de horario] No se puede actualizar. Ferrovial SE
-2024-01-21 14:48:43,009 - INFO:  - [Fuera de horario] No se puede actualizar. Grifols, S.A.
-2024-01-21 14:48:43,139 - INFO:  - [Fuera de horario] No se puede actualizar. International Consolidated Airlines Group S.A.
-2024-01-21 14:48:43,258 - INFO:  - [Fuera de horario] No se puede actualizar. Iberdrola, S.A.
-2024-01-21 14:48:43,379 - INFO:  - [Fuera de horario] No se puede actualizar. Indra Sistemas, S.A.
-2024-01-21 14:48:43,503 - INFO:  - [Fuera de horario] No se puede actualizar. Industria de Diseño Textil, S.A.
-2024-01-21 14:48:43,622 - INFO:  - [Fuera de horario] No se puede actualizar. Compañía de Distribución Integral Logista Holdings, S.A.
-2024-01-21 14:48:43,749 - INFO:  - [Fuera de horario] No se puede actualizar. Mapfre, S.A.
-2024-01-21 14:48:43,870 - INFO:  - [Fuera de horario] No se puede actualizar. Meliá Hotels International, S.A.
-2024-01-21 14:48:44,009 - INFO:  - [Fuera de horario] No se puede actualizar. MERLIN Properties SOCIMI, S.A.
-2024-01-21 14:48:44,129 - INFO:  - [Fuera de horario] No se puede actualizar. ArcelorMittal S.A.
-2024-01-21 14:48:44,260 - INFO:  - [Fuera de horario] No se puede actualizar. Naturgy Energy Group, S.A.
-2024-01-21 14:48:44,381 - INFO:  - [Fuera de horario] No se puede actualizar. Redeia Corporación, S.A.
-2024-01-21 14:48:44,504 - INFO:  - [Fuera de horario] No se puede actualizar. Repsol, S.A.
-2024-01-21 14:48:44,630 - INFO:  - [Fuera de horario] No se puede actualizar. Laboratorios Farmaceuticos Rovi, S.A.
-2024-01-21 14:48:44,828 - INFO:  - [Fuera de horario] No se puede actualizar. Banco de Sabadell, S.A.
-2024-01-21 14:48:45,010 - INFO:  - [Fuera de horario] No se puede actualizar. Banco Santander, S.A.
-2024-01-21 14:48:45,139 - INFO:  - [Fuera de horario] No se puede actualizar. Sacyr, S.A.
-2024-01-21 14:48:45,259 - INFO:  - [Fuera de horario] No se puede actualizar. Solaria Energía y Medio Ambiente, S.A.
-2024-01-21 14:48:45,389 - INFO:  - [Fuera de horario] No se puede actualizar. Telefónica, S.A.
-2024-01-21 14:48:45,509 - INFO:  - [Fuera de horario] No se puede actualizar. Unicaja Banco, S.A.
-2024-01-21 14:48:45,629 - INFO:  - [Fuera de horario] No se puede actualizar. IBEX 35...
-2024-01-21 14:48:45,629 - INFO: 
-2024-01-21 14:48:45,629 - INFO: [OK] Base de datos actualizada.
-2024-01-21 14:48:45,629 - INFO: Proceso finalizado.
-
-2024-01-21 14:53:10,761 - INFO: 
-2024-01-21 14:53:10,761 - INFO: -------------------------------------------------
-2024-01-21 14:53:10,762 - INFO: Actualizando base de datos con los últimos datos:
-2024-01-21 14:53:10,763 - INFO: -------------------------------------------------
-2024-01-21 14:53:13,259 - INFO:  - [Actualizando... ] Apple Inc.
-2024-01-21 14:53:13,270 - INFO: 		[OK] Datos
-2024-01-21 14:53:13,430 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:13,689 - INFO:  - [Actualizando... ] Amgen Inc.
-2024-01-21 14:53:13,699 - INFO: 		[OK] Datos
-2024-01-21 14:53:13,869 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:14,200 - INFO:  - [Actualizando... ] American Express Company
-2024-01-21 14:53:14,209 - INFO: 		[OK] Datos
-2024-01-21 14:53:14,440 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:14,790 - INFO:  - [Actualizando... ] The Boeing Company
-2024-01-21 14:53:14,804 - INFO: 		[OK] Datos
-2024-01-21 14:53:15,050 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:15,385 - INFO:  - [Actualizando... ] Caterpillar Inc.
-2024-01-21 14:53:15,395 - INFO: 		[OK] Datos
-2024-01-21 14:53:15,660 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:15,889 - INFO:  - [Actualizando... ] Salesforce, Inc.
-2024-01-21 14:53:15,901 - INFO: 		[OK] Datos
-2024-01-21 14:53:16,000 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:16,250 - INFO:  - [Actualizando... ] Cisco Systems, Inc.
-2024-01-21 14:53:16,259 - INFO: 		[OK] Datos
-2024-01-21 14:53:16,403 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:16,729 - INFO:  - [Actualizando... ] Chevron Corporation
-2024-01-21 14:53:16,749 - INFO: 		[OK] Datos
-2024-01-21 14:53:17,000 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:17,350 - INFO:  - [Actualizando... ] The Walt Disney Company
-2024-01-21 14:53:17,359 - INFO: 		[OK] Datos
-2024-01-21 14:53:17,619 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:17,851 - INFO:  - [Actualizando... ] Dow Inc.
-2024-01-21 14:53:17,859 - INFO: 		[OK] Datos
-2024-01-21 14:53:17,901 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:18,153 - INFO:  - [Actualizando... ] The Goldman Sachs Group, Inc.
-2024-01-21 14:53:18,160 - INFO: 		[OK] Datos
-2024-01-21 14:53:18,269 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:18,630 - INFO:  - [Actualizando... ] The Home Depot, Inc.
-2024-01-21 14:53:18,640 - INFO: 		[OK] Datos
-2024-01-21 14:53:18,819 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:19,139 - INFO:  - [Actualizando... ] Honeywell International Inc.
-2024-01-21 14:53:19,159 - INFO: 		[OK] Datos
-2024-01-21 14:53:19,409 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:19,700 - INFO:  - [Actualizando... ] International Business Machines Corporation
-2024-01-21 14:53:19,709 - INFO: 		[OK] Datos
-2024-01-21 14:53:19,959 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:20,239 - INFO:  - [Actualizando... ] Intel Corporation
-2024-01-21 14:53:20,250 - INFO: 		[OK] Datos
-2024-01-21 14:53:20,439 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:20,749 - INFO:  - [Actualizando... ] Johnson & Johnson
-2024-01-21 14:53:20,772 - INFO: 		[OK] Datos
-2024-01-21 14:53:21,020 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:21,319 - INFO:  - [Actualizando... ] JPMorgan Chase & Co.
-2024-01-21 14:53:21,330 - INFO: 		[OK] Datos
-2024-01-21 14:53:21,509 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:21,920 - INFO:  - [Actualizando... ] The Coca-Cola Company
-2024-01-21 14:53:21,929 - INFO: 		[OK] Datos
-2024-01-21 14:53:22,180 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:22,470 - INFO:  - [Actualizando... ] McDonald's Corporation
-2024-01-21 14:53:22,482 - INFO: 		[OK] Datos
-2024-01-21 14:53:22,717 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:23,034 - INFO:  - [Actualizando... ] 3M Company
-2024-01-21 14:53:23,049 - INFO: 		[OK] Datos
-2024-01-21 14:53:23,281 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:23,589 - INFO:  - [Actualizando... ] Merck & Co., Inc.
-2024-01-21 14:53:23,609 - INFO: 		[OK] Datos
-2024-01-21 14:53:23,863 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:24,179 - INFO:  - [Actualizando... ] Microsoft Corporation
-2024-01-21 14:53:24,190 - INFO: 		[OK] Datos
-2024-01-21 14:53:24,349 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:24,609 - INFO:  - [Actualizando... ] NIKE, Inc.
-2024-01-21 14:53:24,620 - INFO: 		[OK] Datos
-2024-01-21 14:53:24,789 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:25,110 - INFO:  - [Actualizando... ] The Procter & Gamble Company
-2024-01-21 14:53:25,130 - INFO: 		[OK] Datos
-2024-01-21 14:53:25,379 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:25,640 - INFO:  - [Actualizando... ] The Travelers Companies, Inc.
-2024-01-21 14:53:25,649 - INFO: 		[OK] Datos
-2024-01-21 14:53:25,849 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:26,109 - INFO:  - [Actualizando... ] UnitedHealth Group Incorporated
-2024-01-21 14:53:26,122 - INFO: 		[OK] Datos
-2024-01-21 14:53:26,290 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:26,530 - INFO:  - [Actualizando... ] Visa Inc.
-2024-01-21 14:53:26,539 - INFO: 		[OK] Datos
-2024-01-21 14:53:26,619 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:26,900 - INFO:  - [Actualizando... ] Verizon Communications Inc.
-2024-01-21 14:53:26,912 - INFO: 		[OK] Datos
-2024-01-21 14:53:27,099 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:27,380 - INFO:  - [Actualizando... ] Walgreens Boots Alliance, Inc.
-2024-01-21 14:53:27,389 - INFO: 		[OK] Datos
-2024-01-21 14:53:27,579 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:27,948 - INFO:  - [Actualizando... ] Walmart Inc.
-2024-01-21 14:53:27,959 - INFO: 		[OK] Datos
-2024-01-21 14:53:28,169 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:28,389 - INFO:  - [Actualizando... ] Dow Jones Industrial Average
-2024-01-21 14:53:28,400 - INFO: 		[OK] Datos
-2024-01-21 14:53:28,544 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:28,548 - INFO: 
-2024-01-21 14:53:28,549 - INFO: [OK] Base de datos actualizada.
-2024-01-21 14:53:28,549 - INFO: Proceso finalizado.
-
-2024-01-21 14:53:28,549 - INFO: 
-2024-01-21 14:53:28,549 - INFO: -------------------------------------------------
-2024-01-21 14:53:28,549 - INFO: Actualizando base de datos con los últimos datos:
-2024-01-21 14:53:28,549 - INFO: -------------------------------------------------
-2024-01-21 14:53:28,819 - INFO:  - [Actualizando... ] ACS, Actividades de Construcción y Servicios, S.A.
-2024-01-21 14:53:28,833 - INFO: 		[OK] Datos
-2024-01-21 14:53:28,938 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:29,203 - INFO:  - [Actualizando... ] Acerinox, S.A.
-2024-01-21 14:53:29,210 - INFO: 		[OK] Datos
-2024-01-21 14:53:29,326 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:29,607 - INFO:  - [Actualizando... ] Aena S.M.E., S.A.
-2024-01-21 14:53:29,611 - INFO: 		[OK] Datos
-2024-01-21 14:53:29,669 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:29,918 - INFO:  - [Actualizando... ] Amadeus IT Group, S.A.
-2024-01-21 14:53:29,928 - INFO: 		[OK] Datos
-2024-01-21 14:53:30,006 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:30,288 - INFO:  - [Actualizando... ] Acciona, S.A.
-2024-01-21 14:53:30,298 - INFO: 		[OK] Datos
-2024-01-21 14:53:30,428 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:30,639 - INFO:  - [Actualizando... ] Corporación Acciona Energías Renovables, S.A.
-2024-01-21 14:53:30,659 - INFO: 		[OK] Datos
-2024-01-21 14:53:30,694 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:30,958 - INFO:  - [Actualizando... ] Banco Bilbao Vizcaya Argentaria, S.A.
-2024-01-21 14:53:30,968 - INFO: 		[OK] Datos
-2024-01-21 14:53:31,079 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:31,339 - INFO:  - [Actualizando... ] Bankinter, S.A.
-2024-01-21 14:53:31,350 - INFO: 		[OK] Datos
-2024-01-21 14:53:31,479 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:31,790 - INFO:  - [Actualizando... ] CaixaBank, S.A.
-2024-01-21 14:53:31,808 - INFO: 		[OK] Datos
-2024-01-21 14:53:31,898 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:32,139 - INFO:  - [Actualizando... ] Cellnex Telecom, S.A.
-2024-01-21 14:53:32,149 - INFO: 		[OK] Datos
-2024-01-21 14:53:32,200 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:32,478 - INFO:  - [Actualizando... ] Inmobiliaria Colonial, SOCIMI, S.A.
-2024-01-21 14:53:32,489 - INFO: 		[OK] Datos
-2024-01-21 14:53:32,596 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:32,850 - INFO:  - [Actualizando... ] Endesa, S.A.
-2024-01-21 14:53:32,859 - INFO: 		[OK] Datos
-2024-01-21 14:53:32,990 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:33,259 - INFO:  - [Actualizando... ] Enagás, S.A.
-2024-01-21 14:53:33,270 - INFO: 		[OK] Datos
-2024-01-21 14:53:33,371 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:33,620 - INFO:  - [Actualizando... ] Fluidra, S.A.
-2024-01-21 14:53:33,629 - INFO: 		[OK] Datos
-2024-01-21 14:53:33,718 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:33,971 - INFO:  - [Actualizando... ] Ferrovial SE
-2024-01-21 14:53:33,979 - INFO: 		[OK] Datos
-2024-01-21 14:53:34,099 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:34,350 - INFO:  - [Actualizando... ] Grifols, S.A.
-2024-01-21 14:53:34,359 - INFO: 		[OK] Datos
-2024-01-21 14:53:34,446 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:34,779 - INFO:  - [Actualizando... ] International Consolidated Airlines Group S.A.
-2024-01-21 14:53:34,795 - INFO: 		[OK] Datos
-2024-01-21 14:53:34,872 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:35,129 - INFO:  - [Actualizando... ] Iberdrola, S.A.
-2024-01-21 14:53:35,140 - INFO: 		[OK] Datos
-2024-01-21 14:53:35,249 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:35,499 - INFO:  - [Actualizando... ] Indra Sistemas, S.A.
-2024-01-21 14:53:35,510 - INFO: 		[OK] Datos
-2024-01-21 14:53:35,619 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:35,869 - INFO:  - [Actualizando... ] Industria de Diseño Textil, S.A.
-2024-01-21 14:53:35,880 - INFO: 		[OK] Datos
-2024-01-21 14:53:35,994 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:36,220 - INFO:  - [Actualizando... ] Compañía de Distribución Integral Logista Holdings, S.A.
-2024-01-21 14:53:36,229 - INFO: 		[OK] Datos
-2024-01-21 14:53:36,296 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:36,559 - INFO:  - [Actualizando... ] Mapfre, S.A.
-2024-01-21 14:53:36,572 - INFO: 		[OK] Datos
-2024-01-21 14:53:36,711 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:37,059 - INFO:  - [Actualizando... ] Meliá Hotels International, S.A.
-2024-01-21 14:53:37,072 - INFO: 		[OK] Datos
-2024-01-21 14:53:37,198 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:37,440 - INFO:  - [Actualizando... ] MERLIN Properties SOCIMI, S.A.
-2024-01-21 14:53:37,460 - INFO: 		[OK] Datos
-2024-01-21 14:53:37,520 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:37,770 - INFO:  - [Actualizando... ] ArcelorMittal S.A.
-2024-01-21 14:53:37,781 - INFO: 		[OK] Datos
-2024-01-21 14:53:37,874 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:38,130 - INFO:  - [Actualizando... ] Naturgy Energy Group, S.A.
-2024-01-21 14:53:38,139 - INFO: 		[OK] Datos
-2024-01-21 14:53:38,259 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:38,589 - INFO:  - [Actualizando... ] Redeia Corporación, S.A.
-2024-01-21 14:53:38,600 - INFO: 		[OK] Datos
-2024-01-21 14:53:38,721 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:38,998 - INFO:  - [Actualizando... ] Repsol, S.A.
-2024-01-21 14:53:39,008 - INFO: 		[OK] Datos
-2024-01-21 14:53:39,133 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:39,390 - INFO:  - [Actualizando... ] Laboratorios Farmaceuticos Rovi, S.A.
-2024-01-21 14:53:39,399 - INFO: 		[OK] Datos
-2024-01-21 14:53:39,486 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:39,748 - INFO:  - [Actualizando... ] Banco de Sabadell, S.A.
-2024-01-21 14:53:39,758 - INFO: 		[OK] Datos
-2024-01-21 14:53:39,884 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:40,129 - INFO:  - [Actualizando... ] Banco Santander, S.A.
-2024-01-21 14:53:40,141 - INFO: 		[OK] Datos
-2024-01-21 14:53:40,262 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:40,539 - INFO:  - [Actualizando... ] Sacyr, S.A.
-2024-01-21 14:53:40,550 - INFO: 		[OK] Datos
-2024-01-21 14:53:40,669 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:40,890 - INFO:  - [Actualizando... ] Solaria Energía y Medio Ambiente, S.A.
-2024-01-21 14:53:40,901 - INFO: 		[OK] Datos
-2024-01-21 14:53:40,981 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:41,229 - INFO:  - [Actualizando... ] Telefónica, S.A.
-2024-01-21 14:53:41,245 - INFO: 		[OK] Datos
-2024-01-21 14:53:41,354 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:41,579 - INFO:  - [Actualizando... ] Unicaja Banco, S.A.
-2024-01-21 14:53:41,601 - INFO: 		[OK] Datos
-2024-01-21 14:53:41,647 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:41,859 - INFO:  - [Actualizando... ] IBEX 35...
-2024-01-21 14:53:41,870 - INFO: 		[OK] Datos
-2024-01-21 14:53:42,010 - INFO: 		[OK] Medias móviles
-2024-01-21 14:53:42,018 - INFO: 
-2024-01-21 14:53:42,019 - INFO: [OK] Base de datos actualizada.
-2024-01-21 14:53:42,019 - INFO: Proceso finalizado.
+2024-01-21 15:10:56,660 - INFO: 
+2024-01-21 15:10:56,660 - INFO: -------------------------------------------------
+2024-01-21 15:10:56,660 - INFO: Actualizando base de datos con los últimos datos:
+2024-01-21 15:10:56,660 - INFO: -------------------------------------------------
+2024-01-21 15:10:56,975 - INFO:  - [Actualizando... ] ACS, Actividades de Construcción y Servicios, S.A.
+2024-01-21 15:10:56,991 - INFO: 		[OK] Datos
+2024-01-21 15:10:57,090 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:57,350 - INFO:  - [Actualizando... ] Acerinox, S.A.
+2024-01-21 15:10:57,370 - INFO: 		[OK] Datos
+2024-01-21 15:10:57,489 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:57,732 - INFO:  - [Actualizando... ] Aena S.M.E., S.A.
+2024-01-21 15:10:57,746 - INFO: 		[OK] Datos
+2024-01-21 15:10:57,813 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:58,091 - INFO:  - [Actualizando... ] Amadeus IT Group, S.A.
+2024-01-21 15:10:58,100 - INFO: 		[OK] Datos
+2024-01-21 15:10:58,193 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:58,502 - INFO:  - [Actualizando... ] Acciona, S.A.
+2024-01-21 15:10:58,521 - INFO: 		[OK] Datos
+2024-01-21 15:10:58,651 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:58,850 - INFO:  - [Actualizando... ] Corporación Acciona Energías Renovables, S.A.
+2024-01-21 15:10:58,871 - INFO: 		[OK] Datos
+2024-01-21 15:10:58,900 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:59,173 - INFO:  - [Actualizando... ] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-01-21 15:10:59,191 - INFO: 		[OK] Datos
+2024-01-21 15:10:59,320 - INFO: 		[OK] Medias móviles
+2024-01-21 15:10:59,621 - INFO:  - [Actualizando... ] Bankinter, S.A.
+2024-01-21 15:10:59,639 - INFO: 		[OK] Datos
+2024-01-21 15:10:59,774 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:00,001 - INFO:  - [Actualizando... ] CaixaBank, S.A.
+2024-01-21 15:11:00,020 - INFO: 		[OK] Datos
+2024-01-21 15:11:00,110 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:00,410 - INFO:  - [Actualizando... ] Cellnex Telecom, S.A.
+2024-01-21 15:11:00,432 - INFO: 		[OK] Datos
+2024-01-21 15:11:00,497 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:00,784 - INFO:  - [Actualizando... ] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-01-21 15:11:00,803 - INFO: 		[OK] Datos
+2024-01-21 15:11:00,921 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:01,177 - INFO:  - [Actualizando... ] Endesa, S.A.
+2024-01-21 15:11:01,191 - INFO: 		[OK] Datos
+2024-01-21 15:11:01,305 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:01,570 - INFO:  - [Actualizando... ] Enagás, S.A.
+2024-01-21 15:11:01,588 - INFO: 		[OK] Datos
+2024-01-21 15:11:01,694 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:01,960 - INFO:  - [Actualizando... ] Fluidra, S.A.
+2024-01-21 15:11:01,979 - INFO: 		[OK] Datos
+2024-01-21 15:11:02,080 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:02,310 - INFO:  - [Actualizando... ] Ferrovial SE
+2024-01-21 15:11:02,334 - INFO: 		[OK] Datos
+2024-01-21 15:11:02,450 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:02,740 - INFO:  - [Actualizando... ] Grifols, S.A.
+2024-01-21 15:11:02,759 - INFO: 		[OK] Datos
+2024-01-21 15:11:02,851 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:03,071 - INFO:  - [Actualizando... ] International Consolidated Airlines Group S.A.
+2024-01-21 15:11:03,089 - INFO: 		[OK] Datos
+2024-01-21 15:11:03,160 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:03,421 - INFO:  - [Actualizando... ] Iberdrola, S.A.
+2024-01-21 15:11:03,444 - INFO: 		[OK] Datos
+2024-01-21 15:11:03,569 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:03,839 - INFO:  - [Actualizando... ] Indra Sistemas, S.A.
+2024-01-21 15:11:03,861 - INFO: 		[OK] Datos
+2024-01-21 15:11:03,970 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:04,331 - INFO:  - [Actualizando... ] Industria de Diseño Textil, S.A.
+2024-01-21 15:11:04,351 - INFO: 		[OK] Datos
+2024-01-21 15:11:04,479 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:04,721 - INFO:  - [Actualizando... ] Compañía de Distribución Integral Logista Holdings, S.A.
+2024-01-21 15:11:04,739 - INFO: 		[OK] Datos
+2024-01-21 15:11:04,821 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:05,102 - INFO:  - [Actualizando... ] Mapfre, S.A.
+2024-01-21 15:11:05,121 - INFO: 		[OK] Datos
+2024-01-21 15:11:05,260 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:05,520 - INFO:  - [Actualizando... ] Meliá Hotels International, S.A.
+2024-01-21 15:11:05,539 - INFO: 		[OK] Datos
+2024-01-21 15:11:05,662 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:05,970 - INFO:  - [Actualizando... ] MERLIN Properties SOCIMI, S.A.
+2024-01-21 15:11:05,990 - INFO: 		[OK] Datos
+2024-01-21 15:11:06,050 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:06,281 - INFO:  - [Actualizando... ] ArcelorMittal S.A.
+2024-01-21 15:11:06,301 - INFO: 		[OK] Datos
+2024-01-21 15:11:06,390 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:06,724 - INFO:  - [Actualizando... ] Naturgy Energy Group, S.A.
+2024-01-21 15:11:06,740 - INFO: 		[OK] Datos
+2024-01-21 15:11:06,860 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:07,137 - INFO:  - [Actualizando... ] Redeia Corporación, S.A.
+2024-01-21 15:11:07,151 - INFO: 		[OK] Datos
+2024-01-21 15:11:07,270 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:07,574 - INFO:  - [Actualizando... ] Repsol, S.A.
+2024-01-21 15:11:07,590 - INFO: 		[OK] Datos
+2024-01-21 15:11:07,721 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:08,080 - INFO:  - [Actualizando... ] Laboratorios Farmaceuticos Rovi, S.A.
+2024-01-21 15:11:08,101 - INFO: 		[OK] Datos
+2024-01-21 15:11:08,200 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:08,481 - INFO:  - [Actualizando... ] Banco de Sabadell, S.A.
+2024-01-21 15:11:08,490 - INFO: 		[OK] Datos
+2024-01-21 15:11:08,630 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:09,002 - INFO:  - [Actualizando... ] Banco Santander, S.A.
+2024-01-21 15:11:09,021 - INFO: 		[OK] Datos
+2024-01-21 15:11:09,147 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:09,412 - INFO:  - [Actualizando... ] Sacyr, S.A.
+2024-01-21 15:11:09,431 - INFO: 		[OK] Datos
+2024-01-21 15:11:09,550 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:09,790 - INFO:  - [Actualizando... ] Solaria Energía y Medio Ambiente, S.A.
+2024-01-21 15:11:09,810 - INFO: 		[OK] Datos
+2024-01-21 15:11:09,945 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:10,234 - INFO:  - [Actualizando... ] Telefónica, S.A.
+2024-01-21 15:11:10,252 - INFO: 		[OK] Datos
+2024-01-21 15:11:10,380 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:10,624 - INFO:  - [Actualizando... ] Unicaja Banco, S.A.
+2024-01-21 15:11:10,641 - INFO: 		[OK] Datos
+2024-01-21 15:11:10,690 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:10,931 - INFO:  - [Actualizando... ] IBEX 35...
+2024-01-21 15:11:10,950 - INFO: 		[OK] Datos
+2024-01-21 15:11:11,096 - INFO: 		[OK] Medias móviles
+2024-01-21 15:11:11,100 - INFO: 
+2024-01-21 15:11:11,101 - INFO: [OK] Base de datos actualizada.
+2024-01-21 15:11:11,101 - INFO: Proceso finalizado.
 

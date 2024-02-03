@@ -10,13 +10,13 @@ INFO:BDs:
 INFO:BDs:----------------------------------
 INFO:BDs:TEST LONGITUD LISTAS TICKERS
 INFO:BDs:----------------------------------
-INFO:BDs: - [OK] Tener 30 tickers en la lista del DJ30
-INFO:BDs: - [OK] Tener 35 tickers en la lista del IBEX35
+INFO:BDs: - [OK] Tener 30 tickers (+ índice) en la lista del DJ30
+INFO:BDs: - [OK] Tener 35 tickers (+ índice) en la lista del IBEX35
 INFO:BDs:
 INFO:BDs:----------------------------------
 INFO:BDs:TEST TABLAS DJ30 BIEN CREADAS
 INFO:BDs:----------------------------------
-INFO:BDs: - [OK] Tener 30 tablas en DJ30
+INFO:BDs: - [OK] Tener 31 (tickers + índidce) tablas en DJ30
 INFO:BDs:
 INFO:BDs: - [OK] Tener tabla en BD para AAPL
 INFO:BDs: - [OK] Tener columnas adecuadas para tabla de AAPL
@@ -78,6 +78,8 @@ INFO:BDs: - [OK] Tener tabla en BD para WBA
 INFO:BDs: - [OK] Tener columnas adecuadas para tabla de WBA
 INFO:BDs: - [OK] Tener tabla en BD para WMT
 INFO:BDs: - [OK] Tener columnas adecuadas para tabla de WMT
+INFO:BDs: - [OK] Tener tabla en BD para DJI
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de DJI
 INFO:BDs:
 INFO:BDs:----------------------------------
 INFO:BDs:TEST CREAR REGISTROS EN DJ30
@@ -88,7 +90,7 @@ INFO:BDs:
 INFO:BDs:----------------------------------
 INFO:BDs:TEST TABLAS IBEX35 BIEN CREADAS
 INFO:BDs:----------------------------------
-INFO:BDs: - [OK] Tener 35 tablas en IBEX35
+INFO:BDs: - [OK] Tener 36 tablas (tickers + índidce) en IBEX35
 INFO:BDs:
 INFO:BDs: - [OK] Tener tabla en BD para ACS_MC
 INFO:BDs: - [OK] Tener columnas adecuadas para tabla de ACS_MC
@@ -160,9 +162,85 @@ INFO:BDs: - [OK] Tener tabla en BD para TEF_MC
 INFO:BDs: - [OK] Tener columnas adecuadas para tabla de TEF_MC
 INFO:BDs: - [OK] Tener tabla en BD para UNI_MC
 INFO:BDs: - [OK] Tener columnas adecuadas para tabla de UNI_MC
+INFO:BDs: - [OK] Tener tabla en BD para IBEX
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de IBEX
 INFO:BDs:
 INFO:BDs:----------------------------------
 INFO:BDs:TEST CREAR REGISTROS EN IBEX35
 INFO:BDs:----------------------------------
 INFO:BDs: - [OK] Crear datos con el formato esperado
 INFO:BDs: - [OK] Hacer 'id' autoincremental
+INFO:DashBoard:
+INFO:DashBoard:----------------------------------
+INFO:DashBoard:TEST NUEVA COMPRA
+INFO:DashBoard:----------------------------------
+INFO:DashBoard: - [OK] Que página de 'nueva_compra' retorne '302...' sin login'
+INFO:DashBoard: - [OK] Que página de 'nueva_compra' retorne '200 ok' con login
+INFO:DashBoard: - [OK] Asignar 'template' de nueva copra
+INFO:DashBoard: - [OK] Asignar formulario y cargar lista de posibles tickers
+INFO:DashBoard:
+INFO:DashBoard:----------------------------------
+INFO:DashBoard:TEST CALCULAR POSICIÓN
+INFO:DashBoard:----------------------------------
+INFO:DashBoard: - [OK] Calcular posición en un 'stockComprado' válido
+INFO:DashBoard:
+INFO:DashBoard:----------------------------------
+INFO:DashBoard:TEST DE VALIDACIÓN DE BD
+INFO:DashBoard:----------------------------------
+INFO:DashBoard: - [OK] Validar si base de datos existe
+INFO:DashBoard: - [OK] No validar si base de datos no existe
+INFO:DashBoard:
+INFO:DashBoard:----------------------------------
+INFO:DashBoard:TEST DE VALIDACIÓN DE FECHA
+INFO:DashBoard:----------------------------------
+INFO:DashBoard: - [OK] No validar si 'fecha_compra' es una fecha futura
+INFO:DashBoard:
+INFO:DashBoard:----------------------------------
+INFO:DashBoard:TEST FORMULARIOS VÁLIDOS
+INFO:DashBoard:----------------------------------
+INFO:DashBoard: - [OK] Procesar formulario 'stockComprado' válido
+INFO:DashBoard: - [OK] No encontrar registro con formulario no válido
+INFO:DashBoard: - [OK] Procesar formulario 'stockSeguimiento' válido
+INFO:DashBoard:
+INFO:DashBoard:----------------------------------
+INFO:DashBoard:TEST FORMULARIOS VACÍOS
+INFO:DashBoard:----------------------------------
+INFO:DashBoard: - [OK] Procesar formulario 'stockComprado' vacío
+INFO:DashBoard: - [OK] Procesar formulario 'stockSeguimiento' vacío
+INFO:DashBoard:
+INFO:DashBoard:----------------------------------
+INFO:DashBoard:TEST DATOS ERRÓNEOS
+INFO:DashBoard:----------------------------------
+INFO:Usuarios:
+INFO:Usuarios:----------------------------------
+INFO:Usuarios:TEST CREAR Y BORRAR USUARIOS
+INFO:Usuarios:----------------------------------
+INFO:Usuarios: - [OK] Crear usuarios de forma adecuada
+INFO:Usuarios: - [OK] Borrar usuarios de forma adecuada
+INFO:Usuarios:
+INFO:Usuarios:----------------------------------
+INFO:Usuarios:TEST SIGNUP
+INFO:Usuarios:----------------------------------
+INFO:Usuarios: - [OK] Que página de signup retorne '200 ok'
+INFO:Usuarios: - [OK] Asignar 'template' de signup y cargar base.html
+INFO:Usuarios: - [OK] No utilizar otros 'templates' por error
+INFO:Usuarios: - [OK] Hacer signup con usuario de forma adecuada
+INFO:Usuarios: - [OK] A la vez que se hace signup hacer login
+INFO:Usuarios: - [OK] Devolver página de espera e info. al usuario tras signup adecuado
+INFO:Usuarios: - [OK] No permite usuarios con el mismo nombre
+INFO:Usuarios:
+INFO:Usuarios:----------------------------------
+INFO:Usuarios:TEST SIGNIN
+INFO:Usuarios:----------------------------------
+INFO:Usuarios: - [OK] Que página de singin retorne '200 ok'
+INFO:Usuarios: - [OK] Asignar 'template' de signin y cargar base.html
+INFO:Usuarios: - [OK] No utilizar otros 'templates' por error
+INFO:Usuarios: - [OK] Hacer login de forma adecuada
+INFO:Usuarios: - [OK] No permitir login a usuarios inexistentes
+INFO:Usuarios: - [OK] Informar al usuario con mensaje de usuario no correcto
+INFO:Usuarios: - [OK] No redireccionar si usuario o pass incorrectos
+INFO:Usuarios:
+INFO:Usuarios:----------------------------------
+INFO:Usuarios:TEST SIGNOUT
+INFO:Usuarios:----------------------------------
+INFO:Usuarios: - [OK] Hacer logout
