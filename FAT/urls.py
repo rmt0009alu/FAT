@@ -58,6 +58,6 @@ urlpatterns = [
     path('', include('News.urls')),
 
     # Añado las rutas de la app del DashBoard
-    # path('', include('DashBoard.urls')),
+    path('', include('DashBoard.urls')),
 
 ]
