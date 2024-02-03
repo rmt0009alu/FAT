@@ -30,6 +30,8 @@ class StockBase(models.Model):
     mm50 = models.FloatField(db_column='MM50', blank=True, null=True)  
     mm200 = models.FloatField(db_column='MM200', blank=True, null=True)  
     name = models.TextField(db_column='Name', blank=True, null=True)
+    sector = models.TextField(db_column='Sector', blank=True, null=True)
+    currency = models.TextField(db_column='Currency', blank=True, null=True)
     objects = models.Manager() 
 
 
@@ -77,3 +79,33 @@ for ticker in tickers_dj30 + tickers_ibex35:
         }
     )
     modelos_de_stocks[ticker] = clase_dinamica
+
+
+
+class Sectores(models.Model):
+    """Clase para crear una tabla que almacene todos los tickers
+    juntos con sus correspondientes sectores.
+
+    Args:
+        models.Model (django.db.models.base.Model'): clase base 
+            para los modelos de Django.
+    """
+    id = models.AutoField(primary_key=True) 
+    ticker_bd = models.TextField(db_column='Ticker_bd')    
+    bd = models.TextField(db_column='BaseDatos')
+    # Ticker con notación de punto 'ALGO.XX'
+    ticker = models.TextField(db_column='Ticker')    
+    nombre = models.TextField(db_column='Nombre', blank=True, null=True)
+    sector = models.TextField(db_column='Sector')
+
+    class Meta:
+        """Clase que sirve para indicar atributos 
+        adicionales. 
+        """
+        # Para que la tabla/modelo sea gestionada por 
+        # Django. Esta tabla se crea en dq.sqlite3
+        # para que sea común a todas las demás 
+        managed = True
+
+    def __str__(self) -> str:
+        return f"{self.id} - {self.nombre} - {self.sector}"

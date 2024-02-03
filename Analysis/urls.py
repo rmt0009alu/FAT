@@ -1,9 +1,9 @@
 from django.urls import path
-# Ojo, en server no se puede usar *, hay que indicar los métodos
-from .views import signup, signout, signin, chart_y_datos, mapa_stocks
+from .views import *
 
 urlpatterns = [
 
+    # El home pasa a depender de la app 'News'
     # path('', home, name="home"),
 
     path('mapa/<str:nombre_bd>', mapa_stocks, name="mapa_stocks"),

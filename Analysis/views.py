@@ -156,7 +156,7 @@ def signin(request):
         if user is not None and user.check_password(password):
             # Hago el login
             login(request, user)
-            return redirect("home")
+            return redirect("dashboard")
 
         else:
             context = {
