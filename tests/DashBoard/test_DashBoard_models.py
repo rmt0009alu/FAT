@@ -4,8 +4,12 @@ from django.contrib.auth.models import User
 from django.utils import timezone as tz
 from datetime import timedelta
 from DashBoard.models import StockComprado, StockSeguimiento
+# Refactoring:
+# ------------
+# No puedo usar ValueError ni ValidationError, el error
+# que se devuelve con la fecha y bd no válidas es IntegrityError
 # from django.core.exceptions import ValidationError
-# from django.db.utils import IntegrityError
+from django.db.utils import IntegrityError
 
 
 class StockModelTests(TestCase):
@@ -48,7 +52,7 @@ class StockModelTests(TestCase):
     def test_models_StockComprado_fecha_futura(self):
         # No se podrán meter fechas futuras al guardar 
         # un stock como comprado
-        with self.assertRaises(ValueError):
+        with self.assertRaises(IntegrityError):
             StockComprado.objects.create(
                 usuario=self.user,
                 ticker_bd='AAPL',
@@ -66,7 +70,7 @@ class StockModelTests(TestCase):
     def test_models_StockComprado_bd_falsa(self):
         # Habrá limitación para el campo de las BDs, para que no se
         # puedan usar unas diferentes a las que indique
-        with self.assertRaises(ValueError):
+        with self.assertRaises(IntegrityError):
             StockComprado.objects.create(
                 usuario=self.user,
                 ticker_bd='AAPL',

@@ -860,3 +860,158 @@
 2024-01-31 09:19:34,679 - INFO: 
 2024-01-31 09:19:34,679 - INFO: [OK] Tabla creada con éxito.
 2024-01-31 09:19:34,679 - INFO: Proceso finalizado.
+2024-02-04 09:57:32,379 - INFO: 
+2024-02-04 09:57:32,395 - INFO: ------------------------------------------
+2024-02-04 09:57:32,395 - INFO: Creando base de datos:
+2024-02-04 09:57:32,395 - INFO: ------------------------------------------
+2024-02-04 09:57:53,624 - INFO:  - [OK] Apple Inc.
+2024-02-04 09:57:54,585 - INFO:  - [OK] Amgen Inc.
+2024-02-04 09:57:56,137 - INFO:  - [OK] American Express Company
+2024-02-04 09:57:57,773 - INFO:  - [OK] The Boeing Company
+2024-02-04 09:58:00,282 - INFO:  - [OK] Caterpillar Inc.
+2024-02-04 09:58:01,181 - INFO:  - [OK] Salesforce, Inc.
+2024-02-04 09:58:02,519 - INFO:  - [OK] Cisco Systems, Inc.
+2024-02-04 09:58:04,219 - INFO:  - [OK] Chevron Corporation
+2024-02-04 09:58:05,926 - INFO:  - [OK] The Walt Disney Company
+2024-02-04 09:58:06,527 - INFO:  - [OK] Dow Inc.
+2024-02-04 09:58:07,399 - INFO:  - [OK] The Goldman Sachs Group, Inc.
+2024-02-04 09:58:08,701 - INFO:  - [OK] The Home Depot, Inc.
+2024-02-04 09:58:10,285 - INFO:  - [OK] Honeywell International Inc.
+2024-02-04 09:58:11,885 - INFO:  - [OK] International Business Machines Corporation
+2024-02-04 09:58:13,088 - INFO:  - [OK] Intel Corporation
+2024-02-04 09:58:14,647 - INFO:  - [OK] Johnson & Johnson
+2024-02-04 09:58:15,855 - INFO:  - [OK] JPMorgan Chase & Co.
+2024-02-04 09:58:17,412 - INFO:  - [OK] The Coca-Cola Company
+2024-02-04 09:58:19,861 - INFO:  - [OK] McDonald's Corporation
+2024-02-04 09:58:21,802 - INFO:  - [OK] 3M Company
+2024-02-04 09:58:24,579 - INFO:  - [OK] Merck & Co., Inc.
+2024-02-04 09:58:26,124 - INFO:  - [OK] Microsoft Corporation
+2024-02-04 09:58:27,769 - INFO:  - [OK] NIKE, Inc.
+2024-02-04 09:58:29,520 - INFO:  - [OK] The Procter & Gamble Company
+2024-02-04 09:58:30,831 - INFO:  - [OK] The Travelers Companies, Inc.
+2024-02-04 09:58:32,000 - INFO:  - [OK] UnitedHealth Group Incorporated
+2024-02-04 09:58:32,739 - INFO:  - [OK] Visa Inc.
+2024-02-04 09:58:33,977 - INFO:  - [OK] Verizon Communications Inc.
+2024-02-04 09:58:35,168 - INFO:  - [OK] Walgreens Boots Alliance, Inc.
+2024-02-04 09:58:36,678 - INFO:  - [OK] Walmart Inc.
+2024-02-04 09:58:37,680 - INFO:  - [OK] Dow Jones Industrial Average
+2024-02-04 09:58:37,680 - INFO: 
+2024-02-04 09:58:37,680 - INFO: [OK] Base de datos creada.
+2024-02-04 09:58:37,687 - INFO: Proceso finalizado.
+2024-02-04 09:58:37,687 - INFO: 
+2024-02-04 09:58:37,687 - INFO: ------------------------------------------
+2024-02-04 09:58:37,687 - INFO: Creando base de datos:
+2024-02-04 09:58:37,687 - INFO: ------------------------------------------
+2024-02-04 09:58:38,506 - INFO:  - [OK] ACS, Actividades de Construcción y Servicios, S.A.
+2024-02-04 09:58:39,406 - INFO:  - [OK] Acerinox, S.A.
+2024-02-04 09:58:40,083 - INFO:  - [OK] Aena S.M.E., S.A.
+2024-02-04 09:58:40,771 - INFO:  - [OK] Amadeus IT Group, S.A.
+2024-02-04 09:58:41,643 - INFO:  - [OK] Acciona, S.A.
+2024-02-04 09:58:42,190 - INFO:  - [OK] Corporación Acciona Energías Renovables, S.A.
+2024-02-04 09:58:43,147 - INFO:  - [OK] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-02-04 09:58:44,102 - INFO:  - [OK] Bankinter, S.A.
+2024-02-04 09:58:44,887 - INFO:  - [OK] CaixaBank, S.A.
+2024-02-04 09:58:45,483 - INFO:  - [OK] Cellnex Telecom, S.A.
+2024-02-04 09:58:46,286 - INFO:  - [OK] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-02-04 09:58:47,187 - INFO:  - [OK] Endesa, S.A.
+2024-02-04 09:58:47,989 - INFO:  - [OK] Enagás, S.A.
+2024-02-04 09:58:48,613 - INFO:  - [OK] Fluidra, S.A.
+2024-02-04 09:58:49,361 - INFO:  - [OK] Ferrovial SE
+2024-02-04 09:58:50,132 - INFO:  - [OK] Grifols, S.A.
+2024-02-04 09:58:50,780 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-02-04 09:58:51,601 - INFO:  - [OK] Iberdrola, S.A.
+2024-02-04 09:58:52,503 - INFO:  - [OK] Indra Sistemas, S.A.
+2024-02-04 09:58:53,404 - INFO:  - [OK] Industria de Diseño Textil, S.A.
+2024-02-04 09:58:53,984 - INFO:  - [OK] Compañía de Distribución Integral Logista Holdings, S.A.
+2024-02-04 09:58:54,808 - INFO:  - [OK] Mapfre, S.A.
+2024-02-04 09:58:55,673 - INFO:  - [OK] Meliá Hotels International, S.A.
+2024-02-04 09:58:56,286 - INFO:  - [OK] MERLIN Properties SOCIMI, S.A.
+2024-02-04 09:58:57,445 - INFO:  - [OK] ArcelorMittal S.A.
+2024-02-04 09:58:58,644 - INFO:  - [OK] Naturgy Energy Group, S.A.
+2024-02-04 09:58:59,797 - INFO:  - [OK] Redeia Corporación, S.A.
+2024-02-04 09:59:01,204 - INFO:  - [OK] Repsol, S.A.
+2024-02-04 09:59:02,138 - INFO:  - [OK] Laboratorios Farmaceuticos Rovi, S.A.
+2024-02-04 09:59:03,194 - INFO:  - [OK] Banco de Sabadell, S.A.
+2024-02-04 09:59:04,211 - INFO:  - [OK] Banco Santander, S.A.
+2024-02-04 09:59:05,461 - INFO:  - [OK] Sacyr, S.A.
+2024-02-04 09:59:06,201 - INFO:  - [OK] Solaria Energía y Medio Ambiente, S.A.
+2024-02-04 09:59:07,159 - INFO:  - [OK] Telefónica, S.A.
+2024-02-04 09:59:07,801 - INFO:  - [OK] Unicaja Banco, S.A.
+2024-02-04 09:59:08,671 - INFO:  - [OK] IBEX 35...
+2024-02-04 09:59:08,671 - INFO: 
+2024-02-04 09:59:08,687 - INFO: [OK] Base de datos creada.
+2024-02-04 09:59:08,688 - INFO: Proceso finalizado.
+2024-02-04 09:59:08,689 - INFO: 
+2024-02-04 09:59:08,690 - INFO: ------------------------------------------
+2024-02-04 09:59:08,690 - INFO: Creando tabla de sectores en 'db.sqlite3':
+2024-02-04 09:59:08,691 - INFO: ------------------------------------------
+2024-02-04 09:59:24,089 - INFO:  - [OK] Apple Inc.
+2024-02-04 09:59:24,089 - INFO:  - [OK] Amgen Inc.
+2024-02-04 09:59:24,105 - INFO:  - [OK] American Express Company
+2024-02-04 09:59:24,105 - INFO:  - [OK] The Boeing Company
+2024-02-04 09:59:24,105 - INFO:  - [OK] Caterpillar Inc.
+2024-02-04 09:59:24,105 - INFO:  - [OK] Salesforce, Inc.
+2024-02-04 09:59:24,114 - INFO:  - [OK] Cisco Systems, Inc.
+2024-02-04 09:59:24,116 - INFO:  - [OK] Chevron Corporation
+2024-02-04 09:59:24,118 - INFO:  - [OK] The Walt Disney Company
+2024-02-04 09:59:24,121 - INFO:  - [OK] Dow Inc.
+2024-02-04 09:59:24,123 - INFO:  - [OK] The Goldman Sachs Group, Inc.
+2024-02-04 09:59:24,126 - INFO:  - [OK] The Home Depot, Inc.
+2024-02-04 09:59:24,128 - INFO:  - [OK] Honeywell International Inc.
+2024-02-04 09:59:24,130 - INFO:  - [OK] International Business Machines Corporation
+2024-02-04 09:59:24,133 - INFO:  - [OK] Intel Corporation
+2024-02-04 09:59:24,135 - INFO:  - [OK] Johnson & Johnson
+2024-02-04 09:59:24,137 - INFO:  - [OK] JPMorgan Chase & Co.
+2024-02-04 09:59:24,140 - INFO:  - [OK] The Coca-Cola Company
+2024-02-04 09:59:24,141 - INFO:  - [OK] McDonald's Corporation
+2024-02-04 09:59:24,142 - INFO:  - [OK] 3M Company
+2024-02-04 09:59:24,143 - INFO:  - [OK] Merck & Co., Inc.
+2024-02-04 09:59:24,144 - INFO:  - [OK] Microsoft Corporation
+2024-02-04 09:59:24,144 - INFO:  - [OK] NIKE, Inc.
+2024-02-04 09:59:24,144 - INFO:  - [OK] The Procter & Gamble Company
+2024-02-04 09:59:24,144 - INFO:  - [OK] The Travelers Companies, Inc.
+2024-02-04 09:59:24,144 - INFO:  - [OK] UnitedHealth Group Incorporated
+2024-02-04 09:59:24,144 - INFO:  - [OK] Visa Inc.
+2024-02-04 09:59:24,144 - INFO:  - [OK] Verizon Communications Inc.
+2024-02-04 09:59:24,144 - INFO:  - [OK] Walgreens Boots Alliance, Inc.
+2024-02-04 09:59:24,144 - INFO:  - [OK] Walmart Inc.
+2024-02-04 09:59:24,144 - INFO:  - [OK] Dow Jones Industrial Average
+2024-02-04 09:59:24,144 - INFO:  - [OK] ACS, Actividades de Construcción y Servicios, S.A.
+2024-02-04 09:59:24,144 - INFO:  - [OK] Acerinox, S.A.
+2024-02-04 09:59:24,144 - INFO:  - [OK] Aena S.M.E., S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Amadeus IT Group, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Acciona, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Corporación Acciona Energías Renovables, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Bankinter, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] CaixaBank, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Cellnex Telecom, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Endesa, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Enagás, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Fluidra, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Ferrovial SE
+2024-02-04 09:59:24,156 - INFO:  - [OK] Grifols, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Iberdrola, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Indra Sistemas, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Industria de Diseño Textil, S.A.
+2024-02-04 09:59:24,156 - INFO:  - [OK] Compañía de Distribución Integral Logista Holdings, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Mapfre, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Meliá Hotels International, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] MERLIN Properties SOCIMI, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] ArcelorMittal S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Naturgy Energy Group, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Redeia Corporación, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Repsol, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Laboratorios Farmaceuticos Rovi, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Banco de Sabadell, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Banco Santander, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Sacyr, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Solaria Energía y Medio Ambiente, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Telefónica, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] Unicaja Banco, S.A.
+2024-02-04 09:59:24,171 - INFO:  - [OK] IBEX 35...
+2024-02-04 09:59:24,187 - INFO: 
+2024-02-04 09:59:24,187 - INFO: [OK] Tabla creada con éxito.
+2024-02-04 09:59:24,187 - INFO: Proceso finalizado.
