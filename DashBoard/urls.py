@@ -12,4 +12,4 @@ urlpatterns = [
     path('dashboard/nuevo_seguimiento/', nuevo_seguimiento, name="nuevo_seguimiento"),
 
     path('dashboard/eliminar_seguimiento/', eliminar_seguimiento, name="eliminar_seguimiento"),
-] 
+]

@@ -19,7 +19,6 @@ class RouterBDs:
         self.tickers_dj30 = [ticker.lower() for ticker in Tickers_BDs.tickersAdaptadosDJ30()]
         self.tickers_ibex35 = [ticker.lower() for ticker in Tickers_BDs.tickersAdaptadosIBEX35()]
 
-
     def db_for_read(self, model, **hints):
         """Para indicar las BDs en caso de lectura.
 
@@ -35,7 +34,6 @@ class RouterBDs:
             return 'ibex35'
         return 'default'
 
-
     def db_for_write(self, model, **hints):
         """Para indicar las BDs en caso de escritura.
 
@@ -47,28 +45,26 @@ class RouterBDs:
         """
         return self.db_for_read(model, **hints)
 
-
     def allow_relation(self, obj1, obj2, **hints):
-        """Siempre se permite la relación. 
+        """Siempre se permite la relación.
 
         Returns:
             (bool): siempre True
         """
         return True
 
-
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """Para indicar en qué BDs se hacen las migraciones.
 
         Args:
             db (django.db): base de datos
-            app_label (str): nombre de la aplicación si se usará con 
+            app_label (str): nombre de la aplicación si se usará con
                 migraciones dependientes de aplicaciones, pero no es
-                el caso. 
+                el caso.
             model_name (str, optional): nombre del modelo. Por defecto None.
 
         Returns:
-            (django.db): nombre de la BD con la que se trabaja. 
+            (django.db): nombre de la BD con la que se trabaja.
         """
         if model_name in self.tickers_dj30:
             return db == 'dj30'

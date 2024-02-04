@@ -1,5 +1,12 @@
 from django.shortcuts import render
 from newsapi import NewsApiClient
+# Para obtener los tickers y los paths de las BDs
+from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, nombre_bdDJ30, nombre_bdIBEX35, tickersAdaptadosIndices
+# Para usar django-pandas y frames
+from django_pandas.io import read_frame
+# Para usar los modelos creados de forma dinámica
+from django.apps import apps
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import mpld3
@@ -9,17 +16,10 @@ import mpld3
 import matplotlib
 matplotlib.use('agg')
 
-# Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, nombre_bdDJ30, nombre_bdIBEX35, tickersAdaptadosIndices
-# Para usar django-pandas y frames
-from django_pandas.io import read_frame
-# Para usar los modelos creados de forma dinámica
-from django.apps import apps
-
 
 def home(request):
     """Para llamar a home.html y mostrar el contenido
-    de noticias junto con información de los mejores 
+    de noticias junto con información de los mejores
     y peores stocks.
 
     Args:
@@ -36,7 +36,7 @@ def home(request):
     top_headlines = newsapi.get_top_headlines(q='stock',
                                               category='business',
                                               language='en')
-    
+
     # Con la clave 'articles' cojo los artículos de
     # la categoría indicada anteriormente
     misArticulos = top_headlines['articles']
@@ -49,14 +49,14 @@ def home(request):
     for i in range(len(misArticulos)):
         articulo = misArticulos[i]
         # Comprobar que los artículos tengan imagen
-        if articulo['urlToImage'] != None:
+        if articulo['urlToImage'] is not None:
             noticias.append(articulo['title'])
             descripcion.append(articulo['description'])
             img.append(articulo['urlToImage'])
             urls.append(articulo['url'])
-        
+
             listaArticulos = zip(noticias, descripcion, img, urls)
-    
+
     # MEJORES Y PEORES
     # ----------------------------------
     df_ultimos_dj30 = getMejoresPeores(tickersAdaptadosDJ30(), nombre_bdDJ30())
@@ -71,10 +71,10 @@ def home(request):
     # ----------------------------------
     figuras_dj30 = getListaGraficos(mejores_dj30, perores_dj30, nombre_bdDJ30())
     figuras_ibex35 = getListaGraficos(mejores_ibex35, peores_ibex35, nombre_bdIBEX35())
-    
+
     # CONTEXTO
     # ----------------------------------
-    # Adaptación para mostrar los tickers del IBEX35 (u otros si los hubiera) 
+    # Adaptación para mostrar los tickers del IBEX35 (u otros si los hubiera)
     # con notación de '.'
     df_ultimos_ibex35['ticker'] = df_ultimos_ibex35['ticker'].str.replace('_', '.')
     mejores_ibex35 = df_ultimos_ibex35.head(3)
@@ -93,14 +93,13 @@ def home(request):
     return render(request, "home.html", context)
 
 
-
 def getMejoresPeores(listaTickers, bd):
     # DataFrame que voy a devolver
     df_ultimos = pd.DataFrame(columns=['ticker', 'variacion'])
 
     # Nombre de la app para acceder a los modelos
     miApp = 'Analysis'
-    
+
     for t in listaTickers:
         if t not in tickersAdaptadosIndices():
             # Para obtener los modelos de forma dinámica
@@ -110,7 +109,8 @@ def getMejoresPeores(listaTickers, bd):
                 ultimaEntrada = model.objects.using(bd).values('percent_variance', 'ticker').order_by('-date').first()
                 if ultimaEntrada:
                     datos = {'ticker': ultimaEntrada['ticker'], 'variacion': ultimaEntrada['percent_variance']}
-                    # Pandas append() deprecated: https://stackoverflow.com/questions/75956209/error-dataframe-object-has-no-attribute-append
+                    # Pandas append() deprecated:
+                    # https://stackoverflow.com/questions/75956209/error-dataframe-object-has-no-attribute-append
                     # df_ultimosRegistros = df_ultimosRegistros.append(datos, ignore_index=True)
                     # https://stackoverflow.com/questions/77254777/alternative-to-concat-of-empty-dataframe-now-that-it-is-being-deprecated
                     df_ultimos = pd.concat([df_ultimos if not df_ultimos.empty else None,
@@ -119,11 +119,10 @@ def getMejoresPeores(listaTickers, bd):
                     print("Sin datos en", t)
             except Exception as ex:
                 print("[NO OK] Error: ", ex)
-    
+
     df_ultimos.sort_values(by='variacion', ascending=False, inplace=True, ignore_index=True)
 
     return df_ultimos
-
 
 
 def getListaGraficos(mejores, peores, bd):
@@ -158,16 +157,15 @@ def getListaGraficos(mejores, peores, bd):
             # Añado la figura a la lista de figuras
             figuras.append(mpld3.fig_to_html(figura))
 
-            # Conviene ir cerrando los plots abiertos para que no 
+            # Conviene ir cerrando los plots abiertos para que no
             # haya problemas de memoria (de hecho, si no hago
             # un plt.close() salta un warning)
             plt.close()
-            
+
         except Exception as ex:
             print("[NO OK] Error: ", ex)
-    
-    return figuras
 
+    return figuras
 
 
 def generarFigura(entradas):
@@ -182,7 +180,7 @@ def generarFigura(entradas):
     Returns:
         (matplotlib.figure.Figure): la figura que se crea
     """
-    # Obtener los 'values' del queryset 'entradas' 
+    # Obtener los 'values' del queryset 'entradas'
     # y pasar a df
     df = read_frame(entradas.values('date', 'close', 'name'))
 
@@ -196,4 +194,3 @@ def generarFigura(entradas):
     # ax.set_xticklabels(ax.get_xticklabels(), rotate=45)
 
     return fig
-

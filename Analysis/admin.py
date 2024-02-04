@@ -1,6 +1,6 @@
-from django.contrib import admin
+# from django.contrib import admin
 
-# Sólo si quiero mostrar los modelos de los stocks 
+# Sólo si quiero mostrar los modelos de los stocks
 # para accederlos como 'admin' (aunque no es el caso)
 
 # No importo modelos, sino el diccionario con los modelos

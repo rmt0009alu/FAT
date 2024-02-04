@@ -2,13 +2,14 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from Analysis.views import mapa_stocks, signup, signout, signin, chart_y_datos
 
+
 # Refactoring:
 # ------------
 # No me he percatado de la necesidad de realizar estos tests
 # hasta que he empezado a seguir la metodología TDD en la app
 # DashBoard
 class TestAnalysisUrls(SimpleTestCase):
-    
+
     def test_url_mapa_stocks(self):
         url = reverse('mapa_stocks', args=['dj30'])
         self.assertEquals(resolve(url).func, mapa_stocks)

@@ -1,8 +1,7 @@
 from django.urls import path
-from .views import *
+from .views import mapa_stocks, signup, signout, signin,  chart_y_datos
 
 urlpatterns = [
-
     # El home pasa a depender de la app 'News'
     # path('', home, name="home"),
 
@@ -16,5 +15,4 @@ urlpatterns = [
 
     # Para gráficos y datos
     path('<str:nombre_bd>/<str:ticker>/chart', chart_y_datos, name='chart_y_datos'),
-    
-] 
+]

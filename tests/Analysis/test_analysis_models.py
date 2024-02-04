@@ -56,7 +56,7 @@ class TestAnalysisModels(TestCase):
         self.assertEquals(str(self.sector), '1 - Redeia Corporación, S.A. - Utilities')
     
 
-    def test_models_autoincremental_Sectores(self):
+    def test_models_Sectores_autoincremental(self):
         self.sector2 = Sectores.objects.create(ticker_bd='AAPL', bd='dj30', ticker='AAPL', 
                                          nombre='Apple Inc.', sector='Technology')
         # Tiene que ser 2 porque creo otro en el setUp()

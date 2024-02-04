@@ -26,7 +26,7 @@ from django.contrib.auth import login, logout
 # por ejemplo
 from django.db import IntegrityError
 
-# Para proteger rutas. Las funciones que tienen este decorador 
+# Para proteger rutas. Las funciones que tienen este decorador
 # sólo son accesibles si se está logueado
 from django.contrib.auth.decorators import login_required
 
@@ -38,7 +38,7 @@ from django.apps import apps
 
 # Para generar figuras sin repetir código
 from News.views import generarFigura
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 import mpld3
 
 # Para los RSS
@@ -94,10 +94,10 @@ def signup(request):
                     "error": "Error: Usuario ya existe",
                 }
                 return render(request, "signup.html", context)
-            except:
+            except Exception as ex:
                 context = {
                     "form": UserCreationForm,
-                    "error": "Error: error inesperado",
+                    "error": f"Error: error inesperado: {ex}",
                 }
                 return render(request, "signup.html", context)
         else:
@@ -108,9 +108,8 @@ def signup(request):
             return render(request, "signup.html", context)
 
 
-
 def signout(request):
-    """Para realizar el logout. No lo llamo 'logout' para 
+    """Para realizar el logout. No lo llamo 'logout' para
     que no haya conflicto de nombres con el método de Django
 
     Args:
@@ -126,10 +125,9 @@ def signout(request):
     return redirect("home")
 
 
-
 def signin(request):
-    """Para realizar el login. No lo llamo 'login' para 
-    que no haya conflicto de nombres con el método de 
+    """Para realizar el login. No lo llamo 'login' para
+    que no haya conflicto de nombres con el método de
     Django.
 
     Args:
@@ -150,7 +148,7 @@ def signin(request):
         # Obtengo el objeto usuario:
         user = User.objects.filter(username=username).first()
 
-        # Compruebo que el usuario exista y 
+        # Compruebo que el usuario exista y
         # checkeo su password cifrada. Si todo está
         # bien, entonces hago login y redirijo a home
         if user is not None and user.check_password(password):
@@ -164,11 +162,10 @@ def signin(request):
                 "error": "Usuario o contraseña incorrectos",
             }
             return render(request, "login.html", context)
-        
 
 
 def formatearVolumen(volumen):
-    """Método auxiliar para dar formato al volumen. 
+    """Método auxiliar para dar formato al volumen.
 
     Args:
         value (int): _description_
@@ -182,7 +179,6 @@ def formatearVolumen(volumen):
         return "{:.1f}K".format(volumen / 1000)
     else:
         return str(volumen)
-    
 
 
 @login_required
@@ -213,7 +209,7 @@ def mapa_stocks(request, nombre_bd):
     nombreIndice = None
 
     for t in tickers:
-        # No quiero que se muestren los índices con los 
+        # No quiero que se muestren los índices con los
         # componentes del índice
         if t not in tickersAdaptadosIndices():
             dictMutable = {}
@@ -221,7 +217,10 @@ def mapa_stocks(request, nombre_bd):
             model = apps.get_model(miApp, t)
             try:
                 # Cojo las última entrada de cada stock:
-                entrada = model.objects.using(nombre_bd).order_by('-date')[:1].values('ticker', 'close', 'high', 'low', 'previous_close', 'percent_variance', 'volume', 'date', 'name')
+                entrada = model.objects.using(nombre_bd).order_by('-date')[:1].values('ticker', 'close',
+                                                                                      'high', 'low', 'previous_close',
+                                                                                      'percent_variance', 'volume',
+                                                                                      'date', 'name')
                 # 'entrada' es un QuerySet INMUTABLE y 'entrada[0]' es un Dict
                 dictMutable = entrada[0]
                 # Cambio la notación de _ de la BD a . para mostrar
@@ -234,14 +233,15 @@ def mapa_stocks(request, nombre_bd):
                 print("[NO OK] Error mapa stocks: ", ex)
         else:
             nombreIndice = t
-            # Supuesto de ser el índice 
+            # Supuesto de ser el índice
             model = apps.get_model(miApp, t)
             try:
-                entradas = model.objects.using(nombre_bd).order_by('-date')[:250].values('date', 'close', 'ticker', 'name')
+                entradas = model.objects.using(nombre_bd).order_by('-date')[:250].values('date', 'close',
+                                                                                         'ticker', 'name')
                 figura = generarFigura(entradas)
                 figura = mpld3.fig_to_html(figura)
-                
-                # Conviene ir cerrando los plots para que no 
+
+                # Conviene ir cerrando los plots para que no
                 # haya problemas de memoria
                 plt.close()
             except Exception as ex:
@@ -259,10 +259,9 @@ def mapa_stocks(request, nombre_bd):
     return render(request, "mapa_stocks.html", context)
 
 
-
 def getListaRSS(nombre_bd):
     """Para obtener una lista con noticias relacionadas
-    con los índices y otros mercados. 
+    con los índices y otros mercados.
 
     Args:
         nombre_bd (str): nombre de la base de datos, i.e.,
@@ -283,14 +282,13 @@ def getListaRSS(nombre_bd):
     for n in range(numNoticiasPorFeed):
         for fuente in RSS:
             feed = feedparser.parse(fuente)
-            # Cojo sólo la última entrada de cada RSS (que es 
+            # Cojo sólo la última entrada de cada RSS (que es
             # la última noticia en todos los casos)
             entrada = feed["entries"][n]
             diccionario = {'title': entrada.title, 'href': entrada.links[0]['href']}
-            listaRSS.append(diccionario)        
+            listaRSS.append(diccionario)
 
     return listaRSS
-
 
 
 @login_required
@@ -309,7 +307,7 @@ def chart_y_datos(request, ticker, nombre_bd):
     try:
         # Crear la conexión a la BD
         conn = connections.create_connection(nombre_bd)
-        
+
         # Para llamar a la tabla que se pase como ticker
         table_name = f"{ticker.upper()}"
 
@@ -319,13 +317,13 @@ def chart_y_datos(request, ticker, nombre_bd):
 
         # Ejecutar la sentencia y pasar a DataFrame
         ticker_data = pd.read_sql_query(query, conn)
-        
+
         # Paso la colunma 'Date' a datetime y ordeno por fecha
         ticker_data["Date"] = pd.to_datetime(ticker_data["Date"], utc=True)
         ticker_data = ticker_data.sort_values(by="Date", ascending=True)
 
         # Para eliminar los días que no hay mercado hay que hacer más
-        # que un dropna() porque plotly hace su propia lista entre 
+        # que un dropna() porque plotly hace su propia lista entre
         # fechas a la hora de mostrar y aunque no haya huecos los crea
         # Idea sacada de: https://stackoverflow.com/questions/61895282/plotly-how-to-remove-empty-dates-from-x-axis
         trading_days_data = ticker_data.dropna()
@@ -333,15 +331,15 @@ def chart_y_datos(request, ticker, nombre_bd):
         dt_all = pd.date_range(start=ticker_data['Date'].iloc[0],
                                end=ticker_data['Date'].iloc[-1])
         dt_obs = [d.strftime("%Y-%m-%d") for d in ticker_data['Date']]
-        dt_breaks = [d for d in dt_all.strftime("%Y-%m-%d").tolist() if not d in dt_obs]
+        dt_breaks = [d for d in dt_all.strftime("%Y-%m-%d").tolist() if d not in dt_obs]
 
         # Pongo la columna como index
         trading_days_data.set_index("Date", inplace=True)
-        
+
         # Creo la figura para el gráfico de velas de plotly
         fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.1,
                             subplot_titles=['', 'Volumen'])
-        
+
         # Añado el gráfico de velas
         candlestick = go.Candlestick(x=trading_days_data.index,
                                      open=trading_days_data['Open'],
@@ -353,34 +351,34 @@ def chart_y_datos(request, ticker, nombre_bd):
 
         # Añado las medias móviles
         mm20_trace = go.Scatter(x=trading_days_data.index,
-                               y=trading_days_data['MM20'],
-                               mode='lines',
-                               line=dict(width=1),
-                               marker_color='rgba(234, 113, 37, 0.8)', 
-                               name='MM20')
+                                y=trading_days_data['MM20'],
+                                mode='lines',
+                                line=dict(width=1),
+                                marker_color='rgba(234, 113, 37, 0.8)',
+                                name='MM20')
         fig.add_trace(mm20_trace, row=1, col=1)
 
         mm50_trace = go.Scatter(x=trading_days_data.index,
-                               y=trading_days_data['MM50'],
-                               mode='lines',
-                               line=dict(width=1),
-                               marker_color='rgba(21, 50, 231, 0.8)', 
-                               name='MM50')
+                                y=trading_days_data['MM50'],
+                                mode='lines',
+                                line=dict(width=1),
+                                marker_color='rgba(21, 50, 231, 0.8)',
+                                name='MM50')
         fig.add_trace(mm50_trace, row=1, col=1)
 
         # Volumen. Lo pongo en gris
         volume_trace = go.Bar(x=trading_days_data.index,
                               y=trading_days_data['Volume'],
-                              marker_color='rgba(51, 45, 48, 0.8)',  
+                              marker_color='rgba(51, 45, 48, 0.8)',
                               name='Volumen')
         fig.add_trace(volume_trace, row=2, col=1)
 
         # Actualizo los ejes y su disposición
         fig.update_xaxes(
             # Para que no coja las fechas auto creadas, sino las
-            # de datos reales, i.e., que no coja los días de 
+            # de datos reales, i.e., que no coja los días de
             # no trading
-            rangebreaks=[dict(values=dt_breaks)] 
+            rangebreaks=[dict(values=dt_breaks)]
         )
         # Para mostrar un selector de días, meses, años..
         fig.update_xaxes(
@@ -398,9 +396,9 @@ def chart_y_datos(request, ticker, nombre_bd):
                          categoryorder='category ascending')
         fig.update_yaxes(title_text='Precio', row=1, col=1)
         fig.update_yaxes(title_text='Volumen', row=2, col=1)
-        fig.update_layout(showlegend=True, 
-                        #   height=800, 
-                        #   width=1000,
+        fig.update_layout(showlegend=True,
+                          # height=800,
+                          # width=1000,
                           autosize=True)
 
         # Guardar la figura como una cadena de JSON
@@ -415,7 +413,7 @@ def chart_y_datos(request, ticker, nombre_bd):
 
     # Solo para mostrar el nombre más "bonito"
     nombre_ticker = ticker.split('_')[0]
-    
+
     # Para obtener el nombre completo
     model = apps.get_model('Analysis', ticker)
     entradas = model.objects.using(nombre_bd)[:1].values('name')
@@ -431,15 +429,14 @@ def chart_y_datos(request, ticker, nombre_bd):
     return render(request, "chart_y_datos.html", context)
 
 
-
 def get_datos(ticker, nombre_bd):
     """Método que devuelve los datos del último mes (aprox.)
-    del stock seleccionado. 
+    del stock seleccionado.
 
     Args:
-        ticker (str): nombre del ticker del que quiero obtener 
+        ticker (str): nombre del ticker del que quiero obtener
             la info.
-        nombre_bd (str): nombre (no ruta) de la BD a la que me 
+        nombre_bd (str): nombre (no ruta) de la BD a la que me
             quiero conectar.
 
     Returns:
@@ -452,8 +449,8 @@ def get_datos(ticker, nombre_bd):
 
     # Devuelvo los últimos 22 registros (aprox. 1 mes)
     query_set = model.objects.using(nombre_bd).order_by('-date')[:22].all()
-    
-    # 'query_set' es un QuerySet INMUTABLE donde se puede acceder a 
+
+    # 'query_set' es un QuerySet INMUTABLE donde se puede acceder a
     # las entradas con query_set[1], query_set[21], ... y 'tabla_datos'
     # es un Dict
     for _ in range(len(query_set)):
