@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone as tz
 from datetime import timedelta
 from DashBoard.models import StockComprado, StockSeguimiento
+from log.logger.logger import get_logger_dashboard
+
 # Refactoring:
 # ------------
 # No puedo usar ValueError ni ValidationError, el error
@@ -11,10 +13,33 @@ from DashBoard.models import StockComprado, StockSeguimiento
 # from django.core.exceptions import ValidationError
 from django.db.utils import IntegrityError
 
+# Idea original de NuclearPeon:
+# https://stackoverflow.com/questions/14305941/run-setup-only-once-for-a-set-of-automated-tests
+class Singleton(object):
+    _instance = None
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(Singleton, cls).__new__(
+                            cls, *args, **kwargs)
+            
+            log = get_logger_dashboard('DashBoardModels')
+            log.info("")
+            log.info("----------------------------------")
+            log.info("TESTS DASHBOARD MODELS")
+            log.info("----------------------------------")
 
-class StockModelTests(TestCase):
+            cls.setUpBool = True
+
+        return cls._instance
+
+
+
+class TestDashBoardModels(TestCase):
 
     def setUp(self):
+        Singleton()
+        self.log = get_logger_dashboard('DashBoardModels')      
+
         self.user = User.objects.create_user(username='usuario', password='p@ssword')
 
         self.fecha = tz.now()
@@ -44,9 +69,11 @@ class StockModelTests(TestCase):
         )
 
 
+
     def test_models_StockComprado_posicion(self):
         # La posición no será un campo, sino que se calculará
-        self.assertEqual(self.stockComprado_1.posicion(), 100*10)
+        self.assertEqual(self.stockComprado_1.posicion(), 100*10, " - [NO OK] Calcular posición de StockComprado")
+        self.log.info(" - [OK] Calcular posición de StockComprado")
 
 
     def test_models_StockComprado_fecha_futura(self):

@@ -1,16 +1,46 @@
 from django.test import TestCase
 from Analysis.models import StockBase, Sectores, modelos_de_stocks
 from util.tickers.Tickers_BDs import tickersIBEX35, tickersDJ30, tickersAdaptadosDJ30, tickersAdaptadosIBEX35
+from log.logger.logger import get_logger_analysis
 from datetime import datetime, timezone
 # from django.utils import timezone
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
 
+
+# Idea original de NuclearPeon:
+# https://stackoverflow.com/questions/14305941/run-setup-only-once-for-a-set-of-automated-tests
+class Singleton(object):
+    _instance = None
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(Singleton, cls).__new__(
+                            cls, *args, **kwargs)
+            
+            log = get_logger_analysis('AnalysisModels')
+            log.info("")
+            log.info("----------------------------------")
+            log.info("TESTS ANALYSIS MODELS")
+            log.info("----------------------------------")
+
+            cls.setUpBool = True
+
+        return cls._instance
+
+
+# Refactoring:
+# ------------
+# No me he percatado de la necesidad de realizar estos tests
+# hasta que he empezado a seguir la metodología TDD en la app
+# DashBoard
 class TestAnalysisModels(TestCase):
     
     databases = '__all__'
 
     def setUp(self):
+        Singleton()
+        self.log = get_logger_analysis('AnalysisModels')
+
         model = apps.get_model('Analysis', 'AAPL')
         self.stock = model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
             open=100.0,
@@ -39,29 +69,34 @@ class TestAnalysisModels(TestCase):
     
 
     def test_models_StockBase_str(self):
-        self.assertEquals(str(self.stock), 'AAPL - Apple Inc. . Fecha: 2025-01-01 12:00:00+00:00. Cierre: 105.0')
+        self.assertEquals(str(self.stock), 'AAPL - Apple Inc. . Fecha: 2025-01-01 12:00:00+00:00. Cierre: 105.0', " - [NO OK] StockBase str")
+        self.log.info(" - [OK] StockBase str")
 
 
     def test_models_StockBase_diccionario(self):
-        self.assertEquals(len(modelos_de_stocks), len(tickersDJ30() + tickersIBEX35()))
+        self.assertEquals(len(modelos_de_stocks), len(tickersDJ30() + tickersIBEX35()), " - [NO OK] StockBase diccionario de 'modelos_de_stocks'")
 
         for _ in modelos_de_stocks:
             self.assertTrue(_ in (tickersAdaptadosDJ30() + tickersAdaptadosIBEX35()))
+        self.log.info(" - [OK] StockBase diccionario de 'modelos_de_stocks'")
 
 
     def test_models_Sectores_instance(self):
-        self.assertTrue(isinstance(self.sector, Sectores))
+        self.assertTrue(isinstance(self.sector, Sectores), " - [NO OK] Objeto 'sector' instancia de Sectores")
+        self.log.info(" - [OK] Objeto 'sector' instancia de Sectores")
 
 
     def test_models_Sectores_str(self):
-        self.assertEquals(str(self.sector), '1 - Redeia Corporación, S.A. - Utilities')
+        self.assertEquals(str(self.sector), '1 - Redeia Corporación, S.A. - Utilities', " - [NO OK] Sectores str")
+        self.log.info(" - [OK] Sectores str")
     
 
     def test_models_Sectores_autoincremental(self):
         self.sector2 = Sectores.objects.create(ticker_bd='AAPL', bd='dj30', ticker='AAPL', 
                                          nombre='Apple Inc.', sector='Technology')
         # Tiene que ser 2 porque creo otro en el setUp()
-        self.assertEquals(self.sector2.id, 2)
+        self.assertEquals(self.sector2.id, 2, " - [NO OK] Registro con 'id' autoincremental de Sectores")
+        self.log.info(" - [OK] Registro con 'id' autoincremental de Sectores")
 
 
     def test_models_Sectores_filtrado(self):
@@ -72,9 +107,9 @@ class TestAnalysisModels(TestCase):
                                          nombre='Aena S.M.E., S.A.', 
                                          sector='Industrials')
         valoresIndustriales = Sectores.objects.filter(sector='Industrials')
-        self.assertEqual(valoresIndustriales.count(), 2)
+        self.assertEqual(valoresIndustriales.count(), 2, " - [NO OK] Filtrado por Sectores")
 
         # Elimino uno para ver que de nuevo se filtra bien
         self.sector3.delete()
-        self.assertEqual(Sectores.objects.filter(sector='Industrials').count(), 1)
-
+        self.assertEqual(Sectores.objects.filter(sector='Industrials').count(), 1, " - [NO OK] Filtrado por Sectores")
+        self.log.info(" - [OK] Filtrado por Sectores")
