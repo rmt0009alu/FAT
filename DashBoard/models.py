@@ -1,3 +1,9 @@
-# from django.db import models
+from django.db import models
 
-# Create your models here.
+
+class StockComprado(models.Model):
+    pass
+
+
+class StockSeguimiento(models.Model):
+    pass

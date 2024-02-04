@@ -48,6 +48,7 @@ class TestAnalysisModels(TestCase):
         for _ in modelos_de_stocks:
             self.assertTrue(_ in (tickersAdaptadosDJ30() + tickersAdaptadosIBEX35()))
 
+
     def test_models_Sectores_instance(self):
         self.assertTrue(isinstance(self.sector, Sectores))
 
