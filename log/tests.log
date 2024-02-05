@@ -9,6 +9,40 @@ INFO:DashBoardModels: - [OK] Calcular posición de StockComprado
 INFO:DashBoardModels: - [OK] StockComprado str
 INFO:DashBoardModels: - [OK] Crear/borrar StockSeguimiento
 INFO:DashBoardModels: - [OK] StockSeguimiento str
+INFO:DashBoardViews:
+INFO:DashBoardViews:----------------------------------
+INFO:DashBoardViews:TESTS DASHBOARD VIEWS
+INFO:DashBoardViews:----------------------------------
+ERROR:django.request:Internal Server Error: /dashboard/nueva_compra/
+Traceback (most recent call last):
+  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view DashBoard.views.nueva_compra didn't return an HttpResponse object. It returned None instead.
+ERROR:django.request:Internal Server Error: /dashboard/nueva_compra/
+Traceback (most recent call last):
+  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view DashBoard.views.nueva_compra didn't return an HttpResponse object. It returned None instead.
+ERROR:django.request:Internal Server Error: /dashboard/nueva_compra/
+Traceback (most recent call last):
+  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view DashBoard.views.nueva_compra didn't return an HttpResponse object. It returned None instead.
 INFO:DashBoardURLs:
 INFO:DashBoardURLs:----------------------------------
 INFO:DashBoardURLs:TESTS DASHBOARD URLS
