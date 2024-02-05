@@ -65,7 +65,8 @@ class TestAnalysisModels(TestCase):
 
 
     def test_models_StockBase_instance(self):
-        self.assertTrue(isinstance(self.stock, StockBase))
+        self.assertTrue(isinstance(self.stock, StockBase), " - [NO OK] Crear instancia de StockBase")
+        self.log.info(" - [OK] Crear instancia de StockBase")
     
 
     def test_models_StockBase_str(self):

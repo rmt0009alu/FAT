@@ -2,27 +2,19 @@ INFO:DashBoardModels:
 INFO:DashBoardModels:----------------------------------
 INFO:DashBoardModels:TESTS DASHBOARD MODELS
 INFO:DashBoardModels:----------------------------------
+INFO:DashBoardModels: - [OK] Evitar bases de datos falsas de StockComprado
+INFO:DashBoardModels: - [OK] Crear/borrar StockComprado
+INFO:DashBoardModels: - [OK] Evitar fechas futuras de StockComprado
 INFO:DashBoardModels: - [OK] Calcular posición de StockComprado
-INFO:AnalysisModels:
-INFO:AnalysisModels:----------------------------------
-INFO:AnalysisModels:TESTS ANALYSIS MODELS
-INFO:AnalysisModels:----------------------------------
-INFO:AnalysisModels: - [OK] Registro con 'id' autoincremental de Sectores
-INFO:AnalysisModels: - [OK] Filtrado por Sectores
-INFO:AnalysisModels: - [OK] Objeto 'sector' instancia de Sectores
-INFO:AnalysisModels: - [OK] Sectores str
-INFO:AnalysisModels: - [OK] StockBase diccionario de 'modelos_de_stocks'
-INFO:AnalysisModels: - [OK] StockBase str
-INFO:AnalysisViews:
-INFO:AnalysisViews:----------------------------------
-INFO:AnalysisViews:TESTS ANALYSIS VIEWS
-INFO:AnalysisViews:----------------------------------
-INFO:AnalysisViews: - [OK] Hacer signup con usuario de forma adecuada
-INFO:AnalysisViews: - [OK] Que página de signup retorne '200 ok'
-INFO:AnalysisViews: - [OK] No utilizar otros 'templates' por error
-INFO:AnalysisViews: - [OK] Asignar 'template' de signup y cargar base.html
+INFO:DashBoardModels: - [OK] StockComprado str
+INFO:DashBoardModels: - [OK] Crear/borrar StockSeguimiento
+INFO:DashBoardModels: - [OK] StockSeguimiento str
 INFO:DashBoardURLs:
 INFO:DashBoardURLs:----------------------------------
 INFO:DashBoardURLs:TESTS DASHBOARD URLS
 INFO:DashBoardURLs:----------------------------------
 INFO:DashBoardURLs: - [OK] URL de 'dashboard'
+INFO:DashBoardURLs: - [OK] URL de 'eliminar_compras'
+INFO:DashBoardURLs: - [OK] URL de 'eliminar_seguimiento'
+INFO:DashBoardURLs: - [OK] URL de 'nueva_compra'
+INFO:DashBoardURLs: - [OK] URL de 'nuevo_seguimiento'

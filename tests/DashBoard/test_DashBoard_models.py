@@ -5,13 +5,13 @@ from django.utils import timezone as tz
 from datetime import timedelta
 from DashBoard.models import StockComprado, StockSeguimiento
 from log.logger.logger import get_logger_dashboard
-
 # Refactoring:
 # ------------
 # No puedo usar ValueError ni ValidationError, el error
 # que se devuelve con la fecha y bd no válidas es IntegrityError
 # from django.core.exceptions import ValidationError
 from django.db.utils import IntegrityError
+
 
 # Idea original de NuclearPeon:
 # https://stackoverflow.com/questions/14305941/run-setup-only-once-for-a-set-of-automated-tests
@@ -42,7 +42,7 @@ class TestDashBoardModels(TestCase):
 
         self.user = User.objects.create_user(username='usuario', password='p@ssword')
 
-        self.fecha = tz.now()
+        self.fecha = tz.now() - timedelta(days=5)
         self.stockComprado_1 = StockComprado.objects.create(
             usuario=self.user,
             ticker_bd='ACS_MC',
@@ -92,6 +92,7 @@ class TestDashBoardModels(TestCase):
                 moneda='USD',
                 sector='Technology'
             )
+        self.log.info(" - [OK] Evitar fechas futuras de StockComprado")
 
 
     def test_models_StockComprado_bd_falsa(self):
@@ -104,37 +105,44 @@ class TestDashBoardModels(TestCase):
                 bd='bd_falsa',
                 ticker='AAPL',
                 nombre_stock='Apple Inc.',
-                fecha_compra=tz.now(),
+                fecha_compra=self.fecha,
                 num_acciones=5,
                 precio_compra=50.0,
                 moneda='USD',
                 sector='Technology'
             )
+        self.log.info(" - [OK] Evitar bases de datos falsas de StockComprado")
 
 
     def test_models_StockComprado_str(self):
         # Habrá un __str__ que me permita ver si el objeto
         # está bien creado (nombre - usuario - fecha - moneda)
         self.assertEqual(str(self.stockComprado_1), 
-                         f"ACS, Actividades de Construcción y Servicios, S.A. - usuario - {self.fecha} - EUR")
+                         f"ACS, Actividades de Construcción y Servicios, S.A. - usuario - {self.fecha} - EUR",
+                         " - [NO OK] StockComprado str")
+        self.log.info(" - [OK] StockComprado str")
 
 
     def test_models_StockComprado_crear_borrar(self):
-        self.assertEqual(StockComprado.objects.count(), 1)
-        self.assertEqual(self.stockComprado_1.ticker, 'ACS.MC')
+        self.assertEqual(StockComprado.objects.count(), 1, " - [NO OK] Crear/borrar StockComprado")
+        self.assertEqual(self.stockComprado_1.ticker, 'ACS.MC', " - [NO OK] Crear/borrar StockComprado")
         self.stockComprado_1.delete()
-        self.assertEqual(StockComprado.objects.count(), 0)
+        self.assertEqual(StockComprado.objects.count(), 0, " - [NO OK] Crear/borrar StockComprado")
+        self.log.info(" - [OK] Crear/borrar StockComprado")
 
 
     def test_models_StockSeguimiento_str(self):
         # Habrá un __str__ que me permita ver si el objeto
         # está bien creado (nombre - usuario - moneda)
         self.assertEqual(str(self.stockSeguimiento_1), 
-                         "ACS, Actividades de Construcción y Servicios, S.A. - usuario - EUR")
+                         "ACS, Actividades de Construcción y Servicios, S.A. - usuario - EUR",
+                         " - [NO OK] StockSeguimiento str")
+        self.log.info(" - [OK] StockSeguimiento str")
 
 
     def test_models_StockSeguimiento_crear_borrar(self):
-        self.assertEqual(StockSeguimiento.objects.count(), 1)
-        self.assertEqual(self.stockSeguimiento_1.ticker, 'ACS.MC')
+        self.assertEqual(StockSeguimiento.objects.count(), 1, " - [NO OK] Crear/borrar StockSeguimiento")
+        self.assertEqual(self.stockSeguimiento_1.ticker, 'ACS.MC', " - [NO OK] Crear/borrar StockSeguimiento")
         self.stockSeguimiento_1.delete()
-        self.assertEqual(StockSeguimiento.objects.count(), 0)
+        self.assertEqual(StockSeguimiento.objects.count(), 0, " - [NO OK] Crear/borrar StockSeguimiento")
+        self.log.info(" - [OK] Crear/borrar StockSeguimiento")
