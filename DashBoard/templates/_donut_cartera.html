@@ -1,0 +1,48 @@
+
+{% if comprasUsuario %}
+    <div class="caja">
+        <p class="barra">Distribución de cartera</p>
+        <canvas id="total-donut-chart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var ctx = document.getElementById('total-donut-chart').getContext('2d');
+            var totalPosicion = 0;
+            var labels = [];
+            var data = [];
+            var backgroundColors = [];
+
+            {% for compra in comprasUsuario %}
+                labels.push("{{ compra.ticker | default:'' }}");
+                data.push({{ compra.posicion | default:0 }});
+                backgroundColors.push(getColorAleatorio());
+                // backgroundColors.push(getSimilarColor('#8EEBA7'));
+                totalPosicion += {{ compra.posicion | default:0 }};
+            {% endfor %}
+
+            var myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: backgroundColors,
+                        borderWidth: 1
+                    }]
+                }
+            });
+
+            function getColorAleatorio() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+{% else %}
+    <p>No tienes compras guardadas por ahora.</p>
+{% endif %}

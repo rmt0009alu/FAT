@@ -1,0 +1,49 @@
+.container {
+    width: 60%;
+    margin: auto;
+}
+
+.cabecera {
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.caja {
+    margin: 20px auto;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.barra {
+    width: 100%;
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    padding-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #3BA5EA;
+    padding: 8px;
+    text-align: center;
+    background-color: white;
+    color: #212428;
+}
+
+
+
+

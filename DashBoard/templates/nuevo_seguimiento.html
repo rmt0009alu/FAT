@@ -1,0 +1,78 @@
+<!-- templates/dashboard/nueva_compra.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Incluyo mis estilos -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_modificar_cartera.css' %}">
+<!-- Para la caja de búsqueda con sugerencias y el calendario (datepicker)-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<!-- Para el DatePicker -->
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+<div>
+    <br><p class="cabecera">Añadir un nuevo stock a la cartera</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+
+            <form method="POST" class="card card-body">
+                <h3 class="text-center">Nueva valor a seguir</h1>
+                <!-- Sólo se muestran los mensajes de error en caso de que existan -->
+                <p style="color: red;">{{ msg_error }}</p>
+                <p style="color: red;">{{ msg_error_2 }}</p>
+
+
+                {% csrf_token %}
+                
+                <!-- El ticker no va en el formulario porque así puedo
+                usar un cuadro de búsqueda autocompletable.
+                Además, añado un input oculto para que se reconozca bien el 
+                ticker al recoger el dato con POST.get() -->
+                <input type="hidden" id="ticker" name="ticker" value="">
+                <div class="ui-widget">
+                    <label for="ticker"></label>
+                    <input id="ticker_autocomplete" class="form-control" placeholder="Buscador de tickers">
+                </div>
+                <br>
+
+
+                <!-- En este formulario, realmente, sólo va 'precio_entrada_deseado'. 
+                Pero así puedo adaptar y mejorar el resto de campos de entrada -->                
+                {{ form.as_p }}
+                
+                <button type="submit" class="btn btn-dark" style="width: 80%; text-align: center; margin: auto;">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Para la caja de búsqueda con sugerencias y el calendario -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+    $( function() {
+        var tickersDisponibles = {{ listaTickers|safe }};
+        $("#ticker_autocomplete").autocomplete({
+            source: tickersDisponibles,
+            select: function (event, ui) {
+                // Valores del input visible
+                $("#ticker_autocomplete").val(ui.item.value);
+                
+                // Valores del input oculto
+                $("#ticker").val(ui.item.value);
+                
+                return false;
+            }
+        });
+    } );
+</script>
+
+
+{% endblock %}
+

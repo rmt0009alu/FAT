@@ -1,0 +1,34 @@
+.cabecera {
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    text-align: center;
+}
+
+.barra {
+    width: 100%;
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    padding-left: 20px;
+}
+
+.fila {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    justify-content: center; 
+}
+
+.columna {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.caja {
+    margin: 20px auto;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

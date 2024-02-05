@@ -1,0 +1,47 @@
+<!-- templates/dashboard.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_dashboard.css' %}">
+
+<div>
+    <br><p class="cabecera">DashBoard de {{ usuario }}</p>
+</div>
+
+<div class="fila">
+    <div class="columna">
+        {% include '_botones.html' %}
+    </div>
+</div>
+
+<div class="fila">
+    <div class="columna">
+        {% include '_evol_cartera.html' %}
+    </div>
+</div>
+
+<!-- Sólo se muestran si el usuario ya tiene posiciones guardadas -->
+{% if comTieneDatos %}
+    <div class="fila" style="width: 80%; margin: 0 auto;">
+        <div class="columna">
+            {% include '_donut_cartera.html' %}
+        </div>
+        <div class="columna">
+            {% include '_histograma_sectores.html' %}
+        </div>
+        <div class="columna">
+            {% include '_histograma_monedas.html' %}
+        </div>
+    </div>
+{% endif %}
+
+<div class="fila">
+    <div class="columna">
+        {% include '_en_seguimiento.html' %}
+    </div>
+</div>
+
+{% endblock %}

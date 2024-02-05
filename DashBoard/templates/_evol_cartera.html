@@ -1,0 +1,84 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #3BA5EA;
+        padding: 8px;
+        text-align: center;
+        background-color: white;
+        color: #212428;
+    }
+
+    .total {
+        text-align: center;
+        font-size: 24px;
+        color: #212428;
+    }
+
+    .círculo {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: #212428;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px auto;
+        color: #FFFEFE;
+        font-size: 18px;
+        font-family: 'Arial', sans-serif; 
+    }
+
+    .positivo {
+        color: #8EEBA7;
+    }
+
+    .negativo {
+        color: red;
+    }
+</style>
+
+<div class="caja" style="width: 80%;">
+    <p class="barra">Posiciones abiertas</p>
+    {% if comprasUsuario %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Fecha compra</th>
+                    <th>Num. acciones</th>
+                    <th>Precio compra</th>
+                    <th>Ult. cierre</th>
+                    <th>Evolución</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for compra in evolCartera %}
+                    <tr>
+                        <td><a title="{{ compra.nombre }}" href="/{{ compra.bd }}/{{ compra.ticker_bd }}/chart">{{ compra.ticker }}</a></td>
+                        <td>{{ compra.fecha_compra|date:"d/m/Y" }}</td>
+                        <td>{{ compra.num_acciones }}</td>
+                        <td>{{ compra.precio_compra|floatformat:3 }}</td>
+                        <td>{{ compra.cierre|floatformat:3 }}</td>
+                        <td style="background-color: #212428;" class="{% if compra.evol >= 0 %}positivo{% else %}negativo{% endif %}">
+                            {{ compra.evol|floatformat:2 }} %
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="total">
+            Total
+        </div>
+
+        <div class="círculo {% if evolTotal >= 0 %}positivo{% else %}negativo{% endif %}">
+            {{ evolTotal|floatformat:2 }} %
+        </div>
+    {% else %}
+        <p>No tienes compras guardadas por ahora.</p>
+    {% endif %}
+</div>

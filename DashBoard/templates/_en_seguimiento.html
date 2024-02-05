@@ -1,0 +1,61 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #3BA5EA;
+        padding: 8px;
+        text-align: center;
+        background-color: white;
+        color: #212428;
+    }
+
+    .positivo {
+        color: #8EEBA7;
+    }
+
+    .negativo {
+        color: red;
+    }
+</style>
+
+<div class="caja" style="width: 80%;">
+    <p class="barra">Valores en seguimiento</p>
+    {% if seguimientoUsuario %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Fecha inicio seguimiento</th>
+                    <th>Precio de entrada deseado</th>
+                    <th>Ult. cierre</th>
+                    <th>Valores similares</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocksEnSeg %}
+                    <tr>
+                        <td><a title="{{ stock.name }}" href="/{{ stock.bd }}/{{ stock.ticker_bd }}/chart">{{ stock.ticker }}</a></td>
+                        <td>{{ stock.fecha_inicio_seguimiento|date:"d/m/Y" }}</td>
+                        <td>{{ stock.precio_entrada_deseado|floatformat:3 }}</td>
+                        <td>{{ stock.cierre|floatformat:3 }}</td>
+                        <td>
+                            {% if stock.listaSimilares %}
+                                <!-- {{ stock.listaSimilares|join:", " }} -->
+                                    {% for similar in stock.listaSimilares %}
+                                        <a title="{{ similar.nombre }}" href="/{{ similar.bd }}/{{ similar.ticker_bd }}/chart">{{ similar.ticker }}</a>&nbsp;&nbsp;
+                                    {% endfor %}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No tienes compras guardadas por ahora.</p>
+    {% endif %}
+</div>

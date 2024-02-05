@@ -1,0 +1,65 @@
+
+<!-- Incluir la librería Chart.js desde CDN sin instalar con npm -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Histograma con Chart.js -->
+<div class="caja">
+    <p class="barra">Distribución por sectores</p>
+    <canvas id="sectorHistogram"></canvas>
+</div>
+
+<script>
+    // Inicializar variables (sectores disponibles extraídos
+    // de https://finance.yahoo.com/sectors)
+    var sectorData = {};
+    var sectors = ['Technology', 'Financial Services', 'Healthcare', 'Consumer Cyclical', 'Industrials', 'Communication Services', 'Consumer Defensive', 'Energy', 'Basic Materials', 'Real Estate', 'Utilities'];
+    var sectorLabels = [];
+    var sectorValues = [];
+
+    // Procesar los datos
+    {% if comprasUsuario %}
+        {% for compra in comprasUsuario %}
+            {% if compra.sector %}
+                var sector = "{{ compra.sector }}";
+                if (!sectorData[sector]) {
+                    sectorData[sector] = 0;
+                }
+                sectorData[sector] += {{ compra.posicion }};
+            {% endif %}
+        {% endfor %}
+
+        // Iterar sobre todos los posibles sectores
+        sectors.forEach(function(sector) {
+            // Añadir la etiqueta de sector
+            sectorLabels.push(sector);
+
+            // Si existen datos para el sector se asocia, si no, 
+            // se pone a 0
+            sectorValues.push(sectorData[sector] || 0);
+        });
+
+        // Crear el Chart.js
+        var ctx = document.getElementById('sectorHistogram').getContext('2d');
+        var sectorChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: sectorLabels,
+                datasets: [{
+                    label: 'Total invertido',
+                    data: sectorValues,
+                    // backgroundColor: '#2209ad',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    }
+                },
+                // Aquí no mantengo el ratio
+                // aspectRatio: 1,
+            }
+        });
+    {% endif %}
+</script>

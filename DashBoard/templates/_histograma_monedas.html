@@ -1,0 +1,60 @@
+<script>
+    var invertidoEUR = 0;
+    var invertidoUSD = 0;
+</script>
+
+{% if comprasUsuario %}
+    <ul>
+        {% for compra in comprasUsuario %}
+            <script>
+                {% if compra.moneda == 'EUR' %}
+                    invertidoEUR += {{ compra.posicion }};
+                {% elif compra.moneda == 'USD' %}
+                    invertidoUSD += {{ compra.posicion }};
+                {% endif %}
+            </script>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<!-- Incluyo la librearía Chart.js usando CDN, sin instalar -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Histograma con Chart.js -->
+<div class="caja">
+    <p class="barra">Distribución por moneda</p>
+    <canvas id="histograma"></canvas>
+</div>
+
+<!-- Idea sacada de: https://www.chartjs.org/docs/latest/getting-started/ -->
+<script>
+    // Contexto
+    var ctx = document.getElementById('histograma').getContext('2d');
+
+    // Datos
+    var datos = {
+        labels: ['EUR', 'USD'],
+        datasets: [{
+            label: 'Total invertido',
+            data: [invertidoEUR, invertidoUSD],
+            // backgroundColor: '#2209ad',
+            borderWidth: 1,
+        }]
+    };
+
+    // Chart
+    var investmentChart = new Chart(ctx, {
+        type: 'bar',
+        data: datos,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                }
+            },
+            // Para mantener el ratio del aspecto (si no, no 
+            // no se ve del todo bien)
+            aspectRatio: 1,
+        }
+    });
+</script>

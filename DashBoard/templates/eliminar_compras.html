@@ -1,0 +1,49 @@
+<!-- templates/dashboard/eliminar_compras.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Incluyo mis estilos -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_modificar_cartera.css' %}">
+
+<div>
+    <br><p class="cabecera">Eliminar stocks de la cartera</p>
+</div>
+
+<div class="caja" style="width: 80%;">
+    <p class="barra">Posiciones abiertas</p>
+    
+    <form method="post" action="{% url 'eliminar_compras' %}" style="text-align: center;">
+        {% csrf_token %}
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Fecha de compra</th>
+                    <th>Num. acciones</th>
+                    <th>Precio de compra</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for compra in comprasUsuario %}
+                    <tr>
+                        <td><a title="{{ compra.nombre_stock }}" href="/{{ compra.bd }}/{{ compra.ticker_bd }}/chart">{{ compra.ticker }}</a></td>
+                        <td>{{ compra.fecha_compra|date:"d/m/Y" }}</td>
+                        <td>{{ compra.num_acciones }}</td>
+                        <td>{{ compra.precio_compra|floatformat:3 }}</td>
+                        <td><input type="checkbox" name="eliminar_stocks" value="{{ compra.id }}"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <button type="submit" class="btn btn-dark" style="width: 40%; margin-bottom: 15px;">Eliminar seleccionados</button>
+    </form>
+</div>
+
+{% endblock %}

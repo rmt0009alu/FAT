@@ -1,3 +1,33 @@
+INFO:AnalysisModels:
+INFO:AnalysisModels:----------------------------------
+INFO:AnalysisModels:TESTS ANALYSIS MODELS
+INFO:AnalysisModels:----------------------------------
+INFO:AnalysisModels: - [OK] Registro con 'id' autoincremental de Sectores
+INFO:AnalysisModels: - [OK] Filtrado por Sectores
+INFO:AnalysisModels: - [OK] Objeto 'sector' instancia de Sectores
+INFO:AnalysisModels: - [OK] Sectores str
+INFO:AnalysisModels: - [OK] StockBase diccionario de 'modelos_de_stocks'
+INFO:AnalysisModels: - [OK] Crear instancia de StockBase
+INFO:AnalysisModels: - [OK] StockBase str
+INFO:AnalysisViews:
+INFO:AnalysisViews:----------------------------------
+INFO:AnalysisViews:TESTS ANALYSIS VIEWS
+INFO:AnalysisViews:----------------------------------
+INFO:AnalysisViews: - [OK] Devolver página de espera e info. al usuario tras signup adecuado
+INFO:AnalysisViews: - [OK] No permite usuarios con el mismo nombre
+INFO:AnalysisViews: - [OK] A la vez que se hace signup hacer login
+INFO:AnalysisViews: - [OK] No redireccionar si usuario o pass incorrectos
+INFO:AnalysisViews: - [OK] Hacer login de forma adecuada
+INFO:AnalysisViews: - [OK] Que página de signin retorne '200 ok'
+INFO:AnalysisViews: - [OK] No utilizar otros 'templates' por error
+INFO:AnalysisViews: - [OK] Asignar 'template' de signin y cargar base.html
+INFO:AnalysisViews: - [OK] No permitir login a usuarios inexistentes
+INFO:AnalysisViews: - [OK] Hacer logout
+INFO:AnalysisViews: - [OK] Hacer signup con usuario de forma adecuada
+INFO:AnalysisViews: - [OK] Que página de signup retorne '200 ok'
+INFO:AnalysisViews: - [OK] No utilizar otros 'templates' por error
+INFO:AnalysisViews: - [OK] Asignar 'template' de signup y cargar base.html
+INFO:AnalysisViews: - [OK] Informar al usuario con mensaje de usuario no correcto
 INFO:DashBoardModels:
 INFO:DashBoardModels:----------------------------------
 INFO:DashBoardModels:TESTS DASHBOARD MODELS
@@ -29,6 +59,187 @@ INFO:DashBoardViews: - [OK] Que POST a 'nuevo_seguimiento' retorne '302...' sin 
 INFO:DashBoardViews: - [OK] Que página de 'nuevo_seguimiento' retorne '200 ok' con login
 INFO:DashBoardViews: - [OK] Que página de 'nuevo_seguimiento' retorne '302...' sin login'
 INFO:DashBoardViews: - [OK] Asignar 'template' de nuevo_seguimiento y cargar base.html
+INFO:BDs:
+INFO:BDs:----------------------------------
+INFO:BDs:TEST BÁSICO
+INFO:BDs:----------------------------------
+INFO:BDs: - [OK] Los tickers del DJ30 están en una lista
+INFO:BDs: - [OK] Los tickers del IBEX35 están en una lista
+INFO:BDs: - [OK] Listas de tickers no vacías
+INFO:BDs: - [OK] Todos los tickers deben de ser strings
+INFO:BDs:
+INFO:BDs:----------------------------------
+INFO:BDs:TEST LONGITUD LISTAS TICKERS
+INFO:BDs:----------------------------------
+INFO:BDs: - [OK] Tener 30 tickers (+ índice) en la lista del DJ30
+INFO:BDs: - [OK] Tener 35 tickers (+ índice) en la lista del IBEX35
+INFO:BDs:
+INFO:BDs:----------------------------------
+INFO:BDs:TEST TABLAS DJ30 BIEN CREADAS
+INFO:BDs:----------------------------------
+INFO:BDs: - [OK] Tener 31 (tickers + índidce) tablas en DJ30
+INFO:BDs:
+INFO:BDs: - [OK] Tener tabla en BD para AAPL
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de AAPL
+INFO:BDs: - [OK] Tener tabla en BD para AMGN
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de AMGN
+INFO:BDs: - [OK] Tener tabla en BD para AXP
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de AXP
+INFO:BDs: - [OK] Tener tabla en BD para BA
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de BA
+INFO:BDs: - [OK] Tener tabla en BD para CAT
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de CAT
+INFO:BDs: - [OK] Tener tabla en BD para CRM
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de CRM
+INFO:BDs: - [OK] Tener tabla en BD para CSCO
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de CSCO
+INFO:BDs: - [OK] Tener tabla en BD para CVX
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de CVX
+INFO:BDs: - [OK] Tener tabla en BD para DIS
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de DIS
+INFO:BDs: - [OK] Tener tabla en BD para DOW
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de DOW
+INFO:BDs: - [OK] Tener tabla en BD para GS
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de GS
+INFO:BDs: - [OK] Tener tabla en BD para HD
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de HD
+INFO:BDs: - [OK] Tener tabla en BD para HON
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de HON
+INFO:BDs: - [OK] Tener tabla en BD para IBM
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de IBM
+INFO:BDs: - [OK] Tener tabla en BD para INTC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de INTC
+INFO:BDs: - [OK] Tener tabla en BD para JNJ
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de JNJ
+INFO:BDs: - [OK] Tener tabla en BD para JPM
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de JPM
+INFO:BDs: - [OK] Tener tabla en BD para KO
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de KO
+INFO:BDs: - [OK] Tener tabla en BD para MCD
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de MCD
+INFO:BDs: - [OK] Tener tabla en BD para MMM
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de MMM
+INFO:BDs: - [OK] Tener tabla en BD para MRK
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de MRK
+INFO:BDs: - [OK] Tener tabla en BD para MSFT
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de MSFT
+INFO:BDs: - [OK] Tener tabla en BD para NKE
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de NKE
+INFO:BDs: - [OK] Tener tabla en BD para PG
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de PG
+INFO:BDs: - [OK] Tener tabla en BD para TRV
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de TRV
+INFO:BDs: - [OK] Tener tabla en BD para UNH
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de UNH
+INFO:BDs: - [OK] Tener tabla en BD para V
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de V
+INFO:BDs: - [OK] Tener tabla en BD para VZ
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de VZ
+INFO:BDs: - [OK] Tener tabla en BD para WBA
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de WBA
+INFO:BDs: - [OK] Tener tabla en BD para WMT
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de WMT
+INFO:BDs: - [OK] Tener tabla en BD para DJI
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de DJI
+INFO:BDs:
+INFO:BDs:----------------------------------
+INFO:BDs:TEST CREAR REGISTROS EN DJ30
+INFO:BDs:----------------------------------
+INFO:BDs: - [OK] Crear datos con el formato esperado
+INFO:BDs: - [OK] Guardar 'id' autoincremental
+INFO:BDs:
+INFO:BDs:----------------------------------
+INFO:BDs:TEST TABLAS IBEX35 BIEN CREADAS
+INFO:BDs:----------------------------------
+INFO:BDs: - [OK] Tener 36 tablas (tickers + índidce) en IBEX35
+INFO:BDs:
+INFO:BDs: - [OK] Tener tabla en BD para ACS_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de ACS_MC
+INFO:BDs: - [OK] Tener tabla en BD para ACX_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de ACX_MC
+INFO:BDs: - [OK] Tener tabla en BD para AENA_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de AENA_MC
+INFO:BDs: - [OK] Tener tabla en BD para AMS_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de AMS_MC
+INFO:BDs: - [OK] Tener tabla en BD para ANA_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de ANA_MC
+INFO:BDs: - [OK] Tener tabla en BD para ANE_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de ANE_MC
+INFO:BDs: - [OK] Tener tabla en BD para BBVA_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de BBVA_MC
+INFO:BDs: - [OK] Tener tabla en BD para BKT_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de BKT_MC
+INFO:BDs: - [OK] Tener tabla en BD para CABK_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de CABK_MC
+INFO:BDs: - [OK] Tener tabla en BD para CLNX_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de CLNX_MC
+INFO:BDs: - [OK] Tener tabla en BD para COL_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de COL_MC
+INFO:BDs: - [OK] Tener tabla en BD para ELE_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de ELE_MC
+INFO:BDs: - [OK] Tener tabla en BD para ENG_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de ENG_MC
+INFO:BDs: - [OK] Tener tabla en BD para FDR_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de FDR_MC
+INFO:BDs: - [OK] Tener tabla en BD para FER_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de FER_MC
+INFO:BDs: - [OK] Tener tabla en BD para GRF_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de GRF_MC
+INFO:BDs: - [OK] Tener tabla en BD para IAG_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de IAG_MC
+INFO:BDs: - [OK] Tener tabla en BD para IBE_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de IBE_MC
+INFO:BDs: - [OK] Tener tabla en BD para IDR_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de IDR_MC
+INFO:BDs: - [OK] Tener tabla en BD para ITX_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de ITX_MC
+INFO:BDs: - [OK] Tener tabla en BD para LOG_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de LOG_MC
+INFO:BDs: - [OK] Tener tabla en BD para MAP_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de MAP_MC
+INFO:BDs: - [OK] Tener tabla en BD para MEL_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de MEL_MC
+INFO:BDs: - [OK] Tener tabla en BD para MRL_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de MRL_MC
+INFO:BDs: - [OK] Tener tabla en BD para MTS_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de MTS_MC
+INFO:BDs: - [OK] Tener tabla en BD para NTGY_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de NTGY_MC
+INFO:BDs: - [OK] Tener tabla en BD para RED_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de RED_MC
+INFO:BDs: - [OK] Tener tabla en BD para REP_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de REP_MC
+INFO:BDs: - [OK] Tener tabla en BD para ROVI_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de ROVI_MC
+INFO:BDs: - [OK] Tener tabla en BD para SAB_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de SAB_MC
+INFO:BDs: - [OK] Tener tabla en BD para SAN_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de SAN_MC
+INFO:BDs: - [OK] Tener tabla en BD para SCYR_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de SCYR_MC
+INFO:BDs: - [OK] Tener tabla en BD para SLR_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de SLR_MC
+INFO:BDs: - [OK] Tener tabla en BD para TEF_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de TEF_MC
+INFO:BDs: - [OK] Tener tabla en BD para UNI_MC
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de UNI_MC
+INFO:BDs: - [OK] Tener tabla en BD para IBEX
+INFO:BDs: - [OK] Tener columnas adecuadas para tabla de IBEX
+INFO:BDs:
+INFO:BDs:----------------------------------
+INFO:BDs:TEST CREAR REGISTROS EN IBEX35
+INFO:BDs:----------------------------------
+INFO:BDs: - [OK] Crear datos con el formato esperado
+INFO:BDs: - [OK] Hacer 'id' autoincremental
+INFO:AnalysisURLs:
+INFO:AnalysisURLs:----------------------------------
+INFO:AnalysisURLs:TESTS ANALYSIS URLs
+INFO:AnalysisURLs:----------------------------------
+INFO:AnalysisURLs: - [OK] URL chart_y_datos
+INFO:AnalysisURLs: - [OK] URL login
+INFO:AnalysisURLs: - [OK] URL logout
+INFO:AnalysisURLs: - [OK] URL mapa_stocks
+INFO:AnalysisURLs: - [OK] URL signup
 INFO:DashBoardURLs:
 INFO:DashBoardURLs:----------------------------------
 INFO:DashBoardURLs:TESTS DASHBOARD URLS
