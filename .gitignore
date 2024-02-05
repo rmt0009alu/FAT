@@ -1,6 +1,3 @@
-# Ignorar este mismo archivo
-.gitignore
-
 # Para que se ignore la carpeta del entorno virtual
 /venv
 
