@@ -13,36 +13,22 @@ INFO:DashBoardViews:
 INFO:DashBoardViews:----------------------------------
 INFO:DashBoardViews:TESTS DASHBOARD VIEWS
 INFO:DashBoardViews:----------------------------------
-ERROR:django.request:Internal Server Error: /dashboard/nueva_compra/
-Traceback (most recent call last):
-  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
-    self.check_response(response, callback)
-  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
-    raise ValueError(
-ValueError: The view DashBoard.views.nueva_compra didn't return an HttpResponse object. It returned None instead.
-ERROR:django.request:Internal Server Error: /dashboard/nueva_compra/
-Traceback (most recent call last):
-  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
-    self.check_response(response, callback)
-  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
-    raise ValueError(
-ValueError: The view DashBoard.views.nueva_compra didn't return an HttpResponse object. It returned None instead.
-ERROR:django.request:Internal Server Error: /dashboard/nueva_compra/
-Traceback (most recent call last):
-  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
-    self.check_response(response, callback)
-  File "G:\GOII\AÑO 7 - Cuatrimestre 1\TFG\FAT\venv\Lib\site-packages\django\core\handlers\base.py", line 332, in check_response
-    raise ValueError(
-ValueError: The view DashBoard.views.nueva_compra didn't return an HttpResponse object. It returned None instead.
+INFO:DashBoardViews: - [OK] Que página de 'DashBoard' retorne '302...' sin login'
+INFO:DashBoardViews: - [OK] Que POST a 'eliminar_compras' retorne '302...' sin login
+INFO:DashBoardViews: - [OK] Que página de 'eliminar_compras' retorne '200 ok' con login
+INFO:DashBoardViews: - [OK] Que página de 'eliminar_compras' retorne '302...' sin login'
+INFO:DashBoardViews: - [OK] Asignar 'template' de eliminar_compras y cargar base.html
+INFO:DashBoardViews: - [OK] Que post a 'nueva_compra' retorne '200 ok' con datos no válidos
+INFO:DashBoardViews: - [OK] Que POST a 'nueva_compra' retorne '200 ok' con login
+INFO:DashBoardViews: - [OK] Que POST a 'nueva_compra' retorne '302...' sin login
+INFO:DashBoardViews: - [OK] Que página de 'nueva_compra' retorne '200 ok' con login
+INFO:DashBoardViews: - [OK] Que página de 'nueva_compra' retorne '302...' sin login'
+INFO:DashBoardViews: - [OK] Asignar 'template' de nueva_compra y cargar base.html
+INFO:DashBoardViews: - [OK] Que post a 'nuevo_seguimiento' retorne '200 ok' con datos no válidos y haya 'Error'
+INFO:DashBoardViews: - [OK] Que POST a 'nuevo_seguimiento' retorne '302...' sin login
+INFO:DashBoardViews: - [OK] Que página de 'nuevo_seguimiento' retorne '200 ok' con login
+INFO:DashBoardViews: - [OK] Que página de 'nuevo_seguimiento' retorne '302...' sin login'
+INFO:DashBoardViews: - [OK] Asignar 'template' de nuevo_seguimiento y cargar base.html
 INFO:DashBoardURLs:
 INFO:DashBoardURLs:----------------------------------
 INFO:DashBoardURLs:TESTS DASHBOARD URLS

@@ -1,3 +1,6 @@
+# Ignorar este mismo archivo
+.gitignore
+
 # Para que se ignore la carpeta del entorno virtual
 /venv
 
@@ -21,3 +24,6 @@ VerInfoÚtil.py
 
 # Para ignorar el archivo de configuración de Flake8
 setup.cfg
+
+# Para ignorar la carpeta de HTML de 'coverage'
+/htmlcov
