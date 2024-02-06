@@ -1,6 +1,16 @@
 from django.test import TestCase
-from django.contrib.auth.models import User# Lo importo como 'tz' para no confundir con timezone de datetime
+from django.contrib.auth.models import User
+from DashBoard.models import StockSeguimiento
+from DashBoard.views import _stocks_en_seguimiento
 from log.logger.logger import get_logger_dashboard
+from datetime import datetime, timezone
+from django.core.exceptions import ValidationError
+import decimal
+# Alias 'tz' para no confundir con datetime.timezone
+from django.utils import timezone as tz
+# Para usar los modelos creados de forma dinámica
+from django.apps import apps
+
 
 
 # Idea original de NuclearPeon:
@@ -45,8 +55,27 @@ class TestDashBoardViews(TestCase):
 
         self.usuarioTest = User.objects.create_user(username='usuario', password='p@ssword')
 
+        # Creo un stock ficticio para que al consultar los datos
+        # en stock seguimiento, haya info. del mismo
+        model = apps.get_model('Analysis', 'AAPL')
+        self.stockFicticio = model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+            open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+            dividends=1.0, stock_splits=2.0, ticker='AAPL', previous_close=100.0,
+            percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name='Apple Inc.', 
+            currency = 'USD', sector = 'Technology')
+
+        self.fecha = tz.now()
+        self.stockSeguimiento_1 = StockSeguimiento.objects.create(
+            usuario=self.usuarioTest, ticker_bd='AAPL',
+            bd='dj30', ticker='AAPL',
+            nombre_stock='Apple Inc.',
+            fecha_inicio_seguimiento=self.fecha,
+            precio_entrada_deseado=99.5,
+            moneda='USD', sector='Technology')
         
-    
+        
+        
+    """
     def test_views_dashboard_status_code_sin_login(self):
         response = self.client.get('/dashboard/')
         self.assertEqual(response.status_code, 302, " - [OK] Que página de 'DashBoard' retorne '302...' sin login'")
@@ -170,3 +199,45 @@ class TestDashBoardViews(TestCase):
         self.assertEqual(response.status_code, 200, " - [NO OK] Que post a 'nuevo_seguimiento' retorne '200 ok' con datos no válidos y haya 'Error'")
         self.assertContains(response, 'Error')
         self.log.info(" - [OK] Que post a 'nuevo_seguimiento' retorne '200 ok' con datos no válidos y haya 'Error'")
+
+    
+    # ------------------------
+    # TESTS MÉTODOS AUXILIARES
+    # ------------------------
+    def test_views_stocks_seguimiento_lista_vacía(self):
+        seguimientoUsuario = []
+        stocksEnSeg = _stocks_en_seguimiento(seguimientoUsuario)
+        self.assertEqual(stocksEnSeg, [], " - [NO OK] _stocks_en_seguimiento vacío si no hay stocks seguidos")
+        self.log.info(" - [OK] _stocks_en_seguimiento vacío si no hay stocks seguidos")
+    
+    
+    def test_views_stocks_seguimiento_lista_un_dato(self):
+        seguimientoUsuario = []
+        seguimientoUsuario.append(self.stockSeguimiento_1)
+        stocksEnSeg = _stocks_en_seguimiento(seguimientoUsuario)
+        self.assertEqual(len(stocksEnSeg), 1)
+        self.assertEqual(stocksEnSeg[0]["ticker_bd"], "AAPL", " - [NO OK] _stocks_en_seguimiento reconoce un dato de stocks seguidos")
+        self.assertEqual(stocksEnSeg[0]["fecha_inicio_seguimiento"], self.fecha, " - [NO OK] _stocks_en_seguimiento reconoce un dato de stocks seguidos")
+        self.assertEqual(stocksEnSeg[0]["precio_entrada_deseado"], 99.5, " - [NO OK] _stocks_en_seguimiento reconoce un dato de stocks seguidos")
+        self.log.info(" - [OK] _stocks_en_seguimiento reconoce un dato de stocks seguidos")
+    """
+    
+    def test_views_stocks_seguimiento_datos_no_válidos(self):        
+        seguimientoUsuario = []
+
+        with self.assertRaises(ValidationError):
+            # Dato de precio de entrada deseado no válido
+            self.stockSeguimiento_2 = StockSeguimiento.objects.create(
+                usuario=self.usuarioTest, ticker_bd='AAPL',
+                bd='dj30', ticker='AAPL',
+                nombre_stock='Apple Inc.',
+                fecha_inicio_seguimiento=self.fecha,
+                precio_entrada_deseado='abc',           
+                moneda='USD', sector='Technology'
+            )
+            seguimientoUsuario.append(self.stockSeguimiento_2)
+            with self.assertRaises(decimal.InvalidOperation):
+                _stocks_en_seguimiento(seguimientoUsuario)
+        # self.assertEqual(cm.exception.messages, ['“abc” value must be a decimal number.'])
+
+            
