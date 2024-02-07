@@ -2,3 +2,39 @@ INFO:DashBoardViews:
 INFO:DashBoardViews:----------------------------------
 INFO:DashBoardViews:TESTS DASHBOARD VIEWS
 INFO:DashBoardViews:----------------------------------
+INFO:DashBoardViews: - [OK] Datos DashBoard con compras y seguimiento
+INFO:DashBoardViews: - [OK] Datos DashBoard con compras y sin seguimiento
+INFO:DashBoardViews: - [OK] Datos DashBoard sin compras y con seguimiento
+INFO:DashBoardViews: - [OK] Datos DashBoard sin compras y sin seguimiento
+INFO:DashBoardViews: - [OK] Que página de 'DashBoard' retorne '302...' sin login'
+INFO:DashBoardViews: - [OK] Redirigir a 'dashboard' tras eliminar compras
+INFO:DashBoardViews: - [OK] Que POST a 'eliminar_compras' retorne '302...' sin login
+INFO:DashBoardViews: - [OK] Que página de 'eliminar_compras' retorne '200 ok' con login
+INFO:DashBoardViews: - [OK] Que página de 'eliminar_compras' retorne '302...' sin login'
+INFO:DashBoardViews: - [OK] Asignar 'template' de eliminar_compras y cargar base.html
+INFO:DashBoardViews: - [OK] _evolucion_cartera reconoce un dato de stocks comprado
+INFO:DashBoardViews: - [OK] _evolucion_cartera vacío si no hay stocks comprados
+INFO:DashBoardViews: - [OK] _hay_errores reconoce bd none
+INFO:DashBoardViews: - [OK] _hay_errores reconoce bd none para stocks seguidos
+INFO:DashBoardViews: - [OK] _hay_errores reconoce fecha futura
+INFO:DashBoardViews: - [OK] _hay_errores reconoce datos válidos
+INFO:DashBoardViews: - [OK] _hay_errores reconoce precio fuera de rango
+INFO:DashBoardViews: - [OK] _hay_errores reconoce entrada inexistente
+INFO:DashBoardViews: - [OK] Que post a 'nueva_compra' retorne mensaje con fecha no válida
+INFO:DashBoardViews: - [OK] Que POST a 'nueva_compra' retorne '200 ok' con login
+INFO:DashBoardViews: - [OK] Que post a 'nueva_compra' retorne mensajecon ticker no válido
+INFO:DashBoardViews: - [OK] Que POST a 'nueva_compra' retorne '302...' sin login
+INFO:DashBoardViews: - [OK] Que página de 'nueva_compra' retorne '200 ok' con login
+INFO:DashBoardViews: - [OK] Que página de 'nueva_compra' retorne '302...' sin login'
+INFO:DashBoardViews: - [OK] Asignar 'template' de nueva_compra y cargar base.html
+INFO:DashBoardViews: - [OK] No redirigir y seguir en '_nuevo_seguimiento' con formulario no válido
+INFO:DashBoardViews: - [OK] Redirigir a 'dashboard' con datos válidos en '_nuevo_seguimiento'
+INFO:DashBoardViews: - [OK] Que post a 'nuevo_seguimiento' retorne '200 ok' con datos no válidos y haya 'Error'
+INFO:DashBoardViews: - [OK] Que post a 'nuevo_seguimiento' retorne mensaje con ticker no válido
+INFO:DashBoardViews: - [OK] Que POST a 'nuevo_seguimiento' retorne '302...' sin login
+INFO:DashBoardViews: - [OK] Que página de 'nuevo_seguimiento' retorne '200 ok' con login
+INFO:DashBoardViews: - [OK] Que página de 'nuevo_seguimiento' retorne '302...' sin login'
+INFO:DashBoardViews: - [OK] Asignar 'template' de nuevo_seguimiento y cargar base.html
+INFO:DashBoardViews: - [OK] _stocks_en_seguimiento no permite datos no válidos
+INFO:DashBoardViews: - [OK] _stocks_en_seguimiento reconoce un dato de stocks seguidos
+INFO:DashBoardViews: - [OK] _stocks_en_seguimiento vacío si no hay stocks seguidos

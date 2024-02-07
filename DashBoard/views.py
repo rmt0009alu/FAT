@@ -339,6 +339,7 @@ def _evolucion_cartera(comprasUsuario):
     evolCartera = []
     totalInicial = 0
     totalActual = 0
+    evolTotal = 0
 
     for compra in comprasUsuario:
         model = apps.get_model('Analysis', compra.ticker_bd)
@@ -362,7 +363,9 @@ def _evolucion_cartera(comprasUsuario):
         totalInicial += compra.num_acciones * float(compra.precio_compra)
         totalActual += compra.num_acciones * entrada[0].close
 
-    evolTotal = (totalActual - totalInicial)/totalInicial * 100
+    # Para evitar DivisionZero
+    if totalInicial != 0:
+        evolTotal = (totalActual - totalInicial)/totalInicial * 100
     
     return evolCartera, evolTotal
     
