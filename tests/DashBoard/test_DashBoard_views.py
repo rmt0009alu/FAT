@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from DashBoard.models import StockComprado, StockSeguimiento
 from DashBoard.views import _stocks_en_seguimiento, _evolucion_cartera, _hay_errores, nuevo_seguimiento, eliminar_compras, dashboard
-from log.logger.logger import get_logger_dashboard
+from log.logger.logger import get_logger_configurado
 from datetime import datetime, timezone
 from django.core.exceptions import ValidationError
 import decimal
@@ -27,7 +27,7 @@ class Singleton(object):
             cls._instance = super(Singleton, cls).__new__(
                             cls, *args, **kwargs)
             
-            log = get_logger_dashboard('DashBoardViews')
+            log = get_logger_configurado('DashBoardViews')
             log.info("")
             log.info("----------------------------------")
             log.info("TESTS DASHBOARD VIEWS")
@@ -36,7 +36,6 @@ class Singleton(object):
             cls.setUpBool = True
 
         return cls._instance
-
 
 
 class TestDashBoardViews(TestCase):
@@ -49,7 +48,7 @@ class TestDashBoardViews(TestCase):
 
     def setUp(self):
         Singleton()
-        self.log = get_logger_dashboard('DashBoardViews')      
+        self.log = get_logger_configurado('DashBoardViews')      
 
         # Formularios básicos de prueba
         self.form_1_ok = {'ticker': 'AAPL','fecha_compra': '09/01/2024', 'num_acciones': 50, 'precio_compra': float(148)}
@@ -357,8 +356,7 @@ class TestDashBoardViews(TestCase):
     
     
     def test_views_stocks_seguimiento_datos_no_válidos(self):        
-        seguimientoUsuario = []
-
+        # seguimientoUsuario = []
         with self.assertRaises(ValidationError):
             # Dato de precio de entrada deseado no válido
             self.stockSeguimiento_2 = StockSeguimiento.objects.create(
@@ -369,9 +367,10 @@ class TestDashBoardViews(TestCase):
                 precio_entrada_deseado='abc',           
                 moneda='USD', sector='Technology'
             )
-            seguimientoUsuario.append(self.stockSeguimiento_2)
-            with self.assertRaises(decimal.InvalidOperation):
-                _stocks_en_seguimiento(seguimientoUsuario)
+            # Se podría hacer, pero va a ser inaccesible por el primer raise
+            # seguimientoUsuario.append(self.stockSeguimiento_2)
+            # with self.assertRaises(decimal.InvalidOperation):
+            #     _stocks_en_seguimiento(seguimientoUsuario)
         self.log.info(" - [OK] _stocks_en_seguimiento no permite datos no válidos")
     
     

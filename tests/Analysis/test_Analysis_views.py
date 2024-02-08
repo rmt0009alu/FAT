@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 # Para comprobar exception que lanza con usuarios repetidos
 from django.db.transaction import TransactionManagementError
-from log.logger.logger import get_logger_analysis
+from log.logger.logger import get_logger_configurado
 import logging
 
 # Idea original de NuclearPeon:
@@ -14,7 +14,7 @@ class Singleton(object):
             cls._instance = super(Singleton, cls).__new__(
                             cls, *args, **kwargs)
             
-            log = get_logger_analysis('AnalysisViews')
+            log = get_logger_configurado('AnalysisViews')
             log.info("")
             log.info("----------------------------------")
             log.info("TESTS ANALYSIS VIEWS")
@@ -33,7 +33,7 @@ class TestAnalysisViews(TestCase):
     
     def setUp(self):
         Singleton()
-        self.log = get_logger_analysis('AnalysisViews')
+        self.log = get_logger_configurado('AnalysisViews')
         self.usuarioTest = User.objects.create_user(username='usuarioTest', password='p@ssw0rd')   
         self.datosUsuarioTest = {
             'username': 'usuarioTest',

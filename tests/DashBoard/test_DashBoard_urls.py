@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from DashBoard.views import dashboard, nueva_compra, eliminar_compras, nuevo_seguimiento, eliminar_seguimiento
-from log.logger.logger import get_logger_dashboard
+from log.logger.logger import get_logger_configurado
 
 # Idea original de NuclearPeon:
 # https://stackoverflow.com/questions/14305941/run-setup-only-once-for-a-set-of-automated-tests
@@ -12,7 +12,7 @@ class Singleton(object):
             cls._instance = super(Singleton, cls).__new__(
                             cls, *args, **kwargs)
             
-            log = get_logger_dashboard('DashBoardURLs')
+            log = get_logger_configurado('DashBoardURLs')
             log.info("")
             log.info("----------------------------------")
             log.info("TESTS DASHBOARD URLS")
@@ -27,7 +27,7 @@ class TestDashBoardUrls(SimpleTestCase):
 
     def setUp(self):
         Singleton()
-        self.log = get_logger_dashboard('DashBoardURLs')
+        self.log = get_logger_configurado('DashBoardURLs')
 
         
     def test_url_dashboard(self):

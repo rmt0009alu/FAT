@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from Analysis.views import mapa_stocks, signup, signout, signin, chart_y_datos
-from log.logger.logger import get_logger_analysis
+from log.logger.logger import get_logger_configurado
 
 
 # Idea original de NuclearPeon:
@@ -13,7 +13,7 @@ class Singleton(object):
             cls._instance = super(Singleton, cls).__new__(
                             cls, *args, **kwargs)
             
-            log = get_logger_analysis('AnalysisURLs')
+            log = get_logger_configurado('AnalysisURLs')
             log.info("")
             log.info("----------------------------------")
             log.info("TESTS ANALYSIS URLs")
@@ -33,7 +33,7 @@ class TestAnalysisUrls(SimpleTestCase):
 
     def setUp(self):
         Singleton()
-        self.log = get_logger_analysis('AnalysisURLs')
+        self.log = get_logger_configurado('AnalysisURLs')
 
 
     def test_url_mapa_stocks(self):

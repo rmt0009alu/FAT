@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone as tz
 from datetime import timedelta
 from DashBoard.models import StockComprado, StockSeguimiento
-from log.logger.logger import get_logger_dashboard
+from log.logger.logger import get_logger_configurado
 # Refactoring:
 # ------------
 # No puedo usar ValueError ni ValidationError, el error
@@ -22,7 +22,7 @@ class Singleton(object):
             cls._instance = super(Singleton, cls).__new__(
                             cls, *args, **kwargs)
             
-            log = get_logger_dashboard('DashBoardModels')
+            log = get_logger_configurado('DashBoardModels')
             log.info("")
             log.info("----------------------------------")
             log.info("TESTS DASHBOARD MODELS")
@@ -38,7 +38,7 @@ class TestDashBoardModels(TestCase):
 
     def setUp(self):
         Singleton()
-        self.log = get_logger_dashboard('DashBoardModels')      
+        self.log = get_logger_configurado('DashBoardModels')      
 
         self.user = User.objects.create_user(username='usuario', password='p@ssword')
 
@@ -72,7 +72,8 @@ class TestDashBoardModels(TestCase):
 
     def test_models_StockComprado_posicion(self):
         # La posición no será un campo, sino que se calculará
-        self.assertEqual(self.stockComprado_1.posicion(), 100*10, " - [NO OK] Calcular posición de StockComprado")
+        res = self.stockComprado_1.posicion()
+        self.assertEqual(res, 100*10, " - [NO OK] Calcular posición de StockComprado")
         self.log.info(" - [OK] Calcular posición de StockComprado")
 
 

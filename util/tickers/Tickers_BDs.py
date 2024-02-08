@@ -50,7 +50,6 @@ def tickersIndices():
     return indices
 
 
-
 def tickersAdaptadosDJ30():
     """Para obtener los tickers del DJ30 con
     formato adaptado y evitar la notación de '^' del 
@@ -192,3 +191,14 @@ def tickersDisponibles():
         (list): lista con todos los tickers disponibles.
     """
     return tickersDJ30() + tickersIBEX35()
+
+
+
+def tickersAdaptadosDisponibles():
+    """Para obtener todos los tickers adaptados disponibles, con
+    índices y sin adaptar. 
+
+    Returns:
+        (list): lista con todos los tickers adaptados disponibles.
+    """
+    return tickersAdaptadosDJ30() + tickersAdaptadosIBEX35()

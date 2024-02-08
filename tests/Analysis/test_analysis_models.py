@@ -1,7 +1,7 @@
 from django.test import TestCase
 from Analysis.models import StockBase, Sectores, modelos_de_stocks
-from util.tickers.Tickers_BDs import tickersIBEX35, tickersDJ30, tickersAdaptadosDJ30, tickersAdaptadosIBEX35
-from log.logger.logger import get_logger_analysis
+from util.tickers.Tickers_BDs import tickersIBEX35, tickersDJ30, tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosDisponibles, tickersAdaptadosIndices, obtenerNombreBD
+from log.logger.logger import get_logger_configurado
 from datetime import datetime, timezone
 # from django.utils import timezone
 # Para usar los modelos creados de forma dinámica
@@ -17,7 +17,7 @@ class Singleton(object):
             cls._instance = super(Singleton, cls).__new__(
                             cls, *args, **kwargs)
             
-            log = get_logger_analysis('AnalysisModels')
+            log = get_logger_configurado('AnalysisModels')
             log.info("")
             log.info("----------------------------------")
             log.info("TESTS ANALYSIS MODELS")
@@ -39,38 +39,47 @@ class TestAnalysisModels(TestCase):
 
     def setUp(self):
         Singleton()
-        self.log = get_logger_analysis('AnalysisModels')
+        self.log = get_logger_configurado('AnalysisModels')
 
-        model = apps.get_model('Analysis', 'AAPL')
-        self.stock = model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
-            open=100.0,
-            high=110.0,
-            low=90.0,
-            close=105.0,
-            volume=10000,
-            dividends=1.0,
-            stock_splits=2.0,
-            ticker='AAPL',
-            previous_close=100.0,
-            percent_variance=5.0,
-            mm20=102.0,
-            mm50=104.0,
-            mm200=98.0,
-            name='Apple Inc.',
-            currency = 'USD',
-            sector = 'Technology')
-        
+        self.listaStocks = []
+        for ticker in tickersAdaptadosDisponibles():
+            if ticker not in tickersAdaptadosIndices():
+                model = apps.get_model('Analysis', ticker)
+                bd = obtenerNombreBD(ticker)
+                stock = model.objects.using(bd).create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                    open=100.0,
+                    high=110.0,
+                    low=90.0,
+                    close=105.0,
+                    volume=10000,
+                    dividends=1.0,
+                    stock_splits=2.0,
+                    ticker=ticker,
+                    previous_close=100.0,
+                    percent_variance=5.0,
+                    mm20=102.0,
+                    mm50=104.0,
+                    mm200=98.0,
+                    name='Nombre ficticio',
+                    currency = 'EUR',
+                    sector = 'Pruebas')
+                self.listaStocks.append(stock)
+
         self.sector = Sectores.objects.create(ticker_bd='RED_MC', bd='ibex35', ticker='RED.MC', 
                                          nombre='Redeia Corporación, S.A.', sector='Utilities')
 
 
     def test_models_StockBase_instance(self):
-        self.assertTrue(isinstance(self.stock, StockBase), " - [NO OK] Crear instancia de StockBase")
+        stock = self.listaStocks[0]
+        self.assertTrue(isinstance(stock, StockBase), " - [NO OK] Crear instancia de StockBase")
         self.log.info(" - [OK] Crear instancia de StockBase")
     
 
     def test_models_StockBase_str(self):
-        self.assertEquals(str(self.stock), 'AAPL - Apple Inc. . Fecha: 2025-01-01 12:00:00+00:00. Cierre: 105.0', " - [NO OK] StockBase str")
+        # self.assertEquals(str(self.stock), 'AAPL - Apple Inc. . Fecha: 2025-01-01 12:00:00+00:00. Cierre: 105.0', " - [NO OK] StockBase str")
+        # self.log.info(" - [OK] StockBase str")
+        for stock in self.listaStocks:
+            self.assertEquals(str(stock), f'{stock.ticker} - Nombre ficticio . Fecha: 2025-01-01 12:00:00+00:00. Cierre: 105.0', " - [NO OK] StockBase str")
         self.log.info(" - [OK] StockBase str")
 
 
