@@ -1,30 +1,34 @@
+"""
+Métodos de vistas para usar con el DashBoard.
+"""
 from django.shortcuts import render, redirect
-# Para proteger rutas. Las funciones que tienen este decorador 
+# Para proteger rutas. Las funciones que tienen este decorador
 # sólo son accesibles si se está logueado
 from django.contrib.auth.decorators import login_required
-
+# Para usar los modelos creados de forma dinámica
+from django.apps import apps
+# Para procesar las fechas recibidas con el DatePicker
+from datetime import datetime, date
+from django.utils import timezone
+# from Analysis.models import StockBase
+# from django.db.models import Q
+from Analysis.models import Sectores
 from .models import StockComprado, StockSeguimiento
 from .forms import StockCompradoForm, StockSeguimientoForm
 from util.tickers import Tickers_BDs
 
-# Para usar los modelos creados de forma dinámica
-from django.apps import apps
-
-# Para procesar las fechas recibidas con el DatePicker
-from datetime import datetime, date
-from django.utils import timezone
-
-# from Analysis.models import StockBase
-# from django.db.models import Q
-from Analysis.models import Sectores
-
-
-from django.core.exceptions import ValidationError
-
 
 @login_required
 def dashboard(request):
+    """Para mostrar un dashboard al usuario.
 
+    Args:
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
+
+    Returns:
+        (dict): diccionario con valores del contexto.
+    """
     # Obtener el nombre del usuario
     usuario = request.user.username
 
@@ -73,10 +77,17 @@ def dashboard(request):
     return render(request, "dashboard.html", context)
 
 
-
 @login_required
 def nueva_compra(request):
+    """Para registrar una nueva compra. 
 
+    Args:
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
+
+    Returns:
+        (render): _description_
+    """
     # El contexto siempre va a tener, mínimo, estos dos campos:
     # Formulario y lista para mostrar sugerencias de búsqueda
     context = {
@@ -84,17 +95,17 @@ def nueva_compra(request):
         "listaTickers": Tickers_BDs.tickersDisponibles(),
     }
 
-    if request.method == "GET":    
+    if request.method == "GET":
         return render(request, "nueva_compra.html", context)
-    
+
     else:
-        # Django genera un formulario por mí, para guardar los 
+        # Django genera un formulario por mí, para guardar los
         # datos desde el 'form':
         form = StockCompradoForm(request.POST)
-        
+
         if form.is_valid():
             # El 'ticker' no está en el form para poder usar
-            # una caja de búsqueda autocompletable con JS y 
+            # una caja de búsqueda autocompletable con JS y
             # la fecha se recoge con un calendario:
             ticker = request.POST.get('ticker')
             fecha = request.POST.get('fecha_compra')
@@ -102,7 +113,7 @@ def nueva_compra(request):
             # Con el número de acciones no hago operaciones internas y
             # lo guardo directamente si no hay errores
             precio_compra = form.cleaned_data['precio_compra']
-            
+
             try:
                 # Indico el formato con el que llega desde el HTML,
                 # para transformar a DateTime
@@ -112,24 +123,24 @@ def nueva_compra(request):
                 # Comprobación de base de datos y fecha
                 bd = Tickers_BDs.obtenerNombreBD(ticker)
                 context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='1')
-                if context != False:
+                if context is not False:
                     return render(request, "nueva_compra.html", context)
-                
-                # Adaptación del sufijo para coincidir con los modelos 
+
+                # Adaptación del sufijo para coincidir con los modelos
                 # de las BDs, creados de forma dinámica
                 ticker_bd = ticker.replace(".", "_")
                 model = apps.get_model('Analysis', ticker_bd)
 
-                # Los datos en la BD están con formato DateTime, para coger 
+                # Los datos en la BD están con formato DateTime, para coger
                 # sólo la fecha utilizo date__date
                 entrada = model.objects.using(bd).filter(date__date=fecha)
-                
-                # Comprobar posibles errores en la introducción 
+
+                # Comprobar posibles errores en la introducción
                 # de datos en el formulario
                 context = _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso='2')
-                if context != False:
+                if context is not False:
                     return render(request, "nueva_compra.html", context)
-           
+
                 nueva_compra = form.save(commit=False)
                 # Como en el form no están los nombres de usuario
                 # nombre del stock, etc., es necesario añadirlo aquí
@@ -147,16 +158,15 @@ def nueva_compra(request):
                 nueva_compra.save()
 
             except Exception as ex:
-                context["msg_error"] = "Error al guardar"
+                context["msg_error"] = f"Error al guardar: {ex}"
                 return render(request, "nueva_compra.html", context)
 
             # Retorno al dashboard para mostrar lo guardado
             return redirect("dashboard")
-        
+
         else:
             context["msg_error"] = "Error inesperado en el formulario"
             return render(request, "nueva_compra.html", context)
-    
 
 
 @login_required
@@ -173,7 +183,7 @@ def eliminar_compras(request):
     if request.method == "GET":
         # Filtrar por usuario
         comprasUsuario = StockComprado.objects.filter(usuario=request.user)
-    
+
         context = {
             "comprasUsuario": comprasUsuario,
         }
@@ -184,7 +194,6 @@ def eliminar_compras(request):
         # Eliminar todos aquellos cuyo id esté en 'seleccionados'
         StockComprado.objects.filter(id__in=seleccionados).delete()
         return redirect("dashboard")
-    
 
 
 @login_required
@@ -199,13 +208,13 @@ def nuevo_seguimiento(request):
 
     if request.method == "GET":
         return render(request, "nuevo_seguimiento.html", context)
-    
+
     else:
         # Django genera un formulario por mí con este
-        # método. Esto me permite guardar los datos, 
+        # método. Esto me permite guardar los datos,
         # directamente, desde el formulario:
         form = StockSeguimientoForm(request.POST)
-                
+
         if form.is_valid():
             # El 'ticker' no está en el form para poder usar
             # una caja de búsqueda autocompletable.
@@ -216,22 +225,22 @@ def nuevo_seguimiento(request):
             fecha = timezone.now()
             # Obtendría el resto de info del form directamente.
             # precio_entrada_deseado = form.cleaned_data['precio_entrada_deseado']
-            
+
             try:
                 # Comprobación de base de datos
                 bd = Tickers_BDs.obtenerNombreBD(ticker)
                 context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='3')
-                if context != False:
+                if context is not False:
                     return render(request, "nuevo_seguimiento.html", context)
-            
-                # Adaptación del sufijo para coincidir con los modelos 
+
+                # Adaptación del sufijo para coincidir con los modelos
                 # de las BDs creados de forma dinámica
                 ticker_bd = ticker.replace(".", "_")
                 model = apps.get_model('Analysis', ticker_bd)
 
                 # Los datos en la BD
                 entrada = model.objects.using(bd)[:1]
-            
+
                 nuevo_seguimiento = form.save(commit=False)
                 # Como en el form no están los nombres de usuario
                 # ni el nombre del stock, es necesario añadirlo aquí
@@ -246,53 +255,47 @@ def nuevo_seguimiento(request):
                 nuevo_seguimiento.moneda = entrada[0].currency
                 nuevo_seguimiento.sector = entrada[0].sector
                 nuevo_seguimiento.save()
-            
+
             except Exception:
                 context["msg_error"] = "Error al guardar"
                 return render(request, "nuevo_seguimiento.html", context)
-            
+
             # Retorno al dashboard para mostrar lo guardado
             return redirect("dashboard")
         else:
             context["msg_error"] = "Error inesperado en el formulario"
             return render(request, "nuevo_seguimiento.html", context)
-       
 
 
 @login_required
 def eliminar_seguimiento(request):
-    pass
+    """Para eliminar valores seguidos por un usuario.
 
-# @login_required
-# def eliminar_seguimiento(request):
-#     """Para eliminar valores seguidos por un usuario.
+    Args:
+        request (_type_): _description_
 
-#     Args:
-#         request (_type_): _description_
-
-#     Returns:
-#         _type_: _description_
-#     """
-#     if request.method == "GET":
-#         # Filtrar por usuario
-#         listaSeguimiento = StockComprado.objects.filter(usuario=request.user)
+    Returns:
+        _type_: _description_
+    """
+    if request.method == "GET":
+        # Filtrar por usuario
+        listaSeguimiento = StockComprado.objects.filter(usuario=request.user)
     
-#         context = {
-#             "comprasUsuario": comprasUsuario,
-#         }
-#         return render(request, "eliminar_compras.html", context)
+        context = {
+            "comprasUsuario": comprasUsuario,
+        }
+        return render(request, "eliminar_compras.html", context)
 
-#     else:
-#         seleccionados = request.POST.getlist('eliminar_stocks')
-#         # Eliminar todos aquellos cuyo id esté en 'seleccionados'
-#         StockComprado.objects.filter(id__in=seleccionados).delete()
-#         return redirect("dashboard")
-
+    else:
+        seleccionados = request.POST.getlist('eliminar_stocks')
+        # Eliminar todos aquellos cuyo id esté en 'seleccionados'
+        StockComprado.objects.filter(id__in=seleccionados).delete()
+        return redirect("dashboard")
 
 
 def _stocks_en_seguimiento(seguimientoUsuario):
-    """Para caclular la evolución de las posiciones abiertas y 
-    del total de la cartera. 
+    """Para caclular la evolución de las posiciones abiertas y
+    del total de la cartera.
 
     Args:
         comprasUsuario (_type_): _description_
@@ -310,7 +313,7 @@ def _stocks_en_seguimiento(seguimientoUsuario):
         stock = {}
         stock['ticker_bd'] = stockSeguido.ticker_bd
         stock['bd'] = bd
-        stock['ticker'] = stockSeguido.ticker_bd.replace("_",".")
+        stock['ticker'] = stockSeguido.ticker_bd.replace("_", ".")
         stock['nombre'] = entrada[0].name
         stock['fecha_inicio_seguimiento'] = stockSeguido.fecha_inicio_seguimiento
         stock['precio_entrada_deseado'] = stockSeguido.precio_entrada_deseado
@@ -325,10 +328,9 @@ def _stocks_en_seguimiento(seguimientoUsuario):
     return stocksEnSeg
 
 
-
 def _evolucion_cartera(comprasUsuario):
-    """Para caclular la evolución de las posiciones abiertas y 
-    del total de la cartera. 
+    """Para caclular la evolución de las posiciones abiertas y
+    del total de la cartera.
 
     Args:
         comprasUsuario (_type_): _description_
@@ -349,7 +351,7 @@ def _evolucion_cartera(comprasUsuario):
         evolStock = {}
         evolStock['ticker_bd'] = compra.ticker_bd
         evolStock['bd'] = bd
-        evolStock['ticker'] = compra.ticker_bd.replace("_",".")
+        evolStock['ticker'] = compra.ticker_bd.replace("_", ".")
         evolStock['nombre'] = entrada[0].name
         evolStock['fecha_compra'] = compra.fecha_compra
         evolStock['num_acciones'] = compra.num_acciones
@@ -357,18 +359,17 @@ def _evolucion_cartera(comprasUsuario):
         evolStock['cierre'] = entrada[0].close
         evol = (entrada[0].close - float(compra.precio_compra))/float(compra.precio_compra) * 100
         evolStock['evol'] = evol
-        
+
         evolCartera.append(evolStock)
-        
+
         totalInicial += compra.num_acciones * float(compra.precio_compra)
         totalActual += compra.num_acciones * entrada[0].close
 
     # Para evitar DivisionZero
     if totalInicial != 0:
         evolTotal = (totalActual - totalInicial)/totalInicial * 100
-    
+
     return evolCartera, evolTotal
-    
 
 
 def _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso):
@@ -391,10 +392,10 @@ def _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso):
 
     # Fecha con formato para mostrar en caso de error
     fechaConFormato = fecha.strftime("%d/%m/%Y")
-    
+
     match caso:
         case "1":
-            if bd == None:
+            if bd is None:
                 context["msg_error"] = f'El ticker {ticker} no está disponibe'
                 return context
             elif fecha.date() > date.today():
@@ -410,7 +411,7 @@ def _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso):
                 context["max"] = entrada[0].high
                 return context
         case "3":
-            if bd == None:
+            if bd is None:
                 context["form"] = StockSeguimientoForm
                 context["msg_error"] = f'El ticker {ticker} no está disponibe'
                 return context

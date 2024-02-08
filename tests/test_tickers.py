@@ -70,6 +70,7 @@ class TestTickers(SimpleTestCase):
         self.assertEquals(tickers, tickersAdaptadosDJ30(), " - [NO OK] Tickers adaptados dj30")
         self.log.info(" - [OK] Tickers adaptados dj30")
 
+
     def test_tickers_adaptados_ibex35(self):
         tickers = ['ACS_MC', 'ACX_MC', 'AENA_MC', 'AMS_MC', 
             'ANA_MC', 'ANE_MC', 'BBVA_MC', 'BKT_MC', 

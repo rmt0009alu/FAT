@@ -1,3 +1,6 @@
+"""
+URLs para usar con el DashBoard.
+"""
 from django.urls import path
 from .views import dashboard, nueva_compra, eliminar_compras, nuevo_seguimiento, eliminar_seguimiento
 
