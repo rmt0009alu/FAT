@@ -77,7 +77,7 @@ def dashboard(request):
 
 @login_required
 def nueva_compra(request):
-    """Para registrar una nueva compra. 
+    """Para registrar una nueva compra.
 
     Args:
         request (django.core.handlers.wsgi.WSGIRequest): solicitud
@@ -196,7 +196,7 @@ def eliminar_compras(request):
 
 @login_required
 def nuevo_seguimiento(request):
-    """Para registrar un nuevo valor en seguimiento. 
+    """Para registrar un nuevo valor en seguimiento.
 
     Args:
         request (django.core.handlers.wsgi.WSGIRequest): solicitud
@@ -346,7 +346,7 @@ def _evolucion_cartera(compras_usuario):
 
     Returns:
         evol_cartera (list): stocks comprados con info. adicional como
-            la evolución desde la fecha de compra. 
+            la evolución desde la fecha de compra.
         evol_total (float): valor de la evolución total de la cartera.
     """
     evol_cartera = []
@@ -389,12 +389,12 @@ def _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso):
 
     Args:
         fecha (django.utils.timezone): timezone actual.
-        bd (str): nombre de la base de datos. 
+        bd (str): nombre de la base de datos.
         ticker (str): nombre del ticker.
         entrada (QuerySet): registro en la bd del stock seleccionado
             en el formulario (en la fecha indicada).
-        precio_compra (float): precio de compra a comprobar. 
-        caso (int): indicador del caso a tratar. 
+        precio_compra (float): precio de compra a comprobar.
+        caso (int): indicador del caso a tratar.
 
     Returns:
         (dict): diccionario con datos del cotexto.
