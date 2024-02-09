@@ -2,7 +2,7 @@
 URLs para usar con el DashBoard.
 """
 from django.urls import path
-from .views import dashboard, nueva_compra, eliminar_compras, nuevo_seguimiento, eliminar_seguimiento
+from .views import dashboard, nueva_compra, eliminar_compras, nuevo_seguimiento, eliminar_seguimientos
 
 
 urlpatterns = [
@@ -14,5 +14,5 @@ urlpatterns = [
 
     path('dashboard/nuevo_seguimiento/', nuevo_seguimiento, name="nuevo_seguimiento"),
 
-    path('dashboard/eliminar_seguimiento/', eliminar_seguimiento, name="eliminar_seguimiento"),
+    path('dashboard/eliminar_seguimientos/', eliminar_seguimientos, name="eliminar_seguimientos"),
 ]

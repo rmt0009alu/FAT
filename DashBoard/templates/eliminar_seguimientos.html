@@ -1,0 +1,47 @@
+<!-- templates/dashboard/eliminar_seguimientos.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Incluyo mis estilos -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_modificar_cartera.css' %}">
+
+<div>
+    <br><p class="cabecera">Eliminar stocks en seguimiento</p>
+</div>
+
+<div class="caja" style="width: 80%;">
+    <p class="barra">Valores en seguimiento</p>
+    
+    <form method="post" action="{% url 'eliminar_seguimientos' %}" style="text-align: center;">
+        {% csrf_token %}
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Fecha inicio seguimiento</th>
+                    <th>Precio de entrada deseado</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock_seguido in lista_seguimiento %}
+                    <tr>
+                        <td><a title="{{ stock_seguido.nombre_stock }}" href="/{{ stock_seguido.bd }}/{{ stock_seguido.ticker_bd }}/chart">{{ stock_seguido.ticker }}</a></td>
+                        <td>{{ stock_seguido.fecha_inicio_seguimiento|date:"d/m/Y" }}</td>
+                        <td>{{ stock_seguido.precio_entrada_deseado|floatformat:3 }}</td>
+                        <td><input type="checkbox" name="eliminar_seguimientos" value="{{ stock_seguido.id }}"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <button type="submit" class="btn btn-dark" style="width: 40%; margin-bottom: 15px;">Eliminar seleccionados</button>
+    </form>
+</div>
+
+{% endblock %}

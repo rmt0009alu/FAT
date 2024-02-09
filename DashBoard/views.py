@@ -180,15 +180,15 @@ def eliminar_compras(request):
             HTTP encapsulada por Django.
 
     Returns:
-        (render): renderiza la plantilla 'nueva_compra.html' con datos de contexto.
+        (render): renderiza la plantilla 'eliminar_compras.html' con datos de contexto.
         (redirect): plantilla de dashboard.
     """
     if request.method == "GET":
         # Filtrar por usuario
-        comprasUsuario = StockComprado.objects.filter(usuario=request.user)
+        compras_usuario = StockComprado.objects.filter(usuario=request.user)
 
         context = {
-            "comprasUsuario": comprasUsuario,
+            "compras_usuario": compras_usuario,
         }
         return render(request, "eliminar_compras.html", context)
 
@@ -280,7 +280,7 @@ def nuevo_seguimiento(request):
 
 
 @login_required
-def eliminar_seguimiento(request):
+def eliminar_seguimientos(request):
     """Para eliminar valores en seguimiento asociados
     a un usuario.
 
@@ -294,17 +294,17 @@ def eliminar_seguimiento(request):
     """
     if request.method == "GET":
         # Filtrar por usuario
-        listaSeguimiento = StockComprado.objects.filter(usuario=request.user)
+        lista_seguimiento = StockSeguimiento.objects.filter(usuario=request.user)
     
         context = {
-            "comprasUsuario": comprasUsuario,
+            "lista_seguimiento": lista_seguimiento,
         }
-        return render(request, "eliminar_compras.html", context)
+        return render(request, "eliminar_seguimientos.html", context)
 
     else:
-        seleccionados = request.POST.getlist('eliminar_stocks')
+        seleccionados = request.POST.getlist('eliminar_seguimientos')
         # Eliminar todos aquellos cuyo id esté en 'seleccionados'
-        StockComprado.objects.filter(id__in=seleccionados).delete()
+        StockSeguimiento.objects.filter(id__in=seleccionados).delete()
         return redirect("dashboard")
 
 
