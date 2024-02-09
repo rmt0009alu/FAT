@@ -29,13 +29,13 @@
                 </tr>
             </thead>
             <tbody>
-                {% for compra in comprasUsuario %}
+                {% for stock_comprado in compras_usuario %}
                     <tr>
-                        <td><a title="{{ compra.nombre_stock }}" href="/{{ compra.bd }}/{{ compra.ticker_bd }}/chart">{{ compra.ticker }}</a></td>
-                        <td>{{ compra.fecha_compra|date:"d/m/Y" }}</td>
-                        <td>{{ compra.num_acciones }}</td>
-                        <td>{{ compra.precio_compra|floatformat:3 }}</td>
-                        <td><input type="checkbox" name="eliminar_stocks" value="{{ compra.id }}"></td>
+                        <td><a title="{{ stock_comprado.nombre_stock }}" href="/{{ stock_comprado.bd }}/{{ stock_comprado.ticker_bd }}/chart">{{ stock_comprado.ticker }}</a></td>
+                        <td>{{ stock_comprado.fecha_compra|date:"d/m/Y" }}</td>
+                        <td>{{ stock_comprado.num_acciones }}</td>
+                        <td>{{ stock_comprado.precio_compra|floatformat:3 }}</td>
+                        <td><input type="checkbox" name="eliminar_stocks" value="{{ stock_comprado.id }}"></td>
                     </tr>
                 {% endfor %}
             </tbody>

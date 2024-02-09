@@ -52,7 +52,7 @@ class StockBase(models.Model):
         """Método magic, para representación en strings.
 
         Returns:
-            (str): cadena descriptiva
+            (str): cadena descriptiva.
         """
         return f"{self.ticker} - {self.name} . Fecha: {self.date}. Cierre: {self.close}"
 

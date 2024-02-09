@@ -1,13 +1,15 @@
+"""
+Modelos para usar con el DashBoard.
+"""
+from datetime import timedelta
 from django.db import models
 from django.db.models import Q
 from django.contrib.auth.models import User
 from django.utils import timezone
-from datetime import timedelta
-
 
 
 class StockComprado(models.Model):
-    """Modelo para los stocks comprados por el usuario. 
+    """Modelo para los stocks comprados por el usuario.
 
     Args:
         models (django.db.models.Model): modelo de Django.
@@ -19,7 +21,7 @@ class StockComprado(models.Model):
 
     # Refactoring:
     # ------------
-    # 'choices' no me sirve 
+    # 'choices' no me sirve
     # Limito las opciones de los campos de las bases de datos:
     # BD_CHOICES = (
     #     ('BD1', 'dj30'),
@@ -31,7 +33,7 @@ class StockComprado(models.Model):
     ticker = models.CharField(max_length=7)
     nombre_stock = models.CharField(max_length=255)
     # Lo guardo como DateTimeField para que haya
-    # correspondencia de tipos con lo que guardo 
+    # correspondencia de tipos con lo que guardo
     # en las bases de datos de los stocks, pero
     # podría ser DateField
     fecha_compra = models.DateTimeField()
@@ -42,25 +44,25 @@ class StockComprado(models.Model):
 
     class Meta:
         """Clase interna para agregar atributos especiales como
-        restricciones. 
+        restricciones.
         """
         constraints = [
             # Restricción a nivel de BD porque 'choices' sólo limita
             # en la vista de 'admin':
             models.CheckConstraint(
-                name = 'valores_bd',
-                check = Q(bd__in=['dj30', 'ibex35']),
+                name='valores_bd',
+                check=Q(bd__in=['dj30', 'ibex35']),
             ),
             # Restricción de fechas futuras (tiene que ser menor a mañana)
             models.CheckConstraint(
-                name = 'fecha_compra_no_futura',
-                check = models.Q(fecha_compra__lte=timezone.now() + timedelta(days=1)),
+                name='fecha_compra_no_futura',
+                check=models.Q(fecha_compra__lte=timezone.now() + timedelta(days=1)),
             ),
         ]
 
     def posicion(self):
-        """No se guarda como un campo, pero facilita el 
-        acceso a la información. 
+        """No se guarda como un campo, pero facilita el
+        acceso a la información.
 
         Returns:
             (float): precio por número de acciones = cantidad gastada
@@ -74,11 +76,10 @@ class StockComprado(models.Model):
             _type_: _description_
         """
         return f"{self.nombre_stock} - {self.usuario} - {self.fecha_compra} - {self.moneda}"
-    
 
 
 class StockSeguimiento(models.Model):
-    """Modelo para los stocks seguidos por el usuario. 
+    """Modelo para los stocks seguidos por el usuario.
 
     Args:
         models (django.db.models.Model): modelo de Django.
