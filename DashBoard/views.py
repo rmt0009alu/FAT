@@ -115,52 +115,47 @@ def nueva_compra(request):
             # lo guardo directamente si no hay errores
             precio_compra = form.cleaned_data['precio_compra']
 
-            try:
-                # Indico el formato con el que llega desde el HTML,
-                # para transformar a DateTime
-                format_str = "%d/%m/%Y"
-                fecha = datetime.strptime(fecha, format_str)
+            # Indico el formato con el que llega desde el HTML,
+            # para transformar a DateTime
+            format_str = "%d/%m/%Y"
+            fecha = datetime.strptime(fecha, format_str)
 
-                # Comprobación de base de datos y fecha
-                bd = Tickers_BDs.obtenerNombreBD(ticker)
-                context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='1')
-                if context is not False:
-                    return render(request, "nueva_compra.html", context)
-
-                # Adaptación del sufijo para coincidir con los modelos
-                # de las BDs, creados de forma dinámica
-                ticker_bd = ticker.replace(".", "_")
-                model = apps.get_model('Analysis', ticker_bd)
-
-                # Los datos en la BD están con formato DateTime, para coger
-                # sólo la fecha utilizo date__date
-                entrada = model.objects.using(bd).filter(date__date=fecha)
-
-                # Comprobar posibles errores en la introducción
-                # de datos en el formulario
-                context = _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso='2')
-                if context is not False:
-                    return render(request, "nueva_compra.html", context)
-
-                nueva_compra = form.save(commit=False)
-                # Como en el form no están los nombres de usuario
-                # nombre del stock, etc., es necesario añadirlo aquí
-                nueva_compra.usuario = request.user
-                nueva_compra.ticker_bd = ticker_bd
-                # nueva_compra.bd = bd
-                nueva_compra.bd = bd
-                nueva_compra.ticker = ticker
-                nueva_compra.nombre_stock = entrada[0].name
-                nueva_compra.fecha_compra = fecha
-                # Lo mismo para la moneda y el sector, pero aprovechando
-                # el acceso a la BD
-                nueva_compra.moneda = entrada[0].currency
-                nueva_compra.sector = entrada[0].sector
-                nueva_compra.save()
-
-            except Exception as ex:
-                context["msg_error"] = f"Error al guardar: {ex}"
+            # Comprobación de base de datos y fecha
+            bd = Tickers_BDs.obtenerNombreBD(ticker)
+            context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='1')
+            if context is not False:
                 return render(request, "nueva_compra.html", context)
+
+            # Adaptación del sufijo para coincidir con los modelos
+            # de las BDs, creados de forma dinámica
+            ticker_bd = ticker.replace(".", "_")
+            model = apps.get_model('Analysis', ticker_bd)
+
+            # Los datos en la BD están con formato DateTime, para coger
+            # sólo la fecha utilizo date__date
+            entrada = model.objects.using(bd).filter(date__date=fecha)
+
+            # Comprobar posibles errores en la introducción
+            # de datos en el formulario
+            context = _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso='2')
+            if context is not False:
+                return render(request, "nueva_compra.html", context)
+
+            nueva_compra = form.save(commit=False)
+            # Como en el form no están los nombres de usuario
+            # nombre del stock, etc., es necesario añadirlo aquí
+            nueva_compra.usuario = request.user
+            nueva_compra.ticker_bd = ticker_bd
+            # nueva_compra.bd = bd
+            nueva_compra.bd = bd
+            nueva_compra.ticker = ticker
+            nueva_compra.nombre_stock = entrada[0].name
+            nueva_compra.fecha_compra = fecha
+            # Lo mismo para la moneda y el sector, pero aprovechando
+            # el acceso a la BD
+            nueva_compra.moneda = entrada[0].currency
+            nueva_compra.sector = entrada[0].sector
+            nueva_compra.save()
 
             # Retorno al dashboard para mostrar lo guardado
             return redirect("dashboard")
@@ -238,42 +233,38 @@ def nuevo_seguimiento(request):
             # Obtendría el resto de info del form directamente.
             # precio_entrada_deseado = form.cleaned_data['precio_entrada_deseado']
 
-            try:
-                # Comprobación de base de datos
-                bd = Tickers_BDs.obtenerNombreBD(ticker)
-                context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='3')
-                if context is not False:
-                    return render(request, "nuevo_seguimiento.html", context)
-
-                # Adaptación del sufijo para coincidir con los modelos
-                # de las BDs creados de forma dinámica
-                ticker_bd = ticker.replace(".", "_")
-                model = apps.get_model('Analysis', ticker_bd)
-
-                # Los datos en la BD
-                entrada = model.objects.using(bd)[:1]
-                
-                nuevo_seguimiento = form.save(commit=False)
-                # Como en el form no están los nombres de usuario
-                # ni el nombre del stock, es necesario añadirlo aquí
-                nuevo_seguimiento.usuario = request.user
-                nuevo_seguimiento.ticker_bd = ticker_bd
-                nuevo_seguimiento.bd = bd
-                nuevo_seguimiento.ticker = ticker
-                nuevo_seguimiento.nombre_stock = entrada[0].name
-                nuevo_seguimiento.fecha_inicio_seguimiento = fecha
-                # Lo mismo para la moneda y el sector, pero aprovechando
-                # el acceso a la BD
-                nuevo_seguimiento.moneda = entrada[0].currency
-                nuevo_seguimiento.sector = entrada[0].sector
-                nuevo_seguimiento.save()
-
-            except Exception:
-                context["msg_error"] = "Error al guardar"
+            # Comprobación de base de datos
+            bd = Tickers_BDs.obtenerNombreBD(ticker)
+            context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='3')
+            if context is not False:
                 return render(request, "nuevo_seguimiento.html", context)
+
+            # Adaptación del sufijo para coincidir con los modelos
+            # de las BDs creados de forma dinámica
+            ticker_bd = ticker.replace(".", "_")
+            model = apps.get_model('Analysis', ticker_bd)
+
+            # Los datos en la BD
+            entrada = model.objects.using(bd)[:1]
+            
+            nuevo_seguimiento = form.save(commit=False)
+            # Como en el form no están los nombres de usuario
+            # ni el nombre del stock, es necesario añadirlo aquí
+            nuevo_seguimiento.usuario = request.user
+            nuevo_seguimiento.ticker_bd = ticker_bd
+            nuevo_seguimiento.bd = bd
+            nuevo_seguimiento.ticker = ticker
+            nuevo_seguimiento.nombre_stock = entrada[0].name
+            nuevo_seguimiento.fecha_inicio_seguimiento = fecha
+            # Lo mismo para la moneda y el sector, pero aprovechando
+            # el acceso a la BD
+            nuevo_seguimiento.moneda = entrada[0].currency
+            nuevo_seguimiento.sector = entrada[0].sector
+            nuevo_seguimiento.save()
 
             # Retorno al dashboard para mostrar lo guardado
             return redirect("dashboard")
+        
         else:
             context["msg_error"] = "Error inesperado en el formulario"
             return render(request, "nuevo_seguimiento.html", context)

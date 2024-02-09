@@ -1,14 +1,3 @@
-INFO:AnalysisModels :
-INFO:AnalysisModels :----------------------------------
-INFO:AnalysisModels :TESTS ANALYSIS MODELS
-INFO:AnalysisModels :----------------------------------
-INFO:AnalysisModels : - [OK] Registro con 'id' autoincremental de Sectores
-INFO:AnalysisModels : - [OK] Filtrado por Sectores
-INFO:AnalysisModels : - [OK] Objeto 'sector' instancia de Sectores
-INFO:AnalysisModels : - [OK] Sectores str
-INFO:AnalysisModels : - [OK] StockBase diccionario de 'modelos_de_stocks'
-INFO:AnalysisModels : - [OK] Crear instancia de StockBase
-INFO:AnalysisModels : - [OK] StockBase str
 INFO:AnalysisViews  :
 INFO:AnalysisViews  :----------------------------------
 INFO:AnalysisViews  :TESTS ANALYSIS VIEWS
@@ -28,6 +17,17 @@ INFO:AnalysisViews  : - [OK] Que página de signup retorne '200 ok'
 INFO:AnalysisViews  : - [OK] No utilizar otros 'templates' por error
 INFO:AnalysisViews  : - [OK] Asignar 'template' de signup y cargar base.html
 INFO:AnalysisViews  : - [OK] Informar al usuario con mensaje de usuario no correcto
+INFO:AnalysisModels :
+INFO:AnalysisModels :----------------------------------
+INFO:AnalysisModels :TESTS ANALYSIS MODELS
+INFO:AnalysisModels :----------------------------------
+INFO:AnalysisModels : - [OK] Registro con 'id' autoincremental de Sectores
+INFO:AnalysisModels : - [OK] Filtrado por Sectores
+INFO:AnalysisModels : - [OK] Objeto 'sector' instancia de Sectores
+INFO:AnalysisModels : - [OK] Sectores str
+INFO:AnalysisModels : - [OK] StockBase diccionario de 'modelos_de_stocks'
+INFO:AnalysisModels : - [OK] Crear instancia de StockBase
+INFO:AnalysisModels : - [OK] StockBase str
 INFO:DashBoardModels:
 INFO:DashBoardModels:----------------------------------
 INFO:DashBoardModels:TESTS DASHBOARD MODELS
@@ -53,6 +53,11 @@ INFO:DashBoardViews : - [OK] Que POST a 'eliminar_compras' retorne '302...' sin 
 INFO:DashBoardViews : - [OK] Que página de 'eliminar_compras' retorne '200 ok' con login
 INFO:DashBoardViews : - [OK] Que página de 'eliminar_compras' retorne '302...' sin login'
 INFO:DashBoardViews : - [OK] Asignar 'template' de eliminar_compras y cargar base.html
+INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' tras eliminar seguimientos
+INFO:DashBoardViews : - [OK] Que POST a 'eliminar_seguimientos' retorne '302...' sin login
+INFO:DashBoardViews : - [OK] Que página de 'eliminar_seguimientos' retorne '200 ok' con login
+INFO:DashBoardViews : - [OK] Que página de 'eliminar_seguimientos' retorne '302...' sin login'
+INFO:DashBoardViews : - [OK] Asignar 'template' de eliminar_seguimientos y cargar base.html
 INFO:DashBoardViews : - [OK] _evolucion_cartera reconoce un dato de stocks comprado
 INFO:DashBoardViews : - [OK] _evolucion_cartera vacío si no hay stocks comprados
 INFO:DashBoardViews : - [OK] _hay_errores reconoce bd none
@@ -61,10 +66,14 @@ INFO:DashBoardViews : - [OK] _hay_errores reconoce fecha futura
 INFO:DashBoardViews : - [OK] _hay_errores reconoce datos válidos
 INFO:DashBoardViews : - [OK] _hay_errores reconoce precio fuera de rango
 INFO:DashBoardViews : - [OK] _hay_errores reconoce entrada inexistente
+INFO:DashBoardViews : - [OK] No redirigir y seguir en 'nueva_compra' con formulario no válido
+INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'
+INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'
 INFO:DashBoardViews : - [OK] Que post a 'nueva_compra' retorne mensaje con fecha no válida
 INFO:DashBoardViews : - [OK] Que POST a 'nueva_compra' retorne '200 ok' con login
 INFO:DashBoardViews : - [OK] Que post a 'nueva_compra' retorne mensajecon ticker no válido
 INFO:DashBoardViews : - [OK] Que POST a 'nueva_compra' retorne '302...' sin login
+INFO:DashBoardViews : - [OK] Precio fuera de rango posible en 'nueva_compra'
 INFO:DashBoardViews : - [OK] Que página de 'nueva_compra' retorne '200 ok' con login
 INFO:DashBoardViews : - [OK] Que página de 'nueva_compra' retorne '302...' sin login'
 INFO:DashBoardViews : - [OK] Asignar 'template' de nueva_compra y cargar base.html

@@ -2,7 +2,7 @@ from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User
 from django.urls import reverse
 from DashBoard.models import StockComprado, StockSeguimiento
-from DashBoard.views import _stocks_en_seguimiento, _evolucion_cartera, _hay_errores, nuevo_seguimiento, eliminar_compras, dashboard
+from DashBoard.views import _stocks_en_seguimiento, _evolucion_cartera, _hay_errores, nueva_compra, nuevo_seguimiento, eliminar_compras, eliminar_seguimientos, dashboard
 from log.logger.logger import get_logger_configurado
 from datetime import datetime, timezone
 from django.core.exceptions import ValidationError
@@ -14,6 +14,9 @@ from util.tickers import Tickers_BDs
 from django.utils import timezone as tz
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
+# Para evitar los warning de DateTimeField en nueva_compra
+import warnings
+
 
 
 
@@ -88,11 +91,19 @@ class TestDashBoardViews(TestCase):
         )
         
         model = apps.get_model('Analysis', 'ELE_MC')
-        self.stock_3 = model.objects.using('ibex35').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+        self.stock_4 = model.objects.using('ibex35').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
             open=10.0, high=11.0, low=9.0, close=10.5, volume=1000,
             dividends=0.0, stock_splits=0.0, ticker='ELE_MC', previous_close=10.0,
             percent_variance=0.5, mm20=10.2, mm50=10.4, mm200=9.8, name='Endesa, S.A.', 
             currency = 'EUR', sector = 'Utilities'
+        )
+
+        model = apps.get_model('Analysis', 'MAP_MC')
+        self.stock_5 = model.objects.using('ibex35').create(date=datetime(2024, 2, 1, 12, 0, tzinfo=timezone.utc),
+            open=2.03, high=2.064, low=2.024, close=2.028, volume=100000,
+            dividends=0.0, stock_splits=0.0, ticker='MAP_MC', previous_close=2.0,
+            percent_variance=0.14, mm20=2, mm50=2.1, mm200=1.98, name='Mapfre, S.A.', 
+            currency = 'EUR', sector = 'Financial Services'
         )
 
         self.fecha1 = tz.now() - timedelta(days=5)
@@ -216,8 +227,71 @@ class TestDashBoardViews(TestCase):
         self.assertEqual(response.status_code, 200, " - [NO OK] Que post a 'nueva_compra' retorne mensaje con ticker no válido")
         self.assertContains(response, 'El ticker tickerFalso no está disponibe')
         self.log.info(" - [OK] Que post a 'nueva_compra' retorne mensajecon ticker no válido")
-        
+    
 
+    def test_views_nueva_compra_datos_válidos(self):
+        # Para evitar el warning de naive DateTime... ya que 
+        # la entrada en el formulario se transforma en views.py
+        # así el usuario puede usar un calendario
+        warnings.filterwarnings("ignore", category=RuntimeWarning)
+        # Datos iguales a los del self.stock_5
+        data = {
+            "ticker": "MAP.MC",
+            "fecha_compra": '01/02/2024',
+            "num_acciones": 50,
+            "precio_compra": 2.04,
+        }
+        self.client.force_login(self.usuarioTest)
+        response = self.client.post('/dashboard/nueva_compra/', data=data)
+        self.assertEqual(response.status_code, 302, " - [NO OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'")
+        self.assertEqual(response.url, "/dashboard/", " - [NO OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'")
+        self.log.info(" - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'")
+
+
+    def test_views_nueva_compra_fecha_si_registro(self):
+        # Datos iguales a los del self.stock_5
+        data = {
+            "ticker": "MAP.MC",
+            "fecha_compra": '01/02/1930',
+            "num_acciones": 50,
+            "precio_compra": 2.04,
+        }
+        self.client.force_login(self.usuarioTest)
+        response = self.client.post('/dashboard/nueva_compra/', data=data)
+        self.assertEqual(response.status_code, 200, " - [NO OK] Que post a 'nueva_compra' retorne mensaje con ticker no válido")
+        self.assertContains(response, 'no existen registros')
+        self.log.info(" - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'")
+
+
+    def test_views_nueva_compra_precio_fuera_de_rango_posible(self):
+        # Datos iguales a los del self.stock_5
+        data = {
+            "ticker": "MAP.MC",
+            "fecha_compra": '01/02/2024',
+            "num_acciones": 50,
+            "precio_compra": 12.04,
+        }
+        self.client.force_login(self.usuarioTest)
+        response = self.client.post('/dashboard/nueva_compra/', data=data)
+        self.assertEqual(response.status_code, 200, " - [NO OK] Precio fuera de rango posible en 'nueva_compra'")
+        self.assertContains(response, 'Ese precio no es posible para el día')
+        self.log.info(" - [OK] Precio fuera de rango posible en 'nueva_compra'")
+
+
+    def test_views_nueva_compra_context_datos_no_válidos(self):
+        request = RequestFactory().post("/nueva_compra/")
+        request.user = self.usuarioTest
+        # Datos válidos para el request. simulo formulario con errores
+        request.POST = {
+            "ticker": "tickerInventado",
+            "precio_compra": 16.5,
+        }
+        response = nueva_compra(request)
+        self.assertEqual(response.status_code, 200, " - [NO OK] No redirigir y seguir en 'nueva_compra' con formulario no válido")
+        self.assertContains(response, "Error inesperado en el formulario")
+        self.log.info(" - [OK] No redirigir y seguir en 'nueva_compra' con formulario no válido")
+
+    
     # ----------------------
     # TESTS ELIMINAR COMPRAS
     # ----------------------
@@ -299,7 +373,7 @@ class TestDashBoardViews(TestCase):
         self.log.info(" - [OK] Que post a 'nuevo_seguimiento' retorne '200 ok' con datos no válidos y haya 'Error'")
     
 
-    def test_views_nuevo_seguimiento_context_datos_válidos(self):
+    def test_views_nuevo_seguimiento_datos_válidos(self):
         request = RequestFactory().post("/nuevo_seguimiento/")
         request.user = self.usuarioTest
         # Datos válidos para el request
@@ -313,7 +387,7 @@ class TestDashBoardViews(TestCase):
         self.log.info(" - [OK] Redirigir a 'dashboard' con datos válidos en '_nuevo_seguimiento'")
 
 
-    def test_views_nuevo_seguimiento_context_datos_no_válidos_1(self):
+    def test_views_nuevo_seguimiento_datos_no_válidos(self):
         request = RequestFactory().post("/nuevo_seguimiento/")
         request.user = self.usuarioTest
         # Datos válidos para el request. simulo formulario con errores
@@ -334,6 +408,47 @@ class TestDashBoardViews(TestCase):
         self.assertContains(response, 'El ticker tickerFalso no está disponibe')
         self.log.info(" - [OK] Que post a 'nuevo_seguimiento' retorne mensaje con ticker no válido")
     
+
+    # ---------------------------
+    # TESTS ELIMINAR SEGUIMIENTOS
+    # ---------------------------
+    def test_views_eliminar_seguimientos_status_code_sin_login(self):
+        response = self.client.get('/dashboard/eliminar_seguimientos/')
+        self.assertEqual(response.status_code, 302, " - [NO OK] Que página de 'eliminar_seguimientos' retorne '302...' sin login")
+        self.log.info(" - [OK] Que página de 'eliminar_seguimientos' retorne '302...' sin login'")
+
+
+    def test_views_eliminar_seguimientos_status_code_con_login(self):
+        # Fuerzo el login de un usuario
+        self.client.force_login(self.usuarioTest)
+        response = self.client.get('/dashboard/eliminar_seguimientos/')
+        self.assertEqual(response.status_code, 200, " - [NO OK] Que página de 'eliminar_seguimientos' retorne '200 ok' con login")
+        self.log.info(" - [OK] Que página de 'eliminar_seguimientos' retorne '200 ok' con login")
+
+    
+    def test_views_eliminar_seguimientos_templates_válidas(self):   
+        # Fuerzo el login de un usuario
+        self.client.force_login(self.usuarioTest)
+        response = self.client.get('/dashboard/eliminar_seguimientos/')   
+        self.assertTemplateUsed(response, 'eliminar_seguimientos.html', " - [NO OK] Asignar 'template' de eliminar_seguimientos y cargar base.html")
+        self.assertTemplateUsed(response, 'base.html', " - [NO OK] Asignar 'template' de eliminar_seguimientos y cargar base.html")
+        self.log.info(" - [OK] Asignar 'template' de eliminar_seguimientos y cargar base.html")
+    
+
+    def test_views_eliminar_seguimientos_post_sin_login(self):
+        response = self.client.post('/dashboard/eliminar_seguimientos/', data=self.form_1_ok)
+        self.assertEqual(response.status_code, 302, " - [NO OK] Que POST a 'eliminar_seguimientos' retorne '302...' sin login")
+        self.log.info(" - [OK] Que POST a 'eliminar_seguimientos' retorne '302...' sin login")
+    
+
+    def test_views_eliminar_seguimientos_post(self):
+        request = RequestFactory().post('/dashboard/eliminar_seguimientos/')
+        request.user = self.usuarioTest
+        response = eliminar_seguimientos(request)
+        self.assertEqual(response.status_code, 302, " - [NO OK] Redirigir a 'dashboard' tras eliminar seguimientos")
+        self.assertEqual(response.url, '/dashboard/', " - [NO OK] Redirigir a 'dashboard' tras eliminar seguimientos")
+        self.log.info(" - [OK] Redirigir a 'dashboard' tras eliminar seguimientos")
+
     # ------------------------
     # TESTS MÉTODOS AUXILIARES
     # ------------------------
@@ -481,7 +596,7 @@ class TestDashBoardViews(TestCase):
         self.assertEqual(context["listaTickers"], Tickers_BDs.tickersDisponibles(), " - [NO OK] _hay_errores reconoce bd none para stocks seguidos")
         self.log.info(" - [OK] _hay_errores reconoce bd none para stocks seguidos")
 
-
+    
     # --------------------------------------
     # MÉTODOS AUXILIARES PARA AGILIZAR TESTS
     # --------------------------------------
