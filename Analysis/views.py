@@ -37,7 +37,7 @@ from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX3
 from django.apps import apps
 
 # Para generar figuras sin repetir código
-from News.views import generarFigura
+from News.views import _generar_figura
 import matplotlib.pyplot as plt
 import mpld3
 
@@ -238,7 +238,7 @@ def mapa_stocks(request, nombre_bd):
             try:
                 entradas = model.objects.using(nombre_bd).order_by('-date')[:250].values('date', 'close',
                                                                                          'ticker', 'name')
-                figura = generarFigura(entradas)
+                figura = _generar_figura(entradas)
                 figura = mpld3.fig_to_html(figura)
 
                 # Conviene ir cerrando los plots para que no

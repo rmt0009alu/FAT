@@ -98,6 +98,13 @@ INFO:FATSettings    :----------------------------------
 INFO:FATSettings    :TESTS FAT SETTINGS
 INFO:FATSettings    :----------------------------------
 INFO:FATSettings    : - [OK] Devolver desde FAT.settings el valor adecuado de static
+INFO:NewsViews      :
+INFO:NewsViews      :----------------------------------
+INFO:NewsViews      :TESTS NEWS VIEWS
+INFO:NewsViews      :----------------------------------
+INFO:NewsViews      : - [OK] No necesario login para acceder a home
+INFO:NewsViews      : - [OK] Obtener datos de _mejores_peores si hay tickers válidos
+INFO:NewsViews      : - [OK] No obtener datos de _mejores_peores si no hay tickers
 INFO:databases      :
 INFO:databases      :----------------------------------
 INFO:databases      :TESTS BASES DE DATOS
