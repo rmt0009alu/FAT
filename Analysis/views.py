@@ -154,7 +154,8 @@ def signin(request):
             HTTP encapsulada por Django.
 
     Returns:
-        _type_: _description_
+        (render): renderiza la plantilla 'login.html' con datos de contexto.
+        (redirect): plantilla de dashboard.
     """
     if request.method == "GET":
         context = {
@@ -192,10 +193,11 @@ def mapa_stocks(request, nombre_bd):
     Función protegida. Requiere login para ser accedida.
 
     Args:
-        request (_type_): _description_
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
 
     Returns:
-        _type_: _description_
+        (render): renderiza la plantilla 'mapa_stocks.html' con datos de contexto.
     """
     if nombre_bd == 'dj30':
         tickers = tickersAdaptadosDJ30()
@@ -218,37 +220,32 @@ def mapa_stocks(request, nombre_bd):
             dict_mutable = {}
             # Para obtener los modelos de forma dinámica
             model = apps.get_model('Analysis', t)
-            try:
-                # Cojo las última entrada de cada stock:
-                entrada = model.objects.using(nombre_bd).order_by('-date')[:1].values('ticker', 'close',
-                                                                                      'high', 'low', 'previous_close',
-                                                                                      'percent_variance', 'volume',
-                                                                                      'date', 'name')
-                # 'entrada' es un QuerySet INMUTABLE y 'entrada[0]' es un Dict
-                dict_mutable = entrada[0]
-                # Cambio la notación de _ de la BD a . para mostrar
-                dict_mutable['ticker'] = dict_mutable['ticker'].replace('_', '.')
-                dict_mutable['variance'] = dict_mutable['close'] - dict_mutable['previous_close']
-                dict_mutable['volume'] = _formatear_volumen(dict_mutable['volume'])
-                dict_mutable['ticker_bd'] = t
-                datos_fin_stocks.append(dict_mutable)
-            except Exception as ex:
-                print("[NO OK] Error mapa stocks: ", ex)
+            # Cojo las última entrada de cada stock:
+            entrada = model.objects.using(nombre_bd).order_by('-date')[:1].values('ticker', 'close',
+                                                                                    'high', 'low', 'previous_close',
+                                                                                    'percent_variance', 'volume',
+                                                                                    'date', 'name')
+            # 'entrada' es un QuerySet INMUTABLE y 'entrada[0]' es un Dict
+            dict_mutable = entrada[0]
+            # Cambio la notación de _ de la BD a . para mostrar
+            dict_mutable['ticker'] = dict_mutable['ticker'].replace('_', '.')
+            dict_mutable['variance'] = dict_mutable['close'] - dict_mutable['previous_close']
+            dict_mutable['volume'] = _formatear_volumen(dict_mutable['volume'])
+            dict_mutable['ticker_bd'] = t
+            datos_fin_stocks.append(dict_mutable)
+
         else:
             nombre_indice = t
             # Supuesto de ser el índice
             model = apps.get_model('Analysis', t)
-            try:
-                entradas = model.objects.using(nombre_bd).order_by('-date')[:250].values('date', 'close',
-                                                                                         'ticker', 'name')
-                figura = _generar_figura(entradas)
-                figura = mpld3.fig_to_html(figura)
+            entradas = model.objects.using(nombre_bd).order_by('-date')[:250].values('date', 'close',
+                                                                                        'ticker', 'name')
+            figura = _generar_figura(entradas)
+            figura = mpld3.fig_to_html(figura)
 
-                # Conviene ir cerrando los plots para que no
-                # haya problemas de memoria
-                plt.close()
-            except Exception as ex:
-                print("[NO OK] Error mapa stocks: ", ex)
+            # Conviene ir cerrando los plots para que no
+            # haya problemas de memoria
+            plt.close()
 
     lista_rss = _get_lista_rss(nombre_bd)
 
@@ -268,12 +265,13 @@ def chart_y_datos(request, ticker, nombre_bd):
     Función protegida. Requiere login para ser accedida.
 
     Args:
-        request (_type_): _description_
-        ticker (_type_): _description_
-        nombre_bd (_type_): _description_
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
+        ticker (str): nombre adaptado del ticker recogido de la URL.
+        nombre_bd (str): nombre de la BD recogido de la URL.
 
     Returns:
-        _type_: _description_
+        (render): renderiza la plantilla 'chart_y_datos.html' con datos de contexto.
     """
     try:
         # Crear la conexión a la BD
@@ -408,10 +406,10 @@ def _formatear_volumen(volumen):
     """Método auxiliar para dar formato al volumen.
 
     Args:
-        value (int): _description_
+        volumen (int): valor a formatear.
 
     Returns:
-        _type_: _description_
+        (str): volumen formateado.
     """
     if volumen >= 1000000:
         return "{:.1f}M".format(volumen / 1000000)

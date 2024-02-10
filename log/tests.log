@@ -2,21 +2,21 @@ INFO:AnalysisViews  :
 INFO:AnalysisViews  :----------------------------------
 INFO:AnalysisViews  :TESTS ANALYSIS VIEWS
 INFO:AnalysisViews  :----------------------------------
-INFO:AnalysisViews  : - [OK] Devolver página de espera e info. al usuario tras signup adecuado
-INFO:AnalysisViews  : - [OK] No permite usuarios con el mismo nombre
-INFO:AnalysisViews  : - [OK] A la vez que se hace signup hacer login
-INFO:AnalysisViews  : - [OK] No redireccionar si usuario o pass incorrectos
 INFO:AnalysisViews  : - [OK] Hacer login de forma adecuada
+INFO:AnalysisViews  : - [OK] No redireccionar si usuario o pass incorrectos
 INFO:AnalysisViews  : - [OK] Que página de signin retorne '200 ok'
 INFO:AnalysisViews  : - [OK] No utilizar otros 'templates' por error
 INFO:AnalysisViews  : - [OK] Asignar 'template' de signin y cargar base.html
 INFO:AnalysisViews  : - [OK] No permitir login a usuarios inexistentes
+INFO:AnalysisViews  : - [OK] Informar al usuario con mensaje de usuario no correcto
 INFO:AnalysisViews  : - [OK] Hacer logout
+INFO:AnalysisViews  : - [OK] A la vez que se hace signup hacer login
+INFO:AnalysisViews  : - [OK] Devolver página de espera e info. al usuario tras signup adecuado
 INFO:AnalysisViews  : - [OK] Hacer signup con usuario de forma adecuada
 INFO:AnalysisViews  : - [OK] Que página de signup retorne '200 ok'
 INFO:AnalysisViews  : - [OK] No utilizar otros 'templates' por error
 INFO:AnalysisViews  : - [OK] Asignar 'template' de signup y cargar base.html
-INFO:AnalysisViews  : - [OK] Informar al usuario con mensaje de usuario no correcto
+INFO:AnalysisViews  : - [OK] No permite usuarios con el mismo nombre
 INFO:AnalysisModels :
 INFO:AnalysisModels :----------------------------------
 INFO:AnalysisModels :TESTS ANALYSIS MODELS
