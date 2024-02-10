@@ -3,8 +3,8 @@ Métodos de vistas para usar con Analysis.
 """
 # Para controlar errores de conexión a la BD
 import sqlite3
-import pandas as pd
 import re
+import pandas as pd
 import feedparser
 import mpld3
 import matplotlib.pyplot as plt
@@ -39,14 +39,14 @@ from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX3
 
 
 def signup(request):
-    """Para registrar a un usuario. 
+    """Para registrar a un usuario.
 
     Args:
         request (django.core.handlers.wsgi.WSGIRequest): solicitud
             HTTP encapsulada por Django.
 
     Returns:
-        (render): renderiza las plantillas 'signup.html' o 
+        (render): renderiza las plantillas 'signup.html' o
             'signup_ok.html' con datos de contexto.
     """
     if request.method == "GET":
@@ -82,12 +82,12 @@ def signup(request):
             "error": "Error: nombre demasiado corto",
         }
         return render(request, "signup.html", context)
-    
+
     # Reglas de validación de password
     # --------------------------------
     # Django tiene un validador de contraseñas integrado para
-    # longitud (8), máyus./minus., números, que no sean similares 
-    # al nombre, etc. 
+    # longitud (8), máyus./minus., números, que no sean similares
+    # al nombre, etc.
     try:
         validate_password(password1)
     except ValidationError as error:
@@ -124,7 +124,7 @@ def signup(request):
             "error": "Error: usuario ya existe",
         }
         return render(request, "signup.html", context)
-    
+
 
 def signout(request):
     """Para realizar el logout. No lo llamo 'logout' para
