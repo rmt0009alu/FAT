@@ -1,3 +1,6 @@
+"""
+URLs para usar con Analysis.
+"""
 from django.urls import path
 from .views import mapa_stocks, signup, signout, signin,  chart_y_datos
 

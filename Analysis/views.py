@@ -1,49 +1,38 @@
-from django.shortcuts import render, redirect
-
-# Para enviar un error (en fallo de conexión a BD, p. ej.)
-from django.http import HttpResponseServerError
-
-from django.db import connections
+"""
+Métodos de vistas para usar con Analysis.
+"""
+# Para controlar errores de conexión a la BD
+import sqlite3
 import pandas as pd
-
+import feedparser
+import mpld3
+import matplotlib.pyplot as plt
 # Para charts dinámicos en lugar de imágenes estáticas
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
-
-# Para controlar errores de conexión a la BD
-import sqlite3
-
+# Para enviar un error (en fallo de conexión a BD, p. ej.)
+from django.http import HttpResponseServerError
+from django.shortcuts import render, redirect
 # Para creación de formularios de signup y login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # Para registrar usuarios en la bd por defecto de Django
 from django.contrib.auth.models import User
-
 # Para crear la cookie de login
 from django.contrib.auth import login, logout
-
 # Exception de violación de clave única. Da un IntegrityError
-# en caso de intentar registrar un usuario que ya existe,
-# por ejemplo
-from django.db import IntegrityError
-
+# en caso de intentar registrar un usuario que ya existe, por ejemplo
+from django.db import IntegrityError, connections
 # Para proteger rutas. Las funciones que tienen este decorador
 # sólo son accesibles si se está logueado
 from django.contrib.auth.decorators import login_required
-
-# Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices
-
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
-
 # Para generar figuras sin repetir código
 from News.views import _generar_figura
-import matplotlib.pyplot as plt
-import mpld3
-
 # Para los RSS
 from util.rss.RSS import RSSIbex35, RSSDj30
-import feedparser
+# Para obtener los tickers y los paths de las BDs
+from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices
 
 
 def signup(request):
@@ -66,46 +55,47 @@ def signup(request):
         }
         return render(request, "signup.html", context)
 
-    else:
-        # Comprobar que las contraseñas son iguales
-        if request.POST["password1"] == request.POST["password2"]:
-            try:
-                # Para crear el usuario y su contraseña (con lo que llega
-                # desde el request.POST del formulario de signup.html)
-                user = User.objects.create_user(
-                    username=request.POST["username"],
-                    # No hace falta securizar explícitamente las
-                    # contraseñas, Django lo hace por mí creando
-                    # un hash de la pass de los usuarios
-                    password=request.POST['password1'],
-                )
-                # Guardar usuario y dejarle ya logueado
-                user.save()
-                login(request, user)
+    # POST
+    # ----
+    # Comprobar que las contraseñas son iguales
+    if request.POST["password1"] == request.POST["password2"]:
+        try:
+            # Para crear el usuario y su contraseña (con lo que llega
+            # desde el request.POST del formulario de signup.html)
+            user = User.objects.create_user(
+                username=request.POST["username"],
+                # No hace falta securizar explícitamente las
+                # contraseñas, Django lo hace por mí creando
+                # un hash de la pass de los usuarios
+                password=request.POST['password1'],
+            )
+            # Guardar usuario y dejarle ya logueado
+            user.save()
+            login(request, user)
 
-                # Redireccionar para informar al usuario
-                context = {
-                    "msg": "Usuario creado correctamente."
-                }
-                return render(request, 'signup_ok.html', context)
-            except IntegrityError:
-                context = {
-                    "form": UserCreationForm,
-                    "error": "Error: Usuario ya existe",
-                }
-                return render(request, "signup.html", context)
-            except Exception as ex:
-                context = {
-                    "form": UserCreationForm,
-                    "error": f"Error: error inesperado: {ex}",
-                }
-                return render(request, "signup.html", context)
-        else:
+            # Redireccionar para informar al usuario
+            context = {
+                "msg": "Usuario creado correctamente."
+            }
+            return render(request, 'signup_ok.html', context)
+        except IntegrityError:
             context = {
                 "form": UserCreationForm,
-                "error": "Error: Password no coinciden",
+                "error": "Error: Usuario ya existe",
             }
             return render(request, "signup.html", context)
+        except Exception as ex:
+            context = {
+                "form": UserCreationForm,
+                "error": f"Error: error inesperado: {ex}",
+            }
+            return render(request, "signup.html", context)
+    else:
+        context = {
+            "form": UserCreationForm,
+            "error": "Error: Password no coinciden",
+        }
+        return render(request, "signup.html", context)
 
 
 def signout(request):
@@ -141,44 +131,29 @@ def signin(request):
             "form": AuthenticationForm,
         }
         return render(request, "login.html", context)
-    else:
-        username = request.POST["username"]
-        password = request.POST["password"]
 
-        # Obtengo el objeto usuario:
-        user = User.objects.filter(username=username).first()
+    # POST
+    # ----
+    username = request.POST["username"]
+    password = request.POST["password"]
 
-        # Compruebo que el usuario exista y
-        # checkeo su password cifrada. Si todo está
-        # bien, entonces hago login y redirijo a home
-        if user is not None and user.check_password(password):
-            # Hago el login
-            login(request, user)
-            return redirect("dashboard")
+    # Obtengo el objeto usuario:
+    user = User.objects.filter(username=username).first()
 
-        else:
-            context = {
-                "form": AuthenticationForm,
-                "error": "Usuario o contraseña incorrectos",
-            }
-            return render(request, "login.html", context)
+    # Compruebo que el usuario exista y
+    # checkeo su password cifrada. Si todo está
+    # bien, entonces hago login y redirijo a home
+    if user is not None and user.check_password(password):
+        # Hago el login
+        login(request, user)
+        return redirect("dashboard")
 
-
-def formatearVolumen(volumen):
-    """Método auxiliar para dar formato al volumen.
-
-    Args:
-        value (int): _description_
-
-    Returns:
-        _type_: _description_
-    """
-    if volumen >= 1000000:
-        return "{:.1f}M".format(volumen / 1000000)
-    elif volumen >= 1000:
-        return "{:.1f}K".format(volumen / 1000)
-    else:
-        return str(volumen)
+    # Si no he redirigido algo está mal
+    context = {
+        "form": AuthenticationForm,
+        "error": "Usuario o contraseña incorrectos",
+    }
+    return render(request, "login.html", context)
 
 
 @login_required
@@ -197,24 +172,22 @@ def mapa_stocks(request, nombre_bd):
     elif nombre_bd == 'ibex35':
         tickers = tickersAdaptadosIBEX35()
 
-    miApp = 'Analysis'
-
     # Lista para los diccionarios de las últimas entradas
-    datosFinStocks = []
+    datos_fin_stocks = []
 
     # Figura del índice
     figura = None
 
     # Nombre del índice
-    nombreIndice = None
+    nombre_indice = None
 
     for t in tickers:
         # No quiero que se muestren los índices con los
         # componentes del índice
         if t not in tickersAdaptadosIndices():
-            dictMutable = {}
+            dict_mutable = {}
             # Para obtener los modelos de forma dinámica
-            model = apps.get_model(miApp, t)
+            model = apps.get_model('Analysis', t)
             try:
                 # Cojo las última entrada de cada stock:
                 entrada = model.objects.using(nombre_bd).order_by('-date')[:1].values('ticker', 'close',
@@ -222,19 +195,19 @@ def mapa_stocks(request, nombre_bd):
                                                                                       'percent_variance', 'volume',
                                                                                       'date', 'name')
                 # 'entrada' es un QuerySet INMUTABLE y 'entrada[0]' es un Dict
-                dictMutable = entrada[0]
+                dict_mutable = entrada[0]
                 # Cambio la notación de _ de la BD a . para mostrar
-                dictMutable['ticker'] = dictMutable['ticker'].replace('_', '.')
-                dictMutable['variance'] = dictMutable['close'] - dictMutable['previous_close']
-                dictMutable['volume'] = formatearVolumen(dictMutable['volume'])
-                dictMutable['ticker_bd'] = t
-                datosFinStocks.append(dictMutable)
+                dict_mutable['ticker'] = dict_mutable['ticker'].replace('_', '.')
+                dict_mutable['variance'] = dict_mutable['close'] - dict_mutable['previous_close']
+                dict_mutable['volume'] = _formatear_volumen(dict_mutable['volume'])
+                dict_mutable['ticker_bd'] = t
+                datos_fin_stocks.append(dict_mutable)
             except Exception as ex:
                 print("[NO OK] Error mapa stocks: ", ex)
         else:
-            nombreIndice = t
+            nombre_indice = t
             # Supuesto de ser el índice
-            model = apps.get_model(miApp, t)
+            model = apps.get_model('Analysis', t)
             try:
                 entradas = model.objects.using(nombre_bd).order_by('-date')[:250].values('date', 'close',
                                                                                          'ticker', 'name')
@@ -247,48 +220,16 @@ def mapa_stocks(request, nombre_bd):
             except Exception as ex:
                 print("[NO OK] Error mapa stocks: ", ex)
 
-    listaRSS = getListaRSS(nombre_bd)
+    lista_rss = _get_lista_rss(nombre_bd)
 
     context = {
         "nombre_bd": nombre_bd,
-        "nombreIndice": nombreIndice,
-        "datosFinStocks": datosFinStocks,
+        "nombreIndice": nombre_indice,
+        "datosFinStocks": datos_fin_stocks,
         "figura": figura,
-        "listaRSS": listaRSS,
+        "listaRSS": lista_rss,
     }
     return render(request, "mapa_stocks.html", context)
-
-
-def getListaRSS(nombre_bd):
-    """Para obtener una lista con noticias relacionadas
-    con los índices y otros mercados.
-
-    Args:
-        nombre_bd (str): nombre de la base de datos, i.e.,
-            índice del que se recuperan los RSS.
-
-    Returns:
-        (list): lista con los RSS del índice.
-    """
-    RSS = []
-    listaRSS = []
-    if nombre_bd == 'dj30':
-        RSS = RSSDj30()
-    elif nombre_bd == 'ibex35':
-        RSS = RSSIbex35()
-
-    numNoticiasPorFeed = 2
-
-    for n in range(numNoticiasPorFeed):
-        for fuente in RSS:
-            feed = feedparser.parse(fuente)
-            # Cojo sólo la última entrada de cada RSS (que es
-            # la última noticia en todos los casos)
-            entrada = feed["entries"][n]
-            diccionario = {'title': entrada.title, 'href': entrada.links[0]['href']}
-            listaRSS.append(diccionario)
-
-    return listaRSS
 
 
 @login_required
@@ -313,7 +254,7 @@ def chart_y_datos(request, ticker, nombre_bd):
 
         # Sentencia SQL para acceder a la tabla deseada
         # y coger las últimas 200 filas/días
-        query = f"SELECT * FROM '{table_name}' ORDER BY ROWID DESC LIMIT 200;"
+        query = f"SELECT * FROM '{table_name}' ORDER BY ROWID DESC LIMIT 1100;"
 
         # Ejecutar la sentencia y pasar a DataFrame
         ticker_data = pd.read_sql_query(query, conn)
@@ -353,7 +294,8 @@ def chart_y_datos(request, ticker, nombre_bd):
         mm20_trace = go.Scatter(x=trading_days_data.index,
                                 y=trading_days_data['MM20'],
                                 mode='lines',
-                                line=dict(width=1),
+                                # line=dict(width=1),
+                                line={"width": 1},
                                 marker_color='rgba(234, 113, 37, 0.8)',
                                 name='MM20')
         fig.add_trace(mm20_trace, row=1, col=1)
@@ -361,7 +303,8 @@ def chart_y_datos(request, ticker, nombre_bd):
         mm50_trace = go.Scatter(x=trading_days_data.index,
                                 y=trading_days_data['MM50'],
                                 mode='lines',
-                                line=dict(width=1),
+                                # line=dict(width=1),
+                                line={"width": 1},
                                 marker_color='rgba(21, 50, 231, 0.8)',
                                 name='MM50')
         fig.add_trace(mm50_trace, row=1, col=1)
@@ -378,19 +321,21 @@ def chart_y_datos(request, ticker, nombre_bd):
             # Para que no coja las fechas auto creadas, sino las
             # de datos reales, i.e., que no coja los días de
             # no trading
-            rangebreaks=[dict(values=dt_breaks)]
+            # rangebreaks=[dict(values=dt_breaks)]
+            rangebreaks=[{"values": dt_breaks}]
         )
         # Para mostrar un selector de días, meses, años..
         fig.update_xaxes(
             # rangeslider_visible=True,
-            rangeselector=dict(
-                buttons=list([
-                    dict(count=1, label="1D", step="day", stepmode="todate"),
-                    dict(count=24, label="1M", step="day", stepmode="todate"),
-                    dict(count=365, label="1Y", step="day", stepmode="todate"),
-                    dict(step="all")
-                ])
-            )
+            rangeselector={
+                "buttons": list([
+                    {"count": 7, "label": '1W', "step": 'day', "stepmode": 'todate'},
+                    {"count": 90, "label": '3M', "step": 'day', "stepmode": 'todate'},
+                    {"count": 180, "label": '6M', "step": 'day', "stepmode": 'todate'},
+                    {"count": 365, "label": '1Y', "step": 'day', "stepmode": 'todate'},
+                    {"step": 'all'}
+                    ])
+                }
         )
         fig.update_xaxes(title_text='Fecha', row=2, col=1,
                          categoryorder='category ascending')
@@ -423,13 +368,62 @@ def chart_y_datos(request, ticker, nombre_bd):
         "nombre_ticker": nombre_ticker,
         "nombre_completo": entradas[0]['name'],
         "image_json": image_json,
-        "tabla_datos": get_datos(ticker, nombre_bd),
+        "tabla_datos": _get_datos(ticker, nombre_bd),
     }
 
     return render(request, "chart_y_datos.html", context)
 
 
-def get_datos(ticker, nombre_bd):
+def _formatear_volumen(volumen):
+    """Método auxiliar para dar formato al volumen.
+
+    Args:
+        value (int): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    if volumen >= 1000000:
+        return "{:.1f}M".format(volumen / 1000000)
+    if volumen >= 1000:
+        return "{:.1f}K".format(volumen / 1000)
+
+    return str(volumen)
+
+
+def _get_lista_rss(nombre_bd):
+    """Para obtener una lista con noticias relacionadas
+    con los índices y otros mercados.
+
+    Args:
+        nombre_bd (str): nombre de la base de datos, i.e.,
+            índice del que se recuperan los RSS.
+
+    Returns:
+        (list): lista con los RSS del índice.
+    """
+    rss = []
+    lista_rss = []
+    if nombre_bd == 'dj30':
+        rss = RSSDj30()
+    elif nombre_bd == 'ibex35':
+        rss = RSSIbex35()
+
+    num_noticias_por_feed = 2
+
+    for n in range(num_noticias_por_feed):
+        for fuente in rss:
+            feed = feedparser.parse(fuente)
+            # Cojo sólo la última entrada de cada RSS (que es
+            # la última noticia en todos los casos)
+            entrada = feed["entries"][n]
+            diccionario = {'title': entrada.title, 'href': entrada.links[0]['href']}
+            lista_rss.append(diccionario)
+
+    return lista_rss
+
+
+def _get_datos(ticker, nombre_bd):
     """Método que devuelve los datos del último mes (aprox.)
     del stock seleccionado.
 
@@ -444,8 +438,7 @@ def get_datos(ticker, nombre_bd):
     """
     # Los modelos se crean de forma dinámica desde 'Analysis'
     # pero están disponibles para todas las apps
-    miApp = 'Analysis'
-    model = apps.get_model(miApp, ticker)
+    model = apps.get_model('Analysis', ticker)
 
     # Devuelvo los últimos 22 registros (aprox. 1 mes)
     query_set = model.objects.using(nombre_bd).order_by('-date')[:22].all()
@@ -455,6 +448,6 @@ def get_datos(ticker, nombre_bd):
     # es un Dict
     for _ in range(len(query_set)):
         # Dar formato adecuado al volumen
-        query_set[_].volume = formatearVolumen(query_set[_].volume)
+        query_set[_].volume = _formatear_volumen(query_set[_].volume)
 
     return query_set

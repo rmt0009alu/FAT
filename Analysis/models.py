@@ -1,3 +1,6 @@
+"""
+Modelos para usar con la app Analysis.
+"""
 from django.db import models
 from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35
 
@@ -105,4 +108,9 @@ class Sectores(models.Model):
         managed = True
 
     def __str__(self) -> str:
+        """Método magic, para representación en strings.
+
+        Returns:
+            (str): cadena descriptiva.
+        """
         return f"{self.id} - {self.nombre} - {self.sector}"

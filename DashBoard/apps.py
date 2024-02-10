@@ -9,7 +9,7 @@ class DashboardConfig(AppConfig):
 
     Args:
         AppConfig (django.apps): configurador de aplicaciones
-        en Django.
+            en Django.
     """
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'DashBoard'
