@@ -4,6 +4,7 @@ Métodos de vistas para usar con Analysis.
 # Para controlar errores de conexión a la BD
 import sqlite3
 import pandas as pd
+import re
 import feedparser
 import mpld3
 import matplotlib.pyplot as plt
@@ -13,18 +14,20 @@ from plotly.subplots import make_subplots
 # Para enviar un error (en fallo de conexión a BD, p. ej.)
 from django.http import HttpResponseServerError
 from django.shortcuts import render, redirect
+# Para proteger rutas. Las funciones que tienen este decorador
+# sólo son accesibles si se está logueado
+from django.contrib.auth.decorators import login_required
 # Para creación de formularios de signup y login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # Para registrar usuarios en la bd por defecto de Django
 from django.contrib.auth.models import User
 # Para crear la cookie de login
 from django.contrib.auth import login, logout
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
 # Exception de violación de clave única. Da un IntegrityError
 # en caso de intentar registrar un usuario que ya existe, por ejemplo
 from django.db import IntegrityError, connections
-# Para proteger rutas. Las funciones que tienen este decorador
-# sólo son accesibles si se está logueado
-from django.contrib.auth.decorators import login_required
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
 # Para generar figuras sin repetir código
@@ -36,17 +39,15 @@ from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX3
 
 
 def signup(request):
-    """Función que retorna un mensaje al cliente/navegador
-    y devuelve una respuesta HTTP al cleinte (para ello, se
-    importa HTTPresponse)
+    """Para registrar a un usuario. 
 
     Args:
-        request (request): Variable pasada por Django en la
-                          que se recibe info. que el cliente
-                          esté enviando cuando visite esta función.
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
 
     Returns:
-        HttpResponse:
+        (render): renderiza las plantillas 'signup.html' o 
+            'signup_ok.html' con datos de contexto.
     """
     if request.method == "GET":
         # Envío el 'form'
@@ -57,56 +58,84 @@ def signup(request):
 
     # POST
     # ----
-    # Comprobar que las contraseñas son iguales
-    if request.POST["password1"] == request.POST["password2"]:
-        try:
-            # Para crear el usuario y su contraseña (con lo que llega
-            # desde el request.POST del formulario de signup.html)
-            user = User.objects.create_user(
-                username=request.POST["username"],
-                # No hace falta securizar explícitamente las
-                # contraseñas, Django lo hace por mí creando
-                # un hash de la pass de los usuarios
-                password=request.POST['password1'],
-            )
-            # Guardar usuario y dejarle ya logueado
-            user.save()
-            login(request, user)
+    usuario = request.POST.get("username")
+    password1 = request.POST.get("password1")
+    password2 = request.POST.get("password2")
 
-            # Redireccionar para informar al usuario
-            context = {
-                "msg": "Usuario creado correctamente."
-            }
-            return render(request, 'signup_ok.html', context)
-        except IntegrityError:
-            context = {
-                "form": UserCreationForm,
-                "error": "Error: Usuario ya existe",
-            }
-            return render(request, "signup.html", context)
-        except Exception as ex:
-            context = {
-                "form": UserCreationForm,
-                "error": f"Error: error inesperado: {ex}",
-            }
-            return render(request, "signup.html", context)
-    else:
+    # Reglas de validación de usuarios
+    # --------------------------------
+    if not usuario:
         context = {
             "form": UserCreationForm,
-            "error": "Error: Password no coinciden",
+            "error": "Error: se requiere un nombre de usuario",
+        }
+        return render(request, "signup.html", context)
+    if not re.match("^[a-zA-Z0-9]+$", usuario):
+        context = {
+            "form": UserCreationForm,
+            "error": "Error: el nombre sólo puede tener letras y números",
+        }
+        return render(request, "signup.html", context)
+    if len(usuario) < 5:
+        context = {
+            "form": UserCreationForm,
+            "error": "Error: nombre demasiado corto",
+        }
+        return render(request, "signup.html", context)
+    
+    # Reglas de validación de password
+    # --------------------------------
+    # Django tiene un validador de contraseñas integrado para
+    # longitud (8), máyus./minus., números, que no sean similares 
+    # al nombre, etc. 
+    try:
+        validate_password(password1)
+    except ValidationError as error:
+        context = {
+            "form": UserCreationForm,
+            "error": f"Error: {', '.join(error.messages)}",
         }
         return render(request, "signup.html", context)
 
+    if password1 != password2:
+        context = {
+            "form": UserCreationForm,
+            "error": "Error: contraseñas no coinciden",
+        }
+        return render(request, "signup.html", context)
+
+    # Suponiendo que se pasa la validación de usuario y pass
+    # compruebo que el usuario no exista en la BD
+    try:
+        user = User.objects.create_user(
+            username=usuario,
+            password=password1,
+        )
+        # A la vez que se registra le hago login
+        user.save()
+        login(request, user)
+        context = {
+            "msg": "Usuario creado correctamente."
+        }
+        return render(request, 'signup_ok.html', context)
+    except IntegrityError:
+        context = {
+            "form": UserCreationForm,
+            "error": "Error: usuario ya existe",
+        }
+        return render(request, "signup.html", context)
+    
 
 def signout(request):
     """Para realizar el logout. No lo llamo 'logout' para
     que no haya conflicto de nombres con el método de Django
 
     Args:
-        request (_type_): _description_
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
 
     Returns:
-        _type_: _description_
+        (redirect): plantilla de home.
     """
     # Para cerrar una sesión aprovecho el método predefinido
     # de Django que me permite borrar la cookie con el id del
@@ -121,7 +150,8 @@ def signin(request):
     Django.
 
     Args:
-        request (_type_): _description_
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
 
     Returns:
         _type_: _description_
