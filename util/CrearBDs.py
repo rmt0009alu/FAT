@@ -156,9 +156,6 @@ def crearTablaSectores(índices, logger):
     logger.info("Creando tabla de sectores en 'db.sqlite3':")
     logger.info("------------------------------------------")
 
-    # Conexión a la BD (si no existe, se crea)
-    
-
     datos = []
     for ticker in índices:
         stock = yf.Ticker(ticker)
@@ -214,6 +211,7 @@ def crearTablaSectores(índices, logger):
         logger.info("Proceso finalizado.")
 
     return
+
 #######################################################
 if __name__ == "__main__":
 

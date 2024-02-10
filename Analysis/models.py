@@ -93,6 +93,7 @@ class Sectores(models.Model):
     ticker = models.TextField(db_column='Ticker')
     nombre = models.TextField(db_column='Nombre', blank=True, null=True)
     sector = models.TextField(db_column='Sector')
+    objects = models.Manager()
 
     class Meta:
         """Clase que sirve para indicar atributos

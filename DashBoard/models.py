@@ -41,6 +41,7 @@ class StockComprado(models.Model):
     precio_compra = models.DecimalField(max_digits=10, decimal_places=4)
     moneda = models.CharField(max_length=4)
     sector = models.CharField(max_length=255)
+    objects = models.Manager()
 
     class Meta:
         """Clase interna para agregar atributos especiales como
@@ -96,6 +97,7 @@ class StockSeguimiento(models.Model):
     precio_entrada_deseado = models.DecimalField(max_digits=10, decimal_places=4)
     moneda = models.CharField(max_length=4)
     sector = models.CharField(max_length=255)
+    objects = models.Manager()
 
     def __str__(self):
         """Método magic para mostrar info. como un string.

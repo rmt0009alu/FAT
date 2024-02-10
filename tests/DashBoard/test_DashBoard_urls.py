@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from DashBoard.views import dashboard, nueva_compra, eliminar_compras, nuevo_seguimiento, eliminar_seguimiento
+from DashBoard.views import dashboard, nueva_compra, eliminar_compras, nuevo_seguimiento, eliminar_seguimientos
 from log.logger.logger import get_logger_configurado
 
 # Idea original de NuclearPeon:
@@ -55,6 +55,6 @@ class TestDashBoardUrls(SimpleTestCase):
 
 
     def test_url_eliminar_seguimiento(self):
-        url = reverse('eliminar_seguimiento')
-        self.assertEquals(resolve(url).func, eliminar_seguimiento, " - [NO OK] URL de 'eliminar_seguimiento'")
+        url = reverse('eliminar_seguimientos')
+        self.assertEquals(resolve(url).func, eliminar_seguimientos, " - [NO OK] URL de 'eliminar_seguimiento'")
         self.log.info(" - [OK] URL de 'eliminar_seguimiento'")
