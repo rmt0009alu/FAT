@@ -262,7 +262,7 @@ def permiteActualizar(logger):
         # Horario permitido fuera de los tiempos
         # de apertura y subastas
         inicio = horarioUTC.replace(hour=4, minute=0, second=0, microsecond=0)
-        fin = horarioUTC.replace(hour=18, minute=30, second=0, microsecond=0)
+        fin = horarioUTC.replace(hour=5, minute=30, second=0, microsecond=0)
 
         # Comprobar si la ejecución está en
         # el horario permitido
