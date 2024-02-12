@@ -205,7 +205,7 @@ def mapa_stocks(request, nombre_bd):
         tickers = tickersAdaptadosDJ30()
     if nombre_bd == 'ibex35':
         tickers = tickersAdaptadosIBEX35()
-    
+
     # Lista para los diccionarios de las últimas entradas
     datos_fin_stocks = []
 
@@ -224,9 +224,9 @@ def mapa_stocks(request, nombre_bd):
             model = apps.get_model('Analysis', t)
             # Cojo las última entrada de cada stock:
             entrada = model.objects.using(nombre_bd).order_by('-date')[:1].values('ticker', 'close',
-                                                                                    'high', 'low', 'previous_close',
-                                                                                    'percent_variance', 'volume',
-                                                                                    'date', 'name')
+                                                                                  'high', 'low', 'previous_close',
+                                                                                  'percent_variance', 'volume',
+                                                                                  'date', 'name')
             # 'entrada' es un QuerySet INMUTABLE y 'entrada[0]' es un Dict
             dict_mutable = entrada[0]
             # Cambio la notación de _ de la BD a . para mostrar
@@ -241,7 +241,7 @@ def mapa_stocks(request, nombre_bd):
             # Supuesto de ser el índice
             model = apps.get_model('Analysis', t)
             entradas = model.objects.using(nombre_bd).order_by('-date')[:250].values('date', 'close',
-                                                                                        'ticker', 'name')
+                                                                                     'ticker', 'name')
             figura = _generar_figura(entradas)
             figura = mpld3.fig_to_html(figura)
 
