@@ -2,6 +2,8 @@ INFO:AnalysisViews  :
 INFO:AnalysisViews  :----------------------------------
 INFO:AnalysisViews  :TESTS ANALYSIS VIEWS
 INFO:AnalysisViews  :----------------------------------
+WARNING:django.request:Not Found: /mapa/bd_falsa/
+WARNING:django.request:Not Found: /mapa/
 INFO:AnalysisViews  : - [OK] Hacer login de forma adecuada
 INFO:AnalysisViews  : - [OK] No redireccionar si usuario o pass incorrectos
 INFO:AnalysisViews  : - [OK] Que página de signin retorne '200 ok'

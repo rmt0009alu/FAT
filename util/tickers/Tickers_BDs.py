@@ -202,3 +202,12 @@ def tickersAdaptadosDisponibles():
         (list): lista con todos los tickers adaptados disponibles.
     """
     return tickersAdaptadosDJ30() + tickersAdaptadosIBEX35()
+
+
+def bases_datos_disponibles():
+    """Para obtener las bases de datos disponibles en la aplicación.
+
+    Returns:
+        (list): lista con las bases de datos disponibles.
+    """
+    return {nombre_bdDJ30(), nombre_bdIBEX35()}

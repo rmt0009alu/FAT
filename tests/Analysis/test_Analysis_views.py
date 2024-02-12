@@ -4,9 +4,13 @@ from django.contrib.auth.models import User
 from django.db.transaction import TransactionManagementError
 from django.urls import reverse
 from log.logger.logger import get_logger_configurado
-from unittest.mock import patch, MagicMock
+# from unittest.mock import patch, MagicMock
+from datetime import datetime, timezone
 import logging
-from Analysis.views import _formatear_volumen, _get_lista_rss
+from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos
+from django.apps import apps
+from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, bases_datos_disponibles
+
 
 
 # Idea original de NuclearPeon:
@@ -41,6 +45,7 @@ class TestAnalysisViews(TestCase):
         Singleton()
         self.log = get_logger_configurado('AnalysisViews')
         self.usuarioTest = User.objects.create_user(username='usuarioTest', password='p@ssw0rdLarga')   
+        # self.usuarioTest = User.objects.create_user(username='usuarioTest', password='p@ssword')
         self.datosUsuarioTest = {
             'username': 'usuarioTest',
             'password': 'p@ssw0rdLarga',
@@ -53,7 +58,7 @@ class TestAnalysisViews(TestCase):
             'username': 'otroUsuario',
             'password1': 'p@ssw0rdLarga',
             'password2': 'p@ssw0rdLarga',
-        }    
+        }      
 
     # ------
     # SIGNUP
@@ -114,6 +119,60 @@ class TestAnalysisViews(TestCase):
             # Habilito el log de nuevo
             logging.disable(logging.NOTSET)
             self.log.info(" - [OK] No permite usuarios con el mismo nombre")
+
+
+    def test_views_signup_usuario_sin_letras_numeros(self):
+        response = self.client.post('/signup/', {'username': 'no!', 'password1': 'password', 'password2': 'password'})
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'signup.html')
+        self.assertIn('form', response.context)
+        self.assertIn('error', response.context)
+        self.assertEqual(response.context['error'], 'Error: el nombre sólo puede tener letras y números')
+
+
+    def test_views_signup_usuario_corto(self):
+        response = self.client.post('/signup/', {'username': 'abc', 'password1': 'password', 'password2': 'password'})
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'signup.html')
+        self.assertIn('form', response.context)
+        self.assertIn('error', response.context)
+        self.assertEqual(response.context['error'], 'Error: nombre demasiado corto')
+
+    
+    def test_views_signup_sin_usuario(self):
+        response = self.client.post('/signup/', {'username': '', 'password1': 'password', 'password2': 'password'})
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'signup.html')
+        self.assertIn('form', response.context)
+        self.assertIn('error', response.context)
+        self.assertEqual(response.context['error'], 'Error: se requiere un nombre de usuario')
+
+
+    def test_views_signup_password_no_valida(self):
+        response = self.client.post('/signup/', {'username': 'valid_user', 'password1': 'short', 'password2': 'short'})
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'signup.html')
+        self.assertIn('form', response.context)
+        self.assertIn('error', response.context)
+        self.assertTrue(any(error.startswith('Error:') for error in response.context['error'].split(', ')))
+
+
+    def test_views_signup_passwords_diferentes(self):
+        response = self.client.post('/signup/', {'username': 'usuario', 'password1': 'contraseña1', 'password2': 'contraseña2diferente'})
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'signup.html')
+        self.assertIn('form', response.context)
+        self.assertIn('error', response.context)
+        self.assertEqual(response.context['error'], 'Error: contraseñas no coinciden')
+
+
+    def test_views_signup_password_habitual(self):
+        response = self.client.post('/signup/', {'username': 'usuario', 'password1': 'password', 'password2': 'password'})
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'signup.html')
+        self.assertIn('form', response.context)
+        self.assertIn('error', response.context)
+        self.assertEqual(response.context['error'], 'Error: This password is too common.')
 
     # ------
     # SIGNIN
@@ -178,6 +237,70 @@ class TestAnalysisViews(TestCase):
         self.assertFalse('_auth_user_id' in self.client.session, " - [NO OK] Hacer logout")
         self.log.info(" - [OK] Hacer logout")
 
+    # -----------
+    # MAPA STOCKS
+    # -----------
+    def test_views_mapa_stocks_dj30_parametros_validos(self):
+        # Simulo la creación de todos los modelos de los valores del 
+        # dj30, para poder acceder al mapa de ese índice:
+        for ticker in tickersAdaptadosDJ30():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='USD', sector=f'sector{ticker}'
+            )
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get(reverse('mapa_stocks', args=['dj30']))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'mapa_stocks.html')
+        self.assertIn('nombre_bd', response.context)
+        self.assertEqual(response.context['nombre_bd'], 'dj30')
+        self.assertIn('datosFinStocks', response.context)
+        self.assertIn('figura', response.context)
+        self.assertIn('nombreIndice', response.context)
+        self.assertIn('listaRSS', response.context)
+
+
+    def test_views_mapa_stocks_ibex35_parametros_validos(self):
+        # Simulo la creación de todos los modelos de los valores del 
+        # ibex35, para poder acceder al mapa de ese índice:
+        for ticker in tickersAdaptadosIBEX35():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('ibex35').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='EUR', sector=f'sector{ticker}'
+            )
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get(reverse('mapa_stocks', args=['ibex35']))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'mapa_stocks.html')
+        self.assertIn('nombre_bd', response.context)
+        self.assertEqual(response.context['nombre_bd'], 'ibex35')
+        self.assertIn('datosFinStocks', response.context)
+        self.assertIn('figura', response.context)
+        self.assertIn('nombreIndice', response.context)
+        self.assertIn('listaRSS', response.context)
+    
+
+    def test_views_mapa_stocks_con_bd_falsa(self):
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get('/mapa/bd_falsa/')
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, '404.html')
+        self.assertIn('Epa! Esta página no existe', response.content.decode())
+
+
+    def test_views_mapa_stocks_con_bd_vacia(self):
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get('/mapa/')
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, '404.html')
+        self.assertIn('Epa! Esta página no existe', response.content.decode())
+
     # ------------------
     # MÉTODOS AUXILIARES
     # ------------------
@@ -194,30 +317,32 @@ class TestAnalysisViews(TestCase):
         self.assertEqual(result, '10.0K')
 
 
-    @patch('Analysis.views.RSSDj30')
-    @patch('Analysis.views.RSSIbex35')
-    @patch('Analysis.views.feedparser.parse')
-    def test_get_lista_rss(self, mock_parse, mock_RSSIbex35, mock_RSSDj30):
-        # Mock RSS feeds
-        mock_feed1 = MagicMock()
-        mock_feed1.entries = [{"title": "News 1", "links": [{"href": "http://example.com/news1"}]}]
+    def test_views_get_lista_rss(self):
+        for nombre_bd in bases_datos_disponibles():
+            lista_rss = _get_lista_rss(nombre_bd)
+            self.assertEqual(type(lista_rss), list)
+            # Todas las BDs deben tener 4 fuentes de RSS y se 
+            # utilizan 2 noticias por fuente
+            self.assertEqual(len(lista_rss), 8)
+            for item in lista_rss:
+                self.assertEqual(type(item), dict)
+                self.assertIn('title', item)
+                self.assertIn('href', item)
+        
 
-        mock_feed2 = MagicMock()
-        mock_feed2.entries = [{"title": "News 2", "links": [{"href": "http://example.com/news2"}]}]
-
-        # Mock parse function to return predefined RSS feeds
-        mock_parse.side_effect = [mock_feed1, mock_feed2]
-
-        # Call the method for dj30
-        result_dj30 = _get_lista_rss('dj30')
-        self.assertEqual(result_dj30, [{'title': 'News 1', 'href': 'http://example.com/news1'}, {'title': 'News 2', 'href': 'http://example.com/news2'}])
-
-        # Call the method for ibex35
-        result_ibex35 = _get_lista_rss('ibex35')
-        self.assertEqual(result_ibex35, [{'title': 'News 1', 'href': 'http://example.com/news1'}, {'title': 'News 2', 'href': 'http://example.com/news2'}])
-
-        # Assert the correct calls were made
-        mock_RSSDj30.assert_called_once()
-        mock_RSSIbex35.assert_not_called()
-        mock_parse.assert_called_with(mock_RSSDj30())
-        mock_parse.assert_called_with(mock_RSSIbex35())
+    def test_views_get_datos(self):
+        model = apps.get_model('Analysis', 'IBM')
+        # Creo 25 registros (días) del mismo modelo/stock para consultar
+        # los último 22 datos que es lo que cogería en '_get_datos()'
+        for i in range(25):
+            model.objects.using('dj30').create(date=datetime(2025, 1, 1+i, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker='IBM', previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name='International Business Machines Corporation', 
+                currency = 'USD', sector = 'Technology'
+            )
+        query_set = _get_datos('IBM', 'dj30')
+        self.assertEqual(len(query_set), 22)
+        for data in query_set:
+            self.assertEqual(data.ticker, 'IBM')
+            self.assertEqual(data.close, 105.0)

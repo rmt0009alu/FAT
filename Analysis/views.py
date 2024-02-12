@@ -35,7 +35,7 @@ from News.views import _generar_figura
 # Para los RSS
 from util.rss.RSS import RSSIbex35, RSSDj30
 # Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices
+from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices, bases_datos_disponibles
 
 
 def signup(request):
@@ -199,11 +199,13 @@ def mapa_stocks(request, nombre_bd):
     Returns:
         (render): renderiza la plantilla 'mapa_stocks.html' con datos de contexto.
     """
+    if nombre_bd not in bases_datos_disponibles():
+        return render(request, '404.html')
     if nombre_bd == 'dj30':
         tickers = tickersAdaptadosDJ30()
-    elif nombre_bd == 'ibex35':
+    if nombre_bd == 'ibex35':
         tickers = tickersAdaptadosIBEX35()
-
+    
     # Lista para los diccionarios de las últimas entradas
     datos_fin_stocks = []
 

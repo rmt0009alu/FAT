@@ -4,10 +4,9 @@ from django.urls import reverse
 from DashBoard.models import StockComprado, StockSeguimiento
 from DashBoard.views import _stocks_en_seguimiento, _evolucion_cartera, _hay_errores, nueva_compra, nuevo_seguimiento, eliminar_compras, eliminar_seguimientos, dashboard
 from log.logger.logger import get_logger_configurado
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from django.core.exceptions import ValidationError
-import decimal
-from datetime import timedelta
+# import decimal
 from DashBoard.forms import StockCompradoForm, StockSeguimientoForm
 from util.tickers import Tickers_BDs
 # Alias 'tz' para no confundir con datetime.timezone
