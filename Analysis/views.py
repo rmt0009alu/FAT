@@ -1,8 +1,6 @@
 """
 Métodos de vistas para usar con Analysis.
 """
-# Para controlar errores de conexión a la BD
-import sqlite3
 import re
 import pandas as pd
 import feedparser
@@ -11,8 +9,6 @@ import matplotlib.pyplot as plt
 # Para charts dinámicos en lugar de imágenes estáticas
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
-# Para enviar un error (en fallo de conexión a BD, p. ej.)
-from django.http import HttpResponseServerError
 from django.shortcuts import render, redirect
 # Para proteger rutas. Las funciones que tienen este decorador
 # sólo son accesibles si se está logueado
@@ -27,7 +23,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 # Exception de violación de clave única. Da un IntegrityError
 # en caso de intentar registrar un usuario que ya existe, por ejemplo
-from django.db import IntegrityError, connections
+from django.db import IntegrityError
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
 # Para generar figuras sin repetir código
@@ -35,7 +31,7 @@ from News.views import _generar_figura
 # Para los RSS
 from util.rss.RSS import RSSIbex35, RSSDj30
 # Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices, bases_datos_disponibles
+from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices, bases_datos_disponibles, tickersAdaptadosDisponibles
 
 
 def signup(request):
@@ -275,132 +271,21 @@ def chart_y_datos(request, ticker, nombre_bd):
     Returns:
         (render): renderiza la plantilla 'chart_y_datos.html' con datos de contexto.
     """
-    try:
-        # Crear la conexión a la BD
-        conn = connections.create_connection(nombre_bd)
+    if (nombre_bd not in bases_datos_disponibles()) or (ticker not in tickersAdaptadosDisponibles()):
+        return render(request, '404.html')
 
-        # Para llamar a la tabla que se pase como ticker
-        table_name = f"{ticker.upper()}"
-
-        # Sentencia SQL para acceder a la tabla deseada
-        # y coger las últimas 200 filas/días
-        query = f"SELECT * FROM '{table_name}' ORDER BY ROWID DESC LIMIT 1100;"
-
-        # Ejecutar la sentencia y pasar a DataFrame
-        ticker_data = pd.read_sql_query(query, conn)
-
-        # Paso la colunma 'Date' a datetime y ordeno por fecha
-        ticker_data["Date"] = pd.to_datetime(ticker_data["Date"], utc=True)
-        ticker_data = ticker_data.sort_values(by="Date", ascending=True)
-
-        # Para eliminar los días que no hay mercado hay que hacer más
-        # que un dropna() porque plotly hace su propia lista entre
-        # fechas a la hora de mostrar y aunque no haya huecos los crea
-        # Idea sacada de: https://stackoverflow.com/questions/61895282/plotly-how-to-remove-empty-dates-from-x-axis
-        trading_days_data = ticker_data.dropna()
-
-        dt_all = pd.date_range(start=ticker_data['Date'].iloc[0],
-                               end=ticker_data['Date'].iloc[-1])
-        dt_obs = [d.strftime("%Y-%m-%d") for d in ticker_data['Date']]
-        dt_breaks = [d for d in dt_all.strftime("%Y-%m-%d").tolist() if d not in dt_obs]
-
-        # Pongo la columna como index
-        trading_days_data.set_index("Date", inplace=True)
-
-        # Creo la figura para el gráfico de velas de plotly
-        fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.1,
-                            subplot_titles=['', 'Volumen'])
-
-        # Añado el gráfico de velas
-        candlestick = go.Candlestick(x=trading_days_data.index,
-                                     open=trading_days_data['Open'],
-                                     high=trading_days_data['High'],
-                                     low=trading_days_data['Low'],
-                                     close=trading_days_data['Close'],
-                                     name='Velas')
-        fig.add_trace(candlestick, row=1, col=1)
-
-        # Añado las medias móviles
-        mm20_trace = go.Scatter(x=trading_days_data.index,
-                                y=trading_days_data['MM20'],
-                                mode='lines',
-                                # line=dict(width=1),
-                                line={"width": 1},
-                                marker_color='rgba(234, 113, 37, 0.8)',
-                                name='MM20')
-        fig.add_trace(mm20_trace, row=1, col=1)
-
-        mm50_trace = go.Scatter(x=trading_days_data.index,
-                                y=trading_days_data['MM50'],
-                                mode='lines',
-                                # line=dict(width=1),
-                                line={"width": 1},
-                                marker_color='rgba(21, 50, 231, 0.8)',
-                                name='MM50')
-        fig.add_trace(mm50_trace, row=1, col=1)
-
-        # Volumen. Lo pongo en gris
-        volume_trace = go.Bar(x=trading_days_data.index,
-                              y=trading_days_data['Volume'],
-                              marker_color='rgba(51, 45, 48, 0.8)',
-                              name='Volumen')
-        fig.add_trace(volume_trace, row=2, col=1)
-
-        # Actualizo los ejes y su disposición
-        fig.update_xaxes(
-            # Para que no coja las fechas auto creadas, sino las
-            # de datos reales, i.e., que no coja los días de
-            # no trading
-            # rangebreaks=[dict(values=dt_breaks)]
-            rangebreaks=[{"values": dt_breaks}]
-        )
-        # Para mostrar un selector de días, meses, años..
-        fig.update_xaxes(
-            # rangeslider_visible=True,
-            rangeselector={
-                "buttons": list([
-                    {"count": 7, "label": '1W', "step": 'day', "stepmode": 'todate'},
-                    {"count": 90, "label": '3M', "step": 'day', "stepmode": 'todate'},
-                    {"count": 180, "label": '6M', "step": 'day', "stepmode": 'todate'},
-                    {"count": 365, "label": '1Y', "step": 'day', "stepmode": 'todate'},
-                    {"step": 'all'}
-                    ])
-                }
-        )
-        fig.update_xaxes(title_text='Fecha', row=2, col=1,
-                         categoryorder='category ascending')
-        fig.update_yaxes(title_text='Precio', row=1, col=1)
-        fig.update_yaxes(title_text='Volumen', row=2, col=1)
-        fig.update_layout(showlegend=True,
-                          # height=800,
-                          # width=1000,
-                          autosize=True)
-
-        # Guardar la figura como una cadena de JSON
-        image_json = fig.to_json()
-
-    except sqlite3.Error as e:
-        return HttpResponseServerError(f"Error de conexión a la BD: {e}")
-    finally:
-        if conn:
-            # Cerrar conexión en cualquier caso
-            conn.close()
-
-    # Solo para mostrar el nombre más "bonito"
-    nombre_ticker = ticker.split('_')[0]
-
-    # Para obtener el nombre completo
+    # Obtengo los datos del modelo y lo paso a DataFrame
     model = apps.get_model('Analysis', ticker)
-    entradas = model.objects.using(nombre_bd)[:1].values('name')
+    entradas = model.objects.using(nombre_bd).order_by('-date')[:1100].all()
+    ticker_data = pd.DataFrame(list(entradas.values()))
 
     # Contexto para el render
     context = {
-        "nombre_ticker": nombre_ticker,
-        "nombre_completo": entradas[0]['name'],
-        "image_json": image_json,
+        "nombre_ticker": ticker.replace('_', '.'),
+        "nombre_completo": ticker_data['name'].iloc[0],
+        "image_json": _get_image_json(ticker_data),
         "tabla_datos": _get_datos(ticker, nombre_bd),
     }
-
     return render(request, "chart_y_datos.html", context)
 
 
@@ -481,3 +366,106 @@ def _get_datos(ticker, nombre_bd):
         query_set[_].volume = _formatear_volumen(query_set[_].volume)
 
     return query_set
+
+
+def _get_image_json(ticker_data):
+    """Para obtener una figura en JSON que permitirá mostrar
+    un gráfico dinámico.
+
+    Args:
+        ticker_data (pandas.core.frame.DataFrame): DataFrame con los
+            datos del ticker seleccionado.
+
+    Returns:
+        (str): cadena JSON con los datos de la figura.
+    """
+    # Paso la colunma 'Date' a datetime y ordeno por fecha
+    ticker_data["date"] = pd.to_datetime(ticker_data["date"], utc=True)
+    ticker_data = ticker_data.sort_values(by="date", ascending=True)
+
+    # Para eliminar los días que no hay mercado hay que hacer más
+    # que un dropna() porque plotly hace su propia lista entre
+    # fechas a la hora de mostrar y aunque no haya huecos los crea
+    # Idea sacada de: https://stackoverflow.com/questions/61895282/plotly-how-to-remove-empty-dates-from-x-axis
+    trading_days_data = ticker_data.dropna()
+
+    dt_all = pd.date_range(start=ticker_data['date'].iloc[0],
+                           end=ticker_data['date'].iloc[-1])
+    dt_obs = [d.strftime("%Y-%m-%d") for d in ticker_data['date']]
+    dt_breaks = [d for d in dt_all.strftime("%Y-%m-%d").tolist() if d not in dt_obs]
+
+    # Pongo la columna como index
+    trading_days_data.set_index("date", inplace=True)
+
+    # Creo la figura para el gráfico de velas de plotly
+    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.1,
+                        subplot_titles=['', 'Volumen'])
+
+    # Añado el gráfico de velas
+    candlestick = go.Candlestick(x=trading_days_data.index,
+                                 open=trading_days_data['open'],
+                                 high=trading_days_data['high'],
+                                 low=trading_days_data['low'],
+                                 close=trading_days_data['close'],
+                                 name='Velas')
+    fig.add_trace(candlestick, row=1, col=1)
+
+    # Añado las medias móviles
+    mm20_trace = go.Scatter(x=trading_days_data.index,
+                            y=trading_days_data['mm20'],
+                            mode='lines',
+                            # line=dict(width=1),
+                            line={"width": 1},
+                            marker_color='rgba(234, 113, 37, 0.8)',
+                            name='MM20')
+    fig.add_trace(mm20_trace, row=1, col=1)
+
+    mm50_trace = go.Scatter(x=trading_days_data.index,
+                            y=trading_days_data['mm50'],
+                            mode='lines',
+                            # line=dict(width=1),
+                            line={"width": 1},
+                            marker_color='rgba(21, 50, 231, 0.8)',
+                            name='MM50')
+    fig.add_trace(mm50_trace, row=1, col=1)
+
+    # Volumen. Lo pongo en gris
+    volume_trace = go.Bar(x=trading_days_data.index,
+                          y=trading_days_data['volume'],
+                          marker_color='rgba(51, 45, 48, 0.8)',
+                          name='Volumen')
+    fig.add_trace(volume_trace, row=2, col=1)
+
+    # Actualizo los ejes y su disposición
+    fig.update_xaxes(
+        # Para que no coja las fechas auto creadas, sino las
+        # de datos reales, i.e., que no coja los días de
+        # no trading
+        # rangebreaks=[dict(values=dt_breaks)]
+        rangebreaks=[{"values": dt_breaks}]
+    )
+    # Para mostrar un selector de días, meses, años..
+    fig.update_xaxes(
+        # rangeslider_visible=True,
+        rangeselector={
+            "buttons": list([
+                {"count": 7, "label": '1W', "step": 'day', "stepmode": 'todate'},
+                {"count": 90, "label": '3M', "step": 'day', "stepmode": 'todate'},
+                {"count": 180, "label": '6M', "step": 'day', "stepmode": 'todate'},
+                {"count": 365, "label": '1Y', "step": 'day', "stepmode": 'todate'},
+                {"step": 'all'}
+                ])
+            }
+    )
+    fig.update_xaxes(title_text='Fecha', row=2, col=1, categoryorder='category ascending')
+    fig.update_yaxes(title_text='Precio', row=1, col=1)
+    fig.update_yaxes(title_text='Volumen', row=2, col=1)
+    fig.update_layout(showlegend=True,
+                      # height=800,
+                      # width=1000,
+                      autosize=True)
+
+    # Guardar la figura como una cadena de JSON
+    image_json = fig.to_json()
+
+    return image_json

@@ -193,7 +193,6 @@ def tickersDisponibles():
     return tickersDJ30() + tickersIBEX35()
 
 
-
 def tickersAdaptadosDisponibles():
     """Para obtener todos los tickers adaptados disponibles, con
     índices y sin adaptar. 

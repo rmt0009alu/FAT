@@ -4,13 +4,11 @@ from django.contrib.auth.models import User
 from django.db.transaction import TransactionManagementError
 from django.urls import reverse
 from log.logger.logger import get_logger_configurado
-# from unittest.mock import patch, MagicMock
 from datetime import datetime, timezone
 import logging
-from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos
+from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos, chart_y_datos
 from django.apps import apps
 from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, bases_datos_disponibles
-
 
 
 # Idea original de NuclearPeon:
@@ -58,8 +56,8 @@ class TestAnalysisViews(TestCase):
             'username': 'otroUsuario',
             'password1': 'p@ssw0rdLarga',
             'password2': 'p@ssw0rdLarga',
-        }      
-
+        }    
+    
     # ------
     # SIGNUP
     # ------
@@ -286,12 +284,18 @@ class TestAnalysisViews(TestCase):
         self.assertIn('listaRSS', response.context)
     
 
-    def test_views_mapa_stocks_con_bd_falsa(self):
+    def test_views_mapa_stocks_con_bd_falsa_1(self):
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get('/mapa/bd_falsa/')
         self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed(response, '404.html')
         self.assertIn('Epa! Esta página no existe', response.content.decode())
+
+
+    def test_views_mapa_stocks_con_bd_falsa_2(self):
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get(reverse('mapa_stocks', kwargs={'nombre_bd': 'bd_falsa'}))
+        self.assertTemplateUsed(response, '404.html')
 
 
     def test_views_mapa_stocks_con_bd_vacia(self):
@@ -300,6 +304,39 @@ class TestAnalysisViews(TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed(response, '404.html')
         self.assertIn('Epa! Esta página no existe', response.content.decode())
+    
+    # -------------
+    # CHART Y DATOS
+    # -------------    
+    def test_views_chart_y_datos_datos_validos(self):
+        model = apps.get_model('Analysis', 'IBM')
+        # Creo 25 registros (días) del mismo modelo/stock para consultar
+        # los último 22 datos que es lo que cogería en '_get_datos()'
+        # dentro de chart_y_datos
+        for i in range(25):
+            model.objects.using('dj30').create(date=datetime(2025, 1, 1+i, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker='IBM', previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name='International Business Machines Corporation', 
+                currency = 'USD', sector = 'Technology'
+            )
+        
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get(reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'dj30'}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'chart_y_datos.html')
+    
+
+    def test_views_chart_y_datos_ticker_falso(self):
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get(reverse('chart_y_datos', kwargs={'ticker': 'ticker_falso', 'nombre_bd': 'dj30'}))
+        self.assertTemplateUsed(response, '404.html')
+
+    
+    def test_views_chart_y_datos_bd_falsa(self):
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get(reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'bd_falsa'}))
+        self.assertTemplateUsed(response, '404.html')
 
     # ------------------
     # MÉTODOS AUXILIARES
@@ -346,3 +383,5 @@ class TestAnalysisViews(TestCase):
         for data in query_set:
             self.assertEqual(data.ticker, 'IBM')
             self.assertEqual(data.close, 105.0)
+
+
