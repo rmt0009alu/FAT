@@ -6,7 +6,7 @@ from django.urls import reverse
 from log.logger.logger import get_logger_configurado
 from datetime import datetime, timezone
 import logging
-from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos, chart_y_datos
+from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos
 from django.apps import apps
 from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, bases_datos_disponibles
 
@@ -121,56 +121,71 @@ class TestAnalysisViews(TestCase):
 
     def test_views_signup_usuario_sin_letras_numeros(self):
         response = self.client.post('/signup/', {'username': 'no!', 'password1': 'password', 'password2': 'password'})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'signup.html')
-        self.assertIn('form', response.context)
-        self.assertIn('error', response.context)
-        self.assertEqual(response.context['error'], 'Error: el nombre sólo puede tener letras y números')
+        self.assertEqual(response.status_code, 200, " - [NO OK] Detectar signup incorrecto con nombre con caracteres especiales")
+        self.assertTemplateUsed(response, 'signup.html', " - [NO OK] Detectar signup incorrecto con nombre con caracteres especiales")
+        self.assertIn('form', response.context, " - [NO OK] Detectar signup incorrecto con nombre con caracteres especiales")
+        self.assertIn('error', response.context, " - [NO OK] Detectar signup incorrecto con nombre con caracteres especiales")
+        self.assertEqual(response.context['error'], 
+                         'Error: el nombre sólo puede tener letras y números', 
+                         " - [NO OK] Detectar signup incorrecto con nombre con caracteres especiales")
+        self.log.info(" - [OK] Detectar signup incorrecto con nombre con caracteres especiales")
 
 
     def test_views_signup_usuario_corto(self):
         response = self.client.post('/signup/', {'username': 'abc', 'password1': 'password', 'password2': 'password'})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'signup.html')
-        self.assertIn('form', response.context)
-        self.assertIn('error', response.context)
-        self.assertEqual(response.context['error'], 'Error: nombre demasiado corto')
+        self.assertEqual(response.status_code, 200, " - [NO OK] Detectar signup incorrecto con nombre corto")
+        self.assertTemplateUsed(response, 'signup.html', " - [NO OK] Detectar signup incorrecto con nombre corto")
+        self.assertIn('form', response.context, " - [NO OK] Detectar signup incorrecto con nombre corto")
+        self.assertIn('error', response.context, " - [NO OK] Detectar signup incorrecto con nombre corto")
+        self.assertEqual(response.context['error'], 'Error: nombre demasiado corto', " - [NO OK] Detectar signup incorrecto con nombre corto")
+        self.log.info(" - [OK] Detectar signup incorrecto con nombre corto")
 
     
     def test_views_signup_sin_usuario(self):
         response = self.client.post('/signup/', {'username': '', 'password1': 'password', 'password2': 'password'})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'signup.html')
-        self.assertIn('form', response.context)
-        self.assertIn('error', response.context)
-        self.assertEqual(response.context['error'], 'Error: se requiere un nombre de usuario')
+        self.assertEqual(response.status_code, 200, " - [NO OK] Detectar signup incorrecto con nombre vacío")
+        self.assertTemplateUsed(response, 'signup.html', " - [NO OK] Detectar signup incorrecto con nombre vacío")
+        self.assertIn('form', response.context, " - [NO OK] Detectar signup incorrecto con nombre vacío")
+        self.assertIn('error', response.context, " - [NO OK] Detectar signup incorrecto con nombre vacío")
+        self.assertEqual(response.context['error'], 
+                         'Error: se requiere un nombre de usuario', 
+                         " - [NO OK] Detectar signup incorrecto con nombre vacío")
+        self.log.info(" - [OK] Detectar signup incorrecto con nombre vacío")
 
 
     def test_views_signup_password_no_valida(self):
         response = self.client.post('/signup/', {'username': 'valid_user', 'password1': 'short', 'password2': 'short'})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'signup.html')
-        self.assertIn('form', response.context)
-        self.assertIn('error', response.context)
-        self.assertTrue(any(error.startswith('Error:') for error in response.context['error'].split(', ')))
+        self.assertEqual(response.status_code, 200, " - [NO OK] Detectar signup incorrecto con password no válida")
+        self.assertTemplateUsed(response, 'signup.html', " - [NO OK] Detectar signup incorrecto con password no válida")
+        self.assertIn('form', response.context, " - [NO OK] Detectar signup incorrecto con password no válida")
+        self.assertIn('error', response.context, " - [NO OK] Detectar signup incorrecto con password no válida")
+        self.assertTrue(any(error.startswith('Error:') for error in response.context['error'].split(', ')), 
+                        " - [NO OK] Detectar signup incorrecto con password no válida")
+        self.log.info(" - [OK] Detectar signup incorrecto con password no válida")
 
 
     def test_views_signup_passwords_diferentes(self):
         response = self.client.post('/signup/', {'username': 'usuario', 'password1': 'contraseña1', 'password2': 'contraseña2diferente'})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'signup.html')
-        self.assertIn('form', response.context)
-        self.assertIn('error', response.context)
-        self.assertEqual(response.context['error'], 'Error: contraseñas no coinciden')
+        self.assertEqual(response.status_code, 200, " - [NO OK] Detectar signup incorrecto con passwords diferentes")
+        self.assertTemplateUsed(response, 'signup.html', " - [NO OK] Detectar signup incorrecto con passwords diferentes")
+        self.assertIn('form', response.context, " - [NO OK] Detectar signup incorrecto con passwords diferentes")
+        self.assertIn('error', response.context, " - [NO OK] Detectar signup incorrecto con passwords diferentes")
+        self.assertEqual(response.context['error'], 
+                         'Error: contraseñas no coinciden', 
+                         " - [NO OK] Detectar signup incorrecto con passwords diferentes")
+        self.log.info(" - [OK] Detectar signup incorrecto con passwords diferentes")
 
 
     def test_views_signup_password_habitual(self):
         response = self.client.post('/signup/', {'username': 'usuario', 'password1': 'password', 'password2': 'password'})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'signup.html')
-        self.assertIn('form', response.context)
-        self.assertIn('error', response.context)
-        self.assertEqual(response.context['error'], 'Error: This password is too common.')
+        self.assertEqual(response.status_code, 200, " - [NO OK] Detectar signup incorrecto con password habitual")
+        self.assertTemplateUsed(response, 'signup.html', " - [NO OK] Detectar signup incorrecto con password habitual")
+        self.assertIn('form', response.context, " - [NO OK] Detectar signup incorrecto con password habitual")
+        self.assertIn('error', response.context, " - [NO OK] Detectar signup incorrecto con password habitual")
+        self.assertEqual(response.context['error'], 
+                         'Error: This password is too common.', 
+                         " - [NO OK] Detectar signup incorrecto con password habitual")
+        self.log.info(" - [OK] Detectar signup incorrecto con password habitual")
 
     # ------
     # SIGNIN
@@ -251,14 +266,15 @@ class TestAnalysisViews(TestCase):
             )
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get(reverse('mapa_stocks', args=['dj30']))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'mapa_stocks.html')
-        self.assertIn('nombre_bd', response.context)
-        self.assertEqual(response.context['nombre_bd'], 'dj30')
-        self.assertIn('datosFinStocks', response.context)
-        self.assertIn('figura', response.context)
-        self.assertIn('nombreIndice', response.context)
-        self.assertIn('listaRSS', response.context)
+        self.assertEqual(response.status_code, 200, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30")
+        self.assertTemplateUsed(response, 'mapa_stocks.html', " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30")
+        self.assertIn('nombre_bd', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30")
+        self.assertEqual(response.context['nombre_bd'], 'dj30', " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30")
+        self.assertIn('datosFinStocks', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30")
+        self.assertIn('figura', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30")
+        self.assertIn('nombreIndice', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30")
+        self.assertIn('listaRSS', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30")
+        self.log.info(" - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30")
 
 
     def test_views_mapa_stocks_ibex35_parametros_validos(self):
@@ -274,36 +290,32 @@ class TestAnalysisViews(TestCase):
             )
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get(reverse('mapa_stocks', args=['ibex35']))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'mapa_stocks.html')
-        self.assertIn('nombre_bd', response.context)
-        self.assertEqual(response.context['nombre_bd'], 'ibex35')
-        self.assertIn('datosFinStocks', response.context)
-        self.assertIn('figura', response.context)
-        self.assertIn('nombreIndice', response.context)
-        self.assertIn('listaRSS', response.context)
-    
-
-    def test_views_mapa_stocks_con_bd_falsa_1(self):
-        self.client.post('/login/', self.datosUsuarioTest)
-        response = self.client.get('/mapa/bd_falsa/')
-        self.assertEqual(response.status_code, 404)
-        self.assertTemplateUsed(response, '404.html')
-        self.assertIn('Epa! Esta página no existe', response.content.decode())
+        self.assertEqual(response.status_code, 200, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
+        self.assertTemplateUsed(response, 'mapa_stocks.html', " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
+        self.assertIn('nombre_bd', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
+        self.assertEqual(response.context['nombre_bd'], 'ibex35', " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
+        self.assertIn('datosFinStocks', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
+        self.assertIn('figura', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
+        self.assertIn('nombreIndice', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
+        self.assertIn('listaRSS', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
+        self.log.info(" - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
 
 
-    def test_views_mapa_stocks_con_bd_falsa_2(self):
+    def test_views_mapa_stocks_con_bd_falsa(self):
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get(reverse('mapa_stocks', kwargs={'nombre_bd': 'bd_falsa'}))
-        self.assertTemplateUsed(response, '404.html')
+        self.assertTemplateUsed(response, '404.html', " - [NO OK] Respuesta 404 de mapa_stocks con bd falsa")
+        self.assertIn('Epa! Esta página no existe', response.content.decode())
+        self.log.info(" - [OK] Respuesta 404 de mapa_stocks con bd falsa")
 
 
     def test_views_mapa_stocks_con_bd_vacia(self):
         self.client.post('/login/', self.datosUsuarioTest)
-        response = self.client.get('/mapa/')
-        self.assertEqual(response.status_code, 404)
-        self.assertTemplateUsed(response, '404.html')
+        response = self.client.get(reverse('mapa_stocks', kwargs={'nombre_bd': []}))
+        self.assertTemplateUsed(response, '404.html', " - [NO OK] Respuesta 404 de mapa_stocks con bd vacía")
         self.assertIn('Epa! Esta página no existe', response.content.decode())
+        self.log.info(" - [OK] Respuesta 404 de mapa_stocks con bd vacía")
+
     
     # -------------
     # CHART Y DATOS
@@ -323,49 +335,56 @@ class TestAnalysisViews(TestCase):
         
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get(reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'dj30'}))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'chart_y_datos.html')
-    
+        self.assertEqual(response.status_code, 200, " - [NO OK] Respuesta adecuada de chart_y_datos con datos válidos")
+        self.assertTemplateUsed(response, 'chart_y_datos.html', " - [NO OK] Respuesta adecuada de chart_y_datos con datos válidos")
+        self.log.info(" - [OK] Respuesta adecuada de chart_y_datos con datos válidos")
+
 
     def test_views_chart_y_datos_ticker_falso(self):
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get(reverse('chart_y_datos', kwargs={'ticker': 'ticker_falso', 'nombre_bd': 'dj30'}))
-        self.assertTemplateUsed(response, '404.html')
+        self.assertTemplateUsed(response, '404.html', " - [NO OK] Respuesta 404 de chart_y_datos con ticker falso")
+        self.log.info(" - [OK] Respuesta 404 de chart_y_datos con ticker falso")
+
 
     
     def test_views_chart_y_datos_bd_falsa(self):
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get(reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'bd_falsa'}))
-        self.assertTemplateUsed(response, '404.html')
+        self.assertTemplateUsed(response, '404.html', " - [NO OK] Respuesta 404 de chart_y_datos con bd falsa")
+        self.log.info(" - [OK] Respuesta 404 de chart_y_datos con bd falsa")
+
 
     # ------------------
     # MÉTODOS AUXILIARES
     # ------------------
     def test_views_formatear_volumen(self):
         result = _formatear_volumen(1500000)
-        self.assertEqual(result, '1.5M')
+        self.assertEqual(result, '1.5M', " - [NO OK] Formateo adecuado con _formatear_volumen")
         result = _formatear_volumen(5000)
-        self.assertEqual(result, '5.0K')
+        self.assertEqual(result, '5.0K', " - [NO OK] Formateo adecuado con _formatear_volumen")
         result = _formatear_volumen(500)
-        self.assertEqual(result, '500')
+        self.assertEqual(result, '500', " - [NO OK] Formateo adecuado con _formatear_volumen")
         result = _formatear_volumen(12345.67)
-        self.assertEqual(result, '12.3K')
+        self.assertEqual(result, '12.3K', " - [NO OK] Formateo adecuado con _formatear_volumen")
         result = _formatear_volumen(10000)
-        self.assertEqual(result, '10.0K')
+        self.assertEqual(result, '10.0K', " - [NO OK] Formateo adecuado con _formatear_volumen")
+        self.log.info(" - [OK] Formateo adecuado con _formatear_volumen")
 
 
     def test_views_get_lista_rss(self):
         for nombre_bd in bases_datos_disponibles():
             lista_rss = _get_lista_rss(nombre_bd)
-            self.assertEqual(type(lista_rss), list)
+            self.assertEqual(type(lista_rss), list, " - [NO OK] Obtener listas RSS")
             # Todas las BDs deben tener 4 fuentes de RSS y se 
             # utilizan 2 noticias por fuente
-            self.assertEqual(len(lista_rss), 8)
+            self.assertEqual(len(lista_rss), 8, " - [NO OK] Obtener listas RSS")
             for item in lista_rss:
-                self.assertEqual(type(item), dict)
-                self.assertIn('title', item)
-                self.assertIn('href', item)
-        
+                self.assertEqual(type(item), dict, " - [NO OK] Obtener listas RSS")
+                self.assertIn('title', item, " - [NO OK] Obtener listas RSS")
+                self.assertIn('href', item, " - [NO OK] Obtener listas RSS")
+        self.log.info(" - [OK] Obtener listas RSS")
+
 
     def test_views_get_datos(self):
         model = apps.get_model('Analysis', 'IBM')
@@ -379,9 +398,10 @@ class TestAnalysisViews(TestCase):
                 currency = 'USD', sector = 'Technology'
             )
         query_set = _get_datos('IBM', 'dj30')
-        self.assertEqual(len(query_set), 22)
+        self.assertEqual(len(query_set), 22, " - [NO OK] Respuesta adecuada de _get_datos")
         for data in query_set:
-            self.assertEqual(data.ticker, 'IBM')
-            self.assertEqual(data.close, 105.0)
+            self.assertEqual(data.ticker, 'IBM', " - [NO OK] Respuesta adecuada de _get_datos")
+            self.assertEqual(data.close, 105.0, " - [NO OK] Respuesta adecuada de _get_datos")
+        self.log.info(" - [OK] Respuesta adecuada de _get_datos")
 
 

@@ -2,8 +2,16 @@ INFO:AnalysisViews  :
 INFO:AnalysisViews  :----------------------------------
 INFO:AnalysisViews  :TESTS ANALYSIS VIEWS
 INFO:AnalysisViews  :----------------------------------
-WARNING:django.request:Not Found: /mapa/bd_falsa/
-WARNING:django.request:Not Found: /mapa/
+INFO:AnalysisViews  : - [OK] Respuesta 404 de chart_y_datos con bd falsa
+INFO:AnalysisViews  : - [OK] Respuesta adecuada de chart_y_datos con datos válidos
+INFO:AnalysisViews  : - [OK] Respuesta 404 de chart_y_datos con ticker falso
+INFO:AnalysisViews  : - [OK] Formateo adecuado con _formatear_volumen
+INFO:AnalysisViews  : - [OK] Respuesta adecuada de _get_datos
+INFO:AnalysisViews  : - [OK] Obtener listas RSS
+INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd falsa
+INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd vacía
+INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30
+INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35
 INFO:AnalysisViews  : - [OK] Hacer login de forma adecuada
 INFO:AnalysisViews  : - [OK] No redireccionar si usuario o pass incorrectos
 INFO:AnalysisViews  : - [OK] Que página de signin retorne '200 ok'
@@ -15,9 +23,15 @@ INFO:AnalysisViews  : - [OK] Hacer logout
 INFO:AnalysisViews  : - [OK] A la vez que se hace signup hacer login
 INFO:AnalysisViews  : - [OK] Devolver página de espera e info. al usuario tras signup adecuado
 INFO:AnalysisViews  : - [OK] Hacer signup con usuario de forma adecuada
+INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con password habitual
+INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con password no válida
+INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con passwords diferentes
+INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con nombre vacío
 INFO:AnalysisViews  : - [OK] Que página de signup retorne '200 ok'
 INFO:AnalysisViews  : - [OK] No utilizar otros 'templates' por error
 INFO:AnalysisViews  : - [OK] Asignar 'template' de signup y cargar base.html
+INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con nombre corto
+INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con nombre con caracteres especiales
 INFO:AnalysisViews  : - [OK] No permite usuarios con el mismo nombre
 INFO:AnalysisModels :
 INFO:AnalysisModels :----------------------------------
