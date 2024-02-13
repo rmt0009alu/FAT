@@ -24,3 +24,9 @@ setup.cfg
 
 # Para ignorar la carpeta de HTML de 'coverage'
 /htmlcov
+
+# Para ignorar el archivo en el que tengo variables de entorno
+.env
+
+# Para ignorar el archivo de configuración de flake8 y pylint
+setup.cfg

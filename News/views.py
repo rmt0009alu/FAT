@@ -5,6 +5,7 @@ import mpld3
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
+import os 
 # Para usar django-pandas y frames
 from django_pandas.io import read_frame
 from newsapi import NewsApiClient
@@ -13,6 +14,8 @@ from django.shortcuts import render
 from django.apps import apps
 # Para obtener los tickers y los paths de las BDs
 from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices, obtenerNombreBD
+# Para cargar variables de entorno
+from dotenv import load_dotenv
 
 # Para evitar el "UserWarning: Starting a Matplotlib GUI outside of the main thread will likely fail"
 # https://stackoverflow.com/questions/69924881/userwarning-starting-a-matplotlib-gui-outside-of-the-main-thread-will-likely-fa
@@ -33,7 +36,9 @@ def home(request):
     """
     # NOTICIAS
     # ----------------------------------
-    newsapi = NewsApiClient(api_key='a3c6c53f961941279b2daee097261b5d')
+    load_dotenv()
+    NEWS_API_KEY = os.getenv("NEWS_API_KEY")
+    newsapi = NewsApiClient(api_key=NEWS_API_KEY)
 
     # Creo un diccionario para las noticias
     top_headlines = newsapi.get_top_headlines(q='stock',
