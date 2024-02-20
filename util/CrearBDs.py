@@ -58,7 +58,13 @@ def crear_bds(índice, bd, logger):
                 stock = yf.Ticker(ticker)
                 
                 # Selecciono el máximo de datos posible de cada stock
-                hist = stock.history(period="max", interval="1d")
+                # excepto para el FTSE100 porque son muchos stocks y 
+                # la BD crece demasiado (130MB) y podría ser un problema 
+                # en GitHub y en el servidor de la web:
+                if bd == 'databases/ftse100.sqlite3':
+                    hist = stock.history(period="5y", interval="1d")
+                else:
+                    hist = stock.history(period="max", interval="1d")
 
                 # Dejo la columna 'date' como columna normal
                 hist.reset_index(inplace=True)
@@ -284,7 +290,7 @@ if __name__ == "__main__":
     # Para insertar paso lista de tickers sin adaptar para hacer
     # las llamadas adecuadas a la API de yfinance. Se adaptan en
     # en el código
-
+    
     # Insertar datos en la BD del DJ30 
     dj30 = Tickers_BDs.tickers_dj30()
     bd = Tickers_BDs.ruta_bd_dj30()
@@ -294,7 +300,7 @@ if __name__ == "__main__":
     ibex35 = Tickers_BDs.tickers_ibex35()
     bd = Tickers_BDs.ruta_bd_ibex35()
     crear_bds(ibex35, bd, logger)
-
+    
     # Insertar datos en la BD del FTSE100
     ftse100 = Tickers_BDs.tickers_ftse100()
     bd = Tickers_BDs.ruta_bd_ftse100()
@@ -307,3 +313,4 @@ if __name__ == "__main__":
     # Insertar datos en la tabla de cambio de monedas
     pares_monedas = ["EURUSD=X", "EURGBP=X"]
     crear_tabla_cambio_moneda(pares_monedas, logger)
+    
