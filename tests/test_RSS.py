@@ -51,7 +51,7 @@ class TestRSS(SimpleTestCase):
         RSS = ["https://www.investing.com/rss/stock_Indices.rss",
             "https://www.theguardian.com/uk/business/rss",
             "https://www.insider.co.uk/all-about/markets/?service=rss",
-            "https://feeds.skynews.com/feeds/rss/business.xml"
+            "https://www.business-live.co.uk/?service=rss"
            ]                                      
         self.assertEquals(RSS, rss_ftse100(), " - [NO OK] Obtener enlaces RSS de ftse100")
         self.log.info(" - [OK] Obtener enlaces RSS de ftse100")
