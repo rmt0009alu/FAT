@@ -52,7 +52,7 @@ class StockComprado(models.Model):
             # en la vista de 'admin':
             models.CheckConstraint(
                 name='valores_bd',
-                check=Q(bd__in=['dj30', 'ibex35']),
+                check=Q(bd__in=['dj30', 'ibex35', 'ftse100']),
             ),
             # Restricción de fechas futuras (tiene que ser menor a mañana)
             models.CheckConstraint(
@@ -68,6 +68,8 @@ class StockComprado(models.Model):
         Returns:
             (float): precio por número de acciones = cantidad gastada
         """
+        if self.moneda == 'GBp':
+            return self.precio_compra * self.num_acciones / 100
         return self.precio_compra * self.num_acciones
 
     def __str__(self):

@@ -56,6 +56,19 @@ class TestDashBoardModels(TestCase):
             sector='Industrials'
         )
 
+        self.stockComprado_2 = StockComprado.objects.create(
+            usuario=self.user,
+            ticker_bd='RIO_L',
+            bd='ftse100',
+            ticker='RIO.L',
+            nombre_stock='Rio Tinto Group',
+            fecha_compra=self.fecha,
+            num_acciones=10,
+            precio_compra=1000.0,
+            moneda='GBp',
+            sector='Basic Materials'
+        )
+
         self.stockSeguimiento_1 = StockSeguimiento.objects.create(
             usuario=self.user,
             ticker_bd='ACS_MC',
@@ -75,6 +88,13 @@ class TestDashBoardModels(TestCase):
         res = self.stockComprado_1.posicion()
         self.assertEqual(res, 100*10, " - [NO OK] Calcular posición de StockComprado")
         self.log.info(" - [OK] Calcular posición de StockComprado")
+
+    
+    def test_models_StockComprado_posicion_GBp(self):
+        # La posición no será un campo, sino que se calculará
+        res = self.stockComprado_2.posicion()
+        self.assertEqual(res, 1000*10 / 100, " - [NO OK] Calcular posición de StockComprado en GBp")
+        self.log.info(" - [OK] Calcular posición de StockComprado en GBp")
 
 
     def test_models_StockComprado_fecha_futura(self):
@@ -125,9 +145,10 @@ class TestDashBoardModels(TestCase):
 
 
     def test_models_StockComprado_crear_borrar(self):
-        self.assertEqual(StockComprado.objects.count(), 1, " - [NO OK] Crear/borrar StockComprado")
+        self.assertEqual(StockComprado.objects.count(), 2, " - [NO OK] Crear/borrar StockComprado")
         self.assertEqual(self.stockComprado_1.ticker, 'ACS.MC', " - [NO OK] Crear/borrar StockComprado")
         self.stockComprado_1.delete()
+        self.stockComprado_2.delete()
         self.assertEqual(StockComprado.objects.count(), 0, " - [NO OK] Crear/borrar StockComprado")
         self.log.info(" - [OK] Crear/borrar StockComprado")
 

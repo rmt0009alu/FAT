@@ -1,9 +1,10 @@
 from django.test import TestCase
-from Analysis.models import StockBase, Sectores, modelos_de_stocks
-from util.tickers.Tickers_BDs import tickersIBEX35, tickersDJ30, tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosDisponibles, tickersAdaptadosIndices, obtenerNombreBD
+from Analysis.models import StockBase, Sectores, modelos_de_stocks, CambioMoneda
+from util.tickers.Tickers_BDs import tickers_ibex35, tickers_dj30, tickers_ftse100, tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_disponibles, tickers_adaptados_indices, obtener_nombre_bd
 from log.logger.logger import get_logger_configurado
-from datetime import datetime, timezone
-# from django.utils import timezone
+from datetime import datetime, timezone, timedelta
+# Alias 'tz' para no confundir con datetime.timezone
+from django.utils import timezone as tz
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
 
@@ -42,10 +43,10 @@ class TestAnalysisModels(TestCase):
         self.log = get_logger_configurado('AnalysisModels')
 
         self.listaStocks = []
-        for ticker in tickersAdaptadosDisponibles():
-            if ticker not in tickersAdaptadosIndices():
+        for ticker in tickers_adaptados_disponibles():
+            if ticker not in tickers_adaptados_indices():
                 model = apps.get_model('Analysis', ticker)
-                bd = obtenerNombreBD(ticker)
+                bd = obtener_nombre_bd(ticker)
                 stock = model.objects.using(bd).create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
                     open=100.0,
                     high=110.0,
@@ -68,6 +69,10 @@ class TestAnalysisModels(TestCase):
         self.sector = Sectores.objects.create(ticker_bd='RED_MC', bd='ibex35', ticker='RED.MC', 
                                          nombre='Redeia Corporación, S.A.', sector='Utilities')
 
+        self.cambio = CambioMoneda.objects.create( ticker_forex = 'EURUSD', 
+                                                  date = tz.now() - timedelta(days=5), 
+                                                  ultimo_cierre = 1.08)
+
 
     def test_models_StockBase_instance(self):
         stock = self.listaStocks[0]
@@ -84,10 +89,10 @@ class TestAnalysisModels(TestCase):
 
 
     def test_models_StockBase_diccionario(self):
-        self.assertEquals(len(modelos_de_stocks), len(tickersDJ30() + tickersIBEX35()), " - [NO OK] StockBase diccionario de 'modelos_de_stocks'")
+        self.assertEquals(len(modelos_de_stocks), len(tickers_dj30() + tickers_ibex35() + tickers_ftse100()), " - [NO OK] StockBase diccionario de 'modelos_de_stocks'")
 
         for _ in modelos_de_stocks:
-            self.assertTrue(_ in (tickersAdaptadosDJ30() + tickersAdaptadosIBEX35()))
+            self.assertTrue(_ in (tickers_adaptados_dj30() + tickers_adaptados_ibex35() + tickers_adaptados_ftse100()))
         self.log.info(" - [OK] StockBase diccionario de 'modelos_de_stocks'")
 
 
@@ -123,3 +128,13 @@ class TestAnalysisModels(TestCase):
         self.sector3.delete()
         self.assertEqual(Sectores.objects.filter(sector='Industrials').count(), 1, " - [NO OK] Filtrado por Sectores")
         self.log.info(" - [OK] Filtrado por Sectores")
+
+
+    def test_models_CambioMoneda_instance(self):
+        self.assertTrue(isinstance(self.cambio, CambioMoneda), " - [NO OK] Crear instancia de CambioMoneda")
+        self.log.info(" - [OK] Crear instancia de CambioMoneda")
+    
+
+    def test_models_CambioMoneda_str(self):
+        self.assertEquals(str(self.cambio), f'{self.cambio.id} - {self.cambio.ticker_forex}', " - [NO OK] CambioMoneda str")
+        self.log.info(" - [OK] CambioMoneda str")

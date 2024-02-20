@@ -3,7 +3,7 @@ import os
 import sys
 import logging
 from django.db import connections
-from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35
 from datetime import datetime, timezone
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
@@ -46,8 +46,8 @@ class TestDataBases(TestCase):
         Singleton()
         self.log = get_logger_configurado('databases')
 
-        self.tickers_dj30 = tickersAdaptadosDJ30()
-        self.tickers_ibex35 = tickersAdaptadosIBEX35()
+        self.tickers_dj30 = tickers_adaptados_dj30()
+        self.tickers_ibex35 = tickers_adaptados_ibex35()
         
         # Para obtener el nombre de todas las tablas en la BD (usando
         # SQLite3)

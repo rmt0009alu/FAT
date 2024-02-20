@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
 from django.utils import timezone
-from Analysis.models import Sectores
+from Analysis.models import Sectores, CambioMoneda
 from util.tickers import Tickers_BDs
 from .models import StockComprado, StockSeguimiento
 from .forms import StockCompradoForm, StockSeguimientoForm
@@ -33,6 +33,9 @@ def dashboard(request):
     # Obtener compras del usuario actual
     compras_usuario = StockComprado.objects.filter(usuario=request.user)
     seguimiento_usuario = StockSeguimiento.objects.filter(usuario=request.user)
+    eur_usd = CambioMoneda.objects.filter(ticker_forex='EURUSD')
+    eur_gbp = CambioMoneda.objects.filter(ticker_forex='EURGBP')
+    monedas = CambioMoneda.objects.all()
 
     if compras_usuario.exists() and seguimiento_usuario.exists():
         # Obtener la evolución de la cartera
@@ -41,6 +44,9 @@ def dashboard(request):
         context = {
             "usuario": usuario,
             "comprasUsuario": compras_usuario,
+            "eur_usd": eur_usd[0].ultimo_cierre,
+            "eur_gbp": eur_gbp[0].ultimo_cierre,
+            "monedas": monedas,
             "evolCartera": evol_cartera,
             "evolTotal": evol_total,
             "seguimientoUsuario": seguimiento_usuario,
@@ -53,6 +59,9 @@ def dashboard(request):
         context = {
             "usuario": usuario,
             "comprasUsuario": compras_usuario,
+            "eur_usd": eur_usd[0].ultimo_cierre,
+            "eur_gbp": eur_gbp[0].ultimo_cierre,
+            "monedas": monedas,
             "evolCartera": evol_cartera,
             "evolTotal": evol_total,
             "comTieneDatos": True,
@@ -61,6 +70,7 @@ def dashboard(request):
         stocks_en_seg = _stocks_en_seguimiento(seguimiento_usuario)
         context = {
             "usuario": usuario,
+            "monedas": monedas,
             "seguimientoUsuario": seguimiento_usuario,
             "stocksEnSeg": stocks_en_seg,
             "segTieneDatos": True,
@@ -68,6 +78,7 @@ def dashboard(request):
     else:
         context = {
             "usuario": usuario,
+            "monedas": monedas,
             "comTieneDatos": False,
             "segTieneDatos": False,
         }
@@ -91,7 +102,7 @@ def nueva_compra(request):
     # Formulario y lista para mostrar sugerencias de búsqueda
     context = {
         "form": StockCompradoForm,
-        "listaTickers": Tickers_BDs.tickersDisponibles(),
+        "listaTickers": Tickers_BDs.tickers_disponibles(),
     }
 
     if request.method == "GET":
@@ -120,7 +131,7 @@ def nueva_compra(request):
         fecha = datetime.strptime(fecha, format_str)
 
         # Comprobación de base de datos y fecha
-        bd = Tickers_BDs.obtenerNombreBD(ticker)
+        bd = Tickers_BDs.obtener_nombre_bd(ticker)
         context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='1')
         if context is not False:
             return render(request, "nueva_compra.html", context)
@@ -210,7 +221,7 @@ def nuevo_seguimiento(request):
     # Formulario y lista para mostrar sugerencias de búsqueda
     context = {
         "form": StockSeguimientoForm,
-        "listaTickers": Tickers_BDs.tickersDisponibles(),
+        "listaTickers": Tickers_BDs.tickers_disponibles(),
     }
 
     if request.method == "GET":
@@ -235,7 +246,7 @@ def nuevo_seguimiento(request):
         # precio_entrada_deseado = form.cleaned_data['precio_entrada_deseado']
 
         # Comprobación de base de datos
-        bd = Tickers_BDs.obtenerNombreBD(ticker)
+        bd = Tickers_BDs.obtener_nombre_bd(ticker)
         context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='3')
         if context is not False:
             return render(request, "nuevo_seguimiento.html", context)
@@ -316,7 +327,7 @@ def _stocks_en_seguimiento(seguimiento_usuario):
 
     for stock_seguido in seguimiento_usuario:
         model = apps.get_model('Analysis', stock_seguido.ticker_bd)
-        bd = Tickers_BDs.obtenerNombreBD(stock_seguido.ticker)
+        bd = Tickers_BDs.obtener_nombre_bd(stock_seguido.ticker)
         entrada = model.objects.using(bd).order_by('-date')[:1]
 
         stock = {}
@@ -326,9 +337,10 @@ def _stocks_en_seguimiento(seguimiento_usuario):
         stock['nombre'] = entrada[0].name
         stock['fecha_inicio_seguimiento'] = stock_seguido.fecha_inicio_seguimiento
         stock['precio_entrada_deseado'] = stock_seguido.precio_entrada_deseado
+        stock['moneda'] = stock_seguido.moneda
         stock['cierre'] = entrada[0].close
-        # Lista con objetos de tipo 'Sectores' (uso exclude)
-        # para que no se coja el propio stock con el que se compara
+        # Lista con objetos de tipo 'Sectores' (uso exclude
+        # para que no se coja el propio stock con el que se compara)
         lista_similares = Sectores.objects.filter(sector=entrada[0].sector).exclude(nombre=entrada[0].name)
         stock['listaSimilares'] = lista_similares
 
@@ -356,7 +368,7 @@ def _evolucion_cartera(compras_usuario):
 
     for compra in compras_usuario:
         model = apps.get_model('Analysis', compra.ticker_bd)
-        bd = Tickers_BDs.obtenerNombreBD(compra.ticker)
+        bd = Tickers_BDs.obtener_nombre_bd(compra.ticker)
         entrada = model.objects.using(bd).order_by('-date')[:1]
 
         evol_stock = {}
@@ -367,6 +379,7 @@ def _evolucion_cartera(compras_usuario):
         evol_stock['fecha_compra'] = compra.fecha_compra
         evol_stock['num_acciones'] = compra.num_acciones
         evol_stock['precio_compra'] = compra.precio_compra
+        evol_stock['moneda'] = compra.moneda
         evol_stock['cierre'] = entrada[0].close
         evol = (entrada[0].close - float(compra.precio_compra))/float(compra.precio_compra) * 100
         evol_stock['evol'] = evol
@@ -401,7 +414,7 @@ def _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso):
     """
     context = {
         "form": StockCompradoForm,
-        "listaTickers": Tickers_BDs.tickersDisponibles(),
+        "listaTickers": Tickers_BDs.tickers_disponibles(),
     }
 
     # Fecha con formato para mostrar en caso de error

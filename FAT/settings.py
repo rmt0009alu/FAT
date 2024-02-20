@@ -86,15 +86,21 @@ DATABASES = {
         'NAME': BASE_DIR / 'databases/db.sqlite3',
     },
 
+    'dj30': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'databases/dj30.sqlite3',
+    },
+
     'ibex35': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'databases/ibex35.sqlite3',
     },
 
-    'dj30': {
+    'ftse100': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'databases/dj30.sqlite3',
-    }
+        'NAME': BASE_DIR / 'databases/ftse100.sqlite3',
+    },
+    
 }
 
 

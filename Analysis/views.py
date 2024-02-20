@@ -29,9 +29,9 @@ from django.apps import apps
 # Para generar figuras sin repetir código
 from News.views import _generar_figura
 # Para los RSS
-from util.rss.RSS import RSSIbex35, RSSDj30
+from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100
 # Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices, bases_datos_disponibles, tickersAdaptadosDisponibles
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles
 
 
 def signup(request):
@@ -198,9 +198,11 @@ def mapa_stocks(request, nombre_bd):
     if nombre_bd not in bases_datos_disponibles():
         return render(request, '404.html')
     if nombre_bd == 'dj30':
-        tickers = tickersAdaptadosDJ30()
+        tickers = tickers_adaptados_dj30()
     if nombre_bd == 'ibex35':
-        tickers = tickersAdaptadosIBEX35()
+        tickers = tickers_adaptados_ibex35()
+    if nombre_bd == 'ftse100':
+        tickers = tickers_adaptados_ftse100()
 
     # Lista para los diccionarios de las últimas entradas
     datos_fin_stocks = []
@@ -214,7 +216,7 @@ def mapa_stocks(request, nombre_bd):
     for t in tickers:
         # No quiero que se muestren los índices con los
         # componentes del índice
-        if t not in tickersAdaptadosIndices():
+        if t not in tickers_adaptados_indices():
             dict_mutable = {}
             # Para obtener los modelos de forma dinámica
             model = apps.get_model('Analysis', t)
@@ -271,12 +273,12 @@ def chart_y_datos(request, ticker, nombre_bd):
     Returns:
         (render): renderiza la plantilla 'chart_y_datos.html' con datos de contexto.
     """
-    if (nombre_bd not in bases_datos_disponibles()) or (ticker not in tickersAdaptadosDisponibles()):
+    if (nombre_bd not in bases_datos_disponibles()) or (ticker not in tickers_adaptados_disponibles()):
         return render(request, '404.html')
 
     # Obtengo los datos del modelo y lo paso a DataFrame
     model = apps.get_model('Analysis', ticker)
-    entradas = model.objects.using(nombre_bd).order_by('-date')[:1100].all()
+    entradas = model.objects.using(nombre_bd).order_by('-date')[:500].all()
     ticker_data = pd.DataFrame(list(entradas.values()))
 
     # Contexto para el render
@@ -320,9 +322,11 @@ def _get_lista_rss(nombre_bd):
     rss = []
     lista_rss = []
     if nombre_bd == 'dj30':
-        rss = RSSDj30()
+        rss = rss_dj30()
     elif nombre_bd == 'ibex35':
-        rss = RSSIbex35()
+        rss = rss_ibex35()
+    elif nombre_bd == 'ftse100':
+        rss = rss_ftse100()
 
     num_noticias_por_feed = 2
 

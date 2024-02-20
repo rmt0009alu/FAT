@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 import logging
 from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos
 from django.apps import apps
-from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, bases_datos_disponibles
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, bases_datos_disponibles
 
 
 # Idea original de NuclearPeon:
@@ -256,7 +256,7 @@ class TestAnalysisViews(TestCase):
     def test_views_mapa_stocks_dj30_parametros_validos(self):
         # Simulo la creación de todos los modelos de los valores del 
         # dj30, para poder acceder al mapa de ese índice:
-        for ticker in tickersAdaptadosDJ30():
+        for ticker in tickers_adaptados_dj30():
             model = apps.get_model('Analysis', ticker)
             self.ficticio = model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
                 open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
@@ -280,7 +280,7 @@ class TestAnalysisViews(TestCase):
     def test_views_mapa_stocks_ibex35_parametros_validos(self):
         # Simulo la creación de todos los modelos de los valores del 
         # ibex35, para poder acceder al mapa de ese índice:
-        for ticker in tickersAdaptadosIBEX35():
+        for ticker in tickers_adaptados_ibex35():
             model = apps.get_model('Analysis', ticker)
             self.ficticio = model.objects.using('ibex35').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
                 open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
@@ -299,6 +299,30 @@ class TestAnalysisViews(TestCase):
         self.assertIn('nombreIndice', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
         self.assertIn('listaRSS', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
         self.log.info(" - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35")
+    
+
+    def test_views_mapa_stocks_ftse100_parametros_validos(self):
+        # Simulo la creación de todos los modelos de los valores del 
+        # ftse100, para poder acceder al mapa de ese índice:
+        for ticker in tickers_adaptados_ftse100():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('ftse100').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='GBp', sector=f'sector{ticker}'
+            )
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get(reverse('mapa_stocks', args=['ftse100']))
+        self.assertEqual(response.status_code, 200, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
+        self.assertTemplateUsed(response, 'mapa_stocks.html', " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
+        self.assertIn('nombre_bd', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
+        self.assertEqual(response.context['nombre_bd'], 'ftse100', " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
+        self.assertIn('datosFinStocks', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
+        self.assertIn('figura', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
+        self.assertIn('nombreIndice', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
+        self.assertIn('listaRSS', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
+        self.log.info(" - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
 
 
     def test_views_mapa_stocks_con_bd_falsa(self):
@@ -403,5 +427,3 @@ class TestAnalysisViews(TestCase):
             self.assertEqual(data.ticker, 'IBM', " - [NO OK] Respuesta adecuada de _get_datos")
             self.assertEqual(data.close, 105.0, " - [NO OK] Respuesta adecuada de _get_datos")
         self.log.info(" - [OK] Respuesta adecuada de _get_datos")
-
-

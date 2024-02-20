@@ -4,7 +4,7 @@
 
 <!-- Histograma con Chart.js -->
 <div class="caja">
-    <p class="barra">Distribución por sectores</p>
+    <p class="barra">Distribución por sectores (en EUR)</p>
     <canvas id="sectorHistogram"></canvas>
 </div>
 
@@ -15,16 +15,31 @@
     var sectors = ['Technology', 'Financial Services', 'Healthcare', 'Consumer Cyclical', 'Industrials', 'Communication Services', 'Consumer Defensive', 'Energy', 'Basic Materials', 'Real Estate', 'Utilities'];
     var sectorLabels = [];
     var sectorValues = [];
+    {% if eur_gbp %}
+        var eur_gbp = {{ eur_gbp }};
+    {% endif %}
+    {% if eur_usd %}
+        var eur_usd = {{ eur_usd }};
+    {% endif %}
 
     // Procesar los datos
     {% if comprasUsuario %}
         {% for compra in comprasUsuario %}
+            {% if compra.moneda == 'GBp' %}
+                posicion = {{ compra.posicion | default:0 }};
+                posicion /= eur_gbp;
+            {% elif compra.moneda == 'USD' %}
+                posicion = {{ compra.posicion | default:0 }};
+                posicion /= eur_usd;
+            {% else %}
+                posicion = {{ compra.posicion | default:0 }};
+            {% endif %}
             {% if compra.sector %}
                 var sector = "{{ compra.sector }}";
                 if (!sectorData[sector]) {
                     sectorData[sector] = 0;
                 }
-                sectorData[sector] += {{ compra.posicion }};
+                sectorData[sector] += posicion;
             {% endif %}
         {% endfor %}
 

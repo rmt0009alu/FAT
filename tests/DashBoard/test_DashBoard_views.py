@@ -1,6 +1,6 @@
 from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User
-from django.urls import reverse
+from Analysis.models import CambioMoneda
 from DashBoard.models import StockComprado, StockSeguimiento
 from DashBoard.views import _stocks_en_seguimiento, _evolucion_cartera, _hay_errores, nueva_compra, nuevo_seguimiento, eliminar_compras, eliminar_seguimientos, dashboard
 from log.logger.logger import get_logger_configurado
@@ -107,6 +107,21 @@ class TestDashBoardViews(TestCase):
 
         self.fecha1 = tz.now() - timedelta(days=5)
         self.fecha2 = tz.now()
+
+        # Creo unos registros de cambio de onedas para que al consultar los datos
+        # en stock seguimiento/comprado haya info. de los mismos:
+        self.eur_usd = CambioMoneda.objects.create(
+            ticker_forex = 'EURUSD',
+            date = self.fecha1,
+            ultimo_cierre = 1.08
+        )
+
+        self.eur_gbp = CambioMoneda.objects.create(
+            ticker_forex = 'EURGBP',
+            date = self.fecha1,
+            ultimo_cierre = 0.85
+        )
+
         
     
     def test_views_dashboard_status_code_sin_login(self):
@@ -532,7 +547,7 @@ class TestDashBoardViews(TestCase):
         context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='1')
         self.assertEqual(context["msg_error"], f'El ticker {ticker} no está disponibe', " - [NO OK] _hay_errores reconoce bd none")
         self.assertEqual(context["form"], StockCompradoForm, " - [NO OK] _hay_errores reconoce bd none")
-        self.assertEqual(context["listaTickers"], Tickers_BDs.tickersDisponibles(), " - [NO OK] _hay_errores reconoce bd none")
+        self.assertEqual(context["listaTickers"], Tickers_BDs.tickers_disponibles(), " - [NO OK] _hay_errores reconoce bd none")
         self.log.info(" - [OK] _hay_errores reconoce bd none")
 
     
@@ -543,7 +558,7 @@ class TestDashBoardViews(TestCase):
         context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='1')
         self.assertEqual(context["msg_error"], 'No se pueden introducir fechas futuras', " - [NO OK] _hay_errores reconoce fecha futura")
         self.assertEqual(context["form"], StockCompradoForm, " - [NO OK] _hay_errores reconoce fecha futura")
-        self.assertEqual(context["listaTickers"], Tickers_BDs.tickersDisponibles(), " - [NO OK] _hay_errores reconoce fecha futura")
+        self.assertEqual(context["listaTickers"], Tickers_BDs.tickers_disponibles(), " - [NO OK] _hay_errores reconoce fecha futura")
         self.log.info(" - [OK] _hay_errores reconoce fecha futura")
 
     
@@ -561,7 +576,7 @@ class TestDashBoardViews(TestCase):
                          f'El {fechaConFormato} (d/m/Y) corresponde a un festivo, fin de semana o no existen registros.', 
                          " - [NO OK] _hay_errores reconoce entrada inexistente")
         self.assertEqual(context["form"], StockCompradoForm, " - [NO OK] _hay_errores reconoce entrada inexistente")
-        self.assertEqual(context["listaTickers"], Tickers_BDs.tickersDisponibles(), " - [NO OK] _hay_errores reconoce entrada inexistente")
+        self.assertEqual(context["listaTickers"], Tickers_BDs.tickers_disponibles(), " - [NO OK] _hay_errores reconoce entrada inexistente")
         self.log.info(" - [OK] _hay_errores reconoce entrada inexistente")
 
     
@@ -579,7 +594,7 @@ class TestDashBoardViews(TestCase):
                          f'Ese precio no es posible para el día {fechaConFormato} (d/m/Y).', 
                          " - [NO OK] _hay_errores reconoce precio fuera de rango")
         self.assertEqual(context["form"], StockCompradoForm, " - [NO OK] _hay_errores reconoce precio fuera de rango")
-        self.assertEqual(context["listaTickers"], Tickers_BDs.tickersDisponibles(), " - [NO OK] _hay_errores reconoce precio fuera de rango")
+        self.assertEqual(context["listaTickers"], Tickers_BDs.tickers_disponibles(), " - [NO OK] _hay_errores reconoce precio fuera de rango")
         self.assertEqual(context["min"], entrada[0].low, " - [NO OK] _hay_errores reconoce precio fuera de rango")
         self.assertEqual(context["max"], entrada[0].high, " - [NO OK] _hay_errores reconoce precio fuera de rango")
         self.log.info(" - [OK] _hay_errores reconoce precio fuera de rango")
@@ -592,7 +607,7 @@ class TestDashBoardViews(TestCase):
         context = _hay_errores(fecha, bd, ticker, entrada=None, precio_compra=None, caso='3')
         self.assertEqual(context["msg_error"], f'El ticker {ticker} no está disponibe', " - [NO OK] _hay_errores reconoce bd none para stocks seguidos")
         self.assertEqual(context["form"], StockSeguimientoForm, " - [NO OK] _hay_errores reconoce bd none para stocks seguidos")
-        self.assertEqual(context["listaTickers"], Tickers_BDs.tickersDisponibles(), " - [NO OK] _hay_errores reconoce bd none para stocks seguidos")
+        self.assertEqual(context["listaTickers"], Tickers_BDs.tickers_disponibles(), " - [NO OK] _hay_errores reconoce bd none para stocks seguidos")
         self.log.info(" - [OK] _hay_errores reconoce bd none para stocks seguidos")
 
     

@@ -30,6 +30,7 @@
                     <th>Ticker</th>
                     <th>Fecha inicio seguimiento</th>
                     <th>Precio de entrada deseado</th>
+                    <th>Moneda</th>
                     <th>Ult. cierre</th>
                     <th>Valores similares</th>
                 </tr>
@@ -40,6 +41,7 @@
                         <td><a title="{{ stock.name }}" href="/{{ stock.bd }}/{{ stock.ticker_bd }}/chart">{{ stock.ticker }}</a></td>
                         <td>{{ stock.fecha_inicio_seguimiento|date:"d/m/Y" }}</td>
                         <td>{{ stock.precio_entrada_deseado|floatformat:3 }}</td>
+                        <td>{{ stock.moneda }}</td>
                         <td>{{ stock.cierre|floatformat:3 }}</td>
                         <td>
                             {% if stock.listaSimilares %}

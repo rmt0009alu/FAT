@@ -16,8 +16,10 @@ class RouterBDs:
         # Los 'model' se devuelven en lowercase
         # pero en mis listas están en uppercase
         # por eso se pasan aquí a lower()
-        self.tickers_dj30 = [ticker.lower() for ticker in Tickers_BDs.tickersAdaptadosDJ30()]
-        self.tickers_ibex35 = [ticker.lower() for ticker in Tickers_BDs.tickersAdaptadosIBEX35()]
+        self.tickers_dj30 = [ticker.lower() for ticker in Tickers_BDs.tickers_adaptados_dj30()]
+        self.tickers_ibex35 = [ticker.lower() for ticker in Tickers_BDs.tickers_adaptados_ibex35()]
+        self.tickers_ftse100 = [ticker.lower() for ticker in Tickers_BDs.tickers_adaptados_ftse100()]
+
 
     def db_for_read(self, model, **hints):
         """Para indicar las BDs en caso de lectura.
@@ -32,7 +34,10 @@ class RouterBDs:
             return 'dj30'
         elif model.__name__ in self.tickers_ibex35:
             return 'ibex35'
+        elif model.__name__ in self.tickers_ftse100:
+            return 'ftse100'
         return 'default'
+
 
     def db_for_write(self, model, **hints):
         """Para indicar las BDs en caso de escritura.
@@ -45,6 +50,7 @@ class RouterBDs:
         """
         return self.db_for_read(model, **hints)
 
+
     def allow_relation(self, obj1, obj2, **hints):
         """Siempre se permite la relación.
 
@@ -52,6 +58,7 @@ class RouterBDs:
             (bool): siempre True
         """
         return True
+
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """Para indicar en qué BDs se hacen las migraciones.
@@ -70,4 +77,6 @@ class RouterBDs:
             return db == 'dj30'
         elif model_name in self.tickers_ibex35:
             return db == 'ibex35'
+        elif model_name in self.tickers_ftse100:
+            return db == 'ftse100'
         return db == 'default'

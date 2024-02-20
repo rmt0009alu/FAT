@@ -1,0 +1,35 @@
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #3BA5EA;
+        padding: 8px;
+        text-align: center;
+        background-color: white;
+        color: #212428;
+    }
+</style>
+
+<div class="caja" style="width: 20%;">
+    <p class="barra">Cambio monedas</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Cambio</th>
+                <th>Fecha</th>
+                <th>Ult. cierre</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for moneda in monedas %}
+                <tr>
+                    <td>{{ moneda.ticker_forex }}</td>
+                    <td>{{ moneda.date|date:"d/m/Y" }}</td>
+                    <td>{{ moneda.ultimo_cierre|floatformat:4 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

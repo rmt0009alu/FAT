@@ -1,7 +1,7 @@
 
 {% if comprasUsuario %}
     <div class="caja">
-        <p class="barra">Distribución de cartera</p>
+        <p class="barra">Distribución de cartera (en EUR)</p>
         <canvas id="total-donut-chart"></canvas>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -12,13 +12,30 @@
             var labels = [];
             var data = [];
             var backgroundColors = [];
+            var posicion = 0;
+            {% if eur_gbp %}
+                var eur_gbp = {{ eur_gbp }};
+            {% endif %}
+            {% if eur_usd %}
+                var eur_usd = {{ eur_usd }};
+            {% endif %}
+            
 
             {% for compra in comprasUsuario %}
+                {% if compra.moneda == 'GBp' %}
+                    posicion = {{ compra.posicion | default:0 }};
+                    posicion /= eur_gbp;
+                {% elif compra.moneda == 'USD' %}
+                    posicion = {{ compra.posicion | default:0 }};
+                    posicion /= eur_usd;
+                {% else %}
+                    posicion = {{ compra.posicion | default:0 }};
+                {% endif %}
                 labels.push("{{ compra.ticker | default:'' }}");
-                data.push({{ compra.posicion | default:0 }});
+                data.push(posicion);
                 backgroundColors.push(getColorAleatorio());
                 // backgroundColors.push(getSimilarColor('#8EEBA7'));
-                totalPosicion += {{ compra.posicion | default:0 }};
+                totalPosicion += posicion;
             {% endfor %}
 
             var myChart = new Chart(ctx, {

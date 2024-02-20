@@ -11,6 +11,7 @@ INFO:AnalysisViews  : - [OK] Obtener listas RSS
 INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd falsa
 INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd vacía
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30
+INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35
 INFO:AnalysisViews  : - [OK] Hacer login de forma adecuada
 INFO:AnalysisViews  : - [OK] No redireccionar si usuario o pass incorrectos
@@ -37,6 +38,8 @@ INFO:AnalysisModels :
 INFO:AnalysisModels :----------------------------------
 INFO:AnalysisModels :TESTS ANALYSIS MODELS
 INFO:AnalysisModels :----------------------------------
+INFO:AnalysisModels : - [OK] Crear instancia de CambioMoneda
+INFO:AnalysisModels : - [OK] CambioMoneda str
 INFO:AnalysisModels : - [OK] Registro con 'id' autoincremental de Sectores
 INFO:AnalysisModels : - [OK] Filtrado por Sectores
 INFO:AnalysisModels : - [OK] Objeto 'sector' instancia de Sectores
@@ -52,6 +55,7 @@ INFO:DashBoardModels: - [OK] Evitar bases de datos falsas de StockComprado
 INFO:DashBoardModels: - [OK] Crear/borrar StockComprado
 INFO:DashBoardModels: - [OK] Evitar fechas futuras de StockComprado
 INFO:DashBoardModels: - [OK] Calcular posición de StockComprado
+INFO:DashBoardModels: - [OK] Calcular posición de StockComprado en GBp
 INFO:DashBoardModels: - [OK] StockComprado str
 INFO:DashBoardModels: - [OK] Crear/borrar StockSeguimiento
 INFO:DashBoardModels: - [OK] StockSeguimiento str
@@ -108,6 +112,7 @@ INFO:FATRouters     :
 INFO:FATRouters     :----------------------------------
 INFO:FATRouters     :TESTS FAT ROUTERS
 INFO:FATRouters     :----------------------------------
+INFO:FATRouters     : - [OK] Enrutar a BD adecuada
 INFO:FATRouters     : - [OK] Enrutar a BD adecuada
 INFO:FATSettings    :
 INFO:FATSettings    :----------------------------------
@@ -176,23 +181,29 @@ INFO:RSS            :----------------------------------
 INFO:RSS            :TESTS RSS
 INFO:RSS            :----------------------------------
 INFO:RSS            : - [OK] Obtener enlaces RSS de dj30
+INFO:RSS            : - [OK] Obtener enlaces RSS de ftse100
 INFO:RSS            : - [OK] Obtener enlaces RSS de ibex35
 INFO:Tickers        :
 INFO:Tickers        :----------------------------------
 INFO:Tickers        :TESTS TICKERS
 INFO:Tickers        :----------------------------------
 INFO:Tickers        : - [OK] Nombre bd dj30
+INFO:Tickers        : - [OK] Nombre bd ftse100
 INFO:Tickers        : - [OK] Nombre bd ibex35
 INFO:Tickers        : - [OK] Obtener nombre de bd en dj30
 INFO:Tickers        : - [OK] Obtener nombre de bd en ibex35
+INFO:Tickers        : - [OK] Obtener nombre de bd en ftse100
 INFO:Tickers        : - [OK] Obtener None con nombre falso
 INFO:Tickers        : - [OK] Ruta bd dj30
+INFO:Tickers        : - [OK] Ruta bd ftse100
 INFO:Tickers        : - [OK] Ruta bd ibex35
 INFO:Tickers        : - [OK] Obtener tickers disponibles
 INFO:Tickers        : - [OK] Tickers adaptados dj30
+INFO:Tickers        : - [OK] Tickers ftse100
 INFO:Tickers        : - [OK] Tickers adaptados ibex35
 INFO:Tickers        : - [OK] Tickers adaptados índices
 INFO:Tickers        : - [OK] Obtener tickers disponibles
 INFO:Tickers        : - [OK] Tickers dj30
+INFO:Tickers        : - [OK] Tickers ftse100
 INFO:Tickers        : - [OK] Tickers ibex35
 INFO:Tickers        : - [OK] Tickers índices

@@ -10,7 +10,7 @@ from tickers import Tickers_BDs
 
 
 
-def crearLogger():
+def crear_logger():
     """Para configurar un log de las actualizaciones de las 
     BD de los stocks. 
     """
@@ -51,7 +51,7 @@ def crearLogger():
 
 
 
-def actualizarBD(indice, bd, logger):
+def actualizar_bds(indice, bd, logger):
     """Para actualizar la BD sin tener que crear una nueva completa
     o sobreescribir todo lo que había en la BD. 
 
@@ -60,9 +60,9 @@ def actualizarBD(indice, bd, logger):
             actualizar. 
     """
     logger.info("")
-    logger.info("-------------------------------------------------")
-    logger.info("Actualizando base de datos con los últimos datos:")
-    logger.info("-------------------------------------------------")
+    logger.info("--------------------------------------------------")
+    logger.info("Actualizando bases de datos con los últimos datos:")
+    logger.info("--------------------------------------------------")
 
     DB_PATH = bd
 
@@ -86,7 +86,7 @@ def actualizarBD(indice, bd, logger):
 
                 # Coprobar horarios para actualizar de forma adecuada
                 # según las actualizaciones de la API de yfinance
-                if not permiteActualizar(logger):
+                if not _permite_actualizar(logger):
                     logger.info(" - [Fuera de horario] No se puede actualizar. %s", nombre)
                 else:
                     # NOTA: de nuevo se usan queries directas a las BDs 
@@ -133,10 +133,12 @@ def actualizarBD(indice, bd, logger):
                         # con esto aseguro que las fechas serán adecuadas y, 
                         # además, lo almaceno con los horarios de cierre según
                         # hora española
-                        if bd == Tickers_BDs.ruta_bdDJ30():
+                        if bd == Tickers_BDs.ruta_bd_dj30():
                             hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=17, minutes=30)
-                        elif bd == Tickers_BDs.ruta_bdIBEX35():
+                        elif bd == Tickers_BDs.ruta_bd_ibex35():
                             hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=18, minutes=30)
+                        elif bd == Tickers_BDs.ruta_bd_ftse100():
+                            hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=17, minutes=30)
 
                         # Uso una columna 'id' explícitamente. Es recomendable en
                         # Django, por eso lo tengo definido en los modelos dinámicos
@@ -192,7 +194,7 @@ def actualizarBD(indice, bd, logger):
                             logger.info("\t\t[OK] Datos")
                         
                             # Actualizo las medias móviles
-                            calcularMediasMoviles(conn, ticker_cambiado, logger)
+                            _calcular_medias_moviles(conn, ticker_cambiado, logger)
                         else:
                             # Hoy es mayor que la fecha del último registro
                             # pero no hay datos por festivo, fin de semana o mercado
@@ -204,13 +206,13 @@ def actualizarBD(indice, bd, logger):
 
         # Si todo ha ido bien
         logger.info("")
-        logger.info("[OK] Base de datos actualizada.")
+        logger.info("[OK] Bases de datos actualizadas.")
 
     except sqlite3.Error as ex1:
         logger.error("[NO OK] Error SQLite: %s", ex1)
 
     except Exception as ex2: 
-        logger.error("[NO OK] Fallo al actualizar base de datos. Error: %s", ex2)
+        logger.error("[NO OK] Fallo al actualizar bases de datos. Error: %s", ex2)
 
     finally:
         # Cerrar conexión a la BD
@@ -220,8 +222,69 @@ def actualizarBD(indice, bd, logger):
     return
 
 
+def actualizar_tabla_cambio_moneda(pares_monedas, logger):
+    logger.info("")
+    logger.info("-------------------------------------------------------")
+    logger.info("Actualizando tabla de cambio de moneda en 'db.sqlite3':")
+    logger.info("-------------------------------------------------------")
 
-def calcularMediasMoviles(conn, ticker, logger):
+    datos = []
+    for par in pares_monedas:
+        ticker = yf.Ticker(par)
+        info = ticker.info
+
+        # Sólo me interesa el último cierre, así que con 1 día vale
+        hist = ticker.history(period='1d')
+
+        # Hago que 'Date' sea una columna normal
+        hist.reset_index(inplace=True)
+
+        # El 'hist' en este caso son Pandas.series, entonces,
+        # para obtener el valor que necesito, puedo usar acceso por 
+        # el índice: iloc[0]
+        datos.append({'Ticker_forex': info['symbol'].split('=')[0], 
+                      'Date': datetime.date(hist['Date'].iloc[0]),
+                      'Ultimo_cierre': hist['Close'].iloc[0],
+                      })
+
+    try:
+        conn = sqlite3.connect('databases/db.sqlite3')
+        cursor = conn.cursor()
+
+        # Accedo directamente a la BD:
+        for dato in datos:
+            query = """
+                UPDATE Analysis_cambiomoneda
+                SET Ultimo_cierre = ?,
+                    Date = ?
+                WHERE Ticker_forex = ?
+            """
+            cursor.execute(query, (dato['Ultimo_cierre'], dato['Date'], dato['Ticker_forex']))
+
+            # Mostrar el nombre de la compañía actualizada en la BD
+            logger.info(" - [OK] %s", dato['Ticker_forex'])
+
+        conn.commit()
+
+        # Si todo ha ido bien:
+        logger.info("")
+        logger.info("[OK] Tabla actualizada con éxito.")
+
+    except sqlite3.Error as ex1:
+        logger.error("[NO OK] Error SQLite: %s", ex1)
+
+    except Exception as ex2: 
+        logger.error("[NO OK] Fallo al actualizar la tabla. Error: %s", ex2)
+
+    finally:
+        # Cerrar conexión a la BD
+        conn.close()
+        logger.info("Proceso finalizado.")
+
+    return
+
+
+def _calcular_medias_moviles(conn, ticker, logger):
     """Una vez se obtienen los nuevos datos de un ticker, 
     hay que actualizar las medias móviles, porque son un
     dato calculado. 
@@ -253,8 +316,7 @@ def calcularMediasMoviles(conn, ticker, logger):
     return
 
 
-
-def permiteActualizar(logger):
+def _permite_actualizar(logger):
     try:
         # Horario UTC actual
         horarioUTC = datetime.utcnow()
@@ -276,19 +338,27 @@ def permiteActualizar(logger):
 #######################################################
 if __name__ == "__main__":
 
-    logger = crearLogger()
+    logger = crear_logger()
 
     # Para actualizar paso lista de tickers sin adaptar para hacer
     # las llamadas adecuadas a la API de yfinance. Se adaptan en
     # en el código
     
     # Actualizar la BD del DJ30 
-    dj30 = Tickers_BDs.tickersDJ30()
-    bd = Tickers_BDs.ruta_bdDJ30()
-    actualizarBD(dj30, bd, logger)
+    dj30 = Tickers_BDs.tickers_dj30()
+    bd = Tickers_BDs.ruta_bd_dj30()
+    actualizar_bds(dj30, bd, logger)
 
     # Actualizar la BD del IBEX35
-    ibex35 = Tickers_BDs.tickersIBEX35()
-    bd = Tickers_BDs.ruta_bdIBEX35()
-    actualizarBD(ibex35, bd, logger)
+    ibex35 = Tickers_BDs.tickers_ibex35()
+    bd = Tickers_BDs.ruta_bd_ibex35()
+    actualizar_bds(ibex35, bd, logger)
+
+    # Actualizar la BD del FTSE100
+    ftse100 = Tickers_BDs.tickers_ftse100()
+    bd = Tickers_BDs.ruta_bd_ftse100()
+    actualizar_bds(ftse100, bd, logger)
     
+    # Actualizar la tabla de cambio de moneda
+    pares_monedas = ["EURUSD=X", "EURGBP=X"]
+    actualizar_tabla_cambio_moneda(pares_monedas, logger)

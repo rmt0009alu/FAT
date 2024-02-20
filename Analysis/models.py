@@ -2,7 +2,7 @@
 Modelos para usar con la app Analysis.
 """
 from django.db import models
-from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35
+from util.tickers.Tickers_BDs import tickers_adaptados_disponibles
 
 
 class StockBase(models.Model):
@@ -60,16 +60,12 @@ class StockBase(models.Model):
         return f"{self.ticker} - {self.name} . Fecha: {self.date}. Cierre: {self.close}"
 
 
-# Listas con los nombres de los modelos del DJ30 y el IBEX35
-# para crearlos de forma dinámica
-tickers_dj30 = tickersAdaptadosDJ30()
-tickers_ibex35 = tickersAdaptadosIBEX35()
-
+###########################################################################
 # Diccionario para los modelos creados de forma dinámica
 modelos_de_stocks = {}
 
 # Crear los modelos de forma dinámica
-for ticker in tickers_dj30 + tickers_ibex35:
+for ticker in tickers_adaptados_disponibles():
     clase_dinamica = type(
         ticker,
         (StockBase,),
@@ -79,7 +75,7 @@ for ticker in tickers_dj30 + tickers_ibex35:
         }
     )
     modelos_de_stocks[ticker] = clase_dinamica
-
+###########################################################################
 
 class Sectores(models.Model):
     """Clase para crear una tabla que almacene todos los tickers
@@ -114,3 +110,35 @@ class Sectores(models.Model):
             (str): cadena descriptiva.
         """
         return f"{self.id} - {self.nombre} - {self.sector}"
+
+
+class CambioMoneda(models.Model):
+    """Clase para crear una tabla que almacene todos los tickers
+    forex con info. sobre el cambio de moneda.
+
+    Args:
+        models.Model (django.db.models.base.Model'): clase base
+            para los modelos de Django.
+    """
+    id = models.AutoField(primary_key=True)
+    ticker_forex = models.TextField(db_column='Ticker_forex')
+    date = models.DateField(db_column='Date')
+    ultimo_cierre = models.FloatField(db_column='Ultimo_cierre')
+    objects = models.Manager()
+
+    class Meta:
+        """Clase que sirve para indicar atributos
+        adicionales.
+        """
+        # Para que la tabla/modelo sea gestionada por
+        # Django. Esta tabla se crea en dq.sqlite3
+        # para que sea común a todas las demás
+        managed = True
+
+    def __str__(self) -> str:
+        """Método magic, para representación en strings.
+
+        Returns:
+            (str): cadena descriptiva.
+        """
+        return f"{self.id} - {self.ticker_forex}"

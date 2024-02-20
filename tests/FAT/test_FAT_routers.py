@@ -39,6 +39,8 @@ class TestFATRouters(TestCase):
         self.db_1 = 'dj30'
         self.model_2 = apps.get_model('Analysis', 'ACS_MC')
         self.db_2 = 'ibex35'
+        self.model_3 = apps.get_model('Analysis', 'RIO_L')
+        self.db_3 = 'ftse100'
 
 
     def test_db_for_read(self):
@@ -50,4 +52,9 @@ class TestFATRouters(TestCase):
         self.model_2.__name__ = self.model_2.__name__.lower()
         db = self.router.db_for_read(self.model_2)
         self.assertEqual(db, self.db_2, " - [NO OK] Enrutar a BD adecuada")
+        self.log.info(" - [OK] Enrutar a BD adecuada")
+
+        self.model_3.__name__ = self.model_3.__name__.lower()
+        db = self.router.db_for_read(self.model_3)
+        self.assertEqual(db, self.db_3, " - [NO OK] Enrutar a BD adecuada")
         self.log.info(" - [OK] Enrutar a BD adecuada")

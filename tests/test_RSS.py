@@ -1,5 +1,5 @@
 from django.test import SimpleTestCase
-from util.rss.RSS import RSSDj30, RSSIbex35
+from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100
 from log.logger.logger import get_logger_configurado
 
 
@@ -34,7 +34,7 @@ class TestRSS(SimpleTestCase):
                 "https://www.estrategiasdeinversion.com/rss/rssnoticias.xml",                           
                 "https://www.bolsasymercados.es/bme-exchange/en/RSS/Indices",                         
                 "https://e00-expansion.uecdn.es/rss/mercados.xml"]                                      
-        self.assertEquals(RSS, RSSIbex35(), " - [NO OK] Obtener enlaces RSS de ibex35")
+        self.assertEquals(RSS, rss_ibex35(), " - [NO OK] Obtener enlaces RSS de ibex35")
         self.log.info(" - [OK] Obtener enlaces RSS de ibex35")
         
 
@@ -43,5 +43,15 @@ class TestRSS(SimpleTestCase):
                 "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",                                         
                 "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",                                                     
                 "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839069"]                                      
-        self.assertEquals(RSS, RSSDj30(), " - [NO OK] Obtener enlaces RSS de dj30")
+        self.assertEquals(RSS, rss_dj30(), " - [NO OK] Obtener enlaces RSS de dj30")
         self.log.info(" - [OK] Obtener enlaces RSS de dj30")
+
+    
+    def test_rss_ftse100(self):
+        RSS = ["https://www.investing.com/rss/stock_Indices.rss",
+            "https://www.theguardian.com/uk/business/rss",
+            "https://www.insider.co.uk/all-about/markets/?service=rss",
+            "https://feeds.skynews.com/feeds/rss/business.xml"
+           ]                                      
+        self.assertEquals(RSS, rss_ftse100(), " - [NO OK] Obtener enlaces RSS de ftse100")
+        self.log.info(" - [OK] Obtener enlaces RSS de ftse100")

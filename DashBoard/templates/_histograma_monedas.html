@@ -1,6 +1,7 @@
 <script>
     var invertidoEUR = 0;
     var invertidoUSD = 0;
+    var invertidoGBP = 0;
 </script>
 
 {% if comprasUsuario %}
@@ -11,6 +12,8 @@
                     invertidoEUR += {{ compra.posicion }};
                 {% elif compra.moneda == 'USD' %}
                     invertidoUSD += {{ compra.posicion }};
+                {% elif compra.moneda == 'GBp' %}
+                    invertidoGBP += {{ compra.posicion }};
                 {% endif %}
             </script>
         {% endfor %}
@@ -33,10 +36,10 @@
 
     // Datos
     var datos = {
-        labels: ['EUR', 'USD'],
+        labels: ['EUR', 'USD', 'GBP (100 GBp)'],
         datasets: [{
             label: 'Total invertido',
-            data: [invertidoEUR, invertidoUSD],
+            data: [invertidoEUR, invertidoUSD, invertidoGBP],
             // backgroundColor: '#2209ad',
             borderWidth: 1,
         }]

@@ -13,7 +13,7 @@ from django.shortcuts import render
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
 # Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickersAdaptadosDJ30, tickersAdaptadosIBEX35, tickersAdaptadosIndices, obtenerNombreBD
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_indices, obtener_nombre_bd
 # Para cargar variables de entorno
 from dotenv import load_dotenv
 
@@ -67,18 +67,23 @@ def home(request):
 
     # MEJORES Y PEORES
     # ----------------------------------
-    df_ultimos_dj30 = _mejores_peores(tickersAdaptadosDJ30())
+    df_ultimos_dj30 = _mejores_peores(tickers_adaptados_dj30())
     mejores_dj30 = df_ultimos_dj30.head(3)
     perores_dj30 = df_ultimos_dj30.tail(3)
 
-    df_ultimos_ibex35 = _mejores_peores(tickersAdaptadosIBEX35())
+    df_ultimos_ibex35 = _mejores_peores(tickers_adaptados_ibex35())
     mejores_ibex35 = df_ultimos_ibex35.head(3)
     peores_ibex35 = df_ultimos_ibex35.tail(3)
+
+    df_ultimos_ftse100 = _mejores_peores(tickers_adaptados_ftse100())
+    mejores_ftse100 = df_ultimos_ftse100.head(3)
+    peores_ftse100 = df_ultimos_ftse100.tail(3)
 
     # GRÁFICOS DE STOCKS
     # ----------------------------------
     figuras_dj30 = _lista_de_graficos(mejores_dj30, perores_dj30)
     figuras_ibex35 = _lista_de_graficos(mejores_ibex35, peores_ibex35)
+    figuras_ftse100 = _lista_de_graficos(mejores_ftse100, peores_ftse100)
 
     # CONTEXTO
     # ----------------------------------
@@ -88,14 +93,21 @@ def home(request):
     mejores_ibex35 = df_ultimos_ibex35.head(3)
     peores_ibex35 = df_ultimos_ibex35.tail(3)
 
+    df_ultimos_ftse100['ticker'] = df_ultimos_ftse100['ticker'].str.replace('_', '.')
+    mejores_ftse100 = df_ultimos_ftse100.head(3)
+    peores_ftse100 = df_ultimos_ftse100.tail(3)
+
     context = {
         "listaArticulos": lista_articulos,
         "tresMejores_dj30": mejores_dj30,
         "tresPeores_dj30": perores_dj30,
         "tresMejores_ibex35": mejores_ibex35,
         "tresPeores_ibex35": peores_ibex35,
+        "tresMejores_ftse100": mejores_ftse100,
+        "tresPeores_ftse100": peores_ftse100,
         "figuras_dj30": figuras_dj30,
         "figuras_ibex35": figuras_ibex35,
+        "figuras_ftse100": figuras_ftse100,
     }
 
     return render(request, "home.html", context)
@@ -117,10 +129,10 @@ def _mejores_peores(lista_tickers):
     df_ultimos = pd.DataFrame(columns=['ticker', 'variacion'])
 
     for t in lista_tickers:
-        if t not in tickersAdaptadosIndices():
+        if t not in tickers_adaptados_indices():
             # Para obtener los modelos de forma dinámica
             model = apps.get_model('Analysis', t)
-            bd = obtenerNombreBD(t)
+            bd = obtener_nombre_bd(t)
             # Query de acceso a la BD
             ultima_entrada = model.objects.using(bd).values('percent_variance', 'ticker').order_by('-date').first()
             if ultima_entrada:
@@ -161,7 +173,7 @@ def _lista_de_graficos(mejores, peores):
     for t in tickers_mejores_peores:
         # Para obtener los modelos de forma dinámica
         model = apps.get_model('Analysis', t)
-        bd = obtenerNombreBD(t)
+        bd = obtener_nombre_bd(t)
         # Cojo las últimas 200 entradas de cada stock:
         entradas = model.objects.using(bd).order_by('-date')[:200].values('date', 'close', 'ticker', 'name')
         figura = _generar_figura(entradas)

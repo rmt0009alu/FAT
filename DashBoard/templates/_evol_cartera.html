@@ -51,6 +51,7 @@
                     <th>Fecha compra</th>
                     <th>Num. acciones</th>
                     <th>Precio compra</th>
+                    <th>Moneda</th>
                     <th>Ult. cierre</th>
                     <th>Evolución</th>
                 </tr>
@@ -62,6 +63,7 @@
                         <td>{{ compra.fecha_compra|date:"d/m/Y" }}</td>
                         <td>{{ compra.num_acciones }}</td>
                         <td>{{ compra.precio_compra|floatformat:3 }}</td>
+                        <td>{{ compra.moneda }}</td>
                         <td>{{ compra.cierre|floatformat:3 }}</td>
                         <td style="background-color: #212428;" class="{% if compra.evol >= 0 %}positivo{% else %}negativo{% endif %}">
                             {{ compra.evol|floatformat:2 }} %
