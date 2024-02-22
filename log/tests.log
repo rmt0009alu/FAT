@@ -6,6 +6,7 @@ INFO:AnalysisViews  : - [OK] Respuesta 404 de chart_y_datos con bd falsa
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de chart_y_datos con datos válidos
 INFO:AnalysisViews  : - [OK] Respuesta 404 de chart_y_datos con ticker falso
 INFO:AnalysisViews  : - [OK] Formateo adecuado con _formatear_volumen
+INFO:AnalysisViews  : - [OK] Generar grafo correlaciones no vacío
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de _get_datos
 INFO:AnalysisViews  : - [OK] Obtener listas RSS
 INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd falsa

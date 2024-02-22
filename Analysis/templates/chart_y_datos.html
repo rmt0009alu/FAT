@@ -81,5 +81,13 @@
   </div>
 </div>
 
+<!-- Si el usuario está autenticado muestro info de correlaciones -->
+{% if user.is_authenticated %}
+<div>
+  <br>
+  <p class="barra" style="padding-left: 20px;">Correlaciones</p>
+  <img src="data:image/png;base64,{{ grafo }}" alt="ImagenGrafo">
+</div>
+{% endif %}
 
 {% endblock %}

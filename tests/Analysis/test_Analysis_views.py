@@ -6,7 +6,9 @@ from django.urls import reverse
 from log.logger.logger import get_logger_configurado
 from datetime import datetime, timezone
 import logging
-from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos
+import pandas as pd
+import base64
+from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos, _generar_correlaciones, _crear_grafo
 from django.apps import apps
 from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, bases_datos_disponibles
 
@@ -378,6 +380,49 @@ class TestAnalysisViews(TestCase):
         self.assertTemplateUsed(response, '404.html', " - [NO OK] Respuesta 404 de chart_y_datos con bd falsa")
         self.log.info(" - [OK] Respuesta 404 de chart_y_datos con bd falsa")
 
+    # -------------
+    # CORRELACIONES
+    # -------------
+    def test_views_generar_correlaciones(self):
+        # Creo registros de todos los stocks del ftse100
+        for ticker in tickers_adaptados_ftse100():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('ftse100').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='GBp', sector=f'sector{ticker}'
+            )
+        grafo = _generar_correlaciones('ULVR_L')
+        self.assertIsNotNone(grafo, " - [NO OK] Generar grafo correlaciones no vacío")
+        self.log.info(" - [OK] Generar grafo correlaciones no vacío")
+
+
+    def test_views_generar_correlaciones_positivas(self):
+        # Create a sample correlation matrix with a positive correlation
+        matriz_correl = {
+            'ticker1': {'ticker1': 1.0, 'ticker2': 0.8},
+            'ticker2': {'ticker1': 0.8, 'ticker2': 1.0}
+        }
+        matriz_correl = pd.DataFrame(matriz_correl)
+        tickers = ['ticker1', 'ticker2']
+        ticker_objetivo = 'ticker1'
+        # Grafo ficticio que deberá ser una figura
+        grafo = _crear_grafo(matriz_correl, tickers, ticker_objetivo)
+        self.assertTrue(base64.b64decode(grafo))
+
+
+    def test_views_generar_correlaciones_negativas(self):
+        matriz_correl = {
+            'ticker1': {'ticker1': 1.0, 'ticker2': -0.8},
+            'ticker2': {'ticker1': -0.8, 'ticker2': 1.0}
+        }
+        matriz_correl = pd.DataFrame(matriz_correl)
+        tickers = ['ticker1', 'ticker2']
+        ticker_objetivo = 'ticker1'
+        # Grafo ficticio que deberá ser una figura
+        grafo = _crear_grafo(matriz_correl, tickers, ticker_objetivo)
+        self.assertTrue(base64.b64decode(grafo))
 
     # ------------------
     # MÉTODOS AUXILIARES

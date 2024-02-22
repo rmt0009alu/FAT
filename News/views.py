@@ -17,6 +17,7 @@ from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_i
 # Para cargar variables de entorno
 from dotenv import load_dotenv
 
+
 # Para evitar el "UserWarning: Starting a Matplotlib GUI outside of the main thread will likely fail"
 # https://stackoverflow.com/questions/69924881/userwarning-starting-a-matplotlib-gui-outside-of-the-main-thread-will-likely-fa
 matplotlib.use('agg')
@@ -109,7 +110,6 @@ def home(request):
         "figuras_ibex35": figuras_ibex35,
         "figuras_ftse100": figuras_ftse100,
     }
-
     return render(request, "home.html", context)
 
 

@@ -26,12 +26,17 @@ from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
+# Para los grafos
+import networkx as nx
+# Para el buffer y la imagen del grafo
+from io import BytesIO
+import base64
 # Para generar figuras sin repetir código
 from News.views import _generar_figura
 # Para los RSS
 from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100
 # Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles, obtener_nombre_bd
 
 
 def signup(request):
@@ -271,7 +276,8 @@ def chart_y_datos(request, ticker, nombre_bd):
         nombre_bd (str): nombre de la BD recogido de la URL.
 
     Returns:
-        (render): renderiza la plantilla 'chart_y_datos.html' con datos de contexto.
+        (render): renderiza la plantilla 'chart_y_datos.html' con datos 
+            de contexto.
     """
     if (nombre_bd not in bases_datos_disponibles()) or (ticker not in tickers_adaptados_disponibles()):
         return render(request, '404.html')
@@ -281,12 +287,15 @@ def chart_y_datos(request, ticker, nombre_bd):
     entradas = model.objects.using(nombre_bd).order_by('-date')[:500].all()
     ticker_data = pd.DataFrame(list(entradas.values()))
 
+    grafo = _generar_correlaciones(ticker)
+
     # Contexto para el render
     context = {
         "nombre_ticker": ticker.replace('_', '.'),
         "nombre_completo": ticker_data['name'].iloc[0],
         "image_json": _get_image_json(ticker_data),
         "tabla_datos": _get_datos(ticker, nombre_bd),
+        "grafo": grafo,
     }
     return render(request, "chart_y_datos.html", context)
 
@@ -473,3 +482,98 @@ def _get_image_json(ticker_data):
     image_json = fig.to_json()
 
     return image_json
+
+
+def _generar_correlaciones(ticker_objetivo):
+
+    dic_datos = {}
+    tickers = tickers_adaptados_disponibles()
+
+    for ticker in tickers:
+        bd = obtener_nombre_bd(ticker)
+        model = apps.get_model('Analysis', ticker)
+        # Útimos 30 días de precios de cierre
+        entradas = model.objects.using(bd).order_by('-date')[:30].values('date', 'close')
+        # Convierto a lista de tuplas para separar después
+        fechas_cierres = [(ent['date'], ent['close']) for ent in entradas]
+        # Separate 'date' from the tuple and set it as the index
+        fechas = [ent[0] for ent in fechas_cierres]
+        cierres = [ent[1] for ent in fechas_cierres]
+        # Guardo los datos de cada ticker en un dict
+        dic_datos[ticker] = {'Date': fechas, 'Close': cierres}
+
+    # Convierto a DataFrame
+    df = pd.DataFrame({ticker: pd.Series(datos['Close'], index=datos['Date']) for ticker, datos in dic_datos.items()})
+
+    # Creo la matriz de correlación (esta matriz sigue
+    # siendo un DataFrame)
+    matriz_correl = df.corr()
+    
+    # Creo el grafo con NetwrokX
+    grafo = _crear_grafo(matriz_correl, tickers, ticker_objetivo)
+    
+    return grafo
+
+
+def _crear_grafo(matriz_correl, tickers, ticker_objetivo):
+    # Creo un grafo vacío y añado los nodos (que son los tickers)
+    G_correl_positiva = nx.Graph()
+    G_correl_positiva.add_nodes_from(tickers)
+    G_correl_negativa = nx.Graph()
+    G_correl_negativa.add_nodes_from(tickers)
+
+    # Añado los enlaces con su peso (el valor de correlación)
+    for ticker in tickers:
+        # Para no generar enlaces recursivos
+        if ticker != ticker_objetivo:
+            peso_correl = matriz_correl.loc[ticker_objetivo, ticker]
+            # Solo correlación positiva:
+            if peso_correl > 0.75:
+                # Redondeo los pesos para que se vea mejor en el grafo
+                # si lo llego a mostrar
+                G_correl_positiva.add_edge(ticker_objetivo, ticker, weight=round(peso_correl, 3))
+            if peso_correl < -0.75:
+                # Redondeo los pesos para que se vea mejor en el grafo
+                # si lo llego a mostrar
+                G_correl_negativa.add_edge(ticker_objetivo, ticker, weight=round(peso_correl, 3))
+    
+    # Elimino todos aquellos nodos que no tengan un enlace
+    for ticker in tickers:
+        if ticker != ticker_objetivo and not nx.has_path(G_correl_positiva, ticker, ticker_objetivo):
+            G_correl_positiva.remove_node(ticker)
+        if ticker != ticker_objetivo and not nx.has_path(G_correl_negativa, ticker, ticker_objetivo):
+            G_correl_negativa.remove_node(ticker)
+
+    # Guardo los grafos en una figura
+    fig, axes = plt.subplots(1, 2, figsize=(15, 7)) 
+
+    pos = nx.circular_layout(G_correl_positiva)
+    nx.draw_networkx(G_correl_positiva, pos, with_labels=True, node_size=500, alpha=0.5, 
+                     font_size=10, node_color='skyblue', font_color='black', ax=axes[0])  # Plot first graph in the first subplot
+    axes[0].set_title("Correlación positiva últimos 30 días \ncotizados (precios de cierre)")
+
+    pos = nx.circular_layout(G_correl_negativa)
+    nx.draw_networkx(G_correl_negativa, pos, with_labels=True, node_size=500, alpha=0.5, 
+                     font_size=10, node_color='red', font_color='black', ax=axes[1])  # Plot second graph in the second subplot
+    axes[1].set_title("Correlación negativa últimos 30 días \ncotizados (precios de cierre)")
+    # edge_labels = nx.get_edge_attributes(G_correl_positiva, 'weight')
+    # Los enlaces son 'todos con todos' pero, aunque no lo muestro
+    # dichos enlaces tienen sus pesos, que es lo que interesa
+    # nx.draw_networkx_edge_labels(G, pos)
+
+    # Puedo guardar en un .png
+    # plt.title("Red de correlaciones")
+    # plt.savefig("red_correlaciones.png", format="PNG")
+    # plt.close()
+
+    # Lo guardo en un byte buffer y así lo puedo mostrar directamente 
+    # integrado en la plantilla html
+    buffer = BytesIO()
+    plt.savefig(buffer, format="PNG")
+    plt.close()
+    
+    # Obtener los datos de la imagen del buffer
+    buffer.seek(0)
+    grafo = base64.b64encode(buffer.read()).decode()
+
+    return grafo

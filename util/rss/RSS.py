@@ -39,9 +39,9 @@ def rss_ftse100():
     Returns:
         (list): lista con los RSS
     """
-    rss = ["https://www.investing.com/rss/stock_Indices.rss",                   # Investing
+    rss = ["https://uk.finance.yahoo.com/rss/topstories",                       # Yahoo finance UK
            "https://www.theguardian.com/uk/business/rss",                       # The Guardian Business
-           "https://www.insider.co.uk/all-about/markets/?service=rss",          # Insider
+           "https://www.ft.com/rss/home/uk",                                    # Financial Times UK
            "https://www.business-live.co.uk/?service=rss"]                      # Business-live
     
     return rss
