@@ -401,12 +401,12 @@ class TestAnalysisViews(TestCase):
     def test_views_generar_correlaciones_positivas(self):
         # Create a sample correlation matrix with a positive correlation
         matriz_correl = {
-            'ticker1': {'ticker1': 1.0, 'ticker2': 0.8},
-            'ticker2': {'ticker1': 0.8, 'ticker2': 1.0}
+            'AAPL': {'AAPL': 1.0, 'IBM': 0.8},
+            'IBM': {'AAPL': 0.8, 'ticker2': 1.0}
         }
         matriz_correl = pd.DataFrame(matriz_correl)
-        tickers = ['ticker1', 'ticker2']
-        ticker_objetivo = 'ticker1'
+        tickers = ['AAPL', 'IBM']
+        ticker_objetivo = 'AAPL'
         # Grafo ficticio que deberá ser una figura
         grafo = _crear_grafos(matriz_correl, tickers, ticker_objetivo)
         self.assertTrue(base64.b64decode(grafo))
@@ -414,12 +414,12 @@ class TestAnalysisViews(TestCase):
 
     def test_views_generar_correlaciones_negativas(self):
         matriz_correl = {
-            'ticker1': {'ticker1': 1.0, 'ticker2': -0.8},
-            'ticker2': {'ticker1': -0.8, 'ticker2': 1.0}
+            'AAPL': {'AAPL': 1.0, 'IBM': -0.8},
+            'IBM': {'AAPL': -0.8, 'IBM': 1.0}
         }
         matriz_correl = pd.DataFrame(matriz_correl)
-        tickers = ['ticker1', 'ticker2']
-        ticker_objetivo = 'ticker1'
+        tickers = ['AAPL', 'IBM']
+        ticker_objetivo = 'AAPL'
         # Grafo ficticio que deberá ser una figura
         grafo = _crear_grafos(matriz_correl, tickers, ticker_objetivo)
         self.assertTrue(base64.b64decode(grafo))

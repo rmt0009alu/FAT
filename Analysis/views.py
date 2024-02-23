@@ -546,7 +546,7 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
         if ticker != ticker_objetivo.replace("_", ".") and not nx.has_path(G_correl_negativa, ticker, ticker_objetivo.replace("_", ".")):
             G_correl_negativa.remove_node(ticker)
 
-    # Guardo los grafos en una figura (2 filas y columna)
+    # Guardo los grafos en una figura (2 filas y 1 columna)
     fig, axes = plt.subplots(2, 1, figsize=(6, 8)) 
 
     pos = nx.circular_layout(G_correl_positiva)
