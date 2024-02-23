@@ -1,0 +1,21 @@
+#plotly-chart {
+    height: calc(100vh - 100px); /* Adjust 100px for other elements */
+    max-height: 800px; /* Optional maximum height */
+}
+
+
+.barra {
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    padding-left: 20px;
+}
+
+.cabecera {
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    text-align: center;
+}

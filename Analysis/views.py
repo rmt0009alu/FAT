@@ -36,7 +36,7 @@ from News.views import _generar_figura
 # Para los RSS
 from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100
 # Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles, obtener_nombre_bd
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles, obtener_nombre_bd, tickers_disponibles
 
 
 def signup(request):
@@ -496,7 +496,7 @@ def _generar_correlaciones(ticker_objetivo):
         entradas = model.objects.using(bd).order_by('-date')[:30].values('date', 'close')
         # Convierto a lista de tuplas para separar después
         fechas_cierres = [(ent['date'], ent['close']) for ent in entradas]
-        # Separate 'date' from the tuple and set it as the index
+        # Separo la info de las tuplas
         fechas = [ent[0] for ent in fechas_cierres]
         cierres = [ent[1] for ent in fechas_cierres]
         # Guardo los datos de cada ticker en un dict
@@ -510,17 +510,19 @@ def _generar_correlaciones(ticker_objetivo):
     matriz_correl = df.corr()
     
     # Creo el grafo con NetwrokX
-    grafo = _crear_grafo(matriz_correl, tickers, ticker_objetivo)
+    grafos = _crear_grafos(matriz_correl, tickers, ticker_objetivo)
     
-    return grafo
+    return grafos
 
 
-def _crear_grafo(matriz_correl, tickers, ticker_objetivo):
-    # Creo un grafo vacío y añado los nodos (que son los tickers)
+def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
+
+    # Creo un grafo vacío y añado los nodos (que son los tickers
+    # NO adaptados para mostrar con formato de '.')
     G_correl_positiva = nx.Graph()
-    G_correl_positiva.add_nodes_from(tickers)
+    G_correl_positiva.add_nodes_from(tickers_disponibles())
     G_correl_negativa = nx.Graph()
-    G_correl_negativa.add_nodes_from(tickers)
+    G_correl_negativa.add_nodes_from(tickers_disponibles())
 
     # Añado los enlaces con su peso (el valor de correlación)
     for ticker in tickers:
@@ -531,31 +533,37 @@ def _crear_grafo(matriz_correl, tickers, ticker_objetivo):
             if peso_correl > 0.75:
                 # Redondeo los pesos para que se vea mejor en el grafo
                 # si lo llego a mostrar
-                G_correl_positiva.add_edge(ticker_objetivo, ticker, weight=round(peso_correl, 3))
+                G_correl_positiva.add_edge(ticker_objetivo.replace("_", "."), ticker.replace("_", "."), weight=round(peso_correl, 3))
             if peso_correl < -0.75:
                 # Redondeo los pesos para que se vea mejor en el grafo
                 # si lo llego a mostrar
-                G_correl_negativa.add_edge(ticker_objetivo, ticker, weight=round(peso_correl, 3))
-    
+                G_correl_negativa.add_edge(ticker_objetivo.replace("_", "."), ticker.replace("_", "."), weight=round(peso_correl, 3))
+
     # Elimino todos aquellos nodos que no tengan un enlace
-    for ticker in tickers:
-        if ticker != ticker_objetivo and not nx.has_path(G_correl_positiva, ticker, ticker_objetivo):
+    for ticker in tickers_disponibles():
+        if ticker != ticker_objetivo.replace("_", ".") and not nx.has_path(G_correl_positiva, ticker, ticker_objetivo.replace("_", ".")):
             G_correl_positiva.remove_node(ticker)
-        if ticker != ticker_objetivo and not nx.has_path(G_correl_negativa, ticker, ticker_objetivo):
+        if ticker != ticker_objetivo.replace("_", ".") and not nx.has_path(G_correl_negativa, ticker, ticker_objetivo.replace("_", ".")):
             G_correl_negativa.remove_node(ticker)
 
-    # Guardo los grafos en una figura
-    fig, axes = plt.subplots(1, 2, figsize=(15, 7)) 
+    # Guardo los grafos en una figura (2 filas y columna)
+    fig, axes = plt.subplots(2, 1, figsize=(6, 8)) 
 
     pos = nx.circular_layout(G_correl_positiva)
-    nx.draw_networkx(G_correl_positiva, pos, with_labels=True, node_size=500, alpha=0.5, 
-                     font_size=10, node_color='skyblue', font_color='black', ax=axes[0])  # Plot first graph in the first subplot
-    axes[0].set_title("Correlación positiva últimos 30 días \ncotizados (precios de cierre)")
+    nx.draw_networkx(G_correl_positiva, pos, with_labels=True, node_size=1000, 
+                     font_size=8, node_color='skyblue', font_color='black', ax=axes[0])  
+    axes[0].set_title("Alta correlación positiva en \núltimas 30 sesiones (precios de cierre)", fontsize=10)
+    axes[0].axis('off')
 
     pos = nx.circular_layout(G_correl_negativa)
-    nx.draw_networkx(G_correl_negativa, pos, with_labels=True, node_size=500, alpha=0.5, 
-                     font_size=10, node_color='red', font_color='black', ax=axes[1])  # Plot second graph in the second subplot
-    axes[1].set_title("Correlación negativa últimos 30 días \ncotizados (precios de cierre)")
+    nx.draw_networkx(G_correl_negativa, pos, with_labels=True, node_size=1000, 
+                     font_size=8, node_color='red', font_color='black', ax=axes[1]) 
+    axes[1].set_title("Alta correlación negativa en \núltimas 30 sesiones (precios de cierre)", fontsize=10)
+    axes[1].axis('off')
+
+    # Aumento la separación vertical entre subplots
+    plt.subplots_adjust(hspace=0.5)
+
     # edge_labels = nx.get_edge_attributes(G_correl_positiva, 'weight')
     # Los enlaces son 'todos con todos' pero, aunque no lo muestro
     # dichos enlaces tienen sus pesos, que es lo que interesa
@@ -574,6 +582,6 @@ def _crear_grafo(matriz_correl, tickers, ticker_objetivo):
     
     # Obtener los datos de la imagen del buffer
     buffer.seek(0)
-    grafo = base64.b64encode(buffer.read()).decode()
+    grafos = base64.b64encode(buffer.read()).decode()
 
-    return grafo
+    return grafos

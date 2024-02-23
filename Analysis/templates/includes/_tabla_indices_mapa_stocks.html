@@ -1,0 +1,32 @@
+<table id="tablaStocks" class="table table-sm">
+    <thead>
+      <tr>
+        <th data-sort="ticker">Nombre<span class="flecha"></span></th>
+        <th data-sort="close">Último</th>
+        <th data-sort="high">Máximo</th>
+        <th data-sort="low">Mínimo </th>
+        <th onclick="sortTable(4)" data-sort="variance" class="ordenable ordenable-header">Var. <span class="flecha"></span></th>
+        <th onclick="sortTable(5)" data-sort="percent_variance" class="ordenable ordenable-header">Var.(%) <span class="flecha"></span></th>
+        <th data-sort="volume">Volumen</th>
+        <th data-sort="date">Fecha</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for entry in datosFinStocks %}
+        <tr>
+          <td><a title="{{ entry.name }}" href="/{{ nombre_bd }}/{{ entry.ticker_bd }}/chart">{{ entry.ticker }}</a></td>
+          <td>{{ entry.close|floatformat:3 }}</td>
+          <td>{{ entry.high|floatformat:3 }}</td>
+          <td>{{ entry.low|floatformat:3 }}</td>
+          <td {% if entry.percent_variance < 0 %} style="color: red;" {% elif entry.percent_variance > 0 %} style="color: green;" {% endif %}>
+            {{ entry.variance|floatformat:3 }}
+          </td>
+          <td {% if entry.percent_variance < 0 %} style="color: red;" {% elif entry.percent_variance > 0 %} style="color: green;" {% endif %}>
+            {{ entry.percent_variance|floatformat:2 }}
+          </td>
+          <td>{{ entry.volume }}</td>
+          <td>{{ entry.date|date:"d/m/Y H:i" }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>

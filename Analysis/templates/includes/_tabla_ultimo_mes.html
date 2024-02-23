@@ -1,0 +1,31 @@
+<!-- templates/includes/_tabla_ultimo_mes.html -->
+
+<div>
+    <p id="tabla_ultimo_mes" class="barra">Último mes</p>
+    <table class="table-sm" caption-side="top">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Apertura</th>
+                <th>Máximo</th>
+                <th>Mínimo</th>
+                <th>Cierre</th>
+                <th>Var. (%)</th>
+                <th>Volumen</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for data in tabla_datos %}
+                <tr {% if data.percent_variance < 0 %} style="color: red;" {% elif data.percent_variance > 0 %} style="color: green;" {% endif %}>
+                    <td>{{ data.date|date:"d/m/Y" }}</td>
+                    <td>{{ data.open|floatformat:2 }}</td>
+                    <td>{{ data.high|floatformat:2 }}</td>
+                    <td>{{ data.low|floatformat:2 }}</td>
+                    <td>{{ data.close|floatformat:2 }}</td>
+                    <td>{{ data.percent_variance|floatformat:2 }}</td>
+                    <td>{{ data.volume }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

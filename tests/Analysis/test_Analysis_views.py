@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 import logging
 import pandas as pd
 import base64
-from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos, _generar_correlaciones, _crear_grafo
+from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos, _generar_correlaciones, _crear_grafos
 from django.apps import apps
 from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, bases_datos_disponibles
 
@@ -408,7 +408,7 @@ class TestAnalysisViews(TestCase):
         tickers = ['ticker1', 'ticker2']
         ticker_objetivo = 'ticker1'
         # Grafo ficticio que deberá ser una figura
-        grafo = _crear_grafo(matriz_correl, tickers, ticker_objetivo)
+        grafo = _crear_grafos(matriz_correl, tickers, ticker_objetivo)
         self.assertTrue(base64.b64decode(grafo))
 
 
@@ -421,7 +421,7 @@ class TestAnalysisViews(TestCase):
         tickers = ['ticker1', 'ticker2']
         ticker_objetivo = 'ticker1'
         # Grafo ficticio que deberá ser una figura
-        grafo = _crear_grafo(matriz_correl, tickers, ticker_objetivo)
+        grafo = _crear_grafos(matriz_correl, tickers, ticker_objetivo)
         self.assertTrue(base64.b64decode(grafo))
 
     # ------------------

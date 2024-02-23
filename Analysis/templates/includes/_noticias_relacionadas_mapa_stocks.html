@@ -1,0 +1,9 @@
+<P class="barra">Noticias relacionadas</P>
+<div id="externo">
+    {% for entry in listaRSS %}
+        <div id="rss">
+        <h4>{{ entry.title }}</h4>
+        <a href="{{ entry.href }}" style="float: right;">Leer más</a>
+        </div>
+    {% endfor %}
+</div>

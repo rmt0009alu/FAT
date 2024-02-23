@@ -1,0 +1,11 @@
+<!-- templates/includes/_chart_dinamico.html -->
+
+<p class="barra">Chart interactivo</p>
+
+<div id="plotly-chart" class="chart-container">
+    <!-- Para incluir el chart de Plotly -->
+    <script>
+        var chartData = {{ image_json|safe }};
+        Plotly.newPlot('plotly-chart', chartData.data, chartData.layout, {responsive: true});
+    </script>
+</div>

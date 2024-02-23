@@ -1,0 +1,10 @@
+<!-- templates/includes/_grafos_correlacion.html -->
+
+<!-- Si el usuario está autenticado muestro info de correlaciones -->
+{% if user.is_authenticated %}
+<p class="barra">Correlaciones</p>
+
+<div id="grafos_correlacion" >
+  <img src="data:image/png;base64,{{ grafo }}" alt="ImagenGrafo">
+</div>
+{% endif %}

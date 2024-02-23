@@ -1,116 +1,28 @@
 <!-- templates/mapa_stocks.html -->
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<style>
-    /* Para que aparezca una mano en los headers de las columnas 
-    por las que se puede ordenar */
-    table#tablaStocks th.ordenable {
-      cursor: pointer;
-      /* Color de fondo para las columnas ordenables */
-      background-color: #f2f5f7;
-    }
+<!-- Mis estilos -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_mapa_stocks.css' %}">
 
-    /* Estilo para el container */
-    .container {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .barra {
-      background-color: #212428; 
-      color: #FFFEFE;
-      font-size: 18px;
-      font-family: 'Arial', sans-serif; 
-    }
-
-    #externo {
-        padding-left: 20px; 
-    }
-
-    #rss {
-        padding-left: 20px; 
-        padding-right: 20px; 
-        border-radius: 5px;
-        overflow: hidden; 
-        border: 2px solid #333; 
-        margin-bottom: 10px; 
-    }
-
-    #rss h4 {
-        margin-bottom: 3px;
-        font-size: 16px;
-        font-family: 'Arial', sans-serif; 
-        color: #333;
-    }
-
-    #rss a {
-        display: block;
-        margin-right: 10px;
-        text-decoration: none;
-        color: #007bff;
-    }
-</style>
-
-
-<div class="cabecera">
-  <br>
-  <p class="barra" style="text-align: center;">Índice {{ nombreIndice }}</p>
-  <br>
+<div>
+  <br><p class="cabecera">Índice {{ nombreIndice }}</p>
 </div>
 
-<div class="container">
-  <table id="tablaStocks" class="table table-sm">
-    <thead>
-      <tr>
-        <th data-sort="ticker">Nombre<span class="flecha"></span></th>
-        <th data-sort="close">Último</th>
-        <th data-sort="high">Máximo</th>
-        <th data-sort="low">Mínimo </th>
-        <th onclick="sortTable(4)" data-sort="variance" class="ordenable ordenable-header">Var. <span class="flecha"></span></th>
-        <th onclick="sortTable(5)" data-sort="percent_variance" class="ordenable ordenable-header">Var.(%) <span class="flecha"></span></th>
-        <th data-sort="volume">Volumen</th>
-        <th data-sort="date">Fecha</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      {% for entry in datosFinStocks %}
-        <tr>
-          <td><a title="{{ entry.name }}" href="/{{ nombre_bd }}/{{ entry.ticker_bd }}/chart">{{ entry.ticker }}</a></td>
-          <td>{{ entry.close|floatformat:3 }}</td>
-          <td>{{ entry.high|floatformat:3 }}</td>
-          <td>{{ entry.low|floatformat:3 }}</td>
-          <td {% if entry.percent_variance < 0 %} style="color: red;" {% elif entry.percent_variance > 0 %} style="color: green;" {% endif %}>
-            {{ entry.variance|floatformat:3 }}
-          </td>
-          <td {% if entry.percent_variance < 0 %} style="color: red;" {% elif entry.percent_variance > 0 %} style="color: green;" {% endif %}>
-            {{ entry.percent_variance|floatformat:2 }}
-          </td>
-          <td>{{ entry.volume }}</td>
-          <td>{{ entry.date|date:"d/m/Y H:i" }}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<!-- Hago una caja para no pisar los estilos del 'container' del footer -->
+<div id="caja" class="container">
+  
+  {% include 'includes/_tabla_indices_mapa_stocks.html' %}
 
   <div style="padding-left: 20px">
-    <P class="barra" style="padding-left: 20px">Evolución último año</P>
-    <div id="figura">
-      <!-- Include your code to display the 'figura' here -->
-      {{ figura|safe }}
-    </div>
+    {% include 'includes/_figura_evolucion_indice_mapa_stocks.html' %}
     <br>
-    <P class="barra" style="padding-left: 20px">Noticias relacionadas</P>
-    <div id="externo">
-        {% for entry in listaRSS %}
-          <div id="rss">
-            <h4>{{ entry.title }}</h4>
-            <a href="{{ entry.href }}" style="float: right;">Leer más</a>
-          </div>
-        {% endfor %}
-    </div>
+    {% include 'includes/_noticias_relacionadas_mapa_stocks.html' %}
   </div>
+  
 </div>
 
 <!-- Script JavaScript para ordenar tablas.

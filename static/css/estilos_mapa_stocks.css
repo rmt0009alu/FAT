@@ -1,0 +1,54 @@
+#caja {
+    display: flex;
+    justify-content: space-between;
+}
+
+.barra {
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    padding-left: 20px;
+}
+
+.cabecera {
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    text-align: center;
+}
+
+/* Para que aparezca color y puntero en los headers 
+de las columnas por las que se puede ordenar */
+table#tablaStocks th.ordenable {
+    cursor: pointer;
+    background-color: #f2f5f7;
+}
+
+#externo {
+    padding-left: 20px; 
+}
+
+#rss {
+    padding-left: 20px; 
+    padding-right: 20px; 
+    border-radius: 5px;
+    overflow: hidden; 
+    border: 2px solid #333; 
+    margin-bottom: 10px; 
+}
+
+#rss h4 {
+    margin-bottom: 3px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; 
+    color: #333;
+}
+
+#rss a {
+    display: block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
