@@ -6,6 +6,8 @@ import pandas as pd
 import feedparser
 import mpld3
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from .models import Sectores
 # Para charts dinámicos en lugar de imágenes estáticas
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
@@ -26,6 +28,8 @@ from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
+# Para usar django-pandas y frames
+from django_pandas.io import read_frame
 # Para los grafos
 import networkx as nx
 # Para el buffer y la imagen del grafo
@@ -37,6 +41,7 @@ from News.views import _generar_figura
 from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100
 # Para obtener los tickers y los paths de las BDs
 from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles, obtener_nombre_bd, tickers_disponibles
+from datetime import date
 
 
 def signup(request):
@@ -280,23 +285,44 @@ def chart_y_datos(request, ticker, nombre_bd):
             de contexto.
     """
     if (nombre_bd not in bases_datos_disponibles()) or (ticker not in tickers_adaptados_disponibles()):
-        return render(request, '404.html')
-
+            return render(request, '404.html')
+    
     # Obtengo los datos del modelo y lo paso a DataFrame
     model = apps.get_model('Analysis', ticker)
     entradas = model.objects.using(nombre_bd).order_by('-date')[:500].all()
     ticker_data = pd.DataFrame(list(entradas.values()))
 
-    grafo = _generar_correlaciones(ticker)
-
-    # Contexto para el render
+    # Contexto para el render. Contenido común a los diferentes casos
     context = {
         "nombre_ticker": ticker.replace('_', '.'),
         "nombre_completo": ticker_data['name'].iloc[0],
         "image_json": _get_image_json(ticker_data),
         "tabla_datos": _get_datos(ticker, nombre_bd),
-        "grafo": grafo,
+        "grafo": _generar_correlaciones(ticker),
+        "lista_tickers": tickers_disponibles(),
+        "grafica_sectores": _grafica_evolucion_sector(ticker),
     }
+
+    # Cuando es una solicitud GET retorno sin más
+    if request.method == "GET":
+        return render(request, "chart_y_datos.html", context)
+
+    # ----
+    # POST
+    # ----    
+    ticker_a_comparar = request.POST.get("ticker")
+
+    if ticker_a_comparar not in tickers_disponibles():
+        context["msg_error"] = 'El ticker no existe'
+        return render(request, "chart_y_datos.html", context)
+    
+    # Paso el ticker a la notación de '_' que es la de las BDs
+    ticker_a_comparar = ticker_a_comparar.replace('.', '_')
+    # Se puede comparar con un índice también
+    ticker_a_comparar = ticker_a_comparar.replace('^', '')
+
+    context["graficas_comparacion"] = _generar_graficas_comparacion(ticker, ticker_a_comparar)
+    
     return render(request, "chart_y_datos.html", context)
 
 
@@ -485,15 +511,26 @@ def _get_image_json(ticker_data):
 
 
 def _generar_correlaciones(ticker_objetivo):
+    """Para generar la matriz de correlación de todos los valores
+    disponibles en las bases de datos. 
 
+    Args:
+        ticker_objetivo (str): nombre del ticker con el que se quieren
+            calcular las correlaciones (nodo raíz de la red).
+
+    Returns:
+        grafos (str): cadena de datos que guarda los grafos generados
+            con las correlaciones positiva y negativa, según la evolución
+            del último mes (22 sesiones).
+    """
     dic_datos = {}
     tickers = tickers_adaptados_disponibles()
 
     for ticker in tickers:
         bd = obtener_nombre_bd(ticker)
         model = apps.get_model('Analysis', ticker)
-        # Útimos 30 días de precios de cierre
-        entradas = model.objects.using(bd).order_by('-date')[:30].values('date', 'close')
+        # Útimas 22 sesiones en precios de cierre, aprox. 1 mes
+        entradas = model.objects.using(bd).order_by('-date')[:22].values('date', 'close')
         # Convierto a lista de tuplas para separar después
         fechas_cierres = [(ent['date'], ent['close']) for ent in entradas]
         # Separo la info de las tuplas
@@ -511,12 +548,27 @@ def _generar_correlaciones(ticker_objetivo):
     
     # Creo el grafo con NetwrokX
     grafos = _crear_grafos(matriz_correl, tickers, ticker_objetivo)
-    
+
     return grafos
 
 
 def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
+    """Para crear los grafos de correlaciones a partir de la matriz 
+    de correlación. 
 
+    Args:
+        matriz_correl (pandas.core.frame.DataFrame): matriz de correlación
+            entre valores cotizados, según precios de cierre de últimas
+            22 sesiones: aprox. un mes. 
+        tickers (list): lista de tickers disponibles. 
+        ticker_objetivo (str): ticker del que se quieren obtener las 
+            correlaciones. 
+
+    Returns:
+        grafos (str): cadena de datos que guarda los grafos generados
+            con las correlaciones positiva y negativa, según la evolución
+            del último mes (22 sesiones).
+    """
     # Creo un grafo vacío y añado los nodos (que son los tickers
     # NO adaptados para mostrar con formato de '.')
     G_correl_positiva = nx.Graph()
@@ -569,11 +621,6 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
     # dichos enlaces tienen sus pesos, que es lo que interesa
     # nx.draw_networkx_edge_labels(G, pos)
 
-    # Puedo guardar en un .png
-    # plt.title("Red de correlaciones")
-    # plt.savefig("red_correlaciones.png", format="PNG")
-    # plt.close()
-
     # Lo guardo en un byte buffer y así lo puedo mostrar directamente 
     # integrado en la plantilla html
     buffer = BytesIO()
@@ -585,3 +632,208 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
     grafos = base64.b64encode(buffer.read()).decode()
 
     return grafos
+
+
+def _generar_graficas_comparacion(ticker, ticker_a_comparar):
+    """Para crear las figuras que muestran las evoluciones de precios
+    de cierre y de porcentajes de dos tickers de forma relativa (comparación
+    entre ambos valores).
+
+    Args:
+        ticker (str): ticker original (objetivo).
+        ticker_a_comparar (str): ticker con el que comparar. 
+
+    Returns:
+        _type_: _description_
+    """
+    bd = obtener_nombre_bd(ticker)
+    model = apps.get_model('Analysis', ticker)
+    # Último año aprox.
+    entradas_ticker = model.objects.using(bd).order_by('-date')[:220].values('date', 'close', 'percent_variance')
+
+    bd = obtener_nombre_bd(ticker_a_comparar)
+    model = apps.get_model('Analysis', ticker_a_comparar)
+    # Último año aprox.
+    entradas_ticker_a_comparar = model.objects.using(bd).order_by('-date')[:220].values('date', 'close', 'percent_variance')
+
+    # Obtener los 'values' del queryset 'entradas'
+    # y pasar a df
+    df_ticker = read_frame(entradas_ticker.values('date', 'close', 'percent_variance'))
+    df_ticker_comparar = read_frame(entradas_ticker_a_comparar.values('date', 'close', 'percent_variance'))
+
+    # Normalizar para ver relación 'directa' sin precios
+    df_ticker, df_ticker_comparar = _normalizar_dataframes(df_ticker, df_ticker_comparar)
+
+    # FIGURAS
+    # -------
+    fig, axes = plt.subplots(2, 1, figsize=(6, 8)) 
+    buffer = BytesIO()
+
+    # FIG 1
+    # -----
+    # Plot de la evolución de las variaciones diarias
+    axes[0].plot(df_ticker['date'], df_ticker['normalizado'], label=ticker)
+    axes[0].plot(df_ticker_comparar['date'], df_ticker_comparar['normalizado'], label=ticker_a_comparar)
+    # Título y estilos
+    axes[1].set(xlabel='Fecha', ylabel=f'{ticker.replace("_",".")} vs {ticker_a_comparar.replace("_",".")}', 
+                title='Comparación relativa (evolución de cierres diarios)')
+    axes[0].grid(True, linestyle='--', alpha=0.5)
+    axes[0].legend()
+
+    # Elimino las etiquetas del eje y porque se muestran
+    # valores normalizados
+    axes[0].set_yticklabels([])
+
+    # FIG 2
+    # -----
+    # Plot de la evolución de las variaciones diarias
+    axes[1].plot(df_ticker['date'], df_ticker['percent_variance'], label=ticker)
+    axes[1].plot(df_ticker_comparar['date'], df_ticker_comparar['percent_variance'], label=ticker_a_comparar)
+    # Título y estilos
+    axes[1].set(xlabel='Fecha', ylabel=f'{ticker.replace("_",".")} vs {ticker_a_comparar.replace("_",".")}', 
+                title='Comparación relativa (evolución de variaciones diarias)')
+    axes[1].grid(True, linestyle='--', alpha=0.5)
+    axes[1].legend()
+
+    # Aumentar distancia vertical entre figuras
+    plt.subplots_adjust(hspace=0.5)
+    
+    plt.savefig(buffer, format="PNG")
+    plt.close()
+
+    # Obtener los datos de la imagen del buffer
+    buffer.seek(0)
+    graficas_comparacion = base64.b64encode(buffer.read()).decode()
+
+    # plt.savefig("algo.png", format="PNG")
+
+    return graficas_comparacion
+
+
+def _normalizar_dataframes(df_ticker, df_ticker_comparar):
+    """Para normalizar los precios de cierre del valor con el que
+    se quiere comparar. Así se puede ver la evolución en términos
+    relativos. 
+
+    Args:
+        df_ticker (pandas.core.frame.DataFrame): DataFrame con los datos del
+            ticker original. 
+        df_ticker_comparar (pandas.core.frame.DataFrame): DataFrame con los 
+            datos del ticker con el que se quiere comparar.
+
+    Returns:
+        df_ticker (pandas.core.frame.DataFrame): DataFrame con los datos normalizados 
+            del ticker original. 
+        df_ticker_comparar (pandas.core.frame.DataFrame): DataFrame con los 
+            datos normalizados del ticker con el que se quiere comparar.
+    """
+    # Cojo las fechas más antiguas con iloc[-1]. Pueden no
+    # empezar a la vez porque haya valores cotizados en un 
+    # día festivo de diferentes índices
+    if df_ticker['close'].iloc[-1] > df_ticker_comparar['close'].iloc[-1]:
+        ratio = df_ticker['close'].iloc[-1] / df_ticker_comparar['close'].iloc[-1]
+        df_ticker['normalizado'] = df_ticker['close']
+        df_ticker_comparar['normalizado'] = df_ticker_comparar['close'] * ratio
+
+    elif df_ticker_comparar['close'].iloc[-1] > df_ticker['close'].iloc[-1]:
+        ratio = df_ticker_comparar['close'].iloc[-1] / df_ticker['close'].iloc[-1]
+        df_ticker['normalizado'] = df_ticker['close'] * ratio
+        df_ticker_comparar['normalizado'] = df_ticker_comparar['close']
+
+    else:
+        df_ticker['normalizado'] = df_ticker['close']
+        df_ticker_comparar['normalizado'] = df_ticker_comparar['close']
+    
+    return df_ticker, df_ticker_comparar
+
+
+def _grafica_evolucion_sector(ticker):
+
+    lista_dataframes = []
+    bd = obtener_nombre_bd(ticker)
+    model = apps.get_model('Analysis', ticker)
+    # Último año aprox.
+    entrada = model.objects.using(bd).order_by('-date')[:220].values('date', 'close', 'sector', 'name')
+    df_ticker = read_frame(entrada.values('date', 'close'))
+
+    # No excluyo el ticker 'objetivo' porque así lo meto
+    # en la lista de los dataframes para nosrmalizar
+    sector = list(entrada)[0]['sector']
+    lista_mismo_sector = Sectores.objects.filter(sector=sector)
+
+    for t in lista_mismo_sector:
+        bd = obtener_nombre_bd(t.ticker_bd)
+        model = apps.get_model('Analysis', t.ticker_bd)
+        # Último año aprox.
+        entrada = model.objects.using(bd).order_by('-date')[:220]
+        df = pd.DataFrame(list(entrada.values()))
+        # Adapto la fecha para hacer luego un merge por fecha
+        df['date'] = df['date'].apply(lambda x: x.date())
+        lista_dataframes.append(df[['date', 'close']])
+    
+    dfs_merged = _calcular_media_sector(lista_dataframes)
+    
+    # Normalizar para ver relación 'directa' sin precios
+    df_ticker, dfs_merged = _normalizar_dataframes(df_ticker, dfs_merged)
+
+    # FIGURA
+    # ------
+    fig = plt.figure(figsize=(7, 5))
+    buffer = BytesIO()
+    # Plot de la evolución de las variaciones diarias
+    plt.plot(df_ticker['date'], df_ticker['normalizado'], label=ticker.replace("_", "."))
+    plt.plot(dfs_merged['date'], dfs_merged['normalizado'], label=f'Media sector "{sector}"')
+    # Título y estilos
+    plt.grid(True, linestyle='--', alpha=0.5)
+    plt.legend()
+    # Elimino las etiquetas del eje 'y' porque se muestran
+    # valores normalizados
+    plt.gca().set_yticklabels([])
+    # Ajusto los bins
+    plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+    # Y les doy formato a los meses
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+
+    plt.savefig(buffer, format="PNG")
+    plt.close()
+    
+    # Obtener los datos de la imagen del buffer
+    buffer.seek(0)
+    grafica_sector = base64.b64encode(buffer.read()).decode()
+
+    return grafica_sector
+
+
+def _calcular_media_sector(lista_dataframes):
+    """Para calcular la media de un sector. 
+
+    Args:
+        lista_dataframes (list): lista con los dataframes que contienen
+            los precios de cierre y las fechas de los valores que están
+            en el mismo sector que el ticker 'objetivo'.
+
+    Returns:
+        dfs_merged (pandas.core.frame.DataFrame): dataframe que ha pasado
+            por un proceso de merging para equilibrar fechas y que tiene
+            la media de los cierres del sector. 
+    """
+    # Empiezo con el primer dataframe de la lista
+    dfs_merged = lista_dataframes[0]
+
+    # Hago un merge sobre las fechas para eliminar
+    # aquellos días en los que unos valores tengan datos
+    # y otros no. Se pierde algo de info. pero los datos
+    # serán coherentes
+    for df in lista_dataframes[1:]:
+        dfs_merged = pd.merge(dfs_merged, df, on='date', suffixes=('', '_'))
+    
+    # Calculo la columna con las medias del sector
+    dfs_merged['media'] = dfs_merged.filter(like='close').mean(axis=1)
+
+    # Elimino todas las columnas de cierres, porque ya no son
+    # necesarias y cambio la media a 'close' para poder aprovechar
+    # el método de normalizar dataframes
+    dfs_merged = dfs_merged[['date', 'media']]
+    dfs_merged = dfs_merged.rename(columns={'media': 'close'})
+
+    return dfs_merged
