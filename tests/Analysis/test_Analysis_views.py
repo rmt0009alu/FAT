@@ -8,7 +8,9 @@ from datetime import datetime, timezone
 import logging
 import pandas as pd
 import base64
-from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos, _generar_correlaciones, _crear_grafos
+from datetime import timedelta
+from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos, _generar_correlaciones, _crear_grafos, _normalizar_dataframes, _generar_graficas_comparacion
+from Analysis.models import Sectores
 from django.apps import apps
 from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, bases_datos_disponibles
 
@@ -359,6 +361,26 @@ class TestAnalysisViews(TestCase):
                 currency = 'USD', sector = 'Technology'
             )
         
+        # Creo un stock ficticio con el mismo sector para que 
+        # se prueben indirectamente los métodos _grafica_evolucion_sector() 
+        # y _calcular_media_sector()
+        model = apps.get_model('Analysis', 'AAPL')
+        for i in range(25):
+            model.objects.using('dj30').create(date=datetime(2025, 1, 1+i, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker='AAPL', previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name='Apple Inc.', 
+                currency = 'USD', sector = 'Technology'
+            )
+        
+        # Y creo la tabla ficticia de sectores:
+        Sectores.objects.create(ticker_bd='IBM', bd='dj30', ticker='IBM',
+                                nombre='International Business Machines Corporation',
+                                sector='Technology')  
+        Sectores.objects.create(ticker_bd='AAPL', bd='dj30', ticker='AAPL',
+                                nombre='Apple Inc.',
+                                sector='Technology')   
+        
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get(reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'dj30'}))
         self.assertEqual(response.status_code, 200, " - [NO OK] Respuesta adecuada de chart_y_datos con datos válidos")
@@ -372,13 +394,63 @@ class TestAnalysisViews(TestCase):
         self.assertTemplateUsed(response, '404.html', " - [NO OK] Respuesta 404 de chart_y_datos con ticker falso")
         self.log.info(" - [OK] Respuesta 404 de chart_y_datos con ticker falso")
 
-
     
     def test_views_chart_y_datos_bd_falsa(self):
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get(reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'bd_falsa'}))
         self.assertTemplateUsed(response, '404.html', " - [NO OK] Respuesta 404 de chart_y_datos con bd falsa")
         self.log.info(" - [OK] Respuesta 404 de chart_y_datos con bd falsa")
+
+
+    def test_views_chart_y_datos_post(self):
+        # Creo 220 registros (días) de dos modelos/stocks para consultar
+        # los último datos que es lo que cogería en '_generar_graficas_comparacion()'
+        # dentro de chart_y_datos
+        model = apps.get_model('Analysis', 'IBM')
+        for i in range(220):
+            model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc)+timedelta(days=i),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker='IBM', previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name='International Business Machines Corporation', 
+                currency = 'USD', sector = 'Technology'
+            )
+        model = apps.get_model('Analysis', 'AAPL')
+        for i in range(220):
+            model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc)+timedelta(days=i),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker='AAPL', previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name='Apple Inc.', 
+                currency = 'USD', sector = 'Technology'
+            )
+
+        # Y creo la tabla ficticia de sectores:
+        Sectores.objects.create(ticker_bd='IBM', bd='dj30', ticker='IBM',
+                                nombre='International Business Machines Corporation',
+                                sector='Technology')  
+        Sectores.objects.create(ticker_bd='AAPL', bd='dj30', ticker='AAPL',
+                                nombre='Apple Inc.',
+                                sector='Technology')   
+        
+        self.client.post('/login/', self.datosUsuarioTest)
+        # url = reverse('chart_y_datos', args=('IBM', 'dj30'))
+        # response = self.client.post(url, {'ticker': 'AAPL'})
+        # self.assertEqual(response.status_code, 200)
+        url = reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'dj30'})
+        response = self.client.post(url, {'ticker_a_comparar': 'ticker_falso'})
+        self.assertTrue(response.status_code, 200, " - [NO OK] POST en _chart_y_datos con ticker falso")
+        self.assertTemplateUsed(response, 'chart_y_datos.html', " - [NO OK] POST en _chart_y_datos con ticker falso")
+        self.assertTrue('msg_error' in response.context, " - [NO OK] POST en _chart_y_datos con ticker falso")
+        self.assertEqual(response.context['msg_error'], 'El ticker no existe', " - [NO OK] POST en _chart_y_datos con ticker falso")
+        self.log.info(" - [OK] POST en _chart_y_datos con ticker falso")
+
+        url = reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'dj30'})
+        response = self.client.post(url, {'ticker_a_comparar': 'AAPL'})
+        self.assertTrue(response.status_code, 200, " - [NO OK] POST en _chart_y_datos con ticker existente")
+        self.assertTemplateUsed(response, 'chart_y_datos.html', " - [NO OK] POST en _chart_y_datos con ticker existente")
+        self.assertTrue('graficas_comparacion' in response.context, " - [NO OK] POST en _chart_y_datos con ticker existente")
+        self.assertTrue(isinstance(response.context["graficas_comparacion"], str), " - [NO OK] POST en _chart_y_datos con ticker existente")
+        self.log.info(" - [OK] POST en _chart_y_datos con ticker existente")
+
 
     # -------------
     # CORRELACIONES
@@ -409,8 +481,8 @@ class TestAnalysisViews(TestCase):
         ticker_objetivo = 'AAPL'
         # Grafo ficticio que deberá ser una figura
         grafo = _crear_grafos(matriz_correl, tickers, ticker_objetivo)
-        self.assertTrue(base64.b64decode(grafo))
-
+        self.assertTrue(base64.b64decode(grafo), " - [NO OK] Generar grafo correlaciones positivas")
+        self.log.info(" - [OK] Generar grafo correlaciones positivas")
 
     def test_views_generar_correlaciones_negativas(self):
         matriz_correl = {
@@ -422,8 +494,9 @@ class TestAnalysisViews(TestCase):
         ticker_objetivo = 'AAPL'
         # Grafo ficticio que deberá ser una figura
         grafo = _crear_grafos(matriz_correl, tickers, ticker_objetivo)
-        self.assertTrue(base64.b64decode(grafo))
-
+        self.assertTrue(base64.b64decode(grafo), " - [NO OK] Generar grafo correlaciones negativas")
+        self.log.info(" - [OK] Generar grafo correlaciones negativas")
+    
     # ------------------
     # MÉTODOS AUXILIARES
     # ------------------
@@ -472,3 +545,50 @@ class TestAnalysisViews(TestCase):
             self.assertEqual(data.ticker, 'IBM', " - [NO OK] Respuesta adecuada de _get_datos")
             self.assertEqual(data.close, 105.0, " - [NO OK] Respuesta adecuada de _get_datos")
         self.log.info(" - [OK] Respuesta adecuada de _get_datos")
+
+    
+    def test_views_normalizar_dataframes_1(self):
+        df_ticker = pd.DataFrame({'close': [100, 110, 120]})
+        df_ticker_comparar = pd.DataFrame({'close': [90, 100, 110]})
+        ratio = 120/110
+        df_ticker_esperado = pd.DataFrame({'close': [100, 110, 120], 'normalizado': [100, 110, 120]})
+        df_ticker_comparar_esperado = pd.DataFrame({'close': [90, 100, 110], 'normalizado': [90*ratio, 100*ratio, 110*ratio]})
+        df_ticker_normalizado, df_ticker_comparar_normalizado = _normalizar_dataframes(df_ticker, df_ticker_comparar)
+        self.assertTrue(df_ticker_esperado.equals(df_ticker_normalizado), " - [NO OK] Respuesta adecuada de _normalizar_dataframes para caso 1")
+        self.assertTrue(df_ticker_comparar_esperado.equals(df_ticker_comparar_normalizado), " - [NO OK] Respuesta adecuada de _normalizar_dataframes para caso 1")
+        self.log.info(" - [OK] Respuesta adecuada de _normalizar_dataframes para caso 1")
+
+
+    def test_views_normalizar_dataframes_2(self):
+        df_ticker = pd.DataFrame({'close': [90, 100, 110]})
+        df_ticker_comparar = pd.DataFrame({'close': [100, 110, 120]})
+        ratio = 120/110
+        df_ticker_esperado = pd.DataFrame({'close': [90, 100, 110], 'normalizado': [90*ratio, 100*ratio, 110*ratio]})
+        df_ticker_comparar_esperado = pd.DataFrame({'close': [100, 110, 120], 'normalizado': [100, 110, 120]})
+        df_ticker_normalizado, df_ticker_comparar_normalizado = _normalizar_dataframes(df_ticker, df_ticker_comparar)
+        self.assertTrue(df_ticker_esperado.equals(df_ticker_normalizado), " - [NO OK] Respuesta adecuada de _normalizar_dataframes para caso 2")
+        self.assertTrue(df_ticker_comparar_esperado.equals(df_ticker_comparar_normalizado), " - [NO OK] Respuesta adecuada de _normalizar_dataframes para caso 2")
+        self.log.info(" - [OK] Respuesta adecuada de _normalizar_dataframes para caso 2")
+
+
+    def test_views_generar_graficas_comparacion(self):
+        model = apps.get_model('Analysis', 'IBM')
+        for i in range(220):
+            model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc)+timedelta(days=i),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker='IBM', previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name='International Business Machines Corporation', 
+                currency = 'USD', sector = 'Technology'
+            )
+        model = apps.get_model('Analysis', 'AAPL')
+        for i in range(220):
+            model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc)+timedelta(days=i),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker='AAPL', previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name='Apple Inc.', 
+                currency = 'USD', sector = 'Technology'
+            )
+        imagen_ficticia = _generar_graficas_comparacion('IBM', 'AAPL')
+        # Se espera una imagen en una cadena str que viene del buffer
+        self.assertTrue(isinstance(imagen_ficticia, str), " - [NO OK] Respuesta adecuada de _generar_graficas_comparacion")
+        self.log.info(" - [OK] Respuesta adecuada de _generar_graficas_comparacion")

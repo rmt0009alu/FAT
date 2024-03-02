@@ -105,7 +105,7 @@ class TestDashBoardViews(TestCase):
             currency = 'EUR', sector = 'Financial Services'
         )
 
-        self.fecha1 = tz.now() - timedelta(days=5)
+        self.fecha1 = tz.now() - timedelta(days=365)
         self.fecha2 = tz.now()
 
         # Creo unos registros de cambio de onedas para que al consultar los datos

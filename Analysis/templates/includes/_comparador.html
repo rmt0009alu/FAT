@@ -3,6 +3,14 @@
 <P class="barra">Comparar con</P>
 
 <div id="comparador">
+    
+    <!-- Sólo se muestra la comparación en caso de haberla realizado -->
+    {% if graficas_comparacion %}
+    <div class="image-container" id="comparar_valores" >
+        <img src="data:image/png;base64,{{ graficas_comparacion }}" alt="ImagenCompararValores" class="responsive-image">
+    </div>
+    {% endif %}
+
     <form method="POST" class="card card-body">
         
         <!-- Sólo se muestra mensaje de error en caso de que 
@@ -15,9 +23,9 @@
         usar un cuadro de búsqueda autocompletable.
         Además, añado un input oculto para que se reconozca bien el 
         ticker al recoger el dato con POST.get() -->
-        <input type="hidden" id="ticker" name="ticker" value="">
+        <input type="hidden" id="ticker_a_comparar" name="ticker_a_comparar" value="">
         <div class="ui-widget">
-            <label for="ticker"></label>
+            <label for="ticker_a_comparar"></label>
             <input id="ticker_autocomplete" class="form-control" placeholder="Buscador de tickers">
         </div>
 
@@ -28,12 +36,6 @@
         
         <br><button type="submit" class="btn btn-dark" style="width: 50%; text-align: center; margin: auto;">Comparar</button><br>
     </form>
-
-    {% if graficas_comparacion %}
-    <div class="image-container" id="comparar_valores" >
-        <img src="data:image/png;base64,{{ graficas_comparacion }}" alt="ImagenCompararValores" class="responsive-image">
-    </div>
-    {% endif %}
 </div>
 
 <!-- Para la caja de búsqueda con sugerencias -->
@@ -49,7 +51,7 @@
                 $("#ticker_autocomplete").val(ui.item.value);
                 
                 // Valores del input oculto
-                $("#ticker").val(ui.item.value);
+                $("#ticker_a_comparar").val(ui.item.value);
                 
                 return false;
             }

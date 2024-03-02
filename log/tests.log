@@ -4,9 +4,12 @@ INFO:AnalysisViews  :TESTS ANALYSIS VIEWS
 INFO:AnalysisViews  :----------------------------------
 INFO:AnalysisViews  : - [OK] Respuesta 404 de chart_y_datos con bd falsa
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de chart_y_datos con datos válidos
+INFO:AnalysisViews  : - [OK] POST en _chart_y_datos con ticker falso
+INFO:AnalysisViews  : - [OK] POST en _chart_y_datos con ticker existente
 INFO:AnalysisViews  : - [OK] Respuesta 404 de chart_y_datos con ticker falso
 INFO:AnalysisViews  : - [OK] Formateo adecuado con _formatear_volumen
 INFO:AnalysisViews  : - [OK] Generar grafo correlaciones no vacío
+INFO:AnalysisViews  : - [OK] Respuesta adecuada de _generar_graficas_comparacion
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de _get_datos
 INFO:AnalysisViews  : - [OK] Obtener listas RSS
 INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd falsa
@@ -14,6 +17,8 @@ INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd vacía
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35
+INFO:AnalysisViews  : - [OK] Respuesta adecuada de _normalizar_dataframes para caso 1
+INFO:AnalysisViews  : - [OK] Respuesta adecuada de _normalizar_dataframes para caso 2
 INFO:AnalysisViews  : - [OK] Hacer login de forma adecuada
 INFO:AnalysisViews  : - [OK] No redireccionar si usuario o pass incorrectos
 INFO:AnalysisViews  : - [OK] Que página de signin retorne '200 ok'

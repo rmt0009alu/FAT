@@ -42,7 +42,7 @@ class TestDashBoardModels(TestCase):
 
         self.user = User.objects.create_user(username='usuario', password='p@ssword')
 
-        self.fecha = tz.now() - timedelta(days=5)
+        self.fecha = tz.now() - timedelta(days=365)
         self.stockComprado_1 = StockComprado.objects.create(
             usuario=self.user,
             ticker_bd='ACS_MC',

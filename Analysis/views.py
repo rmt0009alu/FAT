@@ -310,7 +310,7 @@ def chart_y_datos(request, ticker, nombre_bd):
     # ----
     # POST
     # ----    
-    ticker_a_comparar = request.POST.get("ticker")
+    ticker_a_comparar = request.POST.get("ticker_a_comparar")
 
     if ticker_a_comparar not in tickers_disponibles():
         context["msg_error"] = 'El ticker no existe'
@@ -666,16 +666,16 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
 
     # FIGURAS
     # -------
-    fig, axes = plt.subplots(2, 1, figsize=(6, 8)) 
+    fig, axes = plt.subplots(2, 1, figsize=(7, 10)) 
     buffer = BytesIO()
 
     # FIG 1
     # -----
     # Plot de la evolución de las variaciones diarias
-    axes[0].plot(df_ticker['date'], df_ticker['normalizado'], label=ticker)
-    axes[0].plot(df_ticker_comparar['date'], df_ticker_comparar['normalizado'], label=ticker_a_comparar)
+    axes[0].plot(df_ticker['date'], df_ticker['normalizado'], label=ticker.replace("_","."))
+    axes[0].plot(df_ticker_comparar['date'], df_ticker_comparar['normalizado'], label=ticker_a_comparar.replace("_","."))
     # Título y estilos
-    axes[1].set(xlabel='Fecha', ylabel=f'{ticker.replace("_",".")} vs {ticker_a_comparar.replace("_",".")}', 
+    axes[0].set(xlabel='Fecha', ylabel=f'{ticker.replace("_",".")} vs {ticker_a_comparar.replace("_",".")}', 
                 title='Comparación relativa (evolución de cierres diarios)')
     axes[0].grid(True, linestyle='--', alpha=0.5)
     axes[0].legend()
@@ -687,16 +687,21 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
     # FIG 2
     # -----
     # Plot de la evolución de las variaciones diarias
-    axes[1].plot(df_ticker['date'], df_ticker['percent_variance'], label=ticker)
-    axes[1].plot(df_ticker_comparar['date'], df_ticker_comparar['percent_variance'], label=ticker_a_comparar)
+    axes[1].plot(df_ticker['date'], df_ticker['percent_variance'], label=ticker.replace("_","."))
+    axes[1].plot(df_ticker_comparar['date'], df_ticker_comparar['percent_variance'], label=ticker_a_comparar.replace("_","."))
     # Título y estilos
     axes[1].set(xlabel='Fecha', ylabel=f'{ticker.replace("_",".")} vs {ticker_a_comparar.replace("_",".")}', 
                 title='Comparación relativa (evolución de variaciones diarias)')
     axes[1].grid(True, linestyle='--', alpha=0.5)
     axes[1].legend()
-
+    
     # Aumentar distancia vertical entre figuras
-    plt.subplots_adjust(hspace=0.5)
+    plt.subplots_adjust(hspace=0.4)
+    
+    # Ajusto los bins y etiquetas
+    for ax in axes:
+        ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
     
     plt.savefig(buffer, format="PNG")
     plt.close()
@@ -704,8 +709,6 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
     # Obtener los datos de la imagen del buffer
     buffer.seek(0)
     graficas_comparacion = base64.b64encode(buffer.read()).decode()
-
-    # plt.savefig("algo.png", format="PNG")
 
     return graficas_comparacion
 
