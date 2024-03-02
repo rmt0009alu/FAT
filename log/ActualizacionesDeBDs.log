@@ -1,0 +1,287 @@
+2024-03-02 19:39:40,764 - INFO: 
+2024-03-02 19:39:40,764 - INFO: --------------------------------------------------
+2024-03-02 19:39:40,764 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-02 19:39:40,764 - INFO: --------------------------------------------------
+2024-03-02 19:39:46,184 - INFO:  - [Actualizando... ] Apple Inc.
+2024-03-02 19:39:46,185 - INFO: 		[OK] Datos
+2024-03-02 19:39:46,416 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:46,891 - INFO:  - [Actualizando... ] Amgen Inc.
+2024-03-02 19:39:46,906 - INFO: 		[OK] Datos
+2024-03-02 19:39:47,069 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:47,951 - INFO:  - [Actualizando... ] American Express Company
+2024-03-02 19:39:47,985 - INFO: 		[OK] Datos
+2024-03-02 19:39:48,267 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:48,922 - INFO:  - [Actualizando... ] The Boeing Company
+2024-03-02 19:39:48,939 - INFO: 		[OK] Datos
+2024-03-02 19:39:49,237 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:49,839 - INFO:  - [Actualizando... ] Caterpillar Inc.
+2024-03-02 19:39:49,855 - INFO: 		[OK] Datos
+2024-03-02 19:39:50,145 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:50,657 - INFO:  - [Actualizando... ] Salesforce, Inc.
+2024-03-02 19:39:50,679 - INFO: 		[OK] Datos
+2024-03-02 19:39:50,789 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:51,259 - INFO:  - [Actualizando... ] Cisco Systems, Inc.
+2024-03-02 19:39:51,293 - INFO: 		[OK] Datos
+2024-03-02 19:39:51,454 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:52,077 - INFO:  - [Actualizando... ] Chevron Corporation
+2024-03-02 19:39:52,096 - INFO: 		[OK] Datos
+2024-03-02 19:39:52,377 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:52,925 - INFO:  - [Actualizando... ] The Walt Disney Company
+2024-03-02 19:39:52,957 - INFO: 		[OK] Datos
+2024-03-02 19:39:53,225 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:53,826 - INFO:  - [Actualizando... ] Dow Inc.
+2024-03-02 19:39:53,848 - INFO: 		[OK] Datos
+2024-03-02 19:39:53,891 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:54,481 - INFO:  - [Actualizando... ] The Goldman Sachs Group, Inc.
+2024-03-02 19:39:54,517 - INFO: 		[OK] Datos
+2024-03-02 19:39:54,638 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:55,085 - INFO:  - [Actualizando... ] The Home Depot, Inc.
+2024-03-02 19:39:55,109 - INFO: 		[OK] Datos
+2024-03-02 19:39:55,319 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:56,057 - INFO:  - [Actualizando... ] Honeywell International Inc.
+2024-03-02 19:39:56,081 - INFO: 		[OK] Datos
+2024-03-02 19:39:56,342 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:57,022 - INFO:  - [Actualizando... ] International Business Machines Corporation
+2024-03-02 19:39:57,044 - INFO: 		[OK] Datos
+2024-03-02 19:39:57,344 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:57,808 - INFO:  - [Actualizando... ] Intel Corporation
+2024-03-02 19:39:57,832 - INFO: 		[OK] Datos
+2024-03-02 19:39:58,019 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:58,547 - INFO:  - [Actualizando... ] Johnson & Johnson
+2024-03-02 19:39:58,574 - INFO: 		[OK] Datos
+2024-03-02 19:39:58,825 - INFO: 		[OK] Medias móviles
+2024-03-02 19:39:59,365 - INFO:  - [Actualizando... ] JPMorgan Chase & Co.
+2024-03-02 19:39:59,380 - INFO: 		[OK] Datos
+2024-03-02 19:39:59,612 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:00,239 - INFO:  - [Actualizando... ] The Coca-Cola Company
+2024-03-02 19:40:00,251 - INFO: 		[OK] Datos
+2024-03-02 19:40:00,530 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:01,153 - INFO:  - [Actualizando... ] McDonald's Corporation
+2024-03-02 19:40:01,171 - INFO: 		[OK] Datos
+2024-03-02 19:40:01,431 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:02,070 - INFO:  - [Actualizando... ] 3M Company
+2024-03-02 19:40:02,089 - INFO: 		[OK] Datos
+2024-03-02 19:40:02,372 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:03,018 - INFO:  - [Actualizando... ] Merck & Co., Inc.
+2024-03-02 19:40:03,051 - INFO: 		[OK] Datos
+2024-03-02 19:40:03,334 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:03,958 - INFO:  - [Actualizando... ] Microsoft Corporation
+2024-03-02 19:40:03,982 - INFO: 		[OK] Datos
+2024-03-02 19:40:04,158 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:04,806 - INFO:  - [Actualizando... ] NIKE, Inc.
+2024-03-02 19:40:04,824 - INFO: 		[OK] Datos
+2024-03-02 19:40:05,037 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:05,624 - INFO:  - [Actualizando... ] The Procter & Gamble Company
+2024-03-02 19:40:05,655 - INFO: 		[OK] Datos
+2024-03-02 19:40:05,978 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:06,580 - INFO:  - [Actualizando... ] The Travelers Companies, Inc.
+2024-03-02 19:40:06,602 - INFO: 		[OK] Datos
+2024-03-02 19:40:06,826 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:07,645 - INFO:  - [Actualizando... ] UnitedHealth Group Incorporated
+2024-03-02 19:40:07,667 - INFO: 		[OK] Datos
+2024-03-02 19:40:07,852 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:08,368 - INFO:  - [Actualizando... ] Visa Inc.
+2024-03-02 19:40:08,403 - INFO: 		[OK] Datos
+2024-03-02 19:40:08,473 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:08,947 - INFO:  - [Actualizando... ] Verizon Communications Inc.
+2024-03-02 19:40:08,966 - INFO: 		[OK] Datos
+2024-03-02 19:40:09,152 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:09,672 - INFO:  - [Actualizando... ] Walgreens Boots Alliance, Inc.
+2024-03-02 19:40:09,692 - INFO: 		[OK] Datos
+2024-03-02 19:40:09,903 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:10,388 - INFO:  - [Actualizando... ] Walmart Inc.
+2024-03-02 19:40:10,414 - INFO: 		[OK] Datos
+2024-03-02 19:40:10,651 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:11,175 - INFO:  - [Actualizando... ] Dow Jones Industrial Average
+2024-03-02 19:40:11,196 - INFO: 		[OK] Datos
+2024-03-02 19:40:11,381 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:11,383 - INFO: 
+2024-03-02 19:40:11,383 - INFO: [OK] Bases de datos actualizadas.
+2024-03-02 19:40:11,385 - INFO: Proceso finalizado.
+
+2024-03-02 19:40:11,386 - INFO: 
+2024-03-02 19:40:11,386 - INFO: --------------------------------------------------
+2024-03-02 19:40:11,387 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-02 19:40:11,388 - INFO: --------------------------------------------------
+2024-03-02 19:40:11,909 - INFO:  - [Actualizando... ] ACS, Actividades de Construcción y Servicios, S.A.
+2024-03-02 19:40:11,927 - INFO: 		[OK] Datos
+2024-03-02 19:40:12,038 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:12,478 - INFO:  - [Actualizando... ] Acerinox, S.A.
+2024-03-02 19:40:12,512 - INFO: 		[OK] Datos
+2024-03-02 19:40:12,632 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:13,041 - INFO:  - [Actualizando... ] Aena S.M.E., S.A.
+2024-03-02 19:40:13,056 - INFO: 		[OK] Datos
+2024-03-02 19:40:13,122 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:13,521 - INFO:  - [Actualizando... ] Amadeus IT Group, S.A.
+2024-03-02 19:40:13,543 - INFO: 		[OK] Datos
+2024-03-02 19:40:13,622 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:14,069 - INFO:  - [Actualizando... ] Acciona, S.A.
+2024-03-02 19:40:14,081 - INFO: 		[OK] Datos
+2024-03-02 19:40:14,220 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:14,613 - INFO:  - [Actualizando... ] Corporación Acciona Energías Renovables, S.A.
+2024-03-02 19:40:14,636 - INFO: 		[OK] Datos
+2024-03-02 19:40:14,675 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:15,104 - INFO:  - [Actualizando... ] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-03-02 19:40:15,137 - INFO: 		[OK] Datos
+2024-03-02 19:40:15,268 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:15,763 - INFO:  - [Actualizando... ] Bankinter, S.A.
+2024-03-02 19:40:15,785 - INFO: 		[OK] Datos
+2024-03-02 19:40:15,905 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:16,349 - INFO:  - [Actualizando... ] CaixaBank, S.A.
+2024-03-02 19:40:16,370 - INFO: 		[OK] Datos
+2024-03-02 19:40:16,456 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:17,003 - INFO:  - [Actualizando... ] Cellnex Telecom, S.A.
+2024-03-02 19:40:17,039 - INFO: 		[OK] Datos
+2024-03-02 19:40:17,089 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:17,519 - INFO:  - [Actualizando... ] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-03-02 19:40:17,543 - INFO: 		[OK] Datos
+2024-03-02 19:40:17,670 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:18,121 - INFO:  - [Actualizando... ] Endesa, S.A.
+2024-03-02 19:40:18,157 - INFO: 		[OK] Datos
+2024-03-02 19:40:18,281 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:18,723 - INFO:  - [Actualizando... ] Enagás, S.A.
+2024-03-02 19:40:18,746 - INFO: 		[OK] Datos
+2024-03-02 19:40:18,858 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:19,271 - INFO:  - [Actualizando... ] Fluidra, S.A.
+2024-03-02 19:40:19,296 - INFO: 		[OK] Datos
+2024-03-02 19:40:19,389 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:19,926 - INFO:  - [Actualizando... ] Ferrovial SE
+2024-03-02 19:40:19,943 - INFO: 		[OK] Datos
+2024-03-02 19:40:20,072 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:20,489 - INFO:  - [Actualizando... ] Grifols, S.A.
+2024-03-02 19:40:20,495 - INFO: 		[OK] Datos
+2024-03-02 19:40:20,606 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:21,043 - INFO:  - [Actualizando... ] International Consolidated Airlines Group S.A.
+2024-03-02 19:40:21,058 - INFO: 		[OK] Datos
+2024-03-02 19:40:21,143 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:21,575 - INFO:  - [Actualizando... ] Iberdrola, S.A.
+2024-03-02 19:40:21,597 - INFO: 		[OK] Datos
+2024-03-02 19:40:21,719 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:22,315 - INFO:  - [Actualizando... ] Indra Sistemas, S.A.
+2024-03-02 19:40:22,334 - INFO: 		[OK] Datos
+2024-03-02 19:40:22,500 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:22,963 - INFO:  - [Actualizando... ] Industria de Diseño Textil, S.A.
+2024-03-02 19:40:22,997 - INFO: 		[OK] Datos
+2024-03-02 19:40:23,169 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:23,665 - INFO:  - [Actualizando... ] Compañía de Distribución Integral Logista Holdings, S.A.
+2024-03-02 19:40:23,688 - INFO: 		[OK] Datos
+2024-03-02 19:40:23,757 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:24,203 - INFO:  - [Actualizando... ] Mapfre, S.A.
+2024-03-02 19:40:24,218 - INFO: 		[OK] Datos
+2024-03-02 19:40:24,339 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:25,161 - INFO:  - [Actualizando... ] Meliá Hotels International, S.A.
+2024-03-02 19:40:25,178 - INFO: 		[OK] Datos
+2024-03-02 19:40:25,322 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:25,769 - INFO:  - [Actualizando... ] MERLIN Properties SOCIMI, S.A.
+2024-03-02 19:40:25,787 - INFO: 		[OK] Datos
+2024-03-02 19:40:25,855 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:26,270 - INFO:  - [Actualizando... ] ArcelorMittal S.A.
+2024-03-02 19:40:26,292 - INFO: 		[OK] Datos
+2024-03-02 19:40:26,389 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:26,855 - INFO:  - [Actualizando... ] Naturgy Energy Group, S.A.
+2024-03-02 19:40:26,888 - INFO: 		[OK] Datos
+2024-03-02 19:40:27,038 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:27,472 - INFO:  - [Actualizando... ] Redeia Corporación, S.A.
+2024-03-02 19:40:27,504 - INFO: 		[OK] Datos
+2024-03-02 19:40:27,631 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:28,110 - INFO:  - [Actualizando... ] Repsol, S.A.
+2024-03-02 19:40:28,130 - INFO: 		[OK] Datos
+2024-03-02 19:40:28,256 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:28,742 - INFO:  - [Actualizando... ] Laboratorios Farmaceuticos Rovi, S.A.
+2024-03-02 19:40:28,762 - INFO: 		[OK] Datos
+2024-03-02 19:40:28,859 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:29,312 - INFO:  - [Actualizando... ] Banco de Sabadell, S.A.
+2024-03-02 19:40:29,342 - INFO: 		[OK] Datos
+2024-03-02 19:40:29,457 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:29,913 - INFO:  - [Actualizando... ] Banco Santander, S.A.
+2024-03-02 19:40:29,939 - INFO: 		[OK] Datos
+2024-03-02 19:40:30,072 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:30,546 - INFO:  - [Actualizando... ] Sacyr, S.A.
+2024-03-02 19:40:30,574 - INFO: 		[OK] Datos
+2024-03-02 19:40:30,690 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:31,116 - INFO:  - [Actualizando... ] Solaria Energía y Medio Ambiente, S.A.
+2024-03-02 19:40:31,142 - INFO: 		[OK] Datos
+2024-03-02 19:40:31,226 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:31,648 - INFO:  - [Actualizando... ] Telefónica, S.A.
+2024-03-02 19:40:31,673 - INFO: 		[OK] Datos
+2024-03-02 19:40:31,798 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:32,212 - INFO:  - [Actualizando... ] Unicaja Banco, S.A.
+2024-03-02 19:40:32,218 - INFO: 		[OK] Datos
+2024-03-02 19:40:32,289 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:32,720 - INFO:  - [Actualizando... ] IBEX 35...
+2024-03-02 19:40:32,753 - INFO: 		[OK] Datos
+2024-03-02 19:40:32,900 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:32,902 - INFO: 
+2024-03-02 19:40:32,902 - INFO: [OK] Bases de datos actualizadas.
+2024-03-02 19:40:32,904 - INFO: Proceso finalizado.
+
+2024-03-02 19:40:32,905 - INFO: 
+2024-03-02 19:40:32,906 - INFO: --------------------------------------------------
+2024-03-02 19:40:32,906 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-02 19:40:32,907 - INFO: --------------------------------------------------
+2024-03-02 19:40:33,453 - INFO:  - [Actualizando... ] 3i Group Ord
+2024-03-02 19:40:33,471 - INFO: 		[OK] Datos
+2024-03-02 19:40:33,511 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:33,954 - INFO:  - [Actualizando... ] Admiral Group plc
+2024-03-02 19:40:33,973 - INFO: 		[OK] Datos
+2024-03-02 19:40:34,040 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:34,470 - INFO:  - [Actualizando... ] Airtel Africa Plc
+2024-03-02 19:40:34,492 - INFO: 		[OK] Datos
+2024-03-02 19:40:34,529 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:34,972 - INFO:  - [Actualizando... ] Anglo American plc
+2024-03-02 19:40:34,993 - INFO: 		[OK] Datos
+2024-03-02 19:40:35,041 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:35,573 - INFO:  - [Actualizando... ] Antofagasta plc
+2024-03-02 19:40:35,595 - INFO: 		[OK] Datos
+2024-03-02 19:40:35,641 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:36,143 - INFO:  - [Actualizando... ] Ashtead Group plc
+2024-03-02 19:40:36,165 - INFO: 		[OK] Datos
+2024-03-02 19:40:36,261 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:36,728 - INFO:  - [Actualizando... ] Associated British Foods plc
+2024-03-02 19:40:36,750 - INFO: 		[OK] Datos
+2024-03-02 19:40:36,790 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:37,261 - INFO:  - [Actualizando... ] AstraZeneca PLC
+2024-03-02 19:40:37,294 - INFO: 		[OK] Datos
+2024-03-02 19:40:37,340 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:37,746 - INFO:  - [Actualizando... ] Auto Trader Group plc
+2024-03-02 19:40:37,773 - INFO: 		[OK] Datos
+2024-03-02 19:40:37,822 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:38,310 - INFO:  - [Actualizando... ] Aviva plc
+2024-03-02 19:40:38,328 - INFO: 		[OK] Datos
+2024-03-02 19:40:38,375 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:38,779 - INFO:  - [Actualizando... ] B&M European Value Retail S.A.
+2024-03-02 19:40:38,813 - INFO: 		[OK] Datos
+2024-03-02 19:40:38,858 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:39,327 - INFO:  - [Actualizando... ] BAE Systems plc
+2024-03-02 19:40:39,334 - INFO: 		[OK] Datos
+2024-03-02 19:40:39,402 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:39,929 - INFO:  - [Actualizando... ] Barclays PLC
+2024-03-02 19:40:39,951 - INFO: 		[OK] Datos
+2024-03-02 19:40:39,996 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:40,453 - INFO:  - [Actualizando... ] Barratt Developments plc
+2024-03-02 19:40:40,475 - INFO: 		[OK] Datos
+2024-03-02 19:40:40,524 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:40,954 - INFO:  - [Actualizando... ] Beazley plc
+2024-03-02 19:40:40,978 - INFO: 		[OK] Datos
+2024-03-02 19:40:41,023 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:41,471 - INFO:  - [Actualizando... ] The Berkeley Group Holdings plc
+2024-03-02 19:40:41,502 - INFO: 		[OK] Datos
+2024-03-02 19:40:41,543 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:41,988 - INFO:  - [Actualizando... ] BP p.l.c.
+2024-03-02 19:40:42,003 - INFO: 		[OK] Datos
+2024-03-02 19:40:42,060 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:42,535 - INFO:  - [Actualizando... ] British American Tobacco p.l.c.
+2024-03-02 19:40:42,542 - INFO: 		[OK] Datos
+2024-03-02 19:40:42,609 - INFO: 		[OK] Medias móviles
+2024-03-02 19:40:42,921 - ERROR: [NO OK] Error SQLite: near "-": syntax error
+2024-03-02 19:40:42,936 - INFO: Proceso finalizado.
+
+2024-03-02 19:40:42,943 - INFO: 
+2024-03-02 19:40:42,943 - INFO: -------------------------------------------------------
+2024-03-02 19:40:42,946 - INFO: Actualizando tabla de cambio de moneda en 'db.sqlite3':
+2024-03-02 19:40:42,949 - INFO: -------------------------------------------------------
+2024-03-02 19:40:43,691 - INFO:  - [OK] EURUSD
+2024-03-02 19:40:43,692 - INFO:  - [OK] EURGBP
+2024-03-02 19:40:43,699 - INFO: 
+2024-03-02 19:40:43,700 - INFO: [OK] Tabla actualizada con éxito.
+2024-03-02 19:40:43,701 - INFO: Proceso finalizado.
