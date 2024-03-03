@@ -61,10 +61,10 @@ def crear_bds(índice, bd, logger):
                 # excepto para el FTSE100 porque son muchos stocks y 
                 # la BD crece demasiado (130MB) y podría ser un problema 
                 # en GitHub y en el servidor de la web:
-                if bd == 'databases/ftse100.sqlite3':
-                    hist = stock.history(period="5y", interval="1d")
-                else:
+                if bd == 'databases/ibex35.sqlite3':
                     hist = stock.history(period="max", interval="1d")
+                else:
+                    hist = stock.history(period="5y", interval="1d")
 
                 # Dejo la columna 'date' como columna normal
                 hist.reset_index(inplace=True)
@@ -82,6 +82,8 @@ def crear_bds(índice, bd, logger):
                     hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=18, minutes=30)
                 elif bd == 'databases/ftse100.sqlite3':
                     hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=17, minutes=30)
+                elif bd == 'databases/dax40.sqlite3':
+                    hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=18, minutes=30)
 
                 # No uso una columna 'id' explícitamente. Es recomendable en
                 # Django, por eso lo tengo definido en los modelos dinámicos
@@ -306,8 +308,13 @@ if __name__ == "__main__":
     bd = Tickers_BDs.ruta_bd_ftse100()
     crear_bds(ftse100, bd, logger)
 
+    # Insertar datos en la BD del DAX40
+    dax40 = Tickers_BDs.tickers_dax40()
+    bd = Tickers_BDs.ruta_bd_dax40()
+    crear_bds(dax40, bd, logger)
+
     # Insertar datos en la tabla de sectores
-    índices = Tickers_BDs.tickers_dj30() + Tickers_BDs.tickers_ibex35() + Tickers_BDs.tickers_ftse100()
+    índices = Tickers_BDs.tickers_dj30() + Tickers_BDs.tickers_ibex35() + Tickers_BDs.tickers_ftse100() + Tickers_BDs.tickers_dax40()
     crear_tabla_sectores(índices, logger)
 
     # Insertar datos en la tabla de cambio de monedas

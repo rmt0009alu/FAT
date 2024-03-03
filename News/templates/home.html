@@ -222,6 +222,67 @@
         </div>
     </div>
 
+    <div><br><br></div>
+
+    <!-- Datos DAX40 -->
+    <div id="fila3" class="row align-items-center">
+        <div class="col-md-6">
+            <!-- Los 3 mejores stocks -->
+            <h3>Mejores DAX40</h3>
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Ticker</th>
+                            <th scope="col">Variación (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for index, row in tresMejores_dax40.iterrows %}
+                            <tr>
+                                <td>{{ row.ticker }}</td>
+                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                    {{ row.variacion|floatformat:"2" }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- Los 3 perores stocks -->
+            <h3>Peores DAX40</h3>
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Ticker</th>
+                            <th scope="col">Variación (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for index, row in tresPeores_dax40.iterrows %}
+                            <tr>
+                                <td>{{ row.ticker }}</td>
+                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                    {{ row.variacion|floatformat:"2" }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+        <div class="col-md-6">
+            <!-- Carrusel de stockChart -->
+            <div id="stockCarousels" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for figure_html in figuras_dax40 %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        {{ figure_html|safe }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
 </main>
 
 {% endblock %}

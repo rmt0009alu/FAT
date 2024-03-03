@@ -67,6 +67,23 @@ def tickers_ftse100():
     return ftse100
 
 
+def tickers_dax40():
+    """Para obtener los tickers del DAX40.
+
+    Returns:
+        (list): lista con los tickers del DAX40.
+    """
+    # Tickers del DAX40
+    dax40 = ['1COV.DE', 'ADS.DE', 'AIR.DE', 'ALV.DE', 'BAS.DE', 'BAYN.DE', 'BEI.DE', 
+             'BMW.DE', 'CON.DE', 'DB1.DE', 'DBK.DE', 'DHL.DE', 'DTE.DE', 'DTG.DE', 
+             'ENR.DE', 'EOAN.DE', 'FME.DE', 'FRE.DE', 'HEI.DE', 'HEN3.DE', 'HFG.DE', 
+             'HNR1.DE', 'IFX.DE', 'KCO.DE', 'LHA.DE', 'LIN.DE', 'MRK.DE', 'MTX.DE', 
+             'MUV2.DE', 'P911.DE', 'PAH3.DE', 'PAG.DE', 'RWE.DE', 'SAP.DE', 'SHL.DE',
+             'SIE.DE', 'SY1.DE', 'VNA.DE', 'VOW3.DE', 'ZAL.DE', '^GDAXI']
+    
+    return dax40
+
+
 def tickers_indices():
     """Para obtener los tickers de los índices separados
     del resto de tickers.
@@ -74,7 +91,7 @@ def tickers_indices():
     Returns:
         (list): lista con los tickers de los índices
     """
-    indices = ['^DJI', '^IBEX', '^FTSE']
+    indices = ['^DJI', '^IBEX', '^FTSE', '^GDAXI']
 
     return indices
 
@@ -141,6 +158,27 @@ def tickers_adaptados_ftse100():
     return fte100_adaptado
 
 
+def tickers_adaptados_dax40():
+    """Para obtener los tickers del DAX40 con
+    formato adaptado y evitar la notación de punto,
+    así como la de '^' del índice, porque puede dar 
+    problemas al acceder a las tablas de la BD.
+
+    Returns:
+        (list): lista con los tickers del DAX40 adaptados.
+    """
+    dax40 = tickers_dax40()
+
+    dax_adaptado = []
+    # Para evitar conflictos en BDs con la notación 
+    # de '.' y con el '^' del índice
+    for ticker in dax40:
+        ticker = ticker.replace("^","")
+        dax_adaptado.append(ticker.replace(".", "_"))
+
+    return dax_adaptado
+
+
 def tickers_adaptados_indices():
     """Para obtener los tickers de los índices con
     formato adaptado y evitar la notación de '^'.
@@ -191,6 +229,17 @@ def ruta_bd_ftse100():
     return 'databases/ftse100.sqlite3'
 
 
+def ruta_bd_dax40():
+    """Para obtener el path y nombre de la BD
+    del DAX40.
+
+    Returns:
+        (str): path y nombre de la BD del DAX40.
+    """
+    # BD del DAX40
+    return 'databases/dax40.sqlite3'
+
+
 def nombre_bd_dj30():
     """Para obtener sólo el nombre registrado 
     en el settings como base de datos.
@@ -222,6 +271,16 @@ def nombre_bd_ftse100():
     return 'ftse100'
 
 
+def nombre_bd_dax40():
+    """Para obtener sólo el nombre registrado 
+    en el settings como base de datos.
+
+    Returns:
+        (str): nombre de la BD en settings
+    """
+    return 'dax40'
+
+
 def obtener_nombre_bd(stock):
     """Para obtener el nombre de la BD a la que pertenece un 
     stock. No hay problema de identificación porque todos los 
@@ -239,6 +298,8 @@ def obtener_nombre_bd(stock):
         return nombre_bd_dj30()
     elif stock in (tickers_ftse100() + tickers_adaptados_ftse100()):
         return nombre_bd_ftse100()
+    elif stock in (tickers_dax40() + tickers_adaptados_dax40()):
+        return nombre_bd_dax40()
     else:
         return None
     
@@ -250,7 +311,7 @@ def tickers_disponibles():
     Returns:
         (list): lista con todos los tickers disponibles.
     """
-    return tickers_dj30() + tickers_ibex35() + tickers_ftse100()
+    return tickers_dj30() + tickers_ibex35() + tickers_ftse100() + tickers_dax40()
 
 
 def tickers_adaptados_disponibles():
@@ -260,7 +321,7 @@ def tickers_adaptados_disponibles():
     Returns:
         (list): lista con todos los tickers adaptados disponibles.
     """
-    return tickers_adaptados_dj30() + tickers_adaptados_ibex35() + tickers_adaptados_ftse100()
+    return tickers_adaptados_dj30() + tickers_adaptados_ibex35() + tickers_adaptados_ftse100() + tickers_adaptados_dax40()
 
 
 def bases_datos_disponibles():
@@ -269,4 +330,4 @@ def bases_datos_disponibles():
     Returns:
         (set): conjunto con las bases de datos disponibles.
     """
-    return {nombre_bd_dj30(), nombre_bd_ibex35(), nombre_bd_ftse100()}
+    return {nombre_bd_dj30(), nombre_bd_ibex35(), nombre_bd_ftse100(), nombre_bd_dax40()}

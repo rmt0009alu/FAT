@@ -45,3 +45,20 @@ def rss_ftse100():
            "https://www.business-live.co.uk/?service=rss"]                      # Business-live
     
     return rss
+
+
+def rss_dax40():
+    """Para obtener los enlaces de RSS de noticias
+    relacionadas con el DAX40 y/o noticias de otros
+    mercados.
+
+    Returns:
+        (list): lista con los RSS
+    """
+    rss = [#"https://www.finanzen.net/rss/analysen",                             # finanzen.net
+           "https://uk.finance.yahoo.com/rss/topstories",                       # Yahoo finance UK
+           "https://www.theguardian.com/uk/business/rss",                       # The Guardian Business
+           "https://www.ft.com/rss/home/uk",                                    # Financial Times UK
+           "https://www.business-live.co.uk/?service=rss"]                      # Business-live
+    
+    return rss

@@ -38,9 +38,9 @@ import base64
 # Para generar figuras sin repetir código
 from News.views import _generar_figura
 # Para los RSS
-from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100
+from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100, rss_dax40
 # Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles, obtener_nombre_bd, tickers_disponibles
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_dax40, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles, obtener_nombre_bd, tickers_disponibles
 from datetime import date
 
 
@@ -213,6 +213,8 @@ def mapa_stocks(request, nombre_bd):
         tickers = tickers_adaptados_ibex35()
     if nombre_bd == 'ftse100':
         tickers = tickers_adaptados_ftse100()
+    if nombre_bd == 'dax40':
+        tickers = tickers_adaptados_dax40()
 
     # Lista para los diccionarios de las últimas entradas
     datos_fin_stocks = []
@@ -362,6 +364,8 @@ def _get_lista_rss(nombre_bd):
         rss = rss_ibex35()
     elif nombre_bd == 'ftse100':
         rss = rss_ftse100()
+    elif nombre_bd == 'dax40':
+        rss = rss_dax40()
 
     num_noticias_por_feed = 2
 

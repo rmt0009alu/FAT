@@ -13,7 +13,7 @@ from django.shortcuts import render
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
 # Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_indices, obtener_nombre_bd
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_dax40, tickers_adaptados_indices, obtener_nombre_bd
 # Para cargar variables de entorno
 from dotenv import load_dotenv
 
@@ -80,11 +80,16 @@ def home(request):
     mejores_ftse100 = df_ultimos_ftse100.head(3)
     peores_ftse100 = df_ultimos_ftse100.tail(3)
 
+    df_ultimos_dax40 = _mejores_peores(tickers_adaptados_dax40())
+    mejores_dax40 = df_ultimos_dax40.head(3)
+    peores_dax40 = df_ultimos_dax40.tail(3)
+
     # GRÁFICOS DE STOCKS
     # ----------------------------------
     figuras_dj30 = _lista_de_graficos(mejores_dj30, perores_dj30)
     figuras_ibex35 = _lista_de_graficos(mejores_ibex35, peores_ibex35)
     figuras_ftse100 = _lista_de_graficos(mejores_ftse100, peores_ftse100)
+    figuras_dax40 = _lista_de_graficos(mejores_dax40, peores_dax40)
 
     # CONTEXTO
     # ----------------------------------
@@ -98,6 +103,10 @@ def home(request):
     mejores_ftse100 = df_ultimos_ftse100.head(3)
     peores_ftse100 = df_ultimos_ftse100.tail(3)
 
+    df_ultimos_dax40['ticker'] = df_ultimos_dax40['ticker'].str.replace('_', '.')
+    mejores_dax40 = df_ultimos_dax40.head(3)
+    peores_dax40 = df_ultimos_dax40.tail(3)
+
     context = {
         "listaArticulos": lista_articulos,
         "tresMejores_dj30": mejores_dj30,
@@ -106,9 +115,12 @@ def home(request):
         "tresPeores_ibex35": peores_ibex35,
         "tresMejores_ftse100": mejores_ftse100,
         "tresPeores_ftse100": peores_ftse100,
+        "tresMejores_dax40": mejores_dax40,
+        "tresPeores_dax40": peores_dax40,
         "figuras_dj30": figuras_dj30,
         "figuras_ibex35": figuras_ibex35,
         "figuras_ftse100": figuras_ftse100,
+        "figuras_dax40": figuras_dax40,
     }
     return render(request, "home.html", context)
 

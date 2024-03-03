@@ -19,6 +19,7 @@ class RouterBDs:
         self.tickers_dj30 = [ticker.lower() for ticker in Tickers_BDs.tickers_adaptados_dj30()]
         self.tickers_ibex35 = [ticker.lower() for ticker in Tickers_BDs.tickers_adaptados_ibex35()]
         self.tickers_ftse100 = [ticker.lower() for ticker in Tickers_BDs.tickers_adaptados_ftse100()]
+        self.tickers_dax40 = [ticker.lower() for ticker in Tickers_BDs.tickers_adaptados_dax40()]
 
 
     def db_for_read(self, model, **hints):
@@ -36,6 +37,8 @@ class RouterBDs:
             return 'ibex35'
         elif model.__name__ in self.tickers_ftse100:
             return 'ftse100'
+        elif model.__name__ in self.tickers_dax40:
+            return 'dax40'
         return 'default'
 
 
@@ -79,4 +82,6 @@ class RouterBDs:
             return db == 'ibex35'
         elif model_name in self.tickers_ftse100:
             return db == 'ftse100'
+        elif model_name in self.tickers_dax40:
+            return db == 'dax40'
         return db == 'default'
