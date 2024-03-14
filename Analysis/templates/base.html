@@ -33,36 +33,30 @@
             <a class="navbar-brand" href="/">
                 <!-- <img src="../../static/Logo.png" alt="" width="50" height="50" class="d-inline-block align-text-center"> -->
                 Financial Analysis Tool
-                <img src="{% static 'Logo.png' %}" alt="" width="50" height="50" class="d-inline-block align-text-center">
+                <img src="{% static 'icons/logo.png' %}" alt="" width="50" height="50" class="d-inline-block align-text-center">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/mapa/ibex35" style="color: white;"><b> [ IBEX35 ] </b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mapa/dj30" style="color:white;"><b> [ DJ30 ] </b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mapa/ftse100" style="color: white;"><b> [ FTSE100 ] </b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mapa/dax40" style="color: white;"><b> [ DAX40 ] </b></a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="/mapa">Mapa stocks</a>
-                </li> -->
     
                 {% if user.is_authenticated %}
                 <!-- Sólo lo muestro si el usuario está registrado -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
+                    <a class="nav-link" href="/logout">
+                        <img src="{% static 'icons/logout.svg' %}" alt="LogoutIcon" width="20" height="20"> Logout 
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/dashboard/">Mi cartera</a>
+                    <a class="nav-link" href="/dashboard/">
+                        <img src="{% static 'icons/dashboard.svg' %}" alt="DashBoardIcon" width="20" height="20"> DashBoard 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/lab/">
+                        <img src="{% static 'icons/lab.svg' %}" alt="ExperimentIcon" width="20" height="20"> Lab 
+                    </a>
                 </li>
                 {% else %}
                 <!-- Sólo lo muestro si el usuario está sin registrar -->
@@ -78,7 +72,17 @@
         </div>
     </nav>
     
+    <!-- Los botones de los índices se muestran siempre debajo de la navbar -->
     <main>
+        <br>
+        <div style="text-align: center;">
+            <a href="/mapa/ibex35"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">IBEX35</button></a>
+            <a href="/mapa/dj30"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">DJ30</button></a>
+            <a href="/mapa/ftse100"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">FTSE100</button></a>
+            <a href="/mapa/dax40"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">DAX40</button></a>
+            <!-- <a href="/mapa"><button>Mapa stocks</button></a> -->
+        </div>
+
         {% block content %}
         {% endblock %}
     </main>
@@ -87,7 +91,7 @@
     <footer class="footer mt-auto py-3 bg-dark text-white">
     <div class="container text-center">
         <a href="https://github.com/rmt0009alu/FAT">
-            <img src="{% static 'github.svg' %}" alt="GitHub Logo" width="40" height="40">
+            <img src="{% static 'icons/github.svg' %}" alt="GitHub Logo" width="40" height="40">
         </a>
         <br><br>
         <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger">Django</i> by Rodrigo Merino Tovar</p>
