@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Analysis',
     'News',
     'DashBoard',
+    'Lab',
 ]
 
 MIDDLEWARE = [

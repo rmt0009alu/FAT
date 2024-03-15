@@ -42,8 +42,6 @@ from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100, rss_dax40
 # Para obtener los tickers y los paths de las BDs
 from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_dax40, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles, obtener_nombre_bd, tickers_disponibles
 
-from Analysis.lab import forecast_con_arima
-
 
 def signup(request):
     """Para registrar a un usuario.
@@ -194,7 +192,6 @@ def signin(request):
     return render(request, "login.html", context)
 
 
-@login_required
 def mapa_stocks(request, nombre_bd):
     """Para mapear los stocks de una base de datos.
     Función protegida. Requiere login para ser accedida.
@@ -305,8 +302,6 @@ def chart_y_datos(request, ticker, nombre_bd):
         "lista_tickers": tickers_disponibles(),
         "grafica_sectores": _grafica_evolucion_sector(ticker),
     }
-
-    _pruebas_ARIMA_pronostico_movil(ticker)
 
     # Cuando es una solicitud GET retorno sin más
     if request.method == "GET":
@@ -858,76 +853,3 @@ def _calcular_media_sector(lista_dataframes):
     dfs_merged = dfs_merged.rename(columns={'media': 'close'})
 
     return dfs_merged
-
-
-# def _pruebas_ARIMA_pronostico_estatico(ticker):
-
-#     bd = obtener_nombre_bd(ticker)
-#     model = apps.get_model('Analysis', ticker)
-#     # Último año aprox.
-#     entrada = model.objects.using(bd).order_by('-date')[:220]
-#     df = pd.DataFrame(list(entrada.values()))
-    
-#     df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
-
-#     datos = df['close']
-#     fechas = df['date']
-#     # Para trabajar con modelos de statsmodels hay que indicar una 
-#     # frecuencia en índices temporales. Aquí no se puede usar porque
-#     # las fechas de las cotizaciones no tienen una frecuencia diaria
-#     # ya que hay festivos y/o fines de semana. Por tanto, el índice
-#     # será un entero y se hacen luego las adaptaciones oportunas. 
-#     # datos.set_index('date', inplace=True)
-
-#     tam_entrenamiento = int(len(datos) * 0.7)
-#     datos_entrenamiento, datos_test = datos[:tam_entrenamiento], datos[tam_entrenamiento:]
-
-#     # Fitting ARIMA model with order (p, d, q) = (1, 1, 1)
-#     modelo = ARIMA(datos_entrenamiento, order=(5, 1, 1))
-#     modelo_fit = modelo.fit()
-
-#     # Resumen del modelo ajustado:
-#     # print(modelo_fit.summary())
-
-#     # Predict the next 3 values
-#     forecast_steps = 5
-#     prediccion = modelo_fit.forecast(steps=forecast_steps)
-
-#     datos.index = fechas
-#     prediccion.index = fechas[tam_entrenamiento:(tam_entrenamiento+forecast_steps)]
-
-#     # Print or visualize the predicted values
-#     print("Predicted Values:", prediccion)
-
-#     # Visualize original data and predicted values
-#     plt.plot(datos.index, datos, label='Original Data')
-#     plt.plot(prediccion.index, prediccion, label='Predictions', color='red')
-        
-#     plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))  # Adjust the maximum number of ticks displayed
-
-#     plt.legend()
-#     plt.savefig('prediccion.png', format="PNG")
-    
-#     """
-#     residuals = pd.DataFrame(modelo_fit.resid)
-#     residuals.plot()
-#     plt.savefig('linea_residuos.png', format="PNG")
-#     # density plot of residuals
-#     residuals.plot(kind='kde')
-#     plt.savefig('densidad_residuos.png', format="PNG")
-#     # summary stats of residuals
-#     print(residuals.describe())
-#     """
-
-#     return
-
-
-def _pruebas_ARIMA_pronostico_movil(ticker):
-
-    # Por defecto order=None, i.e., se calcula el 'order' (p,d,q)
-    # automáticamente con auto_arima
-    # forecast_con_arima(ticker, order=None)
-
-    forecast_con_arima(ticker, order=(0.5,1,1))
-
-    return

@@ -1,0 +1,38 @@
+<!-- templates/lab.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Mis estilos -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_lab.css' %}">
+
+<div>
+    <br><p class="cabecera">Bienvenido/a al Lab, {{ usuario }}</p>
+</div>
+
+<div class="container">
+  
+    <div class="row">
+        <div class="col">
+            <p>Prueba</p>
+        </div>
+        <div class="col">
+            <p>Prueba</p>
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class="col">
+            <p>Prueba</p>
+        </div>
+        <div class="col">
+            <p>Prueba</p>
+        </div>
+    </div>
+  
+    <br>
+  </div>
+
+{% endblock %}

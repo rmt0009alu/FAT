@@ -57,4 +57,7 @@ urlpatterns = [
 
     # Añado las rutas de la app del DashBoard
     path('', include('DashBoard.urls')),
+
+    # Añado las rutas de la app de Lab
+    path('', include('Lab.urls')),
 ]
