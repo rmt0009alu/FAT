@@ -61,10 +61,14 @@
                 {% else %}
                 <!-- Sólo lo muestro si el usuario está sin registrar -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="/login">
+                        <img src="{% static 'icons/login.svg' %}" alt="ExperimentIcon" width="20" height="20"> Login 
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/signup">Registro</a>
+                    <a class="nav-link" href="/signup">
+                        <img src="{% static 'icons/signup.svg' %}" alt="ExperimentIcon" width="20" height="20"> Registro 
+                    </a>
                 </li>
                 {% endif %}
             </ul>
@@ -76,8 +80,8 @@
     <main>
         <br>
         <div style="text-align: center;">
-            <a href="/mapa/ibex35"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">IBEX35</button></a>
             <a href="/mapa/dj30"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">DJ30</button></a>
+            <a href="/mapa/ibex35"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">IBEX35</button></a>
             <a href="/mapa/ftse100"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">FTSE100</button></a>
             <a href="/mapa/dax40"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">DAX40</button></a>
             <!-- <a href="/mapa"><button>Mapa stocks</button></a> -->

@@ -41,12 +41,9 @@ from News.views import _generar_figura
 from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100, rss_dax40
 # Para obtener los tickers y los paths de las BDs
 from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_dax40, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles, obtener_nombre_bd, tickers_disponibles
-from datetime import timedelta
 
-from sklearn.metrics import mean_squared_error
-from math import sqrt
-import matplotlib.pyplot as plt
-from statsmodels.tsa.arima.model import ARIMA
+from Analysis.lab import forecast_con_arima
+
 
 def signup(request):
     """Para registrar a un usuario.
@@ -863,147 +860,74 @@ def _calcular_media_sector(lista_dataframes):
     return dfs_merged
 
 
-def _pruebas_ARIMA_pronostico_estatico(ticker):
+# def _pruebas_ARIMA_pronostico_estatico(ticker):
 
-    bd = obtener_nombre_bd(ticker)
-    model = apps.get_model('Analysis', ticker)
-    # Último año aprox.
-    entrada = model.objects.using(bd).order_by('-date')[:220]
-    df = pd.DataFrame(list(entrada.values()))
+#     bd = obtener_nombre_bd(ticker)
+#     model = apps.get_model('Analysis', ticker)
+#     # Último año aprox.
+#     entrada = model.objects.using(bd).order_by('-date')[:220]
+#     df = pd.DataFrame(list(entrada.values()))
     
-    df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
+#     df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
 
-    datos = df['close']
-    fechas = df['date']
-    # Para trabajar con modelos de statsmodels hay que indicar una 
-    # frecuencia en índices temporales. Aquí no se puede usar porque
-    # las fechas de las cotizaciones no tienen una frecuencia diaria
-    # ya que hay festivos y/o fines de semana. Por tanto, el índice
-    # será un entero y se hacen luego las adaptaciones oportunas. 
-    # datos.set_index('date', inplace=True)
+#     datos = df['close']
+#     fechas = df['date']
+#     # Para trabajar con modelos de statsmodels hay que indicar una 
+#     # frecuencia en índices temporales. Aquí no se puede usar porque
+#     # las fechas de las cotizaciones no tienen una frecuencia diaria
+#     # ya que hay festivos y/o fines de semana. Por tanto, el índice
+#     # será un entero y se hacen luego las adaptaciones oportunas. 
+#     # datos.set_index('date', inplace=True)
 
-    tam_entrenamiento = int(len(datos) * 0.7)
-    datos_entrenamiento, datos_test = datos[:tam_entrenamiento], datos[tam_entrenamiento:]
+#     tam_entrenamiento = int(len(datos) * 0.7)
+#     datos_entrenamiento, datos_test = datos[:tam_entrenamiento], datos[tam_entrenamiento:]
 
-    # Fitting ARIMA model with order (p, d, q) = (1, 1, 1)
-    modelo = ARIMA(datos_entrenamiento, order=(5, 1, 1))
-    modelo_fit = modelo.fit()
+#     # Fitting ARIMA model with order (p, d, q) = (1, 1, 1)
+#     modelo = ARIMA(datos_entrenamiento, order=(5, 1, 1))
+#     modelo_fit = modelo.fit()
 
-    # Resumen del modelo ajustado:
-    # print(modelo_fit.summary())
+#     # Resumen del modelo ajustado:
+#     # print(modelo_fit.summary())
 
-    # Predict the next 3 values
-    forecast_steps = 5
-    prediccion = modelo_fit.forecast(steps=forecast_steps)
+#     # Predict the next 3 values
+#     forecast_steps = 5
+#     prediccion = modelo_fit.forecast(steps=forecast_steps)
 
-    datos.index = fechas
-    prediccion.index = fechas[tam_entrenamiento:(tam_entrenamiento+forecast_steps)]
+#     datos.index = fechas
+#     prediccion.index = fechas[tam_entrenamiento:(tam_entrenamiento+forecast_steps)]
 
-    # Print or visualize the predicted values
-    print("Predicted Values:", prediccion)
+#     # Print or visualize the predicted values
+#     print("Predicted Values:", prediccion)
 
-    # Visualize original data and predicted values
-    plt.plot(datos.index, datos, label='Original Data')
-    plt.plot(prediccion.index, prediccion, label='Predictions', color='red')
+#     # Visualize original data and predicted values
+#     plt.plot(datos.index, datos, label='Original Data')
+#     plt.plot(prediccion.index, prediccion, label='Predictions', color='red')
         
-    plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))  # Adjust the maximum number of ticks displayed
+#     plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))  # Adjust the maximum number of ticks displayed
 
-    plt.legend()
-    plt.savefig('prediccion.png', format="PNG")
+#     plt.legend()
+#     plt.savefig('prediccion.png', format="PNG")
     
-    """
-    residuals = pd.DataFrame(modelo_fit.resid)
-    residuals.plot()
-    plt.savefig('linea_residuos.png', format="PNG")
-    # density plot of residuals
-    residuals.plot(kind='kde')
-    plt.savefig('densidad_residuos.png', format="PNG")
-    # summary stats of residuals
-    print(residuals.describe())
-    """
+#     """
+#     residuals = pd.DataFrame(modelo_fit.resid)
+#     residuals.plot()
+#     plt.savefig('linea_residuos.png', format="PNG")
+#     # density plot of residuals
+#     residuals.plot(kind='kde')
+#     plt.savefig('densidad_residuos.png', format="PNG")
+#     # summary stats of residuals
+#     print(residuals.describe())
+#     """
 
-    return
+#     return
 
 
 def _pruebas_ARIMA_pronostico_movil(ticker):
 
-    bd = obtener_nombre_bd(ticker)
-    modelo = apps.get_model('Analysis', ticker)
-    # Último año aprox.
-    entrada = modelo.objects.using(bd).order_by('-date')[:220]
-    df = pd.DataFrame(list(entrada.values()))
-    
-    df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
+    # Por defecto order=None, i.e., se calcula el 'order' (p,d,q)
+    # automáticamente con auto_arima
+    # forecast_con_arima(ticker, order=None)
 
-    datos = df['close']
-    fechas = df['date']
-
-    tam_entrenamiento = int(len(datos) * 0.7)
-    datos_entrenamiento, datos_test = datos[:tam_entrenamiento], datos[tam_entrenamiento:]
-
-    print(datos_test)
-
-    history = [x for x in datos_entrenamiento]
-    predictions = list()
-    prediccion = 0
-    # walk-forward validation
-    for t in range(len(datos_test)):
-        modelo = ARIMA(history, order=(1, 1, 1))
-        modelo_fit = modelo.fit()
-        output = modelo_fit.forecast()
-        yhat = output[0]
-        predictions.append(yhat)
-        obs = datos_test.iloc[t]
-        history.append(obs)
-        # print(f'predicted={yhat}, expected={obs}')
-    
-    prediccion = modelo_fit.forecast(steps=1)
-    
-    # evaluate forecasts
-    rmse = sqrt(mean_squared_error(datos_test, predictions))
-    print('Test RMSE: %.3f' % rmse)
-    # plot forecasts against actual outcomes
-
-    # datos_test.index = fechas[tam_entrenamiento:]
-    datos.index = fechas
-    predictions = pd.DataFrame(predictions)
-    predictions.index = fechas[tam_entrenamiento:]
-
-    # plt.plot(datos_test.index, datos_test, color='blue', label='Original')
-    plt.plot(datos.index, datos, color='blue', label='Original')
-    plt.plot(predictions.index, predictions, color='red', label=f'Predicción últimos {len(datos_test)} días')
-    plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))
-    plt.legend()
-    plt.savefig('pruebas.png', format='PNG')
-
-    print("Predicciones: ", prediccion)
-
-    """
-    # Fitting ARIMA model with order (p, d, q) = (1, 1, 1)
-    modelo = ARIMA(datos_entrenamiento, order=(5, 1, 1))
-    modelo_fit = modelo.fit()
-
-    # Resumen del modelo ajustado:
-    # print(modelo_fit.summary())
-
-    # Predict the next 3 values
-    forecast_steps = 5
-    prediccion = modelo_fit.forecast(steps=forecast_steps)
-
-    datos.index = fechas
-    prediccion.index = fechas[tam_entrenamiento:(tam_entrenamiento+forecast_steps)]
-
-    # Print or visualize the predicted values
-    print("Predicted Values:", prediccion)
-
-    # Visualize original data and predicted values
-    plt.plot(datos.index, datos, label='Original Data')
-    plt.plot(prediccion.index, prediccion, label='Predictions', color='red')
-        
-    plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))  # Adjust the maximum number of ticks displayed
-
-    plt.legend()
-    plt.savefig('prediccion.png', format="PNG")
-    """
+    forecast_con_arima(ticker, order=(0.5,1,1))
 
     return
