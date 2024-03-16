@@ -3,6 +3,16 @@
 <!DOCTYPE html>
 {% load static %}
 
+<style>
+    .boton-indice {
+    background-color: #212428; 
+    color: #FFFEFE; 
+    font-size: 16px; 
+    font-family: 'Arial', sans-serif; 
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); 
+    width: 120px;
+}
+</style>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -76,17 +86,7 @@
         </div>
     </nav>
     
-    <!-- Los botones de los índices se muestran siempre debajo de la navbar -->
     <main>
-        <br>
-        <div style="text-align: center;">
-            <a href="/mapa/dj30"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">DJ30</button></a>
-            <a href="/mapa/ibex35"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">IBEX35</button></a>
-            <a href="/mapa/ftse100"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">FTSE100</button></a>
-            <a href="/mapa/dax40"><button class="btn" style="background-color: #212428; color: #FFFEFE; font-size: 16px; font-family: 'Arial', sans-serif; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); width: 120px;">DAX40</button></a>
-            <!-- <a href="/mapa"><button>Mapa stocks</button></a> -->
-        </div>
-
         {% block content %}
         {% endblock %}
     </main>

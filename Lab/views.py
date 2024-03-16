@@ -6,7 +6,7 @@ from statsmodels.tsa.arima.model import ARIMA
 import pandas as pd
 from django.apps import apps
 from pmdarima.arima import auto_arima
-from util.tickers.Tickers_BDs import obtener_nombre_bd
+from util.tickers.Tickers_BDs import obtener_nombre_bd, tickers_disponibles
 import warnings
 # Para evitar todos los warnings de convergencia y de datos no estacionarios
 # al aplicar los modelos ARIMA
@@ -31,9 +31,21 @@ def lab(request):
     return render(request, "lab.html", context)
 
 
-def forecast_con_arima(ticker, order=None):
+def arima(request):
     """
     """
+    if request.method == 'GET':
+        context = {
+            "usuario": request.user.username,
+            "lista_tickers": tickers_disponibles(),
+        }
+        return render(request, "arima.html", context)
+    
+    # POST
+    # ----
+    ticker = request.POST.get("ticker_a_buscar")
+    order=None
+
     bd = obtener_nombre_bd(ticker)
     modelo = apps.get_model('Analysis', ticker)
     # Último año aprox.

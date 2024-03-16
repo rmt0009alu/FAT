@@ -5,34 +5,47 @@
 
 {% block content %}
 
+<!-- Estos botones están en las templates de la app News porque es la 
+que tiene la página de portada 'home' -->
+{% include 'includes/_botones_cabecera.html' %}
+
 <!-- Mis estilos -->
 <link rel="stylesheet" type="text/css" href="{% static 'css/estilos_lab.css' %}">
 
 <div>
-    <br><p class="cabecera">Bienvenido/a al Lab, {{ usuario }}</p>
+  <br><p class="cabecera">Bienvenido/a al Lab, {{ usuario }}</p>
 </div>
 
 <div class="container">
-  
-    <div class="row">
-        <div class="col">
-            <p>Prueba</p>
-        </div>
-        <div class="col">
-            <p>Prueba</p>
-        </div>
+  <div class="row">
+    <div class="col">
+      <button onclick="mostrarOcultos()">ARIMA</button>
+      <div id="ocultos" class="ocultos">
+        <button>Button 2</button>
+        <button>Button 3</button>
+      </div>
+    
     </div>
-  
-    <div class="row">
-        <div class="col">
-            <p>Prueba</p>
-        </div>
-        <div class="col">
-            <p>Prueba</p>
-        </div>
+    <div class="col">
+      <a href="/lab/lstm"><button>LSTM</button></a>
     </div>
-  
-    <br>
   </div>
+  <div class="row">
+    <div class="col">
+      <a href="/lab/fbprophet"><button>FBPROPHET</button></a>
+    </div>
+    <div class="col">
+      <a href="/lab/loquesea"><button>LOQUESEA</button></a>
+    </div>
+  </div>
+  <br>
+</div>
+
+<script>
+function mostrarOcultos() {
+  const ocultos = document.getElementById("ocultos");
+  ocultos.classList.toggle('ocultos'); // Toggle the hidden class
+}
+</script>
 
 {% endblock %}

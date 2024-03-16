@@ -1,0 +1,71 @@
+<!-- templates/arima.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Mis estilos -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_lab.css' %}">
+
+<P class="barra">ARIMA</P>
+
+<div id="arima">
+    
+    <!-- Sólo se muestra la comparación en caso de haberla realizado -->
+    {% if forecast_arima %}
+    <div class="image-container" id="estimar_valores" >
+        <img src="data:image/png;base64,{{ forecast_arima }}" alt="ImagenForecastArima" class="responsive-image">
+    </div>
+    {% endif %}
+
+    <form method="POST" class="card card-body">
+        
+        <!-- Sólo se muestra mensaje de error en caso de que 
+            no exista el ticker introducido -->
+        <p style="color: red;">{{ msg_error }}</p>
+
+        {% csrf_token %}
+        
+        <!-- El ticker no va en el formulario porque así puedo
+        usar un cuadro de búsqueda autocompletable.
+        Además, añado un input oculto para que se reconozca bien el 
+        ticker al recoger el dato con POST.get() -->
+        <input type="hidden" id="ticker_a_buscar" name="ticker_a_buscar" value="">
+        <div class="ui-widget">
+            <label for="ticker_a_buscar"></label>
+            <input id="ticker_autocomplete" class="form-control" placeholder="Buscador de tickers">
+        </div>
+
+        <!-- En este formulario, realmente, sólo van 'num_acciones' y
+        'precio_compra'. Pero así puedo adaptar y mejorar el resto de
+        campos de entrada -->                
+        {{ form.as_p }}
+        
+        <br><button type="submit" class="btn btn-dark" style="width: 50%; text-align: center; margin: auto;">Estimar</button><br>
+    </form>
+</div>
+
+<!-- Para la caja de búsqueda con sugerencias -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+    $( function() {
+        var tickersDisponibles = {{ lista_tickers|safe }};
+        $("#ticker_autocomplete").autocomplete({
+            source: tickersDisponibles,
+            select: function (event, ui) {
+                // Valores del input visible
+                $("#ticker_autocomplete").val(ui.item.value);
+                
+                // Valores del input oculto
+                $("#ticker_a_buscar").val(ui.item.value);
+                
+                return false;
+            }
+        });
+    } );
+
+</script>
+
+{% endblock %}

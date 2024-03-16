@@ -9,3 +9,21 @@ main {
     flex: 1;
 }
 
+.boton-indice-cabecera {
+    background-color: #fe6461; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    text-align: center;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    cursor: default;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 120px;
+}
+
+.boton-indice-cabecera:hover {
+    opacity: 0.8
+}
