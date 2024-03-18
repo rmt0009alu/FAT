@@ -17,3 +17,43 @@
 .ocultos {
     display: none;
 }
+
+.ayuda {
+    position: relative;
+    display: inline-block;
+}
+
+.mensaje-ayuda {
+    position: absolute;
+    bottom: 125%;
+    left: 100%;
+    transform: translateX(-5px);
+    background-color: #f2f2f2;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 3px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    /* Inicialmente oculto, se muestra on hover */
+    display: none;
+    width: 200px;
+}
+
+.icono-ayuda:hover + .mensaje-ayuda {
+    display: block;
+}
+
+.boton-modelo {
+    background-color: black;
+    color: white;
+    width: 80%;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder {
+    color: gray; /* Adjust the color */
+}
+
+select option.placeholder {
+    color: gray;
+}
