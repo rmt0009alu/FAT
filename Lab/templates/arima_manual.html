@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_lab.css' %}">
+
+<br>
+<P class="cabecera">ARIMA(p, d, q)</P>
+
+<div class="col-md-6 offset-md-3 mt-5">
+  <div id="arima_manual">
+
+    <form method="POST" action="{% url 'arima_manual' %}" class="card card-body">
+      <p style="color: red;">{{ msg_error }}</p>
+
+      {% csrf_token %}
+
+      <input type="hidden" id="ticker_a_buscar" name="ticker_a_buscar" value="">
+
+      <div class="ui-widget">
+        <label for="ticker_autocomplete"></label>
+        <input id="ticker_autocomplete" class="form-control" placeholder="Buscador de tickers">
+      </div>
+
+      <!-- No uso {{ form.as_p }} para poder dar los estilos deseados -->
+      <div class="form-group">
+        <!-- num_sesiones -->
+        <label for="{{ form.num_sesiones.id_for_label }}" class="sr-only"></label>
+        {{ form.num_sesiones }}
+      </div>
+
+      <div class="form-group">
+        <!-- porcentaje_entrenamiento -->
+        <label for="{{ form.porcentaje_entrenamiento.id_for_label }}" class="sr-only"></label>
+        {{ form.porcentaje_entrenamiento }}
+      </div>
+
+      <div class="form-group">
+        <!-- Valor que tomará 'p' -->
+        <label for="{{ form.valor_p.id_for_label }}" class="sr-only"></label>
+        {{ form.valor_p }}
+      </div>
+
+      <div class="form-group">
+        <!-- Valor que tomará 'd' -->
+        <label for="{{ form.valor_d.id_for_label }}" class="sr-only"></label>
+        {{ form.valor_d }}
+      </div>
+
+      <div class="form-group">
+        <!-- Valor que tomará 'q' -->
+        <label for="{{ form.valor_q.id_for_label }}" class="sr-only"></label>
+        {{ form.valor_q }}
+        <br>
+      </div>
+
+      <!-- Los valores que indican el tipo de obtención de parámetros
+      (p,d,q) están ocultos en HTML y definidos en los formularios -->
+      <input type="hidden" name="auto" value={{ form.auto.value }}>
+      <input type="hidden" name="manual" value={{ form.manual.value }}>
+      <input type="hidden" name="rejilla" value={{ form.rejilla.value }}>
+      
+      <button type="submit" class="btn btn-dark" style="width: 50%; text-align: center; margin: auto;">Estimar</button><br>
+    </form>
+    <br>
+
+    {% if forecast_arima %}
+      {% include 'includes/_resumen_y_graficas.html' %}
+    {% endif %}
+
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+<style>
+  /* Limit height of autocomplete suggestions */
+  .ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+  }
+</style>
+<script>
+
+  // Para el cuadro de búsqueda de tickers
+  $(function() {
+    var tickersDisponibles = {{ lista_tickers|safe }};
+    $("#ticker_autocomplete").autocomplete({
+      source: tickersDisponibles,
+      minLength: 0,
+      delay: 300,
+      select: function(event, ui) {
+        // Set visible input value
+        $("#ticker_autocomplete").val(ui.item.value);
+        // Set hidden input value
+        $("#ticker_a_buscar").val(ui.item.value);
+        return false;
+      },
+      open: function(event, ui) {
+        // Limit number of suggestions (optional)
+        var menu = $(this).autocomplete("widget");
+        menu.element.attr("size", 5);
+      }
+    });
+  });
+
+  // Para el selector predefinido de % de datos de entrenamiento
+  $(function() {
+    var porcentajeEntrenamientoChoices = ['50%', '66%', '70%', '80%', '90%'];
+
+    $("#id_porcentaje_entrenamiento").autocomplete({
+      source: porcentajeEntrenamientoChoices,
+      minLength: 0,
+      delay: 300
+    }).focus(function() {
+      $(this).autocomplete("search", "");
+    });
+  });
+</script>
+
+{% endblock %}

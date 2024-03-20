@@ -7,13 +7,12 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/estilos_lab.css' %}">
 
 <br>
-<P class="cabecera">ARIMA</P>
+<P class="cabecera">ARIMA(p, d, q)</P>
 
 <div class="col-md-6 offset-md-3 mt-5">
-  <div id="arima">
+  <div id="arima_rejilla">
 
-    <form method="POST" class="card card-body">
-
+    <form method="POST" action="{% url 'arima_rejilla' %}" class="card card-body">
       <p style="color: red;">{{ msg_error }}</p>
 
       {% csrf_token %}
@@ -36,29 +35,39 @@
         <!-- porcentaje_entrenamiento -->
         <label for="{{ form.porcentaje_entrenamiento.id_for_label }}" class="sr-only"></label>
         {{ form.porcentaje_entrenamiento }}
+      </div>
+
+      <div class="form-group">
+        <!-- Valores que tomará 'p' en la búsqueda por rejilla -->
+        <label for="{{ form.valores_p.id_for_label }}" class="sr-only"></label>
+        {{ form.valores_p }}
+      </div>
+
+      <div class="form-group">
+        <!-- Valores que tomará 'd' en la búsqueda por rejilla -->
+        <label for="{{ form.valores_d.id_for_label }}" class="sr-only"></label>
+        {{ form.valores_d }}
+      </div>
+
+      <div class="form-group">
+        <!-- Valores que tomará 'q' en la búsqueda por rejilla -->
+        <label for="{{ form.valores_q.id_for_label }}" class="sr-only"></label>
+        {{ form.valores_q }}
         <br>
       </div>
 
+      <!-- Los valores que indican el tipo de obtención de parámetros
+      (p,d,q) están ocultos en HTML y definidos en los formularios -->
+      <input type="hidden" name="auto" value={{ form.auto.value }}>
+      <input type="hidden" name="manual" value={{ form.manual.value }}>
+      <input type="hidden" name="rejilla" value={{ form.rejilla.value }}>
+      
       <button type="submit" class="btn btn-dark" style="width: 50%; text-align: center; margin: auto;">Estimar</button><br>
     </form>
     <br>
 
     {% if forecast_arima %}
-      <div style="text-align: center;">
-        <div>
-          <pre style="text-align: left;">
-            {{ resumen }}
-          </pre>
-        </div>
-        <div class="image-container" id="forecast_arima">
-          <img src="data:image/png;base64,{{ forecast_arima }}" alt="ImagenForecastArima" class="responsive-image">
-        </div>
-        <p>Error cuadrático medio (mse) en datos de test:           {{ mse }}</p>
-        <p>Raíz del error cuadrático medio (rmse) en datos de test: {{ rmse }}</p>
-        <p>Predicción para la próxima sesión:                       {{ prediccion_prox_sesion }}</p>
-        <p>En los datos de test se acierta tendencia:               {{ aciertos_tendencia }} veces</p>
-        <p>En los datos de test se falla tendencia:               {{ fallos_tendencia }} veces</p>
-    </div>
+      {% include 'includes/_resumen_y_graficas.html' %}
     {% endif %}
 
   </div>
@@ -106,6 +115,45 @@
 
     $("#id_porcentaje_entrenamiento").autocomplete({
       source: porcentajeEntrenamientoChoices,
+      minLength: 0,
+      delay: 300
+    }).focus(function() {
+      $(this).autocomplete("search", "");
+    });
+  });
+
+  // Para el selector predefinido de valores_p
+  $(function() {
+    var valores_pChoices = ['[0, 1]', '[1, 2]', '[0, 1, 2]', '[1, 2, 3]', '[2, 3, 4]'];
+
+    $("#id_valores_p").autocomplete({
+      source: valores_pChoices,
+      minLength: 0,
+      delay: 300
+    }).focus(function() {
+      $(this).autocomplete("search", "");
+    });
+  });
+
+  // Para el selector predefinido de valores_d
+  $(function() {
+    var valores_dChoices = ['[0, 1]', '[1, 2]', '[0, 1, 2]', '[1, 2, 3]', '[2, 3, 4]'];
+
+    $("#id_valores_d").autocomplete({
+      source: valores_dChoices,
+      minLength: 0,
+      delay: 300
+    }).focus(function() {
+      $(this).autocomplete("search", "");
+    });
+  });
+
+  // Para el selector predefinido de valores_q
+  $(function() {
+    var valores_qChoices = ['[0, 1]', '[1, 2]', '[0, 1, 2]', '[1, 2, 3]', '[2, 3, 4]'];
+
+    $("#id_valores_q").autocomplete({
+      source: valores_qChoices,
       minLength: 0,
       delay: 300
     }).focus(function() {

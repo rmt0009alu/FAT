@@ -2,7 +2,7 @@
 URLs para usar con Lab.
 """
 from django.urls import path
-from .views import lab, arima_parametros_auto, arima_parametros_rejilla
+from .views import lab, arima_auto, arima_rejilla, arima_manual
 
 urlpatterns = [
     # El home pasa a depender de la app 'News'
@@ -10,8 +10,10 @@ urlpatterns = [
 
     path('lab/', lab, name="lab"),
 
-    path('lab/arima_parametros_auto/', arima_parametros_auto, name="arima_parametros_auto"),
+    path('lab/arima_auto/', arima_auto, name="arima_auto"),
 
-    path('lab/arima_parametros_rejilla/', arima_parametros_rejilla, name="arima_parametros_rejilla"),
+    path('lab/arima_rejilla/', arima_rejilla, name="arima_rejilla"),
+
+    path('lab/arima_manual/', arima_manual, name="arima_manual"),
 
 ]
