@@ -1,24 +1,27 @@
-from django.shortcuts import render
-from sklearn.metrics import mean_squared_error
-from math import sqrt
-import matplotlib.pyplot as plt
-from statsmodels.tsa.arima.model import ARIMA
-import pandas as pd
-from django.apps import apps
-from pmdarima.arima import auto_arima
+"""
+Métodos de vistas para usar con Lab.
+"""
 import math
-from util.tickers.Tickers_BDs import obtener_nombre_bd, tickers_disponibles
-# Mis formularios
-from .forms import ArimaAutoForm, ArimaRejillaForm, ArimaManualForm
+import matplotlib.pyplot as plt
 # Para el buffer y las imágenes
 from io import BytesIO
 import base64
-# Para pasar str a literales 
+from django.shortcuts import render
+from django.apps import apps
+# Para pasar str a literales
 import ast
+import pandas as pd
 # Para evitar todos los warnings de convergencia y de datos no estacionarios
 # al aplicar los modelos ARIMA
 import warnings
 warnings.filterwarnings("ignore")
+from sklearn.metrics import mean_squared_error
+from statsmodels.tsa.arima.model import ARIMA
+from pmdarima.arima import auto_arima
+from util.tickers.Tickers_BDs import obtener_nombre_bd, tickers_disponibles
+# Mis formularios
+from .forms import ArimaAutoForm, ArimaRejillaForm, ArimaManualForm
+
 
 
 def lab(request):
@@ -61,12 +64,12 @@ def arima_auto(request):
             "form": ArimaAutoForm,
         }
         return render(request, "arima_auto.html", context)
-    
+
     # POST
     # ----
     # El 'ticker' no está en el form para poder usar
     # una caja de búsqueda autocompletable.
-    ticker = request.POST.get("ticker_a_buscar")        
+    ticker = request.POST.get("ticker_a_buscar")
     # Adaptación a la notación de los tickers en las BDs
     ticker = ticker.replace(".", "_")
     ticker = ticker.replace("^", "")
@@ -76,7 +79,7 @@ def arima_auto(request):
     if form.is_valid():
         # Hago un preprocesado común a todas formas de cálculo
         # de los parámetros (p,d,q)
-        
+
         order, fechas, tam_entrenamiento, datos, context = _preprocesar_p_d_q(ticker, form, request)
 
         # Al preprocesar el context debe ser None si todo ha ido bien
@@ -114,12 +117,12 @@ def arima_rejilla(request):
             "form": ArimaRejillaForm,
         }
         return render(request, "arima_rejilla.html", context)
-    
+
     # POST
     # ----
     # El 'ticker' no está en el form para poder usar
     # una caja de búsqueda autocompletable.
-    ticker = request.POST.get("ticker_a_buscar")        
+    ticker = request.POST.get("ticker_a_buscar")
     # Adaptación a la notación de los tickers en las BDs
     ticker = ticker.replace(".", "_")
     ticker = ticker.replace("^", "")
@@ -166,12 +169,12 @@ def arima_manual(request):
             "form": ArimaManualForm,
         }
         return render(request, "arima_manual.html", context)
-    
+
     # POST
     # ----
     # El 'ticker' no está en el form para poder usar
     # una caja de búsqueda autocompletable.
-    ticker = request.POST.get("ticker_a_buscar")        
+    ticker = request.POST.get("ticker_a_buscar")
     # Adaptación a la notación de los tickers en las BDs
     ticker = ticker.replace(".", "_")
     ticker = ticker.replace("^", "")
@@ -240,16 +243,16 @@ def _preprocesar_p_d_q(ticker, form, request):
         valor_p = form.cleaned_data['valor_p']
         valor_d = form.cleaned_data['valor_d']
         valor_q = form.cleaned_data['valor_q']
-    
+
     # Compruebo existencia de ticker
     context = _comprobar_formulario(form, ticker, request)
 
     if context is not False:
-        # Si hay datos en el contexto es porque algo está mal y se 
+        # Si hay datos en el contexto es porque algo está mal y se
         # añade un mensaje informativo al usuario
         return None, None, None, None, context
     # En otro caso, el contexto será nulo
-    context = None 
+    context = None
 
     # Busco la info para el nº de sesiones indicado por ususario
     modelo = apps.get_model('Analysis', ticker)
@@ -267,18 +270,18 @@ def _preprocesar_p_d_q(ticker, form, request):
     porcentaje_entren = int(porcentaje_entren.replace('%', ''))/100
     tam_entrenamiento = int(len(datos) * porcentaje_entren)
     datos_entrenamiento, datos_test = datos[:tam_entrenamiento], datos[tam_entrenamiento:]
-    
+
     # El modelo se calcula con uno parámetros (order) que
     # dependen de la elección del usuario
     order = None
 
-    if auto==True:
-        # Calcular 'order' de forma automática con auto_arima. Uso todos 
+    if auto is True:
+        # Calcular 'order' de forma automática con auto_arima. Uso todos
         # los datos para calcular order=(p,d,q) una única vez
         model = auto_arima(datos, seasonal=False)
         order = model.order
 
-    if rejilla==True:
+    if rejilla is True:
         # El mejor MSE es el menor MSE, lógicamente
         mejor_mse, mejor_order = math.inf, None
         for p in valores_p:
@@ -294,7 +297,7 @@ def _preprocesar_p_d_q(ticker, form, request):
                         continue
         order = mejor_order
 
-    if manual==True:
+    if manual is True:
         # Datos directamente introducidos por el usuario
         order = (valor_p, valor_d, valor_q)
 
@@ -318,7 +321,7 @@ def _evaluar_modelo_arima_mse(datos_entrenamiento, datos_test, order):
         mse (numpy.float64): error cuadrático medio calculado entre
             los datos reales (datos_test) y las predicciones. 
     """
-    conjunto_total = [_ for _ in datos_entrenamiento]
+    conjunto_total = list(datos_entrenamiento)
     lista_predicciones = []
 
     # Validación 'walk-forward' para comprobar MSE (y RMSE)
@@ -332,20 +335,15 @@ def _evaluar_modelo_arima_mse(datos_entrenamiento, datos_test, order):
         # El dato real es el que está en datos_test
         # y se usa para la siguiente iteración
         conjunto_total.append(datos_test.iloc[t])
-    
+
     mse = mean_squared_error(datos_test, lista_predicciones)
 
     # NOTA: se puede hacer Validación directa con aic, bic y hqic.
-    # Cuanto menores son, mejor. Pero MSE/RMSE es más fiable. 
+    # Cuanto menores son, mejor. Pero MSE/RMSE es más fiable.
     #
     # modelo_directo = ARIMA(datos_test, order=order)
     # output = modelo_directo.fit()
     # aic, bic, hqic = output.aic, output.bic, output.hqic
-    
-    print(type(datos_entrenamiento))
-    print(type(datos_test))
-    print(type(order))
-    print(type(mse))
 
     return mse
 
@@ -374,7 +372,7 @@ def _comprobar_formulario(form, ticker, request):
 
     bd = obtener_nombre_bd(ticker)
 
-    # Obtengo datos del form, para formularios NO válidos no puedo usar 
+    # Obtengo datos del form, para formularios NO válidos no puedo usar
     # form.cleaned_data['...'] y, por tanto, los datos serán 'str'
     num_sesiones = request.POST.get('num_sesiones')
     porcentaje_entren = request.POST.get('porcentaje_entrenamiento')
@@ -382,49 +380,49 @@ def _comprobar_formulario(form, ticker, request):
     if bd is None:
         context["msg_error"] = f'El ticker {ticker} no está disponibe'
         return context
-    
+
     if num_sesiones.isdigit():
         num_sesiones = int(num_sesiones)
-        if (not 100 <= num_sesiones <= 500):
-            context["msg_error"] = f'Valor no válido para el nº de sesiones'
+        if not 100 <= num_sesiones <= 500:
+            context["msg_error"] = 'Valor no válido para el nº de sesiones'
             return context
     else:
-        context["msg_error"] = f'Valor no válido para el nº de sesiones'
+        context["msg_error"] = 'Valor no válido para el nº de sesiones'
         return context
-    
+
     if porcentaje_entren not in ['50%', '66%', '70%', '80%', '90%']:
-        context["msg_error"] = f'Porcentaje indicado no válido'
+        context["msg_error"] = 'Porcentaje indicado no válido'
         return context
-    
+
     if isinstance(form, ArimaRejillaForm):
         valores_p = request.POST.get('valores_p')
         valores_d = request.POST.get('valores_d')
         valores_q = request.POST.get('valores_q')
         admitidos = ['[0, 1]', '[1, 2]', '[0, 1, 2]', '[1, 2, 3]', '[2, 3, 4]']
         if valores_p not in admitidos:
-            context["msg_error"] = f"Valores para 'p' no válidos"
+            context["msg_error"] = "Valores para 'p' no válidos"
             return context
         if valores_d not in admitidos:
-            context["msg_error"] = f"Valores para 'd' no válidos"
+            context["msg_error"] = "Valores para 'd' no válidos"
             return context
         if valores_q not in admitidos:
-            context["msg_error"] = f"Valores para 'q' no válidos"
+            context["msg_error"] = "Valores para 'q' no válidos"
             return context
-        
+
     if isinstance(form, ArimaManualForm):
         valor_p = request.POST.get('valor_p')
         valor_d = request.POST.get('valor_d')
         valor_q = request.POST.get('valor_q')
-        if int(valor_p) not in [_ for _ in range(0, 11)]:
-            context["msg_error"] = f"Valor para 'p' no válido [0 - 10]"
+        if int(valor_p) not in list(range(0, 11)):
+            context["msg_error"] = "Valor para 'p' no válido [0 - 10]"
             return context
-        if int(valor_d) not in [_ for _ in range(0, 4)]:
-            context["msg_error"] = f"Valor para 'd' no válido [0 - 3]"
+        if int(valor_d) not in list(range(0, 4)):
+            context["msg_error"] = "Valor para 'd' no válido [0 - 3]"
             return context
-        if int(valor_q) not in [_ for _ in range(0, 11)]:
-            context["msg_error"] = f"Valor para 'q' no válido [0 - 10]"
+        if int(valor_q) not in list(range(0, 11)):
+            context["msg_error"] = "Valor para 'q' no válido [0 - 10]"
             return context
-        
+
     # Si no hay errores
     return False
 
@@ -449,14 +447,14 @@ def _validacion_walk_forward(tam_entrenamiento, datos, order):
     """
     predicciones = []
     aciertos_tendencia = []
-    
+
     datos_entrenamiento = datos[:tam_entrenamiento]
     datos_test = datos[tam_entrenamiento:]
 
-    # Separo en 'conjunto_total' porque lo voy actualizando para los 
+    # Separo en 'conjunto_total' porque lo voy actualizando para los
     # subsecuentes análisis
-    conjunto_total = [_ for _ in datos_entrenamiento]
-    
+    conjunto_total = list(datos_entrenamiento)
+
     # Validación 'walk-forward'
     for t in range(len(datos_test)):
         modelo = ARIMA(conjunto_total, order=order)
@@ -468,7 +466,7 @@ def _validacion_walk_forward(tam_entrenamiento, datos, order):
         # El dato real es el que está en datos_test
         # y se usa para la siguiente iteración
         conjunto_total.append(datos_test.iloc[t])
-        if (t>0):
+        if t>0:
             previo = datos_test.iloc[t-1]
         else:
             # Cuando t=0 el dato anterior corresponde a los de entrenamiento
@@ -480,11 +478,11 @@ def _validacion_walk_forward(tam_entrenamiento, datos, order):
             acierta_tendencia = True
         else:
             acierta_tendencia = False
-        
+
         aciertos_tendencia.append(acierta_tendencia)
 
     return modelo_fit, aciertos_tendencia, predicciones
-    
+
 
 def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia):
     """Para generar los resultados gráficos y textuales
@@ -513,7 +511,7 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
     predicciones.index = fechas[tam_entrenamiento:]
 
     # Preparar figura y buffer
-    fig = plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(7, 5))
     buffer = BytesIO()
     # Gráfica con los datos reales y las predicciones
     plt.plot(datos.index, datos, color='blue', label='Original')
@@ -545,7 +543,7 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
         "forecast_arima": forecast_arima,
         "resumen": modelo_fit.summary(),
         "mse": mean_squared_error(datos_test, predicciones),
-        "rmse": sqrt(mean_squared_error(datos_test, predicciones)),
+        "rmse": math.sqrt(mean_squared_error(datos_test, predicciones)),
         "prediccion_prox_sesion": prediccion,
         "aciertos_tendencia": aciertos_tendencia.count(True),
         "fallos_tendencia": aciertos_tendencia.count(False),

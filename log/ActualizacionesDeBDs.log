@@ -285,3 +285,1096 @@
 2024-03-02 19:40:43,699 - INFO: 
 2024-03-02 19:40:43,700 - INFO: [OK] Tabla actualizada con éxito.
 2024-03-02 19:40:43,701 - INFO: Proceso finalizado.
+2024-03-21 01:08:32,923 - INFO: 
+2024-03-21 01:08:32,924 - INFO: --------------------------------------------------
+2024-03-21 01:08:32,924 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:08:32,925 - INFO: --------------------------------------------------
+2024-03-21 01:08:37,617 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:37,617 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
+2024-03-21 01:08:37,840 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:37,855 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
+2024-03-21 01:08:38,065 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:38,065 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
+2024-03-21 01:08:38,293 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:38,294 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
+2024-03-21 01:08:38,503 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:38,503 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
+2024-03-21 01:08:38,757 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:38,758 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
+2024-03-21 01:08:38,989 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:38,989 - INFO:  - [Fuera de horario] No se puede actualizar. Cisco Systems, Inc.
+2024-03-21 01:08:39,220 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:39,220 - INFO:  - [Fuera de horario] No se puede actualizar. Chevron Corporation
+2024-03-21 01:08:39,420 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:39,420 - INFO:  - [Fuera de horario] No se puede actualizar. The Walt Disney Company
+2024-03-21 01:08:39,653 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:39,653 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Inc.
+2024-03-21 01:08:39,890 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:39,890 - INFO:  - [Fuera de horario] No se puede actualizar. The Goldman Sachs Group, Inc.
+2024-03-21 01:08:40,121 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:40,121 - INFO:  - [Fuera de horario] No se puede actualizar. The Home Depot, Inc.
+2024-03-21 01:08:40,347 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:40,348 - INFO:  - [Fuera de horario] No se puede actualizar. Honeywell International Inc.
+2024-03-21 01:08:40,569 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:40,569 - INFO:  - [Fuera de horario] No se puede actualizar. International Business Machines Corporation
+2024-03-21 01:08:40,823 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:40,823 - INFO:  - [Fuera de horario] No se puede actualizar. Intel Corporation
+2024-03-21 01:08:41,068 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:41,068 - INFO:  - [Fuera de horario] No se puede actualizar. Johnson & Johnson
+2024-03-21 01:08:41,316 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:41,318 - INFO:  - [Fuera de horario] No se puede actualizar. JPMorgan Chase & Co.
+2024-03-21 01:08:41,554 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:41,554 - INFO:  - [Fuera de horario] No se puede actualizar. The Coca-Cola Company
+2024-03-21 01:08:41,840 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:41,840 - INFO:  - [Fuera de horario] No se puede actualizar. McDonald's Corporation
+2024-03-21 01:08:42,092 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:42,092 - INFO:  - [Fuera de horario] No se puede actualizar. 3M Company
+2024-03-21 01:08:42,336 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:42,338 - INFO:  - [Fuera de horario] No se puede actualizar. Merck & Co., Inc.
+2024-03-21 01:08:42,554 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:42,554 - INFO:  - [Fuera de horario] No se puede actualizar. Microsoft Corporation
+2024-03-21 01:08:42,790 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:42,793 - INFO:  - [Fuera de horario] No se puede actualizar. NIKE, Inc.
+2024-03-21 01:08:43,021 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:43,023 - INFO:  - [Fuera de horario] No se puede actualizar. The Procter & Gamble Company
+2024-03-21 01:08:43,225 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:43,240 - INFO:  - [Fuera de horario] No se puede actualizar. The Travelers Companies, Inc.
+2024-03-21 01:08:43,440 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:43,440 - INFO:  - [Fuera de horario] No se puede actualizar. UnitedHealth Group Incorporated
+2024-03-21 01:08:43,656 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:43,656 - INFO:  - [Fuera de horario] No se puede actualizar. Visa Inc.
+2024-03-21 01:08:43,895 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:43,895 - INFO:  - [Fuera de horario] No se puede actualizar. Verizon Communications Inc.
+2024-03-21 01:08:44,127 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:44,142 - INFO:  - [Fuera de horario] No se puede actualizar. Walgreens Boots Alliance, Inc.
+2024-03-21 01:08:44,371 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:44,386 - INFO:  - [Fuera de horario] No se puede actualizar. Walmart Inc.
+2024-03-21 01:08:44,616 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:44,619 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Jones Industrial Average
+2024-03-21 01:08:44,621 - INFO: 
+2024-03-21 01:08:44,623 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 01:08:44,625 - INFO: Proceso finalizado.
+
+2024-03-21 01:08:44,628 - INFO: 
+2024-03-21 01:08:44,630 - INFO: --------------------------------------------------
+2024-03-21 01:08:44,632 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:08:44,634 - INFO: --------------------------------------------------
+2024-03-21 01:08:44,855 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:44,855 - INFO:  - [Fuera de horario] No se puede actualizar. ACS, Actividades de Construcción y Servicios, S.A.
+2024-03-21 01:08:45,097 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:45,097 - INFO:  - [Fuera de horario] No se puede actualizar. Acerinox, S.A.
+2024-03-21 01:08:45,332 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:45,335 - INFO:  - [Fuera de horario] No se puede actualizar. Aena S.M.E., S.A.
+2024-03-21 01:08:45,545 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:45,545 - INFO:  - [Fuera de horario] No se puede actualizar. Amadeus IT Group, S.A.
+2024-03-21 01:08:45,799 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:45,801 - INFO:  - [Fuera de horario] No se puede actualizar. Acciona, S.A.
+2024-03-21 01:08:45,999 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:45,999 - INFO:  - [Fuera de horario] No se puede actualizar. Corporación Acciona Energías Renovables, S.A.
+2024-03-21 01:08:46,207 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:46,207 - INFO:  - [Fuera de horario] No se puede actualizar. Banco Bilbao Vizcaya Argentaria, S.A.
+2024-03-21 01:08:46,430 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:46,430 - INFO:  - [Fuera de horario] No se puede actualizar. Bankinter, S.A.
+2024-03-21 01:08:46,662 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:46,662 - INFO:  - [Fuera de horario] No se puede actualizar. CaixaBank, S.A.
+2024-03-21 01:08:46,901 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:46,916 - INFO:  - [Fuera de horario] No se puede actualizar. Cellnex Telecom, S.A.
+2024-03-21 01:08:47,148 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:47,148 - INFO:  - [Fuera de horario] No se puede actualizar. Inmobiliaria Colonial, SOCIMI, S.A.
+2024-03-21 01:08:47,386 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:47,386 - INFO:  - [Fuera de horario] No se puede actualizar. Endesa, S.A.
+2024-03-21 01:08:47,648 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:47,648 - INFO:  - [Fuera de horario] No se puede actualizar. Enagás, S.A.
+2024-03-21 01:08:47,870 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:47,870 - INFO:  - [Fuera de horario] No se puede actualizar. Fluidra, S.A.
+2024-03-21 01:08:48,102 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:48,102 - INFO:  - [Fuera de horario] No se puede actualizar. Ferrovial SE
+2024-03-21 01:08:48,339 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:48,339 - INFO:  - [Fuera de horario] No se puede actualizar. Grifols, S.A.
+2024-03-21 01:08:48,582 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:48,582 - INFO:  - [Fuera de horario] No se puede actualizar. International Consolidated Airlines Group S.A.
+2024-03-21 01:08:48,815 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:48,817 - INFO:  - [Fuera de horario] No se puede actualizar. Iberdrola, S.A.
+2024-03-21 01:08:49,036 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:49,036 - INFO:  - [Fuera de horario] No se puede actualizar. Indra Sistemas, S.A.
+2024-03-21 01:08:49,252 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:49,268 - INFO:  - [Fuera de horario] No se puede actualizar. Industria de Diseño Textil, S.A.
+2024-03-21 01:08:49,506 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:49,506 - INFO:  - [Fuera de horario] No se puede actualizar. Logista Integral, S.A.
+2024-03-21 01:08:49,737 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:49,737 - INFO:  - [Fuera de horario] No se puede actualizar. Mapfre, S.A.
+2024-03-21 01:08:49,986 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:49,986 - INFO:  - [Fuera de horario] No se puede actualizar. Meliá Hotels International, S.A.
+2024-03-21 01:08:50,222 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:50,222 - INFO:  - [Fuera de horario] No se puede actualizar. MERLIN Properties SOCIMI, S.A.
+2024-03-21 01:08:50,448 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:50,450 - INFO:  - [Fuera de horario] No se puede actualizar. ArcelorMittal S.A.
+2024-03-21 01:08:50,669 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:50,669 - INFO:  - [Fuera de horario] No se puede actualizar. Naturgy Energy Group, S.A.
+2024-03-21 01:08:50,907 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:50,907 - INFO:  - [Fuera de horario] No se puede actualizar. Redeia Corporación, S.A.
+2024-03-21 01:08:51,123 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:51,123 - INFO:  - [Fuera de horario] No se puede actualizar. Repsol, S.A.
+2024-03-21 01:08:51,339 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:51,340 - INFO:  - [Fuera de horario] No se puede actualizar. Laboratorios Farmaceuticos Rovi, S.A.
+2024-03-21 01:08:51,585 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:51,601 - INFO:  - [Fuera de horario] No se puede actualizar. Banco de Sabadell, S.A.
+2024-03-21 01:08:51,816 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:51,818 - INFO:  - [Fuera de horario] No se puede actualizar. Banco Santander, S.A.
+2024-03-21 01:08:52,088 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:52,088 - INFO:  - [Fuera de horario] No se puede actualizar. Sacyr, S.A.
+2024-03-21 01:08:52,340 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:52,340 - INFO:  - [Fuera de horario] No se puede actualizar. Solaria Energía y Medio Ambiente, S.A.
+2024-03-21 01:08:52,573 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:52,589 - INFO:  - [Fuera de horario] No se puede actualizar. Telefónica, S.A.
+2024-03-21 01:08:52,836 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:52,838 - INFO:  - [Fuera de horario] No se puede actualizar. Unicaja Banco, S.A.
+2024-03-21 01:08:53,076 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:53,078 - INFO:  - [Fuera de horario] No se puede actualizar. IBEX 35...
+2024-03-21 01:08:53,080 - INFO: 
+2024-03-21 01:08:53,082 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 01:08:53,084 - INFO: Proceso finalizado.
+
+2024-03-21 01:08:53,087 - INFO: 
+2024-03-21 01:08:53,089 - INFO: --------------------------------------------------
+2024-03-21 01:08:53,092 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:08:53,094 - INFO: --------------------------------------------------
+2024-03-21 01:08:53,354 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:53,354 - INFO:  - [Fuera de horario] No se puede actualizar. 3i Group plc
+2024-03-21 01:08:53,604 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:53,607 - INFO:  - [Fuera de horario] No se puede actualizar. Admiral Group plc
+2024-03-21 01:08:53,824 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:53,824 - INFO:  - [Fuera de horario] No se puede actualizar. Airtel Africa Plc
+2024-03-21 01:08:54,041 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:54,041 - INFO:  - [Fuera de horario] No se puede actualizar. Anglo American plc
+2024-03-21 01:08:54,257 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:54,257 - INFO:  - [Fuera de horario] No se puede actualizar. Antofagasta plc
+2024-03-21 01:08:54,490 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:54,490 - INFO:  - [Fuera de horario] No se puede actualizar. Ashtead Group plc
+2024-03-21 01:08:54,690 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:54,690 - INFO:  - [Fuera de horario] No se puede actualizar. Associated British Foods plc
+2024-03-21 01:08:54,952 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:54,954 - INFO:  - [Fuera de horario] No se puede actualizar. AstraZeneca PLC
+2024-03-21 01:08:55,182 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:55,185 - INFO:  - [Fuera de horario] No se puede actualizar. Auto Trader Group plc
+2024-03-21 01:08:55,423 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:55,423 - INFO:  - [Fuera de horario] No se puede actualizar. Aviva plc
+2024-03-21 01:08:55,662 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:55,662 - INFO:  - [Fuera de horario] No se puede actualizar. B&M European Value Retail S.A.
+2024-03-21 01:08:55,894 - ERROR: [NO OK] Fallo horario. Error type object 'datetime.datetime' has no attribute 'UTC'
+2024-03-21 01:08:55,894 - INFO:  - [Fuera de horario] No se puede actualizar. BAE Systems plc
+2024-03-21 01:08:56,028 - INFO: Proceso finalizado.
+
+2024-03-21 01:14:35,913 - INFO: 
+2024-03-21 01:14:35,913 - INFO: --------------------------------------------------
+2024-03-21 01:14:35,913 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:14:35,913 - INFO: --------------------------------------------------
+2024-03-21 01:14:38,928 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
+2024-03-21 01:14:39,161 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
+2024-03-21 01:14:39,381 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
+2024-03-21 01:14:39,628 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
+2024-03-21 01:14:39,867 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
+2024-03-21 01:14:40,114 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
+2024-03-21 01:14:40,367 - INFO:  - [Fuera de horario] No se puede actualizar. Cisco Systems, Inc.
+2024-03-21 01:14:40,667 - INFO:  - [Fuera de horario] No se puede actualizar. Chevron Corporation
+2024-03-21 01:14:40,930 - INFO:  - [Fuera de horario] No se puede actualizar. The Walt Disney Company
+2024-03-21 01:14:41,168 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Inc.
+2024-03-21 01:14:41,447 - INFO:  - [Fuera de horario] No se puede actualizar. The Goldman Sachs Group, Inc.
+2024-03-21 01:14:41,685 - INFO:  - [Fuera de horario] No se puede actualizar. The Home Depot, Inc.
+2024-03-21 01:14:41,970 - INFO:  - [Fuera de horario] No se puede actualizar. Honeywell International Inc.
+2024-03-21 01:14:42,217 - INFO:  - [Fuera de horario] No se puede actualizar. International Business Machines Corporation
+2024-03-21 01:14:42,422 - INFO:  - [Fuera de horario] No se puede actualizar. Intel Corporation
+2024-03-21 01:14:42,687 - INFO:  - [Fuera de horario] No se puede actualizar. Johnson & Johnson
+2024-03-21 01:14:42,923 - INFO:  - [Fuera de horario] No se puede actualizar. JPMorgan Chase & Co.
+2024-03-21 01:14:43,188 - INFO:  - [Fuera de horario] No se puede actualizar. The Coca-Cola Company
+2024-03-21 01:14:43,431 - INFO:  - [Fuera de horario] No se puede actualizar. McDonald's Corporation
+2024-03-21 01:14:43,688 - INFO:  - [Fuera de horario] No se puede actualizar. 3M Company
+2024-03-21 01:14:43,920 - INFO:  - [Fuera de horario] No se puede actualizar. Merck & Co., Inc.
+2024-03-21 01:14:44,167 - INFO:  - [Fuera de horario] No se puede actualizar. Microsoft Corporation
+2024-03-21 01:14:44,390 - INFO:  - [Fuera de horario] No se puede actualizar. NIKE, Inc.
+2024-03-21 01:14:44,606 - INFO:  - [Fuera de horario] No se puede actualizar. The Procter & Gamble Company
+2024-03-21 01:14:44,840 - INFO:  - [Fuera de horario] No se puede actualizar. The Travelers Companies, Inc.
+2024-03-21 01:14:45,057 - INFO:  - [Fuera de horario] No se puede actualizar. UnitedHealth Group Incorporated
+2024-03-21 01:14:45,299 - INFO:  - [Fuera de horario] No se puede actualizar. Visa Inc.
+2024-03-21 01:14:45,541 - INFO:  - [Fuera de horario] No se puede actualizar. Verizon Communications Inc.
+2024-03-21 01:14:45,776 - INFO:  - [Fuera de horario] No se puede actualizar. Walgreens Boots Alliance, Inc.
+2024-03-21 01:14:46,008 - INFO:  - [Fuera de horario] No se puede actualizar. Walmart Inc.
+2024-03-21 01:14:46,224 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Jones Industrial Average
+2024-03-21 01:14:46,224 - INFO: 
+2024-03-21 01:14:46,224 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 01:14:46,240 - INFO: Proceso finalizado.
+
+2024-03-21 01:14:46,240 - INFO: 
+2024-03-21 01:14:46,247 - INFO: --------------------------------------------------
+2024-03-21 01:14:46,249 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:14:46,252 - INFO: --------------------------------------------------
+2024-03-21 01:14:46,478 - INFO:  - [Fuera de horario] No se puede actualizar. ACS, Actividades de Construcción y Servicios, S.A.
+2024-03-21 01:14:46,894 - INFO:  - [Fuera de horario] No se puede actualizar. Acerinox, S.A.
+2024-03-21 01:14:47,139 - INFO:  - [Fuera de horario] No se puede actualizar. Aena S.M.E., S.A.
+2024-03-21 01:14:47,369 - INFO:  - [Fuera de horario] No se puede actualizar. Amadeus IT Group, S.A.
+2024-03-21 01:14:47,579 - INFO:  - [Fuera de horario] No se puede actualizar. Acciona, S.A.
+2024-03-21 01:14:47,824 - INFO:  - [Fuera de horario] No se puede actualizar. Corporación Acciona Energías Renovables, S.A.
+2024-03-21 01:14:48,280 - INFO:  - [Fuera de horario] No se puede actualizar. Banco Bilbao Vizcaya Argentaria, S.A.
+2024-03-21 01:14:48,526 - INFO:  - [Fuera de horario] No se puede actualizar. Bankinter, S.A.
+2024-03-21 01:14:48,773 - INFO:  - [Fuera de horario] No se puede actualizar. CaixaBank, S.A.
+2024-03-21 01:14:48,980 - INFO:  - [Fuera de horario] No se puede actualizar. Cellnex Telecom, S.A.
+2024-03-21 01:14:49,180 - INFO:  - [Fuera de horario] No se puede actualizar. Inmobiliaria Colonial, SOCIMI, S.A.
+2024-03-21 01:14:49,442 - INFO:  - [Fuera de horario] No se puede actualizar. Endesa, S.A.
+2024-03-21 01:14:49,680 - INFO:  - [Fuera de horario] No se puede actualizar. Enagás, S.A.
+2024-03-21 01:14:49,897 - INFO:  - [Fuera de horario] No se puede actualizar. Fluidra, S.A.
+2024-03-21 01:14:50,144 - INFO:  - [Fuera de horario] No se puede actualizar. Ferrovial SE
+2024-03-21 01:14:50,357 - INFO:  - [Fuera de horario] No se puede actualizar. Grifols, S.A.
+2024-03-21 01:14:50,613 - INFO:  - [Fuera de horario] No se puede actualizar. International Consolidated Airlines Group S.A.
+2024-03-21 01:14:50,821 - INFO:  - [Fuera de horario] No se puede actualizar. Iberdrola, S.A.
+2024-03-21 01:14:51,082 - INFO:  - [Fuera de horario] No se puede actualizar. Indra Sistemas, S.A.
+2024-03-21 01:14:51,361 - INFO:  - [Fuera de horario] No se puede actualizar. Industria de Diseño Textil, S.A.
+2024-03-21 01:14:51,575 - INFO:  - [Fuera de horario] No se puede actualizar. Logista Integral, S.A.
+2024-03-21 01:14:51,774 - INFO:  - [Fuera de horario] No se puede actualizar. Mapfre, S.A.
+2024-03-21 01:14:51,984 - INFO:  - [Fuera de horario] No se puede actualizar. Meliá Hotels International, S.A.
+2024-03-21 01:14:52,225 - INFO:  - [Fuera de horario] No se puede actualizar. MERLIN Properties SOCIMI, S.A.
+2024-03-21 01:14:52,454 - INFO:  - [Fuera de horario] No se puede actualizar. ArcelorMittal S.A.
+2024-03-21 01:14:52,710 - INFO:  - [Fuera de horario] No se puede actualizar. Naturgy Energy Group, S.A.
+2024-03-21 01:14:52,810 - INFO: Proceso finalizado.
+
+2024-03-21 01:15:47,372 - INFO: 
+2024-03-21 01:15:47,372 - INFO: --------------------------------------------------
+2024-03-21 01:15:47,372 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:15:47,372 - INFO: --------------------------------------------------
+2024-03-21 01:15:50,184 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
+2024-03-21 01:15:50,416 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
+2024-03-21 01:15:50,658 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
+2024-03-21 01:15:50,900 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
+2024-03-21 01:15:51,216 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
+2024-03-21 01:15:51,459 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
+2024-03-21 01:15:51,680 - INFO:  - [Fuera de horario] No se puede actualizar. Cisco Systems, Inc.
+2024-03-21 01:15:51,902 - INFO:  - [Fuera de horario] No se puede actualizar. Chevron Corporation
+2024-03-21 01:15:52,133 - INFO:  - [Fuera de horario] No se puede actualizar. The Walt Disney Company
+2024-03-21 01:15:52,353 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Inc.
+2024-03-21 01:15:52,612 - INFO:  - [Fuera de horario] No se puede actualizar. The Goldman Sachs Group, Inc.
+2024-03-21 01:15:52,825 - INFO:  - [Fuera de horario] No se puede actualizar. The Home Depot, Inc.
+2024-03-21 01:15:53,057 - INFO:  - [Fuera de horario] No se puede actualizar. Honeywell International Inc.
+2024-03-21 01:15:53,258 - INFO:  - [Fuera de horario] No se puede actualizar. International Business Machines Corporation
+2024-03-21 01:15:53,482 - INFO:  - [Fuera de horario] No se puede actualizar. Intel Corporation
+2024-03-21 01:15:53,706 - INFO:  - [Fuera de horario] No se puede actualizar. Johnson & Johnson
+2024-03-21 01:15:53,960 - INFO:  - [Fuera de horario] No se puede actualizar. JPMorgan Chase & Co.
+2024-03-21 01:15:54,237 - INFO:  - [Fuera de horario] No se puede actualizar. The Coca-Cola Company
+2024-03-21 01:15:54,459 - INFO:  - [Fuera de horario] No se puede actualizar. McDonald's Corporation
+2024-03-21 01:15:54,685 - INFO:  - [Fuera de horario] No se puede actualizar. 3M Company
+2024-03-21 01:15:54,896 - INFO:  - [Fuera de horario] No se puede actualizar. Merck & Co., Inc.
+2024-03-21 01:15:55,108 - INFO:  - [Fuera de horario] No se puede actualizar. Microsoft Corporation
+2024-03-21 01:15:55,371 - INFO:  - [Fuera de horario] No se puede actualizar. NIKE, Inc.
+2024-03-21 01:15:55,571 - INFO:  - [Fuera de horario] No se puede actualizar. The Procter & Gamble Company
+2024-03-21 01:15:55,810 - INFO:  - [Fuera de horario] No se puede actualizar. The Travelers Companies, Inc.
+2024-03-21 01:15:56,055 - INFO:  - [Fuera de horario] No se puede actualizar. UnitedHealth Group Incorporated
+2024-03-21 01:15:56,272 - INFO:  - [Fuera de horario] No se puede actualizar. Visa Inc.
+2024-03-21 01:15:56,532 - INFO:  - [Fuera de horario] No se puede actualizar. Verizon Communications Inc.
+2024-03-21 01:15:56,758 - INFO:  - [Fuera de horario] No se puede actualizar. Walgreens Boots Alliance, Inc.
+2024-03-21 01:15:57,029 - INFO:  - [Fuera de horario] No se puede actualizar. Walmart Inc.
+2024-03-21 01:15:57,141 - INFO: Proceso finalizado.
+
+2024-03-21 01:16:23,866 - INFO: 
+2024-03-21 01:16:23,866 - INFO: --------------------------------------------------
+2024-03-21 01:16:23,866 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:16:23,868 - INFO: --------------------------------------------------
+2024-03-21 01:16:26,816 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
+2024-03-21 01:16:27,025 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
+2024-03-21 01:16:27,275 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
+2024-03-21 01:16:27,491 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
+2024-03-21 01:16:27,707 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
+2024-03-21 01:16:27,923 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
+2024-03-21 01:16:28,156 - INFO: Proceso finalizado.
+
+2024-03-21 01:19:48,120 - INFO: 
+2024-03-21 01:19:48,120 - INFO: --------------------------------------------------
+2024-03-21 01:19:48,120 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:19:48,120 - INFO: --------------------------------------------------
+2024-03-21 01:19:52,242 - INFO:  - [Actualizando... ] Apple Inc.
+2024-03-21 01:19:52,248 - INFO: 		[OK] Datos
+2024-03-21 01:19:52,294 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:52,897 - INFO:  - [Actualizando... ] Amgen Inc.
+2024-03-21 01:19:52,917 - INFO: 		[OK] Datos
+2024-03-21 01:19:52,958 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:53,465 - INFO:  - [Actualizando... ] American Express Company
+2024-03-21 01:19:53,491 - INFO: 		[OK] Datos
+2024-03-21 01:19:53,541 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:54,166 - INFO:  - [Actualizando... ] The Boeing Company
+2024-03-21 01:19:54,182 - INFO: 		[OK] Datos
+2024-03-21 01:19:54,242 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:54,873 - INFO:  - [Actualizando... ] Caterpillar Inc.
+2024-03-21 01:19:54,887 - INFO: 		[OK] Datos
+2024-03-21 01:19:54,927 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:55,363 - INFO:  - [Actualizando... ] Salesforce, Inc.
+2024-03-21 01:19:55,377 - INFO: 		[OK] Datos
+2024-03-21 01:19:55,427 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:55,955 - INFO:  - [Actualizando... ] Cisco Systems, Inc.
+2024-03-21 01:19:55,988 - INFO: 		[OK] Datos
+2024-03-21 01:19:56,024 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:56,649 - INFO:  - [Actualizando... ] Chevron Corporation
+2024-03-21 01:19:56,675 - INFO: 		[OK] Datos
+2024-03-21 01:19:56,724 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:57,173 - INFO:  - [Actualizando... ] The Walt Disney Company
+2024-03-21 01:19:57,193 - INFO: 		[OK] Datos
+2024-03-21 01:19:57,231 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:57,816 - INFO:  - [Actualizando... ] Dow Inc.
+2024-03-21 01:19:57,824 - INFO: 		[OK] Datos
+2024-03-21 01:19:57,890 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:58,422 - INFO:  - [Actualizando... ] The Goldman Sachs Group, Inc.
+2024-03-21 01:19:58,446 - INFO: 		[OK] Datos
+2024-03-21 01:19:58,491 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:59,109 - INFO:  - [Actualizando... ] The Home Depot, Inc.
+2024-03-21 01:19:59,143 - INFO: 		[OK] Datos
+2024-03-21 01:19:59,182 - INFO: 		[OK] Medias móviles
+2024-03-21 01:19:59,921 - INFO:  - [Actualizando... ] Honeywell International Inc.
+2024-03-21 01:19:59,942 - INFO: 		[OK] Datos
+2024-03-21 01:19:59,993 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:00,851 - INFO:  - [Actualizando... ] International Business Machines Corporation
+2024-03-21 01:20:00,873 - INFO: 		[OK] Datos
+2024-03-21 01:20:00,926 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:01,358 - INFO:  - [Actualizando... ] Intel Corporation
+2024-03-21 01:20:01,377 - INFO: 		[OK] Datos
+2024-03-21 01:20:01,464 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:01,922 - INFO:  - [Actualizando... ] Johnson & Johnson
+2024-03-21 01:20:01,946 - INFO: 		[OK] Datos
+2024-03-21 01:20:01,991 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:02,406 - INFO:  - [Actualizando... ] JPMorgan Chase & Co.
+2024-03-21 01:20:02,423 - INFO: 		[OK] Datos
+2024-03-21 01:20:02,463 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:02,968 - INFO:  - [Actualizando... ] The Coca-Cola Company
+2024-03-21 01:20:03,001 - INFO: 		[OK] Datos
+2024-03-21 01:20:03,045 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:03,633 - INFO:  - [Actualizando... ] McDonald's Corporation
+2024-03-21 01:20:03,669 - INFO: 		[OK] Datos
+2024-03-21 01:20:03,707 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:04,188 - INFO:  - [Actualizando... ] 3M Company
+2024-03-21 01:20:04,212 - INFO: 		[OK] Datos
+2024-03-21 01:20:04,260 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:04,737 - INFO:  - [Actualizando... ] Merck & Co., Inc.
+2024-03-21 01:20:04,755 - INFO: 		[OK] Datos
+2024-03-21 01:20:04,794 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:05,206 - INFO:  - [Actualizando... ] Microsoft Corporation
+2024-03-21 01:20:05,224 - INFO: 		[OK] Datos
+2024-03-21 01:20:05,275 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:05,691 - INFO:  - [Actualizando... ] NIKE, Inc.
+2024-03-21 01:20:05,712 - INFO: 		[OK] Datos
+2024-03-21 01:20:05,758 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:06,208 - INFO:  - [Actualizando... ] The Procter & Gamble Company
+2024-03-21 01:20:06,240 - INFO: 		[OK] Datos
+2024-03-21 01:20:06,308 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:06,693 - INFO:  - [Actualizando... ] The Travelers Companies, Inc.
+2024-03-21 01:20:06,714 - INFO: 		[OK] Datos
+2024-03-21 01:20:06,766 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:07,141 - INFO:  - [Actualizando... ] UnitedHealth Group Incorporated
+2024-03-21 01:20:07,160 - INFO: 		[OK] Datos
+2024-03-21 01:20:07,211 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:07,595 - INFO:  - [Actualizando... ] Visa Inc.
+2024-03-21 01:20:07,616 - INFO: 		[OK] Datos
+2024-03-21 01:20:07,662 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:08,111 - INFO:  - [Actualizando... ] Verizon Communications Inc.
+2024-03-21 01:20:08,129 - INFO: 		[OK] Datos
+2024-03-21 01:20:08,175 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:08,559 - INFO:  - [Actualizando... ] Walgreens Boots Alliance, Inc.
+2024-03-21 01:20:08,597 - INFO: 		[OK] Datos
+2024-03-21 01:20:08,641 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:09,182 - INFO:  - [Actualizando... ] Walmart Inc.
+2024-03-21 01:20:09,216 - INFO: 		[OK] Datos
+2024-03-21 01:20:09,260 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:09,645 - INFO:  - [Actualizando... ] Dow Jones Industrial Average
+2024-03-21 01:20:09,667 - INFO: 		[OK] Datos
+2024-03-21 01:20:09,712 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:09,712 - INFO: 
+2024-03-21 01:20:09,712 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 01:20:09,712 - INFO: Proceso finalizado.
+
+2024-03-21 01:20:09,712 - INFO: 
+2024-03-21 01:20:09,723 - INFO: --------------------------------------------------
+2024-03-21 01:20:09,724 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:20:09,724 - INFO: --------------------------------------------------
+2024-03-21 01:20:10,146 - INFO:  - [Actualizando... ] ACS, Actividades de Construcción y Servicios, S.A.
+2024-03-21 01:20:10,162 - INFO: 		[OK] Datos
+2024-03-21 01:20:10,284 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:10,716 - INFO:  - [Actualizando... ] Acerinox, S.A.
+2024-03-21 01:20:10,743 - INFO: 		[OK] Datos
+2024-03-21 01:20:10,867 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:11,263 - INFO:  - [Actualizando... ] Aena S.M.E., S.A.
+2024-03-21 01:20:11,285 - INFO: 		[OK] Datos
+2024-03-21 01:20:11,362 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:11,802 - INFO:  - [Actualizando... ] Amadeus IT Group, S.A.
+2024-03-21 01:20:11,829 - INFO: 		[OK] Datos
+2024-03-21 01:20:11,909 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:12,603 - INFO:  - [Actualizando... ] Acciona, S.A.
+2024-03-21 01:20:12,627 - INFO: 		[OK] Datos
+2024-03-21 01:20:12,768 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:13,166 - INFO:  - [Actualizando... ] Corporación Acciona Energías Renovables, S.A.
+2024-03-21 01:20:13,197 - INFO: 		[OK] Datos
+2024-03-21 01:20:13,244 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:13,667 - INFO:  - [Actualizando... ] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-03-21 01:20:13,693 - INFO: 		[OK] Datos
+2024-03-21 01:20:13,845 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:14,291 - INFO:  - [Actualizando... ] Bankinter, S.A.
+2024-03-21 01:20:14,323 - INFO: 		[OK] Datos
+2024-03-21 01:20:14,452 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:14,954 - INFO:  - [Actualizando... ] CaixaBank, S.A.
+2024-03-21 01:20:14,976 - INFO: 		[OK] Datos
+2024-03-21 01:20:15,073 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:15,508 - INFO:  - [Actualizando... ] Cellnex Telecom, S.A.
+2024-03-21 01:20:15,524 - INFO: 		[OK] Datos
+2024-03-21 01:20:15,610 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:16,025 - INFO:  - [Actualizando... ] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-03-21 01:20:16,042 - INFO: 		[OK] Datos
+2024-03-21 01:20:16,168 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:16,611 - INFO:  - [Actualizando... ] Endesa, S.A.
+2024-03-21 01:20:16,633 - INFO: 		[OK] Datos
+2024-03-21 01:20:16,758 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:17,196 - INFO:  - [Actualizando... ] Enagás, S.A.
+2024-03-21 01:20:17,232 - INFO: 		[OK] Datos
+2024-03-21 01:20:17,384 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:17,797 - INFO:  - [Actualizando... ] Fluidra, S.A.
+2024-03-21 01:20:17,829 - INFO: 		[OK] Datos
+2024-03-21 01:20:17,925 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:18,336 - INFO:  - [Actualizando... ] Ferrovial SE
+2024-03-21 01:20:18,354 - INFO: 		[OK] Datos
+2024-03-21 01:20:18,484 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:18,879 - INFO:  - [Actualizando... ] Grifols, S.A.
+2024-03-21 01:20:18,896 - INFO: 		[OK] Datos
+2024-03-21 01:20:19,043 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:19,416 - INFO:  - [Actualizando... ] International Consolidated Airlines Group S.A.
+2024-03-21 01:20:19,450 - INFO: 		[OK] Datos
+2024-03-21 01:20:19,508 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:20,001 - INFO:  - [Actualizando... ] Iberdrola, S.A.
+2024-03-21 01:20:20,019 - INFO: 		[OK] Datos
+2024-03-21 01:20:20,136 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:20,608 - INFO:  - [Actualizando... ] Indra Sistemas, S.A.
+2024-03-21 01:20:20,622 - INFO: 		[OK] Datos
+2024-03-21 01:20:20,756 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:21,219 - INFO:  - [Actualizando... ] Industria de Diseño Textil, S.A.
+2024-03-21 01:20:21,250 - INFO: 		[OK] Datos
+2024-03-21 01:20:21,371 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:21,805 - INFO:  - [Actualizando... ] Logista Integral, S.A.
+2024-03-21 01:20:21,841 - INFO: 		[OK] Datos
+2024-03-21 01:20:21,908 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:22,389 - INFO:  - [Actualizando... ] Mapfre, S.A.
+2024-03-21 01:20:22,409 - INFO: 		[OK] Datos
+2024-03-21 01:20:22,541 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:23,024 - INFO:  - [Actualizando... ] Meliá Hotels International, S.A.
+2024-03-21 01:20:23,045 - INFO: 		[OK] Datos
+2024-03-21 01:20:23,175 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:23,588 - INFO:  - [Actualizando... ] MERLIN Properties SOCIMI, S.A.
+2024-03-21 01:20:23,626 - INFO: 		[OK] Datos
+2024-03-21 01:20:23,692 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:24,141 - INFO:  - [Actualizando... ] ArcelorMittal S.A.
+2024-03-21 01:20:24,164 - INFO: 		[OK] Datos
+2024-03-21 01:20:24,263 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:24,727 - INFO:  - [Actualizando... ] Naturgy Energy Group, S.A.
+2024-03-21 01:20:24,746 - INFO: 		[OK] Datos
+2024-03-21 01:20:24,891 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:25,348 - INFO:  - [Actualizando... ] Redeia Corporación, S.A.
+2024-03-21 01:20:25,366 - INFO: 		[OK] Datos
+2024-03-21 01:20:25,490 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:25,932 - INFO:  - [Actualizando... ] Repsol, S.A.
+2024-03-21 01:20:25,951 - INFO: 		[OK] Datos
+2024-03-21 01:20:26,091 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:26,505 - INFO:  - [Actualizando... ] Laboratorios Farmaceuticos Rovi, S.A.
+2024-03-21 01:20:26,515 - INFO: 		[OK] Datos
+2024-03-21 01:20:26,615 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:27,032 - INFO:  - [Actualizando... ] Banco de Sabadell, S.A.
+2024-03-21 01:20:27,054 - INFO: 		[OK] Datos
+2024-03-21 01:20:27,216 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:27,695 - INFO:  - [Actualizando... ] Banco Santander, S.A.
+2024-03-21 01:20:27,718 - INFO: 		[OK] Datos
+2024-03-21 01:20:27,859 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:28,281 - INFO:  - [Actualizando... ] Sacyr, S.A.
+2024-03-21 01:20:28,313 - INFO: 		[OK] Datos
+2024-03-21 01:20:28,440 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:28,870 - INFO:  - [Actualizando... ] Solaria Energía y Medio Ambiente, S.A.
+2024-03-21 01:20:28,890 - INFO: 		[OK] Datos
+2024-03-21 01:20:29,014 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:29,453 - INFO:  - [Actualizando... ] Telefónica, S.A.
+2024-03-21 01:20:29,485 - INFO: 		[OK] Datos
+2024-03-21 01:20:29,652 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:30,085 - INFO:  - [Actualizando... ] Unicaja Banco, S.A.
+2024-03-21 01:20:30,101 - INFO: 		[OK] Datos
+2024-03-21 01:20:30,158 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:30,570 - INFO:  - [Actualizando... ] IBEX 35...
+2024-03-21 01:20:30,586 - INFO: 		[OK] Datos
+2024-03-21 01:20:30,739 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:30,742 - INFO: 
+2024-03-21 01:20:30,742 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 01:20:30,742 - INFO: Proceso finalizado.
+
+2024-03-21 01:20:30,742 - INFO: 
+2024-03-21 01:20:30,742 - INFO: --------------------------------------------------
+2024-03-21 01:20:30,746 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:20:30,746 - INFO: --------------------------------------------------
+2024-03-21 01:20:31,187 - INFO:  - [Actualizando... ] 3i Group plc
+2024-03-21 01:20:31,210 - INFO: 		[OK] Datos
+2024-03-21 01:20:31,258 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:31,688 - INFO:  - [Actualizando... ] Admiral Group plc
+2024-03-21 01:20:31,708 - INFO: 		[OK] Datos
+2024-03-21 01:20:31,760 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:32,158 - INFO:  - [Actualizando... ] Airtel Africa Plc
+2024-03-21 01:20:32,191 - INFO: 		[OK] Datos
+2024-03-21 01:20:32,244 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:32,744 - INFO:  - [Actualizando... ] Anglo American plc
+2024-03-21 01:20:32,778 - INFO: 		[OK] Datos
+2024-03-21 01:20:32,825 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:33,406 - INFO:  - [Actualizando... ] Antofagasta plc
+2024-03-21 01:20:33,436 - INFO: 		[OK] Datos
+2024-03-21 01:20:33,493 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:33,932 - INFO:  - [Actualizando... ] Ashtead Group plc
+2024-03-21 01:20:33,964 - INFO: 		[OK] Datos
+2024-03-21 01:20:34,007 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:34,456 - INFO:  - [Actualizando... ] Associated British Foods plc
+2024-03-21 01:20:34,476 - INFO: 		[OK] Datos
+2024-03-21 01:20:34,513 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:34,973 - INFO:  - [Actualizando... ] AstraZeneca PLC
+2024-03-21 01:20:35,000 - INFO: 		[OK] Datos
+2024-03-21 01:20:35,043 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:35,405 - INFO:  - [Actualizando... ] Auto Trader Group plc
+2024-03-21 01:20:35,423 - INFO: 		[OK] Datos
+2024-03-21 01:20:35,465 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:35,890 - INFO:  - [Actualizando... ] Aviva plc
+2024-03-21 01:20:35,912 - INFO: 		[OK] Datos
+2024-03-21 01:20:35,958 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:36,374 - INFO:  - [Actualizando... ] B&M European Value Retail S.A.
+2024-03-21 01:20:36,395 - INFO: 		[OK] Datos
+2024-03-21 01:20:36,459 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:36,905 - INFO:  - [Actualizando... ] BAE Systems plc
+2024-03-21 01:20:36,926 - INFO: 		[OK] Datos
+2024-03-21 01:20:36,975 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:37,441 - INFO:  - [Actualizando... ] Barclays PLC
+2024-03-21 01:20:37,476 - INFO: 		[OK] Datos
+2024-03-21 01:20:37,536 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:37,973 - INFO:  - [Actualizando... ] Barratt Developments plc
+2024-03-21 01:20:38,008 - INFO: 		[OK] Datos
+2024-03-21 01:20:38,047 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:38,474 - INFO:  - [Actualizando... ] Beazley plc
+2024-03-21 01:20:38,506 - INFO: 		[OK] Datos
+2024-03-21 01:20:38,558 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:38,991 - INFO:  - [Actualizando... ] The Berkeley Group Holdings plc
+2024-03-21 01:20:39,010 - INFO: 		[OK] Datos
+2024-03-21 01:20:39,060 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:39,492 - INFO:  - [Actualizando... ] BP p.l.c.
+2024-03-21 01:20:39,525 - INFO: 		[OK] Datos
+2024-03-21 01:20:39,636 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:40,062 - INFO:  - [Actualizando... ] British American Tobacco p.l.c.
+2024-03-21 01:20:40,085 - INFO: 		[OK] Datos
+2024-03-21 01:20:40,125 - INFO: 		[OK] Medias móviles
+2024-03-21 01:20:40,405 - ERROR: [NO OK] Error SQLite: near "-": syntax error
+2024-03-21 01:20:40,405 - INFO: Proceso finalizado.
+
+2024-03-21 01:20:40,405 - INFO: 
+2024-03-21 01:20:40,422 - INFO: -------------------------------------------------------
+2024-03-21 01:20:40,424 - INFO: Actualizando tabla de cambio de moneda en 'db.sqlite3':
+2024-03-21 01:20:40,427 - INFO: -------------------------------------------------------
+2024-03-21 01:20:41,513 - INFO:  - [OK] EURUSD
+2024-03-21 01:20:41,513 - INFO:  - [OK] EURGBP
+2024-03-21 01:20:41,513 - INFO: 
+2024-03-21 01:20:41,529 - INFO: [OK] Tabla actualizada con éxito.
+2024-03-21 01:20:41,530 - INFO: Proceso finalizado.
+2024-03-21 01:42:12,591 - INFO: 
+2024-03-21 01:42:12,592 - INFO: --------------------------------------------------
+2024-03-21 01:42:12,592 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:42:12,593 - INFO: --------------------------------------------------
+2024-03-21 01:42:15,778 - INFO:  - [Sin datos nuevos] Apple Inc.
+2024-03-21 01:42:16,195 - INFO:  - [Sin datos nuevos] Amgen Inc.
+2024-03-21 01:42:16,604 - INFO:  - [Sin datos nuevos] American Express Company
+2024-03-21 01:42:17,120 - INFO:  - [Sin datos nuevos] The Boeing Company
+2024-03-21 01:42:17,527 - INFO:  - [Sin datos nuevos] Caterpillar Inc.
+2024-03-21 01:42:17,893 - INFO:  - [Sin datos nuevos] Salesforce, Inc.
+2024-03-21 01:42:18,276 - INFO:  - [Sin datos nuevos] Cisco Systems, Inc.
+2024-03-21 01:42:18,762 - INFO:  - [Sin datos nuevos] Chevron Corporation
+2024-03-21 01:42:19,178 - INFO:  - [Sin datos nuevos] The Walt Disney Company
+2024-03-21 01:42:19,594 - INFO:  - [Sin datos nuevos] Dow Inc.
+2024-03-21 01:42:20,012 - INFO:  - [Sin datos nuevos] The Goldman Sachs Group, Inc.
+2024-03-21 01:42:20,413 - INFO:  - [Sin datos nuevos] The Home Depot, Inc.
+2024-03-21 01:42:20,930 - INFO:  - [Sin datos nuevos] Honeywell International Inc.
+2024-03-21 01:42:21,410 - INFO:  - [Sin datos nuevos] International Business Machines Corporation
+2024-03-21 01:42:21,910 - INFO:  - [Sin datos nuevos] Intel Corporation
+2024-03-21 01:42:22,664 - INFO:  - [Sin datos nuevos] Johnson & Johnson
+2024-03-21 01:42:23,215 - INFO:  - [Sin datos nuevos] JPMorgan Chase & Co.
+2024-03-21 01:42:23,719 - INFO:  - [Sin datos nuevos] The Coca-Cola Company
+2024-03-21 01:42:24,309 - INFO:  - [Sin datos nuevos] McDonald's Corporation
+2024-03-21 01:42:24,843 - INFO:  - [Sin datos nuevos] 3M Company
+2024-03-21 01:42:25,331 - INFO:  - [Sin datos nuevos] Merck & Co., Inc.
+2024-03-21 01:42:26,024 - INFO:  - [Sin datos nuevos] Microsoft Corporation
+2024-03-21 01:42:26,711 - INFO:  - [Sin datos nuevos] NIKE, Inc.
+2024-03-21 01:42:27,228 - INFO:  - [Sin datos nuevos] The Procter & Gamble Company
+2024-03-21 01:42:27,650 - INFO:  - [Sin datos nuevos] The Travelers Companies, Inc.
+2024-03-21 01:42:28,345 - INFO:  - [Sin datos nuevos] UnitedHealth Group Incorporated
+2024-03-21 01:42:28,846 - INFO:  - [Sin datos nuevos] Visa Inc.
+2024-03-21 01:42:29,354 - INFO:  - [Sin datos nuevos] Verizon Communications Inc.
+2024-03-21 01:42:29,817 - INFO:  - [Sin datos nuevos] Walgreens Boots Alliance, Inc.
+2024-03-21 01:42:30,318 - INFO:  - [Sin datos nuevos] Walmart Inc.
+2024-03-21 01:42:30,772 - INFO:  - [Sin datos nuevos] Dow Jones Industrial Average
+2024-03-21 01:42:30,772 - INFO: 
+2024-03-21 01:42:30,772 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 01:42:30,772 - INFO: Proceso finalizado.
+
+2024-03-21 01:42:30,772 - INFO: 
+2024-03-21 01:42:30,772 - INFO: --------------------------------------------------
+2024-03-21 01:42:30,772 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:42:30,772 - INFO: --------------------------------------------------
+2024-03-21 01:42:31,223 - INFO:  - [Sin datos nuevos] ACS, Actividades de Construcción y Servicios, S.A.
+2024-03-21 01:42:31,726 - INFO:  - [Sin datos nuevos] Acerinox, S.A.
+2024-03-21 01:42:32,160 - INFO:  - [Sin datos nuevos] Aena S.M.E., S.A.
+2024-03-21 01:42:32,677 - INFO:  - [Sin datos nuevos] Amadeus IT Group, S.A.
+2024-03-21 01:42:33,124 - INFO:  - [Sin datos nuevos] Acciona, S.A.
+2024-03-21 01:42:33,564 - INFO:  - [Sin datos nuevos] Corporación Acciona Energías Renovables, S.A.
+2024-03-21 01:42:34,128 - INFO:  - [Sin datos nuevos] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-03-21 01:42:34,667 - INFO:  - [Sin datos nuevos] Bankinter, S.A.
+2024-03-21 01:42:35,114 - INFO:  - [Sin datos nuevos] CaixaBank, S.A.
+2024-03-21 01:42:35,515 - INFO:  - [Sin datos nuevos] Cellnex Telecom, S.A.
+2024-03-21 01:42:35,958 - INFO:  - [Sin datos nuevos] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-03-21 01:42:36,492 - INFO:  - [Sin datos nuevos] Endesa, S.A.
+2024-03-21 01:42:37,041 - INFO:  - [Sin datos nuevos] Enagás, S.A.
+2024-03-21 01:42:37,520 - INFO:  - [Sin datos nuevos] Fluidra, S.A.
+2024-03-21 01:42:38,026 - INFO:  - [Sin datos nuevos] Ferrovial SE
+2024-03-21 01:42:38,538 - INFO:  - [Sin datos nuevos] Grifols, S.A.
+2024-03-21 01:42:38,993 - INFO:  - [Sin datos nuevos] International Consolidated Airlines Group S.A.
+2024-03-21 01:42:39,442 - INFO:  - [Sin datos nuevos] Iberdrola, S.A.
+2024-03-21 01:42:39,898 - INFO:  - [Sin datos nuevos] Indra Sistemas, S.A.
+2024-03-21 01:42:40,511 - INFO:  - [Sin datos nuevos] Industria de Diseño Textil, S.A.
+2024-03-21 01:42:40,939 - INFO:  - [Sin datos nuevos] Logista Integral, S.A.
+2024-03-21 01:42:41,384 - INFO:  - [Sin datos nuevos] Mapfre, S.A.
+2024-03-21 01:42:42,116 - INFO:  - [Sin datos nuevos] Meliá Hotels International, S.A.
+2024-03-21 01:42:42,503 - INFO:  - [Sin datos nuevos] MERLIN Properties SOCIMI, S.A.
+2024-03-21 01:42:42,934 - INFO:  - [Sin datos nuevos] ArcelorMittal S.A.
+2024-03-21 01:42:43,359 - INFO:  - [Sin datos nuevos] Naturgy Energy Group, S.A.
+2024-03-21 01:42:43,806 - INFO:  - [Sin datos nuevos] Redeia Corporación, S.A.
+2024-03-21 01:42:44,238 - INFO:  - [Sin datos nuevos] Repsol, S.A.
+2024-03-21 01:42:44,639 - INFO:  - [Sin datos nuevos] Laboratorios Farmaceuticos Rovi, S.A.
+2024-03-21 01:42:45,093 - INFO:  - [Sin datos nuevos] Banco de Sabadell, S.A.
+2024-03-21 01:42:45,525 - INFO:  - [Sin datos nuevos] Banco Santander, S.A.
+2024-03-21 01:42:46,004 - INFO:  - [Sin datos nuevos] Sacyr, S.A.
+2024-03-21 01:42:46,458 - INFO:  - [Sin datos nuevos] Solaria Energía y Medio Ambiente, S.A.
+2024-03-21 01:42:46,888 - INFO:  - [Sin datos nuevos] Telefónica, S.A.
+2024-03-21 01:42:47,275 - INFO:  - [Sin datos nuevos] Unicaja Banco, S.A.
+2024-03-21 01:42:47,688 - INFO:  - [Sin datos nuevos] IBEX 35...
+2024-03-21 01:42:47,688 - INFO: 
+2024-03-21 01:42:47,688 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 01:42:47,688 - INFO: Proceso finalizado.
+
+2024-03-21 01:42:47,688 - INFO: 
+2024-03-21 01:42:47,688 - INFO: --------------------------------------------------
+2024-03-21 01:42:47,688 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:42:47,688 - INFO: --------------------------------------------------
+2024-03-21 01:42:48,136 - INFO:  - [Sin datos nuevos] 3i Group plc
+2024-03-21 01:42:48,600 - INFO:  - [Sin datos nuevos] Admiral Group plc
+2024-03-21 01:42:49,000 - INFO:  - [Sin datos nuevos] Airtel Africa Plc
+2024-03-21 01:42:49,459 - INFO:  - [Sin datos nuevos] Anglo American plc
+2024-03-21 01:42:49,906 - INFO:  - [Sin datos nuevos] Antofagasta plc
+2024-03-21 01:42:50,365 - INFO:  - [Sin datos nuevos] Ashtead Group plc
+2024-03-21 01:42:50,804 - INFO:  - [Sin datos nuevos] Associated British Foods plc
+2024-03-21 01:42:51,326 - INFO:  - [Sin datos nuevos] AstraZeneca PLC
+2024-03-21 01:42:51,800 - INFO:  - [Sin datos nuevos] Auto Trader Group plc
+2024-03-21 01:42:52,223 - INFO:  - [Sin datos nuevos] Aviva plc
+2024-03-21 01:42:52,655 - INFO:  - [Sin datos nuevos] B&M European Value Retail S.A.
+2024-03-21 01:42:53,155 - INFO:  - [Sin datos nuevos] BAE Systems plc
+2024-03-21 01:42:53,571 - INFO:  - [Sin datos nuevos] Barclays PLC
+2024-03-21 01:42:54,009 - INFO:  - [Sin datos nuevos] Barratt Developments plc
+2024-03-21 01:42:54,942 - INFO:  - [Sin datos nuevos] Beazley plc
+2024-03-21 01:42:55,375 - INFO:  - [Sin datos nuevos] The Berkeley Group Holdings plc
+2024-03-21 01:42:55,776 - INFO:  - [Sin datos nuevos] BP p.l.c.
+2024-03-21 01:42:56,229 - INFO:  - [Sin datos nuevos] British American Tobacco p.l.c.
+2024-03-21 01:42:56,458 - ERROR: [NO OK] Error SQLite: near "-": syntax error
+2024-03-21 01:42:56,458 - INFO: Proceso finalizado.
+
+2024-03-21 01:42:56,458 - INFO: 
+2024-03-21 01:42:56,474 - INFO: -------------------------------------------------------
+2024-03-21 01:42:56,476 - INFO: Actualizando tabla de cambio de moneda en 'db.sqlite3':
+2024-03-21 01:42:56,478 - INFO: -------------------------------------------------------
+2024-03-21 01:42:57,314 - INFO:  - [OK] EURUSD
+2024-03-21 01:42:57,314 - INFO:  - [OK] EURGBP
+2024-03-21 01:42:57,314 - INFO: 
+2024-03-21 01:42:57,314 - INFO: [OK] Tabla actualizada con éxito.
+2024-03-21 01:42:57,324 - INFO: Proceso finalizado.
+2024-03-21 01:43:44,290 - INFO: 
+2024-03-21 01:43:44,290 - INFO: --------------------------------------------------
+2024-03-21 01:43:44,290 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:43:44,298 - INFO: --------------------------------------------------
+2024-03-21 01:43:47,484 - INFO:  - [Sin datos nuevos] Apple Inc.
+2024-03-21 01:43:47,900 - INFO:  - [Sin datos nuevos] Amgen Inc.
+2024-03-21 01:43:48,374 - INFO:  - [Sin datos nuevos] American Express Company
+2024-03-21 01:43:48,891 - INFO:  - [Sin datos nuevos] The Boeing Company
+2024-03-21 01:43:49,425 - INFO:  - [Sin datos nuevos] Caterpillar Inc.
+2024-03-21 01:43:49,803 - INFO:  - [Sin datos nuevos] Salesforce, Inc.
+2024-03-21 01:43:50,207 - INFO:  - [Sin datos nuevos] Cisco Systems, Inc.
+2024-03-21 01:43:50,842 - INFO:  - [Sin datos nuevos] Chevron Corporation
+2024-03-21 01:43:51,343 - INFO:  - [Sin datos nuevos] The Walt Disney Company
+2024-03-21 01:43:51,738 - INFO:  - [Sin datos nuevos] Dow Inc.
+2024-03-21 01:43:52,129 - INFO:  - [Sin datos nuevos] The Goldman Sachs Group, Inc.
+2024-03-21 01:43:52,607 - INFO:  - [Sin datos nuevos] The Home Depot, Inc.
+2024-03-21 01:43:53,176 - INFO:  - [Sin datos nuevos] Honeywell International Inc.
+2024-03-21 01:43:53,659 - INFO:  - [Sin datos nuevos] International Business Machines Corporation
+2024-03-21 01:43:54,064 - INFO:  - [Sin datos nuevos] Intel Corporation
+2024-03-21 01:43:54,565 - INFO:  - [Sin datos nuevos] Johnson & Johnson
+2024-03-21 01:43:54,944 - INFO:  - [Sin datos nuevos] JPMorgan Chase & Co.
+2024-03-21 01:43:55,583 - INFO:  - [Sin datos nuevos] The Coca-Cola Company
+2024-03-21 01:43:56,150 - INFO:  - [Sin datos nuevos] McDonald's Corporation
+2024-03-21 01:43:56,616 - INFO:  - [Sin datos nuevos] 3M Company
+2024-03-21 01:43:57,086 - INFO:  - [Sin datos nuevos] Merck & Co., Inc.
+2024-03-21 01:43:57,502 - INFO:  - [Sin datos nuevos] Microsoft Corporation
+2024-03-21 01:43:57,923 - INFO:  - [Sin datos nuevos] NIKE, Inc.
+2024-03-21 01:43:58,534 - INFO:  - [Sin datos nuevos] The Procter & Gamble Company
+2024-03-21 01:43:58,973 - INFO:  - [Sin datos nuevos] The Travelers Companies, Inc.
+2024-03-21 01:43:59,492 - INFO:  - [Sin datos nuevos] UnitedHealth Group Incorporated
+2024-03-21 01:43:59,993 - INFO:  - [Sin datos nuevos] Visa Inc.
+2024-03-21 01:44:00,438 - INFO:  - [Sin datos nuevos] Verizon Communications Inc.
+2024-03-21 01:44:00,875 - INFO:  - [Sin datos nuevos] Walgreens Boots Alliance, Inc.
+2024-03-21 01:44:01,477 - INFO:  - [Sin datos nuevos] Walmart Inc.
+2024-03-21 01:44:01,893 - INFO:  - [Sin datos nuevos] Dow Jones Industrial Average
+2024-03-21 01:44:01,893 - INFO: 
+2024-03-21 01:44:01,893 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 01:44:01,893 - INFO: Proceso finalizado.
+
+2024-03-21 01:44:01,893 - INFO: 
+2024-03-21 01:44:01,902 - INFO: --------------------------------------------------
+2024-03-21 01:44:01,903 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:44:01,903 - INFO: --------------------------------------------------
+2024-03-21 01:44:02,341 - INFO:  - [Sin datos nuevos] ACS, Actividades de Construcción y Servicios, S.A.
+2024-03-21 01:44:02,864 - INFO:  - [Sin datos nuevos] Acerinox, S.A.
+2024-03-21 01:44:03,224 - INFO:  - [Sin datos nuevos] Aena S.M.E., S.A.
+2024-03-21 01:44:03,983 - INFO:  - [Sin datos nuevos] Amadeus IT Group, S.A.
+2024-03-21 01:44:04,430 - INFO:  - [Sin datos nuevos] Acciona, S.A.
+2024-03-21 01:44:04,947 - INFO:  - [Sin datos nuevos] Corporación Acciona Energías Renovables, S.A.
+2024-03-21 01:44:05,486 - INFO:  - [Sin datos nuevos] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-03-21 01:44:05,986 - INFO:  - [Sin datos nuevos] Bankinter, S.A.
+2024-03-21 01:44:06,502 - INFO:  - [Sin datos nuevos] CaixaBank, S.A.
+2024-03-21 01:44:06,890 - INFO:  - [Sin datos nuevos] Cellnex Telecom, S.A.
+2024-03-21 01:44:07,604 - INFO:  - [Sin datos nuevos] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-03-21 01:44:08,239 - INFO:  - [Sin datos nuevos] Endesa, S.A.
+2024-03-21 01:44:08,837 - INFO:  - [Sin datos nuevos] Enagás, S.A.
+2024-03-21 01:44:09,353 - INFO:  - [Sin datos nuevos] Fluidra, S.A.
+2024-03-21 01:44:09,875 - INFO:  - [Sin datos nuevos] Ferrovial SE
+2024-03-21 01:44:10,276 - INFO:  - [Sin datos nuevos] Grifols, S.A.
+2024-03-21 01:44:10,791 - INFO:  - [Sin datos nuevos] International Consolidated Airlines Group S.A.
+2024-03-21 01:44:11,223 - INFO:  - [Sin datos nuevos] Iberdrola, S.A.
+2024-03-21 01:44:11,724 - INFO:  - [Sin datos nuevos] Indra Sistemas, S.A.
+2024-03-21 01:44:12,167 - INFO:  - [Sin datos nuevos] Industria de Diseño Textil, S.A.
+2024-03-21 01:44:12,596 - INFO:  - [Sin datos nuevos] Logista Integral, S.A.
+2024-03-21 01:44:13,044 - INFO:  - [Sin datos nuevos] Mapfre, S.A.
+2024-03-21 01:44:13,482 - INFO:  - [Sin datos nuevos] Meliá Hotels International, S.A.
+2024-03-21 01:44:13,898 - INFO:  - [Sin datos nuevos] MERLIN Properties SOCIMI, S.A.
+2024-03-21 01:44:14,325 - INFO:  - [Sin datos nuevos] ArcelorMittal S.A.
+2024-03-21 01:44:14,755 - INFO:  - [Sin datos nuevos] Naturgy Energy Group, S.A.
+2024-03-21 01:44:15,224 - INFO:  - [Sin datos nuevos] Redeia Corporación, S.A.
+2024-03-21 01:44:15,670 - INFO:  - [Sin datos nuevos] Repsol, S.A.
+2024-03-21 01:44:16,086 - INFO:  - [Sin datos nuevos] Laboratorios Farmaceuticos Rovi, S.A.
+2024-03-21 01:44:16,549 - INFO:  - [Sin datos nuevos] Banco de Sabadell, S.A.
+2024-03-21 01:44:16,975 - INFO:  - [Sin datos nuevos] Banco Santander, S.A.
+2024-03-21 01:44:17,389 - INFO:  - [Sin datos nuevos] Sacyr, S.A.
+2024-03-21 01:44:17,837 - INFO:  - [Sin datos nuevos] Solaria Energía y Medio Ambiente, S.A.
+2024-03-21 01:44:18,253 - INFO:  - [Sin datos nuevos] Telefónica, S.A.
+2024-03-21 01:44:18,627 - INFO:  - [Sin datos nuevos] Unicaja Banco, S.A.
+2024-03-21 01:44:19,007 - INFO:  - [Sin datos nuevos] IBEX 35...
+2024-03-21 01:44:19,007 - INFO: 
+2024-03-21 01:44:19,007 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 01:44:19,007 - INFO: Proceso finalizado.
+
+2024-03-21 01:44:19,007 - INFO: 
+2024-03-21 01:44:19,007 - INFO: --------------------------------------------------
+2024-03-21 01:44:19,007 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:44:19,019 - INFO: --------------------------------------------------
+2024-03-21 01:44:19,455 - INFO:  - [Sin datos nuevos] 3i Group plc
+2024-03-21 01:44:19,840 - INFO:  - [Sin datos nuevos] Admiral Group plc
+2024-03-21 01:44:20,241 - INFO:  - [Sin datos nuevos] Airtel Africa Plc
+2024-03-21 01:44:20,654 - INFO:  - [Sin datos nuevos] Anglo American plc
+2024-03-21 01:44:21,311 - INFO:  - [Sin datos nuevos] Antofagasta plc
+2024-03-21 01:44:21,758 - INFO:  - [Sin datos nuevos] Ashtead Group plc
+2024-03-21 01:44:22,160 - INFO:  - [Sin datos nuevos] Associated British Foods plc
+2024-03-21 01:44:22,572 - INFO:  - [Sin datos nuevos] AstraZeneca PLC
+2024-03-21 01:44:22,977 - INFO:  - [Sin datos nuevos] Auto Trader Group plc
+2024-03-21 01:44:23,446 - INFO:  - [Sin datos nuevos] Aviva plc
+2024-03-21 01:44:23,839 - INFO:  - [Sin datos nuevos] B&M European Value Retail S.A.
+2024-03-21 01:44:24,387 - INFO:  - [Sin datos nuevos] BAE Systems plc
+2024-03-21 01:44:24,802 - INFO:  - [Sin datos nuevos] Barclays PLC
+2024-03-21 01:44:25,218 - INFO:  - [Sin datos nuevos] Barratt Developments plc
+2024-03-21 01:44:25,781 - INFO:  - [Sin datos nuevos] Beazley plc
+2024-03-21 01:44:26,305 - INFO:  - [Sin datos nuevos] The Berkeley Group Holdings plc
+2024-03-21 01:44:26,753 - INFO:  - [Sin datos nuevos] BP p.l.c.
+2024-03-21 01:44:27,163 - INFO:  - [Sin datos nuevos] British American Tobacco p.l.c.
+2024-03-21 01:44:27,368 - ERROR: [NO OK] Error SQLite: near "-": syntax error
+2024-03-21 01:44:27,384 - INFO: Proceso finalizado.
+
+2024-03-21 01:44:27,384 - INFO: 
+2024-03-21 01:44:27,384 - INFO: --------------------------------------------------
+2024-03-21 01:44:27,393 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:44:27,395 - INFO: --------------------------------------------------
+2024-03-21 01:44:27,651 - ERROR: [NO OK] Error SQLite: unrecognized token: "1COV_DE"
+2024-03-21 01:44:27,654 - INFO: Proceso finalizado.
+
+2024-03-21 01:44:27,656 - INFO: 
+2024-03-21 01:44:27,658 - INFO: -------------------------------------------------------
+2024-03-21 01:44:27,661 - INFO: Actualizando tabla de cambio de moneda en 'db.sqlite3':
+2024-03-21 01:44:27,662 - INFO: -------------------------------------------------------
+2024-03-21 01:44:28,455 - INFO:  - [OK] EURUSD
+2024-03-21 01:44:28,455 - INFO:  - [OK] EURGBP
+2024-03-21 01:44:28,468 - INFO: 
+2024-03-21 01:44:28,469 - INFO: [OK] Tabla actualizada con éxito.
+2024-03-21 01:44:28,470 - INFO: Proceso finalizado.
+2024-03-21 01:49:47,442 - INFO: 
+2024-03-21 01:49:47,442 - INFO: --------------------------------------------------
+2024-03-21 01:49:47,442 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:49:47,442 - INFO: --------------------------------------------------
+2024-03-21 01:49:50,859 - ERROR: [NO OK] Error SQLite: unrecognized token: "1COV_DE"
+2024-03-21 01:49:50,859 - INFO: Proceso finalizado.
+
+2024-03-21 01:57:37,902 - INFO: 
+2024-03-21 01:57:37,902 - INFO: --------------------------------------------------
+2024-03-21 01:57:37,902 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:57:37,905 - INFO: --------------------------------------------------
+2024-03-21 01:57:40,701 - ERROR: [NO OK] Error SQLite: unrecognized token: "1COV_DE"
+2024-03-21 01:57:40,701 - INFO: Proceso finalizado.
+
+2024-03-21 01:58:14,045 - INFO: 
+2024-03-21 01:58:14,045 - INFO: --------------------------------------------------
+2024-03-21 01:58:14,045 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:58:14,045 - INFO: --------------------------------------------------
+2024-03-21 01:58:17,035 - ERROR: [NO OK] Error SQLite: unrecognized token: "1COV_DE"
+2024-03-21 01:58:17,051 - INFO: Proceso finalizado.
+
+2024-03-21 01:58:58,599 - INFO: 
+2024-03-21 01:58:58,599 - INFO: --------------------------------------------------
+2024-03-21 01:58:58,599 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:58:58,599 - INFO: --------------------------------------------------
+2024-03-21 01:59:01,390 - ERROR: [NO OK] Error SQLite: unrecognized token: "1COV_DE"
+2024-03-21 01:59:01,390 - INFO: Proceso finalizado.
+
+2024-03-21 01:59:35,693 - INFO: 
+2024-03-21 01:59:35,693 - INFO: --------------------------------------------------
+2024-03-21 01:59:35,693 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 01:59:35,693 - INFO: --------------------------------------------------
+2024-03-21 01:59:38,441 - ERROR: [NO OK] Error SQLite: unrecognized token: "1COV_DE"
+2024-03-21 01:59:38,441 - INFO: Proceso finalizado.
+
+2024-03-21 02:03:01,612 - INFO: 
+2024-03-21 02:03:01,612 - INFO: --------------------------------------------------
+2024-03-21 02:03:01,612 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 02:03:01,612 - INFO: --------------------------------------------------
+2024-03-21 02:03:05,080 - INFO:  - [Actualizando... ] Covestro AG
+2024-03-21 02:03:05,094 - INFO: 		[OK] Datos
+2024-03-21 02:03:05,095 - ERROR: [NO OK] Fallo al calcular medias móviles. Error Execution failed on sql 'SELECT * FROM 1COV_DE': unrecognized token: "1COV_DE"
+2024-03-21 02:03:05,474 - INFO:  - [Actualizando... ] adidas AG
+2024-03-21 02:03:05,493 - INFO: 		[OK] Datos
+2024-03-21 02:03:05,544 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:05,937 - INFO:  - [Actualizando... ] Airbus SE
+2024-03-21 02:03:05,954 - INFO: 		[OK] Datos
+2024-03-21 02:03:06,002 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:06,390 - INFO:  - [Actualizando... ] Allianz SE
+2024-03-21 02:03:06,406 - INFO: 		[OK] Datos
+2024-03-21 02:03:06,462 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:06,865 - INFO:  - [Actualizando... ] BASF SE
+2024-03-21 02:03:06,885 - INFO: 		[OK] Datos
+2024-03-21 02:03:06,931 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:07,412 - INFO:  - [Actualizando... ] Bayer Aktiengesellschaft
+2024-03-21 02:03:07,422 - INFO: 		[OK] Datos
+2024-03-21 02:03:07,477 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:07,901 - INFO:  - [Actualizando... ] Beiersdorf Aktiengesellschaft
+2024-03-21 02:03:07,917 - INFO: 		[OK] Datos
+2024-03-21 02:03:07,962 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:08,404 - INFO:  - [Actualizando... ] Bayerische Motoren Werke Aktiengesellschaft
+2024-03-21 02:03:08,412 - INFO: 		[OK] Datos
+2024-03-21 02:03:08,472 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:08,883 - INFO:  - [Actualizando... ] Continental Aktiengesellschaft
+2024-03-21 02:03:08,896 - INFO: 		[OK] Datos
+2024-03-21 02:03:08,952 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:09,332 - INFO:  - [Actualizando... ] Deutsche Börse AG
+2024-03-21 02:03:09,348 - INFO: 		[OK] Datos
+2024-03-21 02:03:09,396 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:09,820 - INFO:  - [Actualizando... ] Deutsche Bank Aktiengesellschaft
+2024-03-21 02:03:09,836 - INFO: 		[OK] Datos
+2024-03-21 02:03:09,892 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:10,272 - INFO:  - [Actualizando... ] Deutsche Post AG
+2024-03-21 02:03:10,291 - INFO: 		[OK] Datos
+2024-03-21 02:03:10,352 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:10,804 - INFO:  - [Actualizando... ] Deutsche Telekom AG
+2024-03-21 02:03:10,826 - INFO: 		[OK] Datos
+2024-03-21 02:03:10,862 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:11,232 - INFO:  - [Actualizando... ] Daimler Truck Holding AG
+2024-03-21 02:03:11,252 - INFO: 		[OK] Datos
+2024-03-21 02:03:11,301 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:11,667 - INFO:  - [Actualizando... ] Siemens Energy AG
+2024-03-21 02:03:11,685 - INFO: 		[OK] Datos
+2024-03-21 02:03:11,728 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:12,153 - INFO:  - [Actualizando... ] E.ON SE
+2024-03-21 02:03:12,162 - INFO: 		[OK] Datos
+2024-03-21 02:03:12,212 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:12,637 - INFO:  - [Actualizando... ] Fresenius Medical Care AG
+2024-03-21 02:03:12,654 - INFO: 		[OK] Datos
+2024-03-21 02:03:12,695 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:13,087 - INFO:  - [Actualizando... ] Fresenius SE & Co. KGaA
+2024-03-21 02:03:13,103 - INFO: 		[OK] Datos
+2024-03-21 02:03:13,162 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:13,587 - INFO:  - [Actualizando... ] Heidelberg Materials AG
+2024-03-21 02:03:13,602 - INFO: 		[OK] Datos
+2024-03-21 02:03:13,661 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:14,052 - INFO:  - [Actualizando... ] Henkel AG & Co. KGaA
+2024-03-21 02:03:14,101 - INFO: 		[OK] Datos
+2024-03-21 02:03:14,147 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:14,517 - INFO:  - [Actualizando... ] HelloFresh SE
+2024-03-21 02:03:14,533 - INFO: 		[OK] Datos
+2024-03-21 02:03:14,582 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:15,027 - INFO:  - [Actualizando... ] Hannover Rück SE
+2024-03-21 02:03:15,042 - INFO: 		[OK] Datos
+2024-03-21 02:03:15,102 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:15,512 - INFO:  - [Actualizando... ] Infineon Technologies AG
+2024-03-21 02:03:15,528 - INFO: 		[OK] Datos
+2024-03-21 02:03:15,582 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:15,992 - INFO:  - [Actualizando... ] Klöckner & Co SE
+2024-03-21 02:03:16,002 - INFO: 		[OK] Datos
+2024-03-21 02:03:16,064 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:16,474 - INFO:  - [Actualizando... ] Deutsche Lufthansa AG
+2024-03-21 02:03:16,495 - INFO: 		[OK] Datos
+2024-03-21 02:03:16,544 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:16,932 - INFO:  - [Actualizando... ] Linde plc
+2024-03-21 02:03:16,942 - INFO: 		[OK] Datos
+2024-03-21 02:03:16,995 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:17,409 - INFO:  - [Actualizando... ] Merck KGaA
+2024-03-21 02:03:17,412 - INFO: 		[OK] Datos
+2024-03-21 02:03:17,462 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:17,858 - INFO:  - [Actualizando... ] MTU Aero Engines AG
+2024-03-21 02:03:17,874 - INFO: 		[OK] Datos
+2024-03-21 02:03:17,922 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:18,312 - INFO:  - [Actualizando... ] Münchener Rückversicherungs-Gesellschaft Aktiengesellschaft in München
+2024-03-21 02:03:18,329 - INFO: 		[OK] Datos
+2024-03-21 02:03:18,382 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:18,757 - INFO:  - [Actualizando... ] Dr. Ing. h.c. F. Porsche AG
+2024-03-21 02:03:18,772 - INFO: 		[OK] Datos
+2024-03-21 02:03:18,812 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:19,202 - INFO:  - [Actualizando... ] Porsche Automobil Holding SE
+2024-03-21 02:03:19,217 - INFO: 		[OK] Datos
+2024-03-21 02:03:19,278 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:19,682 - INFO:  - [Actualizando... ] PREOS Global Office Real Estate & Technology AG
+2024-03-21 02:03:19,692 - INFO: 		[OK] Datos
+2024-03-21 02:03:19,752 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:20,192 - INFO:  - [Actualizando... ] RWE Aktiengesellschaft
+2024-03-21 02:03:20,208 - INFO: 		[OK] Datos
+2024-03-21 02:03:20,264 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:20,677 - INFO:  - [Actualizando... ] SAP SE
+2024-03-21 02:03:20,692 - INFO: 		[OK] Datos
+2024-03-21 02:03:20,747 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:21,117 - INFO:  - [Actualizando... ] Siemens Healthineers AG
+2024-03-21 02:03:21,132 - INFO: 		[OK] Datos
+2024-03-21 02:03:21,184 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:21,572 - INFO:  - [Actualizando... ] Siemens Aktiengesellschaft
+2024-03-21 02:03:21,592 - INFO: 		[OK] Datos
+2024-03-21 02:03:21,655 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:22,035 - INFO:  - [Actualizando... ] Symrise AG
+2024-03-21 02:03:22,056 - INFO: 		[OK] Datos
+2024-03-21 02:03:22,102 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:22,512 - INFO:  - [Actualizando... ] Vonovia SE
+2024-03-21 02:03:22,532 - INFO: 		[OK] Datos
+2024-03-21 02:03:22,578 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:22,987 - INFO:  - [Actualizando... ] Volkswagen AG
+2024-03-21 02:03:23,002 - INFO: 		[OK] Datos
+2024-03-21 02:03:23,062 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:23,462 - INFO:  - [Actualizando... ] Zalando SE
+2024-03-21 02:03:23,478 - INFO: 		[OK] Datos
+2024-03-21 02:03:23,532 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:23,883 - INFO:  - [Actualizando... ] DAX PERFORMANCE-INDEX
+2024-03-21 02:03:23,897 - INFO: 		[OK] Datos
+2024-03-21 02:03:23,952 - INFO: 		[OK] Medias móviles
+2024-03-21 02:03:23,952 - INFO: 
+2024-03-21 02:03:23,952 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 02:03:23,952 - INFO: Proceso finalizado.
+
+2024-03-21 02:04:10,774 - INFO: 
+2024-03-21 02:04:10,774 - INFO: --------------------------------------------------
+2024-03-21 02:04:10,774 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 02:04:10,776 - INFO: --------------------------------------------------
+2024-03-21 02:04:13,742 - INFO:  - [Sin datos nuevos] Covestro AG
+2024-03-21 02:04:14,134 - INFO:  - [Sin datos nuevos] adidas AG
+2024-03-21 02:04:14,562 - INFO:  - [Sin datos nuevos] Airbus SE
+2024-03-21 02:04:14,970 - INFO:  - [Sin datos nuevos] Allianz SE
+2024-03-21 02:04:15,382 - INFO:  - [Sin datos nuevos] BASF SE
+2024-03-21 02:04:15,781 - INFO:  - [Sin datos nuevos] Bayer Aktiengesellschaft
+2024-03-21 02:04:16,187 - INFO:  - [Sin datos nuevos] Beiersdorf Aktiengesellschaft
+2024-03-21 02:04:16,577 - INFO:  - [Sin datos nuevos] Bayerische Motoren Werke Aktiengesellschaft
+2024-03-21 02:04:17,132 - INFO:  - [Sin datos nuevos] Continental Aktiengesellschaft
+2024-03-21 02:04:17,497 - INFO:  - [Sin datos nuevos] Deutsche Börse AG
+2024-03-21 02:04:17,899 - INFO:  - [Sin datos nuevos] Deutsche Bank Aktiengesellschaft
+2024-03-21 02:04:18,302 - INFO:  - [Sin datos nuevos] Deutsche Post AG
+2024-03-21 02:04:18,717 - INFO:  - [Sin datos nuevos] Deutsche Telekom AG
+2024-03-21 02:04:19,092 - INFO:  - [Sin datos nuevos] Daimler Truck Holding AG
+2024-03-21 02:04:19,502 - INFO:  - [Sin datos nuevos] Siemens Energy AG
+2024-03-21 02:04:19,892 - INFO:  - [Sin datos nuevos] E.ON SE
+2024-03-21 02:04:20,287 - INFO:  - [Sin datos nuevos] Fresenius Medical Care AG
+2024-03-21 02:04:20,707 - INFO:  - [Sin datos nuevos] Fresenius SE & Co. KGaA
+2024-03-21 02:04:21,122 - INFO:  - [Sin datos nuevos] Heidelberg Materials AG
+2024-03-21 02:04:21,517 - INFO:  - [Sin datos nuevos] Henkel AG & Co. KGaA
+2024-03-21 02:04:21,877 - INFO:  - [Sin datos nuevos] HelloFresh SE
+2024-03-21 02:04:22,323 - INFO:  - [Sin datos nuevos] Hannover Rück SE
+2024-03-21 02:04:22,712 - INFO:  - [Sin datos nuevos] Infineon Technologies AG
+2024-03-21 02:04:23,137 - INFO:  - [Sin datos nuevos] Klöckner & Co SE
+2024-03-21 02:04:23,582 - INFO:  - [Sin datos nuevos] Deutsche Lufthansa AG
+2024-03-21 02:04:23,997 - INFO:  - [Sin datos nuevos] Linde plc
+2024-03-21 02:04:24,417 - INFO:  - [Sin datos nuevos] Merck KGaA
+2024-03-21 02:04:24,812 - INFO:  - [Sin datos nuevos] MTU Aero Engines AG
+2024-03-21 02:04:25,207 - INFO:  - [Sin datos nuevos] Münchener Rückversicherungs-Gesellschaft Aktiengesellschaft in München
+2024-03-21 02:04:25,618 - INFO:  - [Sin datos nuevos] Dr. Ing. h.c. F. Porsche AG
+2024-03-21 02:04:26,017 - INFO:  - [Sin datos nuevos] Porsche Automobil Holding SE
+2024-03-21 02:04:26,393 - INFO:  - [Sin datos nuevos] PREOS Global Office Real Estate & Technology AG
+2024-03-21 02:04:26,812 - INFO:  - [Sin datos nuevos] RWE Aktiengesellschaft
+2024-03-21 02:04:27,254 - INFO:  - [Sin datos nuevos] SAP SE
+2024-03-21 02:04:27,633 - INFO:  - [Sin datos nuevos] Siemens Healthineers AG
+2024-03-21 02:04:28,027 - INFO:  - [Sin datos nuevos] Siemens Aktiengesellschaft
+2024-03-21 02:04:28,436 - INFO:  - [Sin datos nuevos] Symrise AG
+2024-03-21 02:04:28,802 - INFO:  - [Sin datos nuevos] Vonovia SE
+2024-03-21 02:04:29,202 - INFO:  - [Sin datos nuevos] Volkswagen AG
+2024-03-21 02:04:29,612 - INFO:  - [Sin datos nuevos] Zalando SE
+2024-03-21 02:04:29,998 - INFO:  - [Sin datos nuevos] DAX PERFORMANCE-INDEX
+2024-03-21 02:04:29,998 - INFO: 
+2024-03-21 02:04:30,002 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 02:04:30,002 - INFO: Proceso finalizado.
+
+2024-03-21 02:05:00,634 - INFO: 
+2024-03-21 02:05:00,634 - INFO: --------------------------------------------------
+2024-03-21 02:05:00,635 - INFO: Actualizando bases de datos con los últimos datos:
+2024-03-21 02:05:00,635 - INFO: --------------------------------------------------
+2024-03-21 02:05:03,887 - INFO:  - [Actualizando... ] Covestro AG
+2024-03-21 02:05:03,905 - INFO: 		[OK] Datos
+2024-03-21 02:05:03,952 - INFO: 		[OK] Medias móviles
+2024-03-21 02:05:04,417 - INFO:  - [Sin datos nuevos] adidas AG
+2024-03-21 02:05:04,802 - INFO:  - [Sin datos nuevos] Airbus SE
+2024-03-21 02:05:05,297 - INFO:  - [Sin datos nuevos] Allianz SE
+2024-03-21 02:05:05,767 - INFO:  - [Sin datos nuevos] BASF SE
+2024-03-21 02:05:06,212 - INFO:  - [Sin datos nuevos] Bayer Aktiengesellschaft
+2024-03-21 02:05:06,667 - INFO:  - [Sin datos nuevos] Beiersdorf Aktiengesellschaft
+2024-03-21 02:05:07,142 - INFO:  - [Sin datos nuevos] Bayerische Motoren Werke Aktiengesellschaft
+2024-03-21 02:05:07,592 - INFO:  - [Sin datos nuevos] Continental Aktiengesellschaft
+2024-03-21 02:05:08,013 - INFO:  - [Sin datos nuevos] Deutsche Börse AG
+2024-03-21 02:05:08,527 - INFO:  - [Sin datos nuevos] Deutsche Bank Aktiengesellschaft
+2024-03-21 02:05:08,929 - INFO:  - [Sin datos nuevos] Deutsche Post AG
+2024-03-21 02:05:09,362 - INFO:  - [Sin datos nuevos] Deutsche Telekom AG
+2024-03-21 02:05:09,737 - INFO:  - [Sin datos nuevos] Daimler Truck Holding AG
+2024-03-21 02:05:10,122 - INFO:  - [Sin datos nuevos] Siemens Energy AG
+2024-03-21 02:05:10,662 - INFO:  - [Sin datos nuevos] E.ON SE
+2024-03-21 02:05:11,097 - INFO:  - [Sin datos nuevos] Fresenius Medical Care AG
+2024-03-21 02:05:11,587 - INFO:  - [Sin datos nuevos] Fresenius SE & Co. KGaA
+2024-03-21 02:05:12,002 - INFO:  - [Sin datos nuevos] Heidelberg Materials AG
+2024-03-21 02:05:12,504 - INFO:  - [Sin datos nuevos] Henkel AG & Co. KGaA
+2024-03-21 02:05:12,877 - INFO:  - [Sin datos nuevos] HelloFresh SE
+2024-03-21 02:05:13,292 - INFO:  - [Sin datos nuevos] Hannover Rück SE
+2024-03-21 02:05:13,842 - INFO:  - [Sin datos nuevos] Infineon Technologies AG
+2024-03-21 02:05:14,222 - INFO:  - [Sin datos nuevos] Klöckner & Co SE
+2024-03-21 02:05:14,742 - INFO:  - [Sin datos nuevos] Deutsche Lufthansa AG
+2024-03-21 02:05:15,132 - INFO:  - [Sin datos nuevos] Linde plc
+2024-03-21 02:05:15,537 - INFO:  - [Sin datos nuevos] Merck KGaA
+2024-03-21 02:05:15,935 - INFO:  - [Sin datos nuevos] MTU Aero Engines AG
+2024-03-21 02:05:16,434 - INFO:  - [Sin datos nuevos] Münchener Rückversicherungs-Gesellschaft Aktiengesellschaft in München
+2024-03-21 02:05:16,842 - INFO:  - [Sin datos nuevos] Dr. Ing. h.c. F. Porsche AG
+2024-03-21 02:05:17,222 - INFO:  - [Sin datos nuevos] Porsche Automobil Holding SE
+2024-03-21 02:05:17,612 - INFO:  - [Sin datos nuevos] PREOS Global Office Real Estate & Technology AG
+2024-03-21 02:05:18,002 - INFO:  - [Sin datos nuevos] RWE Aktiengesellschaft
+2024-03-21 02:05:18,387 - INFO:  - [Sin datos nuevos] SAP SE
+2024-03-21 02:05:18,782 - INFO:  - [Sin datos nuevos] Siemens Healthineers AG
+2024-03-21 02:05:19,262 - INFO:  - [Sin datos nuevos] Siemens Aktiengesellschaft
+2024-03-21 02:05:19,715 - INFO:  - [Sin datos nuevos] Symrise AG
+2024-03-21 02:05:20,132 - INFO:  - [Sin datos nuevos] Vonovia SE
+2024-03-21 02:05:20,552 - INFO:  - [Sin datos nuevos] Volkswagen AG
+2024-03-21 02:05:20,997 - INFO:  - [Sin datos nuevos] Zalando SE
+2024-03-21 02:05:21,392 - INFO:  - [Sin datos nuevos] DAX PERFORMANCE-INDEX
+2024-03-21 02:05:21,392 - INFO: 
+2024-03-21 02:05:21,392 - INFO: [OK] Bases de datos actualizadas.
+2024-03-21 02:05:21,392 - INFO: Proceso finalizado.
+

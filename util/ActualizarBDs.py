@@ -5,7 +5,7 @@ import logging
 import os
 
 from logging.handlers import RotatingFileHandler
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from tickers import Tickers_BDs
 
 
@@ -99,7 +99,7 @@ def actualizar_bds(indice, bd, logger):
                     ticker_cambiado = ticker.replace(".", "_")
                     # Adaptar también los índices:
                     ticker_cambiado = ticker_cambiado.replace("^", "")
-                    query = f"SELECT MAX(Date) FROM {ticker_cambiado}"
+                    query = f"SELECT MAX(Date) FROM '{ticker_cambiado}'"
                     cursor = conn.cursor()
                     last_date_str = cursor.execute(query).fetchone()[0]
                     # Convertir la última fecha a un objeto datetime
@@ -107,11 +107,11 @@ def actualizar_bds(indice, bd, logger):
                     cursor.close()
 
                     # Obtener el último 'id' registrado
-                    query = f"SELECT MAX(id) FROM {ticker_cambiado}"
+                    query = f"SELECT MAX(id) FROM '{ticker_cambiado}'"
                     cursor = conn.cursor()
                     last_id = cursor.execute(query).fetchone()[0]
                     cursor.close()
-
+                    
                     # Si fuera necesario comprobar el nombre de las columnas:
                     # query = f"PRAGMA table_info({ticker_cambiado})"
                     # cursor.execute(query)
@@ -139,6 +139,8 @@ def actualizar_bds(indice, bd, logger):
                             hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=18, minutes=30)
                         elif bd == Tickers_BDs.ruta_bd_ftse100():
                             hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=17, minutes=30)
+                        elif bd == Tickers_BDs.ruta_bd_dax40():
+                            hist['Date'] = pd.to_datetime(hist['Date']) + timedelta(hours=18, minutes=30)
 
                         # Uso una columna 'id' explícitamente. Es recomendable en
                         # Django, por eso lo tengo definido en los modelos dinámicos
@@ -295,7 +297,7 @@ def _calcular_medias_moviles(conn, ticker, logger):
     """
     try:
         # Consultar datos desde la BD
-        query = f"SELECT * FROM {ticker}"
+        query = f"SELECT * FROM '{ticker}'"
         data = pd.read_sql_query(query, conn, index_col='Date')
 
         # Calcular las medias móviles
@@ -318,12 +320,15 @@ def _calcular_medias_moviles(conn, ticker, logger):
 
 def _permite_actualizar(logger):
     try:
+        # NOTA: horario España peninsular 
+        #  - Invierno: UTC + 1,
+        #  - Verano: UTC + 2.
         # Horario UTC actual
-        horarioUTC = datetime.utcnow()
+        horarioUTC = datetime.now(timezone.utc)
 
         # Horario permitido fuera de los tiempos
         # de apertura y subastas
-        inicio = horarioUTC.replace(hour=4, minute=0, second=0, microsecond=0)
+        inicio = horarioUTC.replace(hour=0, minute=0, second=0, microsecond=0)
         fin = horarioUTC.replace(hour=5, minute=30, second=0, microsecond=0)
 
         # Comprobar si la ejecución está en
@@ -343,7 +348,7 @@ if __name__ == "__main__":
     # Para actualizar paso lista de tickers sin adaptar para hacer
     # las llamadas adecuadas a la API de yfinance. Se adaptan en
     # en el código
-    
+
     # Actualizar la BD del DJ30 
     dj30 = Tickers_BDs.tickers_dj30()
     bd = Tickers_BDs.ruta_bd_dj30()
@@ -358,7 +363,12 @@ if __name__ == "__main__":
     ftse100 = Tickers_BDs.tickers_ftse100()
     bd = Tickers_BDs.ruta_bd_ftse100()
     actualizar_bds(ftse100, bd, logger)
-    
+
+    # Actualizar la BD del DAX40
+    dax40 = Tickers_BDs.tickers_dax40()
+    bd = Tickers_BDs.ruta_bd_dax40()
+    actualizar_bds(dax40, bd, logger)
+
     # Actualizar la tabla de cambio de moneda
     pares_monedas = ["EURUSD=X", "EURGBP=X"]
     actualizar_tabla_cambio_moneda(pares_monedas, logger)
