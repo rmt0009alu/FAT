@@ -12,7 +12,7 @@ from datetime import timedelta
 from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos, _generar_correlaciones, _crear_grafos, _normalizar_dataframes, _generar_graficas_comparacion
 from Analysis.models import Sectores
 from django.apps import apps
-from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, bases_datos_disponibles
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_dax40, bases_datos_disponibles
 
 
 # Idea original de NuclearPeon:
@@ -329,6 +329,30 @@ class TestAnalysisViews(TestCase):
         self.log.info(" - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100")
 
 
+    def test_views_mapa_stocks_dax40_parametros_validos(self):
+        # Simulo la creación de todos los modelos de los valores del 
+        # ibex35, para poder acceder al mapa de ese índice:
+        for ticker in tickers_adaptados_dax40():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('dax40').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='EUR', sector=f'sector{ticker}'
+            )
+        self.client.post('/login/', self.datosUsuarioTest)
+        response = self.client.get(reverse('mapa_stocks', args=['dax40']))
+        self.assertEqual(response.status_code, 200, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40")
+        self.assertTemplateUsed(response, 'mapa_stocks.html', " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40")
+        self.assertIn('nombre_bd', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40")
+        self.assertEqual(response.context['nombre_bd'], 'dax40', " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40")
+        self.assertIn('datosFinStocks', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40")
+        self.assertIn('figura', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40")
+        self.assertIn('nombreIndice', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40")
+        self.assertIn('listaRSS', response.context, " - [NO OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40")
+        self.log.info(" - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40")
+
+
     def test_views_mapa_stocks_con_bd_falsa(self):
         self.client.post('/login/', self.datosUsuarioTest)
         response = self.client.get(reverse('mapa_stocks', kwargs={'nombre_bd': 'bd_falsa'}))
@@ -437,7 +461,7 @@ class TestAnalysisViews(TestCase):
         # self.assertEqual(response.status_code, 200)
         url = reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'dj30'})
         response = self.client.post(url, {'ticker_a_comparar': 'ticker_falso'})
-        self.assertTrue(response.status_code, 200, " - [NO OK] POST en _chart_y_datos con ticker falso")
+        self.assertTrue(response.status_code, 200)
         self.assertTemplateUsed(response, 'chart_y_datos.html', " - [NO OK] POST en _chart_y_datos con ticker falso")
         self.assertTrue('msg_error' in response.context, " - [NO OK] POST en _chart_y_datos con ticker falso")
         self.assertEqual(response.context['msg_error'], 'El ticker no existe', " - [NO OK] POST en _chart_y_datos con ticker falso")
@@ -445,7 +469,7 @@ class TestAnalysisViews(TestCase):
 
         url = reverse('chart_y_datos', kwargs={'ticker': 'IBM', 'nombre_bd': 'dj30'})
         response = self.client.post(url, {'ticker_a_comparar': 'AAPL'})
-        self.assertTrue(response.status_code, 200, " - [NO OK] POST en _chart_y_datos con ticker existente")
+        self.assertTrue(response.status_code, 200)
         self.assertTemplateUsed(response, 'chart_y_datos.html', " - [NO OK] POST en _chart_y_datos con ticker existente")
         self.assertTrue('graficas_comparacion' in response.context, " - [NO OK] POST en _chart_y_datos con ticker existente")
         self.assertTrue(isinstance(response.context["graficas_comparacion"], str), " - [NO OK] POST en _chart_y_datos con ticker existente")

@@ -1,5 +1,5 @@
 from django.test import SimpleTestCase
-from util.tickers.Tickers_BDs import tickers_dj30, tickers_ibex35, tickers_ftse100, tickers_indices, tickers_adaptados_ibex35, tickers_adaptados_dj30, tickers_adaptados_ftse100, tickers_adaptados_indices, ruta_bd_dj30, ruta_bd_ibex35, ruta_bd_ftse100, nombre_bd_dj30, nombre_bd_ibex35, nombre_bd_ftse100, obtener_nombre_bd, tickers_disponibles, tickers_adaptados_disponibles
+from util.tickers.Tickers_BDs import tickers_dj30, tickers_ibex35, tickers_ftse100, tickers_dax40, tickers_indices, tickers_adaptados_ibex35, tickers_adaptados_dj30, tickers_adaptados_ftse100, tickers_adaptados_dax40, tickers_adaptados_indices, ruta_bd_dj30, ruta_bd_ibex35, ruta_bd_ftse100, ruta_bd_dax40, nombre_bd_dj30, nombre_bd_ibex35, nombre_bd_ftse100, obtener_nombre_bd, tickers_disponibles, tickers_adaptados_disponibles
 from log.logger.logger import get_logger_configurado
 
 
@@ -79,8 +79,19 @@ class TestTickers(SimpleTestCase):
         self.log.info(" - [OK] Tickers ftse100")
 
 
+    def test_tickers_dax40(self):
+        tickers = ['1COV.DE', 'ADS.DE', 'AIR.DE', 'ALV.DE', 'BAS.DE', 'BAYN.DE', 'BEI.DE', 
+                   'BMW.DE', 'CON.DE', 'DB1.DE', 'DBK.DE', 'DHL.DE', 'DTE.DE', 'DTG.DE', 
+                   'ENR.DE', 'EOAN.DE', 'FME.DE', 'FRE.DE', 'HEI.DE', 'HEN3.DE', 'HFG.DE', 
+                   'HNR1.DE', 'IFX.DE', 'KCO.DE', 'LHA.DE', 'LIN.DE', 'MRK.DE', 'MTX.DE', 
+                   'MUV2.DE', 'P911.DE', 'PAH3.DE', 'PAG.DE', 'RWE.DE', 'SAP.DE', 'SHL.DE',
+                   'SIE.DE', 'SY1.DE', 'VNA.DE', 'VOW3.DE', 'ZAL.DE', '^GDAXI']
+        self.assertEquals(tickers, tickers_dax40(), " - [NO OK] Tickers dax40")
+        self.log.info(" - [OK] Tickers dax40")
+
+
     def test_tickers_índices(self):
-        índices = ['^DJI', '^IBEX', '^FTSE']
+        índices = ['^DJI', '^IBEX', '^FTSE', '^GDAXI']
         self.assertEquals(índices, tickers_indices(), " - [NO OK] Tickers índices")
         self.log.info(" - [OK] Tickers índices")
 
@@ -131,12 +142,23 @@ class TestTickers(SimpleTestCase):
                'SMIN_L', 'SKG_L', 'SPX_L', 'SSE_L', 'STJ_L', 
                'STAN_L', 'TW_L', 'TSCO_L', 'ULVR_L', 'UTG_L', 
                'UU_L', 'VOD_L', 'WEIR_L', 'WTB_L', 'WPP_L', 'FTSE']
-        self.assertEquals(tickers, tickers_adaptados_ftse100(), " - [NO OK] Tickers ftse100")
-        self.log.info(" - [OK] Tickers ftse100")
+        self.assertEquals(tickers, tickers_adaptados_ftse100(), " - [NO OK] Tickers adaptados ftse100")
+        self.log.info(" - [OK] Tickers adaptados ftse100")
+
+
+    def test_tickers_adaptados_dax40(self):
+        tickers = ['1COV_DE', 'ADS_DE', 'AIR_DE', 'ALV_DE', 'BAS_DE', 'BAYN_DE', 'BEI_DE', 
+                   'BMW_DE', 'CON_DE', 'DB1_DE', 'DBK_DE', 'DHL_DE', 'DTE_DE', 'DTG_DE', 
+                   'ENR_DE', 'EOAN_DE', 'FME_DE', 'FRE_DE', 'HEI_DE', 'HEN3_DE', 'HFG_DE', 
+                   'HNR1_DE', 'IFX_DE', 'KCO_DE', 'LHA_DE', 'LIN_DE', 'MRK_DE', 'MTX_DE', 
+                   'MUV2_DE', 'P911_DE', 'PAH3_DE', 'PAG_DE', 'RWE_DE', 'SAP_DE', 'SHL_DE',
+                   'SIE_DE', 'SY1_DE', 'VNA_DE', 'VOW3_DE', 'ZAL_DE', 'GDAXI']
+        self.assertEquals(tickers, tickers_adaptados_dax40(), " - [NO OK] Tickers adaptados dax40")
+        self.log.info(" - [OK] Tickers adaptados dax40")
 
     
     def test_tickers_adaptados_indices(self):
-        índices = ['DJI', 'IBEX', 'FTSE']
+        índices = ['DJI', 'IBEX', 'FTSE', 'GDAXI']
         self.assertEquals(índices, tickers_adaptados_indices())
         self.log.info(" - [OK] Tickers adaptados índices")
 
@@ -154,6 +176,11 @@ class TestTickers(SimpleTestCase):
     def test_ruta_bd_ftse100(self):
         self.assertEquals('databases/ftse100.sqlite3', ruta_bd_ftse100(), " - [NO OK] Ruta bd ftse100")
         self.log.info(" - [OK] Ruta bd ftse100")
+
+    
+    def test_ruta_bd_dax40(self):
+        self.assertEquals('databases/dax40.sqlite3', ruta_bd_dax40(), " - [NO OK] Ruta bd dax40")
+        self.log.info(" - [OK] Ruta bd dax40")
 
 
     def test_nombre_bd_dj30(self):
@@ -230,7 +257,13 @@ class TestTickers(SimpleTestCase):
                'SMIN.L', 'SKG.L', 'SPX.L', 'SSE.L', 'STJ.L', 
                'STAN.L', 'TW.L', 'TSCO.L', 'ULVR.L', 'UTG.L', 
                'UU.L', 'VOD.L', 'WEIR.L', 'WTB.L', 'WPP.L', '^FTSE']
-        self.assertEquals(tickers_1 + tickers_2 + tickers_3, tickers_disponibles(), " - [NO OK] Obtener tickers disponibles")
+        tickers4 = ['1COV.DE', 'ADS.DE', 'AIR.DE', 'ALV.DE', 'BAS.DE', 'BAYN.DE', 'BEI.DE', 
+                    'BMW.DE', 'CON.DE', 'DB1.DE', 'DBK.DE', 'DHL.DE', 'DTE.DE', 'DTG.DE', 
+                    'ENR.DE', 'EOAN.DE', 'FME.DE', 'FRE.DE', 'HEI.DE', 'HEN3.DE', 'HFG.DE', 
+                    'HNR1.DE', 'IFX.DE', 'KCO.DE', 'LHA.DE', 'LIN.DE', 'MRK.DE', 'MTX.DE', 
+                    'MUV2.DE', 'P911.DE', 'PAH3.DE', 'PAG.DE', 'RWE.DE', 'SAP.DE', 'SHL.DE',
+                    'SIE.DE', 'SY1.DE', 'VNA.DE', 'VOW3.DE', 'ZAL.DE', '^GDAXI']
+        self.assertEquals(tickers_1 + tickers_2 + tickers_3 + tickers4, tickers_disponibles(), " - [NO OK] Obtener tickers disponibles")
         self.log.info(" - [OK] Obtener tickers disponibles")
 
     
@@ -270,5 +303,11 @@ class TestTickers(SimpleTestCase):
                'SMIN_L', 'SKG_L', 'SPX_L', 'SSE_L', 'STJ_L', 
                'STAN_L', 'TW_L', 'TSCO_L', 'ULVR_L', 'UTG_L', 
                'UU_L', 'VOD_L', 'WEIR_L', 'WTB_L', 'WPP_L', 'FTSE']
-        self.assertEquals(tickers_1 + tickers_2 + tickers_3, tickers_adaptados_disponibles(), " - [NO OK] Obtener tickers disponibles")
+        tickers_4 = ['1COV_DE', 'ADS_DE', 'AIR_DE', 'ALV_DE', 'BAS_DE', 'BAYN_DE', 'BEI_DE', 
+                   'BMW_DE', 'CON_DE', 'DB1_DE', 'DBK_DE', 'DHL_DE', 'DTE_DE', 'DTG_DE', 
+                   'ENR_DE', 'EOAN_DE', 'FME_DE', 'FRE_DE', 'HEI_DE', 'HEN3_DE', 'HFG_DE', 
+                   'HNR1_DE', 'IFX_DE', 'KCO_DE', 'LHA_DE', 'LIN_DE', 'MRK_DE', 'MTX_DE', 
+                   'MUV2_DE', 'P911_DE', 'PAH3_DE', 'PAG_DE', 'RWE_DE', 'SAP_DE', 'SHL_DE',
+                   'SIE_DE', 'SY1_DE', 'VNA_DE', 'VOW3_DE', 'ZAL_DE', 'GDAXI']
+        self.assertEquals(tickers_1 + tickers_2 + tickers_3 + tickers_4, tickers_adaptados_disponibles(), " - [NO OK] Obtener tickers disponibles")
         self.log.info(" - [OK] Obtener tickers disponibles")

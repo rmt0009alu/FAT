@@ -1,6 +1,6 @@
 from django.test import TestCase
 from Analysis.models import StockBase, Sectores, modelos_de_stocks, CambioMoneda
-from util.tickers.Tickers_BDs import tickers_ibex35, tickers_dj30, tickers_ftse100, tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_disponibles, tickers_adaptados_indices, obtener_nombre_bd
+from util.tickers.Tickers_BDs import tickers_ibex35, tickers_dj30, tickers_ftse100, tickers_dax40, tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_dax40, tickers_adaptados_disponibles, tickers_adaptados_indices, obtener_nombre_bd
 from log.logger.logger import get_logger_configurado
 from datetime import datetime, timezone, timedelta
 # Alias 'tz' para no confundir con datetime.timezone
@@ -89,10 +89,10 @@ class TestAnalysisModels(TestCase):
 
 
     def test_models_StockBase_diccionario(self):
-        self.assertEquals(len(modelos_de_stocks), len(tickers_dj30() + tickers_ibex35() + tickers_ftse100()), " - [NO OK] StockBase diccionario de 'modelos_de_stocks'")
+        self.assertEquals(len(modelos_de_stocks), len(tickers_dj30() + tickers_ibex35() + tickers_ftse100() + tickers_dax40()), " - [NO OK] StockBase diccionario de 'modelos_de_stocks'")
 
         for _ in modelos_de_stocks:
-            self.assertTrue(_ in (tickers_adaptados_dj30() + tickers_adaptados_ibex35() + tickers_adaptados_ftse100()))
+            self.assertTrue(_ in (tickers_adaptados_dj30() + tickers_adaptados_ibex35() + tickers_adaptados_ftse100() + tickers_adaptados_dax40()))
         self.log.info(" - [OK] StockBase diccionario de 'modelos_de_stocks'")
 
 
