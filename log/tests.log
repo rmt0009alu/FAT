@@ -181,6 +181,15 @@ INFO:FATURLs        :----------------------------------
 INFO:FATURLs        : - [OK] URL admin
 INFO:FATURLs        : - [OK] URL media
 INFO:FATURLs        : - [OK] URL static
+INFO:LabURLs        :
+INFO:LabURLs        :----------------------------------
+INFO:LabURLs        :TESTS LAB URLs
+INFO:LabURLs        :----------------------------------
+INFO:LabURLs        : - [OK] URL arima_auto
+INFO:LabURLs        : - [OK] URL arima_rejilla
+INFO:LabURLs        : - [OK] URL lab
+INFO:LabURLs        : - [OK] URL lstm
+INFO:LabURLs        : - [OK] URL arima_manual
 INFO:NewsURLs       :
 INFO:NewsURLs       :----------------------------------
 INFO:NewsURLs       :TESTS NEWS URLs
