@@ -561,8 +561,8 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
 
 
 def lstm(request):
-    """RELLENAR.
-
+    """Para crear una red neuronal LSTM. 
+    
     Args:
         request (django.core.handlers.wsgi.WSGIRequest): solicitud
             HTTP encapsulada por Django.
