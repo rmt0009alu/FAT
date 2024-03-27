@@ -199,3 +199,38 @@ class ArimaManualForm(forms.Form):
     auto = forms.BooleanField(initial=False, required=False)
     manual = forms.BooleanField(initial=True, required=False)
     rejilla = forms.BooleanField(initial=False, required=False)
+
+
+class LstmForm(forms.Form):
+    """Clase que define el fomrulario para introducir los datos
+    necearios para aplicar una red LSTM automáticamente. 
+
+    Args:
+        Form (django.forms.Form): tipo formulario de Django. 
+    """
+    # Validación de datos de cantidad de días
+    num_sesiones = forms.IntegerField(
+        min_value=400,
+        max_value=1000,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Número de últimas sesiones que se quiere analizar [400-1000]'
+        })
+    )
+
+    # Campo para indicar el % de datos de entrenamiento
+    porcentaje_entrenamiento = forms.ChoiceField(
+        choices=(
+            ('50%', 50),
+            ('66%', 66),
+            ('70%', 70),
+            ('80%', 80),
+            ('90%', 90),
+        ),
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Porcentaje de datos para el entrenamiento'
+        })
+    )

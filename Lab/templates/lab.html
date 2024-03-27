@@ -19,8 +19,8 @@ que tiene la página de portada 'home' -->
 <div class="container">
   <div class="row">
     <div class="col">
-      <button onclick="mostrarOcultos()">ARIMA</button>
-      <div id="ocultos" class="ocultos">
+      <button onclick="mostrarOcultosARIMA()">ARIMA</button>
+      <div id="ocultos-arima" class="ocultos-arima">
         <br>
         <div>
           <a href="/lab/arima_manual">
@@ -53,10 +53,44 @@ que tiene la página de portada 'home' -->
         </div>
         <br>
       </div>
-    
     </div>
+
+    <!-- Botones para opciones de redes LSTM -->
     <div class="col">
-      <a href="/lab/lstm"><button>LSTM</button></a>
+      <button onclick="mostrarOcultosLSTM()">LSTM</button>
+      <div id="ocultos-lstm" class="ocultos-lstm">
+        <br>
+        <div>
+          <a href="/lab/lstm">
+            <button class="boton-modelo">LSTM 1</button>
+          </a>
+          <div class="ayuda"> 
+            <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="25" height="25">
+            <span class="mensaje-ayuda">Para hacer algo con LSTM</span>
+          </div>
+        </div>
+        <br>
+        <div>
+          <a href="/lab/lstm">
+            <button class="boton-modelo">LSTM 2</button>
+          </a>
+          <div class="ayuda"> 
+            <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="25" height="25">
+            <span class="mensaje-ayuda">Para hacer algo con LSTM</span>
+          </div>
+        </div>
+        <br>
+        <div>
+          <a href="/lab/lstm">
+            <button class="boton-modelo">LSTM 3</button>
+          </a>
+          <div class="ayuda"> 
+            <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="25" height="25">
+            <span class="mensaje-ayuda">Para hacer algo con LSTM</span>
+          </div>
+        </div>
+        <br>
+      </div>
     </div>
   </div>
   <!-- <div class="row">
@@ -71,9 +105,13 @@ que tiene la página de portada 'home' -->
 </div>
 
 <script>
-function mostrarOcultos() {
-  const ocultos = document.getElementById("ocultos");
-  ocultos.classList.toggle('ocultos'); // Toggle the hidden class
+function mostrarOcultosARIMA() {
+  const ocultos = document.getElementById("ocultos-arima");
+  ocultos.classList.toggle('ocultos-arima');
+}
+function mostrarOcultosLSTM() {
+  const ocultos = document.getElementById("ocultos-lstm");
+  ocultos.classList.toggle('ocultos-lstm');
 }
 </script>
 
