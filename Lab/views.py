@@ -15,6 +15,9 @@ from io import BytesIO, StringIO
 import base64
 from django.shortcuts import render
 from django.apps import apps
+# Para proteger rutas. Las funciones que tienen este decorador
+# sólo son accesibles si se está logueado
+from django.contrib.auth.decorators import login_required
 # Para pasar str a literales
 import ast
 import pandas as pd
@@ -34,6 +37,7 @@ from keras.layers import Dense, LSTM
 from sklearn.preprocessing import MinMaxScaler
 
 
+@login_required
 def lab(request):
     """Para mostrar los modelos disponibles que se
     pueden aplicar. El usuario verá la vista de 'lab.html'
@@ -55,6 +59,7 @@ def lab(request):
     return render(request, "lab.html", context)
 
 
+@login_required
 def arima_auto(request):
     """Para mostrar el resultado de un modelo ARIMA
     cuyos parámetros (p,d,q) son calculados automáticamente
@@ -108,6 +113,7 @@ def arima_auto(request):
     return render(request, "arima_auto.html", context)
 
 
+@login_required
 def arima_rejilla(request):
     """Para mostrar el resultado de un modelo ARIMA
     cuyos parámetros (p,d,q) son calculados a través de 
@@ -161,6 +167,7 @@ def arima_rejilla(request):
     return render(request, "arima_rejilla.html", context)
 
 
+@login_required
 def arima_manual(request):
     """Para mostrar el resultado de un modelo ARIMA
     cuyos parámetros (p,d,q) son conocidos por el usuario. 
@@ -560,6 +567,7 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
     return context
 
 
+@login_required
 def lstm(request):
     """Para crear una red neuronal LSTM. 
     

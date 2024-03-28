@@ -1,186 +1,28 @@
-INFO:AnalysisViews  :
-INFO:AnalysisViews  :----------------------------------
-INFO:AnalysisViews  :TESTS ANALYSIS VIEWS
-INFO:AnalysisViews  :----------------------------------
-INFO:AnalysisViews  : - [OK] Respuesta 404 de chart_y_datos con bd falsa
-INFO:AnalysisViews  : - [OK] Respuesta adecuada de chart_y_datos con datos válidos
-INFO:AnalysisViews  : - [OK] POST en _chart_y_datos con ticker falso
-INFO:AnalysisViews  : - [OK] POST en _chart_y_datos con ticker existente
-INFO:AnalysisViews  : - [OK] Respuesta 404 de chart_y_datos con ticker falso
-INFO:AnalysisViews  : - [OK] Formateo adecuado con _formatear_volumen
-INFO:AnalysisViews  : - [OK] Generar grafo correlaciones no vacío
-INFO:AnalysisViews  : - [OK] Generar grafo correlaciones negativas
-INFO:AnalysisViews  : - [OK] Generar grafo correlaciones positivas
-INFO:AnalysisViews  : - [OK] Respuesta adecuada de _generar_graficas_comparacion
-INFO:AnalysisViews  : - [OK] Respuesta adecuada de _get_datos
-INFO:AnalysisViews  : - [OK] Obtener listas RSS
-INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd falsa
-INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd vacía
-INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40
-INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dj30
-INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ftse100
-INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35
-INFO:AnalysisViews  : - [OK] Respuesta adecuada de _normalizar_dataframes para caso 1
-INFO:AnalysisViews  : - [OK] Respuesta adecuada de _normalizar_dataframes para caso 2
-INFO:AnalysisViews  : - [OK] Hacer login de forma adecuada
-INFO:AnalysisViews  : - [OK] No redireccionar si usuario o pass incorrectos
-INFO:AnalysisViews  : - [OK] Que página de signin retorne '200 ok'
-INFO:AnalysisViews  : - [OK] No utilizar otros 'templates' por error
-INFO:AnalysisViews  : - [OK] Asignar 'template' de signin y cargar base.html
-INFO:AnalysisViews  : - [OK] No permitir login a usuarios inexistentes
-INFO:AnalysisViews  : - [OK] Informar al usuario con mensaje de usuario no correcto
-INFO:AnalysisViews  : - [OK] Hacer logout
-INFO:AnalysisViews  : - [OK] A la vez que se hace signup hacer login
-INFO:AnalysisViews  : - [OK] Devolver página de espera e info. al usuario tras signup adecuado
-INFO:AnalysisViews  : - [OK] Hacer signup con usuario de forma adecuada
-INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con password habitual
-INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con password no válida
-INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con passwords diferentes
-INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con nombre vacío
-INFO:AnalysisViews  : - [OK] Que página de signup retorne '200 ok'
-INFO:AnalysisViews  : - [OK] No utilizar otros 'templates' por error
-INFO:AnalysisViews  : - [OK] Asignar 'template' de signup y cargar base.html
-INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con nombre corto
-INFO:AnalysisViews  : - [OK] Detectar signup incorrecto con nombre con caracteres especiales
-INFO:AnalysisViews  : - [OK] No permite usuarios con el mismo nombre
-INFO:AnalysisModels :
-INFO:AnalysisModels :----------------------------------
-INFO:AnalysisModels :TESTS ANALYSIS MODELS
-INFO:AnalysisModels :----------------------------------
-INFO:AnalysisModels : - [OK] Crear instancia de CambioMoneda
-INFO:AnalysisModels : - [OK] CambioMoneda str
-INFO:AnalysisModels : - [OK] Registro con 'id' autoincremental de Sectores
-INFO:AnalysisModels : - [OK] Filtrado por Sectores
-INFO:AnalysisModels : - [OK] Objeto 'sector' instancia de Sectores
-INFO:AnalysisModels : - [OK] Sectores str
-INFO:AnalysisModels : - [OK] StockBase diccionario de 'modelos_de_stocks'
-INFO:AnalysisModels : - [OK] Crear instancia de StockBase
-INFO:AnalysisModels : - [OK] StockBase str
-INFO:DashBoardModels:
-INFO:DashBoardModels:----------------------------------
-INFO:DashBoardModels:TESTS DASHBOARD MODELS
-INFO:DashBoardModels:----------------------------------
-INFO:DashBoardModels: - [OK] Evitar bases de datos falsas de StockComprado
-INFO:DashBoardModels: - [OK] Crear/borrar StockComprado
-INFO:DashBoardModels: - [OK] Evitar fechas futuras de StockComprado
-INFO:DashBoardModels: - [OK] Calcular posición de StockComprado
-INFO:DashBoardModels: - [OK] Calcular posición de StockComprado en GBp
-INFO:DashBoardModels: - [OK] StockComprado str
-INFO:DashBoardModels: - [OK] Crear/borrar StockSeguimiento
-INFO:DashBoardModels: - [OK] StockSeguimiento str
-INFO:DashBoardViews :
-INFO:DashBoardViews :----------------------------------
-INFO:DashBoardViews :TESTS DASHBOARD VIEWS
-INFO:DashBoardViews :----------------------------------
-INFO:DashBoardViews : - [OK] Datos DashBoard con compras y seguimiento
-INFO:DashBoardViews : - [OK] Datos DashBoard con compras y sin seguimiento
-INFO:DashBoardViews : - [OK] Datos DashBoard sin compras y con seguimiento
-INFO:DashBoardViews : - [OK] Datos DashBoard sin compras y sin seguimiento
-INFO:DashBoardViews : - [OK] Que página de 'DashBoard' retorne '302...' sin login'
-INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' tras eliminar compras
-INFO:DashBoardViews : - [OK] Que POST a 'eliminar_compras' retorne '302...' sin login
-INFO:DashBoardViews : - [OK] Que página de 'eliminar_compras' retorne '200 ok' con login
-INFO:DashBoardViews : - [OK] Que página de 'eliminar_compras' retorne '302...' sin login'
-INFO:DashBoardViews : - [OK] Asignar 'template' de eliminar_compras y cargar base.html
-INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' tras eliminar seguimientos
-INFO:DashBoardViews : - [OK] Que POST a 'eliminar_seguimientos' retorne '302...' sin login
-INFO:DashBoardViews : - [OK] Que página de 'eliminar_seguimientos' retorne '200 ok' con login
-INFO:DashBoardViews : - [OK] Que página de 'eliminar_seguimientos' retorne '302...' sin login'
-INFO:DashBoardViews : - [OK] Asignar 'template' de eliminar_seguimientos y cargar base.html
-INFO:DashBoardViews : - [OK] _evolucion_cartera reconoce un dato de stocks comprado
-INFO:DashBoardViews : - [OK] _evolucion_cartera vacío si no hay stocks comprados
-INFO:DashBoardViews : - [OK] _hay_errores reconoce bd none
-INFO:DashBoardViews : - [OK] _hay_errores reconoce bd none para stocks seguidos
-INFO:DashBoardViews : - [OK] _hay_errores reconoce fecha futura
-INFO:DashBoardViews : - [OK] _hay_errores reconoce datos válidos
-INFO:DashBoardViews : - [OK] _hay_errores reconoce precio fuera de rango
-INFO:DashBoardViews : - [OK] _hay_errores reconoce entrada inexistente
-INFO:DashBoardViews : - [OK] No redirigir y seguir en 'nueva_compra' con formulario no válido
-INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'
-INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'
-INFO:DashBoardViews : - [OK] Que post a 'nueva_compra' retorne mensaje con fecha no válida
-INFO:DashBoardViews : - [OK] Que POST a 'nueva_compra' retorne '200 ok' con login
-INFO:DashBoardViews : - [OK] Que post a 'nueva_compra' retorne mensajecon ticker no válido
-INFO:DashBoardViews : - [OK] Que POST a 'nueva_compra' retorne '302...' sin login
-INFO:DashBoardViews : - [OK] Precio fuera de rango posible en 'nueva_compra'
-INFO:DashBoardViews : - [OK] Que página de 'nueva_compra' retorne '200 ok' con login
-INFO:DashBoardViews : - [OK] Que página de 'nueva_compra' retorne '302...' sin login'
-INFO:DashBoardViews : - [OK] Asignar 'template' de nueva_compra y cargar base.html
-INFO:DashBoardViews : - [OK] No redirigir y seguir en '_nuevo_seguimiento' con formulario no válido
-INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' con datos válidos en '_nuevo_seguimiento'
-INFO:DashBoardViews : - [OK] Que post a 'nuevo_seguimiento' retorne '200 ok' con datos no válidos y haya 'Error'
-INFO:DashBoardViews : - [OK] Que post a 'nuevo_seguimiento' retorne mensaje con ticker no válido
-INFO:DashBoardViews : - [OK] Que POST a 'nuevo_seguimiento' retorne '302...' sin login
-INFO:DashBoardViews : - [OK] Que página de 'nuevo_seguimiento' retorne '200 ok' con login
-INFO:DashBoardViews : - [OK] Que página de 'nuevo_seguimiento' retorne '302...' sin login'
-INFO:DashBoardViews : - [OK] Asignar 'template' de nuevo_seguimiento y cargar base.html
-INFO:DashBoardViews : - [OK] _stocks_en_seguimiento no permite datos no válidos
-INFO:DashBoardViews : - [OK] _stocks_en_seguimiento reconoce un dato de stocks seguidos
-INFO:DashBoardViews : - [OK] _stocks_en_seguimiento vacío si no hay stocks seguidos
-INFO:FATRouters     :
-INFO:FATRouters     :----------------------------------
-INFO:FATRouters     :TESTS FAT ROUTERS
-INFO:FATRouters     :----------------------------------
-INFO:FATRouters     : - [OK] Enrutar a BD adecuada
-INFO:FATRouters     : - [OK] Enrutar a BD adecuada
-INFO:FATRouters     : - [OK] Enrutar a BD adecuada
-INFO:FATSettings    :
-INFO:FATSettings    :----------------------------------
-INFO:FATSettings    :TESTS FAT SETTINGS
-INFO:FATSettings    :----------------------------------
-INFO:FATSettings    : - [OK] Devolver desde FAT.settings el valor adecuado de static
 INFO:NewsViews      :
 INFO:NewsViews      :----------------------------------
-INFO:NewsViews      :TESTS NEWS VIEWS
+INFO:NewsViews      :TESTS LAB VIEWS
 INFO:NewsViews      :----------------------------------
-INFO:NewsViews      : - [OK] No necesario login para acceder a home
-INFO:NewsViews      : - [OK] Obtener datos de _mejores_peores si hay tickers válidos
-INFO:NewsViews      : - [OK] No obtener datos de _mejores_peores si no hay tickers
-INFO:databases      :
-INFO:databases      :----------------------------------
-INFO:databases      :TESTS BASES DE DATOS
-INFO:databases      :----------------------------------
-INFO:databases      : - [OK] Tener 31 (tickers + índidce) tablas en DJ30
-INFO:databases      : - [OK] Tener 36 tablas (tickers + índidce) en IBEX35
-INFO:databases      : - [OK] Todos los tickers de dj30 con columnas adecuadas en su tabla
-INFO:databases      : - [OK] Todos los tickers de ibex35 con columnas adecuadas en su tabla
-INFO:databases      : - [OK] Crear datos con el formato esperado en dj30
-INFO:databases      : - [OK] Guardar 'id' autoincremental en dj30
-INFO:databases      : - [OK] Crear datos con el formato esperado en ibex35
-INFO:databases      : - [OK] Hacer 'id' autoincremental en ibex35
-INFO:databases      : - [OK] Listas de tickers no vacías
-INFO:databases      : - [OK] Tener 30 tickers (+ índice) en la lista del DJ30
-INFO:databases      : - [OK] Tener 35 tickers (+ índice) en la lista del IBEX35
-INFO:databases      : - [OK] Todas las tablas en BD de dj30
-INFO:databases      : - [OK] Todas las tablas en BD de ibex35
-INFO:databases      : - [OK] Los tickers del DJ30 están en una lista
-INFO:databases      : - [OK] Los tickers del IBEX35 están en una lista
-INFO:databases      : - [OK] Todos los tickers deben de ser strings
-INFO:AnalysisURLs   :
-INFO:AnalysisURLs   :----------------------------------
-INFO:AnalysisURLs   :TESTS ANALYSIS URLs
-INFO:AnalysisURLs   :----------------------------------
-INFO:AnalysisURLs   : - [OK] URL chart_y_datos
-INFO:AnalysisURLs   : - [OK] URL login
-INFO:AnalysisURLs   : - [OK] URL logout
-INFO:AnalysisURLs   : - [OK] URL mapa_stocks
-INFO:AnalysisURLs   : - [OK] URL signup
-INFO:DashBoardURLs  :
-INFO:DashBoardURLs  :----------------------------------
-INFO:DashBoardURLs  :TESTS DASHBOARD URLS
-INFO:DashBoardURLs  :----------------------------------
-INFO:DashBoardURLs  : - [OK] URL de 'dashboard'
-INFO:DashBoardURLs  : - [OK] URL de 'eliminar_compras'
-INFO:DashBoardURLs  : - [OK] URL de 'eliminar_seguimiento'
-INFO:DashBoardURLs  : - [OK] URL de 'nueva_compra'
-INFO:DashBoardURLs  : - [OK] URL de 'nuevo_seguimiento'
-INFO:FATURLs        :
-INFO:FATURLs        :----------------------------------
-INFO:FATURLs        :TESTS FAT URLs
-INFO:FATURLs        :----------------------------------
-INFO:FATURLs        : - [OK] URL admin
-INFO:FATURLs        : - [OK] URL media
-INFO:FATURLs        : - [OK] URL static
+INFO:LabViews       : - [OK] Que post a 'arima_auto' retorne mensaje con nº de sesiones no válida
+INFO:LabViews       : - [OK] Que post a 'arima_auto' retorne mensaje con nº de sesiones no válida
+INFO:LabViews       : - [OK] Que post a 'arima_auto' retorne mensaje con porcentaje_entrenamiento no válido
+INFO:LabViews       : - [OK] Que post a 'arima_auto' retorne mensaje con ticker no válida
+INFO:LabViews       : - [OK] Que POST a 'arima_auto' retorne '302...' sin login
+INFO:LabViews       : - [OK] Que página de arima_auto retorne '200 ok'
+INFO:LabViews       : - [OK] No utilizar otros 'templates' por error
+INFO:LabViews       : - [OK] Asignar 'template' de arima_auto y cargar base.html
+INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con valores d no válidos
+INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con nº de sesiones no válida
+INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con nº de sesiones no válida
+INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con valores p no válidos
+INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con porcentaje_entrenamiento no válido
+INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con valores q no válidos
+INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con ticker no válida
+INFO:LabViews       : - [OK] Que página de arima_rejilla retorne '200 ok'
+INFO:LabViews       : - [OK] No utilizar otros 'templates' por error
+INFO:LabViews       : - [OK] Asignar 'template' de arima_rejilla y cargar base.html
+INFO:LabViews       : - [OK] Que página de lab retorne '200 ok'
+INFO:LabViews       : - [OK] No utilizar otros 'templates' por error
+INFO:LabViews       : - [OK] Asignar 'template' de lab y cargar base.html
 INFO:LabURLs        :
 INFO:LabURLs        :----------------------------------
 INFO:LabURLs        :TESTS LAB URLs
@@ -190,42 +32,3 @@ INFO:LabURLs        : - [OK] URL arima_rejilla
 INFO:LabURLs        : - [OK] URL lab
 INFO:LabURLs        : - [OK] URL lstm
 INFO:LabURLs        : - [OK] URL arima_manual
-INFO:NewsURLs       :
-INFO:NewsURLs       :----------------------------------
-INFO:NewsURLs       :TESTS NEWS URLs
-INFO:NewsURLs       :----------------------------------
-INFO:NewsURLs       : - [OK] URL home
-INFO:RSS            :
-INFO:RSS            :----------------------------------
-INFO:RSS            :TESTS RSS
-INFO:RSS            :----------------------------------
-INFO:RSS            : - [OK] Obtener enlaces RSS de dj30
-INFO:RSS            : - [OK] Obtener enlaces RSS de ftse100
-INFO:RSS            : - [OK] Obtener enlaces RSS de ibex35
-INFO:Tickers        :
-INFO:Tickers        :----------------------------------
-INFO:Tickers        :TESTS TICKERS
-INFO:Tickers        :----------------------------------
-INFO:Tickers        : - [OK] Nombre bd dj30
-INFO:Tickers        : - [OK] Nombre bd ftse100
-INFO:Tickers        : - [OK] Nombre bd ibex35
-INFO:Tickers        : - [OK] Obtener nombre de bd en dj30
-INFO:Tickers        : - [OK] Obtener nombre de bd en ibex35
-INFO:Tickers        : - [OK] Obtener nombre de bd en ftse100
-INFO:Tickers        : - [OK] Obtener None con nombre falso
-INFO:Tickers        : - [OK] Ruta bd dax40
-INFO:Tickers        : - [OK] Ruta bd dj30
-INFO:Tickers        : - [OK] Ruta bd ftse100
-INFO:Tickers        : - [OK] Ruta bd ibex35
-INFO:Tickers        : - [OK] Tickers adaptados dax40
-INFO:Tickers        : - [OK] Obtener tickers disponibles
-INFO:Tickers        : - [OK] Tickers adaptados dj30
-INFO:Tickers        : - [OK] Tickers adaptados ftse100
-INFO:Tickers        : - [OK] Tickers adaptados ibex35
-INFO:Tickers        : - [OK] Tickers adaptados índices
-INFO:Tickers        : - [OK] Tickers dax40
-INFO:Tickers        : - [OK] Obtener tickers disponibles
-INFO:Tickers        : - [OK] Tickers dj30
-INFO:Tickers        : - [OK] Tickers ftse100
-INFO:Tickers        : - [OK] Tickers ibex35
-INFO:Tickers        : - [OK] Tickers índices

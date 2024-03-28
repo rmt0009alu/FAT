@@ -108,7 +108,7 @@ class TestDashBoardViews(TestCase):
         self.fecha1 = tz.now() - timedelta(days=365)
         self.fecha2 = tz.now()
 
-        # Creo unos registros de cambio de onedas para que al consultar los datos
+        # Creo unos registros de cambio de monedas para que al consultar los datos
         # en stock seguimiento/comprado haya info. de los mismos:
         self.eur_usd = CambioMoneda.objects.create(
             ticker_forex = 'EURUSD',
