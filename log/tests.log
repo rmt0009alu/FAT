@@ -137,6 +137,7 @@ INFO:LabViews       : - [OK] Que post a 'arima_auto' retorne mensaje con nº de 
 INFO:LabViews       : - [OK] Que post a 'arima_auto' retorne mensaje con nº de sesiones no válida
 INFO:LabViews       : - [OK] Que post a 'arima_auto' retorne mensaje con porcentaje_entrenamiento no válido
 INFO:LabViews       : - [OK] Que post a 'arima_auto' retorne mensaje con ticker no válida
+INFO:LabViews       : - [OK] Que POST a 'arima_auto' retorne '200 ok' con login
 INFO:LabViews       : - [OK] Que POST a 'arima_auto' retorne '302...' sin login
 INFO:LabViews       : - [OK] Que página de arima_auto retorne '200 ok'
 INFO:LabViews       : - [OK] No utilizar otros 'templates' por error
@@ -148,6 +149,7 @@ INFO:LabViews       : - [OK] Que post a 'arima_manual' retorne mensaje con valor
 INFO:LabViews       : - [OK] Que post a 'arima_manual' retorne mensaje con porcentaje_entrenamiento no válido
 INFO:LabViews       : - [OK] Que post a 'arima_manual' retorne mensaje con valores q no válidos
 INFO:LabViews       : - [OK] Que post a 'arima_manual' retorne mensaje con ticker no válida
+INFO:LabViews       : - [OK] Que POST a 'arima_manual' retorne '200 ok' con login
 INFO:LabViews       : - [OK] Que página de arima_manual retorne '200 ok'
 INFO:LabViews       : - [OK] No utilizar otros 'templates' por error
 INFO:LabViews       : - [OK] Asignar 'template' de arima_manual y cargar base.html
@@ -158,6 +160,7 @@ INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con valo
 INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con porcentaje_entrenamiento no válido
 INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con valores q no válidos
 INFO:LabViews       : - [OK] Que post a 'arima_rejilla' retorne mensaje con ticker no válida
+INFO:LabViews       : - [OK] Que POST a 'arima_rejilla' retorne '200 ok' con login
 INFO:LabViews       : - [OK] Que página de arima_rejilla retorne '200 ok'
 INFO:LabViews       : - [OK] No utilizar otros 'templates' por error
 INFO:LabViews       : - [OK] Asignar 'template' de arima_rejilla y cargar base.html
@@ -176,6 +179,7 @@ INFO:LabViews       : - [OK] Que post a 'lstm' retorne mensaje con nº de sesion
 INFO:LabViews       : - [OK] Que post a 'lstm' retorne mensaje con nº de sesiones no válida
 INFO:LabViews       : - [OK] Que post a 'lstm' retorne mensaje con porcentaje_entrenamiento no válido
 INFO:LabViews       : - [OK] Que post a 'lstm' retorne mensaje con ticker no válida
+INFO:LabViews       : - [OK] Que POST a 'lstm' retorne '200 ok' con login
 INFO:LabViews       : - [OK] Que página de lstm retorne '200 ok'
 INFO:LabViews       : - [OK] No utilizar otros 'templates' por error
 INFO:LabViews       : - [OK] Asignar 'template' de lstm y cargar base.html

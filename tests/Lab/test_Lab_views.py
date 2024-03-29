@@ -173,15 +173,21 @@ class TestLabViews(TestCase):
         response = self.client.post('/lab/arima_auto/', data=self.form_arima_auto_ok)
         self.assertEqual(response.status_code, 302, " - [NO OK] Que POST a 'arima_auto' retorne '302...' sin login")
         self.log.info(" - [OK] Que POST a 'arima_auto' retorne '302...' sin login")
+    
 
-
-    # -------------------------------------------------------------------
-    # def test_views_arima_auto_post_con_login(self):
-    #     self.client.force_login(self.usuarioTest)
-    #     response = self.client.post('/lab/arima_auto/', data=self.form_arima_auto_ok)
-    #     self.assertEqual(response.status_code, 200, " - [NO OK] Que POST a 'arima_auto' retorne '200 ok' con login")
-    #     self.log.info(" - [OK] Que POST a 'arima_auto' retorne '200 ok' con login")
-    # -------------------------------------------------------------------
+    def test_views_arima_auto_post_ok(self):
+        self.client.force_login(self.usuarioTest)
+        form_data = {
+            'ticker_a_buscar': 'IBM',
+            'num_sesiones': '200',
+            'porcentaje_entrenamiento': '70%',
+            'auto': True,
+            'manual': False,
+            'rejilla': False,
+        }
+        response = self.client.post('/lab/arima_auto/', data=form_data)
+        self.assertEqual(response.status_code, 200, " - [NO OK] Que POST a 'arima_auto' retorne '200 ok' con login")
+        self.log.info(" - [OK] Que POST a 'arima_auto' retorne '200 ok' con login")
         
 
     def test_views_arima_auto_post_con_num_sesiones_no_válido_1(self):
@@ -243,13 +249,23 @@ class TestLabViews(TestCase):
         self.assertTemplateNotUsed(response, 'lstm.html', " - [NO OK] No utilizar otros 'templates' por error")
         self.log.info(" - [OK] No utilizar otros 'templates' por error")
     
-    # -------------------------------------------------------------------
-    # def test_views_arima_rejilla_post_con_login(self):
-    #     self.client.force_login(self.usuarioTest)
-    #     response = self.client.post('/lab/arima_rejilla/', data=self.form_arima_rejilla_ok)
-    #     self.assertEqual(response.status_code, 200, " - [NO OK] Que POST a 'arima_rejilla' retorne '200 ok' con login")
-    #     self.log.info(" - [OK] Que POST a 'arima_rejilla' retorne '200 ok' con login")
-    # -------------------------------------------------------------------
+    def test_views_arima_rejilla_post_ok(self):
+        self.client.force_login(self.usuarioTest)
+        form_data = {
+            'ticker_a_buscar': 'IBM',
+            'num_sesiones': '200',
+            'porcentaje_entrenamiento': '70%',
+            'auto': False,
+            'manual': False,
+            'rejilla': True,
+            'valores_p': '[0, 1]',
+            'valores_d': '[1, 2]',
+            'valores_q': '[0, 1]'
+        }
+        response = self.client.post('/lab/arima_rejilla/', data=form_data)
+        self.assertEqual(response.status_code, 200, " - [NO OK] Que POST a 'arima_rejilla' retorne '200 ok' con login")
+        self.log.info(" - [OK] Que POST a 'arima_rejilla' retorne '200 ok' con login")
+
 
     def test_views_arima_rejilla_post_con_num_sesiones_no_válido_1(self):
         self.client.force_login(self.usuarioTest)
@@ -307,7 +323,7 @@ class TestLabViews(TestCase):
         self.assertContains(response, 'no válidos')
         self.log.info(" - [OK] Que post a 'arima_rejilla' retorne mensaje con valores q no válidos")
     
-
+    
     # ------------------
     # TESTS ARIMA MANUAL
     # ------------------
@@ -334,14 +350,25 @@ class TestLabViews(TestCase):
         self.assertTemplateNotUsed(response, 'arima_rejilla.html', " - [NO OK] No utilizar otros 'templates' por error")
         self.assertTemplateNotUsed(response, 'lstm.html', " - [NO OK] No utilizar otros 'templates' por error")
         self.log.info(" - [OK] No utilizar otros 'templates' por error")
-    
-    # -------------------------------------------------------------------
-    # def test_views_arima_manual_post_con_login(self):
-    #     self.client.force_login(self.usuarioTest)
-    #     response = self.client.post('/lab/arima_manual/', data=self.form_arima_manual_ok)
-    #     self.assertEqual(response.status_code, 200, " - [NO OK] Que POST a 'arima_manual' retorne '200 ok' con login")
-    #     self.log.info(" - [OK] Que POST a 'arima_manual' retorne '200 ok' con login")
-    # -------------------------------------------------------------------
+
+
+    def test_views_arima_manual_post_ok(self):
+        self.client.force_login(self.usuarioTest)
+        form_data = {
+            'ticker_a_buscar': 'IBM',
+            'num_sesiones': '200',
+            'porcentaje_entrenamiento': '70%',
+            'auto': False,
+            'manual': True,
+            'rejilla': False,
+            'valor_p': 2,
+            'valor_d': 1,
+            'valor_q': 1
+        }
+        response = self.client.post('/lab/arima_manual/', data=form_data)
+        self.assertEqual(response.status_code, 200, " - [NO OK] Que POST a 'arima_manual' retorne '200 ok' con login")
+        self.log.info(" - [OK] Que POST a 'arima_manual' retorne '200 ok' con login")
+
 
     def test_views_arima_manual_post_con_num_sesiones_no_válido_1(self):
         self.client.force_login(self.usuarioTest)
@@ -428,13 +455,17 @@ class TestLabViews(TestCase):
         self.log.info(" - [OK] No utilizar otros 'templates' por error")
     
 
-    # -------------------------------------------------------------------
-    # def test_views_lstm_post_con_login(self):
-    #     self.client.force_login(self.usuarioTest)
-    #     response = self.client.post('/lab/lstm/', data=self.form_lstm_ok)
-    #     self.assertEqual(response.status_code, 200, " - [NO OK] Que POST a 'lstm' retorne '200 ok' con login")
-    #     self.log.info(" - [OK] Que POST a 'lstm' retorne '200 ok' con login")
-    # -------------------------------------------------------------------
+    def test_views_lstm_post_ok(self):
+        self.client.force_login(self.usuarioTest)
+        form_data = {
+            'ticker_a_buscar': 'IBM',
+            'num_sesiones': '450',
+            'porcentaje_entrenamiento': '70%',
+        }
+        response = self.client.post('/lab/lstm/', data=form_data)
+        self.assertEqual(response.status_code, 200, " - [NO OK] Que POST a 'lstm' retorne '200 ok' con login")
+        self.log.info(" - [OK] Que POST a 'lstm' retorne '200 ok' con login")
+
 
     def test_views_lstm_post_con_num_sesiones_no_válido_1(self):
         self.client.force_login(self.usuarioTest)
