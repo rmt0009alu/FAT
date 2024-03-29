@@ -4,12 +4,14 @@
         {{ resumen }}
       </pre>
     </div>
+
     <div class="image-container" id="forecast_arima">
       <img src="data:image/png;base64,{{ forecast_arima }}" alt="ImagenForecastArima" class="responsive-image">
     </div>
+
     <p>Error cuadrático medio (mse) en datos de test:           {{ mse }}</p>
     <p>Raíz del error cuadrático medio (rmse) en datos de test: {{ rmse }}</p>
     <p>Predicción para la próxima sesión:                       {{ prediccion_prox_sesion }}</p>
     <p>En los datos de test se acierta tendencia:               {{ aciertos_tendencia }} veces</p>
-    <p>En los datos de test se falla tendencia:               {{ fallos_tendencia }} veces</p>
+    <p>En los datos de test se falla tendencia:                 {{ fallos_tendencia }} veces</p>
 </div>

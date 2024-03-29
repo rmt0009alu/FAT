@@ -19,8 +19,8 @@ que tiene la página de portada 'home' -->
 <div class="container">
   <div class="row">
     <div class="col">
-      <button onclick="mostrarOcultos()">ARIMA</button>
-      <div id="ocultos" class="ocultos">
+      <button onclick="mostrarOcultosARIMA()">ARIMA</button>
+      <div id="ocultos-arima" class="ocultos-arima">
         <br>
         <div>
           <a href="/lab/arima_manual">
@@ -28,7 +28,7 @@ que tiene la página de portada 'home' -->
           </a>
           <div class="ayuda"> 
             <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="25" height="25">
-            <span class="mensaje-ayuda">Si conoces los parámetros (p, d, q) que quieres utilizar, porque ajustan un modelo para un stock que conoces bien, este es tu sitio.</span>
+            <span class="mensaje-ayuda">Para ver una estimación de la próxima sesión. Si conoces los parámetros (p, d, q) que quieres utilizar, porque ajustan un modelo para un stock que conoces bien, este es tu sitio.</span>
           </div>
         </div>
         <br>
@@ -38,7 +38,7 @@ que tiene la página de portada 'home' -->
           </a>
           <div class="ayuda"> 
             <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="25" height="25">
-            <span class="mensaje-ayuda">Los parámetros (p,d,q) se estimarán con 'auto_arima' de 'pmdarima.arima'. Los resultados pueden ser malos, pero es muy rápido. </span>
+            <span class="mensaje-ayuda">Para ver una estimación de la próxima sesión. Los parámetros (p,d,q) se estimarán con 'auto_arima' de 'pmdarima.arima'. Los resultados pueden ser malos, pero es muy rápido. </span>
           </div>
         </div>
         <br>
@@ -48,15 +48,49 @@ que tiene la página de portada 'home' -->
           </a>
           <div class="ayuda"> 
             <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="25" height="25">
-            <span class="mensaje-ayuda">Tendrás que definir una rejilla de búsqueda para los parámetros (p, d, q) en la siguiente ventana. Este proceso de búsqueda por rejilla es lento, pero puede merecer la pena. Para eso experimentamos ¿verdad?</span>
+            <span class="mensaje-ayuda">Para ver una estimación de la próxima sesión. Tendrás que definir una rejilla de búsqueda para los parámetros (p, d, q) en la siguiente ventana. Este proceso de búsqueda por rejilla es lento, pero puede merecer la pena. Para eso experimentamos ¿verdad?</span>
           </div>
         </div>
         <br>
       </div>
-    
     </div>
+
+    <!-- Botones para opciones de redes LSTM -->
     <div class="col">
-      <a href="/lab/lstm"><button>LSTM</button></a>
+      <button onclick="mostrarOcultosLSTM()">LSTM</button>
+      <div id="ocultos-lstm" class="ocultos-lstm">
+        <br>
+        <div>
+          <a href="/lab/lstm">
+            <button class="boton-modelo">LSTM con una capa oculta de 5 neuronas y salida densa</button>
+          </a>
+          <div class="ayuda"> 
+            <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="25" height="25">
+            <span class="mensaje-ayuda">Para crear, compilar y entrenar una red LSTM que permita estimar el valor de cierre de la próxima sesión. Aquí hay una red con una capa oculta de 5 neuronas y una capa de salida completamente conectada.</span>
+          </div>
+        </div>
+        <!-- <br>
+        <div>
+          <a href="/lab/lstm">
+            <button class="boton-modelo">LSTM 2</button>
+          </a>
+          <div class="ayuda"> 
+            <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="25" height="25">
+            <span class="mensaje-ayuda">Para hacer algo con LSTM</span>
+          </div>
+        </div>
+        <br>
+        <div>
+          <a href="/lab/lstm">
+            <button class="boton-modelo">LSTM 3</button>
+          </a>
+          <div class="ayuda"> 
+            <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="25" height="25">
+            <span class="mensaje-ayuda">Para hacer algo con LSTM</span>
+          </div>
+        </div>
+        <br> -->
+      </div>
     </div>
   </div>
   <!-- <div class="row">
@@ -71,9 +105,13 @@ que tiene la página de portada 'home' -->
 </div>
 
 <script>
-function mostrarOcultos() {
-  const ocultos = document.getElementById("ocultos");
-  ocultos.classList.toggle('ocultos'); // Toggle the hidden class
+function mostrarOcultosARIMA() {
+  const ocultos = document.getElementById("ocultos-arima");
+  ocultos.classList.toggle('ocultos-arima');
+}
+function mostrarOcultosLSTM() {
+  const ocultos = document.getElementById("ocultos-lstm");
+  ocultos.classList.toggle('ocultos-lstm');
 }
 </script>
 

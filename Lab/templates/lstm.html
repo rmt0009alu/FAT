@@ -7,12 +7,12 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/estilos_lab.css' %}">
 
 <br>
-<P class="cabecera">ARIMA(p, d, q)</P>
+<P class="cabecera">LSTM</P>
 
 <div class="col-md-6 offset-md-3 mt-5">
-  <div id="arima_auto">
+  <div id="lstm">
 
-    <form method="POST" action="{% url 'arima_auto' %}" class="card card-body">
+    <form method="POST" action="{% url 'lstm' %}" class="card card-body">
       <p style="color: red;">{{ msg_error }}</p>
 
       {% csrf_token %}
@@ -37,19 +37,13 @@
         {{ form.porcentaje_entrenamiento }}
         <br>
       </div>
-
-      <!-- Los valores que indican el tipo de pbtención de parámetros
-      (p,d,q) están ocultos en HTML y definidos en los formularios -->
-      <input type="hidden" name="auto" value={{ form.auto.value }}>
-      <input type="hidden" name="manual" value={{ form.manual.value }}>
-      <input type="hidden" name="rejilla" value={{ form.rejilla.value }}>
       
       <button type="submit" class="btn btn-dark" style="width: 50%; text-align: center; margin: auto;">Estimar</button><br>
     </form>
     <br>
 
-    {% if forecast_arima %}
-      {% include 'includes/_resumen_y_graficas_arima.html' %}
+    {% if forecast_lstm %}
+      {% include 'includes/_resumen_y_graficas_lstm.html' %}
     {% endif %}
 
   </div>
