@@ -305,6 +305,11 @@ def _preprocesar_p_d_q(ticker, form, request):
             for d in valores_d:
                 for q in valores_q:
                     order = (p,d,q)
+                    # En 'statsmodels', ARIMA utiliza internamente procedimientos de 
+                    # optimización numérica para encontrar un conjunto de coeficientes 
+                    # para el modelo. Estos procedimiento pueden fallar y lanzar una 
+                    # excepción que se debe controlar. En este caso, hago que se continúe 
+                    # con la evaluación
                     try:
                         # Se podría usar AIC, BIC o HQIC, pero MSE/RMSE es más fiable
                         mse = _evaluar_modelo_arima_mse(datos_entrenamiento, datos_test, order)
@@ -461,6 +466,7 @@ def _validacion_walk_forward_arima(tam_entrenamiento, datos, order):
             con los datos de test.
         predicciones (lista): lista con predicciones realizadas. 
     """
+    modelo_fit = None
     predicciones = []
     aciertos_tendencia = []
 
