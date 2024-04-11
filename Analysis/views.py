@@ -279,7 +279,7 @@ def chart_y_datos(request, ticker, nombre_bd):
             HTTP encapsulada por Django.
         ticker (str): nombre adaptado del ticker recogido de la URL.
         nombre_bd (str): nombre de la BD recogido de la URL.
-
+        
     Returns:
         (render): renderiza la plantilla 'chart_y_datos.html' con datos 
             de contexto.
