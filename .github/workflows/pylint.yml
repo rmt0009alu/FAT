@@ -22,20 +22,20 @@ jobs:
 
     - name: Analizar la app 'Analysis'
       run: |
-        pylint --max-line-length=250 /Analysis
+        pylint --max-line-length=250 /FAT/Analysis
 
     - name: Analizar la app 'DashBoard'
       run: |
-        pylint --max-line-length=250 /DashBoard
+        pylint --max-line-length=250 /FAT/DashBoard
 
     - name: Analizar 'FAT'
       run: |
-        pylint --max-line-length=250 /FAT     
+        pylint --max-line-length=250 /FAT/FAT     
     
     - name: Analizar la app 'News'
       run: |
-        pylint --max-line-length=250 /News
+        pylint --max-line-length=250 /FAT/News
     
     - name: Analizar la app 'Lab'
       run: |
-        pylint --max-line-length=250 /Lab
+        pylint --max-line-length=250 /FAT/Lab
