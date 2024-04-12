@@ -14,12 +14,12 @@ Make smarter financial decisions with our powerful Financial Analysis Tool (FAT)
 
 ### Get Started
 
-Ready to take control of your finances? [Visit FAT now](http://takeiteasy.pythonanywhere.com/).
-
+ - Ready to take control of your finances? [Visit FAT now](http://takeiteasy.pythonanywhere.com/).
 
 ### Documentation
 
-Do you want to know more about the sources? [Read The Docs](https://fat.readthedocs.io/es/latest/).
+ - Do you want to know more about the sources? [Read The Docs](https://fat.readthedocs.io/es/latest/).
+
 ---
 
-**Note**: To access the full functionality of FAT, please visit the live website linked above.
+**Note**: To access the full functionality of FAT, use the source of this repository.
