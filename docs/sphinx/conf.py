@@ -31,10 +31,10 @@ extensions = [
     'sphinx.ext.autodoc.typehints',
     # Para autodocumentar, pero no me convence
     # 'sphinx.ext.autosummary',
-    'sphinx.ext.doctest',
-    'sphinx.ext.todo',
-    'sphinx.ext.coverage',
-    'sphinx.ext.imgmath',
+    # 'sphinx.ext.doctest',
+    # 'sphinx.ext.todo',
+    # 'sphinx.ext.coverage',
+    # 'sphinx.ext.imgmath',
     'sphinxcontrib_django',
 ]
 
@@ -49,7 +49,7 @@ autodoc_typehints = 'description'
 autodoc_class_signature = 'separated'
 
 # Extensión de coverage de Sphinx
-coverage_ignore_functions = ['runserver', 'runtest', 'test']
+# coverage_ignore_functions = ['runserver', 'runtest', 'test']
 
 
 # -- Configurar el tema de Read The Docs ------------------------------------------
@@ -61,7 +61,7 @@ html_static_path = ['_static']
 # Configurar opciones del tema
 html_theme_options = {
     'canonical_url': '',
-    'analytics_id': '',
+    # 'analytics_id': '',
     'logo_only': False,
     'display_version': True,
     'prev_next_buttons_location': 'bottom',

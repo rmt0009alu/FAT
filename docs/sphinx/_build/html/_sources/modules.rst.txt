@@ -1,23 +1,27 @@
 Analysis
 ========
 
-.. automodule:: Analysis.apps
-   :members:
-   :private-members:
-   :undoc-members:
-   :show-inheritance:
+.. .. automodule:: Analysis.apps
+..    :members:
+..    :private-members:
+..    :undoc-members:
+..    :show-inheritance:
 
-.. automodule:: Analysis.models
-   :members:
-   :private-members:
-   :undoc-members:
-   :show-inheritance:
+.. .. automodule:: Analysis.models
+..    :members:
+..    :private-members:
+..    :undoc-members:
+..    :show-inheritance:
 
 .. automodule:: Analysis.urls
    :members:
    :private-members:
    :undoc-members:
    :show-inheritance:
+
+
+Analysis.views
+==============
 
 .. automodule:: Analysis.views
    :members:
