@@ -35,7 +35,7 @@ extensions = [
     # 'sphinx.ext.todo',
     # 'sphinx.ext.coverage',
     # 'sphinx.ext.imgmath',
-    'sphinxcontrib_django',
+    # 'sphinxcontrib_django',
 ]
 
 # Para que los métodos aparezcan en el orden del source

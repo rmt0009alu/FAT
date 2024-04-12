@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analysis &mdash; documentación de FAT: Financial Analysis Tool - v3.0.0</title>
+  <title>Analysis.views &mdash; documentación de FAT: Financial Analysis Tool - v3.0.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -44,8 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-Analysis.views">Analysis.views</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analysis.views</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Analysis.views.signup"><code class="docutils literal notranslate"><span class="pre">signup()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Analysis.views.signout"><code class="docutils literal notranslate"><span class="pre">signout()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Analysis.views.signin"><code class="docutils literal notranslate"><span class="pre">signin()</span></code></a></li>
@@ -70,12 +69,30 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm.Meta"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm.Meta</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm.Meta.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm.Meta.fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm.Meta.labels"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm.Meta.labels</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm.Meta.widgets"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm.Meta.widgets</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm._meta"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm._meta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm.base_fields"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm.base_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm.declared_fields</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockCompradoForm.media"><code class="docutils literal notranslate"><span class="pre">StockCompradoForm.media</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm.Meta"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm.Meta</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm.Meta.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm.Meta.fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm.Meta.labels"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm.Meta.labels</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm.Meta.widgets"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm.Meta.widgets</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm._meta"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm._meta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm.base_fields"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm.base_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm.declared_fields</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.forms.StockSeguimientoForm.media"><code class="docutils literal notranslate"><span class="pre">StockSeguimientoForm.media</span></code></a></li>
 </ul>
 </li>
@@ -150,18 +167,26 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.forms.ArimaAutoForm"><code class="docutils literal notranslate"><span class="pre">ArimaAutoForm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaAutoForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ArimaAutoForm.base_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaAutoForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ArimaAutoForm.declared_fields</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaAutoForm.media"><code class="docutils literal notranslate"><span class="pre">ArimaAutoForm.media</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.forms.ArimaRejillaForm"><code class="docutils literal notranslate"><span class="pre">ArimaRejillaForm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaRejillaForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ArimaRejillaForm.base_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaRejillaForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ArimaRejillaForm.declared_fields</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaRejillaForm.media"><code class="docutils literal notranslate"><span class="pre">ArimaRejillaForm.media</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.forms.ArimaManualForm"><code class="docutils literal notranslate"><span class="pre">ArimaManualForm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaManualForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ArimaManualForm.base_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaManualForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ArimaManualForm.declared_fields</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaManualForm.media"><code class="docutils literal notranslate"><span class="pre">ArimaManualForm.media</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.forms.LstmForm"><code class="docutils literal notranslate"><span class="pre">LstmForm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.LstmForm.base_fields"><code class="docutils literal notranslate"><span class="pre">LstmForm.base_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.LstmForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">LstmForm.declared_fields</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Lab.forms.LstmForm.media"><code class="docutils literal notranslate"><span class="pre">LstmForm.media</span></code></a></li>
 </ul>
 </li>
@@ -210,7 +235,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Analysis</li>
+      <li class="breadcrumb-item active">Analysis.views</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -220,11 +245,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="analysis">
-<h1>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">¶</a></h1>
-<p id="module-Analysis.urls">URLs para usar con Analysis.</p>
-</section>
-<section id="module-Analysis.views">
+  <section id="module-Analysis.views">
 <span id="analysis-views"></span><h1>Analysis.views<a class="headerlink" href="#module-Analysis.views" title="Link to this heading">¶</a></h1>
 <p>Métodos de vistas para usar con Analysis.</p>
 <dl class="py function">
@@ -507,7 +528,7 @@ df_ticker_comparar (pandas.core.frame.DataFrame): DataFrame con los datos del ti
 <dl class="py class">
 <dt class="sig sig-object py" id="DashBoard.apps.DashboardConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DashBoard.apps.</span></span><span class="sig-name descname"><span class="pre">DashboardConfig</span></span><a class="headerlink" href="#DashBoard.apps.DashboardConfig" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/applications/#django.apps.AppConfig" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
 <p>Configuración de la app de DashBoard.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -532,7 +553,7 @@ df_ticker_comparar (pandas.core.frame.DataFrame): DataFrame con los datos del ti
 <dl class="py class">
 <dt class="sig sig-object py" id="DashBoard.forms.StockCompradoForm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DashBoard.forms.</span></span><span class="sig-name descname"><span class="pre">StockCompradoForm</span></span><a class="headerlink" href="#DashBoard.forms.StockCompradoForm" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/forms/modelforms/#django.forms.ModelForm" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
 <p>Clase que hace uso del ModelForm para crear
 un formulario para los stocks comprados siguiendo
 el modelo definido en “models”.</p>
@@ -540,14 +561,48 @@ el modelo definido en “models”.</p>
 <dt>Args:</dt><dd><p>ModelForm (django.forms): modelo de formulario de Django.</p>
 </dd>
 </dl>
-<p><strong>Form fields:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">num_acciones</span></code>: Num Acciones (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.IntegerField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">precio_compra</span></code>: Precio Compra (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.DecimalField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecimalField</span></code></a>)</p></li>
-</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="DashBoard.forms.StockCompradoForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#DashBoard.forms.StockCompradoForm.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Para especificar opciones estándar sobre cómo se portará
+el modelo del formulario.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockCompradoForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#DashBoard.forms.StockCompradoForm.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#DashBoard.models.StockComprado" title="DashBoard.models.StockComprado"><code class="xref py py-class docutils literal notranslate"><span class="pre">StockComprado</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockCompradoForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['num_acciones',</span> <span class="pre">'precio_compra']</span></em><a class="headerlink" href="#DashBoard.forms.StockCompradoForm.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockCompradoForm.Meta.labels">
+<span class="sig-name descname"><span class="pre">labels</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'num_acciones':</span> <span class="pre">'',</span> <span class="pre">'precio_compra':</span> <span class="pre">''}</span></em><a class="headerlink" href="#DashBoard.forms.StockCompradoForm.Meta.labels" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockCompradoForm.Meta.widgets">
+<span class="sig-name descname"><span class="pre">widgets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'num_acciones':</span> <span class="pre">&lt;django.forms.widgets.TextInput</span> <span class="pre">object&gt;,</span> <span class="pre">'precio_compra':</span> <span class="pre">&lt;django.forms.widgets.TextInput</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#DashBoard.forms.StockCompradoForm.Meta.widgets" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.forms.StockCompradoForm._meta">
 <span class="sig-name descname"><span class="pre">_meta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.forms.models.ModelFormOptions</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#DashBoard.forms.StockCompradoForm._meta" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockCompradoForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'num_acciones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'precio_compra':</span> <span class="pre">&lt;django.forms.fields.DecimalField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#DashBoard.forms.StockCompradoForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockCompradoForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#DashBoard.forms.StockCompradoForm.declared_fields" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -561,7 +616,7 @@ el modelo definido en “models”.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="DashBoard.forms.StockSeguimientoForm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DashBoard.forms.</span></span><span class="sig-name descname"><span class="pre">StockSeguimientoForm</span></span><a class="headerlink" href="#DashBoard.forms.StockSeguimientoForm" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/topics/forms/modelforms/#django.forms.ModelForm" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
 <p>Clase que hace uso del ModelForm para crear
 un formulario para los stocks en seguimiento.
 Hago uso del modelo definido en “models”.</p>
@@ -569,13 +624,48 @@ Hago uso del modelo definido en “models”.</p>
 <dt>Args:</dt><dd><p>ModelForm (django.forms): modelo de formulario de Django.</p>
 </dd>
 </dl>
-<p><strong>Form fields:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">precio_entrada_deseado</span></code>: Precio Entrada Deseado (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.DecimalField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecimalField</span></code></a>)</p></li>
-</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="DashBoard.forms.StockSeguimientoForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#DashBoard.forms.StockSeguimientoForm.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Para especificar opciones estándar sobre cómo se portará
+el modelo del formulario.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockSeguimientoForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#DashBoard.forms.StockSeguimientoForm.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#DashBoard.models.StockSeguimiento" title="DashBoard.models.StockSeguimiento"><code class="xref py py-class docutils literal notranslate"><span class="pre">StockSeguimiento</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockSeguimientoForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['precio_entrada_deseado']</span></em><a class="headerlink" href="#DashBoard.forms.StockSeguimientoForm.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockSeguimientoForm.Meta.labels">
+<span class="sig-name descname"><span class="pre">labels</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'precio_entrada_deseado':</span> <span class="pre">''}</span></em><a class="headerlink" href="#DashBoard.forms.StockSeguimientoForm.Meta.labels" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockSeguimientoForm.Meta.widgets">
+<span class="sig-name descname"><span class="pre">widgets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'precio_entrada_deseado':</span> <span class="pre">&lt;django.forms.widgets.TextInput</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#DashBoard.forms.StockSeguimientoForm.Meta.widgets" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.forms.StockSeguimientoForm._meta">
 <span class="sig-name descname"><span class="pre">_meta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.forms.models.ModelFormOptions</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#DashBoard.forms.StockSeguimientoForm._meta" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockSeguimientoForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'precio_entrada_deseado':</span> <span class="pre">&lt;django.forms.fields.DecimalField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#DashBoard.forms.StockSeguimientoForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.forms.StockSeguimientoForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#DashBoard.forms.StockSeguimientoForm.declared_fields" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -590,107 +680,91 @@ Hago uso del modelo definido en “models”.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DashBoard.models.</span></span><span class="sig-name descname"><span class="pre">StockComprado</span></span><a class="headerlink" href="#DashBoard.models.StockComprado" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/instances/#django.db.models.Model" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
 <p>Modelo para los stocks comprados por el usuario.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>models (django.db.models.Model): modelo de Django.</p>
 </dd>
 </dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(en Django versión 5.0)"><em>BigAutoField</em></a>) – Primary key: ID</p></li>
-<li><p><strong>ticker_bd</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Ticker bd</p></li>
-<li><p><strong>bd</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Bd</p></li>
-<li><p><strong>ticker</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Ticker</p></li>
-<li><p><strong>nombre_stock</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Nombre stock</p></li>
-<li><p><strong>fecha_compra</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DateTimeField" title="(en Django versión 5.0)"><em>DateTimeField</em></a>) – Fecha compra</p></li>
-<li><p><strong>num_acciones</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.PositiveIntegerField" title="(en Django versión 5.0)"><em>PositiveIntegerField</em></a>) – Num acciones</p></li>
-<li><p><strong>precio_compra</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DecimalField" title="(en Django versión 5.0)"><em>DecimalField</em></a>) – Precio compra</p></li>
-<li><p><strong>moneda</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Moneda</p></li>
-<li><p><strong>sector</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Sector</p></li>
-</ul>
-</dd>
-</dl>
-<p>Relationship fields:</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>usuario</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> to <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/auth/#django.contrib.auth.models.User" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>) – Usuario (related name: <code class="xref py py-attr docutils literal notranslate"><span class="pre">stockcomprado</span></code>)</p>
-</dd>
-</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.usuario">
 <span class="sig-name descname"><span class="pre">usuario</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.usuario" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> to <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/auth/#django.contrib.auth.models.User" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
-<p>Usuario (related name: <code class="xref py py-attr docutils literal notranslate"><span class="pre">stockcomprado</span></code>)</p>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.ticker_bd">
 <span class="sig-name descname"><span class="pre">ticker_bd</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.ticker_bd" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Ticker bd</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.bd">
 <span class="sig-name descname"><span class="pre">bd</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.bd" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Bd</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.ticker">
 <span class="sig-name descname"><span class="pre">ticker</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.ticker" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Ticker</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.nombre_stock">
 <span class="sig-name descname"><span class="pre">nombre_stock</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.nombre_stock" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Nombre stock</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.fecha_compra">
 <span class="sig-name descname"><span class="pre">fecha_compra</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.fecha_compra" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DateTimeField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DateTimeField</span></code></a></p>
-<p>Fecha compra</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.num_acciones">
 <span class="sig-name descname"><span class="pre">num_acciones</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.num_acciones" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.PositiveIntegerField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PositiveIntegerField</span></code></a></p>
-<p>Num acciones</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.precio_compra">
 <span class="sig-name descname"><span class="pre">precio_compra</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.precio_compra" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DecimalField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecimalField</span></code></a></p>
-<p>Precio compra</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.moneda">
 <span class="sig-name descname"><span class="pre">moneda</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.moneda" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Moneda</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.sector">
 <span class="sig-name descname"><span class="pre">sector</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.sector" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Sector</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.objects">
-<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#DashBoard.models.StockComprado.objects" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#DashBoard.models.StockComprado.objects" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -707,13 +781,13 @@ acceso a la información.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.DoesNotExist">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.DoesNotExist" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/exceptions/#django.core.exceptions.ObjectDoesNotExist" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.MultipleObjectsReturned">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/exceptions/#django.core.exceptions.MultipleObjectsReturned" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -723,139 +797,121 @@ acceso a la información.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.get_next_by_fecha_compra">
-<span class="sig-name descname"><span class="pre">get_next_by_fecha_compra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.DateTimeField:</span> <span class="pre">fecha_compra&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockComprado.get_next_by_fecha_compra" title="Link to this definition">¶</a></dt>
-<dd><p>Finds next instance based on <a class="reference internal" href="#DashBoard.models.StockComprado.fecha_compra" title="DashBoard.models.StockComprado.fecha_compra"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fecha_compra</span></code></a>. See <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/instances/#django.db.models.Model.get_next_by_FOO" title="(en Django versión 5.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_next_by_FOO()</span></code></a> for more information.</p>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">get_next_by_fecha_compra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">fecha_compra&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockComprado.get_next_by_fecha_compra" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.get_previous_by_fecha_compra">
-<span class="sig-name descname"><span class="pre">get_previous_by_fecha_compra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.DateTimeField:</span> <span class="pre">fecha_compra&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockComprado.get_previous_by_fecha_compra" title="Link to this definition">¶</a></dt>
-<dd><p>Finds previous instance based on <a class="reference internal" href="#DashBoard.models.StockComprado.fecha_compra" title="DashBoard.models.StockComprado.fecha_compra"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fecha_compra</span></code></a>. See <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/instances/#django.db.models.Model.get_previous_by_FOO" title="(en Django versión 5.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_previous_by_FOO()</span></code></a> for more information.</p>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">get_previous_by_fecha_compra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">fecha_compra&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockComprado.get_previous_by_fecha_compra" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.id">
 <span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.id" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BigAutoField</span></code></a></p>
-<p>Primary key: ID</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.usuario_id">
 <span class="sig-name descname"><span class="pre">usuario_id</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.usuario_id" title="Link to this definition">¶</a></dt>
-<dd><p>Internal field, use <a class="reference internal" href="#DashBoard.models.StockComprado.usuario" title="DashBoard.models.StockComprado.usuario"><code class="xref py py-class docutils literal notranslate"><span class="pre">usuario</span></code></a> instead.</p>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DashBoard.models.</span></span><span class="sig-name descname"><span class="pre">StockSeguimiento</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/instances/#django.db.models.Model" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
 <p>Modelo para los stocks seguidos por el usuario.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>models (django.db.models.Model): modelo de Django.</p>
 </dd>
 </dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(en Django versión 5.0)"><em>BigAutoField</em></a>) – Primary key: ID</p></li>
-<li><p><strong>ticker_bd</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Ticker bd</p></li>
-<li><p><strong>bd</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Bd</p></li>
-<li><p><strong>ticker</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Ticker</p></li>
-<li><p><strong>nombre_stock</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Nombre stock</p></li>
-<li><p><strong>fecha_inicio_seguimiento</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DateTimeField" title="(en Django versión 5.0)"><em>DateTimeField</em></a>) – Fecha inicio seguimiento</p></li>
-<li><p><strong>precio_entrada_deseado</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DecimalField" title="(en Django versión 5.0)"><em>DecimalField</em></a>) – Precio entrada deseado</p></li>
-<li><p><strong>moneda</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Moneda</p></li>
-<li><p><strong>sector</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><em>CharField</em></a>) – Sector</p></li>
-</ul>
-</dd>
-</dl>
-<p>Relationship fields:</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>usuario</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> to <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/auth/#django.contrib.auth.models.User" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>) – Usuario (related name: <code class="xref py py-attr docutils literal notranslate"><span class="pre">stockseguimiento</span></code>)</p>
-</dd>
-</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.usuario">
 <span class="sig-name descname"><span class="pre">usuario</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.usuario" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> to <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/auth/#django.contrib.auth.models.User" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
-<p>Usuario (related name: <code class="xref py py-attr docutils literal notranslate"><span class="pre">stockseguimiento</span></code>)</p>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.ticker_bd">
 <span class="sig-name descname"><span class="pre">ticker_bd</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.ticker_bd" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Ticker bd</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.bd">
 <span class="sig-name descname"><span class="pre">bd</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.bd" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Bd</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.ticker">
 <span class="sig-name descname"><span class="pre">ticker</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.ticker" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Ticker</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.nombre_stock">
 <span class="sig-name descname"><span class="pre">nombre_stock</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.nombre_stock" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Nombre stock</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.fecha_inicio_seguimiento">
 <span class="sig-name descname"><span class="pre">fecha_inicio_seguimiento</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.fecha_inicio_seguimiento" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DateTimeField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DateTimeField</span></code></a></p>
-<p>Fecha inicio seguimiento</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.precio_entrada_deseado">
 <span class="sig-name descname"><span class="pre">precio_entrada_deseado</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.precio_entrada_deseado" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.DecimalField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecimalField</span></code></a></p>
-<p>Precio entrada deseado</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.moneda">
 <span class="sig-name descname"><span class="pre">moneda</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.moneda" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Moneda</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.sector">
 <span class="sig-name descname"><span class="pre">sector</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.sector" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
-<p>Sector</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.objects">
-<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#DashBoard.models.StockSeguimiento.objects" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#DashBoard.models.StockSeguimiento.objects" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.DoesNotExist">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.DoesNotExist" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/exceptions/#django.core.exceptions.ObjectDoesNotExist" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.MultipleObjectsReturned">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/exceptions/#django.core.exceptions.MultipleObjectsReturned" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -865,28 +921,25 @@ acceso a la información.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.get_next_by_fecha_inicio_seguimiento">
-<span class="sig-name descname"><span class="pre">get_next_by_fecha_inicio_seguimiento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.DateTimeField:</span> <span class="pre">fecha_inicio_seguimiento&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.get_next_by_fecha_inicio_seguimiento" title="Link to this definition">¶</a></dt>
-<dd><p>Finds next instance based on <a class="reference internal" href="#DashBoard.models.StockSeguimiento.fecha_inicio_seguimiento" title="DashBoard.models.StockSeguimiento.fecha_inicio_seguimiento"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fecha_inicio_seguimiento</span></code></a>. See <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/instances/#django.db.models.Model.get_next_by_FOO" title="(en Django versión 5.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_next_by_FOO()</span></code></a> for more information.</p>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">get_next_by_fecha_inicio_seguimiento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">fecha_inicio_seguimiento&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.get_next_by_fecha_inicio_seguimiento" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.get_previous_by_fecha_inicio_seguimiento">
-<span class="sig-name descname"><span class="pre">get_previous_by_fecha_inicio_seguimiento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.DateTimeField:</span> <span class="pre">fecha_inicio_seguimiento&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.get_previous_by_fecha_inicio_seguimiento" title="Link to this definition">¶</a></dt>
-<dd><p>Finds previous instance based on <a class="reference internal" href="#DashBoard.models.StockSeguimiento.fecha_inicio_seguimiento" title="DashBoard.models.StockSeguimiento.fecha_inicio_seguimiento"><code class="xref py py-attr docutils literal notranslate"><span class="pre">fecha_inicio_seguimiento</span></code></a>. See <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/instances/#django.db.models.Model.get_previous_by_FOO" title="(en Django versión 5.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_previous_by_FOO()</span></code></a> for more information.</p>
-</dd></dl>
+<span class="sig-name descname"><span class="pre">get_previous_by_fecha_inicio_seguimiento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">fecha_inicio_seguimiento&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.get_previous_by_fecha_inicio_seguimiento" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.id">
 <span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.id" title="Link to this definition">¶</a></dt>
-<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BigAutoField</span></code></a></p>
-<p>Primary key: ID</p>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="DashBoard.models.StockSeguimiento.usuario_id">
 <span class="sig-name descname"><span class="pre">usuario_id</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento.usuario_id" title="Link to this definition">¶</a></dt>
-<dd><p>Internal field, use <a class="reference internal" href="#DashBoard.models.StockSeguimiento.usuario" title="DashBoard.models.StockSeguimiento.usuario"><code class="xref py py-class docutils literal notranslate"><span class="pre">usuario</span></code></a> instead.</p>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -1071,7 +1124,7 @@ Function views</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="FAT.routers.router_bases_datos.RouterBDs">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">FAT.routers.router_bases_datos.</span></span><span class="sig-name descname"><span class="pre">RouterBDs</span></span><a class="headerlink" href="#FAT.routers.router_bases_datos.RouterBDs" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(en Python versión 3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Clase para routear hacia las BDs adecuadas
 cuando se hace “makemigrations” y “migrate”.
 Recordar que “migrate” migra las BDs de una en una
@@ -1145,7 +1198,7 @@ el caso.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="Lab.apps.LabConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Lab.apps.</span></span><span class="sig-name descname"><span class="pre">LabConfig</span></span><a class="headerlink" href="#Lab.apps.LabConfig" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/applications/#django.apps.AppConfig" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
 <p>Configuración de la app de Lab.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">
@@ -1170,7 +1223,7 @@ el caso.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="Lab.forms.ArimaAutoForm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Lab.forms.</span></span><span class="sig-name descname"><span class="pre">ArimaAutoForm</span></span><a class="headerlink" href="#Lab.forms.ArimaAutoForm" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/api/#django.forms.Form" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
 se obtienen de forma automática con “arima_auto” de “pmdarima”.</p>
@@ -1178,14 +1231,16 @@ se obtienen de forma automática con “arima_auto” de “pmdarima”.</p>
 <dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
 </dd>
 </dl>
-<p><strong>Form fields:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">num_sesiones</span></code>: Num Sesiones (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.IntegerField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">porcentaje_entrenamiento</span></code>: Porcentaje Entrenamiento (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.ChoiceField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChoiceField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">auto</span></code>: Auto (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">manual</span></code>: Manual (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rejilla</span></code>: Rejilla (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
-</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.ArimaAutoForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'auto':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'manual':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'rejilla':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.ArimaAutoForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.ArimaAutoForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'auto':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'manual':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'rejilla':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.ArimaAutoForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="Lab.forms.ArimaAutoForm.media">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#Lab.forms.ArimaAutoForm.media" title="Link to this definition">¶</a></dt>
@@ -1197,7 +1252,7 @@ se obtienen de forma automática con “arima_auto” de “pmdarima”.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="Lab.forms.ArimaRejillaForm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Lab.forms.</span></span><span class="sig-name descname"><span class="pre">ArimaRejillaForm</span></span><a class="headerlink" href="#Lab.forms.ArimaRejillaForm" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/api/#django.forms.Form" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
 se obtienen mediante búsqueda por rejilla.</p>
@@ -1205,17 +1260,16 @@ se obtienen mediante búsqueda por rejilla.</p>
 <dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
 </dd>
 </dl>
-<p><strong>Form fields:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">num_sesiones</span></code>: Num Sesiones (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.IntegerField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">porcentaje_entrenamiento</span></code>: Porcentaje Entrenamiento (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.ChoiceField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChoiceField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">valores_p</span></code>: Valores P (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.ChoiceField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChoiceField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">valores_d</span></code>: Valores D (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.ChoiceField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChoiceField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">valores_q</span></code>: Valores Q (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.ChoiceField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChoiceField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">auto</span></code>: Auto (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">manual</span></code>: Manual (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rejilla</span></code>: Rejilla (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
-</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.ArimaRejillaForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'auto':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'manual':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'rejilla':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'valores_d':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'valores_p':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'valores_q':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.ArimaRejillaForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.ArimaRejillaForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'auto':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'manual':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'rejilla':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'valores_d':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'valores_p':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'valores_q':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.ArimaRejillaForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="Lab.forms.ArimaRejillaForm.media">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#Lab.forms.ArimaRejillaForm.media" title="Link to this definition">¶</a></dt>
@@ -1227,7 +1281,7 @@ se obtienen mediante búsqueda por rejilla.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="Lab.forms.ArimaManualForm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Lab.forms.</span></span><span class="sig-name descname"><span class="pre">ArimaManualForm</span></span><a class="headerlink" href="#Lab.forms.ArimaManualForm" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/api/#django.forms.Form" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
 son previamente conocidos por el usuario.</p>
@@ -1235,17 +1289,16 @@ son previamente conocidos por el usuario.</p>
 <dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
 </dd>
 </dl>
-<p><strong>Form fields:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">num_sesiones</span></code>: Num Sesiones (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.IntegerField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">porcentaje_entrenamiento</span></code>: Porcentaje Entrenamiento (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.ChoiceField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChoiceField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">valor_p</span></code>: Valor P (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.IntegerField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">valor_d</span></code>: Valor D (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.IntegerField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">valor_q</span></code>: Valor Q (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.IntegerField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">auto</span></code>: Auto (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">manual</span></code>: Manual (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">rejilla</span></code>: Rejilla (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.BooleanField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a>)</p></li>
-</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.ArimaManualForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'auto':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'manual':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'rejilla':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'valor_d':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'valor_p':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'valor_q':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.ArimaManualForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.ArimaManualForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'auto':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'manual':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'rejilla':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'valor_d':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'valor_p':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'valor_q':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.ArimaManualForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="Lab.forms.ArimaManualForm.media">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#Lab.forms.ArimaManualForm.media" title="Link to this definition">¶</a></dt>
@@ -1257,18 +1310,23 @@ son previamente conocidos por el usuario.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="Lab.forms.LstmForm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Lab.forms.</span></span><span class="sig-name descname"><span class="pre">LstmForm</span></span><a class="headerlink" href="#Lab.forms.LstmForm" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/api/#django.forms.Form" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para aplicar una red LSTM automáticamente.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
 </dd>
 </dl>
-<p><strong>Form fields:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">num_sesiones</span></code>: Num Sesiones (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.IntegerField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">porcentaje_entrenamiento</span></code>: Porcentaje Entrenamiento (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/forms/fields/#django.forms.ChoiceField" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChoiceField</span></code></a>)</p></li>
-</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.LstmForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.LstmForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.LstmForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.LstmForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="Lab.forms.LstmForm.media">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#Lab.forms.LstmForm.media" title="Link to this definition">¶</a></dt>
@@ -1626,7 +1684,7 @@ df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="News.apps.NewsConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">News.apps.</span></span><span class="sig-name descname"><span class="pre">NewsConfig</span></span><a class="headerlink" href="#News.apps.NewsConfig" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/applications/#django.apps.AppConfig" title="(en Django versión 5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
 <p>Configuración de la app de News.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><dl class="simple">

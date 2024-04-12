@@ -1,5 +1,5 @@
-Analysis
-========
+.. Analysis
+.. ========
 
 .. .. automodule:: Analysis.apps
 ..    :members:
@@ -13,11 +13,11 @@ Analysis
 ..    :undoc-members:
 ..    :show-inheritance:
 
-.. automodule:: Analysis.urls
-   :members:
-   :private-members:
-   :undoc-members:
-   :show-inheritance:
+.. .. automodule:: Analysis.urls
+..    :members:
+..    :private-members:
+..    :undoc-members:
+..    :show-inheritance:
 
 
 Analysis.views
