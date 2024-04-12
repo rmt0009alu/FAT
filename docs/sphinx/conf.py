@@ -46,11 +46,11 @@ release = 'v3.0.0.'
 
 
 # Configure the Sphinxcontrib Django extension
-sphinxcontrib_django.extension(
-    settings_module='FAT.settings',
-    apps=['FAT'],
-    ignore_patterns=['migrations', 'templates']
-)
+# sphinxcontrib_django.extension(
+#     settings_module='FAT.settings',
+#     apps=['FAT'],
+#     ignore_patterns=['migrations', 'templates']
+# )
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
