@@ -42,7 +42,7 @@ extensions = [
 autodoc_member_order = 'bysource'
 
 # Extensión de autodoc de Sphinx
-autodoc_mock_imports = ['django']
+# autodoc_mock_imports = ['django']
 
 # Para métodos privados
 autodoc_typehints = 'description'
