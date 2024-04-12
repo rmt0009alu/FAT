@@ -27,8 +27,12 @@ language = 'es'
 
 extensions = [
     'sphinx.ext.autodoc',
-    # Para métodos privados typehints
+    
+    # Para métodos privados typehints y autosummary para 
+    # la web the Read The Docs (auto documenta)
     'sphinx.ext.autodoc.typehints',
+    'sphinx.ext.autosummary',
+
     'sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
@@ -45,6 +49,8 @@ autodoc_mock_imports = ['django']
 # Para métodos privados
 autodoc_typehints = 'description'
 autodoc_class_signature = 'separated'
+autosummary_generate = True
+
 
 # Extensión de coverage de Sphinx
 coverage_ignore_functions = ['runserver', 'runtest', 'test']
