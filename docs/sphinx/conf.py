@@ -23,7 +23,7 @@ release = 'v3.0.0'
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-language = 'es'
+language = 'en'
 
 extensions = [
     'sphinx.ext.autodoc',
