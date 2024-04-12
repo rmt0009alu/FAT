@@ -24,10 +24,6 @@ Analysis
 ========
 
 .. automodule:: Analysis.views
-   :members:
-   :private-members:
-   :undoc-members:
-   :show-inheritance:
 
 
 .. DashBoard
