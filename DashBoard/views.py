@@ -354,12 +354,12 @@ def _evolucion_cartera(compras_usuario):
     del total de la cartera.
 
     Args:
-        compras_usuario (QuerySet): objetos StockComprado del usuario.
+        compras_usuario (QuerySet): Objetos StockComprado del usuario.
 
     Returns:
-        evol_cartera (list): stocks comprados con info. adicional como
-            la evolución desde la fecha de compra.
-        evol_total (float): valor de la evolución total de la cartera.
+        tuple: Tupla que contiene las evoluciones.
+            * evol_cartera (list): sStocks comprados con info. adicional como la evolución desde la fecha de compra.
+            * evol_total (float): Valor de la evolución total de la cartera.
     """
     evol_cartera = []
     total_inicial = 0

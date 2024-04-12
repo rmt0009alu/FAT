@@ -272,17 +272,16 @@ def mapa_stocks(request, nombre_bd):
 @login_required
 def chart_y_datos(request, ticker, nombre_bd):
     """Para mostrar los últimos 200 días de un stock en una gráfica.
+    
     Función protegida. Requiere login para ser accedida.
 
     Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
-        ticker (str): nombre adaptado del ticker recogido de la URL.
-        nombre_bd (str): nombre de la BD recogido de la URL.
+        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
+        ticker (str): Nombre adaptado del ticker recogido de la URL.
+        nombre_bd (str): Nombre de la BD recogido de la URL.
         
     Returns:
-        (render): renderiza la plantilla 'chart_y_datos.html' con datos 
-            de contexto.
+        render: Renderiza la plantilla 'chart_y_datos.html' con datos de contexto.
     """
     if (nombre_bd not in bases_datos_disponibles()) or (ticker not in tickers_adaptados_disponibles()):
             return render(request, '404.html')
@@ -330,10 +329,10 @@ def _formatear_volumen(volumen):
     """Método auxiliar para dar formato al volumen.
 
     Args:
-        volumen (int): valor a formatear.
+        volumen (int): Valor a formatear.
 
     Returns:
-        (str): volumen formateado.
+        str: Volumen formateado.
     """
     if volumen >= 1000000:
         return "{:.1f}M".format(volumen / 1000000)
