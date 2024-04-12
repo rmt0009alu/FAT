@@ -19,6 +19,14 @@
 ..    :undoc-members:
 ..    :show-inheritance:
 
+CADA
+====
+
+.. automodule:: DashBoard.views
+   :members:
+   :private-members:
+   :undoc-members:
+   :show-inheritance:
 
 Analysis
 ========
