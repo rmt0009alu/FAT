@@ -16,11 +16,11 @@ django.setup()
 project = 'FAT: Financial Analysis Tool'
 copyright = '2024, Rodrigo Merino Tovar'
 author = 'Rodrigo Merino Tovar'
-release = 'v3.0.0.'
+release = 'v3.0.0'
 
 # -- Configuración general --------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
-# templates_path = ['_templates']
+templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 language = 'es'
@@ -56,7 +56,7 @@ coverage_ignore_functions = ['runserver', 'runtest', 'test']
 # ---------------------------------------------------------------------------------
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-# html_static_path = ['_static']
+html_static_path = ['_static']
 
 # Configurar opciones del tema
 html_theme_options = {

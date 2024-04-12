@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analysis &mdash; documentación de FAT: Financial Analysis Tool - v3.0.0.</title>
+  <title>Analysis &mdash; documentación de FAT: Financial Analysis Tool - v3.0.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -13,7 +13,7 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/documentation_options.js?v=adb9ddbe"></script>
+        <script src="_static/documentation_options.js?v=ece13c96"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/translations.js?v=efdbd0b9"></script>
@@ -738,20 +738,14 @@ Función protegida. Requiere login para ser accedida.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views.chart_y_datos">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">chart_y_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre_bd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views.chart_y_datos" title="Link to this definition">¶</a></dt>
-<dd><p>Para mostrar los últimos 200 días de un stock en una gráfica.
-Función protegida. Requiere login para ser accedida.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dd><p>Para mostrar los últimos 200 días de un stock en una gráfica.</p>
+<p>Función protegida. Requiere login para ser accedida.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
+ticker (str): Nombre adaptado del ticker recogido de la URL.
+nombre_bd (str): Nombre de la BD recogido de la URL.</p>
 </dd>
-</dl>
-<p>ticker (str): nombre adaptado del ticker recogido de la URL.
-nombre_bd (str): nombre de la BD recogido de la URL.</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>(render): renderiza la plantilla “chart_y_datos.html” con datos </dt><dd><p>de contexto.</p>
-</dd>
-</dl>
+<dt>Returns:</dt><dd><p>render: Renderiza la plantilla “chart_y_datos.html” con datos de contexto.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -761,9 +755,9 @@ nombre_bd (str): nombre de la BD recogido de la URL.</p>
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_formatear_volumen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volumen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._formatear_volumen" title="Link to this definition">¶</a></dt>
 <dd><p>Método auxiliar para dar formato al volumen.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>volumen (int): valor a formatear.</p>
+<dt>Args:</dt><dd><p>volumen (int): Valor a formatear.</p>
 </dd>
-<dt>Returns:</dt><dd><p>(str): volumen formateado.</p>
+<dt>Returns:</dt><dd><p>str: Volumen formateado.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1436,14 +1430,16 @@ del total de la cartera.</p>
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_evolucion_cartera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compras_usuario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._evolucion_cartera" title="Link to this definition">¶</a></dt>
 <dd><p>Para calular la evolución de las posiciones abiertas y
 del total de la cartera.</p>
-<dl>
-<dt>Args:</dt><dd><p>compras_usuario (QuerySet): objetos StockComprado del usuario.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>compras_usuario (QuerySet): Objetos StockComprado del usuario.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
-<dt>evol_cartera (list): stocks comprados con info. adicional como</dt><dd><p>la evolución desde la fecha de compra.</p>
+<dt>tuple: Tupla que contiene las evoluciones.</dt><dd><ul class="simple">
+<li><p>evol_cartera (list): sStocks comprados con info. adicional como la evolución desde la fecha de compra.</p></li>
+<li><p>evol_total (float): Valor de la evolución total de la cartera.</p></li>
+</ul>
 </dd>
 </dl>
-<p>evol_total (float): valor de la evolución total de la cartera.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1507,6 +1503,10 @@ Function views</p>
 </ol>
 </dd>
 </dl>
+<p id="module-FAT.wsgi">WSGI config for FAT project.</p>
+<p>It exposes the WSGI callable as a module-level variable named <code class="docutils literal notranslate"><span class="pre">application</span></code>.</p>
+<p>For more information on this file, see
+<a class="reference external" href="https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/">https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/</a></p>
 </section>
 <section id="module-FAT.routers.router_bases_datos">
 <span id="fat-routers"></span><h1>FAT.routers<a class="headerlink" href="#module-FAT.routers.router_bases_datos" title="Link to this heading">¶</a></h1>
