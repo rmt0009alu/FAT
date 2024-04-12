@@ -21,11 +21,10 @@ def dashboard(request):
     """Para mostrar un dashboard al usuario.
 
     Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
 
     Returns:
-        (dict): diccionario con valores del contexto.
+        dict: Diccionario con valores del contexto.
     """
     # Obtener el nombre del usuario
     usuario = request.user.username
@@ -91,12 +90,12 @@ def nueva_compra(request):
     """Para registrar una nueva compra.
 
     Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
 
     Returns:
-        (render): renderiza la plantilla 'nueva_compra.html' con datos de contexto.
-        (redirect): plantilla de dashboard.
+        Union[render, redirect]: 
+            * (render): Renderiza la plantilla 'nueva_compra.html' con datos de contexto.
+            * (redirect): Plantilla de dashboard.
     """
     # El contexto siempre va a tener, mínimo, estos dos campos:
     # Formulario y lista para mostrar sugerencias de búsqueda
@@ -177,16 +176,15 @@ def nueva_compra(request):
 
 @login_required
 def eliminar_compras(request):
-    """Para eliminar las compras (posiciones abiertas) asociadas
-    a un usuario.
+    """Para eliminar las compras (posiciones abiertas) asociadas a un usuario.
 
     Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
 
     Returns:
-        (render): renderiza la plantilla 'eliminar_compras.html' con datos de contexto.
-        (redirect): plantilla de dashboard.
+        Union[render, redirect]:
+            * (render): Renderiza la plantilla 'eliminar_compras.html' con datos de contexto.
+            * (redirect): Plantilla de dashboard.
     """
     if request.method == "GET":
         # Filtrar por usuario
@@ -210,12 +208,12 @@ def nuevo_seguimiento(request):
     """Para registrar un nuevo valor en seguimiento.
 
     Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
 
     Returns:
-        (render): renderiza la plantilla 'nuevo_seguimiento.html' con datos de contexto.
-        (redirect): plantilla de dashboard.
+        Union[render, redirect]:
+            * (render): Renderiza la plantilla 'nuevo_seguimiento.html' con datos de contexto.
+            * (redirect): Plantilla de dashboard.
     """
     # El contexto siempre va a tener, mínimo, estos dos campos:
     # Formulario y lista para mostrar sugerencias de búsqueda
@@ -284,16 +282,15 @@ def nuevo_seguimiento(request):
 
 @login_required
 def eliminar_seguimientos(request):
-    """Para eliminar valores en seguimiento asociados
-    a un usuario.
+    """Para eliminar valores en seguimiento asociados a un usuario.
 
     Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
 
     Returns:
-        (render): renderiza la plantilla 'eliminar_compras.html' con datos de contexto.
-        (redirect): plantilla de dashboard.
+        Union[render, redirect]: 
+            * (render): Renderiza la plantilla 'eliminar_compras.html' con datos de contexto.
+            * (redirect): Plantilla de dashboard.
     """
     if request.method == "GET":
         # Filtrar por usuario
@@ -313,15 +310,13 @@ def eliminar_seguimientos(request):
 
 
 def _stocks_en_seguimiento(seguimiento_usuario):
-    """Para caclular la evolución de las posiciones abiertas y
-    del total de la cartera.
+    """Para obtener una lista de los stocks en seguimiento de un usuario.
 
     Args:
         seguimiento_usuario (QuerySet): objetos StockSeguimiento del usuario.
 
     Returns:
-        (list): stocks en seguimiento con info. adicional como
-            los valores que son similares según el sector al que pertenecen.
+        list: Stocks en seguimiento con información adicional (como los valores que son similares según el sector al que pertenecen).
     """
     stocks_en_seg = []
 
@@ -350,15 +345,14 @@ def _stocks_en_seguimiento(seguimiento_usuario):
 
 
 def _evolucion_cartera(compras_usuario):
-    """Para calular la evolución de las posiciones abiertas y
-    del total de la cartera.
+    """Para calular la evolución de las posiciones abiertas y del total de la cartera.
 
     Args:
         compras_usuario (QuerySet): Objetos StockComprado del usuario.
 
     Returns:
         tuple: Tupla que contiene las evoluciones.
-            * evol_cartera (list): sStocks comprados con info. adicional como la evolución desde la fecha de compra.
+            * evol_cartera (list): Stocks comprados con info. adicional como la evolución desde la fecha de compra.
             * evol_total (float): Valor de la evolución total de la cartera.
     """
     evol_cartera = []
@@ -397,20 +391,18 @@ def _evolucion_cartera(compras_usuario):
 
 
 def _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso):
-    """Permite comprobar si los datos introducidos por
-    el usuario son coherentes.
+    """Permite comprobar si los datos introducidos por el usuario son coherentes.
 
     Args:
-        fecha (django.utils.timezone): timezone actual.
-        bd (str): nombre de la base de datos.
-        ticker (str): nombre del ticker.
-        entrada (QuerySet): registro en la bd del stock seleccionado
-            en el formulario (en la fecha indicada).
-        precio_compra (float): precio de compra a comprobar.
-        caso (int): indicador del caso a tratar.
+        fecha (django.utils.timezone): Timezone actual.
+        bd (str): Nombre de la base de datos.
+        ticker (str): Nombre del ticker.
+        entrada (QuerySet): Registro en la bd del stock seleccionado en el formulario (en la fecha indicada).
+        precio_compra (float): Precio de compra a comprobar.
+        caso (int): Indicador del caso a tratar.
 
     Returns:
-        (dict): diccionario con datos del cotexto.
+        dict: Diccionario con datos del cotexto.
     """
     context = {
         "form": StockCompradoForm,

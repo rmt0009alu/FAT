@@ -671,68 +671,99 @@ forex con info. sobre el cambio de moneda.</p>
 <dt class="sig sig-object py" id="Analysis.views.signup">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">signup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views.signup" title="Link to this definition">¶</a></dt>
 <dd><p>Para registrar a un usuario.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>(render): renderiza las plantillas “signup.html” o</dt><dd><p>“signup_ok.html” con datos de contexto.</p>
+</div></blockquote>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>render</dt><dd><p>Renderiza las plantillas “signup.html” o “signup_ok.html” con datos de contexto.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views.signout">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">signout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views.signout" title="Link to this definition">¶</a></dt>
-<dd><p>Para realizar el logout. No lo llamo “logout” para
-que no haya conflicto de nombres con el método de Django</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dd><p>Para realizar el logout. No lo llamo “logout” para que no haya conflicto de nombres con el método de Django</p>
+<section id="id1">
+<h2>Parameters<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(redirect): plantilla de home.</p>
+</div></blockquote>
+</section>
+<section id="id2">
+<h2>Returns<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>redirect</dt><dd><p>Plantilla de home.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views.signin">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">signin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views.signin" title="Link to this definition">¶</a></dt>
-<dd><p>Para realizar el login. No lo llamo “login” para
-que no haya conflicto de nombres con el método de
-Django.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dd><p>Para realizar el login. No lo llamo “login” para que no haya conflicto de nombres con el método de Django.</p>
+<section id="id3">
+<h2>Parameters<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(render): renderiza la plantilla “login.html” con datos de contexto.
-(redirect): plantilla de dashboard.</p>
+</div></blockquote>
+</section>
+<section id="id4">
+<h2>Returns<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>Union[render, redirect]</dt><dd><ul class="simple">
+<li><p>render: Renderiza la plantilla “login.html” con datos de contexto (para GET).</p></li>
+<li><p>redirect: Plantilla de dashboard (para POST).</p></li>
+</ul>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views.mapa_stocks">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">mapa_stocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre_bd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views.mapa_stocks" title="Link to this definition">¶</a></dt>
-<dd><p>Para mapear los stocks de una base de datos.
-Función protegida. Requiere login para ser accedida.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dd><p>Para mapear los stocks de una base de datos.</p>
+<section id="id5">
+<h2>Parameters<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(render): renderiza la plantilla “mapa_stocks.html” con datos de contexto.</p>
+</div></blockquote>
+</section>
+<section id="id6">
+<h2>Returns<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>render</dt><dd><p>Renderiza la plantilla “mapa_stocks.html” con datos de contexto.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -740,14 +771,28 @@ Función protegida. Requiere login para ser accedida.</p>
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">chart_y_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre_bd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views.chart_y_datos" title="Link to this definition">¶</a></dt>
 <dd><p>Para mostrar los últimos 200 días de un stock en una gráfica.</p>
 <p>Función protegida. Requiere login para ser accedida.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
-ticker (str): Nombre adaptado del ticker recogido de la URL.
-nombre_bd (str): Nombre de la BD recogido de la URL.</p>
+<section id="id7">
+<h2>Parameters<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest)</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
-<dt>Returns:</dt><dd><p>render: Renderiza la plantilla “chart_y_datos.html” con datos de contexto.</p>
+<dt>ticker<span class="classifier">str</span></dt><dd><p>Nombre adaptado del ticker recogido de la URL.</p>
+</dd>
+<dt>nombre_bd<span class="classifier">str</span></dt><dd><p>Nombre de la BD recogido de la URL.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
+<section id="id8">
+<h2>Returns<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>render</dt><dd><p>Renderiza la plantilla “chart_y_datos.html” con datos de contexto.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -765,15 +810,11 @@ nombre_bd (str): Nombre de la BD recogido de la URL.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views._get_lista_rss">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_get_lista_rss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_bd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._get_lista_rss" title="Link to this definition">¶</a></dt>
-<dd><p>Para obtener una lista con noticias relacionadas
-con los índices y otros mercados.</p>
+<dd><p>Para obtener una lista con noticias relacionadas con los índices y otros mercados.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>nombre_bd (str): nombre de la base de datos, i.e.,</dt><dd><p>índice del que se recuperan los RSS.</p>
+<dt>Args:</dt><dd><p>nombre_bd (str): Nombre de la base de datos, i.e., índice del que se recuperan los RSS.</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><p>lista_rss (list): lista con los RSS del índice.</p>
+<dt>Returns:</dt><dd><p>list: lista con los RSS del índice.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -781,17 +822,12 @@ con los índices y otros mercados.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views._get_datos">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_get_datos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre_bd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._get_datos" title="Link to this definition">¶</a></dt>
-<dd><p>Método que devuelve los datos del último mes (aprox.)
-del stock seleccionado.</p>
+<dd><p>Método que devuelve los datos del último mes (aprox.) del stock seleccionado.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>ticker (str): nombre del ticker del que quiero obtener</dt><dd><p>la info.</p>
+<dt>Args:</dt><dd><p>ticker (str): Nombre del ticker del que quiero obtener la info.
+nombre_bd (str): Nombre (no ruta) de la BD a la que me quiero conectar.</p>
 </dd>
-<dt>nombre_bd (str): nombre (no ruta) de la BD a la que me</dt><dd><p>quiero conectar.</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><p>query_set (QuerySet): tabla con los datos del stock</p>
+<dt>Returns:</dt><dd><p>QuerySet: Tabla con los datos del stock.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -799,15 +835,11 @@ del stock seleccionado.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views._get_image_json">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_get_image_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticker_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._get_image_json" title="Link to this definition">¶</a></dt>
-<dd><p>Para obtener una figura en JSON que permitirá mostrar
-un gráfico dinámico.</p>
+<dd><p>Para obtener una figura en JSON que permitirá mostrar un gráfico dinámico.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>ticker_data (pandas.core.frame.DataFrame): DataFrame con los</dt><dd><p>datos del ticker seleccionado.</p>
+<dt>Args:</dt><dd><p>ticker_data (pandas.core.frame.DataFrame): DataFrame con los datos del ticker seleccionado.</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><p>(str): cadena JSON con los datos de la figura.</p>
+<dt>Returns:</dt><dd><p>str: cadena JSON con los datos de la figura.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -815,19 +847,11 @@ un gráfico dinámico.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views._generar_correlaciones">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_generar_correlaciones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticker_objetivo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._generar_correlaciones" title="Link to this definition">¶</a></dt>
-<dd><p>Para generar la matriz de correlación de todos los valores
-disponibles en las bases de datos.</p>
+<dd><p>Para generar la matriz de correlación de todos los valores disponibles en las bases de datos.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>ticker_objetivo (str): nombre del ticker con el que se quieren</dt><dd><p>calcular las correlaciones (nodo raíz de la red).</p>
+<dt>Args:</dt><dd><p>ticker_objetivo (str): Nombre del ticker con el que se quieren calcular las correlaciones (nodo raíz de la red).</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>grafos (str): cadena de datos que guarda los grafos generados</dt><dd><p>con las correlaciones positiva y negativa, según la evolución
-del último mes (22 sesiones).</p>
-</dd>
-</dl>
+<dt>Returns:</dt><dd><p>str: Cadena de datos que guarda los grafos generados con las correlaciones positiva y negativa, según la evolución del último mes (22 sesiones).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -835,43 +859,40 @@ del último mes (22 sesiones).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views._crear_grafos">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_crear_grafos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matriz_correl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticker_objetivo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._crear_grafos" title="Link to this definition">¶</a></dt>
-<dd><p>Para crear los grafos de correlaciones a partir de la matriz 
-de correlación.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="simple">
-<dt>matriz_correl (pandas.core.frame.DataFrame): matriz de correlación</dt><dd><p>entre valores cotizados, según precios de cierre de últimas
-22 sesiones: aprox. un mes.</p>
-</dd>
-</dl>
-<p>tickers (list): lista de tickers disponibles. 
-ticker_objetivo (str): ticker del que se quieren obtener las</p>
+<dd><p>Para crear los grafos de correlaciones a partir de la matriz de correlación.</p>
+<section id="id9">
+<h2>Parameters<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>correlaciones.</p>
+<div><dl class="simple">
+<dt>matriz_correl<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Matriz de correlación entre valores cotizados, :param según precios de cierre de últimas 22 sesiones; i.e., aprox. un mes.</p>
+</dd>
+<dt>tickers<span class="classifier">list</span></dt><dd><p>Lista de tickers disponibles.</p>
+</dd>
+<dt>ticker_objetivo<span class="classifier">str</span></dt><dd><p>Ticker del que se quieren obtener las correlaciones.</p>
+</dd>
+</dl>
 </div></blockquote>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>grafos (str): cadena de datos que guarda los grafos generados</dt><dd><p>con las correlaciones positiva y negativa, según la evolución
-del último mes (22 sesiones).</p>
+</section>
+<section id="id10">
+<h2>Returns<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>grafos<span class="classifier">str</span></dt><dd><p>Cadena de datos que guarda los grafos generados con las correlaciones positiva y negativa, según la evolución del último mes (22 sesiones).</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views._generar_graficas_comparacion">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_generar_graficas_comparacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticker_a_comparar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._generar_graficas_comparacion" title="Link to this definition">¶</a></dt>
-<dd><p>Para crear las figuras que muestran las evoluciones de precios
-de cierre y de porcentajes de dos tickers de forma relativa (comparación
-entre ambos valores).</p>
+<dd><p>Para crear las figuras que muestran las evoluciones de precios de cierre y de porcentajes de dos tickers de forma relativa (comparación entre ambos valores).</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>ticker (str): ticker original (objetivo).
-ticker_a_comparar (str): ticker con el que comparar.</p>
+<dt>Args:</dt><dd><p>ticker (str): Ticker original (objetivo).
+ticker_a_comparar (str): Ticker con el que comparar.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>graficas_comparacion (str): cadena de datos con la comparación </dt><dd><p>entre valores. Gráficas del buffer decodificadas.</p>
-</dd>
-</dl>
+<dt>Returns:</dt><dd><p>str: cadena de datos con la comparación entre valores. Gráficas del buffer decodificadas.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -879,21 +900,16 @@ ticker_a_comparar (str): ticker con el que comparar.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views._normalizar_dataframes">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_normalizar_dataframes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_ticker_comparar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._normalizar_dataframes" title="Link to this definition">¶</a></dt>
-<dd><p>Para normalizar los precios de cierre del valor con el que
-se quiere comparar. Así se puede ver la evolución en términos
-relativos.</p>
+<dd><p>Para normalizar los precios de cierre del valor con el que se quiere comparar. Así se puede ver la evolución en términos relativos.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>df_ticker (pandas.core.frame.DataFrame): DataFrame con los datos del</dt><dd><p>ticker original.</p>
-</dd>
-<dt>df_ticker_comparar (pandas.core.frame.DataFrame): DataFrame con los </dt><dd><p>datos del ticker con el que se quiere comparar.</p>
-</dd>
-</dl>
+<dt>Args:</dt><dd><p>df_ticker (pandas.core.frame.DataFrame): DataFrame con los datos del ticker original. 
+df_ticker_comparar (pandas.core.frame.DataFrame): DataFrame con los datos del ticker con el que se quiere comparar.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
-<dt>df_ticker (pandas.core.frame.DataFrame): DataFrame con los datos normalizados </dt><dd><p>del ticker original.</p>
-</dd>
-<dt>df_ticker_comparar (pandas.core.frame.DataFrame): DataFrame con los </dt><dd><p>datos normalizados del ticker con el que se quiere comparar.</p>
+<dt>Tuple: Tupla con los DataFrames de los tickers a comparar.</dt><dd><ul class="simple">
+<li><p>pandas.core.frame.DataFrame: DataFrame con los datos normalizados del ticker original.</p></li>
+<li><p>pandas.core.frame.DataFrame: DataFrame con los datos normalizados del ticker con el que se quiere comparar.</p></li>
+</ul>
 </dd>
 </dl>
 </dd>
@@ -903,15 +919,11 @@ relativos.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Analysis.views._grafica_evolucion_sector">
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_grafica_evolucion_sector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._grafica_evolucion_sector" title="Link to this definition">¶</a></dt>
-<dd><p>Para generar la gráfica comparativa con el sector de 
-referencia del valor pasado a través del nombre del ticker.</p>
+<dd><p>Para generar la gráfica comparativa con el sector de referencia del valor pasado a través del nombre del ticker.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>ticker (str): nombre del ticker de un valor.</p>
+<dt>Args:</dt><dd><p>ticker (str): Nombre del ticker de un valor.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>grafica_sector (str): cadena de datos con la comparación con el</dt><dd><p>sector. Gráfica del buffer decodificada.</p>
-</dd>
-</dl>
+<dt>Returns:</dt><dd><p>str: Cadena de datos con la comparación con el sector (gráfica del buffer decodificada).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -921,17 +933,9 @@ referencia del valor pasado a través del nombre del ticker.</p>
 <span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_calcular_media_sector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lista_dataframes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._calcular_media_sector" title="Link to this definition">¶</a></dt>
 <dd><p>Para calcular la media de un sector.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>lista_dataframes (list): lista con los dataframes que contienen</dt><dd><p>los precios de cierre y las fechas de los valores que están
-en el mismo sector que el ticker “objetivo”.</p>
+<dt>Args:</dt><dd><p>lista_dataframes (list): lista con los dataframes que contienen los precios de cierre y las fechas de los valores que están en el mismo sector que el ticker “objetivo”.</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>dfs_merged (pandas.core.frame.DataFrame): dataframe que ha pasado</dt><dd><p>por un proceso de merging para equilibrar fechas y que tiene
-la media de los cierres del sector.</p>
-</dd>
-</dl>
+<dt>Returns:</dt><dd><p>pandas.core.frame.DataFrame: dataframe que ha pasado por un proceso de merging para equilibrar fechas y que tiene la media de los cierres del sector.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1333,12 +1337,9 @@ acceso a la información.</p>
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">dashboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.dashboard" title="Link to this definition">¶</a></dt>
 <dd><p>Para mostrar un dashboard al usuario.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dt>Args:</dt><dd><p>request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><p>(dict): diccionario con valores del contexto.</p>
+<dt>Returns:</dt><dd><p>dict: Diccionario con valores del contexto.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1348,13 +1349,15 @@ acceso a la información.</p>
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">nueva_compra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.nueva_compra" title="Link to this definition">¶</a></dt>
 <dd><p>Para registrar una nueva compra.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dt>Args:</dt><dd><p>request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>Union[render, redirect]: </dt><dd><ul class="simple">
+<li><p>(render): Renderiza la plantilla “nueva_compra.html” con datos de contexto.</p></li>
+<li><p>(redirect): Plantilla de dashboard.</p></li>
+</ul>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(render): renderiza la plantilla “nueva_compra.html” con datos de contexto.
-(redirect): plantilla de dashboard.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1362,16 +1365,17 @@ acceso a la información.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DashBoard.views.eliminar_compras">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">eliminar_compras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.eliminar_compras" title="Link to this definition">¶</a></dt>
-<dd><p>Para eliminar las compras (posiciones abiertas) asociadas
-a un usuario.</p>
+<dd><p>Para eliminar las compras (posiciones abiertas) asociadas a un usuario.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dt>Args:</dt><dd><p>request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>Union[render, redirect]:</dt><dd><ul class="simple">
+<li><p>(render): Renderiza la plantilla “eliminar_compras.html” con datos de contexto.</p></li>
+<li><p>(redirect): Plantilla de dashboard.</p></li>
+</ul>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(render): renderiza la plantilla “eliminar_compras.html” con datos de contexto.
-(redirect): plantilla de dashboard.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1381,13 +1385,15 @@ a un usuario.</p>
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">nuevo_seguimiento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.nuevo_seguimiento" title="Link to this definition">¶</a></dt>
 <dd><p>Para registrar un nuevo valor en seguimiento.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dt>Args:</dt><dd><p>request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>Union[render, redirect]:</dt><dd><ul class="simple">
+<li><p>(render): Renderiza la plantilla “nuevo_seguimiento.html” con datos de contexto.</p></li>
+<li><p>(redirect): Plantilla de dashboard.</p></li>
+</ul>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(render): renderiza la plantilla “nuevo_seguimiento.html” con datos de contexto.
-(redirect): plantilla de dashboard.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1395,16 +1401,17 @@ a un usuario.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DashBoard.views.eliminar_seguimientos">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">eliminar_seguimientos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.eliminar_seguimientos" title="Link to this definition">¶</a></dt>
-<dd><p>Para eliminar valores en seguimiento asociados
-a un usuario.</p>
+<dd><p>Para eliminar valores en seguimiento asociados a un usuario.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dt>Args:</dt><dd><p>request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>Union[render, redirect]: </dt><dd><ul class="simple">
+<li><p>(render): Renderiza la plantilla “eliminar_compras.html” con datos de contexto.</p></li>
+<li><p>(redirect): Plantilla de dashboard.</p></li>
+</ul>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(render): renderiza la plantilla “eliminar_compras.html” con datos de contexto.
-(redirect): plantilla de dashboard.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1412,15 +1419,11 @@ a un usuario.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DashBoard.views._stocks_en_seguimiento">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_stocks_en_seguimiento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seguimiento_usuario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._stocks_en_seguimiento" title="Link to this definition">¶</a></dt>
-<dd><p>Para caclular la evolución de las posiciones abiertas y
-del total de la cartera.</p>
+<dd><p>Para obtener una lista de los stocks en seguimiento de un usuario.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>seguimiento_usuario (QuerySet): objetos StockSeguimiento del usuario.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>(list): stocks en seguimiento con info. adicional como</dt><dd><p>los valores que son similares según el sector al que pertenecen.</p>
-</dd>
-</dl>
+<dt>Returns:</dt><dd><p>list: Stocks en seguimiento con información adicional (como los valores que son similares según el sector al que pertenecen).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1428,14 +1431,13 @@ del total de la cartera.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DashBoard.views._evolucion_cartera">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_evolucion_cartera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compras_usuario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._evolucion_cartera" title="Link to this definition">¶</a></dt>
-<dd><p>Para calular la evolución de las posiciones abiertas y
-del total de la cartera.</p>
+<dd><p>Para calular la evolución de las posiciones abiertas y del total de la cartera.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>compras_usuario (QuerySet): Objetos StockComprado del usuario.</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>tuple: Tupla que contiene las evoluciones.</dt><dd><ul class="simple">
-<li><p>evol_cartera (list): sStocks comprados con info. adicional como la evolución desde la fecha de compra.</p></li>
+<li><p>evol_cartera (list): Stocks comprados con info. adicional como la evolución desde la fecha de compra.</p></li>
 <li><p>evol_total (float): Valor de la evolución total de la cartera.</p></li>
 </ul>
 </dd>
@@ -1447,20 +1449,16 @@ del total de la cartera.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DashBoard.views._hay_errores">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_hay_errores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fecha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entrada</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precio_compra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caso</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._hay_errores" title="Link to this definition">¶</a></dt>
-<dd><p>Permite comprobar si los datos introducidos por
-el usuario son coherentes.</p>
-<dl>
-<dt>Args:</dt><dd><p>fecha (django.utils.timezone): timezone actual.
-bd (str): nombre de la base de datos.
-ticker (str): nombre del ticker.
-entrada (QuerySet): registro en la bd del stock seleccionado</p>
-<blockquote>
-<div><p>en el formulario (en la fecha indicada).</p>
-</div></blockquote>
-<p>precio_compra (float): precio de compra a comprobar.
-caso (int): indicador del caso a tratar.</p>
+<dd><p>Permite comprobar si los datos introducidos por el usuario son coherentes.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>fecha (django.utils.timezone): Timezone actual.
+bd (str): Nombre de la base de datos.
+ticker (str): Nombre del ticker.
+entrada (QuerySet): Registro en la bd del stock seleccionado en el formulario (en la fecha indicada).
+precio_compra (float): Precio de compra a comprobar.
+caso (int): Indicador del caso a tratar.</p>
 </dd>
-<dt>Returns:</dt><dd><p>(dict): diccionario con datos del cotexto.</p>
+<dt>Returns:</dt><dd><p>dict: Diccionario con datos del cotexto.</p>
 </dd>
 </dl>
 </dd></dl>
