@@ -11,8 +11,10 @@ class StockCompradoForm(ModelForm):
     un formulario para los stocks comprados siguiendo
     el modelo definido en 'models'.
 
-    Args:
-        ModelForm (django.forms): modelo de formulario de Django.
+    Parameters
+    ----------
+        ModelForm : django.forms
+            Modelo de formulario de Django.
     """
     class Meta:
         """Para especificar opciones estándar sobre cómo se portará
@@ -50,8 +52,10 @@ class StockSeguimientoForm(ModelForm):
     un formulario para los stocks en seguimiento.
     Hago uso del modelo definido en 'models'.
 
-    Args:
-        ModelForm (django.forms): modelo de formulario de Django.
+    Parameters
+    ----------
+        ModelForm : django.forms
+            Modelo de formulario de Django.
     """
     class Meta:
         """Para especificar opciones estándar sobre cómo se portará

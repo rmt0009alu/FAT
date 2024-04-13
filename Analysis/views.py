@@ -40,7 +40,11 @@ from News.views import _generar_figura
 # Para los RSS
 from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100, rss_dax40
 # Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_dax40, tickers_adaptados_indices, bases_datos_disponibles, tickers_adaptados_disponibles, obtener_nombre_bd, tickers_disponibles
+# (para no sobrepasar las 120 columnas y mejorar
+# la calidad del código según pylint hago varios import)
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100
+from util.tickers.Tickers_BDs import tickers_adaptados_dax40, tickers_adaptados_indices, bases_datos_disponibles
+from util.tickers.Tickers_BDs import tickers_adaptados_disponibles, obtener_nombre_bd, tickers_disponibles
 
 
 def signup(request):
@@ -299,8 +303,8 @@ def chart_y_datos(request, ticker, nombre_bd):
             Renderiza la plantilla 'chart_y_datos.html' con datos de contexto.
     """
     if (nombre_bd not in bases_datos_disponibles()) or (ticker not in tickers_adaptados_disponibles()):
-            return render(request, '404.html')
-    
+        return render(request, '404.html')
+
     # Obtengo los datos del modelo y lo paso a DataFrame
     model = apps.get_model('Analysis', ticker)
     entradas = model.objects.using(nombre_bd).order_by('-date')[:500].all()
@@ -323,31 +327,35 @@ def chart_y_datos(request, ticker, nombre_bd):
 
     # ----
     # POST
-    # ----    
+    # ----
     ticker_a_comparar = request.POST.get("ticker_a_comparar")
 
     if ticker_a_comparar not in tickers_disponibles():
         context["msg_error"] = 'El ticker no existe'
         return render(request, "chart_y_datos.html", context)
-    
+
     # Paso el ticker a la notación de '_' que es la de las BDs
     ticker_a_comparar = ticker_a_comparar.replace('.', '_')
     # Se puede comparar con un índice también
     ticker_a_comparar = ticker_a_comparar.replace('^', '')
 
     context["graficas_comparacion"] = _generar_graficas_comparacion(ticker, ticker_a_comparar)
-    
+
     return render(request, "chart_y_datos.html", context)
 
 
 def _formatear_volumen(volumen):
     """Método auxiliar para dar formato al volumen.
 
-    Args:
-        volumen (int): Valor a formatear.
+    Parameters
+    ----------
+        volumen : int
+            Valor a formatear.
 
-    Returns:
-        str: Volumen formateado.
+    Returns
+    -------
+        str
+            Volumen formateado.
     """
     if volumen >= 1000000:
         return "{:.1f}M".format(volumen / 1000000)
@@ -360,11 +368,15 @@ def _formatear_volumen(volumen):
 def _get_lista_rss(nombre_bd):
     """Para obtener una lista con noticias relacionadas con los índices y otros mercados.
 
-    Args:
-        nombre_bd (str): Nombre de la base de datos, i.e., índice del que se recuperan los RSS.
+    Parameters
+    ----------
+        nombre_bd : str
+            Nombre de la base de datos, i.e., índice del que se recuperan los RSS.
 
-    Returns:
-        list: lista con los RSS del índice.
+    Returns
+    -------
+        lista_rss : list
+            lista con los RSS del índice.
     """
     rss = []
     lista_rss = []
@@ -394,12 +406,18 @@ def _get_lista_rss(nombre_bd):
 def _get_datos(ticker, nombre_bd):
     """Método que devuelve los datos del último mes (aprox.) del stock seleccionado.
 
-    Args:
-        ticker (str): Nombre del ticker del que quiero obtener la info.
-        nombre_bd (str): Nombre (no ruta) de la BD a la que me quiero conectar.
+    Parameters
+    ----------
+        ticker : str
+            Nombre del ticker del que quiero obtener la info.
 
-    Returns:
-        QuerySet: Tabla con los datos del stock.
+        nombre_bd : str
+            Nombre (no ruta) de la BD a la que me quiero conectar.
+
+    Returns
+    -------
+        query_set : QuerySet
+            Tabla con los datos del stock.
     """
     # Los modelos se crean de forma dinámica desde 'Analysis'
     # pero están disponibles para todas las apps
@@ -421,11 +439,15 @@ def _get_datos(ticker, nombre_bd):
 def _get_image_json(ticker_data):
     """Para obtener una figura en JSON que permitirá mostrar un gráfico dinámico.
 
-    Args:
-        ticker_data (pandas.core.frame.DataFrame): DataFrame con los datos del ticker seleccionado.
+    Parameters
+    ----------
+        ticker_data : pandas.core.frame.DataFrame
+            DataFrame con los datos del ticker seleccionado.
 
-    Returns:
-        str: cadena JSON con los datos de la figura.
+    Returns
+    -------
+        image_json : str
+            Cadena JSON con los datos de la figura.
     """
     # Paso la colunma 'Date' a datetime y ordeno por fecha
     ticker_data["date"] = pd.to_datetime(ticker_data["date"], utc=True)
@@ -522,11 +544,16 @@ def _get_image_json(ticker_data):
 def _generar_correlaciones(ticker_objetivo):
     """Para generar la matriz de correlación de todos los valores disponibles en las bases de datos. 
 
-    Args:
-        ticker_objetivo (str): Nombre del ticker con el que se quieren calcular las correlaciones (nodo raíz de la red).
+    Parameters
+    ----------
+        ticker_objetivo : str
+            Nombre del ticker con el que se quieren calcular las correlaciones (nodo raíz de la red).
 
-    Returns:
-        str: Cadena de datos que guarda los grafos generados con las correlaciones positiva y negativa, según la evolución del último mes (22 sesiones).
+    Returns
+    -------
+        grafos : str
+            Cadena de datos que guarda los grafos generados con las correlaciones positiva y negativa, 
+            según la evolución del último mes (22 sesiones).
     """
     dic_datos = {}
     tickers = tickers_adaptados_disponibles()
@@ -550,7 +577,7 @@ def _generar_correlaciones(ticker_objetivo):
     # Creo la matriz de correlación (esta matriz sigue
     # siendo un DataFrame)
     matriz_correl = df.corr()
-    
+
     # Creo el grafo con NetwrokX
     grafos = _crear_grafos(matriz_correl, tickers, ticker_objetivo)
 
@@ -563,7 +590,8 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
     Parameters
     ----------
         matriz_correl : pandas.core.frame.DataFrame
-            Matriz de correlación entre valores cotizados, :param según precios de cierre de últimas 22 sesiones; i.e., aprox. un mes.
+            Matriz de correlación entre valores cotizados según precios de cierre de últimas 22 
+            sesiones (aprox. un mes).
             
         tickers : list
             Lista de tickers disponibles.
@@ -574,7 +602,8 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
     Returns
     -------
         grafos : str
-            Cadena de datos que guarda los grafos generados con las correlaciones positiva y negativa, según la evolución del último mes (22 sesiones).
+            Cadena de datos que guarda los grafos generados con las correlaciones positiva y negativa, 
+            según la evolución del último mes (22 sesiones).
     """
     # Creo un grafo vacío y añado los nodos (que son los tickers
     # NO adaptados para mostrar con formato de '.')
@@ -592,31 +621,39 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
             if peso_correl > 0.75:
                 # Redondeo los pesos para que se vea mejor en el grafo
                 # si lo llego a mostrar
-                grafo_correl_positiva.add_edge(ticker_objetivo.replace("_", "."), ticker.replace("_", "."), weight=round(peso_correl, 3))
+                grafo_correl_positiva.add_edge(ticker_objetivo.replace("_", "."),
+                                               ticker.replace("_", "."),
+                                               weight=round(peso_correl, 3))
             if peso_correl < -0.75:
                 # Redondeo los pesos para que se vea mejor en el grafo
                 # si lo llego a mostrar
-                grafo_correl_negativa.add_edge(ticker_objetivo.replace("_", "."), ticker.replace("_", "."), weight=round(peso_correl, 3))
+                grafo_correl_negativa.add_edge(ticker_objetivo.replace("_", "."),
+                                               ticker.replace("_", "."),
+                                               weight=round(peso_correl, 3))
 
     # Elimino todos aquellos nodos que no tengan un enlace
     for ticker in tickers_disponibles():
-        if ticker != ticker_objetivo.replace("_", ".") and not nx.has_path(grafo_correl_positiva, ticker, ticker_objetivo.replace("_", ".")):
+        if ticker != ticker_objetivo.replace("_", ".") and not nx.has_path(grafo_correl_positiva,
+                                                                           ticker,
+                                                                           ticker_objetivo.replace("_", ".")):
             grafo_correl_positiva.remove_node(ticker)
-        if ticker != ticker_objetivo.replace("_", ".") and not nx.has_path(grafo_correl_negativa, ticker, ticker_objetivo.replace("_", ".")):
+        if ticker != ticker_objetivo.replace("_", ".") and not nx.has_path(grafo_correl_negativa,
+                                                                           ticker,
+                                                                           ticker_objetivo.replace("_", ".")):
             grafo_correl_negativa.remove_node(ticker)
 
     # Guardo los grafos en una figura (2 filas y 1 columna)
-    fig, axes = plt.subplots(2, 1, figsize=(6, 8)) 
+    fig, axes = plt.subplots(2, 1, figsize=(6, 8))
 
     pos = nx.circular_layout(grafo_correl_positiva)
-    nx.draw_networkx(grafo_correl_positiva, pos, with_labels=True, node_size=1000, 
-                     font_size=8, node_color='skyblue', font_color='black', ax=axes[0])  
+    nx.draw_networkx(grafo_correl_positiva, pos, with_labels=True, node_size=1000,
+                     font_size=8, node_color='skyblue', font_color='black', ax=axes[0])
     axes[0].set_title("Alta correlación positiva en \núltimas 30 sesiones (precios de cierre)", fontsize=10)
     axes[0].axis('off')
 
     pos = nx.circular_layout(grafo_correl_negativa)
-    nx.draw_networkx(grafo_correl_negativa, pos, with_labels=True, node_size=1000, 
-                     font_size=8, node_color='red', font_color='black', ax=axes[1]) 
+    nx.draw_networkx(grafo_correl_negativa, pos, with_labels=True, node_size=1000,
+                     font_size=8, node_color='red', font_color='black', ax=axes[1])
     axes[1].set_title("Alta correlación negativa en \núltimas 30 sesiones (precios de cierre)", fontsize=10)
     axes[1].axis('off')
 
@@ -628,12 +665,12 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
     # dichos enlaces tienen sus pesos, que es lo que interesa
     # nx.draw_networkx_edge_labels(G, pos)
 
-    # Lo guardo en un byte buffer y así lo puedo mostrar directamente 
+    # Lo guardo en un byte buffer y así lo puedo mostrar directamente
     # integrado en la plantilla html
     buffer = BytesIO()
     plt.savefig(buffer, format="PNG")
     plt.close()
-    
+
     # Obtener los datos de la imagen del buffer
     buffer.seek(0)
     grafos = base64.b64encode(buffer.read()).decode()
@@ -642,14 +679,21 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
 
 
 def _generar_graficas_comparacion(ticker, ticker_a_comparar):
-    """Para crear las figuras que muestran las evoluciones de precios de cierre y de porcentajes de dos tickers de forma relativa (comparación entre ambos valores).
+    """Para crear las figuras que muestran las evoluciones de precios de cierre y de porcentajes de 
+    dos tickers de forma relativa (comparación entre ambos valores).
 
-    Args:
-        ticker (str): Ticker original (objetivo).
-        ticker_a_comparar (str): Ticker con el que comparar. 
+    Parameters
+    ----------
+        ticker : str
+            Ticker original (objetivo).
 
-    Returns:
-        str: cadena de datos con la comparación entre valores. Gráficas del buffer decodificadas.
+        ticker_a_comparar : str
+            Ticker con el que comparar. 
+
+    Returns
+    -------
+        graficas_comparacion : str
+            Cadena de datos con la comparación entre valores (gráficas del buffer decodificadas).
     """
     bd = obtener_nombre_bd(ticker)
     model = apps.get_model('Analysis', ticker)
@@ -659,7 +703,9 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
     bd = obtener_nombre_bd(ticker_a_comparar)
     model = apps.get_model('Analysis', ticker_a_comparar)
     # Último año aprox.
-    entradas_ticker_a_comparar = model.objects.using(bd).order_by('-date')[:220].values('date', 'close', 'percent_variance')
+    entradas_ticker_a_comparar = model.objects.using(bd).order_by('-date')[:220].values('date',
+                                                                                        'close',
+                                                                                        'percent_variance')
 
     # Obtener los 'values' del queryset 'entradas'
     # y pasar a df
@@ -671,16 +717,19 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
 
     # FIGURAS
     # -------
-    fig, axes = plt.subplots(2, 1, figsize=(7, 10)) 
+    fig, axes = plt.subplots(2, 1, figsize=(7, 10))
     buffer = BytesIO()
 
     # FIG 1
     # -----
     # Plot de la evolución de las variaciones diarias
     axes[0].plot(df_ticker['date'], df_ticker['normalizado'], label=ticker.replace("_","."))
-    axes[0].plot(df_ticker_comparar['date'], df_ticker_comparar['normalizado'], label=ticker_a_comparar.replace("_","."))
+    axes[0].plot(df_ticker_comparar['date'],
+                 df_ticker_comparar['normalizado'],
+                 label=ticker_a_comparar.replace("_","."))
     # Título y estilos
-    axes[0].set(xlabel='Fecha', ylabel=f'{ticker.replace("_",".")} vs {ticker_a_comparar.replace("_",".")}', 
+    axes[0].set(xlabel='Fecha',
+                ylabel=f'{ticker.replace("_",".")} vs {ticker_a_comparar.replace("_",".")}',
                 title='Comparación relativa (evolución de cierres diarios)')
     axes[0].grid(True, linestyle='--', alpha=0.5)
     axes[0].legend()
@@ -693,21 +742,24 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
     # -----
     # Plot de la evolución de las variaciones diarias
     axes[1].plot(df_ticker['date'], df_ticker['percent_variance'], label=ticker.replace("_","."))
-    axes[1].plot(df_ticker_comparar['date'], df_ticker_comparar['percent_variance'], label=ticker_a_comparar.replace("_","."))
+    axes[1].plot(df_ticker_comparar['date'],
+                 df_ticker_comparar['percent_variance'],
+                 label=ticker_a_comparar.replace("_","."))
     # Título y estilos
-    axes[1].set(xlabel='Fecha', ylabel=f'{ticker.replace("_",".")} vs {ticker_a_comparar.replace("_",".")}', 
+    axes[1].set(xlabel='Fecha',
+                ylabel=f'{ticker.replace("_",".")} vs {ticker_a_comparar.replace("_",".")}',
                 title='Comparación relativa (evolución de variaciones diarias)')
     axes[1].grid(True, linestyle='--', alpha=0.5)
     axes[1].legend()
-    
+
     # Aumentar distancia vertical entre figuras
     plt.subplots_adjust(hspace=0.4)
-    
+
     # Ajusto los bins y etiquetas
     for ax in axes:
         ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
-    
+
     plt.savefig(buffer, format="PNG")
     plt.close()
 
@@ -719,19 +771,28 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
 
 
 def _normalizar_dataframes(df_ticker, df_ticker_comparar):
-    """Para normalizar los precios de cierre del valor con el que se quiere comparar. Así se puede ver la evolución en términos relativos.
+    """Para normalizar los precios de cierre del valor con el que se quiere comparar. 
+    
+    Esta acción permite ver la evolución en términos relativos.
 
-    Args:
-        df_ticker (pandas.core.frame.DataFrame): DataFrame con los datos del ticker original. 
-        df_ticker_comparar (pandas.core.frame.DataFrame): DataFrame con los datos del ticker con el que se quiere comparar.
+    Parameters
+    ----------
+        df_ticker : pandas.core.frame.DataFrame
+            DataFrame con los datos del ticker original. 
 
-    Returns:
+        df_ticker_comparar : pandas.core.frame.DataFrame
+            DataFrame con los datos del ticker con el que se quiere comparar.
+
+    Returns
+    -------
         Tuple: Tupla con los DataFrames de los tickers a comparar.
-            * pandas.core.frame.DataFrame: DataFrame con los datos normalizados del ticker original. 
-            * pandas.core.frame.DataFrame: DataFrame con los datos normalizados del ticker con el que se quiere comparar.
+            * df_ticker: pandas.core.frame.DataFrame
+                DataFrame con los datos normalizados del ticker original. 
+            * df_ticker_comparar: pandas.core.frame.DataFrame
+                DataFrame con los datos normalizados del ticker con el que se quiere comparar.
     """
     # Cojo las fechas más antiguas con iloc[-1]. Pueden no
-    # empezar a la vez porque haya valores cotizados en un 
+    # empezar a la vez porque haya valores cotizados en un
     # día festivo de diferentes índices
     if df_ticker['close'].iloc[-1] > df_ticker_comparar['close'].iloc[-1]:
         ratio = df_ticker['close'].iloc[-1] / df_ticker_comparar['close'].iloc[-1]
@@ -746,18 +807,23 @@ def _normalizar_dataframes(df_ticker, df_ticker_comparar):
     else:
         df_ticker['normalizado'] = df_ticker['close']
         df_ticker_comparar['normalizado'] = df_ticker_comparar['close']
-    
+
     return df_ticker, df_ticker_comparar
 
 
 def _grafica_evolucion_sector(ticker):
-    """Para generar la gráfica comparativa con el sector de referencia del valor pasado a través del nombre del ticker.
+    """Para generar la gráfica comparativa con el sector de referencia del valor pasado a 
+    través del nombre del ticker.
 
-    Args:
-        ticker (str): Nombre del ticker de un valor. 
+    Parameters
+    ----------
+        ticker : str
+            Nombre del ticker de un valor. 
 
-    Returns:
-        str: Cadena de datos con la comparación con el sector (gráfica del buffer decodificada). 
+    Returns
+    -------
+        grafica_sector : str
+            Cadena de datos con la comparación con el sector (gráfica del buffer decodificada). 
     """
 
     lista_dataframes = []
@@ -781,9 +847,9 @@ def _grafica_evolucion_sector(ticker):
         # Adapto la fecha para hacer luego un merge por fecha
         df['date'] = df['date'].apply(lambda x: x.date())
         lista_dataframes.append(df[['date', 'close']])
-    
+
     dfs_merged = _calcular_media_sector(lista_dataframes)
-    
+
     # Normalizar para ver relación 'directa' sin precios
     df_ticker, dfs_merged = _normalizar_dataframes(df_ticker, dfs_merged)
 
@@ -807,7 +873,7 @@ def _grafica_evolucion_sector(ticker):
 
     plt.savefig(buffer, format="PNG")
     plt.close()
-    
+
     # Obtener los datos de la imagen del buffer
     buffer.seek(0)
     grafica_sector = base64.b64encode(buffer.read()).decode()
@@ -818,11 +884,17 @@ def _grafica_evolucion_sector(ticker):
 def _calcular_media_sector(lista_dataframes):
     """Para calcular la media de un sector. 
 
-    Args:
-        lista_dataframes (list): lista con los dataframes que contienen los precios de cierre y las fechas de los valores que están en el mismo sector que el ticker 'objetivo'.
+    Parameters
+    ----------
+        lista_dataframes : list
+            Lista con los dataframes que contienen los precios de cierre y las fechas de los valores 
+            que están en el mismo sector que el ticker 'objetivo'.
 
-    Returns:
-        pandas.core.frame.DataFrame: dataframe que ha pasado por un proceso de merging para equilibrar fechas y que tiene la media de los cierres del sector.
+    Returns
+    -------
+        dfs_merged : pandas.core.frame.DataFrame
+            Dataframe que ha pasado por un proceso de merging para equilibrar fechas y que tiene la 
+            media de los cierres del sector.
     """
     # Empiezo con el primer dataframe de la lista
     dfs_merged = lista_dataframes[0]
@@ -833,7 +905,7 @@ def _calcular_media_sector(lista_dataframes):
     # serán coherentes
     for df in lista_dataframes[1:]:
         dfs_merged = pd.merge(dfs_merged, df, on='date', suffixes=('', '_'))
-    
+
     # Calculo la columna con las medias del sector
     dfs_merged['media'] = dfs_merged.filter(like='close').mean(axis=1)
 

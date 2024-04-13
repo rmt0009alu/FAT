@@ -11,8 +11,10 @@ from django.utils import timezone
 class StockComprado(models.Model):
     """Modelo para los stocks comprados por el usuario.
 
-    Args:
-        models (django.db.models.Model): modelo de Django.
+    Parameters
+    ----------
+        models : django.db.models.Model
+            Modelo de Django.
     """
     # Todos los campos serán obligatorios (no permito 'null' ni 'blank')
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -65,8 +67,15 @@ class StockComprado(models.Model):
         """No se guarda como un campo, pero facilita el
         acceso a la información.
 
-        Returns:
-            (float): precio por número de acciones = cantidad gastada
+        Parameters
+        ----------
+            self
+                La propia clase StockComprado.
+
+        Returns
+        -------
+            float
+                Precio por número de acciones = cantidad gastada
         """
         if self.moneda == 'GBp':
             return self.precio_compra * self.num_acciones / 100
@@ -75,8 +84,15 @@ class StockComprado(models.Model):
     def __str__(self):
         """Método magic para mostrar info. como un string.
 
-        Returns:
-            _type_: _description_
+        Parameters
+        ----------
+            self
+                La propia clase StockComprado.
+
+        Returns
+        -------
+            str
+                cadena descriptiva.
         """
         return f"{self.nombre_stock} - {self.usuario} - {self.fecha_compra} - {self.moneda}"
 
@@ -84,8 +100,10 @@ class StockComprado(models.Model):
 class StockSeguimiento(models.Model):
     """Modelo para los stocks seguidos por el usuario.
 
-    Args:
-        models (django.db.models.Model): modelo de Django.
+    Parameters
+    ----------
+        models : django.db.models.Model)
+            Modelo de Django.
     """
     # Todos los campos serán obligatorios (no permito 'null' ni 'blank')
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -104,7 +122,14 @@ class StockSeguimiento(models.Model):
     def __str__(self):
         """Método magic para mostrar info. como un string.
 
-        Returns:
-            _type_: _description_
+        Parameters
+        ----------
+            self
+                La propia clase StockSeguimiento.
+
+        Returns
+        -------
+            str
+                cadena descriptiva.
         """
         return f"{self.nombre_stock} - {self.usuario} - {self.moneda}"

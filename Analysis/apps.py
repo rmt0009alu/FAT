@@ -7,9 +7,10 @@ from django.apps import AppConfig
 class AnalysisConfig(AppConfig):
     """Configuración de la app de Analysis.
 
-    Args:
-        AppConfig (django.apps): configurador de aplicaciones
-            en Django.
+    Parameters
+    ----------
+        AppConfig : django.apps
+            Configurador de aplicaciones en Django.
     """
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'Analysis'

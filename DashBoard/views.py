@@ -20,11 +20,15 @@ from .forms import StockCompradoForm, StockSeguimientoForm
 def dashboard(request):
     """Para mostrar un dashboard al usuario.
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
-        dict: Diccionario con valores del contexto.
+    Returns
+    -------
+        render
+            Renderiza la plantilla 'dashboard.html' con datos de contexto.
     """
     # Obtener el nombre del usuario
     usuario = request.user.username
@@ -89,13 +93,18 @@ def dashboard(request):
 def nueva_compra(request):
     """Para registrar una nueva compra.
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
+    Returns
+    -------
         Union[render, redirect]: 
-            * (render): Renderiza la plantilla 'nueva_compra.html' con datos de contexto.
-            * (redirect): Plantilla de dashboard.
+            * render
+                Renderiza la plantilla 'nueva_compra.html' con datos de contexto (para GET).
+            * redirect
+                Plantilla de dashboard (para POST).
     """
     # El contexto siempre va a tener, mínimo, estos dos campos:
     # Formulario y lista para mostrar sugerencias de búsqueda
@@ -178,13 +187,18 @@ def nueva_compra(request):
 def eliminar_compras(request):
     """Para eliminar las compras (posiciones abiertas) asociadas a un usuario.
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
+    Returns
+    -------
         Union[render, redirect]:
-            * (render): Renderiza la plantilla 'eliminar_compras.html' con datos de contexto.
-            * (redirect): Plantilla de dashboard.
+            * render
+                Renderiza la plantilla 'eliminar_compras.html' con datos de contexto (para GET).
+            * redirect
+                Plantilla de dashboard (para POST).
     """
     if request.method == "GET":
         # Filtrar por usuario
@@ -207,13 +221,18 @@ def eliminar_compras(request):
 def nuevo_seguimiento(request):
     """Para registrar un nuevo valor en seguimiento.
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
+    Returns
+    -------
         Union[render, redirect]:
-            * (render): Renderiza la plantilla 'nuevo_seguimiento.html' con datos de contexto.
-            * (redirect): Plantilla de dashboard.
+            * render
+                Renderiza la plantilla 'nuevo_seguimiento.html' con datos de contexto (para GET)
+            * redirect
+                Plantilla de dashboard (para POST).
     """
     # El contexto siempre va a tener, mínimo, estos dos campos:
     # Formulario y lista para mostrar sugerencias de búsqueda
@@ -284,13 +303,18 @@ def nuevo_seguimiento(request):
 def eliminar_seguimientos(request):
     """Para eliminar valores en seguimiento asociados a un usuario.
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): Solicitud HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
+    Returns
+    -------
         Union[render, redirect]: 
-            * (render): Renderiza la plantilla 'eliminar_compras.html' con datos de contexto.
-            * (redirect): Plantilla de dashboard.
+            * render
+                Renderiza la plantilla 'eliminar_compras.html' con datos de contexto (para GET).
+            * redirect
+                Plantilla de dashboard (para POST).
     """
     if request.method == "GET":
         # Filtrar por usuario
@@ -312,11 +336,16 @@ def eliminar_seguimientos(request):
 def _stocks_en_seguimiento(seguimiento_usuario):
     """Para obtener una lista de los stocks en seguimiento de un usuario.
 
-    Args:
-        seguimiento_usuario (QuerySet): objetos StockSeguimiento del usuario.
+    Parameters
+    ----------
+        seguimiento_usuario : QuerySet
+            objetos StockSeguimiento del usuario.
 
-    Returns:
-        list: Stocks en seguimiento con información adicional (como los valores que son similares según el sector al que pertenecen).
+    Returns
+    -------
+        stocks_en_seg : list
+            Stocks en seguimiento con información adicional (como los valores que son 
+            similares según el sector al que pertenecen).
     """
     stocks_en_seg = []
 
@@ -347,13 +376,18 @@ def _stocks_en_seguimiento(seguimiento_usuario):
 def _evolucion_cartera(compras_usuario):
     """Para calular la evolución de las posiciones abiertas y del total de la cartera.
 
-    Args:
-        compras_usuario (QuerySet): Objetos StockComprado del usuario.
+    Parameters
+    ----------
+        compras_usuario : QuerySet
+            Objetos StockComprado del usuario.
 
-    Returns:
+    Returns
+    -------
         tuple: Tupla que contiene las evoluciones.
-            * evol_cartera (list): Stocks comprados con info. adicional como la evolución desde la fecha de compra.
-            * evol_total (float): Valor de la evolución total de la cartera.
+            * evol_cartera : list
+                Stocks comprados con info. adicional como la evolución desde la fecha de compra.
+            * evol_total : float
+                Valor de la evolución total de la cartera.
     """
     evol_cartera = []
     total_inicial = 0
@@ -393,16 +427,33 @@ def _evolucion_cartera(compras_usuario):
 def _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso):
     """Permite comprobar si los datos introducidos por el usuario son coherentes.
 
-    Args:
-        fecha (django.utils.timezone): Timezone actual.
-        bd (str): Nombre de la base de datos.
-        ticker (str): Nombre del ticker.
-        entrada (QuerySet): Registro en la bd del stock seleccionado en el formulario (en la fecha indicada).
-        precio_compra (float): Precio de compra a comprobar.
-        caso (int): Indicador del caso a tratar.
+    Parameters
+    ----------
+        fecha : django.utils.timezone
+            Timezone actual.
 
-    Returns:
-        dict: Diccionario con datos del cotexto.
+        bd : str
+            Nombre de la base de datos.
+
+        ticker : str
+            Nombre del ticker.
+
+        entrada : QuerySet
+            Registro en la bd del stock seleccionado en el formulario (en la fecha indicada).
+
+        precio_compra : float
+            Precio de compra a comprobar.
+
+        caso : int
+            Indicador del caso a tratar.
+
+    Returns
+    -------
+        Union[dict, bool]: 
+            * context : dict
+                Diccionario con datos del cotexto.
+            * bool 
+                False en caso de que no haya errores.
     """
     context = {
         "form": StockCompradoForm,
@@ -422,7 +473,7 @@ def _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso):
                 return context
         case "2":
             if not entrada.exists():
-                context["msg_error"] = f'El {fecha_con_formato} (d/m/Y) corresponde a un festivo, fin de semana o no existen registros.'
+                context["msg_error"] = f'El {fecha_con_formato} (d/m/Y) corresponde a un festivo,fin de semana o no existen registros.'
                 return context
             if precio_compra < entrada[0].low or precio_compra > entrada[0].high:
                 context["msg_error_2"] = f'Ese precio no es posible para el día {fecha_con_formato} (d/m/Y).'

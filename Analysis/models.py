@@ -13,9 +13,10 @@ class StockBase(models.Model):
     tendría que repetir mucho código innecesario con cada
     ticker/stock que quiera utilizar.
 
-    Args:
-        models.Model (django.db.models.base.Model'): clase base
-            para los modelos de Django.
+    Parameters
+    ----------
+        models.Model : django.db.models.base.Model
+            Clase base para los modelos de Django.
     """
     id = models.AutoField(primary_key=True)
     date = models.DateTimeField(db_column='Date', blank=True, null=True)
@@ -54,8 +55,15 @@ class StockBase(models.Model):
     def __str__(self):
         """Método magic, para representación en strings.
 
-        Returns:
-            (str): cadena descriptiva.
+        Parameters
+        ----------
+            self
+                La propia clase StockBase
+
+        Returns
+        -------
+            str
+                cadena descriptiva.
         """
         return f"{self.ticker} - {self.name} . Fecha: {self.date}. Cierre: {self.close}"
 
@@ -81,9 +89,10 @@ class Sectores(models.Model):
     """Clase para crear una tabla que almacene todos los tickers
     juntos con sus correspondientes sectores.
 
-    Args:
-        models.Model (django.db.models.base.Model'): clase base
-            para los modelos de Django.
+    Parameters
+    ----------
+        models.Model : django.db.models.base.Model'
+            Clase base para los modelos de Django.
     """
     id = models.AutoField(primary_key=True)
     ticker_bd = models.TextField(db_column='Ticker_bd')
@@ -106,8 +115,15 @@ class Sectores(models.Model):
     def __str__(self) -> str:
         """Método magic, para representación en strings.
 
-        Returns:
-            (str): cadena descriptiva.
+        Parameters
+        ----------
+            self
+                La propia clase Sectores.
+
+        Returns
+        -------
+            str
+                cadena descriptiva.
         """
         return f"{self.id} - {self.nombre} - {self.sector}"
 
@@ -116,9 +132,10 @@ class CambioMoneda(models.Model):
     """Clase para crear una tabla que almacene todos los tickers
     forex con info. sobre el cambio de moneda.
 
-    Args:
-        models.Model (django.db.models.base.Model'): clase base
-            para los modelos de Django.
+    Parameters
+    ----------
+        models.Model : django.db.models.base.Model'
+            Clase base para los modelos de Django.
     """
     id = models.AutoField(primary_key=True)
     ticker_forex = models.TextField(db_column='Ticker_forex')
@@ -138,7 +155,14 @@ class CambioMoneda(models.Model):
     def __str__(self) -> str:
         """Método magic, para representación en strings.
 
-        Returns:
-            (str): cadena descriptiva.
+        Parameters
+        ----------
+            self
+                La propia clase CambioMoneda.
+
+        Returns
+        -------
+            str
+                cadena descriptiva.
         """
         return f"{self.id} - {self.ticker_forex}"
