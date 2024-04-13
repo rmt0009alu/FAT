@@ -52,7 +52,7 @@ jobs:
           python -m pip install pylint
 
       - name: Analyze the 'Analysis' app
-        run: pylint --rcfile=.pylintrc Analysis --output=lint.txt || true
+        run: pylint --rcfile=.pylintrc Analysis --output=pylint/Analysis_pylint.txt || true
 
       - name: Analyze the 'DashBoard' app
         run: pylint --rcfile=.pylintrc DashBoard --output=lint.txt || true
