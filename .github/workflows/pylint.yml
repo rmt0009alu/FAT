@@ -53,6 +53,12 @@ jobs:
 
       - name: Analizar app 'Analysis'
         run: pylint --rcfile=.pylintrc Analysis --output=Analysis_pylint.txt || true
+      
+      - name: Cargar archivo de pylint de Analysis
+        uses: actions/upload-artifact@v3
+        with:
+          name: Analysis_pylint.txt
+          path: Analysis_pylint.txt
 
       - name: Analizar app 'DashBoard'
         run: pylint --rcfile=.pylintrc DashBoard --output=lint.txt || true
