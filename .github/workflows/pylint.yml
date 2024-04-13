@@ -14,12 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Preparar Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Cache dependencies
+      - name: Meter dependencias en cache para acelerar proceso de instalción
         uses: actions/cache@v2
         with:
           path: |
@@ -29,7 +29,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Install dependencies
+      - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
           python -m pip install Django
@@ -51,23 +51,52 @@ jobs:
           python -m pip install tensorflow
           python -m pip install pylint
 
+
       - name: Analizar app 'Analysis'
         run: pylint --rcfile=.pylintrc Analysis --output=Analysis_pylint.txt || true
       
-      - name: Cargar archivo de pylint de Analysis
+      - name: Cargar archivo de pylint de 'Analysis'
         uses: actions/upload-artifact@v3
         with:
           name: Analysis_pylint.txt
           path: Analysis_pylint.txt
 
-      # - name: Analizar app 'DashBoard'
-      #   run: pylint --rcfile=.pylintrc DashBoard --output=lint.txt || true
 
-      # - name: AAnalizar app 'FAT' app
-      #   run: pylint --rcfile=.pylintrc FAT --output=lint.txt || true
+      - name: Analizar app 'DashBoard'
+        run: pylint --rcfile=.pylintrc DashBoard --output=DashBoard_pylint.txt || true
+      
+      - name: Cargar archivo de pylint de 'DashBoard'
+        uses: actions/upload-artifact@v3
+        with:
+          name: DashBoard_pylint.txt
+          path: DashBoard_pylint.txt
+      
 
-      # - name: AAnalizar app 'News' app
-      #   run: pylint --rcfile=.pylintrc News --output=lint.txt || true
+      - name: AAnalizar app 'FAT' app
+        run: pylint --rcfile=.pylintrc FAT --output=FAT_pylint.txt || true
+      
+      - name: Cargar archivo de pylint de 'FAT'
+        uses: actions/upload-artifact@v3
+        with:
+          name: FAT_pylint.txt
+          path: FAT_pylint.txt
 
-      # - name: Analizar app 'Lab' app
-      #   run: pylint --rcfile=.pylintrc Lab --output=lint.txt || true
+
+      - name: AAnalizar app 'News' app
+        run: pylint --rcfile=.pylintrc News --output=News_pylint.txt || true
+      
+      - name: Cargar archivo de pylint de 'News'
+        uses: actions/upload-artifact@v3
+        with:
+          name: News_pylint.txt
+          path: News_pylint.txt
+
+
+      - name: Analizar app 'Lab' app
+        run: pylint --rcfile=.pylintrc Lab --output=Lab_pylint.txt || true
+      
+      - name: Cargar archivo de pylint de 'Lab'
+        uses: actions/upload-artifact@v3
+        with:
+          name: Lab_pylint.txt
+          path: Lab_pylint.txt
