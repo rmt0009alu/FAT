@@ -55,47 +55,58 @@ jobs:
       - name: Analizar app 'Analysis'
         run: pylint --rcfile=.pylintrc Analysis --output=Analysis_pylint.txt || true
       
-      - name: Cargar archivo de pylint de 'Analysis'
-        uses: actions/upload-artifact@v3
-        with:
-          name: Analysis_pylint.txt
-          path: pylint
+      # - name: Cargar archivo de pylint de 'Analysis'
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: Analysis_pylint.txt
+      #     path: pylint
 
       - name: Analizar app 'DashBoard'
         run: pylint --rcfile=.pylintrc DashBoard --output=DashBoard_pylint.txt || true
       
-      - name: Cargar archivo de pylint de 'DashBoard'
-        uses: actions/upload-artifact@v3
-        with:
-          name: DashBoard_pylint.txt
-          path: pylint
+      # - name: Cargar archivo de pylint de 'DashBoard'
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: DashBoard_pylint.txt
+      #     path: pylint
       
 
-      - name: AAnalizar app 'FAT' app
+      - name: AAnalizar app 'FAT'
         run: pylint --rcfile=.pylintrc FAT --output=FAT_pylint.txt || true
       
-      - name: Cargar archivo de pylint de 'FAT'
-        uses: actions/upload-artifact@v3
-        with:
-          name: FAT_pylint.txt
-          path: pylint
+      # - name: Cargar archivo de pylint de 'FAT'
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: FAT_pylint.txt
+      #     path: pylint
 
 
-      - name: AAnalizar app 'News' app
+      - name: AAnalizar app 'News'
         run: pylint --rcfile=.pylintrc News --output=News_pylint.txt || true
       
-      - name: Cargar archivo de pylint de 'News'
-        uses: actions/upload-artifact@v3
-        with:
-          name: News_pylint.txt
-          path: pylint
+      # - name: Cargar archivo de pylint de 'News'
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: News_pylint.txt
+      #     path: pylint
 
 
-      - name: Analizar app 'Lab' app
+      - name: Analizar app 'Lab'
         run: pylint --rcfile=.pylintrc Lab --output=Lab_pylint.txt || true
       
-      - name: Cargar archivo de pylint de 'Lab'
-        uses: actions/upload-artifact@v3
+      # - name: Cargar archivo de pylint de 'Lab'
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: Lab_pylint.txt
+      #     path: pylint
+
+      - name: Cargar los logs de pylint
+        uses: actions/upload-artifact@v2
         with:
-          name: Lab_pylint.txt
-          path: pylint
+          name: pylint-logs
+          path: |
+            Analysis_pylint.txt
+            DashBoard_pylint.txt
+            FAT_pylint.txt
+            News_pylint.txt
+            Lab_pylint.txt
