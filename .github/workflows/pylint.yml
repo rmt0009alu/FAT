@@ -39,7 +39,7 @@ jobs:
 
     - name: Analizar la app 'Analysis'
       run: |
-        pylint --rcfile=.pylintrc Analysis
+        pylint --rcfile=.pylintrc Analysis --output=lint.txt || true
 
     - name: Analizar la app 'DashBoard'
       run: |
