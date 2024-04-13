@@ -51,17 +51,23 @@ jobs:
           python -m pip install tensorflow
           python -m pip install pylint
 
-      - name: Analyze the 'Analysis' app
-        run: pylint --rcfile=.pylintrc Analysis --output=pylint/Analysis_pylint.txt || true
+      - name: Analizar app 'Analysis'
+        run: pylint --rcfile=.pylintrc Analysis --output=Analysis_pylint.txt || true
 
-      - name: Analyze the 'DashBoard' app
+      - name: Analizar app 'DashBoard'
         run: pylint --rcfile=.pylintrc DashBoard --output=lint.txt || true
 
-      - name: Analyze the 'FAT' app
+      - name: AAnalizar app 'FAT' app
         run: pylint --rcfile=.pylintrc FAT --output=lint.txt || true
 
-      - name: Analyze the 'News' app
+      - name: AAnalizar app 'News' app
         run: pylint --rcfile=.pylintrc News --output=lint.txt || true
 
-      - name: Analyze the 'Lab' app
+      - name: Analizar app 'Lab' app
         run: pylint --rcfile=.pylintrc Lab --output=lint.txt || true
+
+      - name: Cargar archivo de pylint de Analysis
+        uses: actions/upload-artifact@v3
+        with:
+          name: Analysis_pylint.txt
+          path: pylint/
