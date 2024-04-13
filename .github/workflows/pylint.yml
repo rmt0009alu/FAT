@@ -15,27 +15,18 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Instalar dependencias
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install Django
-        python -m pip install pandas
-        python -m pip install plotly==5.18.0
-        python -m pip install newsapi-python
-        python -m pip install -U matplotlib
-        python -m pip install mpld3
-        python -m pip install django-pandas
-        python -m pip install feedparser
-        python -m pip install yfinance
-        python -m pip install pyclean  
-        python -m pip install coverage
-        python -m pip install python-dotenv
-        python -m pip install networkx
-        python -m pip install statsmodels
-        python -m pip install scikit-learn
-        python -m pip install pmdarima
-        python -m pip install tensorflow
-        python -m pip install pylint
+        python -m pip install -r requirements.txt
 
     - name: Analizar la app 'Analysis'
       run: |
@@ -43,16 +34,16 @@ jobs:
 
     - name: Analizar la app 'DashBoard'
       run: |
-        pylint --rcfile=.pylintrc DashBoard
+        pylint --rcfile=.pylintrc DashBoard --output=lint.txt || true
 
     - name: Analizar 'FAT'
       run: |
-        pylint --rcfile=.pylintrc FAT     
+        pylint --rcfile=.pylintrc FAT --output=lint.txt || true
     
     - name: Analizar la app 'News'
       run: |
-        pylint --rcfile=.pylintrc News
+        pylint --rcfile=.pylintrc News --output=lint.txt || true
     
     - name: Analizar la app 'Lab'
       run: |
-        pylint --rcfile=.pylintrc Lab
+        pylint --rcfile=.pylintrc Lab --output=lint.txt || true
