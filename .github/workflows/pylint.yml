@@ -59,8 +59,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Analysis_pylint.txt
-          path: Analysis_pylint.txt
-
+          path: pylint
 
       - name: Analizar app 'DashBoard'
         run: pylint --rcfile=.pylintrc DashBoard --output=DashBoard_pylint.txt || true
@@ -69,7 +68,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: DashBoard_pylint.txt
-          path: DashBoard_pylint.txt
+          path: pylint
       
 
       - name: AAnalizar app 'FAT' app
@@ -79,7 +78,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: FAT_pylint.txt
-          path: FAT_pylint.txt
+          path: pylint
 
 
       - name: AAnalizar app 'News' app
@@ -89,7 +88,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: News_pylint.txt
-          path: News_pylint.txt
+          path: pylint
 
 
       - name: Analizar app 'Lab' app
@@ -99,4 +98,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Lab_pylint.txt
-          path: Lab_pylint.txt
+          path: pylint
