@@ -60,20 +60,14 @@ jobs:
           name: Analysis_pylint.txt
           path: Analysis_pylint.txt
 
-      - name: Analizar app 'DashBoard'
-        run: pylint --rcfile=.pylintrc DashBoard --output=lint.txt || true
+      # - name: Analizar app 'DashBoard'
+      #   run: pylint --rcfile=.pylintrc DashBoard --output=lint.txt || true
 
-      - name: AAnalizar app 'FAT' app
-        run: pylint --rcfile=.pylintrc FAT --output=lint.txt || true
+      # - name: AAnalizar app 'FAT' app
+      #   run: pylint --rcfile=.pylintrc FAT --output=lint.txt || true
 
-      - name: AAnalizar app 'News' app
-        run: pylint --rcfile=.pylintrc News --output=lint.txt || true
+      # - name: AAnalizar app 'News' app
+      #   run: pylint --rcfile=.pylintrc News --output=lint.txt || true
 
-      - name: Analizar app 'Lab' app
-        run: pylint --rcfile=.pylintrc Lab --output=lint.txt || true
-
-      - name: Cargar archivo de pylint de Analysis
-        uses: actions/upload-artifact@v3
-        with:
-          name: Analysis_pylint.txt
-          path: pylint/
+      # - name: Analizar app 'Lab' app
+      #   run: pylint --rcfile=.pylintrc Lab --output=lint.txt || true
