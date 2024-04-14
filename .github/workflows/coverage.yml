@@ -59,3 +59,14 @@ jobs:
           export SECRET_KEY
           export NEWS_API_KEY
           coverage run manage.py test
+      
+      - name: Generar informe de cobertura en HTML
+        run: |
+          coverage html
+        continue-on-error: true
+
+      - name: Subir informe de cobertura de tests
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: htmlcov
