@@ -573,7 +573,7 @@ class TestDashBoardViews(TestCase):
         caso = "2"
         context = _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso)
         self.assertEqual(context["msg_error"], 
-                         f'El {fechaConFormato} (d/m/Y) corresponde a un festivo, fin de semana o no existen registros.', 
+                         f'El {fechaConFormato} (d/m/Y) corresponde a un festivo,fin de semana o no existen registros.', 
                          " - [NO OK] _hay_errores reconoce entrada inexistente")
         self.assertEqual(context["form"], StockCompradoForm, " - [NO OK] _hay_errores reconoce entrada inexistente")
         self.assertEqual(context["listaTickers"], Tickers_BDs.tickers_disponibles(), " - [NO OK] _hay_errores reconoce entrada inexistente")

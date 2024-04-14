@@ -94,7 +94,6 @@ INFO:DashBoardViews : - [OK] _hay_errores reconoce bd none para stocks seguidos
 INFO:DashBoardViews : - [OK] _hay_errores reconoce fecha futura
 INFO:DashBoardViews : - [OK] _hay_errores reconoce datos válidos
 INFO:DashBoardViews : - [OK] _hay_errores reconoce precio fuera de rango
-INFO:DashBoardViews : - [OK] _hay_errores reconoce entrada inexistente
 INFO:DashBoardViews : - [OK] No redirigir y seguir en 'nueva_compra' con formulario no válido
 INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'
 INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'
