@@ -52,5 +52,10 @@ jobs:
           python -m pip install pylint
 
       - name: Testear con coverage
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
         run: |
+          export SECRET_KEY
+          export NEWS_API_KEY
           coverage run manage.py test
