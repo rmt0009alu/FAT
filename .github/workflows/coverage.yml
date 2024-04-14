@@ -51,6 +51,6 @@ jobs:
           python -m pip install tensorflow
           python -m pip install pylint
 
-    - name: Testear con coverage
-      run: |
-        coverage run manage.py test
+      - name: Testear con coverage
+        run: |
+          coverage run manage.py test
