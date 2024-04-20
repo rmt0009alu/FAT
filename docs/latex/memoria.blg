@@ -1,0 +1,102 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: memoria.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: ./tex/1_Introduccion.aux
+Reallocating 'name_of_file' (item size: 1) to 35 items.
+A level-1 auxiliary file: ./tex/2_Objetivos_del_proyecto.aux
+Reallocating 'name_of_file' (item size: 1) to 31 items.
+A level-1 auxiliary file: ./tex/3_Conceptos_teoricos.aux
+Reallocating 'name_of_file' (item size: 1) to 36 items.
+A level-1 auxiliary file: ./tex/4_Tecnicas_y_herramientas.aux
+Reallocating 'name_of_file' (item size: 1) to 60 items.
+A level-1 auxiliary file: ./tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux
+Reallocating 'name_of_file' (item size: 1) to 34 items.
+A level-1 auxiliary file: ./tex/6_Trabajos_relacionados.aux
+Reallocating 'name_of_file' (item size: 1) to 51 items.
+A level-1 auxiliary file: ./tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Database file #1: bibliografia.bib
+Warning--string name "sept" is undefined
+--line 11 of file bibliografia.bib
+Warning--entry type for "online:MarketScreener" isn't style-file defined
+--line 16 of file bibliografia.bib
+Warning--entry type for "online:Investing" isn't style-file defined
+--line 24 of file bibliografia.bib
+Warning--entry type for "online:Bloomberg" isn't style-file defined
+--line 32 of file bibliografia.bib
+Warning--entry type for "online:cnmv_portal" isn't style-file defined
+--line 48 of file bibliografia.bib
+Warning--entry type for "online:bde" isn't style-file defined
+--line 56 of file bibliografia.bib
+Warning--entry type for "online:FAT_web" isn't style-file defined
+--line 91 of file bibliografia.bib
+Warning--entry type for "online:FAT_repo" isn't style-file defined
+--line 99 of file bibliografia.bib
+Warning--entry type for "online:django_MVT_1" isn't style-file defined
+--line 139 of file bibliografia.bib
+Warning--entry type for "online:django_MVT_2" isn't style-file defined
+--line 147 of file bibliografia.bib
+Warning--entry type for "online:git" isn't style-file defined
+--line 163 of file bibliografia.bib
+Warning--entry type for "online:apache_subversion" isn't style-file defined
+--line 171 of file bibliografia.bib
+Warning--entry type for "online:mercurial" isn't style-file defined
+--line 179 of file bibliografia.bib
+Warning--entry type for "online:github" isn't style-file defined
+--line 187 of file bibliografia.bib
+Warning--entry type for "online:gitlab" isn't style-file defined
+--line 195 of file bibliografia.bib
+Warning--entry type for "online:gitea" isn't style-file defined
+--line 203 of file bibliografia.bib
+Warning--entry type for "online:integrar_teams_github" isn't style-file defined
+--line 211 of file bibliografia.bib
+Warning--entry type for "online:ms_teams" isn't style-file defined
+--line 219 of file bibliografia.bib
+Warning--I didn't find a database entry for "wiki:latex"
+Warning--I didn't find a database entry for "koza92"
+Warning--I didn't find a database entry for "bortolot2005"
+You've used 26 entries,
+            2118 wiz_defined-function locations,
+            633 strings with 7583 characters,
+and the built_in function-call counts, 5811 in all, are:
+= -- 584
+> -- 188
+< -- 0
++ -- 80
+- -- 54
+* -- 187
+:= -- 996
+add.period$ -- 102
+call.type$ -- 26
+change.case$ -- 105
+chr.to.int$ -- 0
+cite$ -- 26
+duplicate$ -- 191
+empty$ -- 582
+format.name$ -- 54
+if$ -- 1275
+int.to.chr$ -- 0
+int.to.str$ -- 26
+missing$ -- 3
+newline$ -- 157
+num.names$ -- 52
+pop$ -- 202
+preamble$ -- 1
+purify$ -- 79
+quote$ -- 0
+skip$ -- 157
+stack$ -- 0
+substring$ -- 163
+swap$ -- 26
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 102
+warning$ -- 0
+while$ -- 53
+width$ -- 28
+write$ -- 312
+(There were 21 warnings)

@@ -1,0 +1,137 @@
+\capitulo{4}{Técnicas y herramientas}
+
+\section{Técnicas metodológicas}\label{metodologias}
+
+\subsection{Scrum}\label{scrum}
+
+Scrum \citep{wiki:Scrum} es un marco de trabajo relativamente estructurado y con roles específicos 
+dentro de la metodología Agile (roles principales: Product Owner, Scrum Master y desarrollador) . Se 
+puede utilizar tanto para la gestión de proyectos como para el desarrollo de productos, especialmente 
+en el despliegue de \emph{software}. 
+
+Con Scrum los proyectos se dividen en iteraciones cortas llamadas \emph{sprints}. Al final de cada 
+\emph{sprint} se debe presentar un producto mínimo viable y evaluar lo que se ha hecho bien y lo 
+que se puede mejorar. 
+
+Se ha optado por esta metodología, frente a otras como \emph{Waterfall}, porque ofrece una alta 
+adaptabilidad y genera entrega temprana de valor, con productos viables y valorables por el usuario 
+final desde las primeras fases. 
+
+\subsection{\emph{Test-Driven Development} (TDD)}\label{test_driven_development_tdd}
+
+TDD \citep{wiki:TDD} es una metodología de desarrollo de software que se enfoca en escribir una batería 
+de tests automatizados antes de iniciar la implementación del código fuente del propio software. Posteriormente, 
+se hace un proceso de refactorización para mejorar o solucionar los defectos encontrados. 
+
+Mis conocimientos previos de \emph{Django} y \emph{SQLite} no me han permitido utilizar de forma integral 
+esta metodología, pero sí que se ha seguido en diferentes etapas del desarrollo, mejorando notablemente la 
+calidad del código final. 
+
+\subsection{\emph{Behavior-Driven Development} (BDD)}\label{behavior_driven_development_bdd}
+
+BDD \citep{wiki:BDD} es una metodología que se basa en el comportamiento del software y me ha resultado útil 
+en aquellas fases del proyecto en las que no tenía una idea preconcebida del cómo trabajar con \emph{Django} 
+pero sí que conocía el resultado final esperado. 
+
+La ventaja de este enfoque es que las pruebas se escriben en un lenguaje natural y es sencillo extrapolarlas a 
+un gestor de tareas con un sistema Kanban. 
+
+\subsection{\emph{Kanban}}\label{kanban}
+
+Kanban \citep{wiki:Kanban} es un método visual de gestión de proyectos a través de la utilización de un tablero, 
+en el que se disponen una serie de tarjetas con las tareas pendientes, en curso o finalizadas. Esto permite crear 
+un flujo de trabajo que prioriza aquellas tareas más urgentes o que aportan antes valor a un producto.  
+
+
+
+\section{Patrones de diseño}\label{patrones_diseno}
+
+\subsection{\emph{Model-View-Template} (MVT)}\label{model_view_template}
+
+Es el patrón de diseño de \emph{Django}, Modelo-Vista-Plantilla \citep{online:django_MVT_1,online:django_MVT_2}, que 
+es similar al Modelo-Vista-Controlador (MVC) \citep{wiki:modelo_MVC}. En \emph{Django}, el Modelo representa la 
+estructura de los datos, la Vista maneja la lógica de la aplicación (el controlador en MVC) y la Plantilla se encarga 
+de la presentación de los datos (la vista en MVC). 
+
+Una de las ventajas de \emph{Django} es que este modelo está plenamente integrado y promueve un acoplamiento 
+débil, lo que facilita el mantenimiento y la escalabilidad de una aplicación. 
+
+\imagen{img_01_django_MVT.png}{Patrón MVT. Fuente: realización propia}{1}
+
+
+
+\section{Control de versiones}\label{control_versiones}
+
+\begin{itemize}
+\tightlist
+\item  
+Herramientas consideradas: Git \citep{online:git}, Apache Subversion \citep{online:apache_subversion} 
+y Mercurial \citep{online:mercurial}.
+\item
+  Herramienta elegida: Git.
+\end{itemize}
+
+Git y Mercurial son sistemas de control de versiones distribuidos (DVCS),
+mientras que Subversion - o SVN - es centralizado (VCS). 
+
+Una de las ventajas de Git es que permite a cada desarrollador tener una copia en local del repositorio 
+completo y, aunque es menos eficiente para proyectos muy grandes, es más sencillo de utilizar para proyectos 
+pequeños. Además, el sistema de ramificación de Git es más intuitivo y facilita la tarea de los desarrolladores. 
+
+\section{Alojamiento del repositorio}\label{alojamiento_repositorio}
+
+\begin{itemize}
+\tightlist
+\item
+  Herramientas consideradas: GitHub \citep{online:github}, GitLab \citep{online:gitlab} y Gitea \citep{online:gitea}.
+\item
+  Herramienta elegida: GitHub. 
+\end{itemize}
+
+Me he decantado por GitHub porque ya lo conocía, porque se utiliza en 
+algunas asignaturas del Grado de Ingeniería Informática y porque es muy 
+popular, lo que facilita la resolución de problemas gracias a su mayor 
+comunidad. 
+
+GitHub puede ofrecer menor control sobre proyectos grandes - Gitea y GitLab 
+permiten auto hospedaje con la configuración que más nos interese -, pero en 
+proyectos medios o pequeños es una herramienta práctica y sencilla de 
+utilizar, con diferentes integraciones y que facilita el uso de flujos 
+de trabajo CI/CD. 
+
+\section{Gestión del proyecto}\label{gestion-del-proyecto}
+
+\begin{itemize}
+\tightlist
+\item
+  Herramientas consideradas: Zube, ZenHub, Trello y Jira. 
+\item
+  Herramienta elegida: Zube.
+\end{itemize}
+
+Zube es una plataforma de gestión de proyectos que se integra muy bien con GitHub. Además,
+permite la sincronización en tiempo real con el repositorio de referencia que se esté 
+utilizando y ofrece una interfaz fácil de utilizar con posibilidad de seguimiento
+a través de \emph{burndonws} , \emph{burnups} y \emph{throughput} del equipo de desarrollo 
+o de los desarrolladores de forma individual. 
+
+Frente a las alternativas valoradas, Zube ha sido la más intuitiva,
+permitiendo hacer seguimiento y planificación del proyecto en pocos pasos. 
+
+
+\section{Comunicación}\label{comunicacion}
+
+\begin{itemize}
+\tightlist
+\item
+  Herramientas consideradas: email, GitHub y Microsoft Teams \citep{online:ms_teams}.
+\item
+  Herramientas elegidas: todas las anteriores. 
+\end{itemize}
+
+La comunicación en tiempo real, con llamadas o vídeo llamadas a través de Teams, 
+ aporta soluciones rápidas por el continuo flujo de preguntas-respuestas. Pero no 
+ siempre se pueden utilizar estos medios y es preferible hacer uso de email 
+ o de \emph{requests} de \emph{GitHub}. Además, recientemente, existe la posibilidad
+ de integrar MS Teams con GitHub \citep{online:integrar_teams_github} para enviar notificaciones 
+ a un grupo de trabajo. 

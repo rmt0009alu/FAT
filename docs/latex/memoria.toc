@@ -1,0 +1,36 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\'{I}ndice general}{\es@scroman {iii}}{section*.1}%
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {v}}{section*.2}%
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {vi}}{section*.3}%
+\contentsline {chapter}{1.\hskip .5em\relax Introducción}{1}{chapter*.4}%
+\contentsline {section}{\numberline {1.1}Estructura de la memoria}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Materiales adjuntos}{3}{section.1.2}%
+\contentsline {chapter}{2.\hskip .5em\relax Objetivos del proyecto}{4}{chapter*.5}%
+\contentsline {section}{\numberline {2.1}Objetivos generales}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Objetivos de carácter técnico}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Objetivos personales}{5}{section.2.3}%
+\contentsline {chapter}{3.\hskip .5em\relax Conceptos teóricos}{6}{chapter*.6}%
+\contentsline {section}{\numberline {3.1}Secciones}{6}{section.3.1}%
+\contentsline {subsection}{Subsecciones}{6}{section*.7}%
+\contentsline {subsubsection}{Subsubsecciones}{6}{section*.8}%
+\contentsline {section}{\numberline {3.2}Referencias}{6}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Imágenes}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Listas de items}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Tablas}{8}{section.3.5}%
+\contentsline {chapter}{4.\hskip .5em\relax Técnicas y herramientas}{9}{chapter*.9}%
+\contentsline {section}{\numberline {4.1}Técnicas metodológicas}{9}{section.4.1}%
+\contentsline {subsection}{Scrum}{9}{section*.10}%
+\contentsline {subsection}{\emph {Test-Driven Development} (TDD)}{9}{section*.11}%
+\contentsline {subsection}{\emph {Behavior-Driven Development} (BDD)}{10}{section*.12}%
+\contentsline {subsection}{\emph {Kanban}}{10}{section*.13}%
+\contentsline {section}{\numberline {4.2}Patrones de diseño}{10}{section.4.2}%
+\contentsline {subsection}{\emph {Model-View-Template} (MVT)}{10}{section*.14}%
+\contentsline {section}{\numberline {4.3}Control de versiones}{11}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Alojamiento del repositorio}{11}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Gestión del proyecto}{12}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Comunicación}{12}{section.4.6}%
+\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{13}{chapter*.15}%
+\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{14}{chapter*.16}%
+\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{15}{chapter*.17}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{16}{chapter*.18}%

@@ -1,0 +1,172 @@
+\begin{thebibliography}{10}
+
+\bibitem{online:apache_subversion}
+Apache.
+\newblock \emph{Apache Subversion}.
+\newblock \url{https://subversion.apache.org/}, 2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:Bloomberg}
+Bloomberg.
+\newblock \emph{Global media company that covers business, finance, markets,
+  politics and more}.
+\newblock \url{https://www.bloomberg.com/}, 2024.
+\newblock Online; Accedido el 10-Abr-2024.
+
+\bibitem{online:mercurial}
+Mercurial community.
+\newblock \emph{Mercurial}.
+\newblock \url{https://www.mercurial-scm.org/}, 2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:bde}
+Banco de~España.
+\newblock \emph{Página oficial del Banco de España}.
+\newblock \url{https://www.bde.es/wbe/es/}, 2023.
+\newblock Online; Accedido el 06-Nov-2023.
+
+\bibitem{report:cnmv_informe}
+Comisión~Nacional del Mercado~de Valores.
+\newblock \emph{Plan de Educación Financiera 2022-2025}.
+\newblock
+  \url{https://www.cnmv.es/docportal/publicaciones/planeducacion/planeducacionfinanciera_22_25es.pdf},
+  2022.
+\newblock Online; Accedido el 06-Nov-2023.
+
+\bibitem{online:cnmv_portal}
+Comisión~Nacional del Mercado~de Valores.
+\newblock \emph{Página oficial de la Comisión Nacional del Mercado de
+  Valores}.
+\newblock \url{https://www.cnmv.es/portal/home.aspx}, 2023.
+\newblock Online; Accedido el 06-Nov-2023.
+
+\bibitem{online:django_MVT_2}
+Django.
+\newblock \emph{Django documentation}.
+\newblock \url{https://docs.djangoproject.com/en/5.0/faq/general/}, 2023.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:git}
+Git.
+\newblock \emph{Git}.
+\newblock \url{https://git-scm.com/}, 2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:gitea}
+Gitea.
+\newblock \emph{Gitea}.
+\newblock \url{https://about.gitea.com/}, 2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:github}
+GitHub.
+\newblock \emph{GitHub}.
+\newblock \url{https://github.com/}, 2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:gitlab}
+GitLab.
+\newblock \emph{GitLab}.
+\newblock \url{https://about.gitlab.com/}, 2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{book:Inversor_inteligente}
+Benjamin Graham.
+\newblock {\em El inversor inteligente}.
+\newblock Deusto, Grupo Planeta, 10th edition, 2007.
+
+\bibitem{10.1162/neco.1997.9.8.1735}
+Sepp Hochreiter and J\"{u}rgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock {\em Neural Comput.}, 9(8):1735–1780, nov 1997.
+
+\bibitem{online:Investing}
+Investing.
+\newblock \emph{Website that provides real-time data, news, analysis and tools
+  for global financial markets}.
+\newblock \url{https://www.investing.com/}, 2024.
+\newblock Online; Accedido el 10-Abr-2024.
+
+\bibitem{online:MarketScreener}
+MarketScreener.
+\newblock \emph{Financial information for investors and traders}.
+\newblock \url{https://www.marketscreener.com/}, 2024.
+\newblock Online; Accedido el 10-Abr-2024.
+
+\bibitem{online:ms_teams}
+Microsoft.
+\newblock \emph{MS Teams}.
+\newblock
+  \url{https://www.microsoft.com/es-es/microsoft-teams/group-chat-software},
+  2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:integrar_teams_github}
+microsoft teams.
+\newblock \emph{Integrar GitHub con MS Teams}.
+\newblock \url{https://github.com/integrations/microsoft-teams}, 2023.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:django_MVT_1}
+Vinayak Nishant.
+\newblock \emph{Django MVT Architecture: A Fresh Take on Classic MVC}.
+\newblock \url{https://www.askpython.com/django/django-mvt-architecture}, 2020.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:FAT_web}
+Rodrigo~Merino Tovar.
+\newblock \emph{Herramienta web Financial Analysis Tool}.
+\newblock \url{http://takeiteasy.pythonanywhere.com/}, 2024.
+\newblock Online; Accedido el 10-Abr-2024.
+
+\bibitem{online:FAT_repo}
+Rodrigo~Merino Tovar.
+\newblock \emph{Repositorio de GitHub del Trabajo de Fin de Grado Financial
+  Analysis Tool}.
+\newblock \url{https://github.com/rmt0009alu/FAT}, 2024.
+\newblock Online; Accedido el 10-Abr-2024.
+
+\bibitem{wiki:BDD}
+Wikipedia.
+\newblock \emph{Behavior-driven development}.
+\newblock \url{https://en.wikipedia.org/wiki/Behavior-driven_development},
+  2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:TDD}
+Wikipedia.
+\newblock \emph{Desarrollo guiado por pruebas}.
+\newblock \url{https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas},
+  2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:Kanban}
+Wikipedia.
+\newblock \emph{Kanban (desarrollo)}.
+\newblock \url{https://es.wikipedia.org/wiki/Kanban_(desarrollo)}, 2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:ARIMA}
+Wikipedia.
+\newblock \emph{Modelo autorregresivo integrado de media móvil}.
+\newblock
+  \url{https://es.wikipedia.org/wiki/Modelo_autorregresivo_integrado_de_media_m%C3%B3vil},
+  2024.
+\newblock Online; Accedido el 10-Abr-2024.
+
+\bibitem{wiki:modelo_MVC}
+Wikipedia.
+\newblock \emph{Modelo–vista–controlador}.
+\newblock
+  \url{https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador},
+  2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:Scrum}
+Wikipedia.
+\newblock \emph{Scrum (desarrollo de software)}.
+\newblock \url{https://es.wikipedia.org/wiki/Scrum_(desarrollo_de_software)},
+  2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\end{thebibliography}

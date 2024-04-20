@@ -8,7 +8,7 @@ __pycache__/
 VerInfoÚtil.py
 
 # Para ignorar la documentación de la memoria en latex (así puedo hacer un clone desde pythonanywhere)
-/docs/latex
+# /docs/latex
 
 # Para ignorar archivos de pruebas
 /pruebas
