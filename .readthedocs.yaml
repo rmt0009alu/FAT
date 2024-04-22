@@ -15,7 +15,7 @@ build:
 # sphinx:
 #   configuration: docs/sphinx/conf.py
 sphinx:
-  source_dir: .
+  source_dir: ./
   builder: html
 
 # Optionally build your docs in additional formats such as PDF and ePub
