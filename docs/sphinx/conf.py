@@ -25,18 +25,39 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 language = 'en'
 
+# extensions = [
+#     'sphinx.ext.autodoc',
+#     # Para métodos privados typehints
+#     'sphinx.ext.autodoc.typehints',
+#     # Para autodocumentar, pero no me convence
+#     # 'sphinx.ext.autosummary',
+#     'sphinx.ext.doctest',
+#     'sphinx.ext.todo',
+#     'sphinx.ext.coverage',
+#     'sphinx.ext.imgmath',
+#     'sphinxcontrib_django',
+# ]
+
 extensions = [
-    'sphinx.ext.autodoc',
-    # Para métodos privados typehints
-    'sphinx.ext.autodoc.typehints',
-    # Para autodocumentar, pero no me convence
-    # 'sphinx.ext.autosummary',
-    'sphinx.ext.doctest',
-    'sphinx.ext.todo',
-    'sphinx.ext.coverage',
-    'sphinx.ext.imgmath',
-    'sphinxcontrib_django',
+    "sphinx.ext.duration",
+    "sphinx.ext.doctest",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.intersphinx",
 ]
+
+intersphinx_mapping = {
+    "rtd": ("https://docs.readthedocs.io/en/stable/", None),
+    "python": ("https://docs.python.org/3/", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
+}
+intersphinx_disabled_domains = ["std"]
+
+templates_path = ["_templates"]
+
+# -- Options for EPUB output
+epub_show_urls = "footnote"
+
 
 # Para que los métodos aparezcan en el orden del source
 autodoc_member_order = 'bysource'
