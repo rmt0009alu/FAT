@@ -21,82 +21,48 @@ Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
 Warning--string name "sept" is undefined
 --line 11 of file bibliografia.bib
-Warning--entry type for "online:MarketScreener" isn't style-file defined
---line 16 of file bibliografia.bib
-Warning--entry type for "online:Investing" isn't style-file defined
---line 24 of file bibliografia.bib
-Warning--entry type for "online:Bloomberg" isn't style-file defined
---line 32 of file bibliografia.bib
-Warning--entry type for "online:cnmv_portal" isn't style-file defined
---line 48 of file bibliografia.bib
-Warning--entry type for "online:bde" isn't style-file defined
---line 56 of file bibliografia.bib
-Warning--entry type for "online:FAT_web" isn't style-file defined
---line 91 of file bibliografia.bib
-Warning--entry type for "online:FAT_repo" isn't style-file defined
---line 99 of file bibliografia.bib
-Warning--entry type for "online:django_MVT_1" isn't style-file defined
---line 139 of file bibliografia.bib
-Warning--entry type for "online:django_MVT_2" isn't style-file defined
---line 147 of file bibliografia.bib
-Warning--entry type for "online:git" isn't style-file defined
---line 163 of file bibliografia.bib
-Warning--entry type for "online:apache_subversion" isn't style-file defined
---line 171 of file bibliografia.bib
-Warning--entry type for "online:mercurial" isn't style-file defined
---line 179 of file bibliografia.bib
-Warning--entry type for "online:github" isn't style-file defined
---line 187 of file bibliografia.bib
-Warning--entry type for "online:gitlab" isn't style-file defined
---line 195 of file bibliografia.bib
-Warning--entry type for "online:gitea" isn't style-file defined
---line 203 of file bibliografia.bib
-Warning--entry type for "online:integrar_teams_github" isn't style-file defined
---line 211 of file bibliografia.bib
-Warning--entry type for "online:ms_teams" isn't style-file defined
---line 219 of file bibliografia.bib
 Warning--I didn't find a database entry for "wiki:latex"
 Warning--I didn't find a database entry for "koza92"
 Warning--I didn't find a database entry for "bortolot2005"
-You've used 26 entries,
+You've used 64 entries,
             2118 wiz_defined-function locations,
-            633 strings with 7583 characters,
-and the built_in function-call counts, 5811 in all, are:
-= -- 584
-> -- 188
+            778 strings with 10778 characters,
+and the built_in function-call counts, 14057 in all, are:
+= -- 1420
+> -- 454
 < -- 0
-+ -- 80
-- -- 54
-* -- 187
-:= -- 996
-add.period$ -- 102
-call.type$ -- 26
-change.case$ -- 105
++ -- 194
+- -- 130
+* -- 415
+:= -- 2402
+add.period$ -- 254
+call.type$ -- 64
+change.case$ -- 257
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 191
-empty$ -- 582
-format.name$ -- 54
-if$ -- 1275
+cite$ -- 64
+duplicate$ -- 457
+empty$ -- 1418
+format.name$ -- 130
+if$ -- 3099
 int.to.chr$ -- 0
-int.to.str$ -- 26
+int.to.str$ -- 64
 missing$ -- 3
-newline$ -- 157
-num.names$ -- 52
-pop$ -- 202
+newline$ -- 385
+num.names$ -- 128
+pop$ -- 506
 preamble$ -- 1
-purify$ -- 79
+purify$ -- 193
 quote$ -- 0
-skip$ -- 157
+skip$ -- 385
 stack$ -- 0
-substring$ -- 163
-swap$ -- 26
+substring$ -- 353
+swap$ -- 64
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 102
+type$ -- 254
 warning$ -- 0
-while$ -- 53
-width$ -- 28
-write$ -- 312
-(There were 21 warnings)
+while$ -- 129
+width$ -- 66
+write$ -- 768
+(There were 4 warnings)

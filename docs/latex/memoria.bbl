@@ -6,6 +6,42 @@ Apache.
 \newblock \url{https://subversion.apache.org/}, 2024.
 \newblock Online; Accedido el 20-Abr-2024.
 
+\bibitem{online:news_api}
+News API.
+\newblock \emph{News API}.
+\newblock \url{https://newsapi.org/docs/client-libraries/python}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:yfinance}
+Ran Aroussi.
+\newblock \emph{yFinance}.
+\newblock \url{https://pypi.org/project/yfinance/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:jira}
+Atlassian.
+\newblock \emph{Jira}.
+\newblock \url{https://www.atlassian.com/es/software/jira}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:trello}
+Atlassian.
+\newblock \emph{Trello}.
+\newblock \url{https://trello.com/es}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:sphinx}
+Sphinx Authors.
+\newblock \emph{Sphinx}.
+\newblock \url{https://www.sphinx-doc.org/en/master/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:coverage}
+Ned Batchelder.
+\newblock \emph{Coverage}.
+\newblock \url{https://coverage.readthedocs.io/en/7.4.4/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{online:Bloomberg}
 Bloomberg.
 \newblock \emph{Global media company that covers business, finance, markets,
@@ -13,11 +49,36 @@ Bloomberg.
 \newblock \url{https://www.bloomberg.com/}, 2024.
 \newblock Online; Accedido el 10-Abr-2024.
 
+\bibitem{online:bootstrap}
+Bootstrap.
+\newblock \emph{Bootstrap}.
+\newblock
+  \url{https://getbootstrap.com/docs/5.3/getting-started/introduction/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:texmaker}
+Pascal Brachet.
+\newblock \emph{Texmaker}.
+\newblock \url{https://www.xm1math.net/texmaker/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:circle_ci}
+CircleCI.
+\newblock \emph{CircleCI}.
+\newblock \url{https://circleci.com/docs/language-python/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{online:mercurial}
 Mercurial community.
 \newblock \emph{Mercurial}.
 \newblock \url{https://www.mercurial-scm.org/}, 2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:flake8}
+Ian~Stapleton Cordasco.
+\newblock \emph{Flake8}.
+\newblock \url{https://flake8.pycqa.org/en/latest/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
 
 \bibitem{online:bde}
 Banco de~España.
@@ -40,11 +101,35 @@ Comisión~Nacional del Mercado~de Valores.
 \newblock \url{https://www.cnmv.es/portal/home.aspx}, 2023.
 \newblock Online; Accedido el 06-Nov-2023.
 
+\bibitem{online:networkx}
+NetworkX developers.
+\newblock \emph{NetworkX}.
+\newblock \url{https://networkx.org/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:matplotlib}
+The~Matplotlib development team.
+\newblock \emph{Matplotlib}.
+\newblock \url{https://matplotlib.org/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{online:django_MVT_2}
 Django.
 \newblock \emph{Django documentation}.
 \newblock \url{https://docs.djangoproject.com/en/5.0/faq/general/}, 2023.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:mendeley}
+Elsevier.
+\newblock \emph{Draw.io}.
+\newblock \url{https://www.mendeley.com/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:django}
+Django~Software Foundation.
+\newblock \emph{Django}.
+\newblock \url{https://www.djangoproject.com/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
 
 \bibitem{online:git}
 Git.
@@ -64,6 +149,12 @@ GitHub.
 \newblock \url{https://github.com/}, 2024.
 \newblock Online; Accedido el 20-Abr-2024.
 
+\bibitem{online:github_actions}
+GitHub.
+\newblock \emph{GitHub actions}.
+\newblock \url{https://docs.github.com/en/actions}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{online:gitlab}
 GitLab.
 \newblock \emph{GitLab}.
@@ -80,12 +171,54 @@ Sepp Hochreiter and J\"{u}rgen Schmidhuber.
 \newblock Long short-term memory.
 \newblock {\em Neural Comput.}, 9(8):1735–1780, nov 1997.
 
+\bibitem{online:spyder}
+Spyder IDE.
+\newblock \emph{Spyder IDE}.
+\newblock \url{https://www.spyder-ide.org/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:pandas}
+Num~FOCUS Inc.
+\newblock \emph{Pandas}.
+\newblock \url{https://pandas.pydata.org/docs/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:zube}
+Pivit Inc.
+\newblock \emph{Zube}.
+\newblock \url{https://zube.io/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{online:Investing}
 Investing.
 \newblock \emph{Website that provides real-time data, news, analysis and tools
   for global financial markets}.
 \newblock \url{https://www.investing.com/}, 2024.
 \newblock Online; Accedido el 10-Abr-2024.
+
+\bibitem{online:jenkins}
+Jenkins.
+\newblock \emph{Jenkins}.
+\newblock \url{https://www.jenkins.io/solutions/python/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:statsmodels}
+Jonathan Taylor y statsmodels-developers Josef~Perktold, Skipper~Seabold.
+\newblock \emph{statsmodels}.
+\newblock \url{https://www.statsmodels.org/stable/index.html}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:pylint}
+Pylint Logilab.
+\newblock \emph{Pylint}.
+\newblock \url{https://www.pylint.org/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:drawio}
+JGraph Ltd.
+\newblock \emph{Draw.io}.
+\newblock \url{https://www.drawio.com/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
 
 \bibitem{online:MarketScreener}
 MarketScreener.
@@ -101,6 +234,12 @@ Microsoft.
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
 
+\bibitem{online:vs_code}
+Microsoft.
+\newblock \emph{Visual Studio Code}.
+\newblock \url{https://code.visualstudio.com/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{online:integrar_teams_github}
 microsoft teams.
 \newblock \emph{Integrar GitHub con MS Teams}.
@@ -112,6 +251,42 @@ Vinayak Nishant.
 \newblock \emph{Django MVT Architecture: A Fresh Take on Classic MVC}.
 \newblock \url{https://www.askpython.com/django/django-mvt-architecture}, 2020.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:flask}
+Pallets.
+\newblock \emph{Flask}.
+\newblock \url{https://flask.palletsprojects.com/en/3.0.x/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:pdoc}
+pdoc Developers.
+\newblock \emph{pdoc}.
+\newblock \url{https://pdoc.dev/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:plotly}
+plotly.
+\newblock \emph{plotly}.
+\newblock \url{https://plotly.com/python/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:pytest_cov}
+pytest-cov contributors.
+\newblock \emph{Pytest-cov}.
+\newblock \url{https://pytest-cov.readthedocs.io/en/latest/readme.html}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:scikit_learn}
+scikit-learn developers.
+\newblock \emph{scikit-learn}.
+\newblock \url{https://scikit-learn.org/stable/index.html}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:tensorflow}
+Google~Brain Team.
+\newblock \emph{TensorFlow}.
+\newblock \url{https://www.tensorflow.org/?hl=es}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
 
 \bibitem{online:FAT_web}
 Rodrigo~Merino Tovar.
@@ -126,12 +301,24 @@ Rodrigo~Merino Tovar.
 \newblock \url{https://github.com/rmt0009alu/FAT}, 2024.
 \newblock Online; Accedido el 10-Abr-2024.
 
+\bibitem{online:texstudio}
+Benito van~der Zander.
+\newblock \emph{Texstudio}.
+\newblock \url{https://www.texstudio.org/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{wiki:BDD}
 Wikipedia.
 \newblock \emph{Behavior-driven development}.
 \newblock \url{https://en.wikipedia.org/wiki/Behavior-driven_development},
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:css}
+Wikipedia.
+\newblock \emph{CSS}.
+\newblock \url{https://es.wikipedia.org/wiki/CSS}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
 
 \bibitem{wiki:TDD}
 Wikipedia.
@@ -140,11 +327,29 @@ Wikipedia.
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
 
+\bibitem{wiki:html}
+Wikipedia.
+\newblock \emph{HTML}.
+\newblock \url{https://es.wikipedia.org/wiki/HTML}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{wiki:javascript}
+Wikipedia.
+\newblock \emph{JavaScript}.
+\newblock \url{https://es.wikipedia.org/wiki/JavaScript}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{wiki:Kanban}
 Wikipedia.
 \newblock \emph{Kanban (desarrollo)}.
 \newblock \url{https://es.wikipedia.org/wiki/Kanban_(desarrollo)}, 2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:miktex}
+Wikipedia.
+\newblock \emph{MiKTeX}.
+\newblock \url{https://es.wikipedia.org/wiki/MiKTeX}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
 
 \bibitem{wiki:ARIMA}
 Wikipedia.
@@ -168,5 +373,30 @@ Wikipedia.
 \newblock \url{https://es.wikipedia.org/wiki/Scrum_(desarrollo_de_software)},
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:dotenv}
+Saurabh~Kumar y~Bertrand Bonnefoy-Claudet.
+\newblock \emph{python-dotenv}.
+\newblock \url{https://pypi.org/project/python-dotenv/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:keras}
+François~Chollet y~desarrolladores~de Google.
+\newblock \emph{Keras}.
+\newblock \url{https://keras.io/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:feedparser}
+Kurt~McKee y~Mark~Pilgrim.
+\newblock \emph{Feedparser}.
+\newblock \url{https://feedparser.readthedocs.io/en/latest/introduction.html},
+  2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:zenhub}
+ZenHub.
+\newblock \emph{ZenHub}.
+\newblock \url{https://www.zenhub.com/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
 
 \end{thebibliography}

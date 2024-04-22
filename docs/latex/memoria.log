@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  20 APR 2024 11:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  22 APR 2024 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -787,8 +787,11 @@ LaTeX Info: Redefining \% on input line 12.
 LaTeX Info: Redefining \. on input line 13.
 LaTeX Info: Redefining \% on input line 13.
  (tex/1_Introduccion.aux) (tex/2_Objetivos_del_proyecto.aux)
-(tex/3_Conceptos_teoricos.aux) (tex/4_Tecnicas_y_herramientas.aux)
-(tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux)
+(tex/3_Conceptos_teoricos.aux) (tex/4_Tecnicas_y_herramientas.aux
+
+LaTeX Warning: Label `editor_texto' multiply defined.
+
+) (tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux)
 (tex/6_Trabajos_relacionados.aux)
 (tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux))
 \openout1 = `memoria.aux'.
@@ -864,7 +867,7 @@ Package hyperref Info: Link coloring ON on input line 373.
 \@outlinefile=\write4
 \openout4 = `memoria.out'.
 
-<./img/cabecera.pdf, id=111, 617.67549pt x 135.51413pt>
+<./img/cabecera.pdf, id=151, 617.67549pt x 135.51413pt>
 File: ./img/cabecera.pdf Graphic file (type pdf)
 <use ./img/cabecera.pdf>
 Package pdftex.def Info: ./img/cabecera.pdf  used on input line 375.
@@ -899,7 +902,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 375.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 375.
-<./img/escudoInfor.pdf, id=112, 618.11432pt x 737.07487pt>
+<./img/escudoInfor.pdf, id=152, 618.11432pt x 737.07487pt>
 File: ./img/escudoInfor.pdf Graphic file (type pdf)
 <use ./img/escudoInfor.pdf>
 Package pdftex.def Info: ./img/escudoInfor.pdf  used on input line 375.
@@ -1125,7 +1128,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 ]
-<./img/img_01_django_MVT.png, id=646, 426.84468pt x 203.25937pt>
+<./img/img_01_django_MVT.png, id=696, 426.84468pt x 203.25937pt>
 File: ./img/img_01_django_MVT.png Graphic file (type png)
 <use ./img/img_01_django_MVT.png>
 Package pdftex.def Info: ./img/img_01_django_MVT.png  used on input line 59.
@@ -1139,10 +1142,28 @@ LaTeX Info: Redefining \% on input line 59.
 [10]
 LaTeX Info: Redefining \. on input line 101.
 LaTeX Info: Redefining \% on input line 101.
- [11 <./img/img_01_django_MVT.png>])
+ [11 <./img/img_01_django_MVT.png>]
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
+ [12]
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
+ [13]
+LaTeX Info: Redefining \. on input line 248.
+LaTeX Info: Redefining \% on input line 248.
+ [14]
+LaTeX Info: Redefining \. on input line 279.
+LaTeX Info: Redefining \% on input line 279.
+ [15]
+LaTeX Info: Redefining \. on input line 299.
+LaTeX Info: Redefining \% on input line 299.
+ [16]
+LaTeX Info: Redefining \. on input line 322.
+LaTeX Info: Redefining \% on input line 322.
+ [17])
 LaTeX Info: Redefining \. on input line 517.
 LaTeX Info: Redefining \% on input line 517.
- [12]
+ [18]
 \openout2 = `./tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux'.
 
 
@@ -1152,7 +1173,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 5.87491pt
 (hyperref)                replaced by space on input line 1.
 
-) [13
+) [19
 
 
 
@@ -1166,7 +1187,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 5.87491pt
 (hyperref)                replaced by space on input line 1.
 
-) [14
+) [20
 
 
 
@@ -1180,35 +1201,73 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 5.87491pt
 (hyperref)                replaced by space on input line 1.
 
-) [15
+) [21
 
 
 
 
-] (memoria.bbl [16
+] (memoria.bbl
+Underfull \hbox (badness 1817) in paragraph at lines 10--14
+[]\T1/lmr/m/n/12 (+20) News API.  \T1/lmr/m/it/12 (+20) News API\T1/lmr/m/n/12 
+(+20) .  [][]$\T1/lmtt/m/n/12 https : / / newsapi . org / docs / client -[]
+ []
+
+
+Underfull \hbox (badness 1924) in paragraph at lines 53--58
+[]\T1/lmr/m/n/12 (+20) Bootstrap.  \T1/lmr/m/it/12 (+20) Boots-trap\T1/lmr/m/n/
+12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / getbootstrap . com / docs / 5 . 3 
+/
+ []
+
+[22
 
 
 
 ]
-Underfull \hbox (badness 2717) in paragraph at lines 97--103
-[]\T1/lmr/m/n/12 (+20) Microsoft.  \T1/lmr/m/it/12 (+20) MS Teams\T1/lmr/m/n/12
- (+20) .  [][]$\T1/lmtt/m/n/12 https : / / www . microsoft . com / es -[] es /
- []
-
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
+LaTeX Info: Redefining \. on input line 164.
+LaTeX Info: Redefining \% on input line 164.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[17]
-Underfull \hbox (badness 5711) in paragraph at lines 150--156
+[23]
+Underfull \hbox (badness 2717) in paragraph at lines 230--236
+[]\T1/lmr/m/n/12 (+20) Microsoft.  \T1/lmr/m/it/12 (+20) MS Teams\T1/lmr/m/n/12
+ (+20) .  [][]$\T1/lmtt/m/n/12 https : / / www . microsoft . com / es -[] es /
+ []
+
+LaTeX Info: Redefining \. on input line 248.
+LaTeX Info: Redefining \% on input line 248.
+
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[24]
+Underfull \hbox (badness 6284) in paragraph at lines 274--278
+[]\T1/lmr/m/n/12 (+20) pytest-cov con-tri-bu-tors.  \T1/lmr/m/it/12 (+20) Pytes
+t-cov\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / pytest -[] cov .
+ []
+
+LaTeX Info: Redefining \. on input line 329.
+LaTeX Info: Redefining \% on input line 329.
+
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[25]
+Underfull \hbox (badness 7415) in paragraph at lines 337--341
+[]\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Ja-vaS-cript\T1/lmr/m/
+n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / es . wikipedia . org / wiki /
+ []
+
+
+Underfull \hbox (badness 5711) in paragraph at lines 355--361
 []\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Mo-de-lo au-to-rre-gre
 -si-vo in-te-gra-do de me-dia mó-
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 150--156
+Underfull \hbox (badness 3098) in paragraph at lines 355--361
 \T1/lmr/m/it/12 (+20) vil\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : /
  / es . wikipedia . org / wiki / Modelo _ autorregresivo _
  []
@@ -1220,16 +1279,16 @@ LaTeX Info: Redefining \% on input line 526.
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[18]
+[26]
 
 pdfTeX warning: pdflatex (file ./img/licencia.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<./img/licencia.pdf, id=750, 597.23125pt x 845.1575pt>
+<./img/licencia.pdf, id=978, 597.23125pt x 845.1575pt>
 File: ./img/licencia.pdf Graphic file (type pdf)
 <use ./img/licencia.pdf>
 Package pdftex.def Info: ./img/licencia.pdf  used on input line 534.
 (pdftex.def)             Requested size: 113.81102pt x 161.04585pt.
-[19 <./img/licencia.pdf>]
+[27 <./img/licencia.pdf>]
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
@@ -1266,15 +1325,18 @@ L3 programming layer <2020/03/25>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 3CB5DFC79715163F7CC392BCCD9BD7B5;4288.
+(rerunfilecheck)             Checksum: 45093A7AD7D745CF40FF3880865CF26B;6263.
  ) 
 Here is how much of TeX's memory you used:
- 18464 strings out of 474591
- 298029 string characters out of 5745778
+ 18725 strings out of 474591
+ 302519 string characters out of 5745778
  1943533 words of memory out of 5000000
- 39964 multiletter control sequences out of 15000+600000
- 675764 words of font info for 227 fonts, out of 8000000 for 9000
+ 40120 multiletter control sequences out of 15000+600000
+ 677714 words of font info for 243 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,12n,93p,1006b,821s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
@@ -1292,9 +1354,9 @@ C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:
 /Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><
 C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><
 C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on memoria.pdf (29 pages, 848964 bytes).
+Output written on memoria.pdf (37 pages, 908222 bytes).
 PDF statistics:
- 846 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
- 66797 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1091 PDF objects out of 1200 (max. 8388607)
+ 165 named destinations out of 1000 (max. 500000)
+ 66877 words of extra memory for PDF output out of 74296 (max. 10000000)
 
