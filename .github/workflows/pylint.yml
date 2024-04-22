@@ -1,78 +1,78 @@
-name: Pylint
+# name: Pylint
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11"]
-    steps:
-      - uses: actions/checkout@v3
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         python-version: ["3.11"]
+#     steps:
+#       - uses: actions/checkout@v3
 
-      - name: Preparar Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
-        with:
-          python-version: ${{ matrix.python-version }}
+#       - name: Preparar Python ${{ matrix.python-version }}
+#         uses: actions/setup-python@v3
+#         with:
+#           python-version: ${{ matrix.python-version }}
 
-      - name: Meter dependencias en cache para acelerar proceso de instalción
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/pip
-            ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-pip-${{ hashFiles('.github/workflows/*') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+#       - name: Meter dependencias en cache para acelerar proceso de instalción
+#         uses: actions/cache@v2
+#         with:
+#           path: |
+#             ~/.cache/pip
+#             ~/.local/share/virtualenvs
+#           key: ${{ runner.os }}-pip-${{ hashFiles('.github/workflows/*') }}
+#           restore-keys: |
+#             ${{ runner.os }}-pip-
 
-      - name: Instalar dependencias
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install Django
-          python -m pip install pandas
-          python -m pip install plotly==5.18.0
-          python -m pip install newsapi-python
-          python -m pip install -U matplotlib
-          python -m pip install mpld3
-          python -m pip install django-pandas
-          python -m pip install feedparser
-          python -m pip install yfinance
-          python -m pip install pyclean  
-          python -m pip install coverage
-          python -m pip install python-dotenv
-          python -m pip install networkx
-          python -m pip install statsmodels
-          python -m pip install scikit-learn
-          python -m pip install pmdarima
-          python -m pip install tensorflow
-          python -m pip install pylint
+#       - name: Instalar dependencias
+#         run: |
+#           python -m pip install --upgrade pip
+#           python -m pip install Django
+#           python -m pip install pandas
+#           python -m pip install plotly==5.18.0
+#           python -m pip install newsapi-python
+#           python -m pip install -U matplotlib
+#           python -m pip install mpld3
+#           python -m pip install django-pandas
+#           python -m pip install feedparser
+#           python -m pip install yfinance
+#           python -m pip install pyclean  
+#           python -m pip install coverage
+#           python -m pip install python-dotenv
+#           python -m pip install networkx
+#           python -m pip install statsmodels
+#           python -m pip install scikit-learn
+#           python -m pip install pmdarima
+#           python -m pip install tensorflow
+#           python -m pip install pylint
 
-      - name: Analizar app 'Analysis'
-        run: pylint --rcfile=.pylintrc Analysis --output=Analysis_pylint.txt || true
+#       - name: Analizar app 'Analysis'
+#         run: pylint --rcfile=.pylintrc Analysis --output=Analysis_pylint.txt || true
       
-      - name: Analizar app 'DashBoard'
-        run: pylint --rcfile=.pylintrc DashBoard --output=DashBoard_pylint.txt || true
+#       - name: Analizar app 'DashBoard'
+#         run: pylint --rcfile=.pylintrc DashBoard --output=DashBoard_pylint.txt || true
 
-      - name: Analizar app 'FAT'
-        run: pylint --rcfile=.pylintrc FAT --output=FAT_pylint.txt || true
+#       - name: Analizar app 'FAT'
+#         run: pylint --rcfile=.pylintrc FAT --output=FAT_pylint.txt || true
 
-      - name: Analizar app 'News'
-        run: pylint --rcfile=.pylintrc News --output=News_pylint.txt || true
+#       - name: Analizar app 'News'
+#         run: pylint --rcfile=.pylintrc News --output=News_pylint.txt || true
 
-      - name: Analizar app 'Lab'
-        run: pylint --rcfile=.pylintrc Lab --output=Lab_pylint.txt || true
+#       - name: Analizar app 'Lab'
+#         run: pylint --rcfile=.pylintrc Lab --output=Lab_pylint.txt || true
 
-      - name: Cargar los logs de pylint
-        uses: actions/upload-artifact@v2
-        with:
-          name: logs_de_pylint
-          path: |
-            Analysis_pylint.txt
-            DashBoard_pylint.txt
-            FAT_pylint.txt
-            News_pylint.txt
-            Lab_pylint.txt
+#       - name: Cargar los logs de pylint
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: logs_de_pylint
+#           path: |
+#             Analysis_pylint.txt
+#             DashBoard_pylint.txt
+#             FAT_pylint.txt
+#             News_pylint.txt
+#             Lab_pylint.txt

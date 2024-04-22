@@ -166,6 +166,12 @@ Benjamin Graham.
 \newblock {\em El inversor inteligente}.
 \newblock Deusto, Grupo Planeta, 10th edition, 2007.
 
+\bibitem{online:postgresql}
+The PostgreSQL Global~Development Group.
+\newblock \emph{PostgreSQL}.
+\newblock \url{https://www.postgresql.org/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{10.1162/neco.1997.9.8.1735}
 Sepp Hochreiter and J\"{u}rgen Schmidhuber.
 \newblock Long short-term memory.
@@ -282,6 +288,12 @@ scikit-learn developers.
 \newblock \url{https://scikit-learn.org/stable/index.html}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
+\bibitem{online:sqlite}
+SQLite.
+\newblock \emph{SQLite}.
+\newblock \url{https://www.sqlite.org/index.html}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{online:tensorflow}
 Google~Brain Team.
 \newblock \emph{TensorFlow}.
@@ -318,6 +330,12 @@ Wikipedia.
 Wikipedia.
 \newblock \emph{CSS}.
 \newblock \url{https://es.wikipedia.org/wiki/CSS}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{wiki:waterfall}
+Wikipedia.
+\newblock \emph{Desarrollo en cascada}.
+\newblock \url{https://es.wikipedia.org/wiki/Desarrollo_en_cascada}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
 \bibitem{wiki:TDD}

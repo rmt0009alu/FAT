@@ -37,27 +37,28 @@
 \contentsline {section}{\numberline {4.11}Calidad y consistencia de código}{14}{section.4.11}%
 \contentsline {section}{\numberline {4.12}Cobertura de código}{14}{section.4.12}%
 \contentsline {section}{\numberline {4.13}Framework web}{15}{section.4.13}%
-\contentsline {section}{\numberline {4.14}Bibliotecas o librerías relevantes}{15}{section.4.14}%
-\contentsline {subsection}{Pandas}{15}{section*.15}%
-\contentsline {subsection}{Plotly}{15}{section*.16}%
-\contentsline {subsection}{Matplotlib}{15}{section*.17}%
+\contentsline {section}{\numberline {4.14}Sistema gestor de bases de datos}{15}{section.4.14}%
+\contentsline {section}{\numberline {4.15}Bibliotecas y librerías relevantes}{15}{section.4.15}%
+\contentsline {subsection}{Pandas}{16}{section*.15}%
+\contentsline {subsection}{Plotly}{16}{section*.16}%
+\contentsline {subsection}{Matplotlib}{16}{section*.17}%
 \contentsline {subsection}{yFinance}{16}{section*.18}%
 \contentsline {subsection}{News API}{16}{section*.19}%
-\contentsline {subsection}{Feedparser}{16}{section*.20}%
-\contentsline {subsection}{NetworkX}{16}{section*.21}%
+\contentsline {subsection}{Feedparser}{17}{section*.20}%
+\contentsline {subsection}{NetworkX}{17}{section*.21}%
 \contentsline {subsection}{Statsmodels}{17}{section*.22}%
 \contentsline {subsection}{Scikit-learn}{17}{section*.23}%
-\contentsline {subsection}{Keras}{17}{section*.24}%
-\contentsline {section}{\numberline {4.15}Desarrollo web}{17}{section.4.15}%
-\contentsline {subsection}{HTML}{17}{section*.25}%
+\contentsline {subsection}{Keras}{18}{section*.24}%
+\contentsline {section}{\numberline {4.16}Desarrollo web}{18}{section.4.16}%
+\contentsline {subsection}{HTML}{18}{section*.25}%
 \contentsline {subsection}{CSS}{18}{section*.26}%
 \contentsline {subsection}{Bootstrap}{18}{section*.27}%
 \contentsline {subsection}{JavaScript}{18}{section*.28}%
-\contentsline {section}{\numberline {4.16}Otras herramientas}{18}{section.4.16}%
-\contentsline {subsection}{python-dotenv}{18}{section*.29}%
-\contentsline {subsection}{Draw.io}{18}{section*.30}%
-\contentsline {subsection}{Mendeley}{18}{section*.31}%
-\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{19}{chapter*.32}%
-\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{20}{chapter*.33}%
-\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{21}{chapter*.34}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{22}{chapter*.35}%
+\contentsline {section}{\numberline {4.17}Otras herramientas}{19}{section.4.17}%
+\contentsline {subsection}{python-dotenv}{19}{section*.29}%
+\contentsline {subsection}{Draw.io}{19}{section*.30}%
+\contentsline {subsection}{Mendeley}{19}{section*.31}%
+\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{20}{chapter*.32}%
+\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{21}{chapter*.33}%
+\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{22}{chapter*.34}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{23}{chapter*.35}%

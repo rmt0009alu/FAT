@@ -24,45 +24,45 @@ Warning--string name "sept" is undefined
 Warning--I didn't find a database entry for "wiki:latex"
 Warning--I didn't find a database entry for "koza92"
 Warning--I didn't find a database entry for "bortolot2005"
-You've used 64 entries,
+You've used 67 entries,
             2118 wiz_defined-function locations,
-            778 strings with 10778 characters,
-and the built_in function-call counts, 14057 in all, are:
-= -- 1420
-> -- 454
+            789 strings with 11054 characters,
+and the built_in function-call counts, 14708 in all, are:
+= -- 1486
+> -- 475
 < -- 0
-+ -- 194
-- -- 130
-* -- 415
-:= -- 2402
-add.period$ -- 254
-call.type$ -- 64
-change.case$ -- 257
++ -- 203
+- -- 136
+* -- 433
+:= -- 2513
+add.period$ -- 266
+call.type$ -- 67
+change.case$ -- 269
 chr.to.int$ -- 0
-cite$ -- 64
-duplicate$ -- 457
-empty$ -- 1418
-format.name$ -- 130
-if$ -- 3099
+cite$ -- 67
+duplicate$ -- 478
+empty$ -- 1484
+format.name$ -- 136
+if$ -- 3243
 int.to.chr$ -- 0
-int.to.str$ -- 64
+int.to.str$ -- 67
 missing$ -- 3
-newline$ -- 385
-num.names$ -- 128
-pop$ -- 506
+newline$ -- 403
+num.names$ -- 134
+pop$ -- 530
 preamble$ -- 1
-purify$ -- 193
+purify$ -- 202
 quote$ -- 0
-skip$ -- 385
+skip$ -- 403
 stack$ -- 0
-substring$ -- 353
-swap$ -- 64
+substring$ -- 368
+swap$ -- 67
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 254
+type$ -- 266
 warning$ -- 0
-while$ -- 129
-width$ -- 66
-write$ -- 768
+while$ -- 135
+width$ -- 69
+write$ -- 804
 (There were 4 warnings)

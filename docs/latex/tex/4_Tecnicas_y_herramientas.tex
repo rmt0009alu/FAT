@@ -4,16 +4,16 @@
 
 \subsection{Scrum}\label{scrum}
 
-Scrum \citep{wiki:Scrum} es un marco de trabajo relativamente estructurado y con roles específicos 
-dentro de la metodología Agile (roles principales: Product Owner, Scrum Master y desarrollador) . Se 
+\emph{Scrum} \citep{wiki:Scrum} es un marco de trabajo relativamente estructurado y con roles específicos 
+dentro de la metodología Agile (roles principales: \emph{Product Owner}, \emph{Scrum Master} y desarrollador) . Se 
 puede utilizar tanto para la gestión de proyectos como para el desarrollo de productos, especialmente 
 en el despliegue de \emph{software}. 
 
-Con Scrum los proyectos se dividen en iteraciones cortas llamadas \emph{sprints}. Al final de cada 
+Con \emph{Scrum} los proyectos se dividen en iteraciones cortas llamadas \emph{sprints}. Al final de cada 
 \emph{sprint} se debe presentar un producto mínimo viable y evaluar lo que se ha hecho bien y lo 
 que se puede mejorar. 
 
-Se ha optado por esta metodología, frente a otras como \emph{Waterfall}, porque ofrece una alta 
+Se ha optado por esta metodología, frente a otras como \emph{Waterfall} \citep{wiki:waterfall} , porque ofrece una alta 
 adaptabilidad y genera entrega temprana de valor, con productos viables y valorables por el usuario 
 final desde las primeras fases. 
 
@@ -78,6 +78,7 @@ Una de las ventajas de Git es que permite a cada desarrollador tener una copia e
 completo y, aunque es menos eficiente para proyectos muy grandes, es más sencillo de utilizar para proyectos 
 pequeños. Además, el sistema de ramificación de Git es más intuitivo y facilita la tarea de los desarrolladores. 
 
+
 \section{Alojamiento del repositorio}\label{alojamiento_repositorio}
 
 \begin{itemize}
@@ -98,6 +99,7 @@ permiten auto hospedaje con la configuración que más nos interese -, pero en
 proyectos medios o pequeños es una herramienta práctica y sencilla de 
 utilizar, con diferentes integraciones y que facilita el uso de flujos 
 de trabajo CI/CD. 
+
 
 \section{Gestión del proyecto}\label{gestion_del_proyecto}
 
@@ -257,6 +259,24 @@ un informe HTML muy intuitivo que guía al desarrollador hacia los fallos detect
 
 \emph{Django} es un \emph{framework web} muy completo que incluye diversas características por defecto. También adopta un elevado nivel de seguridad y es altamente escalable. Es menos ligero que
 \emph{Flask} pero, a cambio, ofrece mayor nivel de personalización y control sobre el sitio web, así como una mejor estructuración general de un proyecto.  
+
+
+\section{Sistema gestor de bases de datos}\label{sgbd}
+
+\begin{itemize}
+\tightlist
+\item
+  Herramientas consideradas: SQLite \citep{online:sqlite} y PotgreSQL \citep{online:postgresql}.
+\item
+  Herramienta elegida: SQLite.
+\end{itemize}
+
+\emph{SQLite} es una librería de código escrita en lenguaje C, que implementa un motor de bases de datos pequeño y rápido. Se califican a sí mismos como un sistema gestor de bases de datos ligero y multiplataforma. Tiene la ventaja de estar muy extendido y utilizan un único archivo en el sistema de almacenamiento, lo que favorece su distribución y uso. 
+
+Por su parte, \emph{PostgreSQL} tiene opciones más avanzadas que \emph{SQLite} y está pensado
+ para soportar alta concurrencia y bases de datos grandes. Pero \emph{SQLite} está
+ perfectamente integrado con \emph{Django} y no requiere de configuración adicional como sí requeriría \emph{PostgreSQL}. Además, \emph{SQLite} es suficiente para las expectativas de 
+ este trabajo - la migración a \emph{PostgreSQL} sería recomendable en caso de escalar el proyecto -.
 
 
 \section{Bibliotecas y librerías relevantes}\label{librerias_relevantes}
