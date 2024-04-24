@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  22 APR 2024 20:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  22 APR 2024 21:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1146,23 +1146,23 @@ LaTeX Info: Redefining \% on input line 102.
 LaTeX Info: Redefining \. on input line 156.
 LaTeX Info: Redefining \% on input line 156.
  [12]
-LaTeX Info: Redefining \. on input line 203.
-LaTeX Info: Redefining \% on input line 203.
+LaTeX Info: Redefining \. on input line 205.
+LaTeX Info: Redefining \% on input line 205.
  [13]
-LaTeX Info: Redefining \. on input line 250.
-LaTeX Info: Redefining \% on input line 250.
+LaTeX Info: Redefining \. on input line 252.
+LaTeX Info: Redefining \% on input line 252.
  [14]
-LaTeX Info: Redefining \. on input line 289.
-LaTeX Info: Redefining \% on input line 289.
+LaTeX Info: Redefining \. on input line 291.
+LaTeX Info: Redefining \% on input line 291.
  [15]
-LaTeX Info: Redefining \. on input line 311.
-LaTeX Info: Redefining \% on input line 311.
+LaTeX Info: Redefining \. on input line 313.
+LaTeX Info: Redefining \% on input line 313.
  [16]
-LaTeX Info: Redefining \. on input line 330.
-LaTeX Info: Redefining \% on input line 330.
+LaTeX Info: Redefining \. on input line 332.
+LaTeX Info: Redefining \% on input line 332.
  [17]
-LaTeX Info: Redefining \. on input line 358.
-LaTeX Info: Redefining \% on input line 358.
+LaTeX Info: Redefining \. on input line 360.
+LaTeX Info: Redefining \% on input line 360.
  [18])
 LaTeX Info: Redefining \. on input line 517.
 LaTeX Info: Redefining \% on input line 517.
@@ -1258,25 +1258,25 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [26]
-Underfull \hbox (badness 7415) in paragraph at lines 355--359
+Underfull \hbox (badness 7415) in paragraph at lines 361--365
 []\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Ja-vaS-cript\T1/lmr/m/
 n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / es . wikipedia . org / wiki /
  []
 
 
-Underfull \hbox (badness 5711) in paragraph at lines 373--379
+Underfull \hbox (badness 5711) in paragraph at lines 379--385
 []\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Mo-de-lo au-to-rre-gre
 -si-vo in-te-gra-do de me-dia mó-
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 373--379
+Underfull \hbox (badness 3098) in paragraph at lines 379--385
 \T1/lmr/m/it/12 (+20) vil\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : /
  / es . wikipedia . org / wiki / Modelo _ autorregresivo _
  []
 
-LaTeX Info: Redefining \. on input line 407.
-LaTeX Info: Redefining \% on input line 407.
+LaTeX Info: Redefining \. on input line 406.
+LaTeX Info: Redefining \% on input line 406.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
@@ -1292,7 +1292,7 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 pdfTeX warning: pdflatex (file ./img/licencia.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<./img/licencia.pdf, id=1003, 597.23125pt x 845.1575pt>
+<./img/licencia.pdf, id=1009, 597.23125pt x 845.1575pt>
 File: ./img/licencia.pdf Graphic file (type pdf)
 <use ./img/licencia.pdf>
 Package pdftex.def Info: ./img/licencia.pdf  used on input line 534.
@@ -1341,13 +1341,13 @@ Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: 10240A2AE9C881D7FDFA67CE4CEB6025;6495.
  ) 
 Here is how much of TeX's memory you used:
- 18743 strings out of 474591
- 302843 string characters out of 5745778
+ 18752 strings out of 474591
+ 303005 string characters out of 5745778
  1943533 words of memory out of 5000000
- 40132 multiletter control sequences out of 15000+600000
- 677714 words of font info for 243 fonts, out of 8000000 for 9000
+ 40136 multiletter control sequences out of 15000+600000
+ 677934 words of font info for 245 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,12n,93p,1006b,860s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,12n,93p,1006b,858s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
@@ -1363,9 +1363,9 @@ C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:
 /Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><
 C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><
 C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on memoria.pdf (39 pages, 914010 bytes).
+Output written on memoria.pdf (39 pages, 915606 bytes).
 PDF statistics:
- 1116 PDF objects out of 1200 (max. 8388607)
- 171 named destinations out of 1000 (max. 500000)
+ 1122 PDF objects out of 1200 (max. 8388607)
+ 172 named destinations out of 1000 (max. 500000)
  66885 words of extra memory for PDF output out of 74296 (max. 10000000)
 
