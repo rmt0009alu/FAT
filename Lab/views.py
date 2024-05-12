@@ -883,7 +883,7 @@ def _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_
     plt.plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(predicciones)} días')
     plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))
     plt.legend()
-    # plt.savefig(buffer, format='PNG')
+    
     plt.savefig(buffer, format='PNG')
     plt.close()
     # Obtener los datos de la imagen del buffer

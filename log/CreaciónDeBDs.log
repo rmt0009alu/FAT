@@ -1519,3 +1519,927 @@
 2024-03-03 10:17:53,493 - INFO: 
 2024-03-03 10:17:53,494 - INFO: [OK] Tabla creada con éxito.
 2024-03-03 10:17:53,495 - INFO: Proceso finalizado.
+2024-05-12 13:39:29,984 - INFO: 
+2024-05-12 13:39:29,984 - INFO: ------------------------------------------
+2024-05-12 13:39:29,984 - INFO: Creando bases de datos:
+2024-05-12 13:39:29,984 - INFO: ------------------------------------------
+2024-05-12 13:39:34,248 - INFO:  - [OK] Apple Inc.
+2024-05-12 13:39:34,633 - INFO:  - [OK] Amgen Inc.
+2024-05-12 13:39:35,018 - INFO:  - [OK] American Express Company
+2024-05-12 13:39:35,420 - INFO:  - [OK] The Boeing Company
+2024-05-12 13:39:35,937 - INFO:  - [OK] Caterpillar Inc.
+2024-05-12 13:39:36,258 - INFO:  - [OK] Salesforce, Inc.
+2024-05-12 13:39:36,670 - INFO:  - [OK] Cisco Systems, Inc.
+2024-05-12 13:39:37,103 - INFO:  - [OK] Chevron Corporation
+2024-05-12 13:39:37,520 - INFO:  - [OK] The Walt Disney Company
+2024-05-12 13:39:37,934 - INFO:  - [OK] Dow Inc.
+2024-05-12 13:39:38,301 - INFO:  - [OK] The Goldman Sachs Group, Inc.
+2024-05-12 13:39:38,763 - INFO:  - [OK] The Home Depot, Inc.
+2024-05-12 13:39:39,260 - INFO:  - [OK] Honeywell International Inc.
+2024-05-12 13:39:39,698 - INFO:  - [OK] International Business Machines Corporation
+2024-05-12 13:39:40,084 - INFO:  - [OK] Intel Corporation
+2024-05-12 13:39:40,577 - INFO:  - [OK] Johnson & Johnson
+2024-05-12 13:39:41,045 - INFO:  - [OK] JPMorgan Chase & Co.
+2024-05-12 13:39:41,511 - INFO:  - [OK] The Coca-Cola Company
+2024-05-12 13:39:41,978 - INFO:  - [OK] McDonald's Corporation
+2024-05-12 13:39:42,476 - INFO:  - [OK] 3M Company
+2024-05-12 13:39:42,944 - INFO:  - [OK] Merck & Co., Inc.
+2024-05-12 13:39:43,349 - INFO:  - [OK] Microsoft Corporation
+2024-05-12 13:39:43,796 - INFO:  - [OK] NIKE, Inc.
+2024-05-12 13:39:44,245 - INFO:  - [OK] The Procter & Gamble Company
+2024-05-12 13:39:44,742 - INFO:  - [OK] The Travelers Companies, Inc.
+2024-05-12 13:39:45,195 - INFO:  - [OK] UnitedHealth Group Incorporated
+2024-05-12 13:39:45,599 - INFO:  - [OK] Visa Inc.
+2024-05-12 13:39:46,061 - INFO:  - [OK] Verizon Communications Inc.
+2024-05-12 13:39:46,575 - INFO:  - [OK] Walgreens Boots Alliance, Inc.
+2024-05-12 13:39:47,060 - INFO:  - [OK] Walmart Inc.
+2024-05-12 13:39:47,372 - INFO:  - [OK] Dow Jones Industrial Average
+2024-05-12 13:39:47,372 - INFO: 
+2024-05-12 13:39:47,372 - INFO: [OK] Bases de datos creadas.
+2024-05-12 13:39:47,372 - INFO: Proceso finalizado.
+2024-05-12 13:39:47,372 - INFO: 
+2024-05-12 13:39:47,372 - INFO: ------------------------------------------
+2024-05-12 13:39:47,372 - INFO: Creando bases de datos:
+2024-05-12 13:39:47,387 - INFO: ------------------------------------------
+2024-05-12 13:39:47,957 - INFO:  - [OK] ACS, Actividades de Construcción y Servicios, S.A.
+2024-05-12 13:39:48,583 - INFO:  - [OK] Acerinox, S.A.
+2024-05-12 13:39:49,076 - INFO:  - [OK] Aena S.M.E., S.A.
+2024-05-12 13:39:49,591 - INFO:  - [OK] Amadeus IT Group, S.A.
+2024-05-12 13:39:50,187 - INFO:  - [OK] Acciona, S.A.
+2024-05-12 13:39:50,521 - INFO:  - [OK] Corporación Acciona Energías Renovables, S.A.
+2024-05-12 13:39:51,166 - INFO:  - [OK] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-05-12 13:39:51,893 - INFO:  - [OK] Bankinter, S.A.
+2024-05-12 13:39:52,439 - INFO:  - [OK] CaixaBank, S.A.
+2024-05-12 13:39:52,850 - INFO:  - [OK] Cellnex Telecom, S.A.
+2024-05-12 13:39:53,452 - INFO:  - [OK] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-05-12 13:39:54,145 - INFO:  - [OK] Endesa, S.A.
+2024-05-12 13:39:54,720 - INFO:  - [OK] Enagás, S.A.
+2024-05-12 13:39:55,287 - INFO:  - [OK] Fluidra, S.A.
+2024-05-12 13:39:55,909 - INFO:  - [OK] Ferrovial SE
+2024-05-12 13:39:56,425 - INFO:  - [OK] Grifols, S.A.
+2024-05-12 13:39:56,990 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-05-12 13:39:57,696 - INFO:  - [OK] Iberdrola, S.A.
+2024-05-12 13:39:58,270 - INFO:  - [OK] Indra Sistemas, S.A.
+2024-05-12 13:39:58,919 - INFO:  - [OK] Industria de Diseño Textil, S.A.
+2024-05-12 13:39:59,378 - INFO:  - [OK] Logista Integral, S.A.
+2024-05-12 13:39:59,986 - INFO:  - [OK] Mapfre, S.A.
+2024-05-12 13:40:00,525 - INFO:  - [OK] Meliá Hotels International, S.A.
+2024-05-12 13:40:00,901 - INFO:  - [OK] MERLIN Properties SOCIMI, S.A.
+2024-05-12 13:40:01,534 - INFO:  - [OK] ArcelorMittal S.A.
+2024-05-12 13:40:02,230 - INFO:  - [OK] Naturgy Energy Group, S.A.
+2024-05-12 13:40:02,897 - INFO:  - [OK] Redeia Corporación, S.A.
+2024-05-12 13:40:03,534 - INFO:  - [OK] Repsol, S.A.
+2024-05-12 13:40:04,073 - INFO:  - [OK] Laboratorios Farmaceuticos Rovi, S.A.
+2024-05-12 13:40:04,778 - INFO:  - [OK] Banco de Sabadell, S.A.
+2024-05-12 13:40:05,372 - INFO:  - [OK] Banco Santander, S.A.
+2024-05-12 13:40:06,033 - INFO:  - [OK] Sacyr, S.A.
+2024-05-12 13:40:06,525 - INFO:  - [OK] Solaria Energía y Medio Ambiente, S.A.
+2024-05-12 13:40:07,135 - INFO:  - [OK] Telefónica, S.A.
+2024-05-12 13:40:07,519 - INFO:  - [OK] Unicaja Banco, S.A.
+2024-05-12 13:40:08,088 - INFO:  - [OK] IBEX 35...
+2024-05-12 13:40:08,088 - INFO: 
+2024-05-12 13:40:08,088 - INFO: [OK] Bases de datos creadas.
+2024-05-12 13:40:08,088 - INFO: Proceso finalizado.
+2024-05-12 13:40:08,104 - INFO: 
+2024-05-12 13:40:08,104 - INFO: ------------------------------------------
+2024-05-12 13:40:08,104 - INFO: Creando bases de datos:
+2024-05-12 13:40:08,104 - INFO: ------------------------------------------
+2024-05-12 13:40:08,501 - INFO:  - [OK] 3i Group Ord
+2024-05-12 13:40:08,909 - INFO:  - [OK] Admiral Group plc
+2024-05-12 13:40:09,330 - INFO:  - [OK] Airtel Africa Plc
+2024-05-12 13:40:09,825 - INFO:  - [OK] Anglo American plc
+2024-05-12 13:40:10,279 - INFO:  - [OK] Antofagasta plc
+2024-05-12 13:40:10,713 - INFO:  - [OK] Ashtead Group plc
+2024-05-12 13:40:11,132 - INFO:  - [OK] Associated British Foods plc
+2024-05-12 13:40:11,595 - INFO:  - [OK] AstraZeneca PLC
+2024-05-12 13:40:11,921 - INFO:  - [OK] Auto Trader Group plc
+2024-05-12 13:40:12,379 - INFO:  - [OK] Aviva plc
+2024-05-12 13:40:12,782 - INFO:  - [OK] B&M European Value Retail S.A.
+2024-05-12 13:40:13,245 - INFO:  - [OK] BAE Systems plc
+2024-05-12 13:40:13,679 - INFO:  - [OK] Barclays PLC
+2024-05-12 13:40:14,098 - INFO:  - [OK] Barratt Developments plc
+2024-05-12 13:40:14,499 - INFO:  - [OK] Beazley plc
+2024-05-12 13:40:14,930 - INFO:  - [OK] The Berkeley Group Holdings plc
+2024-05-12 13:40:15,410 - INFO:  - [OK] BP p.l.c.
+2024-05-12 13:40:15,816 - INFO:  - [OK] British American Tobacco p.l.c.
+2024-05-12 13:40:16,263 - INFO:  - [OK] BT Group plc
+2024-05-12 13:40:16,682 - INFO:  - [OK] Bunzl plc
+2024-05-12 13:40:17,113 - INFO:  - [OK] Burberry Group plc
+2024-05-12 13:40:17,530 - INFO:  - [OK] Centrica plc
+2024-05-12 13:40:17,948 - INFO:  - [OK] Coca-Cola HBC AG
+2024-05-12 13:40:18,411 - INFO:  - [OK] Compass Group PLC
+2024-05-12 13:40:18,846 - INFO:  - [OK] ConvaTec Group PLC
+2024-05-12 13:40:19,373 - INFO:  - [OK] Croda International Plc
+2024-05-12 13:40:19,797 - INFO:  - [OK] DCC plc
+2024-05-12 13:40:20,261 - INFO:  - [OK] Diageo plc
+2024-05-12 13:40:20,697 - INFO:  - [OK] Diploma PLC
+2024-05-12 13:40:21,069 - INFO:  - [OK] Endeavour Mining plc
+2024-05-12 13:40:21,484 - INFO:  - [OK] Entain Plc
+2024-05-12 13:40:21,851 - INFO:  - [OK] Experian plc
+2024-05-12 13:40:22,312 - INFO:  - [OK] F&C Investment Trust Ord
+2024-05-12 13:40:22,684 - INFO:  - [OK] Flutter Entertainment plc
+2024-05-12 13:40:23,068 - INFO:  - [OK] Frasers Group Plc
+2024-05-12 13:40:23,513 - INFO:  - [OK] Fresnillo plc
+2024-05-12 13:40:23,931 - INFO:  - [OK] Glencore plc
+2024-05-12 13:40:24,379 - INFO:  - [OK] GSK plc
+2024-05-12 13:40:24,735 - INFO:  - [OK] Haleon plc
+2024-05-12 13:40:25,164 - INFO:  - [OK] Halma plc
+2024-05-12 13:40:25,567 - INFO:  - [OK] Hikma Pharmaceuticals PLC
+2024-05-12 13:40:26,044 - INFO:  - [OK] Howden Joinery Group Plc
+2024-05-12 13:40:26,495 - INFO:  - [OK] HSBC Holdings plc
+2024-05-12 13:40:26,913 - INFO:  - [OK] IMI plc
+2024-05-12 13:40:27,348 - INFO:  - [OK] Imperial Brands PLC
+2024-05-12 13:40:27,780 - INFO:  - [OK] Informa plc
+2024-05-12 13:40:28,183 - INFO:  - [OK] InterContinental Hotels Group PLC
+2024-05-12 13:40:28,629 - INFO:  - [OK] Intermediate Capital Group plc
+2024-05-12 13:40:29,095 - INFO:  - [OK] Intertek Group plc
+2024-05-12 13:40:29,514 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-05-12 13:40:29,915 - INFO:  - [OK] JD Sports Fashion Plc
+2024-05-12 13:40:30,363 - INFO:  - [OK] Kingfisher plc
+2024-05-12 13:40:30,828 - INFO:  - [OK] Land Securities Group Plc
+2024-05-12 13:40:31,263 - INFO:  - [OK] Legal & General Group Plc
+2024-05-12 13:40:31,727 - INFO:  - [OK] Lloyds Banking Group plc
+2024-05-12 13:40:32,178 - INFO:  - [OK] London Stock Exchange Group plc
+2024-05-12 13:40:32,583 - INFO:  - [OK] M&G plc
+2024-05-12 13:40:33,060 - INFO:  - [OK] Marks and Spencer Group plc
+2024-05-12 13:40:33,481 - INFO:  - [OK] Melrose Industries PLC
+2024-05-12 13:40:33,897 - INFO:  - [OK] Mondi plc
+2024-05-12 13:40:34,346 - INFO:  - [OK] National Grid plc
+2024-05-12 13:40:34,779 - INFO:  - [OK] NatWest Group plc
+2024-05-12 13:40:35,229 - INFO:  - [OK] NEXT plc
+2024-05-12 13:40:35,584 - INFO:  - [OK] Ocado Group plc
+2024-05-12 13:40:36,015 - INFO:  - [OK] Pearson plc
+2024-05-12 13:40:36,416 - INFO:  - [OK] Pershing Square Holdings Ord
+2024-05-12 13:40:36,863 - INFO:  - [OK] Persimmon Plc
+2024-05-12 13:40:37,249 - INFO:  - [OK] Phoenix Group Holdings plc
+2024-05-12 13:40:37,742 - INFO:  - [OK] Prudential plc
+2024-05-12 13:40:38,241 - INFO:  - [OK] Reckitt Benckiser Group plc
+2024-05-12 13:40:38,680 - INFO:  - [OK] RELX PLC
+2024-05-12 13:40:39,130 - INFO:  - [OK] Rentokil Initial plc
+2024-05-12 13:40:39,595 - INFO:  - [OK] Rightmove plc
+2024-05-12 13:40:40,014 - INFO:  - [OK] Rio Tinto Group
+2024-05-12 13:40:40,462 - INFO:  - [OK] Rolls-Royce Holdings plc
+2024-05-12 13:40:40,896 - INFO:  - [OK] RS Group plc
+2024-05-12 13:40:41,329 - INFO:  - [OK] The Sage Group plc
+2024-05-12 13:40:41,748 - INFO:  - [OK] J Sainsbury plc
+2024-05-12 13:40:42,212 - INFO:  - [OK] Schroders plc
+2024-05-12 13:40:42,646 - INFO:  - [OK] Scottish Mortgage Ord
+2024-05-12 13:40:43,065 - INFO:  - [OK] SEGRO Plc
+2024-05-12 13:40:43,465 - INFO:  - [OK] Severn Trent PLC
+2024-05-12 13:40:43,881 - INFO:  - [OK] Shell plc
+2024-05-12 13:40:44,329 - INFO:  - [OK] Smith & Nephew plc
+2024-05-12 13:40:44,780 - INFO:  - [OK] DS Smith Plc
+2024-05-12 13:40:45,198 - INFO:  - [OK] Smiths Group plc
+2024-05-12 13:40:45,583 - INFO:  - [OK] Smurfit Kappa Group Plc
+2024-05-12 13:40:45,981 - INFO:  - [OK] Spirax-Sarco Engineering plc
+2024-05-12 13:40:46,399 - INFO:  - [OK] SSE plc
+2024-05-12 13:40:46,831 - INFO:  - [OK] St. James's Place plc
+2024-05-12 13:40:47,294 - INFO:  - [OK] Standard Chartered PLC
+2024-05-12 13:40:47,761 - INFO:  - [OK] Taylor Wimpey plc
+2024-05-12 13:40:48,211 - INFO:  - [OK] Tesco PLC
+2024-05-12 13:40:48,646 - INFO:  - [OK] Unilever PLC
+2024-05-12 13:40:49,049 - INFO:  - [OK] Unite Group PLC
+2024-05-12 13:40:49,465 - INFO:  - [OK] United Utilities Group PLC
+2024-05-12 13:40:49,898 - INFO:  - [OK] Vodafone Group Public Limited Company
+2024-05-12 13:40:50,408 - INFO:  - [OK] The Weir Group PLC
+2024-05-12 13:40:50,862 - INFO:  - [OK] Whitbread plc
+2024-05-12 13:40:51,297 - INFO:  - [OK] WPP plc
+2024-05-12 13:40:51,684 - INFO:  - [OK] FTSE 100
+2024-05-12 13:40:51,684 - INFO: 
+2024-05-12 13:40:51,684 - INFO: [OK] Bases de datos creadas.
+2024-05-12 13:40:51,684 - INFO: Proceso finalizado.
+2024-05-12 13:40:51,684 - INFO: 
+2024-05-12 13:40:51,684 - INFO: ------------------------------------------
+2024-05-12 13:40:51,684 - INFO: Creando bases de datos:
+2024-05-12 13:40:51,692 - INFO: ------------------------------------------
+2024-05-12 13:40:52,085 - INFO:  - [OK] Covestro AG
+2024-05-12 13:40:52,530 - INFO:  - [OK] adidas AG
+2024-05-12 13:40:52,963 - INFO:  - [OK] Airbus SE
+2024-05-12 13:40:53,397 - INFO:  - [OK] Allianz SE
+2024-05-12 13:40:53,847 - INFO:  - [OK] BASF SE
+2024-05-12 13:40:54,281 - INFO:  - [OK] Bayer Aktiengesellschaft
+2024-05-12 13:40:54,713 - INFO:  - [OK] Beiersdorf Aktiengesellschaft
+2024-05-12 13:40:55,132 - INFO:  - [OK] Bayerische Motoren Werke Aktiengesellschaft
+2024-05-12 13:40:55,533 - INFO:  - [OK] Continental Aktiengesellschaft
+2024-05-12 13:40:55,917 - INFO:  - [OK] Deutsche Börse AG
+2024-05-12 13:40:56,347 - INFO:  - [OK] Deutsche Bank Aktiengesellschaft
+2024-05-12 13:40:56,765 - INFO:  - [OK] Deutsche Post AG
+2024-05-12 13:40:57,197 - INFO:  - [OK] Deutsche Telekom AG
+2024-05-12 13:40:57,536 - INFO:  - [OK] Daimler Truck Holding AG
+2024-05-12 13:40:57,885 - INFO:  - [OK] Siemens Energy AG
+2024-05-12 13:40:58,315 - INFO:  - [OK] E.ON SE
+2024-05-12 13:40:58,777 - INFO:  - [OK] Fresenius Medical Care AG
+2024-05-12 13:40:59,181 - INFO:  - [OK] Fresenius SE & Co. KGaA
+2024-05-12 13:40:59,614 - INFO:  - [OK] Heidelberg Materials AG
+2024-05-12 13:41:00,031 - INFO:  - [OK] Henkel AG & Co. KGaA
+2024-05-12 13:41:00,369 - INFO:  - [OK] HelloFresh SE
+2024-05-12 13:41:00,782 - INFO:  - [OK] Hannover Rück SE
+2024-05-12 13:41:01,245 - INFO:  - [OK] Infineon Technologies AG
+2024-05-12 13:41:01,664 - INFO:  - [OK] Klöckner & Co SE
+2024-05-12 13:41:02,065 - INFO:  - [OK] Deutsche Lufthansa AG
+2024-05-12 13:41:02,467 - INFO:  - [OK] Linde plc
+2024-05-12 13:41:02,882 - INFO:  - [OK] Merck KGaA
+2024-05-12 13:41:03,283 - INFO:  - [OK] MTU Aero Engines AG
+2024-05-12 13:41:03,666 - INFO:  - [OK] Münchener Rückversicherungs-Gesellschaft Aktiengesellschaft in München
+2024-05-12 13:41:03,971 - INFO:  - [OK] Dr. Ing. h.c. F. Porsche AG
+2024-05-12 13:41:04,381 - INFO:  - [OK] Porsche Automobil Holding SE
+2024-05-12 13:41:04,736 - INFO:  - [OK] PREOS Global Office Real Estate & Technology AG
+2024-05-12 13:41:05,119 - INFO:  - [OK] RWE Aktiengesellschaft
+2024-05-12 13:41:05,534 - INFO:  - [OK] SAP SE
+2024-05-12 13:41:05,949 - INFO:  - [OK] Siemens Healthineers AG
+2024-05-12 13:41:06,396 - INFO:  - [OK] Siemens Aktiengesellschaft
+2024-05-12 13:41:06,815 - INFO:  - [OK] Symrise AG
+2024-05-12 13:41:07,262 - INFO:  - [OK] Vonovia SE
+2024-05-12 13:41:07,682 - INFO:  - [OK] Volkswagen AG
+2024-05-12 13:41:08,113 - INFO:  - [OK] Zalando SE
+2024-05-12 13:41:08,517 - INFO:  - [OK] DAX PERFORMANCE-INDEX
+2024-05-12 13:41:08,517 - INFO: 
+2024-05-12 13:41:08,517 - INFO: [OK] Bases de datos creadas.
+2024-05-12 13:41:08,517 - INFO: Proceso finalizado.
+2024-05-12 13:41:08,517 - INFO: 
+2024-05-12 13:41:08,517 - INFO: ------------------------------------------
+2024-05-12 13:41:08,517 - INFO: Creando tabla de sectores en 'db.sqlite3':
+2024-05-12 13:41:08,531 - INFO: ------------------------------------------
+2024-05-12 13:41:35,516 - INFO:  - [OK] Apple Inc.
+2024-05-12 13:41:35,516 - INFO:  - [OK] Amgen Inc.
+2024-05-12 13:41:35,516 - INFO:  - [OK] American Express Company
+2024-05-12 13:41:35,516 - INFO:  - [OK] The Boeing Company
+2024-05-12 13:41:35,516 - INFO:  - [OK] Caterpillar Inc.
+2024-05-12 13:41:35,531 - INFO:  - [OK] Salesforce, Inc.
+2024-05-12 13:41:35,533 - INFO:  - [OK] Cisco Systems, Inc.
+2024-05-12 13:41:35,534 - INFO:  - [OK] Chevron Corporation
+2024-05-12 13:41:35,539 - INFO:  - [OK] The Walt Disney Company
+2024-05-12 13:41:35,540 - INFO:  - [OK] Dow Inc.
+2024-05-12 13:41:35,540 - INFO:  - [OK] The Goldman Sachs Group, Inc.
+2024-05-12 13:41:35,540 - INFO:  - [OK] The Home Depot, Inc.
+2024-05-12 13:41:35,540 - INFO:  - [OK] Honeywell International Inc.
+2024-05-12 13:41:35,540 - INFO:  - [OK] International Business Machines Corporation
+2024-05-12 13:41:35,540 - INFO:  - [OK] Intel Corporation
+2024-05-12 13:41:35,554 - INFO:  - [OK] Johnson & Johnson
+2024-05-12 13:41:35,556 - INFO:  - [OK] JPMorgan Chase & Co.
+2024-05-12 13:41:35,557 - INFO:  - [OK] The Coca-Cola Company
+2024-05-12 13:41:35,557 - INFO:  - [OK] McDonald's Corporation
+2024-05-12 13:41:35,557 - INFO:  - [OK] 3M Company
+2024-05-12 13:41:35,557 - INFO:  - [OK] Merck & Co., Inc.
+2024-05-12 13:41:35,557 - INFO:  - [OK] Microsoft Corporation
+2024-05-12 13:41:35,557 - INFO:  - [OK] NIKE, Inc.
+2024-05-12 13:41:35,563 - INFO:  - [OK] The Procter & Gamble Company
+2024-05-12 13:41:35,565 - INFO:  - [OK] The Travelers Companies, Inc.
+2024-05-12 13:41:35,566 - INFO:  - [OK] UnitedHealth Group Incorporated
+2024-05-12 13:41:35,567 - INFO:  - [OK] Visa Inc.
+2024-05-12 13:41:35,568 - INFO:  - [OK] Verizon Communications Inc.
+2024-05-12 13:41:35,570 - INFO:  - [OK] Walgreens Boots Alliance, Inc.
+2024-05-12 13:41:35,572 - INFO:  - [OK] Walmart Inc.
+2024-05-12 13:41:35,572 - INFO:  - [OK] Dow Jones Industrial Average
+2024-05-12 13:41:35,572 - INFO:  - [OK] ACS, Actividades de Construcción y Servicios, S.A.
+2024-05-12 13:41:35,576 - INFO:  - [OK] Acerinox, S.A.
+2024-05-12 13:41:35,577 - INFO:  - [OK] Aena S.M.E., S.A.
+2024-05-12 13:41:35,578 - INFO:  - [OK] Amadeus IT Group, S.A.
+2024-05-12 13:41:35,579 - INFO:  - [OK] Acciona, S.A.
+2024-05-12 13:41:35,579 - INFO:  - [OK] Corporación Acciona Energías Renovables, S.A.
+2024-05-12 13:41:35,579 - INFO:  - [OK] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-05-12 13:41:35,579 - INFO:  - [OK] Bankinter, S.A.
+2024-05-12 13:41:35,579 - INFO:  - [OK] CaixaBank, S.A.
+2024-05-12 13:41:35,579 - INFO:  - [OK] Cellnex Telecom, S.A.
+2024-05-12 13:41:35,586 - INFO:  - [OK] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-05-12 13:41:35,586 - INFO:  - [OK] Endesa, S.A.
+2024-05-12 13:41:35,589 - INFO:  - [OK] Enagás, S.A.
+2024-05-12 13:41:35,589 - INFO:  - [OK] Fluidra, S.A.
+2024-05-12 13:41:35,589 - INFO:  - [OK] Ferrovial SE
+2024-05-12 13:41:35,589 - INFO:  - [OK] Grifols, S.A.
+2024-05-12 13:41:35,589 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-05-12 13:41:35,589 - INFO:  - [OK] Iberdrola, S.A.
+2024-05-12 13:41:35,596 - INFO:  - [OK] Indra Sistemas, S.A.
+2024-05-12 13:41:35,597 - INFO:  - [OK] Industria de Diseño Textil, S.A.
+2024-05-12 13:41:35,598 - INFO:  - [OK] Logista Integral, S.A.
+2024-05-12 13:41:35,599 - INFO:  - [OK] Mapfre, S.A.
+2024-05-12 13:41:35,600 - INFO:  - [OK] Meliá Hotels International, S.A.
+2024-05-12 13:41:35,600 - INFO:  - [OK] MERLIN Properties SOCIMI, S.A.
+2024-05-12 13:41:35,603 - INFO:  - [OK] ArcelorMittal S.A.
+2024-05-12 13:41:35,605 - INFO:  - [OK] Naturgy Energy Group, S.A.
+2024-05-12 13:41:35,606 - INFO:  - [OK] Redeia Corporación, S.A.
+2024-05-12 13:41:35,606 - INFO:  - [OK] Repsol, S.A.
+2024-05-12 13:41:35,608 - INFO:  - [OK] Laboratorios Farmaceuticos Rovi, S.A.
+2024-05-12 13:41:35,609 - INFO:  - [OK] Banco de Sabadell, S.A.
+2024-05-12 13:41:35,610 - INFO:  - [OK] Banco Santander, S.A.
+2024-05-12 13:41:35,611 - INFO:  - [OK] Sacyr, S.A.
+2024-05-12 13:41:35,613 - INFO:  - [OK] Solaria Energía y Medio Ambiente, S.A.
+2024-05-12 13:41:35,614 - INFO:  - [OK] Telefónica, S.A.
+2024-05-12 13:41:35,614 - INFO:  - [OK] Unicaja Banco, S.A.
+2024-05-12 13:41:35,616 - INFO:  - [OK] IBEX 35...
+2024-05-12 13:41:35,618 - INFO:  - [OK] 3i Group Ord
+2024-05-12 13:41:35,619 - INFO:  - [OK] Admiral Group plc
+2024-05-12 13:41:35,620 - INFO:  - [OK] Airtel Africa Plc
+2024-05-12 13:41:35,621 - INFO:  - [OK] Anglo American plc
+2024-05-12 13:41:35,623 - INFO:  - [OK] Antofagasta plc
+2024-05-12 13:41:35,623 - INFO:  - [OK] Ashtead Group plc
+2024-05-12 13:41:35,626 - INFO:  - [OK] Associated British Foods plc
+2024-05-12 13:41:35,627 - INFO:  - [OK] AstraZeneca PLC
+2024-05-12 13:41:35,628 - INFO:  - [OK] Auto Trader Group plc
+2024-05-12 13:41:35,629 - INFO:  - [OK] Aviva plc
+2024-05-12 13:41:35,630 - INFO:  - [OK] B&M European Value Retail S.A.
+2024-05-12 13:41:35,630 - INFO:  - [OK] BAE Systems plc
+2024-05-12 13:41:35,630 - INFO:  - [OK] Barclays PLC
+2024-05-12 13:41:35,630 - INFO:  - [OK] Barratt Developments plc
+2024-05-12 13:41:35,630 - INFO:  - [OK] Beazley plc
+2024-05-12 13:41:35,630 - INFO:  - [OK] The Berkeley Group Holdings plc
+2024-05-12 13:41:35,637 - INFO:  - [OK] BP p.l.c.
+2024-05-12 13:41:35,638 - INFO:  - [OK] British American Tobacco p.l.c.
+2024-05-12 13:41:35,639 - INFO:  - [OK] BT Group plc
+2024-05-12 13:41:35,639 - INFO:  - [OK] Bunzl plc
+2024-05-12 13:41:35,639 - INFO:  - [OK] Burberry Group plc
+2024-05-12 13:41:35,639 - INFO:  - [OK] Centrica plc
+2024-05-12 13:41:35,639 - INFO:  - [OK] Coca-Cola HBC AG
+2024-05-12 13:41:35,639 - INFO:  - [OK] Compass Group PLC
+2024-05-12 13:41:35,647 - INFO:  - [OK] ConvaTec Group PLC
+2024-05-12 13:41:35,648 - INFO:  - [OK] Croda International Plc
+2024-05-12 13:41:35,649 - INFO:  - [OK] DCC plc
+2024-05-12 13:41:35,650 - INFO:  - [OK] Diageo plc
+2024-05-12 13:41:35,651 - INFO:  - [OK] Diploma PLC
+2024-05-12 13:41:35,653 - INFO:  - [OK] Endeavour Mining plc
+2024-05-12 13:41:35,654 - INFO:  - [OK] Entain Plc
+2024-05-12 13:41:35,656 - INFO:  - [OK] Experian plc
+2024-05-12 13:41:35,657 - INFO:  - [OK] F&C Investment Trust Ord
+2024-05-12 13:41:35,658 - INFO:  - [OK] Flutter Entertainment plc
+2024-05-12 13:41:35,658 - INFO:  - [OK] Frasers Group Plc
+2024-05-12 13:41:35,658 - INFO:  - [OK] Fresnillo plc
+2024-05-12 13:41:35,658 - INFO:  - [OK] Glencore plc
+2024-05-12 13:41:35,658 - INFO:  - [OK] GSK plc
+2024-05-12 13:41:35,663 - INFO:  - [OK] Haleon plc
+2024-05-12 13:41:35,665 - INFO:  - [OK] Halma plc
+2024-05-12 13:41:35,666 - INFO:  - [OK] Hikma Pharmaceuticals PLC
+2024-05-12 13:41:35,667 - INFO:  - [OK] Howden Joinery Group Plc
+2024-05-12 13:41:35,668 - INFO:  - [OK] HSBC Holdings plc
+2024-05-12 13:41:35,670 - INFO:  - [OK] IMI plc
+2024-05-12 13:41:35,672 - INFO:  - [OK] Imperial Brands PLC
+2024-05-12 13:41:35,673 - INFO:  - [OK] Informa plc
+2024-05-12 13:41:35,674 - INFO:  - [OK] InterContinental Hotels Group PLC
+2024-05-12 13:41:35,674 - INFO:  - [OK] Intermediate Capital Group plc
+2024-05-12 13:41:35,674 - INFO:  - [OK] Intertek Group plc
+2024-05-12 13:41:35,674 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-05-12 13:41:35,674 - INFO:  - [OK] JD Sports Fashion Plc
+2024-05-12 13:41:35,680 - INFO:  - [OK] Kingfisher plc
+2024-05-12 13:41:35,681 - INFO:  - [OK] Land Securities Group Plc
+2024-05-12 13:41:35,682 - INFO:  - [OK] Legal & General Group Plc
+2024-05-12 13:41:35,684 - INFO:  - [OK] Lloyds Banking Group plc
+2024-05-12 13:41:35,685 - INFO:  - [OK] London Stock Exchange Group plc
+2024-05-12 13:41:35,686 - INFO:  - [OK] M&G plc
+2024-05-12 13:41:35,687 - INFO:  - [OK] Marks and Spencer Group plc
+2024-05-12 13:41:35,689 - INFO:  - [OK] Melrose Industries PLC
+2024-05-12 13:41:35,690 - INFO:  - [OK] Mondi plc
+2024-05-12 13:41:35,690 - INFO:  - [OK] National Grid plc
+2024-05-12 13:41:35,693 - INFO:  - [OK] NatWest Group plc
+2024-05-12 13:41:35,694 - INFO:  - [OK] NEXT plc
+2024-05-12 13:41:35,695 - INFO:  - [OK] Ocado Group plc
+2024-05-12 13:41:35,696 - INFO:  - [OK] Pearson plc
+2024-05-12 13:41:35,696 - INFO:  - [OK] Pershing Square Holdings Ord
+2024-05-12 13:41:35,696 - INFO:  - [OK] Persimmon Plc
+2024-05-12 13:41:35,696 - INFO:  - [OK] Phoenix Group Holdings plc
+2024-05-12 13:41:35,696 - INFO:  - [OK] Prudential plc
+2024-05-12 13:41:35,703 - INFO:  - [OK] Reckitt Benckiser Group plc
+2024-05-12 13:41:35,704 - INFO:  - [OK] RELX PLC
+2024-05-12 13:41:35,705 - INFO:  - [OK] Rentokil Initial plc
+2024-05-12 13:41:35,706 - INFO:  - [OK] Rightmove plc
+2024-05-12 13:41:35,706 - INFO:  - [OK] Rio Tinto Group
+2024-05-12 13:41:35,709 - INFO:  - [OK] Rolls-Royce Holdings plc
+2024-05-12 13:41:35,710 - INFO:  - [OK] RS Group plc
+2024-05-12 13:41:35,712 - INFO:  - [OK] The Sage Group plc
+2024-05-12 13:41:35,713 - INFO:  - [OK] J Sainsbury plc
+2024-05-12 13:41:35,714 - INFO:  - [OK] Schroders plc
+2024-05-12 13:41:35,715 - INFO:  - [OK] Scottish Mortgage Ord
+2024-05-12 13:41:35,715 - INFO:  - [OK] SEGRO Plc
+2024-05-12 13:41:35,717 - INFO:  - [OK] Severn Trent PLC
+2024-05-12 13:41:35,719 - INFO:  - [OK] Shell plc
+2024-05-12 13:41:35,720 - INFO:  - [OK] Smith & Nephew plc
+2024-05-12 13:41:35,721 - INFO:  - [OK] DS Smith Plc
+2024-05-12 13:41:35,723 - INFO:  - [OK] Smiths Group plc
+2024-05-12 13:41:35,723 - INFO:  - [OK] Smurfit Kappa Group Plc
+2024-05-12 13:41:35,725 - INFO:  - [OK] Spirax-Sarco Engineering plc
+2024-05-12 13:41:35,726 - INFO:  - [OK] SSE plc
+2024-05-12 13:41:35,727 - INFO:  - [OK] St. James's Place plc
+2024-05-12 13:41:35,729 - INFO:  - [OK] Standard Chartered PLC
+2024-05-12 13:41:35,730 - INFO:  - [OK] Taylor Wimpey plc
+2024-05-12 13:41:35,731 - INFO:  - [OK] Tesco PLC
+2024-05-12 13:41:35,731 - INFO:  - [OK] Unilever PLC
+2024-05-12 13:41:35,733 - INFO:  - [OK] Unite Group PLC
+2024-05-12 13:41:35,734 - INFO:  - [OK] United Utilities Group PLC
+2024-05-12 13:41:35,735 - INFO:  - [OK] Vodafone Group Public Limited Company
+2024-05-12 13:41:35,737 - INFO:  - [OK] The Weir Group PLC
+2024-05-12 13:41:35,739 - INFO:  - [OK] Whitbread plc
+2024-05-12 13:41:35,740 - INFO:  - [OK] WPP plc
+2024-05-12 13:41:35,740 - INFO:  - [OK] FTSE 100
+2024-05-12 13:41:35,742 - INFO:  - [OK] Covestro AG
+2024-05-12 13:41:35,744 - INFO:  - [OK] adidas AG
+2024-05-12 13:41:35,745 - INFO:  - [OK] Airbus SE
+2024-05-12 13:41:35,746 - INFO:  - [OK] Allianz SE
+2024-05-12 13:41:35,747 - INFO:  - [OK] BASF SE
+2024-05-12 13:41:35,748 - INFO:  - [OK] Bayer Aktiengesellschaft
+2024-05-12 13:41:35,749 - INFO:  - [OK] Beiersdorf Aktiengesellschaft
+2024-05-12 13:41:35,750 - INFO:  - [OK] Bayerische Motoren Werke Aktiengesellschaft
+2024-05-12 13:41:35,751 - INFO:  - [OK] Continental Aktiengesellschaft
+2024-05-12 13:41:35,752 - INFO:  - [OK] Deutsche Börse AG
+2024-05-12 13:41:35,754 - INFO:  - [OK] Deutsche Bank Aktiengesellschaft
+2024-05-12 13:41:35,755 - INFO:  - [OK] Deutsche Post AG
+2024-05-12 13:41:35,756 - INFO:  - [OK] Deutsche Telekom AG
+2024-05-12 13:41:35,756 - INFO:  - [OK] Daimler Truck Holding AG
+2024-05-12 13:41:35,760 - INFO:  - [OK] Siemens Energy AG
+2024-05-12 13:41:35,761 - INFO:  - [OK] E.ON SE
+2024-05-12 13:41:35,762 - INFO:  - [OK] Fresenius Medical Care AG
+2024-05-12 13:41:35,763 - INFO:  - [OK] Fresenius SE & Co. KGaA
+2024-05-12 13:41:35,764 - INFO:  - [OK] Heidelberg Materials AG
+2024-05-12 13:41:35,764 - INFO:  - [OK] Henkel AG & Co. KGaA
+2024-05-12 13:41:35,765 - INFO:  - [OK] HelloFresh SE
+2024-05-12 13:41:35,766 - INFO:  - [OK] Hannover Rück SE
+2024-05-12 13:41:35,766 - INFO:  - [OK] Infineon Technologies AG
+2024-05-12 13:41:35,767 - INFO:  - [OK] Klöckner & Co SE
+2024-05-12 13:41:35,768 - INFO:  - [OK] Deutsche Lufthansa AG
+2024-05-12 13:41:35,768 - INFO:  - [OK] Linde plc
+2024-05-12 13:41:35,770 - INFO:  - [OK] Merck KGaA
+2024-05-12 13:41:35,771 - INFO:  - [OK] MTU Aero Engines AG
+2024-05-12 13:41:35,772 - INFO:  - [OK] Münchener Rückversicherungs-Gesellschaft Aktiengesellschaft in München
+2024-05-12 13:41:35,772 - INFO:  - [OK] Dr. Ing. h.c. F. Porsche AG
+2024-05-12 13:41:35,772 - INFO:  - [OK] Porsche Automobil Holding SE
+2024-05-12 13:41:35,772 - INFO:  - [OK] PREOS Global Office Real Estate & Technology AG
+2024-05-12 13:41:35,774 - INFO:  - [OK] RWE Aktiengesellschaft
+2024-05-12 13:41:35,774 - INFO:  - [OK] SAP SE
+2024-05-12 13:41:35,775 - INFO:  - [OK] Siemens Healthineers AG
+2024-05-12 13:41:35,776 - INFO:  - [OK] Siemens Aktiengesellschaft
+2024-05-12 13:41:35,776 - INFO:  - [OK] Symrise AG
+2024-05-12 13:41:35,777 - INFO:  - [OK] Vonovia SE
+2024-05-12 13:41:35,778 - INFO:  - [OK] Volkswagen AG
+2024-05-12 13:41:35,778 - INFO:  - [OK] Zalando SE
+2024-05-12 13:41:35,778 - INFO:  - [OK] DAX PERFORMANCE-INDEX
+2024-05-12 13:41:35,788 - INFO: 
+2024-05-12 13:41:35,789 - INFO: [OK] Tabla creada con éxito.
+2024-05-12 13:41:35,790 - INFO: Proceso finalizado.
+2024-05-12 13:41:35,791 - INFO: 
+2024-05-12 13:41:35,791 - INFO: --------------------------------------------------
+2024-05-12 13:41:35,792 - INFO: Creando tabla de cambio de moneda en 'db.sqlite3':
+2024-05-12 13:41:35,793 - INFO: --------------------------------------------------
+2024-05-12 13:41:36,239 - INFO:  - [OK] EURUSD
+2024-05-12 13:41:36,239 - INFO:  - [OK] EURGBP
+2024-05-12 13:41:36,239 - INFO: 
+2024-05-12 13:41:36,239 - INFO: [OK] Tabla creada con éxito.
+2024-05-12 13:41:36,249 - INFO: Proceso finalizado.
+2024-05-12 15:36:39,857 - INFO: 
+2024-05-12 15:36:39,857 - INFO: ------------------------------------------
+2024-05-12 15:36:39,857 - INFO: Creando bases de datos:
+2024-05-12 15:36:39,857 - INFO: ------------------------------------------
+2024-05-12 15:36:43,159 - INFO:  - [OK] Apple Inc.
+2024-05-12 15:36:43,557 - INFO:  - [OK] Amgen Inc.
+2024-05-12 15:36:44,009 - INFO:  - [OK] American Express Company
+2024-05-12 15:36:44,477 - INFO:  - [OK] The Boeing Company
+2024-05-12 15:36:44,927 - INFO:  - [OK] Caterpillar Inc.
+2024-05-12 15:36:45,249 - INFO:  - [OK] Salesforce, Inc.
+2024-05-12 15:36:45,637 - INFO:  - [OK] Cisco Systems, Inc.
+2024-05-12 15:36:46,097 - INFO:  - [OK] Chevron Corporation
+2024-05-12 15:36:46,607 - INFO:  - [OK] The Walt Disney Company
+2024-05-12 15:36:47,028 - INFO:  - [OK] Dow Inc.
+2024-05-12 15:36:47,468 - INFO:  - [OK] The Goldman Sachs Group, Inc.
+2024-05-12 15:36:47,918 - INFO:  - [OK] The Home Depot, Inc.
+2024-05-12 15:36:48,358 - INFO:  - [OK] Honeywell International Inc.
+2024-05-12 15:36:48,877 - INFO:  - [OK] International Business Machines Corporation
+2024-05-12 15:36:49,319 - INFO:  - [OK] Intel Corporation
+2024-05-12 15:36:49,817 - INFO:  - [OK] Johnson & Johnson
+2024-05-12 15:36:50,259 - INFO:  - [OK] JPMorgan Chase & Co.
+2024-05-12 15:36:50,727 - INFO:  - [OK] The Coca-Cola Company
+2024-05-12 15:36:51,177 - INFO:  - [OK] McDonald's Corporation
+2024-05-12 15:36:51,699 - INFO:  - [OK] 3M Company
+2024-05-12 15:36:52,187 - INFO:  - [OK] Merck & Co., Inc.
+2024-05-12 15:36:52,637 - INFO:  - [OK] Microsoft Corporation
+2024-05-12 15:36:53,077 - INFO:  - [OK] NIKE, Inc.
+2024-05-12 15:36:53,528 - INFO:  - [OK] The Procter & Gamble Company
+2024-05-12 15:36:53,929 - INFO:  - [OK] The Travelers Companies, Inc.
+2024-05-12 15:36:54,399 - INFO:  - [OK] UnitedHealth Group Incorporated
+2024-05-12 15:36:54,732 - INFO:  - [OK] Visa Inc.
+2024-05-12 15:36:55,156 - INFO:  - [OK] Verizon Communications Inc.
+2024-05-12 15:36:55,658 - INFO:  - [OK] Walgreens Boots Alliance, Inc.
+2024-05-12 15:36:56,112 - INFO:  - [OK] Walmart Inc.
+2024-05-12 15:36:56,509 - INFO:  - [OK] Dow Jones Industrial Average
+2024-05-12 15:36:56,509 - INFO: 
+2024-05-12 15:36:56,509 - INFO: [OK] Bases de datos creadas.
+2024-05-12 15:36:56,517 - INFO: Proceso finalizado.
+2024-05-12 15:36:56,517 - INFO: 
+2024-05-12 15:36:56,517 - INFO: ------------------------------------------
+2024-05-12 15:36:56,517 - INFO: Creando bases de datos:
+2024-05-12 15:36:56,520 - INFO: ------------------------------------------
+2024-05-12 15:36:57,227 - INFO:  - [OK] ACS, Actividades de Construcción y Servicios, S.A.
+2024-05-12 15:36:57,916 - INFO:  - [OK] Acerinox, S.A.
+2024-05-12 15:36:58,358 - INFO:  - [OK] Aena S.M.E., S.A.
+2024-05-12 15:36:58,817 - INFO:  - [OK] Amadeus IT Group, S.A.
+2024-05-12 15:36:59,458 - INFO:  - [OK] Acciona, S.A.
+2024-05-12 15:36:59,800 - INFO:  - [OK] Corporación Acciona Energías Renovables, S.A.
+2024-05-12 15:37:00,428 - INFO:  - [OK] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-05-12 15:37:01,118 - INFO:  - [OK] Bankinter, S.A.
+2024-05-12 15:37:01,648 - INFO:  - [OK] CaixaBank, S.A.
+2024-05-12 15:37:02,119 - INFO:  - [OK] Cellnex Telecom, S.A.
+2024-05-12 15:37:02,788 - INFO:  - [OK] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-05-12 15:37:03,487 - INFO:  - [OK] Endesa, S.A.
+2024-05-12 15:37:04,068 - INFO:  - [OK] Enagás, S.A.
+2024-05-12 15:37:04,569 - INFO:  - [OK] Fluidra, S.A.
+2024-05-12 15:37:05,128 - INFO:  - [OK] Ferrovial SE
+2024-05-12 15:37:05,766 - INFO:  - [OK] Grifols, S.A.
+2024-05-12 15:37:06,187 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-05-12 15:37:06,828 - INFO:  - [OK] Iberdrola, S.A.
+2024-05-12 15:37:07,407 - INFO:  - [OK] Indra Sistemas, S.A.
+2024-05-12 15:37:07,988 - INFO:  - [OK] Industria de Diseño Textil, S.A.
+2024-05-12 15:37:08,386 - INFO:  - [OK] Logista Integral, S.A.
+2024-05-12 15:37:08,948 - INFO:  - [OK] Mapfre, S.A.
+2024-05-12 15:37:09,578 - INFO:  - [OK] Meliá Hotels International, S.A.
+2024-05-12 15:37:10,047 - INFO:  - [OK] MERLIN Properties SOCIMI, S.A.
+2024-05-12 15:37:10,657 - INFO:  - [OK] ArcelorMittal S.A.
+2024-05-12 15:37:11,298 - INFO:  - [OK] Naturgy Energy Group, S.A.
+2024-05-12 15:37:11,948 - INFO:  - [OK] Redeia Corporación, S.A.
+2024-05-12 15:37:12,558 - INFO:  - [OK] Repsol, S.A.
+2024-05-12 15:37:13,048 - INFO:  - [OK] Laboratorios Farmaceuticos Rovi, S.A.
+2024-05-12 15:37:13,747 - INFO:  - [OK] Banco de Sabadell, S.A.
+2024-05-12 15:37:14,537 - INFO:  - [OK] Banco Santander, S.A.
+2024-05-12 15:37:15,187 - INFO:  - [OK] Sacyr, S.A.
+2024-05-12 15:37:15,782 - INFO:  - [OK] Solaria Energía y Medio Ambiente, S.A.
+2024-05-12 15:37:16,438 - INFO:  - [OK] Telefónica, S.A.
+2024-05-12 15:37:16,828 - INFO:  - [OK] Unicaja Banco, S.A.
+2024-05-12 15:37:17,587 - INFO:  - [OK] IBEX 35...
+2024-05-12 15:37:17,587 - INFO: 
+2024-05-12 15:37:17,587 - INFO: [OK] Bases de datos creadas.
+2024-05-12 15:37:17,587 - INFO: Proceso finalizado.
+2024-05-12 15:37:17,587 - INFO: 
+2024-05-12 15:37:17,587 - INFO: ------------------------------------------
+2024-05-12 15:37:17,587 - INFO: Creando bases de datos:
+2024-05-12 15:37:17,587 - INFO: ------------------------------------------
+2024-05-12 15:37:18,029 - INFO:  - [OK] 3i Group Ord
+2024-05-12 15:37:18,449 - INFO:  - [OK] Admiral Group plc
+2024-05-12 15:37:18,859 - INFO:  - [OK] Airtel Africa Plc
+2024-05-12 15:37:19,237 - INFO:  - [OK] Anglo American plc
+2024-05-12 15:37:19,668 - INFO:  - [OK] Antofagasta plc
+2024-05-12 15:37:20,087 - INFO:  - [OK] Ashtead Group plc
+2024-05-12 15:37:20,569 - INFO:  - [OK] Associated British Foods plc
+2024-05-12 15:37:21,038 - INFO:  - [OK] AstraZeneca PLC
+2024-05-12 15:37:21,407 - INFO:  - [OK] Auto Trader Group plc
+2024-05-12 15:37:21,848 - INFO:  - [OK] Aviva plc
+2024-05-12 15:37:22,257 - INFO:  - [OK] B&M European Value Retail S.A.
+2024-05-12 15:37:22,758 - INFO:  - [OK] BAE Systems plc
+2024-05-12 15:37:23,208 - INFO:  - [OK] Barclays PLC
+2024-05-12 15:37:23,692 - INFO:  - [OK] Barratt Developments plc
+2024-05-12 15:37:24,127 - INFO:  - [OK] Beazley plc
+2024-05-12 15:37:24,577 - INFO:  - [OK] The Berkeley Group Holdings plc
+2024-05-12 15:37:25,067 - INFO:  - [OK] BP p.l.c.
+2024-05-12 15:37:25,478 - INFO:  - [OK] British American Tobacco p.l.c.
+2024-05-12 15:37:25,997 - INFO:  - [OK] BT Group plc
+2024-05-12 15:37:26,418 - INFO:  - [OK] Bunzl plc
+2024-05-12 15:37:26,860 - INFO:  - [OK] Burberry Group plc
+2024-05-12 15:37:27,308 - INFO:  - [OK] Centrica plc
+2024-05-12 15:37:27,707 - INFO:  - [OK] Coca-Cola HBC AG
+2024-05-12 15:37:28,148 - INFO:  - [OK] Compass Group PLC
+2024-05-12 15:37:28,537 - INFO:  - [OK] ConvaTec Group PLC
+2024-05-12 15:37:28,979 - INFO:  - [OK] Croda International Plc
+2024-05-12 15:37:29,428 - INFO:  - [OK] DCC plc
+2024-05-12 15:37:29,861 - INFO:  - [OK] Diageo plc
+2024-05-12 15:37:30,318 - INFO:  - [OK] Diploma PLC
+2024-05-12 15:37:30,708 - INFO:  - [OK] Endeavour Mining plc
+2024-05-12 15:37:31,108 - INFO:  - [OK] Entain Plc
+2024-05-12 15:37:31,519 - INFO:  - [OK] Experian plc
+2024-05-12 15:37:32,049 - INFO:  - [OK] F&C Investment Trust Ord
+2024-05-12 15:37:32,497 - INFO:  - [OK] Flutter Entertainment plc
+2024-05-12 15:37:32,879 - INFO:  - [OK] Frasers Group Plc
+2024-05-12 15:37:33,288 - INFO:  - [OK] Fresnillo plc
+2024-05-12 15:37:33,679 - INFO:  - [OK] Glencore plc
+2024-05-12 15:37:34,099 - INFO:  - [OK] GSK plc
+2024-05-12 15:37:34,398 - INFO:  - [OK] Haleon plc
+2024-05-12 15:37:34,786 - INFO:  - [OK] Halma plc
+2024-05-12 15:37:35,167 - INFO:  - [OK] Hikma Pharmaceuticals PLC
+2024-05-12 15:37:35,598 - INFO:  - [OK] Howden Joinery Group Plc
+2024-05-12 15:37:36,119 - INFO:  - [OK] HSBC Holdings plc
+2024-05-12 15:37:36,558 - INFO:  - [OK] IMI plc
+2024-05-12 15:37:36,987 - INFO:  - [OK] Imperial Brands PLC
+2024-05-12 15:37:37,368 - INFO:  - [OK] Informa plc
+2024-05-12 15:37:37,758 - INFO:  - [OK] InterContinental Hotels Group PLC
+2024-05-12 15:37:38,166 - INFO:  - [OK] Intermediate Capital Group plc
+2024-05-12 15:37:38,498 - INFO:  - [OK] Intertek Group plc
+2024-05-12 15:37:38,827 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-05-12 15:37:39,327 - INFO:  - [OK] JD Sports Fashion Plc
+2024-05-12 15:37:39,789 - INFO:  - [OK] Kingfisher plc
+2024-05-12 15:37:40,188 - INFO:  - [OK] Land Securities Group Plc
+2024-05-12 15:37:40,627 - INFO:  - [OK] Legal & General Group Plc
+2024-05-12 15:37:41,146 - INFO:  - [OK] Lloyds Banking Group plc
+2024-05-12 15:37:41,579 - INFO:  - [OK] London Stock Exchange Group plc
+2024-05-12 15:37:42,027 - INFO:  - [OK] M&G plc
+2024-05-12 15:37:42,497 - INFO:  - [OK] Marks and Spencer Group plc
+2024-05-12 15:37:42,987 - INFO:  - [OK] Melrose Industries PLC
+2024-05-12 15:37:43,418 - INFO:  - [OK] Mondi plc
+2024-05-12 15:37:43,877 - INFO:  - [OK] National Grid plc
+2024-05-12 15:37:44,329 - INFO:  - [OK] NatWest Group plc
+2024-05-12 15:37:44,717 - INFO:  - [OK] NEXT plc
+2024-05-12 15:37:45,108 - INFO:  - [OK] Ocado Group plc
+2024-05-12 15:37:45,559 - INFO:  - [OK] Pearson plc
+2024-05-12 15:37:45,977 - INFO:  - [OK] Pershing Square Holdings Ord
+2024-05-12 15:37:46,417 - INFO:  - [OK] Persimmon Plc
+2024-05-12 15:37:46,818 - INFO:  - [OK] Phoenix Group Holdings plc
+2024-05-12 15:37:47,268 - INFO:  - [OK] Prudential plc
+2024-05-12 15:37:47,697 - INFO:  - [OK] Reckitt Benckiser Group plc
+2024-05-12 15:37:48,147 - INFO:  - [OK] RELX PLC
+2024-05-12 15:37:48,577 - INFO:  - [OK] Rentokil Initial plc
+2024-05-12 15:37:48,977 - INFO:  - [OK] Rightmove plc
+2024-05-12 15:37:49,407 - INFO:  - [OK] Rio Tinto Group
+2024-05-12 15:37:49,877 - INFO:  - [OK] Rolls-Royce Holdings plc
+2024-05-12 15:37:50,337 - INFO:  - [OK] RS Group plc
+2024-05-12 15:37:50,747 - INFO:  - [OK] The Sage Group plc
+2024-05-12 15:37:51,177 - INFO:  - [OK] J Sainsbury plc
+2024-05-12 15:37:51,608 - INFO:  - [OK] Schroders plc
+2024-05-12 15:37:52,027 - INFO:  - [OK] Scottish Mortgage Ord
+2024-05-12 15:37:52,509 - INFO:  - [OK] SEGRO Plc
+2024-05-12 15:37:52,969 - INFO:  - [OK] Severn Trent PLC
+2024-05-12 15:37:53,469 - INFO:  - [OK] Shell plc
+2024-05-12 15:37:53,865 - INFO:  - [OK] Smith & Nephew plc
+2024-05-12 15:37:54,299 - INFO:  - [OK] DS Smith Plc
+2024-05-12 15:37:54,707 - INFO:  - [OK] Smiths Group plc
+2024-05-12 15:37:55,037 - INFO:  - [OK] Smurfit Kappa Group Plc
+2024-05-12 15:37:55,506 - INFO:  - [OK] Spirax-Sarco Engineering plc
+2024-05-12 15:37:55,972 - INFO:  - [OK] SSE plc
+2024-05-12 15:37:56,417 - INFO:  - [OK] St. James's Place plc
+2024-05-12 15:37:56,849 - INFO:  - [OK] Standard Chartered PLC
+2024-05-12 15:37:57,307 - INFO:  - [OK] Taylor Wimpey plc
+2024-05-12 15:37:57,768 - INFO:  - [OK] Tesco PLC
+2024-05-12 15:37:58,207 - INFO:  - [OK] Unilever PLC
+2024-05-12 15:37:58,618 - INFO:  - [OK] Unite Group PLC
+2024-05-12 15:37:59,047 - INFO:  - [OK] United Utilities Group PLC
+2024-05-12 15:37:59,478 - INFO:  - [OK] Vodafone Group Public Limited Company
+2024-05-12 15:37:59,918 - INFO:  - [OK] The Weir Group PLC
+2024-05-12 15:38:00,327 - INFO:  - [OK] Whitbread plc
+2024-05-12 15:38:00,737 - INFO:  - [OK] WPP plc
+2024-05-12 15:38:01,058 - INFO:  - [OK] FTSE 100
+2024-05-12 15:38:01,058 - INFO: 
+2024-05-12 15:38:01,058 - INFO: [OK] Bases de datos creadas.
+2024-05-12 15:38:01,058 - INFO: Proceso finalizado.
+2024-05-12 15:38:01,058 - INFO: 
+2024-05-12 15:38:01,058 - INFO: ------------------------------------------
+2024-05-12 15:38:01,067 - INFO: Creando bases de datos:
+2024-05-12 15:38:01,067 - INFO: ------------------------------------------
+2024-05-12 15:38:01,457 - INFO:  - [OK] Covestro AG
+2024-05-12 15:38:01,878 - INFO:  - [OK] adidas AG
+2024-05-12 15:38:02,337 - INFO:  - [OK] Airbus SE
+2024-05-12 15:38:02,828 - INFO:  - [OK] Allianz SE
+2024-05-12 15:38:03,257 - INFO:  - [OK] BASF SE
+2024-05-12 15:38:03,677 - INFO:  - [OK] Bayer Aktiengesellschaft
+2024-05-12 15:38:04,067 - INFO:  - [OK] Beiersdorf Aktiengesellschaft
+2024-05-12 15:38:04,508 - INFO:  - [OK] Bayerische Motoren Werke Aktiengesellschaft
+2024-05-12 15:38:04,887 - INFO:  - [OK] Continental Aktiengesellschaft
+2024-05-12 15:38:05,219 - INFO:  - [OK] Deutsche Börse AG
+2024-05-12 15:38:05,597 - INFO:  - [OK] Deutsche Bank Aktiengesellschaft
+2024-05-12 15:38:05,999 - INFO:  - [OK] Deutsche Post AG
+2024-05-12 15:38:06,427 - INFO:  - [OK] Deutsche Telekom AG
+2024-05-12 15:38:06,749 - INFO:  - [OK] Daimler Truck Holding AG
+2024-05-12 15:38:07,037 - INFO:  - [OK] Siemens Energy AG
+2024-05-12 15:38:07,579 - INFO:  - [OK] E.ON SE
+2024-05-12 15:38:08,017 - INFO:  - [OK] Fresenius Medical Care AG
+2024-05-12 15:38:08,447 - INFO:  - [OK] Fresenius SE & Co. KGaA
+2024-05-12 15:38:08,859 - INFO:  - [OK] Heidelberg Materials AG
+2024-05-12 15:38:09,277 - INFO:  - [OK] Henkel AG & Co. KGaA
+2024-05-12 15:38:09,657 - INFO:  - [OK] HelloFresh SE
+2024-05-12 15:38:10,067 - INFO:  - [OK] Hannover Rück SE
+2024-05-12 15:38:10,497 - INFO:  - [OK] Infineon Technologies AG
+2024-05-12 15:38:10,908 - INFO:  - [OK] Klöckner & Co SE
+2024-05-12 15:38:11,347 - INFO:  - [OK] Deutsche Lufthansa AG
+2024-05-12 15:38:11,748 - INFO:  - [OK] Linde plc
+2024-05-12 15:38:12,129 - INFO:  - [OK] Merck KGaA
+2024-05-12 15:38:12,498 - INFO:  - [OK] MTU Aero Engines AG
+2024-05-12 15:38:12,917 - INFO:  - [OK] Münchener Rückversicherungs-Gesellschaft Aktiengesellschaft in München
+2024-05-12 15:38:13,297 - INFO:  - [OK] Dr. Ing. h.c. F. Porsche AG
+2024-05-12 15:38:13,687 - INFO:  - [OK] Porsche Automobil Holding SE
+2024-05-12 15:38:14,028 - INFO:  - [OK] PREOS Global Office Real Estate & Technology AG
+2024-05-12 15:38:14,478 - INFO:  - [OK] RWE Aktiengesellschaft
+2024-05-12 15:38:14,967 - INFO:  - [OK] SAP SE
+2024-05-12 15:38:15,347 - INFO:  - [OK] Siemens Healthineers AG
+2024-05-12 15:38:15,796 - INFO:  - [OK] Siemens Aktiengesellschaft
+2024-05-12 15:38:16,188 - INFO:  - [OK] Symrise AG
+2024-05-12 15:38:16,569 - INFO:  - [OK] Vonovia SE
+2024-05-12 15:38:16,988 - INFO:  - [OK] Volkswagen AG
+2024-05-12 15:38:17,439 - INFO:  - [OK] Zalando SE
+2024-05-12 15:38:17,818 - INFO:  - [OK] DAX PERFORMANCE-INDEX
+2024-05-12 15:38:17,826 - INFO: 
+2024-05-12 15:38:17,827 - INFO: [OK] Bases de datos creadas.
+2024-05-12 15:38:17,827 - INFO: Proceso finalizado.
+2024-05-12 15:38:17,827 - INFO: 
+2024-05-12 15:38:17,827 - INFO: ------------------------------------------
+2024-05-12 15:38:17,827 - INFO: Creando tabla de sectores en 'db.sqlite3':
+2024-05-12 15:38:17,827 - INFO: ------------------------------------------
+2024-05-12 15:38:44,760 - INFO:  - [OK] Apple Inc.
+2024-05-12 15:38:44,760 - INFO:  - [OK] Amgen Inc.
+2024-05-12 15:38:44,760 - INFO:  - [OK] American Express Company
+2024-05-12 15:38:44,767 - INFO:  - [OK] The Boeing Company
+2024-05-12 15:38:44,767 - INFO:  - [OK] Caterpillar Inc.
+2024-05-12 15:38:44,772 - INFO:  - [OK] Salesforce, Inc.
+2024-05-12 15:38:44,774 - INFO:  - [OK] Cisco Systems, Inc.
+2024-05-12 15:38:44,776 - INFO:  - [OK] Chevron Corporation
+2024-05-12 15:38:44,779 - INFO:  - [OK] The Walt Disney Company
+2024-05-12 15:38:44,781 - INFO:  - [OK] Dow Inc.
+2024-05-12 15:38:44,783 - INFO:  - [OK] The Goldman Sachs Group, Inc.
+2024-05-12 15:38:44,785 - INFO:  - [OK] The Home Depot, Inc.
+2024-05-12 15:38:44,787 - INFO:  - [OK] Honeywell International Inc.
+2024-05-12 15:38:44,789 - INFO:  - [OK] International Business Machines Corporation
+2024-05-12 15:38:44,791 - INFO:  - [OK] Intel Corporation
+2024-05-12 15:38:44,794 - INFO:  - [OK] Johnson & Johnson
+2024-05-12 15:38:44,794 - INFO:  - [OK] JPMorgan Chase & Co.
+2024-05-12 15:38:44,797 - INFO:  - [OK] The Coca-Cola Company
+2024-05-12 15:38:44,798 - INFO:  - [OK] McDonald's Corporation
+2024-05-12 15:38:44,799 - INFO:  - [OK] 3M Company
+2024-05-12 15:38:44,799 - INFO:  - [OK] Merck & Co., Inc.
+2024-05-12 15:38:44,799 - INFO:  - [OK] Microsoft Corporation
+2024-05-12 15:38:44,799 - INFO:  - [OK] NIKE, Inc.
+2024-05-12 15:38:44,799 - INFO:  - [OK] The Procter & Gamble Company
+2024-05-12 15:38:44,799 - INFO:  - [OK] The Travelers Companies, Inc.
+2024-05-12 15:38:44,799 - INFO:  - [OK] UnitedHealth Group Incorporated
+2024-05-12 15:38:44,807 - INFO:  - [OK] Visa Inc.
+2024-05-12 15:38:44,807 - INFO:  - [OK] Verizon Communications Inc.
+2024-05-12 15:38:44,808 - INFO:  - [OK] Walgreens Boots Alliance, Inc.
+2024-05-12 15:38:44,809 - INFO:  - [OK] Walmart Inc.
+2024-05-12 15:38:44,811 - INFO:  - [OK] Dow Jones Industrial Average
+2024-05-12 15:38:44,811 - INFO:  - [OK] ACS, Actividades de Construcción y Servicios, S.A.
+2024-05-12 15:38:44,811 - INFO:  - [OK] Acerinox, S.A.
+2024-05-12 15:38:44,811 - INFO:  - [OK] Aena S.M.E., S.A.
+2024-05-12 15:38:44,811 - INFO:  - [OK] Amadeus IT Group, S.A.
+2024-05-12 15:38:44,811 - INFO:  - [OK] Acciona, S.A.
+2024-05-12 15:38:44,817 - INFO:  - [OK] Corporación Acciona Energías Renovables, S.A.
+2024-05-12 15:38:44,818 - INFO:  - [OK] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-05-12 15:38:44,819 - INFO:  - [OK] Bankinter, S.A.
+2024-05-12 15:38:44,819 - INFO:  - [OK] CaixaBank, S.A.
+2024-05-12 15:38:44,819 - INFO:  - [OK] Cellnex Telecom, S.A.
+2024-05-12 15:38:44,822 - INFO:  - [OK] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-05-12 15:38:44,823 - INFO:  - [OK] Endesa, S.A.
+2024-05-12 15:38:44,824 - INFO:  - [OK] Enagás, S.A.
+2024-05-12 15:38:44,824 - INFO:  - [OK] Fluidra, S.A.
+2024-05-12 15:38:44,825 - INFO:  - [OK] Ferrovial SE
+2024-05-12 15:38:44,826 - INFO:  - [OK] Grifols, S.A.
+2024-05-12 15:38:44,827 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-05-12 15:38:44,828 - INFO:  - [OK] Iberdrola, S.A.
+2024-05-12 15:38:44,828 - INFO:  - [OK] Indra Sistemas, S.A.
+2024-05-12 15:38:44,828 - INFO:  - [OK] Industria de Diseño Textil, S.A.
+2024-05-12 15:38:44,828 - INFO:  - [OK] Logista Integral, S.A.
+2024-05-12 15:38:44,828 - INFO:  - [OK] Mapfre, S.A.
+2024-05-12 15:38:44,828 - INFO:  - [OK] Meliá Hotels International, S.A.
+2024-05-12 15:38:44,828 - INFO:  - [OK] MERLIN Properties SOCIMI, S.A.
+2024-05-12 15:38:44,828 - INFO:  - [OK] ArcelorMittal S.A.
+2024-05-12 15:38:44,828 - INFO:  - [OK] Naturgy Energy Group, S.A.
+2024-05-12 15:38:44,833 - INFO:  - [OK] Redeia Corporación, S.A.
+2024-05-12 15:38:44,834 - INFO:  - [OK] Repsol, S.A.
+2024-05-12 15:38:44,835 - INFO:  - [OK] Laboratorios Farmaceuticos Rovi, S.A.
+2024-05-12 15:38:44,835 - INFO:  - [OK] Banco de Sabadell, S.A.
+2024-05-12 15:38:44,836 - INFO:  - [OK] Banco Santander, S.A.
+2024-05-12 15:38:44,836 - INFO:  - [OK] Sacyr, S.A.
+2024-05-12 15:38:44,837 - INFO:  - [OK] Solaria Energía y Medio Ambiente, S.A.
+2024-05-12 15:38:44,837 - INFO:  - [OK] Telefónica, S.A.
+2024-05-12 15:38:44,838 - INFO:  - [OK] Unicaja Banco, S.A.
+2024-05-12 15:38:44,839 - INFO:  - [OK] IBEX 35...
+2024-05-12 15:38:44,839 - INFO:  - [OK] 3i Group Ord
+2024-05-12 15:38:44,840 - INFO:  - [OK] Admiral Group plc
+2024-05-12 15:38:44,840 - INFO:  - [OK] Airtel Africa Plc
+2024-05-12 15:38:44,841 - INFO:  - [OK] Anglo American plc
+2024-05-12 15:38:44,842 - INFO:  - [OK] Antofagasta plc
+2024-05-12 15:38:44,842 - INFO:  - [OK] Ashtead Group plc
+2024-05-12 15:38:44,843 - INFO:  - [OK] Associated British Foods plc
+2024-05-12 15:38:44,843 - INFO:  - [OK] AstraZeneca PLC
+2024-05-12 15:38:44,844 - INFO:  - [OK] Auto Trader Group plc
+2024-05-12 15:38:44,844 - INFO:  - [OK] Aviva plc
+2024-05-12 15:38:44,844 - INFO:  - [OK] B&M European Value Retail S.A.
+2024-05-12 15:38:44,847 - INFO:  - [OK] BAE Systems plc
+2024-05-12 15:38:44,847 - INFO:  - [OK] Barclays PLC
+2024-05-12 15:38:44,847 - INFO:  - [OK] Barratt Developments plc
+2024-05-12 15:38:44,847 - INFO:  - [OK] Beazley plc
+2024-05-12 15:38:44,847 - INFO:  - [OK] The Berkeley Group Holdings plc
+2024-05-12 15:38:44,847 - INFO:  - [OK] BP p.l.c.
+2024-05-12 15:38:44,847 - INFO:  - [OK] British American Tobacco p.l.c.
+2024-05-12 15:38:44,847 - INFO:  - [OK] BT Group plc
+2024-05-12 15:38:44,847 - INFO:  - [OK] Bunzl plc
+2024-05-12 15:38:44,852 - INFO:  - [OK] Burberry Group plc
+2024-05-12 15:38:44,852 - INFO:  - [OK] Centrica plc
+2024-05-12 15:38:44,853 - INFO:  - [OK] Coca-Cola HBC AG
+2024-05-12 15:38:44,854 - INFO:  - [OK] Compass Group PLC
+2024-05-12 15:38:44,854 - INFO:  - [OK] ConvaTec Group PLC
+2024-05-12 15:38:44,855 - INFO:  - [OK] Croda International Plc
+2024-05-12 15:38:44,855 - INFO:  - [OK] DCC plc
+2024-05-12 15:38:44,856 - INFO:  - [OK] Diageo plc
+2024-05-12 15:38:44,856 - INFO:  - [OK] Diploma PLC
+2024-05-12 15:38:44,857 - INFO:  - [OK] Endeavour Mining plc
+2024-05-12 15:38:44,858 - INFO:  - [OK] Entain Plc
+2024-05-12 15:38:44,858 - INFO:  - [OK] Experian plc
+2024-05-12 15:38:44,859 - INFO:  - [OK] F&C Investment Trust Ord
+2024-05-12 15:38:44,861 - INFO:  - [OK] Flutter Entertainment plc
+2024-05-12 15:38:44,861 - INFO:  - [OK] Frasers Group Plc
+2024-05-12 15:38:44,861 - INFO:  - [OK] Fresnillo plc
+2024-05-12 15:38:44,861 - INFO:  - [OK] Glencore plc
+2024-05-12 15:38:44,861 - INFO:  - [OK] GSK plc
+2024-05-12 15:38:44,861 - INFO:  - [OK] Haleon plc
+2024-05-12 15:38:44,861 - INFO:  - [OK] Halma plc
+2024-05-12 15:38:44,861 - INFO:  - [OK] Hikma Pharmaceuticals PLC
+2024-05-12 15:38:44,861 - INFO:  - [OK] Howden Joinery Group Plc
+2024-05-12 15:38:44,867 - INFO:  - [OK] HSBC Holdings plc
+2024-05-12 15:38:44,867 - INFO:  - [OK] IMI plc
+2024-05-12 15:38:44,867 - INFO:  - [OK] Imperial Brands PLC
+2024-05-12 15:38:44,868 - INFO:  - [OK] Informa plc
+2024-05-12 15:38:44,869 - INFO:  - [OK] InterContinental Hotels Group PLC
+2024-05-12 15:38:44,869 - INFO:  - [OK] Intermediate Capital Group plc
+2024-05-12 15:38:44,870 - INFO:  - [OK] Intertek Group plc
+2024-05-12 15:38:44,870 - INFO:  - [OK] International Consolidated Airlines Group S.A.
+2024-05-12 15:38:44,871 - INFO:  - [OK] JD Sports Fashion Plc
+2024-05-12 15:38:44,872 - INFO:  - [OK] Kingfisher plc
+2024-05-12 15:38:44,872 - INFO:  - [OK] Land Securities Group Plc
+2024-05-12 15:38:44,872 - INFO:  - [OK] Legal & General Group Plc
+2024-05-12 15:38:44,872 - INFO:  - [OK] Lloyds Banking Group plc
+2024-05-12 15:38:44,875 - INFO:  - [OK] London Stock Exchange Group plc
+2024-05-12 15:38:44,875 - INFO:  - [OK] M&G plc
+2024-05-12 15:38:44,876 - INFO:  - [OK] Marks and Spencer Group plc
+2024-05-12 15:38:44,876 - INFO:  - [OK] Melrose Industries PLC
+2024-05-12 15:38:44,878 - INFO:  - [OK] Mondi plc
+2024-05-12 15:38:44,878 - INFO:  - [OK] National Grid plc
+2024-05-12 15:38:44,878 - INFO:  - [OK] NatWest Group plc
+2024-05-12 15:38:44,878 - INFO:  - [OK] NEXT plc
+2024-05-12 15:38:44,878 - INFO:  - [OK] Ocado Group plc
+2024-05-12 15:38:44,878 - INFO:  - [OK] Pearson plc
+2024-05-12 15:38:44,878 - INFO:  - [OK] Pershing Square Holdings Ord
+2024-05-12 15:38:44,878 - INFO:  - [OK] Persimmon Plc
+2024-05-12 15:38:44,878 - INFO:  - [OK] Phoenix Group Holdings plc
+2024-05-12 15:38:44,878 - INFO:  - [OK] Prudential plc
+2024-05-12 15:38:44,884 - INFO:  - [OK] Reckitt Benckiser Group plc
+2024-05-12 15:38:44,884 - INFO:  - [OK] RELX PLC
+2024-05-12 15:38:44,885 - INFO:  - [OK] Rentokil Initial plc
+2024-05-12 15:38:44,885 - INFO:  - [OK] Rightmove plc
+2024-05-12 15:38:44,886 - INFO:  - [OK] Rio Tinto Group
+2024-05-12 15:38:44,887 - INFO:  - [OK] Rolls-Royce Holdings plc
+2024-05-12 15:38:44,887 - INFO:  - [OK] RS Group plc
+2024-05-12 15:38:44,888 - INFO:  - [OK] The Sage Group plc
+2024-05-12 15:38:44,889 - INFO:  - [OK] J Sainsbury plc
+2024-05-12 15:38:44,889 - INFO:  - [OK] Schroders plc
+2024-05-12 15:38:44,889 - INFO:  - [OK] Scottish Mortgage Ord
+2024-05-12 15:38:44,889 - INFO:  - [OK] SEGRO Plc
+2024-05-12 15:38:44,889 - INFO:  - [OK] Severn Trent PLC
+2024-05-12 15:38:44,889 - INFO:  - [OK] Shell plc
+2024-05-12 15:38:44,889 - INFO:  - [OK] Smith & Nephew plc
+2024-05-12 15:38:44,893 - INFO:  - [OK] DS Smith Plc
+2024-05-12 15:38:44,894 - INFO:  - [OK] Smiths Group plc
+2024-05-12 15:38:44,894 - INFO:  - [OK] Smurfit Kappa Group Plc
+2024-05-12 15:38:44,894 - INFO:  - [OK] Spirax-Sarco Engineering plc
+2024-05-12 15:38:44,894 - INFO:  - [OK] SSE plc
+2024-05-12 15:38:44,897 - INFO:  - [OK] St. James's Place plc
+2024-05-12 15:38:44,897 - INFO:  - [OK] Standard Chartered PLC
+2024-05-12 15:38:44,897 - INFO:  - [OK] Taylor Wimpey plc
+2024-05-12 15:38:44,897 - INFO:  - [OK] Tesco PLC
+2024-05-12 15:38:44,897 - INFO:  - [OK] Unilever PLC
+2024-05-12 15:38:44,897 - INFO:  - [OK] Unite Group PLC
+2024-05-12 15:38:44,901 - INFO:  - [OK] United Utilities Group PLC
+2024-05-12 15:38:44,901 - INFO:  - [OK] Vodafone Group Public Limited Company
+2024-05-12 15:38:44,902 - INFO:  - [OK] The Weir Group PLC
+2024-05-12 15:38:44,902 - INFO:  - [OK] Whitbread plc
+2024-05-12 15:38:44,903 - INFO:  - [OK] WPP plc
+2024-05-12 15:38:44,903 - INFO:  - [OK] FTSE 100
+2024-05-12 15:38:44,904 - INFO:  - [OK] Covestro AG
+2024-05-12 15:38:44,904 - INFO:  - [OK] adidas AG
+2024-05-12 15:38:44,905 - INFO:  - [OK] Airbus SE
+2024-05-12 15:38:44,905 - INFO:  - [OK] Allianz SE
+2024-05-12 15:38:44,907 - INFO:  - [OK] BASF SE
+2024-05-12 15:38:44,907 - INFO:  - [OK] Bayer Aktiengesellschaft
+2024-05-12 15:38:44,908 - INFO:  - [OK] Beiersdorf Aktiengesellschaft
+2024-05-12 15:38:44,908 - INFO:  - [OK] Bayerische Motoren Werke Aktiengesellschaft
+2024-05-12 15:38:44,909 - INFO:  - [OK] Continental Aktiengesellschaft
+2024-05-12 15:38:44,909 - INFO:  - [OK] Deutsche Börse AG
+2024-05-12 15:38:44,911 - INFO:  - [OK] Deutsche Bank Aktiengesellschaft
+2024-05-12 15:38:44,911 - INFO:  - [OK] Deutsche Post AG
+2024-05-12 15:38:44,911 - INFO:  - [OK] Deutsche Telekom AG
+2024-05-12 15:38:44,911 - INFO:  - [OK] Daimler Truck Holding AG
+2024-05-12 15:38:44,911 - INFO:  - [OK] Siemens Energy AG
+2024-05-12 15:38:44,911 - INFO:  - [OK] E.ON SE
+2024-05-12 15:38:44,911 - INFO:  - [OK] Fresenius Medical Care AG
+2024-05-12 15:38:44,911 - INFO:  - [OK] Fresenius SE & Co. KGaA
+2024-05-12 15:38:44,911 - INFO:  - [OK] Heidelberg Materials AG
+2024-05-12 15:38:44,917 - INFO:  - [OK] Henkel AG & Co. KGaA
+2024-05-12 15:38:44,917 - INFO:  - [OK] HelloFresh SE
+2024-05-12 15:38:44,917 - INFO:  - [OK] Hannover Rück SE
+2024-05-12 15:38:44,918 - INFO:  - [OK] Infineon Technologies AG
+2024-05-12 15:38:44,919 - INFO:  - [OK] Klöckner & Co SE
+2024-05-12 15:38:44,919 - INFO:  - [OK] Deutsche Lufthansa AG
+2024-05-12 15:38:44,919 - INFO:  - [OK] Linde plc
+2024-05-12 15:38:44,920 - INFO:  - [OK] Merck KGaA
+2024-05-12 15:38:44,920 - INFO:  - [OK] MTU Aero Engines AG
+2024-05-12 15:38:44,921 - INFO:  - [OK] Münchener Rückversicherungs-Gesellschaft Aktiengesellschaft in München
+2024-05-12 15:38:44,922 - INFO:  - [OK] Dr. Ing. h.c. F. Porsche AG
+2024-05-12 15:38:44,922 - INFO:  - [OK] Porsche Automobil Holding SE
+2024-05-12 15:38:44,923 - INFO:  - [OK] PREOS Global Office Real Estate & Technology AG
+2024-05-12 15:38:44,924 - INFO:  - [OK] RWE Aktiengesellschaft
+2024-05-12 15:38:44,925 - INFO:  - [OK] SAP SE
+2024-05-12 15:38:44,926 - INFO:  - [OK] Siemens Healthineers AG
+2024-05-12 15:38:44,926 - INFO:  - [OK] Siemens Aktiengesellschaft
+2024-05-12 15:38:44,928 - INFO:  - [OK] Symrise AG
+2024-05-12 15:38:44,928 - INFO:  - [OK] Vonovia SE
+2024-05-12 15:38:44,928 - INFO:  - [OK] Volkswagen AG
+2024-05-12 15:38:44,928 - INFO:  - [OK] Zalando SE
+2024-05-12 15:38:44,928 - INFO:  - [OK] DAX PERFORMANCE-INDEX
+2024-05-12 15:38:44,939 - INFO: 
+2024-05-12 15:38:44,939 - INFO: [OK] Tabla creada con éxito.
+2024-05-12 15:38:44,942 - INFO: Proceso finalizado.
+2024-05-12 15:38:44,943 - INFO: 
+2024-05-12 15:38:44,943 - INFO: --------------------------------------------------
+2024-05-12 15:38:44,944 - INFO: Creando tabla de cambio de moneda en 'db.sqlite3':
+2024-05-12 15:38:44,944 - INFO: --------------------------------------------------
+2024-05-12 15:38:45,409 - INFO:  - [OK] EURUSD
+2024-05-12 15:38:45,410 - INFO:  - [OK] EURGBP
+2024-05-12 15:38:45,414 - INFO: 
+2024-05-12 15:38:45,416 - INFO: [OK] Tabla creada con éxito.
+2024-05-12 15:38:45,417 - INFO: Proceso finalizado.

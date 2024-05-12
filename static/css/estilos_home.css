@@ -1,0 +1,16 @@
+.cabecera {
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    text-align: center;
+}
+
+.barra {
+    width: 100%;
+    background-color: #212428; 
+    color: #FFFEFE;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif; 
+    padding-left: 20px;
+}

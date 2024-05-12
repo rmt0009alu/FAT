@@ -1,11 +1,16 @@
 """
 Métodos de vistas para usar con News.
 """
-import mpld3
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+# import mpld3
 import os 
+from io import BytesIO
+import base64
+# Para etiquetas de gráficos en castellano
+import locale
 # Para usar django-pandas y frames
 from django_pandas.io import read_frame
 from newsapi import NewsApiClient
@@ -95,14 +100,17 @@ def home(request):
     # ----------------------------------
     # Adaptación para mostrar los tickers del IBEX35 (u otros si los hubiera)
     # con notación de '.'
+    df_ultimos_ibex35['ticker_bd'] = df_ultimos_ibex35['ticker']
     df_ultimos_ibex35['ticker'] = df_ultimos_ibex35['ticker'].str.replace('_', '.')
     mejores_ibex35 = df_ultimos_ibex35.head(3)
     peores_ibex35 = df_ultimos_ibex35.tail(3)
 
+    df_ultimos_ftse100['ticker_bd'] = df_ultimos_ftse100['ticker']
     df_ultimos_ftse100['ticker'] = df_ultimos_ftse100['ticker'].str.replace('_', '.')
     mejores_ftse100 = df_ultimos_ftse100.head(3)
     peores_ftse100 = df_ultimos_ftse100.tail(3)
 
+    df_ultimos_dax40['ticker_bd'] = df_ultimos_dax40['ticker']
     df_ultimos_dax40['ticker'] = df_ultimos_dax40['ticker'].str.replace('_', '.')
     mejores_dax40 = df_ultimos_dax40.head(3)
     peores_dax40 = df_ultimos_dax40.tail(3)
@@ -148,7 +156,9 @@ def _mejores_peores(lista_tickers):
             # Query de acceso a la BD
             ultima_entrada = model.objects.using(bd).values('percent_variance', 'ticker').order_by('-date').first()
             if ultima_entrada:
-                datos = {'ticker': ultima_entrada['ticker'], 'variacion': ultima_entrada['percent_variance']}
+                datos = {'ticker': ultima_entrada['ticker'], 
+                         'bd': bd, 
+                         'variacion': ultima_entrada['percent_variance']}
                 # Pandas append() deprecated:
                 # https://stackoverflow.com/questions/75956209/error-dataframe-object-has-no-attribute-append
                 # df_ultimosRegistros = df_ultimosRegistros.append(datos, ignore_index=True)
@@ -186,16 +196,13 @@ def _lista_de_graficos(mejores, peores):
         # Para obtener los modelos de forma dinámica
         model = apps.get_model('Analysis', t)
         bd = obtener_nombre_bd(t)
-        # Cojo las últimas 200 entradas de cada stock:
-        entradas = model.objects.using(bd).order_by('-date')[:200].values('date', 'close', 'ticker', 'name')
+        # Cojo las últimas 252 sesiones de cada stock (aprox. 1 año)
+        entradas = model.objects.using(bd).order_by('-date')[:252].values('date', 'close', 'ticker', 'name')
         figura = _generar_figura(entradas)
-        # Añado la figura a la lista de figuras
-        figuras.append(mpld3.fig_to_html(figura))
-
-        # Conviene ir cerrando los plots abiertos para que no
-        # haya problemas de memoria (de hecho, si no hago
-        # un plt.close() salta un warning)
-        plt.close()
+        # Añado la figura a la lista de figuras (con mpld3 se pierde 
+        # configuración y se gana interactividad):
+        # figuras.append(mpld3.fig_to_html(figura))
+        figuras.append(figura)
 
     return figuras
 
@@ -209,19 +216,41 @@ def _generar_figura(entradas):
             ticker asociado
 
     Returns:
-        (matplotlib.figure.Figure): la figura que se crea
+        (str): la figura que se crea, codificada en base64.
     """
     # Obtener los 'values' del queryset 'entradas'
     # y pasar a df
     df = read_frame(entradas.values('date', 'close', 'name'))
 
     # Creo la figura de Matplotlib.pyplot
-    fig, ax = plt.subplots()
-    ax.plot(df['date'], df['close'])
+    plt.figure(facecolor='white')
+    
+    plt.plot(df['date'], df['close'], color='#212428', linewidth=2, label='Cierre')
+    plt.fill_between(df['date'], df['close'], color='#212428', alpha=0.2)
+    plt.ylabel('Cierre', fontsize=10)
+    # +/- 1% en los límites
+    plt.ylim(df['close'].min()/1.01, df['close'].max()*1.01)
+    plt.xlim(df['date'].min(), df['date'].max())
     nombre = df['name'].iat[0]
-    ax.set(xlabel='Fecha', ylabel='Cierre', title=f'{nombre}')
+    plt.title(f'{nombre}', fontsize=12)
+    plt.grid(True, linestyle='--', alpha=0.5, linewidth=0.5, color='gray')
+    plt.gca().xaxis.set_major_locator(plt.MaxNLocator(6))
 
-    ax.grid(True, linestyle='--', alpha=0.5)
-    # ax.set_xticklabels(ax.get_xticklabels(), rotate=45)
+    # Mostrar nombres de meses en lugar de fechas
+    locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+    plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=2))
 
-    return fig
+    plt.xticks(fontsize=8)
+    plt.yticks(fontsize=8)
+    plt.tight_layout()
+
+    buffer = BytesIO()
+    plt.savefig(buffer, format='PNG')
+    plt.close()
+    # Obtener los datos de la imagen del buffer
+    buffer.seek(0)
+    figura = base64.b64encode(buffer.getvalue()).decode('utf-8').replace('\n', '')
+    figura = f'<img src="data:image/png;base64,{figura}">'
+
+    return figura

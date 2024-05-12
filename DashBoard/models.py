@@ -44,6 +44,7 @@ class StockComprado(models.Model):
     moneda = models.CharField(max_length=4)
     sector = models.CharField(max_length=255)
     objects = models.Manager()
+    ult_cierre = models.DecimalField(max_digits=10, decimal_places=4)
 
     class Meta:
         """Clase interna para agregar atributos especiales como
@@ -54,7 +55,7 @@ class StockComprado(models.Model):
             # en la vista de 'admin':
             models.CheckConstraint(
                 name='valores_bd',
-                check=Q(bd__in=['dj30', 'ibex35', 'ftse100']),
+                check=Q(bd__in=['dj30', 'ibex35', 'ftse100', 'dax40']),
             ),
             # Restricción de fechas futuras (tiene que ser menor a mañana)
             models.CheckConstraint(
@@ -77,9 +78,10 @@ class StockComprado(models.Model):
             float
                 Precio por número de acciones = cantidad gastada
         """
+        # Representa la posición actual, no la de compra
         if self.moneda == 'GBp':
-            return self.precio_compra * self.num_acciones / 100
-        return self.precio_compra * self.num_acciones
+            return float(self.ult_cierre * self.num_acciones / 100)
+        return float(self.ult_cierre * self.num_acciones)
 
     def __str__(self):
         """Método magic para mostrar info. como un string.

@@ -7,6 +7,13 @@
 
 {% include 'includes/_botones_cabecera.html' %}
 
+<!-- Mis estilos -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_home.css' %}">
+
+<div>
+    <br><p class="cabecera">Portada</p>
+</div>
+
 <main class="container py-5">
     <!-- Carrusel de noticias -->
     <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -16,7 +23,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <a href="{{ url }}" target="_blank">
-                            <img src="{{ img }}" alt="" class="img-fluid" style="max-height: 300px;">
+                            <img src="{{ img }}" alt="" class="img-fluid" style="width: 100%; max-height: 300px;">
                         </a>
                     </div>
                     <div class="col-md-6">
@@ -43,6 +50,7 @@
 
     <!-- Datos DJ30 -->
     <div id="fila2" class="row align-items-center">
+        <p class="barra">Mejores y peores del DJ30</p>
         <div class="col-md-6">
             <!-- Carrusel de stockChart -->
             <div id="stockCarousels" class="carousel slide" data-bs-ride="carousel">
@@ -57,46 +65,44 @@
         </div>
         <div class="col-md-6">
             <!-- Los 3 mejores stocks -->
-            <h3>Mejores DJ30</h3>
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Ticker</th>
+                        <th scope="col">Variación (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in tresMejores_dj30.iterrows %}
                         <tr>
-                            <th scope="col">Ticker</th>
-                            <th scope="col">Variación (%)</th>
+                            <td><a title="{{ row.ticker }}" href="/{{ row.bd }}/{{ row.ticker }}/chart">{{ row.ticker }}</a></td>
+                            <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                {{ row.variacion|floatformat:"2" }}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for index, row in tresMejores_dj30.iterrows %}
-                            <tr>
-                                <td>{{ row.ticker }}</td>
-                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
-                                    {{ row.variacion|floatformat:"2" }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                </tbody>
+            </table>
 
             <!-- Los 3 perores stocks -->
-            <h3>Peores DJ30</h3>
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Ticker</th>
+                        <th scope="col">Variación (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in tresPeores_dj30.iterrows %}
                         <tr>
-                            <th scope="col">Ticker</th>
-                            <th scope="col">Variación (%)</th>
+                            <td><a title="{{ row.ticker }}" href="/{{ row.bd }}/{{ row.ticker }}/chart">{{ row.ticker }}</a></td>
+                            <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                {{ row.variacion|floatformat:"2" }}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for index, row in tresPeores_dj30.iterrows %}
-                            <tr>
-                                <td>{{ row.ticker }}</td>
-                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
-                                    {{ row.variacion|floatformat:"2" }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -104,48 +110,47 @@
 
     <!-- Datos IBEX35 -->
     <div id="fila3" class="row align-items-center">
+        <p class="barra">Mejores y peores del IBEX35</p>
         <div class="col-md-6">
             <!-- Los 3 mejores stocks -->
-            <h3>Mejores IBEX35</h3>
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Ticker</th>
+                        <th scope="col">Variación (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in tresMejores_ibex35.iterrows %}
                         <tr>
-                            <th scope="col">Ticker</th>
-                            <th scope="col">Variación (%)</th>
+                            <td><a title="{{ row.ticker }}" href="/{{ row.bd }}/{{ row.ticker_bd }}/chart">{{ row.ticker }}</a></td>
+                            <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                {{ row.variacion|floatformat:"2" }}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for index, row in tresMejores_ibex35.iterrows %}
-                            <tr>
-                                <td>{{ row.ticker }}</td>
-                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
-                                    {{ row.variacion|floatformat:"2" }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-                <!-- Los 3 perores stocks -->
-            <h3>Peores IBEX35</h3>
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+            <!-- Los 3 perores stocks -->
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Ticker</th>
+                        <th scope="col">Variación (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in tresPeores_ibex35.iterrows %}
                         <tr>
-                            <th scope="col">Ticker</th>
-                            <th scope="col">Variación (%)</th>
+                            <td><a title="{{ row.ticker }}" href="/{{ row.bd }}/{{ row.ticker_bd }}/chart">{{ row.ticker }}</a></td>
+                            <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                {{ row.variacion|floatformat:"2" }}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for index, row in tresPeores_ibex35.iterrows %}
-                            <tr>
-                                <td>{{ row.ticker }}</td>
-                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
-                                    {{ row.variacion|floatformat:"2" }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
         <div class="col-md-6">
             <!-- Carrusel de stockChart -->
@@ -166,6 +171,7 @@
 
     <!-- Datos FTSE100 -->
     <div id="fila2" class="row align-items-center">
+        <p class="barra">Mejores y peores del FTSE100</p>
         <div class="col-md-6">
             <!-- Carrusel de stockChart -->
             <div id="stockCarousels" class="carousel slide" data-bs-ride="carousel">
@@ -180,46 +186,44 @@
         </div>
         <div class="col-md-6">
             <!-- Los 3 mejores stocks -->
-            <h3>Mejores FTSE100</h3>
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Ticker</th>
+                        <th scope="col">Variación (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in tresMejores_ftse100.iterrows %}
                         <tr>
-                            <th scope="col">Ticker</th>
-                            <th scope="col">Variación (%)</th>
+                            <td><a title="{{ row.ticker }}" href="/{{ row.bd }}/{{ row.ticker_bd }}/chart">{{ row.ticker }}</a></td>
+                            <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                {{ row.variacion|floatformat:"2" }}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for index, row in tresMejores_ftse100.iterrows %}
-                            <tr>
-                                <td>{{ row.ticker }}</td>
-                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
-                                    {{ row.variacion|floatformat:"2" }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                </tbody>
+            </table>
 
             <!-- Los 3 perores stocks -->
-            <h3>Peores FTSE100</h3>
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Ticker</th>
+                        <th scope="col">Variación (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in tresPeores_ftse100.iterrows %}
                         <tr>
-                            <th scope="col">Ticker</th>
-                            <th scope="col">Variación (%)</th>
+                            <td><a title="{{ row.ticker }}" href="/{{ row.bd }}/{{ row.ticker_bd }}/chart">{{ row.ticker }}</a></td>
+                            <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                {{ row.variacion|floatformat:"2" }}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for index, row in tresPeores_ftse100.iterrows %}
-                            <tr>
-                                <td>{{ row.ticker }}</td>
-                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
-                                    {{ row.variacion|floatformat:"2" }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -227,48 +231,47 @@
 
     <!-- Datos DAX40 -->
     <div id="fila3" class="row align-items-center">
+        <p class="barra">Mejores y peores del DAX40</p>
         <div class="col-md-6">
             <!-- Los 3 mejores stocks -->
-            <h3>Mejores DAX40</h3>
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Ticker</th>
+                        <th scope="col">Variación (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in tresMejores_dax40.iterrows %}
                         <tr>
-                            <th scope="col">Ticker</th>
-                            <th scope="col">Variación (%)</th>
+                            <td><a title="{{ row.ticker }}" href="/{{ row.bd }}/{{ row.ticker_bd }}/chart">{{ row.ticker }}</a></td>
+                            <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                {{ row.variacion|floatformat:"2" }}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for index, row in tresMejores_dax40.iterrows %}
-                            <tr>
-                                <td>{{ row.ticker }}</td>
-                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
-                                    {{ row.variacion|floatformat:"2" }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-                <!-- Los 3 perores stocks -->
-            <h3>Peores DAX40</h3>
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+            <!-- Los 3 perores stocks -->
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Ticker</th>
+                        <th scope="col">Variación (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in tresPeores_dax40.iterrows %}
                         <tr>
-                            <th scope="col">Ticker</th>
-                            <th scope="col">Variación (%)</th>
+                            <td><a title="{{ row.ticker }}" href="/{{ row.bd }}/{{ row.ticker_bd }}/chart">{{ row.ticker }}</a></td>
+                            <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
+                                {{ row.variacion|floatformat:"2" }}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for index, row in tresPeores_dax40.iterrows %}
-                            <tr>
-                                <td>{{ row.ticker }}</td>
-                                <td style="color: {% if row.variacion >= 0 %}green{% else %}red{% endif %}">
-                                    {{ row.variacion|floatformat:"2" }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
         <div class="col-md-6">
             <!-- Carrusel de stockChart -->

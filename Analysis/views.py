@@ -4,10 +4,11 @@ Métodos de vistas para usar con Analysis.
 import re
 import pandas as pd
 import feedparser
-import mpld3
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from .models import Sectores
+from DashBoard.models import StockComprado
+from util.tickers import Tickers_BDs
 # Para charts dinámicos en lugar de imágenes estáticas
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
@@ -191,6 +192,16 @@ def signin(request):
     if user is not None and user.check_password(password):
         # Hago el login
         login(request, user)
+        
+        # Actualizo los precios de cierre de los stocks que tenga comprados el usuario
+        compras_usuario = StockComprado.objects.filter(usuario=request.user)
+        if compras_usuario.exists():
+            for compra in compras_usuario:
+                model = apps.get_model('Analysis', compra.ticker_bd)
+                bd = Tickers_BDs.obtener_nombre_bd(compra.ticker)
+                entrada = model.objects.using(bd).order_by('-date')[:1]
+                compra.ult_cierre = entrada[0].close
+                compra.save()
         return redirect("dashboard")
 
     # Si no he redirigido algo está mal
@@ -262,11 +273,11 @@ def mapa_stocks(request, nombre_bd):
             entradas = model.objects.using(nombre_bd).order_by('-date')[:250].values('date', 'close',
                                                                                      'ticker', 'name')
             figura = _generar_figura(entradas)
-            figura = mpld3.fig_to_html(figura)
+            # figura = mpld3.fig_to_html(figura)
 
-            # Conviene ir cerrando los plots para que no
-            # haya problemas de memoria
-            plt.close()
+            # # Conviene ir cerrando los plots para que no
+            # # haya problemas de memoria
+            # plt.close()
 
     lista_rss = _get_lista_rss(nombre_bd)
 

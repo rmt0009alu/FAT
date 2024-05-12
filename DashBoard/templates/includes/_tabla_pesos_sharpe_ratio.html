@@ -1,0 +1,47 @@
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #3BA5EA;
+        padding: 8px;
+        text-align: center;
+        background-color: white;
+        color: #212428;
+    }
+</style>
+
+<div class="caja" style="width: 100%;">
+    <p class="barra">Análisis de distribución de pesos</p>
+    <table>
+        <thead>
+            <tr>
+                <th> </th>
+                <th>Distribución de pesos actual (%)</th>
+                <th>Mejor distribución según simulación de Monte Carlo (%)</th>
+                <th>Mejor distribución según optimización de sharpe ratio (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pesos in dist_pesos_agregadas %}
+            <tr>
+                {% if pesos.0 %}
+                    <td style="font-weight: bold;">{{ pesos.0 }}</td>
+                    <td>{{ pesos.1|floatformat:2 }}</td>
+                    <td>{{ pesos.2|floatformat:2 }}</td>
+                    <td>{{ pesos.3|floatformat:2 }}</td>
+                {% else %}
+                    <tr>
+                        <td colspan="4"></td>
+                    </tr>
+                    <td style="font-weight: bold; background-color: rgb(205, 237, 248);">Sharpe ratio</td>
+                    <td style="background-color: rgb(205, 237, 248);">{{ pesos.1|floatformat:5 }}</td>
+                    <td style="background-color: rgb(205, 237, 248);">{{ pesos.2|floatformat:5 }}</td>
+                    <td style="background-color: rgb(205, 237, 248);">{{ pesos.3|floatformat:5 }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

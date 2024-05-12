@@ -22,32 +22,50 @@ que tiene la página de portada 'home' -->
     </div>
 </div>
 
-<div class="fila">
-    <div class="columna">
-        {% include 'includes/_cambio_monedas.html' %}
+<!-- Sólo se muestran si el usuario ya tiene posiciones guardadas -->
+{% if comTieneDatos %}
+<div class="fila" style="width: 80%; margin: 0 auto; display: flex;">
+    <div class="columna" style="flex: 1;">
+        {% include 'includes/_donut_cartera.html' %}
+    </div>
+    <div class="columna" style="flex: 2;">
+        {% include 'includes/_histograma_sectores.html' %}
     </div>
 </div>
+{% endif %}
 
+<!-- Si no hay datos de comprar aparecerá un mensaje de esta plantilla indicando que no hay compras -->
 <div class="fila">
     <div class="columna">
         {% include 'includes/_evol_cartera.html' %}
     </div>
 </div>
 
+{% if comTieneDatos %}
+<div class="fila" style="width: 80%; margin: 0 auto;">
+    <div class="columna">
+        {% include 'includes/_cambio_monedas.html' %}
+    </div>
+    <div class="columna">
+        {% include 'includes/_histograma_monedas.html' %}
+    </div>
+</div>
+{% endif %}
+
+
 <!-- Sólo se muestran si el usuario ya tiene posiciones guardadas -->
 {% if comTieneDatos %}
-    <div class="fila" style="width: 80%; margin: 0 auto;">
-        <div class="columna">
-            {% include 'includes/_donut_cartera.html' %}
-        </div>
-        <div class="columna">
-            {% include 'includes/_histograma_sectores.html' %}
-        </div>
-        <div class="columna">
-            {% include 'includes/_histograma_monedas.html' %}
-        </div>
+<div class="fila" style="width: 80%; margin: 0 auto; display: flex;">
+    <div class="columna" style="flex: 1;">
+        {% include 'includes/_markowitz.html' %}
     </div>
+    <div class="columna" style="flex: 2;">
+        {% include 'includes/_tabla_pesos_sharpe_ratio.html' %}
+    </div>
+</div>
 {% endif %}
+
+
 
 <div class="fila">
     <div class="columna">
