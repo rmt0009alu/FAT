@@ -738,13 +738,25 @@ def _simulacion_monte_carlo_markowitz(retornos_df, matriz_covarianza):
 
 
 def _rendimientos_min_y_max(retornos_df):
-    """Para calcular los rendimientos máximo y mínimo posibles con 
+    """Para calcular los rendimientos máximo y mínimo posibles de una 
+    cartera según los rendimientos/retornos del último año.  
 
-    Args:
-        retornos_df (_type_): _description_
+    Parameters
+    ----------
+        retornos_df : pandas.core.frame.DataFrame
+            Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.
 
-    Returns:
-        _type_: _description_
+    Returns
+    -------
+        tuple : Tupla con los rendimientos máximo y mínimo, y con los límites de la programación lineal. 
+            * retorno_min : float
+                Rendimiento mínimo posible con los valores de la cartera.  
+            * retorno_max : float
+                Rendimiento máximo posible con los valores de la cartera.  
+            * limites : list
+                Lista con los límites utilizados para el proceso de programación lineal y 
+                que se usan en otros procesos de optimización como la formación de la frontera 
+                eficiente o la selección de mejores pesos. 
     """
     retornos_medios_reales = retornos_df.mean()
     # Número de valores en cartera
@@ -771,32 +783,93 @@ def _opt_funcion_objetivo_varianza(pesos, matriz_covarianza):
     """Devuelve la varianza de la cartera. Esta función se minimiza en el método
     _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, limites).
 
-    Args:
-        pesos (_type_): _description_
-        matriz_covarianza (_type_): _description_
+    Parameters
+    ----------
+        pesos : numpy.ndarray
+            Porcentajes de representación de los valores en la cartera. 
 
-    Returns:
-        _type_: _description_
+        matriz_covarianza : numpy.ndarray
+            Matriz de covarianza entre los retornos de los valores en la cartera del usuario. 
+
+    Returns
+    -------
+        varianza : numpy.float64
+            Valor que se intenta minimizar en el proceso de optimización.
     """
     return pesos.dot(matriz_covarianza).dot(pesos)
 
 
 def _opt_restriccion_retorno_objetivo(pesos, retornos_medios_reales, retorno_objetivo):
-    """Función que sirve como restricción de igualdad. Devuleve 0 con se
+    """Función que sirve como restricción de igualdad. Devuleve 0 si se
     llega a la restricción. 
+
+    Parameters
+    ----------
+        pesos : numpy.ndarray
+            Porcentajes de representación de los valores en la cartera. 
+
+        retornos_medios_reales : pandas.core.series.Series
+            Retorno medio de las útimas 252 sesiones de cada valor en cartera
+        
+        retorno_objetivo : numpy.float64
+            Retorno entre el mínimo y el máximo posibles. 
+
+    Returns
+    -------
+        numpy.float64
+            Restricción de igualdad del proceso de optimización. 
     """
-    # Primero se calcula el retorno de la cartera y luego se resta el esperado
-    # cuando sean iguales, devolverá 0, por eso sirve como retricción de igualdad. 
+    # Primero se calcula el retorno de la cartera y luego se resta el esperado.
+    # Cuando sean iguales, devolverá 0, por eso sirve como retricción de igualdad.
     return pesos.dot(retornos_medios_reales) - retorno_objetivo
 
 
 def _opt_restriccion_cartera(pesos):
+    """Función que sirve como restricción de igualdad. Obliga a que los pesos de 
+    los valores en cartera tengan suma de 1 (i.e., 100%). 
+
+    Parameters
+    ----------
+        pesos : numpy.ndarray
+            Porcentajes de representación de los valores en la cartera. 
+
+    Returns
+    -------
+        numpy.float64
+            Restricción de igualdad del proceso de optimización. 
+    """
     # Será 0 cuando se cumpla la restricción, i.e., la suma de los pesos de los
     # valores en cartera será 1.
     return pesos.sum() - 1
 
 
 def _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, limites):
+    """Para calcular la frontera eficiente de una cartera de valores a través de
+    un proceso de optimización. 
+
+    Parameters
+    ----------
+        retorno_min : float
+            Rendimiento mínimo posible con los valores de la cartera.  
+        
+        retorno_max : float
+            Rendimiento máximo posible con los valores de la cartera.  
+        
+        retornos_df : pandas.core.frame.DataFrame
+            Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.
+
+        limites : list
+            Lista con los límites utilizados para el proceso de programación lineal
+            y que se usa en otros procesos de optimización. 
+
+    Returns
+    -------
+        tuple : Tupla con la volatilidad y el rendimiento optimizados. 
+            * riesgos_optimizados : list
+                Lista con las voltailidades/riesgos optimizados.
+            * retornos_objetivo : numpy.ndarray
+                Distribución lineal de rendimientos entre el mínimo y máximo posibles. 
+    """
     D = len(retornos_df.columns)
     retornos_objetivo = np.linspace(retorno_min, retorno_max, num=100)
     retornos_medios_reales = retornos_df.mean()
@@ -815,7 +888,7 @@ def _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, 
         }
     ]
 
-    # Nunca se llama a esta función cuando D < 1:
+    # Nunca se llama a esta función cuando D < 1, pero sí puede ser D==1
     if D == 1:
         # Con un único valor en cartera no hay pesos que optimizar, porque
         # ese valor tendrá siempre el 100% de peso
@@ -852,12 +925,18 @@ def _opt_sharpe_ratio_negativo(pesos, retornos_df):
     para obtener el mínimo óptimo del sharpe ratio. Como quiero el sharpe 
     ratio máximo, lo que hago es que devuelva el mismo resultado pero en negativo. 
 
-    Args:
-        pesos (_type_): _description_
-        retornos_df (_type_): _description_
+    Parameters
+    ----------
+        pesos : numpy.ndarray
+            Porcentajes de representación de los valores en la cartera. 
 
-    Returns:
-        _type_: _description_
+        retornos_df : pandas.core.frame.DataFrame
+            Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.
+
+    Returns
+    -------
+        sharpe_ratio_negativo : numpy.float64
+            Sharpe ratio de una cartera de valores.
     """
     # Se considera 0 porque se supone que al trabajar con valores cotizados no hay 
     # rendimiento libre de riesgo (los dividendos no se pueden considerar libre de riesgo)
@@ -878,7 +957,26 @@ def _opt_sharpe_ratio_negativo(pesos, retornos_df):
 
 
 def _mejores_pesos_por_optimizacion(retornos_df, limites):
-    
+    """Para calcular los mejores pesos posibles de una cartera a través de 
+    un proceso de optimización del Sharpe ratio. 
+
+    Parameters
+    ----------
+        retornos_df : pandas.core.frame.DataFrame
+            Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.
+
+        limites : list
+            Lista con los límites utilizados para el proceso de programación lineal
+            y que se usa en otros procesos de optimización. 
+
+    Returns
+    -------
+        tuple : Tupla con el mejor sharpe ratio y los mejores pesos de una cartera.
+            * mejor_sharpe_ratio : numpy.float64
+                Mejor Sharpe ratio posible. 
+            * mejores_pesos : numpy.ndarray
+                Mejor distribución de pesos posible.
+    """
     D = len(retornos_df.columns)
     restricciones = {
         'type': 'eq',
@@ -899,7 +997,31 @@ def _mejores_pesos_por_optimizacion(retornos_df, limites):
 
 
 def _mejores_pesos_por_monte_carlo(volatilidades_aleatorias, retornos_aleatorios, pesos_aleatorios):
-    
+    """Para buscar por 'fuerza bruta' la mejor distribución de pesos entre 
+    todas las carteras generadas durante la simulación de Monte Carlo. 
+
+    Parameters
+    ----------
+        volatilidades_aleatorias : numpy.ndarray
+            Array con las volatilidades de cada cartera ficticia generada en la simulación 
+            de Monte Carlo. 
+
+        retornos_aleatorios : numpy.ndarray
+            Array con las rentabilidades de cada cartera ficticia generada en la simulación 
+            de Monte Carlo. 
+
+        pesos_aleatorios : list
+            Lista con la distribución de pesos de cada cartera ficticia generada en la simulación 
+            de Monte Carlo. 
+
+    Returns
+    -------
+        tuple : Tupla con el mejor sharpe ratio y los mejores pesos de una cartera.
+            * monte_carlo_mejor_sharpe_ratio : numpy.float64
+                Mejor Sharpe ratio encontrado por simulación de Monte Carlo.
+            * monte_carlo_mejores_pesos : numpy.ndarray
+                Mejor distribución de pesos encontrada por simulación de Monte Carlo.
+    """
     tasa_libre_riesgo = 0 / 252 
 
     monte_carlo_mejor_sharpe_ratio = -math.inf
@@ -920,7 +1042,38 @@ def _mejores_pesos_por_monte_carlo(volatilidades_aleatorias, retornos_aleatorios
 def _agregar_info_pesos(compras_usuario, sharpe_ratio_real, pesos, 
                         opt_mejor_sharpe_ratio, opt_mejores_pesos, 
                         mc_mejor_sharpe_ratio, mc_mejores_pesos):
-    
+    """Para agregar toda la información obtenida referente a la optimización de carteras.
+    La idea es almacenar la información en una estructura que sea fácilmente accesible
+    en una plantilla HTML. 
+
+    Parameters
+    ----------
+        compras_usuario : django.db.models.query.QuerySet
+            QuerySet con las compras que tiene un usuario en cartera. 
+
+        sharpe_ratio_real : numpy.float64
+            Sharpe ratio de la cartera del usuario. 
+
+        pesos : numpy.ndarray
+            Porcentajes de representación de los valores en la cartera. 
+
+        opt_mejor_sharpe_ratio : numpy.float64
+            Mejor Sharpe ratio encontrado a través de un proceso de optimización. 
+        
+        opt_mejores_pesos : numpy.ndarray
+            Mejor distribución de pesos encontrada a través de un proceso de optimización. 
+
+        mc_mejor_sharpe_ratio : numpy.float64
+            Mejor Sharpe ratio encontrado mediante simulación de Monte Carlo. 
+        
+        mc_mejores_pesos : numpy.ndarray
+            Mejor distribución de pesos encontrada mediante simulación de Monte Carlo. 
+
+    Returns
+    -------
+        distribuciones_pesos_agregadas : list
+            Lista con toda la información ordenada de manera fácilmente accesible. 
+    """
     # Tengo los valores en tipos numpy.float64 y prefiero float y estilo de %
     # para mostrar en HTML
     pesos = [float(100*_) for _ in pesos]
@@ -938,4 +1091,5 @@ def _agregar_info_pesos(compras_usuario, sharpe_ratio_real, pesos,
     sharpe_ratios_agregados = [None] + sharpe_ratios_agregados
     distribuciones_pesos_agregadas.append(sharpe_ratios_agregados)
     
+    print(type(distribuciones_pesos_agregadas))
     return distribuciones_pesos_agregadas
