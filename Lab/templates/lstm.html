@@ -53,7 +53,7 @@
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
 <style>
-  /* Limit height of autocomplete suggestions */
+  /* Límite para el cuadro de búsqueda de tickers */
   .ui-autocomplete {
     max-height: 200px;
     overflow-y: auto;
@@ -71,14 +71,14 @@
       minLength: 0,
       delay: 300,
       select: function(event, ui) {
-        // Set visible input value
+        // Valores del input visible
         $("#ticker_autocomplete").val(ui.item.value);
-        // Set hidden input value
+        // Valores del input oculto
         $("#ticker_a_buscar").val(ui.item.value);
         return false;
       },
       open: function(event, ui) {
-        // Limit number of suggestions (optional)
+        // Limitar número de sugerencias
         var menu = $(this).autocomplete("widget");
         menu.element.attr("size", 5);
       }

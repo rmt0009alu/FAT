@@ -41,6 +41,16 @@
 <!-- Para la caja de búsqueda con sugerencias -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+<style>
+  /* Límite para el cuadro de búsqueda de tickers */
+  .ui-autocomplete {
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+  }
+</style>
 <script>
     $( function() {
         var tickersDisponibles = {{ lista_tickers|safe }};

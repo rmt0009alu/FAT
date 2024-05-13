@@ -54,9 +54,8 @@ def dashboard(request):
     if compras_usuario.exists() and seguimiento_usuario.exists():
         # Obtener la evolución de la cartera
         evol_cartera, evol_total = _evolucion_cartera(compras_usuario)
-        grafica_markowitz, sh_agregados, dist_pesos_agregadas = mostrar_markowitz_frontera_y_mejores(eur_usd, 
-                                                                                                     eur_gbp, 
-                                                                                                     compras_usuario)
+        grafica_markowitz, dist_pesos_agregadas = mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp, 
+                                                                                       compras_usuario)
         context = {
             "usuario": usuario,
             "comprasUsuario": compras_usuario,
@@ -70,14 +69,12 @@ def dashboard(request):
             "comTieneDatos": True,
             "segTieneDatos": True,
             "grafica_markowitz": grafica_markowitz,
-            "sh_agregados": sh_agregados,
             "dist_pesos_agregadas": dist_pesos_agregadas,
         }
     elif compras_usuario.exists():
         evol_cartera, evol_total = _evolucion_cartera(compras_usuario)
-        grafica_markowitz, sh_agregados, dist_pesos_agregadas = mostrar_markowitz_frontera_y_mejores(eur_usd, 
-                                                                                                     eur_gbp, 
-                                                                                                     compras_usuario)
+        grafica_markowitz, dist_pesos_agregadas = mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp, 
+                                                                                       compras_usuario)
         context = {
             "usuario": usuario,
             "comprasUsuario": compras_usuario,
@@ -88,7 +85,6 @@ def dashboard(request):
             "evolTotal": evol_total,
             "comTieneDatos": True,
             "grafica_markowitz": grafica_markowitz,
-            "sh_agregados": sh_agregados,
             "dist_pesos_agregadas": dist_pesos_agregadas,
         }
     elif seguimiento_usuario.exists(): 
@@ -511,7 +507,32 @@ def _hay_errores(fecha, bd, ticker, entrada, precio_compra, caso):
 
 
 def mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp, compras_usuario):
-    
+    """Para mostrar una gráfica de Markowitz, con su frontera eficiente y la situación 
+    de la cartera del usuario en base al sharpe ratio. Además, sirve para mostrar 
+    lo que se puede considerar una cartera óptima, con los mismos valores, pero maximizando
+    el sharpe ratio. 
+
+    Parameters
+    ----------
+        eur_usd : django.db.models.query.QuerySet)
+            Últimos datos actualizados del par EURUSD.
+
+        eur_gbp : django.db.models.query.QuerySet)
+            Últimos datos actualizados del par EURGBP.
+
+        compras_usuario : django.db.models.query.QuerySet)
+            Conjunto de compras que tiene un usuario. 
+
+    Returns
+    -------
+        tuple: la gráfica de Markowitz y las diferentes distribuciones de pesos junto con los sharpe ratio
+            * grafica_markowitz : str
+                Gráfica con la simulación de las diferentes carteras y la frontera eficiente.
+            * distribuciones_pesos_agregadas : list
+                Distribuciones de pesos de la cartera real, de la mejor cartera con simulación de Monte Carlo,
+                de la mejor cartera por optimización y los sharpe ratios de cada cartera. 
+            
+    """
     # Calculo la volatilidad real de la cartera actual
     retornos_df, matriz_covarianza, volatilidad, pesos = _volatilidad_cartera(eur_usd, eur_gbp, compras_usuario)
     retornos_medios_reales = retornos_df.mean()
@@ -542,12 +563,9 @@ def mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp, compras_usuario):
     # (aprovecho que calculo el sharpe ratio negativo y aquí lo negativizo de nuevo 
     # para hacerlo positivo)
     sharpe_ratio_real = - _opt_sharpe_ratio_negativo(pesos, retornos_df)
-    sharpe_ratios_agregados, distribuciones_pesos_agregadas = _agregar_info_pesos(compras_usuario,
-                                                                                  sharpe_ratio_real, pesos, 
-                                                                                  opt_mejor_sharpe_ratio, 
-                                                                                  opt_mejores_pesos, 
-                                                                                  mc_mejor_sharpe_ratio, 
-                                                                                  mc_mejores_pesos)
+    distribuciones_pesos_agregadas = _agregar_info_pesos(compras_usuario, sharpe_ratio_real, pesos, 
+                                                         opt_mejor_sharpe_ratio, opt_mejores_pesos, 
+                                                         mc_mejor_sharpe_ratio, mc_mejores_pesos)
 
     fig = plt.figure(figsize=(7, 5))
     buffer = BytesIO()
@@ -581,23 +599,35 @@ def mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp, compras_usuario):
     buffer.seek(0)
     grafica_markowitz = base64.b64encode(buffer.read()).decode()
 
-    return grafica_markowitz, sharpe_ratios_agregados, distribuciones_pesos_agregadas
+    return grafica_markowitz, distribuciones_pesos_agregadas
 
 
 def _volatilidad_cartera(eur_usd, eur_gbp, compras_usuario):
-    ##################### PRUEBAS #####################
-    # Calcular la volatilidad (std - desviación estándar) de los retornos
-    # de los diferentes stocks desde el momento de compra
-    
-    # for key in precios_desde_compra.keys():
-    #     # Media de los retornos
-    #     retorno_medio = precios_desde_compra[key].aggregate(Avg('percent_variance'))
-    #     print(retorno_medio)
+    """Para calcular la volatilidad de una cartera referenciada en Euros. 
 
-    #     # Desviación estándar de los retornos
-    #     std = precios_desde_compra[key].aggregate(StdDev('percent_variance'))
-    #     print(std)
+    Parameters
+    ----------
+        eur_usd : django.db.models.query.QuerySet)
+            Últimos datos actualizados del par EURUSD.
 
+        eur_gbp : django.db.models.query.QuerySet)
+            Últimos datos actualizados del par EURGBP.
+
+        compras_usuario : django.db.models.query.QuerySet)
+            Conjunto de compras que tiene un usuario. 
+
+    Returns
+    -------
+        tuple: Tupla de datos relevantes para otros métodos auxiliares.
+            * retornos_df : pandas.core.frame.DataFrame
+                Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.
+            * matriz_covarianza : numpy.ndarray
+                Matriz de covarianza entre los retornos de los valores en la cartera del usuario. 
+            * volatilidad : numpy.float64
+                Volatilidad de la cartera. 
+            * pesos : numpy.ndarray
+                Porcentajes de representación de los valores en la cartera. 
+    """
     precios_252_sesiones = {}
     retornos = {}
     
@@ -649,6 +679,28 @@ def _volatilidad_cartera(eur_usd, eur_gbp, compras_usuario):
 
 
 def _simulacion_monte_carlo_markowitz(retornos_df, matriz_covarianza):
+    """Para simular un número elevado de carteras con los mismos valores (y, por tanto
+    mismos retornos de últimas 252 sesiones) que tenga el usuario en cartera pero realizando
+    diferentes distribuciones de pesos con el objetivo de buscar una distribución óptima.
+
+    Parameters
+    ----------
+        retornos_df : pandas.core.frame.DataFrame
+            Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.
+
+        matriz_covarianza : numpy.ndarray
+            Matriz de covarianza entre los retornos de los valores en la cartera del usuario. 
+
+    Returns
+    -------
+        tuple : Tupla con los cálculos realizados durante la simulación de Monte Carlo
+            * volatilidades_aleatorias : numpy.ndarray
+                Array con las volatilidades de todas las carteras simuladas. 
+            * retornos_aleatorios : numpy.ndarray
+                Array con los retornos de todas las carteras simuladas. 
+            * pesos_aleatorios : list
+                Lista con los pesos de todas las carteras simuladas. 
+    """
     # Para el gráfico de riesgo-rendimiento. Voy a generar una cantidad elevada 
     # de carteras con los mismos stocks pero pesos aleatorios para ver si la 
     # cartera del usuario está bien distribuida
@@ -681,11 +733,19 @@ def _simulacion_monte_carlo_markowitz(retornos_df, matriz_covarianza):
         # Calcular el retorno y volatilidad de la cartera aleatoria que se está creando
         retornos_aleatorios[i] = retornos_medios_reales.dot(w)
         volatilidades_aleatorias[i] = np.sqrt(w.dot(matriz_covarianza).dot(w))
-    
+
     return volatilidades_aleatorias, retornos_aleatorios, pesos_aleatorios
 
 
 def _rendimientos_min_y_max(retornos_df):
+    """Para calcular los rendimientos máximo y mínimo posibles con 
+
+    Args:
+        retornos_df (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     retornos_medios_reales = retornos_df.mean()
     # Número de valores en cartera
     D = len(retornos_df.columns)
@@ -873,6 +933,9 @@ def _agregar_info_pesos(compras_usuario, sharpe_ratio_real, pesos,
     for i, compra in enumerate(compras_usuario):
         distribuciones_pesos_agregadas.append([compra.ticker, pesos[i], opt_mejores_pesos[i], mc_mejores_pesos[i]])
     
+    # Añado los sharpe ratios de cada distribución de cartera, así será 
+    # más sencillo acceder a los datos desde una plantilla HTML.
     sharpe_ratios_agregados = [None] + sharpe_ratios_agregados
     distribuciones_pesos_agregadas.append(sharpe_ratios_agregados)
-    return sharpe_ratios_agregados, distribuciones_pesos_agregadas
+    
+    return distribuciones_pesos_agregadas
