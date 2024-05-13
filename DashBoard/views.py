@@ -1,12 +1,15 @@
 """
 Métodos de vistas para usar con el DashBoard.
 """
-import pandas as pd
-import numpy as np
 import math
-import matplotlib.pyplot as plt
 # Para procesar las fechas recibidas con el DatePicker
 from datetime import datetime, date
+# Para el buffer y la imagen de la gráfica de Markowitz
+from io import BytesIO
+import base64
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 from django.shortcuts import render, redirect
 # Para proteger rutas. Las funciones que tienen este decorador
 # sólo son accesibles si se está logueado
@@ -14,17 +17,12 @@ from django.contrib.auth.decorators import login_required
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
 from django.utils import timezone
+# Para calcular los rendimientos mínimo y máximo posibles y el óptimo de una cartera
+from scipy.optimize import linprog, minimize
 from Analysis.models import Sectores, CambioMoneda
 from util.tickers import Tickers_BDs
 from .models import StockComprado, StockSeguimiento
 from .forms import StockCompradoForm, StockSeguimientoForm
-# Para calcular los rendimientos mínimo y máximo posibles
-from scipy.optimize import linprog
-# Para calcular el óptimo de una cartera
-from scipy.optimize import minimize
-# Para el buffer y la imagen de la gráfica de Markowitz
-from io import BytesIO
-import base64
 
 
 @login_required
@@ -54,7 +52,7 @@ def dashboard(request):
     if compras_usuario.exists() and seguimiento_usuario.exists():
         # Obtener la evolución de la cartera
         evol_cartera, evol_total = _evolucion_cartera(compras_usuario)
-        grafica_markowitz, dist_pesos_agregadas = mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp, 
+        grafica_markowitz, dist_pesos_agregadas = mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp,
                                                                                        compras_usuario)
         context = {
             "usuario": usuario,
@@ -73,7 +71,7 @@ def dashboard(request):
         }
     elif compras_usuario.exists():
         evol_cartera, evol_total = _evolucion_cartera(compras_usuario)
-        grafica_markowitz, dist_pesos_agregadas = mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp, 
+        grafica_markowitz, dist_pesos_agregadas = mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp,
                                                                                        compras_usuario)
         context = {
             "usuario": usuario,
@@ -87,7 +85,7 @@ def dashboard(request):
             "grafica_markowitz": grafica_markowitz,
             "dist_pesos_agregadas": dist_pesos_agregadas,
         }
-    elif seguimiento_usuario.exists(): 
+    elif seguimiento_usuario.exists():
         context = {
             "usuario": usuario,
             "monedas": monedas,
@@ -547,27 +545,27 @@ def mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp, compras_usuario):
     retorno_min, retorno_max, limites = _rendimientos_min_y_max(retornos_df)
 
     # Calculo la frontera eficiente
-    riesgos_optimizados, retornos_objetivo = _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, 
+    riesgos_optimizados, retornos_objetivo = _frontera_eficiente_por_optimizacion(retorno_min, retorno_max,
                                                                                   retornos_df, limites)
-        
+
     # Calcular el mejor Sharpe ratio y los mejores pesos por optimización (- opt -)
     opt_mejor_sharpe_ratio, opt_mejores_pesos = _mejores_pesos_por_optimizacion(retornos_df, limites)
-    
+
     # Además de calcular el mejor sharpe ratio utilizando minimización, se puede calcular
     # una aproximación (usando los datos de la simulación de Monte Carlo - mc -)
-    mc_mejor_sharpe_ratio, mc_mejores_pesos = _mejores_pesos_por_monte_carlo(volatilidades_aleat, 
-                                                                             retornos_aleat, 
+    mc_mejor_sharpe_ratio, mc_mejores_pesos = _mejores_pesos_por_monte_carlo(volatilidades_aleat,
+                                                                             retornos_aleat,
                                                                              pesos_aleat)
-    
+
     # Por último, preparo los datos de pesos y sharpe ratios de forma agregada
-    # (aprovecho que calculo el sharpe ratio negativo y aquí lo negativizo de nuevo 
+    # (aprovecho que calculo el sharpe ratio negativo y aquí lo negativizo de nuevo
     # para hacerlo positivo)
     sharpe_ratio_real = - _opt_sharpe_ratio_negativo(pesos, retornos_df)
-    distribuciones_pesos_agregadas = _agregar_info_pesos(compras_usuario, sharpe_ratio_real, pesos, 
-                                                         opt_mejor_sharpe_ratio, opt_mejores_pesos, 
+    distribuciones_pesos_agregadas = _agregar_info_pesos(compras_usuario, sharpe_ratio_real, pesos,
+                                                         opt_mejor_sharpe_ratio, opt_mejores_pesos,
                                                          mc_mejor_sharpe_ratio, mc_mejores_pesos)
 
-    fig = plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(7, 5))
     buffer = BytesIO()
     # Evolución de las variaciones diarias (nube de simulación de Monte Carlo)
     plt.scatter(volatilidades_aleat, retornos_aleat, c=retornos_aleat/volatilidades_aleat , alpha=0.5, s=3)
@@ -579,12 +577,12 @@ def mostrar_markowitz_frontera_y_mejores(eur_usd, eur_gbp, compras_usuario):
     # Mejor cartera según simulación de Monte Carlo
     mc_volatilidad = np.sqrt(mc_mejores_pesos.dot(matriz_covarianza).dot(mc_mejores_pesos))
     mc_retorno = retornos_medios_reales.dot(mc_mejores_pesos)
-    plt.scatter([mc_volatilidad], [mc_retorno], color='red', marker='X', 
+    plt.scatter([mc_volatilidad], [mc_retorno], color='red', marker='X',
                 label='Mejor cartera por simluación Monte Carlo', alpha=0.5)
     # Mejor cartera por optimización de funciones (minimizando)
     volatilidad_opt = np.sqrt(opt_mejores_pesos.dot(matriz_covarianza).dot(opt_mejores_pesos))
     retorno_opt = retornos_medios_reales.dot(opt_mejores_pesos)
-    plt.scatter([volatilidad_opt], [retorno_opt], c='blue', marker='X', 
+    plt.scatter([volatilidad_opt], [retorno_opt], c='blue', marker='X',
                 label='Mejor cartera por optimización', alpha=0.5)
     plt.legend(fontsize='small')
     plt.xlabel('Volatilidad')
@@ -630,7 +628,7 @@ def _volatilidad_cartera(eur_usd, eur_gbp, compras_usuario):
     """
     precios_252_sesiones = {}
     retornos = {}
-    
+
     # Obtener los datos de las últimas 252 sesiones de los valores comprados
     # por el usuario. Se cogen 252 sesiones porque es aprox. 1 año.
     for stock_comprado in compras_usuario:
@@ -646,7 +644,7 @@ def _volatilidad_cartera(eur_usd, eur_gbp, compras_usuario):
         retornos[key] = [dato['percent_variance'] for dato in datos_stock]
     # Los convierto a df para mayor comodidad
     retornos_df = pd.DataFrame.from_dict(retornos)
-    
+
     # Posiciones en cartera calculadas en EUR
     posiciones_cartera = []
     for stock_comprado in compras_usuario:
@@ -701,29 +699,29 @@ def _simulacion_monte_carlo_markowitz(retornos_df, matriz_covarianza):
             * pesos_aleatorios : list
                 Lista con los pesos de todas las carteras simuladas. 
     """
-    # Para el gráfico de riesgo-rendimiento. Voy a generar una cantidad elevada 
-    # de carteras con los mismos stocks pero pesos aleatorios para ver si la 
+    # Para el gráfico de riesgo-rendimiento. Voy a generar una cantidad elevada
+    # de carteras con los mismos stocks pero pesos aleatorios para ver si la
     # cartera del usuario está bien distribuida
     # -------------------------------------
     # Número de carteras aleatorias que voy a crear para comparar con la del usuario
-    N = 10000
+    repeticiones = 10000
     # Número de stocks en las carteras
-    D = len(retornos_df.columns)
+    num_stocks = len(retornos_df.columns)
     # Retornos y volatilidades aleatorias de las carteras ficticias
-    retornos_aleatorios = np.zeros(N)
-    volatilidades_aleatorias = np.zeros(N)
+    retornos_aleatorios = np.zeros(repeticiones)
+    volatilidades_aleatorias = np.zeros(repeticiones)
     # Retorno medio real de la cartera del usuario
     retornos_medios_reales = retornos_df.mean()
     # Pesos aleatorios
     pesos_aleatorios = []
 
-    for i in range(N):
+    for i in range(repeticiones):
         # Al usar '- rand_range / 2' estoy considerando una cartera en la que
         # se puede hacer venta de activos (en corto) con el objetivo de obtener
         # una rentabilidad positiva
         rand_range = 1.0
         # Vector aleatorio con una distribución uniforme valores en [-0.5, 0.5]
-        w = np.random.random(D)*rand_range - rand_range / 2
+        w = np.random.random(num_stocks)*rand_range - rand_range / 2
         # Cambio el último valor de 'w' para que sea 1 menos la suma del resto de
         # valores en 'w'. Así se mantiene la restricción de que 'w' debe sumar 1.
         w[-1] = 1 - w[:-1].sum()
@@ -760,20 +758,20 @@ def _rendimientos_min_y_max(retornos_df):
     """
     retornos_medios_reales = retornos_df.mean()
     # Número de valores en cartera
-    D = len(retornos_df.columns)
+    num_stocks = len(retornos_df.columns)
 
     # Restricciones de igualdad del proceso de minimización del rendimiento
-    A_eq = np.ones((1, D))
+    a_eq = np.ones((1, num_stocks))
     b_eq = np.ones(1)
     # Límites (he usado -0.5 en otros casos como al calcular la gráfica de Markowitz)
-    limites = [(-0.5, None)]*D
-    
-    # Se podría comprobar que el proceso de programación lineal funciona de forma esperada 
-    # utilizando res.success, pero no voy a poner restricciones imposibles con lo cual, es 
+    limites = [(-0.5, None)]*num_stocks
+
+    # Se podría comprobar que el proceso de programación lineal funciona de forma esperada
+    # utilizando res.success, pero no voy a poner restricciones imposibles con lo cual, es
     # de esperar que siempre funcione
-    res = linprog(retornos_medios_reales, A_eq=A_eq, b_eq=b_eq, bounds=limites)
+    res = linprog(retornos_medios_reales, A_eq=a_eq, b_eq=b_eq, bounds=limites)
     retorno_min = res.fun
-    res = linprog(-retornos_medios_reales, A_eq=A_eq, b_eq=b_eq, bounds=limites)
+    res = linprog(-retornos_medios_reales, A_eq=a_eq, b_eq=b_eq, bounds=limites)
     retorno_max = -res.fun
 
     return retorno_min, retorno_max, limites
@@ -870,7 +868,7 @@ def _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, 
             * retornos_objetivo : numpy.ndarray
                 Distribución lineal de rendimientos entre el mínimo y máximo posibles. 
     """
-    D = len(retornos_df.columns)
+    num_stocks = len(retornos_df.columns)
     retornos_objetivo = np.linspace(retorno_min, retorno_max, num=100)
     retornos_medios_reales = retornos_df.mean()
     matriz_covarianza = np.cov(retornos_df, rowvar=False)
@@ -889,7 +887,7 @@ def _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, 
     ]
 
     # Nunca se llama a esta función cuando D < 1, pero sí puede ser D==1
-    if D == 1:
+    if num_stocks == 1:
         # Con un único valor en cartera no hay pesos que optimizar, porque
         # ese valor tendrá siempre el 100% de peso
         pesos = np.array([1])
@@ -899,15 +897,15 @@ def _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, 
         riesgos_optimizados = [volatilidad for _ in retornos_objetivo]
 
         return riesgos_optimizados, retornos_objetivo
-    
+
     # Recorro todos los rendimientos (entre mín. y máx.) para generar la frontera eficiente:
     riesgos_optimizados = []
     for objetivo in retornos_objetivo:
         restricciones[0]['args'] = [retornos_medios_reales, objetivo]
 
-        res = minimize(fun = _opt_funcion_objetivo_varianza, 
-                       x0 = np.ones(D) / D, 
-                       method = 'SLSQP', 
+        res = minimize(fun = _opt_funcion_objetivo_varianza,
+                       x0 = np.ones(num_stocks) / num_stocks,
+                       method = 'SLSQP',
                        args = matriz_covarianza,
                        constraints = restricciones,
                        bounds = limites)
@@ -938,9 +936,9 @@ def _opt_sharpe_ratio_negativo(pesos, retornos_df):
         sharpe_ratio_negativo : numpy.float64
             Sharpe ratio de una cartera de valores.
     """
-    # Se considera 0 porque se supone que al trabajar con valores cotizados no hay 
+    # Se considera 0 porque se supone que al trabajar con valores cotizados no hay
     # rendimiento libre de riesgo (los dividendos no se pueden considerar libre de riesgo)
-    # Pongo la división entre 252 porque estoy usando datos diarios y, si quiero adaptar 
+    # Pongo la división entre 252 porque estoy usando datos diarios y, si quiero adaptar
     # la tasa libre de riesgo debería mantener la división (con datos diarios)
     tasa_libre_riesgo = 0 / 252
 
@@ -977,19 +975,19 @@ def _mejores_pesos_por_optimizacion(retornos_df, limites):
             * mejores_pesos : numpy.ndarray
                 Mejor distribución de pesos posible.
     """
-    D = len(retornos_df.columns)
+    num_stocks = len(retornos_df.columns)
     restricciones = {
         'type': 'eq',
         'fun': _opt_restriccion_cartera,
     }
 
-    res = minimize(fun = _opt_sharpe_ratio_negativo, 
-                   x0 = np.ones(D) / D, 
-                   method = 'SLSQP', 
+    res = minimize(fun = _opt_sharpe_ratio_negativo,
+                   x0 = np.ones(num_stocks) / num_stocks,
+                   method = 'SLSQP',
                    args = retornos_df,
                    constraints = restricciones,
                    bounds = limites)
-    
+
     mejor_sharpe_ratio = -res.fun
     mejores_pesos = res.x
 
@@ -1022,7 +1020,7 @@ def _mejores_pesos_por_monte_carlo(volatilidades_aleatorias, retornos_aleatorios
             * monte_carlo_mejores_pesos : numpy.ndarray
                 Mejor distribución de pesos encontrada por simulación de Monte Carlo.
     """
-    tasa_libre_riesgo = 0 / 252 
+    tasa_libre_riesgo = 0 / 252
 
     monte_carlo_mejor_sharpe_ratio = -math.inf
     monte_carlo_mejores_pesos = -math.inf
@@ -1039,8 +1037,8 @@ def _mejores_pesos_por_monte_carlo(volatilidades_aleatorias, retornos_aleatorios
     return monte_carlo_mejor_sharpe_ratio, monte_carlo_mejores_pesos
 
 
-def _agregar_info_pesos(compras_usuario, sharpe_ratio_real, pesos, 
-                        opt_mejor_sharpe_ratio, opt_mejores_pesos, 
+def _agregar_info_pesos(compras_usuario, sharpe_ratio_real, pesos,
+                        opt_mejor_sharpe_ratio, opt_mejores_pesos,
                         mc_mejor_sharpe_ratio, mc_mejores_pesos):
     """Para agregar toda la información obtenida referente a la optimización de carteras.
     La idea es almacenar la información en una estructura que sea fácilmente accesible
@@ -1079,17 +1077,16 @@ def _agregar_info_pesos(compras_usuario, sharpe_ratio_real, pesos,
     pesos = [float(100*_) for _ in pesos]
     opt_mejores_pesos = [float(100*_) for _ in opt_mejores_pesos]
     mc_mejores_pesos = [float(100*_) for _ in mc_mejores_pesos]
-     
+
     sharpe_ratios_agregados = [sharpe_ratio_real, opt_mejor_sharpe_ratio, mc_mejor_sharpe_ratio]
 
     distribuciones_pesos_agregadas = []
     for i, compra in enumerate(compras_usuario):
         distribuciones_pesos_agregadas.append([compra.ticker, pesos[i], opt_mejores_pesos[i], mc_mejores_pesos[i]])
-    
-    # Añado los sharpe ratios de cada distribución de cartera, así será 
+
+    # Añado los sharpe ratios de cada distribución de cartera, así será
     # más sencillo acceder a los datos desde una plantilla HTML.
     sharpe_ratios_agregados = [None] + sharpe_ratios_agregados
     distribuciones_pesos_agregadas.append(sharpe_ratios_agregados)
-    
-    print(type(distribuciones_pesos_agregadas))
+
     return distribuciones_pesos_agregadas
