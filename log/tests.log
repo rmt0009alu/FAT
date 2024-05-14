@@ -22,6 +22,7 @@ INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros v
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en ibex35
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de _normalizar_dataframes para caso 1
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de _normalizar_dataframes para caso 2
+INFO:AnalysisViews  : - [OK] Hacer login de forma adecuada con valores en cartera
 INFO:AnalysisViews  : - [OK] Hacer login de forma adecuada
 INFO:AnalysisViews  : - [OK] No redireccionar si usuario o pass incorrectos
 INFO:AnalysisViews  : - [OK] Que página de signin retorne '200 ok'
@@ -89,11 +90,14 @@ INFO:DashBoardViews : - [OK] Que página de 'eliminar_seguimientos' retorne '302
 INFO:DashBoardViews : - [OK] Asignar 'template' de eliminar_seguimientos y cargar base.html
 INFO:DashBoardViews : - [OK] _evolucion_cartera reconoce un dato de stocks comprado
 INFO:DashBoardViews : - [OK] _evolucion_cartera vacío si no hay stocks comprados
+INFO:DashBoardViews : - [OK] _frontera_eficiente_por_optimizacion devuelve valores esperados
+INFO:DashBoardViews : - [OK] _frontera_eficiente_por_optimizacion devuelve valores esperados
 INFO:DashBoardViews : - [OK] _hay_errores reconoce bd none
 INFO:DashBoardViews : - [OK] _hay_errores reconoce bd none para stocks seguidos
 INFO:DashBoardViews : - [OK] _hay_errores reconoce fecha futura
 INFO:DashBoardViews : - [OK] _hay_errores reconoce datos válidos
 INFO:DashBoardViews : - [OK] _hay_errores reconoce precio fuera de rango
+INFO:DashBoardViews : - [OK] _hay_errores reconoce entrada inexistente
 INFO:DashBoardViews : - [OK] No redirigir y seguir en 'nueva_compra' con formulario no válido
 INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'
 INFO:DashBoardViews : - [OK] Redirigir a 'dashboard' con datos válidos en 'nueva_compra'

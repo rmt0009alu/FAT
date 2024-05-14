@@ -1,8 +1,10 @@
+import pandas as pd
+import numpy as np
 from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User
 from Analysis.models import CambioMoneda
 from DashBoard.models import StockComprado, StockSeguimiento
-from DashBoard.views import _stocks_en_seguimiento, _evolucion_cartera, _hay_errores, nueva_compra, nuevo_seguimiento, eliminar_compras, eliminar_seguimientos, dashboard
+from DashBoard.views import _stocks_en_seguimiento, _evolucion_cartera, _hay_errores, nueva_compra, nuevo_seguimiento, eliminar_compras, eliminar_seguimientos, dashboard, _frontera_eficiente_por_optimizacion
 from log.logger.logger import get_logger_configurado
 from datetime import datetime, timezone, timedelta
 from django.core.exceptions import ValidationError
@@ -105,6 +107,14 @@ class TestDashBoardViews(TestCase):
             currency = 'EUR', sector = 'Financial Services'
         )
 
+        model = apps.get_model('Analysis', 'BARC_L')
+        self.stock_6 = model.objects.using('ftse100').create(date=datetime(2024, 2, 1, 12, 0, tzinfo=timezone.utc),
+            open=999, high=1010, low=999, close=1006, volume=100000,
+            dividends=0.0, stock_splits=0.0, ticker='BARC_L', previous_close=1000,
+            percent_variance=0.5, mm20=1000, mm50=1000.1, mm200=1002, name='Barclays PLC', 
+            currency = 'EUR', sector = 'Financial Services'
+        )
+
         self.fecha1 = tz.now() - timedelta(days=365)
         self.fecha2 = tz.now()
 
@@ -133,6 +143,7 @@ class TestDashBoardViews(TestCase):
     def test_views_dashboard_con_compras_y_seguimiento(self):
         self._crear_stockComprado_1()
         self._crear_stockComprado_2()
+        self._crear_stockComprado_3()
         self._crear_stockSeguimiento_1()
         self._crear_stockSeguimiento_2()
         request = RequestFactory().post("/dashboard/")
@@ -141,6 +152,7 @@ class TestDashBoardViews(TestCase):
         self.assertEqual(response.status_code, 200, " - [NO OK] Datos DashBoard con compras y seguimiento")
         self.assertTrue(self.stockComprado_1.ticker in response.content.decode(), " - [NO OK] Datos DashBoard con compras y seguimiento")
         self.assertTrue(self.stockComprado_2.ticker in response.content.decode(), " - [NO OK] Datos DashBoard con compras y seguimiento")
+        self.assertTrue(self.stockComprado_3.ticker in response.content.decode(), " - [NO OK] Datos DashBoard con compras y seguimiento")
         self.assertTrue(self.stockSeguimiento_1.ticker in response.content.decode(), " - [NO OK] Datos DashBoard con compras y seguimiento")
         self.assertTrue(self.stockSeguimiento_2.ticker in response.content.decode(), " - [NO OK] Datos DashBoard con compras y seguimiento")
         self.log.info(" - [OK] Datos DashBoard con compras y seguimiento")
@@ -149,12 +161,14 @@ class TestDashBoardViews(TestCase):
     def test_views_dashboard_con_compras_y_sin_seguimiento(self):
         self._crear_stockComprado_1()
         self._crear_stockComprado_2()
+        self._crear_stockComprado_3()
         request = RequestFactory().post("/dashboard/")
         request.user = self.usuarioTest      
         response = dashboard(request)
         self.assertEqual(response.status_code, 200, " - [NO OK] Datos DashBoard con compras y sin seguimiento")
         self.assertTrue(self.stockComprado_1.ticker in response.content.decode(), " - [NO OK] Datos DashBoard con compras y sin seguimiento")
         self.assertTrue(self.stockComprado_2.ticker in response.content.decode(), " - [NO OK] Datos DashBoard con compras y sin seguimiento")
+        self.assertTrue(self.stockComprado_3.ticker in response.content.decode(), " - [NO OK] Datos DashBoard con compras y sin seguimiento")
         # No puede haber otros datos como los de seguimiento
         self.assertTrue('AAPL' not in response.content.decode(), " - [NO OK] Datos DashBoard con compras y sin seguimiento")
         self.assertTrue('ELE.MC' not in response.content.decode(), " - [NO OK] Datos DashBoard con compras y sin seguimiento")
@@ -610,7 +624,41 @@ class TestDashBoardViews(TestCase):
         self.assertEqual(context["listaTickers"], Tickers_BDs.tickers_disponibles(), " - [NO OK] _hay_errores reconoce bd none para stocks seguidos")
         self.log.info(" - [OK] _hay_errores reconoce bd none para stocks seguidos")
 
+
+    def test_views_frontera_eficiente_por_optimizacion_2_stocks(self):
+        retorno_min = 0.05
+        retorno_max = 0.1
+        retornos_df = pd.DataFrame({
+            'stock1': np.random.rand(252),
+            'stock2': np.random.rand(252)
+        })
+        limites = [(0, 1) for _ in range(len(retornos_df.columns))]
+
+        # Llamos al método
+        riesgos_optimizados, retornos_objetivo = _frontera_eficiente_por_optimizacion(retorno_min, 
+                                                                                      retorno_max, retornos_df, 
+                                                                                      limites)
+        self.assertEqual(len(riesgos_optimizados), 100, " - [NO OK] _frontera_eficiente_por_optimizacion devuelve valores esperados")  
+        self.assertEqual(len(retornos_objetivo), 100, " - [NO OK] _frontera_eficiente_por_optimizacion devuelve valores esperados")
+        self.log.info(" - [OK] _frontera_eficiente_por_optimizacion devuelve valores esperados")
     
+
+    def test_views_frontera_eficiente_por_optimizacion_1_stock(self):
+        retorno_min = 0.05
+        retorno_max = 0.1
+        retornos_df = pd.DataFrame({
+            'stock1': np.random.rand(252)
+        })
+        limites = [(0, 1) for _ in range(len(retornos_df.columns))]
+
+        # Llamos al método
+        riesgos_optimizados, retornos_objetivo = _frontera_eficiente_por_optimizacion(retorno_min, 
+                                                                                      retorno_max, retornos_df, 
+                                                                                      limites)
+        self.assertEqual(len(riesgos_optimizados), 100, " - [NO OK] _frontera_eficiente_por_optimizacion devuelve valores esperados")  
+        self.assertEqual(len(retornos_objetivo), 100, " - [NO OK] _frontera_eficiente_por_optimizacion devuelve valores esperados")
+        self.log.info(" - [OK] _frontera_eficiente_por_optimizacion devuelve valores esperados")
+
     # --------------------------------------
     # MÉTODOS AUXILIARES PARA AGILIZAR TESTS
     # --------------------------------------
@@ -622,7 +670,8 @@ class TestDashBoardViews(TestCase):
             nombre_stock='ACS, Actividades de Construcción y Servicios, S.A.',
             fecha_compra=self.fecha1, num_acciones=10,
             precio_compra=100.0, moneda='EUR',
-            sector='Industrials'
+            sector='Industrials',
+            ult_cierre=105.00
         )
 
     def _crear_stockComprado_2(self):
@@ -632,7 +681,19 @@ class TestDashBoardViews(TestCase):
             nombre_stock='International Business Machines Corporation',
             fecha_compra=self.fecha1, num_acciones=10,
             precio_compra=100.0, moneda='USD',
-            sector='Technology'
+            sector='Technology',
+            ult_cierre=105.00
+        )
+
+    def _crear_stockComprado_3(self):
+        self.stockComprado_3 = StockComprado.objects.create(
+            usuario=self.usuarioTest, ticker_bd='BARC_L',
+            bd='ftse100', ticker='BARC.L',
+            nombre_stock='Barclays PLC',
+            fecha_compra=self.fecha1, num_acciones=10,
+            precio_compra=1000.0, moneda='GBp',
+            sector='Financial Services',
+            ult_cierre=1005.00
         )
 
     def _crear_stockSeguimiento_1(self):

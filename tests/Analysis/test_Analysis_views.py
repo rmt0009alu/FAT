@@ -9,6 +9,9 @@ import logging
 import pandas as pd
 import base64
 from datetime import timedelta
+# Alias 'tz' para no confundir con datetime.timezone
+from django.utils import timezone as tz
+from DashBoard.models import StockComprado
 from Analysis.views import _formatear_volumen, _get_lista_rss, _get_datos, _generar_correlaciones, _crear_grafos, _normalizar_dataframes, _generar_graficas_comparacion
 from Analysis.models import Sectores
 from django.apps import apps
@@ -239,6 +242,30 @@ class TestAnalysisViews(TestCase):
         response = self.client.post('/login/', self.datosUsuarioFalso)
         self.assertEqual(response.status_code, 200, " - [NO OK] No redireccionar si usuario o pass incorrectos")
         self.log.info(" - [OK] No redireccionar si usuario o pass incorrectos")
+
+    def test_views_signin_actualizar_ulimos_precios_valores_usuario(self):
+        model = apps.get_model('Analysis', 'ACS_MC')
+        self.stock = model.objects.using('ibex35').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+            open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+            dividends=1.0, stock_splits=2.0, ticker='ACS_MC', previous_close=100.0,
+            percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name='ACS, Actividades de Construcción y Servicios, S.A.', 
+            currency = 'EUR', sector = 'Industrials'
+        )
+
+        self.stockComprado = StockComprado.objects.create(
+            usuario=self.usuarioTest, ticker_bd='ACS_MC',
+            bd='ibex35', ticker='ACS.MC',
+            nombre_stock='ACS, Actividades de Construcción y Servicios, S.A.',
+            fecha_compra=tz.now() - timedelta(days=365), 
+            num_acciones=10,
+            precio_compra=100.0, moneda='EUR',
+            sector='Industrials',
+            ult_cierre=100.00
+        )
+        self.client.post('/login/', self.datosUsuarioTest)
+        self.assertTrue('_auth_user_id' in self.client.session, " - [NO OK] Hacer login de forma adecuada con valores en cartera")
+        self.log.info(" - [OK] Hacer login de forma adecuada con valores en cartera")
+
 
     # -------
     # SIGNOUT

@@ -53,7 +53,8 @@ class TestDashBoardModels(TestCase):
             num_acciones=10,
             precio_compra=100.0,
             moneda='EUR',
-            sector='Industrials'
+            sector='Industrials',
+            ult_cierre=105.00
         )
 
         self.stockComprado_2 = StockComprado.objects.create(
@@ -66,7 +67,8 @@ class TestDashBoardModels(TestCase):
             num_acciones=10,
             precio_compra=1000.0,
             moneda='GBp',
-            sector='Basic Materials'
+            sector='Basic Materials',
+            ult_cierre=1005.00
         )
 
         self.stockSeguimiento_1 = StockSeguimiento.objects.create(
@@ -86,14 +88,14 @@ class TestDashBoardModels(TestCase):
     def test_models_StockComprado_posicion(self):
         # La posición no será un campo, sino que se calculará
         res = self.stockComprado_1.posicion()
-        self.assertEqual(res, 100*10, " - [NO OK] Calcular posición de StockComprado")
+        self.assertEqual(res, 105*10, " - [NO OK] Calcular posición de StockComprado")
         self.log.info(" - [OK] Calcular posición de StockComprado")
 
     
     def test_models_StockComprado_posicion_GBp(self):
         # La posición no será un campo, sino que se calculará
         res = self.stockComprado_2.posicion()
-        self.assertEqual(res, 1000*10 / 100, " - [NO OK] Calcular posición de StockComprado en GBp")
+        self.assertEqual(res, 1005*10 / 100, " - [NO OK] Calcular posición de StockComprado en GBp")
         self.log.info(" - [OK] Calcular posición de StockComprado en GBp")
 
 

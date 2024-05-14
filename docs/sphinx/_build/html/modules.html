@@ -167,6 +167,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.models.StockComprado.moneda"><code class="docutils literal notranslate"><span class="pre">StockComprado.moneda</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.models.StockComprado.sector"><code class="docutils literal notranslate"><span class="pre">StockComprado.sector</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.models.StockComprado.objects"><code class="docutils literal notranslate"><span class="pre">StockComprado.objects</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DashBoard.models.StockComprado.ult_cierre"><code class="docutils literal notranslate"><span class="pre">StockComprado.ult_cierre</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.models.StockComprado.posicion"><code class="docutils literal notranslate"><span class="pre">StockComprado.posicion()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.models.StockComprado.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">StockComprado.DoesNotExist</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DashBoard.models.StockComprado.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">StockComprado.MultipleObjectsReturned</span></code></a></li>
@@ -205,6 +206,18 @@
 <li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._stocks_en_seguimiento"><code class="docutils literal notranslate"><span class="pre">_stocks_en_seguimiento()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._evolucion_cartera"><code class="docutils literal notranslate"><span class="pre">_evolucion_cartera()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._hay_errores"><code class="docutils literal notranslate"><span class="pre">_hay_errores()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views.mostrar_markowitz_frontera_y_mejores"><code class="docutils literal notranslate"><span class="pre">mostrar_markowitz_frontera_y_mejores()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._volatilidad_cartera"><code class="docutils literal notranslate"><span class="pre">_volatilidad_cartera()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._simulacion_monte_carlo_markowitz"><code class="docutils literal notranslate"><span class="pre">_simulacion_monte_carlo_markowitz()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._rendimientos_min_y_max"><code class="docutils literal notranslate"><span class="pre">_rendimientos_min_y_max()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._opt_funcion_objetivo_varianza"><code class="docutils literal notranslate"><span class="pre">_opt_funcion_objetivo_varianza()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._opt_restriccion_retorno_objetivo"><code class="docutils literal notranslate"><span class="pre">_opt_restriccion_retorno_objetivo()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._opt_restriccion_cartera"><code class="docutils literal notranslate"><span class="pre">_opt_restriccion_cartera()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._frontera_eficiente_por_optimizacion"><code class="docutils literal notranslate"><span class="pre">_frontera_eficiente_por_optimizacion()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._opt_sharpe_ratio_negativo"><code class="docutils literal notranslate"><span class="pre">_opt_sharpe_ratio_negativo()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._mejores_pesos_por_optimizacion"><code class="docutils literal notranslate"><span class="pre">_mejores_pesos_por_optimizacion()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._mejores_pesos_por_monte_carlo"><code class="docutils literal notranslate"><span class="pre">_mejores_pesos_por_monte_carlo()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DashBoard.views._agregar_info_pesos"><code class="docutils literal notranslate"><span class="pre">_agregar_info_pesos()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-FAT.asgi">FAT</a></li>
@@ -1334,6 +1347,13 @@ object the first time, the query is executed.</p>
 <span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#DashBoard.models.StockComprado.objects" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="DashBoard.models.StockComprado.ult_cierre">
+<span class="sig-name descname"><span class="pre">ult_cierre</span></span><a class="headerlink" href="#DashBoard.models.StockComprado.ult_cierre" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="DashBoard.models.StockComprado.posicion">
 <span class="sig-name descname"><span class="pre">posicion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockComprado.posicion" title="Link to this definition">¶</a></dt>
@@ -1795,6 +1815,457 @@ similares según el sector al que pertenecen).</p>
 </dl>
 </li>
 </ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views.mostrar_markowitz_frontera_y_mejores">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">mostrar_markowitz_frontera_y_mejores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eur_usd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eur_gbp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compras_usuario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.mostrar_markowitz_frontera_y_mejores" title="Link to this definition">¶</a></dt>
+<dd><p>Para mostrar una gráfica de Markowitz, con su frontera eficiente y la situación 
+de la cartera del usuario en base al sharpe ratio. Además, sirve para mostrar 
+lo que se puede considerar una cartera óptima, con los mismos valores, pero maximizando
+el sharpe ratio.</p>
+<section id="id56">
+<h2>Parameters<a class="headerlink" href="#id56" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>eur_usd<span class="classifier">django.db.models.query.QuerySet)</span></dt><dd><p>Últimos datos actualizados del par EURUSD.</p>
+</dd>
+<dt>eur_gbp<span class="classifier">django.db.models.query.QuerySet)</span></dt><dd><p>Últimos datos actualizados del par EURGBP.</p>
+</dd>
+<dt>compras_usuario<span class="classifier">django.db.models.query.QuerySet)</span></dt><dd><p>Conjunto de compras que tiene un usuario.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id57">
+<h2>Returns<a class="headerlink" href="#id57" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>tuple: la gráfica de Markowitz y las diferentes distribuciones de pesos junto con los sharpe ratio</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>grafica_markowitz<span class="classifier">str</span></dt><dd><p>Gráfica con la simulación de las diferentes carteras y la frontera eficiente.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>distribuciones_pesos_agregadas<span class="classifier">list</span></dt><dd><p>Distribuciones de pesos de la cartera real, de la mejor cartera con simulación de Monte Carlo,
+de la mejor cartera por optimización y los sharpe ratios de cada cartera.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._volatilidad_cartera">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_volatilidad_cartera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eur_usd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eur_gbp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compras_usuario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._volatilidad_cartera" title="Link to this definition">¶</a></dt>
+<dd><p>Para calcular la volatilidad de una cartera referenciada en Euros.</p>
+<section id="id58">
+<h2>Parameters<a class="headerlink" href="#id58" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>eur_usd<span class="classifier">django.db.models.query.QuerySet)</span></dt><dd><p>Últimos datos actualizados del par EURUSD.</p>
+</dd>
+<dt>eur_gbp<span class="classifier">django.db.models.query.QuerySet)</span></dt><dd><p>Últimos datos actualizados del par EURGBP.</p>
+</dd>
+<dt>compras_usuario<span class="classifier">django.db.models.query.QuerySet)</span></dt><dd><p>Conjunto de compras que tiene un usuario.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id59">
+<h2>Returns<a class="headerlink" href="#id59" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>tuple: Tupla de datos relevantes para otros métodos auxiliares.</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>retornos_df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>matriz_covarianza<span class="classifier">numpy.ndarray</span></dt><dd><p>Matriz de covarianza entre los retornos de los valores en la cartera del usuario.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>volatilidad<span class="classifier">numpy.float64</span></dt><dd><p>Volatilidad de la cartera.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._simulacion_monte_carlo_markowitz">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_simulacion_monte_carlo_markowitz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retornos_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matriz_covarianza</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._simulacion_monte_carlo_markowitz" title="Link to this definition">¶</a></dt>
+<dd><p>Para simular un número elevado de carteras con los mismos valores (y, por tanto
+mismos retornos de últimas 252 sesiones) que tenga el usuario en cartera pero realizando
+diferentes distribuciones de pesos con el objetivo de buscar una distribución óptima.</p>
+<section id="id60">
+<h2>Parameters<a class="headerlink" href="#id60" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>retornos_df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.</p>
+</dd>
+<dt>matriz_covarianza<span class="classifier">numpy.ndarray</span></dt><dd><p>Matriz de covarianza entre los retornos de los valores en la cartera del usuario.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id61">
+<h2>Returns<a class="headerlink" href="#id61" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>tuple<span class="classifier">Tupla con los cálculos realizados durante la simulación de Monte Carlo</span></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>volatilidades_aleatorias<span class="classifier">numpy.ndarray</span></dt><dd><p>Array con las volatilidades de todas las carteras simuladas.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>retornos_aleatorios<span class="classifier">numpy.ndarray</span></dt><dd><p>Array con los retornos de todas las carteras simuladas.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>pesos_aleatorios<span class="classifier">list</span></dt><dd><p>Lista con los pesos de todas las carteras simuladas.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._rendimientos_min_y_max">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_rendimientos_min_y_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retornos_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._rendimientos_min_y_max" title="Link to this definition">¶</a></dt>
+<dd><p>Para calcular los rendimientos máximo y mínimo posibles de una 
+cartera según los rendimientos/retornos del último año.</p>
+<section id="id62">
+<h2>Parameters<a class="headerlink" href="#id62" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>retornos_df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id63">
+<h2>Returns<a class="headerlink" href="#id63" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>tuple<span class="classifier">Tupla con los rendimientos máximo y mínimo, y con los límites de la programación lineal. </span></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>retorno_min<span class="classifier">float</span></dt><dd><p>Rendimiento mínimo posible con los valores de la cartera.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>retorno_max<span class="classifier">float</span></dt><dd><p>Rendimiento máximo posible con los valores de la cartera.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>limites<span class="classifier">list</span></dt><dd><p>Lista con los límites utilizados para el proceso de programación lineal y 
+que se usan en otros procesos de optimización como la formación de la frontera 
+eficiente o la selección de mejores pesos.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._opt_funcion_objetivo_varianza">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_opt_funcion_objetivo_varianza</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pesos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matriz_covarianza</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._opt_funcion_objetivo_varianza" title="Link to this definition">¶</a></dt>
+<dd><p>Devuelve la varianza de la cartera. Esta función se minimiza en el método
+_frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, limites).</p>
+<section id="id64">
+<h2>Parameters<a class="headerlink" href="#id64" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
+</dd>
+<dt>matriz_covarianza<span class="classifier">numpy.ndarray</span></dt><dd><p>Matriz de covarianza entre los retornos de los valores en la cartera del usuario.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id65">
+<h2>Returns<a class="headerlink" href="#id65" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>varianza<span class="classifier">numpy.float64</span></dt><dd><p>Valor que se intenta minimizar en el proceso de optimización.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._opt_restriccion_retorno_objetivo">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_opt_restriccion_retorno_objetivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pesos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retornos_medios_reales</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retorno_objetivo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._opt_restriccion_retorno_objetivo" title="Link to this definition">¶</a></dt>
+<dd><p>Función que sirve como restricción de igualdad. Devuleve 0 si se
+llega a la restricción.</p>
+<section id="id66">
+<h2>Parameters<a class="headerlink" href="#id66" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
+</dd>
+<dt>retornos_medios_reales<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Retorno medio de las útimas 252 sesiones de cada valor en cartera</p>
+</dd>
+<dt>retorno_objetivo<span class="classifier">numpy.float64</span></dt><dd><p>Retorno entre el mínimo y el máximo posibles.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id67">
+<h2>Returns<a class="headerlink" href="#id67" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>numpy.float64</dt><dd><p>Restricción de igualdad del proceso de optimización.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._opt_restriccion_cartera">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_opt_restriccion_cartera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pesos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._opt_restriccion_cartera" title="Link to this definition">¶</a></dt>
+<dd><p>Función que sirve como restricción de igualdad. Obliga a que los pesos de 
+los valores en cartera tengan suma de 1 (i.e., 100%).</p>
+<section id="id68">
+<h2>Parameters<a class="headerlink" href="#id68" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id69">
+<h2>Returns<a class="headerlink" href="#id69" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>numpy.float64</dt><dd><p>Restricción de igualdad del proceso de optimización.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._frontera_eficiente_por_optimizacion">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_frontera_eficiente_por_optimizacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retorno_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retorno_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retornos_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limites</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._frontera_eficiente_por_optimizacion" title="Link to this definition">¶</a></dt>
+<dd><p>Para calcular la frontera eficiente de una cartera de valores a través de
+un proceso de optimización.</p>
+<section id="id70">
+<h2>Parameters<a class="headerlink" href="#id70" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>retorno_min<span class="classifier">float</span></dt><dd><p>Rendimiento mínimo posible con los valores de la cartera.</p>
+</dd>
+<dt>retorno_max<span class="classifier">float</span></dt><dd><p>Rendimiento máximo posible con los valores de la cartera.</p>
+</dd>
+<dt>retornos_df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.</p>
+</dd>
+<dt>limites<span class="classifier">list</span></dt><dd><p>Lista con los límites utilizados para el proceso de programación lineal
+y que se usa en otros procesos de optimización.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id71">
+<h2>Returns<a class="headerlink" href="#id71" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>tuple<span class="classifier">Tupla con la volatilidad y el rendimiento optimizados. </span></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>riesgos_optimizados<span class="classifier">list</span></dt><dd><p>Lista con las voltailidades/riesgos optimizados.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>retornos_objetivo<span class="classifier">numpy.ndarray</span></dt><dd><p>Distribución lineal de rendimientos entre el mínimo y máximo posibles.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._opt_sharpe_ratio_negativo">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_opt_sharpe_ratio_negativo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pesos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retornos_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._opt_sharpe_ratio_negativo" title="Link to this definition">¶</a></dt>
+<dd><p>Función que va a pasar por un proceso de minimización de pesos
+para obtener el mínimo óptimo del sharpe ratio. Como quiero el sharpe 
+ratio máximo, lo que hago es que devuelva el mismo resultado pero en negativo.</p>
+<section id="id72">
+<h2>Parameters<a class="headerlink" href="#id72" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
+</dd>
+<dt>retornos_df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id73">
+<h2>Returns<a class="headerlink" href="#id73" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>sharpe_ratio_negativo<span class="classifier">numpy.float64</span></dt><dd><p>Sharpe ratio de una cartera de valores.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._mejores_pesos_por_optimizacion">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_mejores_pesos_por_optimizacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retornos_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limites</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._mejores_pesos_por_optimizacion" title="Link to this definition">¶</a></dt>
+<dd><p>Para calcular los mejores pesos posibles de una cartera a través de 
+un proceso de optimización del Sharpe ratio.</p>
+<section id="id74">
+<h2>Parameters<a class="headerlink" href="#id74" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>retornos_df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.</p>
+</dd>
+<dt>limites<span class="classifier">list</span></dt><dd><p>Lista con los límites utilizados para el proceso de programación lineal
+y que se usa en otros procesos de optimización.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id75">
+<h2>Returns<a class="headerlink" href="#id75" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>tuple<span class="classifier">Tupla con el mejor sharpe ratio y los mejores pesos de una cartera.</span></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>mejor_sharpe_ratio<span class="classifier">numpy.float64</span></dt><dd><p>Mejor Sharpe ratio posible.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>mejores_pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Mejor distribución de pesos posible.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._mejores_pesos_por_monte_carlo">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_mejores_pesos_por_monte_carlo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volatilidades_aleatorias</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retornos_aleatorios</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pesos_aleatorios</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._mejores_pesos_por_monte_carlo" title="Link to this definition">¶</a></dt>
+<dd><p>Para buscar por ‘fuerza bruta’ la mejor distribución de pesos entre 
+todas las carteras generadas durante la simulación de Monte Carlo.</p>
+<section id="id76">
+<h2>Parameters<a class="headerlink" href="#id76" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>volatilidades_aleatorias<span class="classifier">numpy.ndarray</span></dt><dd><p>Array con las volatilidades de cada cartera ficticia generada en la simulación 
+de Monte Carlo.</p>
+</dd>
+<dt>retornos_aleatorios<span class="classifier">numpy.ndarray</span></dt><dd><p>Array con las rentabilidades de cada cartera ficticia generada en la simulación 
+de Monte Carlo.</p>
+</dd>
+<dt>pesos_aleatorios<span class="classifier">list</span></dt><dd><p>Lista con la distribución de pesos de cada cartera ficticia generada en la simulación 
+de Monte Carlo.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id77">
+<h2>Returns<a class="headerlink" href="#id77" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>tuple<span class="classifier">Tupla con el mejor sharpe ratio y los mejores pesos de una cartera.</span></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>monte_carlo_mejor_sharpe_ratio<span class="classifier">numpy.float64</span></dt><dd><p>Mejor Sharpe ratio encontrado por simulación de Monte Carlo.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>monte_carlo_mejores_pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Mejor distribución de pesos encontrada por simulación de Monte Carlo.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._agregar_info_pesos">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_agregar_info_pesos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compras_usuario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharpe_ratio_real</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pesos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt_mejor_sharpe_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt_mejores_pesos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mc_mejor_sharpe_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mc_mejores_pesos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._agregar_info_pesos" title="Link to this definition">¶</a></dt>
+<dd><p>Para agregar toda la información obtenida referente a la optimización de carteras.
+La idea es almacenar la información en una estructura que sea fácilmente accesible
+en una plantilla HTML.</p>
+<section id="id78">
+<h2>Parameters<a class="headerlink" href="#id78" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>compras_usuario<span class="classifier">django.db.models.query.QuerySet</span></dt><dd><p>QuerySet con las compras que tiene un usuario en cartera.</p>
+</dd>
+<dt>sharpe_ratio_real<span class="classifier">numpy.float64</span></dt><dd><p>Sharpe ratio de la cartera del usuario.</p>
+</dd>
+<dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
+</dd>
+<dt>opt_mejor_sharpe_ratio<span class="classifier">numpy.float64</span></dt><dd><p>Mejor Sharpe ratio encontrado a través de un proceso de optimización.</p>
+</dd>
+<dt>opt_mejores_pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Mejor distribución de pesos encontrada a través de un proceso de optimización.</p>
+</dd>
+<dt>mc_mejor_sharpe_ratio<span class="classifier">numpy.float64</span></dt><dd><p>Mejor Sharpe ratio encontrado mediante simulación de Monte Carlo.</p>
+</dd>
+<dt>mc_mejores_pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Mejor distribución de pesos encontrada mediante simulación de Monte Carlo.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id79">
+<h2>Returns<a class="headerlink" href="#id79" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>distribuciones_pesos_agregadas<span class="classifier">list</span></dt><dd><p>Lista con toda la información ordenada de manera fácilmente accesible.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -2497,7 +2968,7 @@ entre los mejores/peores del último día.</p>
 </dd>
 </dl>
 </dd>
-<dt>Returns:</dt><dd><p>(matplotlib.figure.Figure): la figura que se crea</p>
+<dt>Returns:</dt><dd><p>(str): la figura que se crea, codificada en base64.</p>
 </dd>
 </dl>
 </dd></dl>
