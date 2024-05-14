@@ -236,8 +236,12 @@ def _generar_figura(entradas):
     plt.grid(True, linestyle='--', alpha=0.5, linewidth=0.5, color='gray')
     plt.gca().xaxis.set_major_locator(plt.MaxNLocator(6))
 
-    # Mostrar nombres de meses en lugar de fechas
-    locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+    # Mostrar nombres de meses en lugar de fechas ()
+    # locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+    # Modificación para evitar error de GitHub actions de Coverage: 'locale.Error: unsupported locale setting'
+    # Idea sacada de: https://github.com/israel-dryer/ttkbootstrap/issues/505
+    locale.setlocale(locale.LC_ALL, locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8'))
+    
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
     plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=2))
 
