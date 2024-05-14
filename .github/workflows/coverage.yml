@@ -50,6 +50,11 @@ jobs:
           python -m pip install pmdarima
           python -m pip install tensorflow
           python -m pip install pylint
+      
+      - name: Instalar locale para evitar 'locale.Error - unsupported locale setting'
+        run: |
+          sudo apt-get update && sudo apt-get install locales -y
+          sudo locale-gen es_ES.UTF-8
 
       - name: Testear con coverage
         env:
