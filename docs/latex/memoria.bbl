@@ -121,7 +121,7 @@ Django.
 
 \bibitem{online:mendeley}
 Elsevier.
-\newblock \emph{Draw.io}.
+\newblock \emph{Mendeley}.
 \newblock \url{https://www.mendeley.com/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
@@ -232,6 +232,11 @@ MarketScreener.
 \newblock \url{https://www.marketscreener.com/}, 2024.
 \newblock Online; Accedido el 10-Abr-2024.
 
+\bibitem{book:Portfolio_selection}
+Harry Markowitz.
+\newblock {\em Portfolio selection. Efficient diversification of investments}.
+\newblock Cowles Foundation, 1st edition, 1959.
+
 \bibitem{online:ms_teams}
 Microsoft.
 \newblock \emph{MS Teams}.
@@ -325,12 +330,31 @@ Benito van~der Zander.
 \newblock \url{https://www.texstudio.org/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
+\bibitem{2020SciPy-NMeth}
+Pauli Virtanen, Ralf Gommers, Travis~E. Oliphant, Matt Haberland, Tyler Reddy,
+  David Cournapeau, Evgeni Burovski, Pearu Peterson, Warren Weckesser, Jonathan
+  Bright, St{\'e}fan~J. {van der Walt}, Matthew Brett, Joshua Wilson, K.~Jarrod
+  Millman, Nikolay Mayorov, Andrew R.~J. Nelson, Eric Jones, Robert Kern, Eric
+  Larson, C~J Carey, {\.I}lhan Polat, Yu~Feng, Eric~W. Moore, Jake
+  {VanderPlas}, Denis Laxalde, Josef Perktold, Robert Cimrman, Ian Henriksen,
+  E.~A. Quintero, Charles~R. Harris, Anne~M. Archibald, Ant{\^o}nio~H. Ribeiro,
+  Fabian Pedregosa, Paul {van Mulbregt}, and {SciPy 1.0 Contributors}.
+\newblock {{SciPy} 1.0: Fundamental Algorithms for Scientific Computing in
+  Python}.
+\newblock {\em Nature Methods}, 17:261--272, 2020.
+
 \bibitem{wiki:BDD}
 Wikipedia.
 \newblock \emph{Behavior-driven development}.
 \newblock \url{https://en.wikipedia.org/wiki/Behavior-driven_development},
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:covarianza_correlacion}
+Wikipedia.
+\newblock \emph{Covariance and correlation}.
+\newblock \url{https://en.wikipedia.org/wiki/Covariance_and_correlation}, 2024.
+\newblock Online; Accedido el 16-May-2024.
 
 \bibitem{wiki:css}
 Wikipedia.
@@ -350,6 +374,12 @@ Wikipedia.
 \newblock \url{https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas},
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:frontera_eficiente}
+Wikipedia.
+\newblock \emph{Efficient frontier}.
+\newblock \url{https://en.wikipedia.org/wiki/Efficient_frontier}, 2024.
+\newblock Online; Accedido el 17-May-2024.
 
 \bibitem{wiki:html}
 Wikipedia.
@@ -391,12 +421,31 @@ Wikipedia.
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
 
+\bibitem{wiki:posicion_corta}
+Wikipedia.
+\newblock \emph{Posición corta}.
+\newblock \url{https://es.wikipedia.org/wiki/Posici%C3%B3n_corta}, 2024.
+\newblock Online; Accedido el 15-May-2024.
+
+\bibitem{wiki:sharpe_ratio}
+Wikipedia.
+\newblock \emph{Ratio de Sharpe}.
+\newblock \url{https://es.wikipedia.org/wiki/Ratio_de_Sharpe}, 2024.
+\newblock Online; Accedido el 17-May-2024.
+
 \bibitem{wiki:Scrum}
 Wikipedia.
 \newblock \emph{Scrum (desarrollo de software)}.
 \newblock \url{https://es.wikipedia.org/wiki/Scrum_(desarrollo_de_software)},
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:mpt}
+Wikipedia.
+\newblock \emph{Teoría del portafolio moderna}.
+\newblock
+  \url{https://es.wikipedia.org/wiki/Teor%C3%ADa_del_portafolio_moderna}, 2024.
+\newblock Online; Accedido el 15-May-2024.
 
 \bibitem{online:dotenv}
 Saurabh~Kumar y~Bertrand Bonnefoy-Claudet.

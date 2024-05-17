@@ -1,0 +1,10 @@
+<!-- templates/includes/_grafica_retornos.html -->
+
+<!-- Si el usuario está autenticado muestro info de correlaciones -->
+{% if user.is_authenticated %}
+<p class="barra">Distribución de retornos (variaciones diarias en %) del último año</p>
+
+<div id="grafica_retornos" >
+  <img src="data:image/png;base64,{{ grafica_retornos }}" alt="ImagenRetornos">
+</div>
+{% endif %}

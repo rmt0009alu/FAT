@@ -330,6 +330,7 @@ def chart_y_datos(request, ticker, nombre_bd):
         "grafo": _generar_correlaciones(ticker),
         "lista_tickers": tickers_disponibles(),
         "grafica_sectores": _grafica_evolucion_sector(ticker),
+        "grafica_retornos": _distribucion_retornos_ult_252_sesiones(ticker),
     }
 
     # Cuando es una solicitud GET retorno sin más
@@ -659,13 +660,13 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
     pos = nx.circular_layout(grafo_correl_positiva)
     nx.draw_networkx(grafo_correl_positiva, pos, with_labels=True, node_size=1000,
                      font_size=8, node_color='skyblue', font_color='black', ax=axes[0])
-    axes[0].set_title("Alta correlación positiva en \núltimas 30 sesiones (precios de cierre)", fontsize=10)
+    axes[0].set_title("Alta correlación positiva en \núltimo mes (precios de cierre)", fontsize=10)
     axes[0].axis('off')
 
     pos = nx.circular_layout(grafo_correl_negativa)
     nx.draw_networkx(grafo_correl_negativa, pos, with_labels=True, node_size=1000,
                      font_size=8, node_color='red', font_color='black', ax=axes[1])
-    axes[1].set_title("Alta correlación negativa en \núltimas 30 sesiones (precios de cierre)", fontsize=10)
+    axes[1].set_title("Alta correlación negativa en \núltimo mes (precios de cierre)", fontsize=10)
     axes[1].axis('off')
 
     # Aumento la separación vertical entre subplots
@@ -927,3 +928,42 @@ def _calcular_media_sector(lista_dataframes):
     dfs_merged = dfs_merged.rename(columns={'media': 'close'})
 
     return dfs_merged
+
+
+def _distribucion_retornos_ult_252_sesiones(ticker):
+    """Para mostrar la distribución de los retornos (varaiaciones diarias en %)
+    de un valor. 
+
+    Parameters
+    ----------
+        ticker : str
+            Nombre del ticker de un valor. 
+
+    Returns
+    -------
+        grafica_retornos : str
+            Cadena de datos con la distribución de los retornos (gráfica del 
+            buffer decodificada). 
+    """
+    bd = obtener_nombre_bd(ticker)
+    model = apps.get_model('Analysis', ticker)
+    # Último año aprox.
+    entrada = model.objects.using(bd).order_by('-date')[:252].values('date', 'percent_variance', 'name')
+    df_ticker = read_frame(entrada.values('date', 'percent_variance', 'name'))
+    # Extraigo el nombre de la empresa cotizada
+    nombre = df_ticker['name'][0]
+
+    fig = plt.figure(figsize=(7, 5))
+    buffer = BytesIO()
+    plt.hist(df_ticker['percent_variance'], bins=10)
+    plt.xlabel('Retorno (variación diaria en %)')
+    plt.title(f'Distribución de retornos de {nombre} en el último año')
+    plt.savefig('Pruebas2.png', format='PNG')
+    plt.savefig(buffer, format="PNG")
+    plt.close()
+
+    # Obtener los datos de la imagen del buffer
+    buffer.seek(0)
+    grafica_retornos = base64.b64encode(buffer.read()).decode()
+
+    return grafica_retornos

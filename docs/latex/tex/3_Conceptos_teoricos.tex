@@ -2,21 +2,299 @@
 
 Los conceptos teóricos más destacables de este proyecto residen en el estudio del modelo de Markowitz para la formación de una cartera bien diversificada - así como la correlación entre valores cotizados - y  en el análisis de \emph{forecasting} de series temporales con modelos ARIMA y con redes LSTM. 
 
-Algunos conceptos teóricos de \LaTeX{} \footnote{Créditos a los proyectos de Álvaro López Cantero: Configurador de Presupuestos y Roberto Izquierdo Amo: PLQuiz}.
+
+\section{Diversificación de una cartera de valores cotizados}\label{diversificar_cartera}
+
+Esta sección puede empezar con la idea básica de que el riesgo en las inversiones es perjudicial y tener una cartera diversificada reduce el riesgo, por lo tanto, diversificar una cartera es una buena idea. 
+
+La diversificación de una cartera de valores cotizados es una estrategia fundamental para reducir el riesgo y mejorar la rentabilidad a largo plazo. Esta estrategia consiste en distribuir el capital entre diferentes activos, como acciones, bonos y activos de diferentes sectores y regiones geográficas. Al hacerlo, se reduce la dependencia del rendimiento de una sola empresa o sector, lo que protege a la cartera de las fluctuaciones del mercado y minimiza las pérdidas potenciales.
+
+Una manera de caracterizar una cartera es a través del retorno medio de los activos que la componen y su varianza. En esta sección se verá cómo se realiza una optimización de varianza-media, o más conocida como \emph{Modern Portfolio Theory (MPT)} \citep{wiki:mpt}. Es decir, se va a demostrar cómo se busca una cartera con la mejor media y la mejor varianza posibles dados unos valores en dicha cartera y la ponderación de esos valores en la misma. 
 
 
-\section{Secciones}
+\subsection{Disminuir la varianza para minorar el riesgo}
 
-Obtención, preprocesado y almacenamiento de datos
+El retorno - o variación diaria porcentual - de un valor viene dado por:
+
+\begin{equation}
+	R = P_{t}/P_{t-1} - 1 = (P_{t} - P_{t-1})/P_{t}
+\end{equation}
+
+Donde $P_{t}$ es el último precio de cierre de mercado disponible y $P_{t-1}$ es el precio de cierre previo. 
+
+Los retornos de un valor son aleatorios y podemos asumir, de forma general, que hay una distribución normal subyacente en ellos:
+
+\imagen{img_01_distribución_retornos.png}{Distribuciones de retornos de diferentes valores. Fuente: elaboración propia}{1}
+
+Haciendo esta asunción de distribución normal en los retornos (algo que no siempre se cumple) podemos pensar en una cartera con dos valores, A y B, cuyas distribuciones de retornos son iguales: 
+
+\begin{align} \label{eq:1}
+	A: R_{1} \sim  \mathcal{N}(\mu,\,\sigma^{2})\\ 
+	B: R_{2} \sim  \mathcal{N}(\mu,\,\sigma^{2})
+\end{align}
+
+Entonces, el retorno esperado será el mismo, $\mu$ , tengamos el 100\% de A en cartera, el 100\% de B o con diferentes ponderaciones. Sin embargo, la varianza sí es distinta, porque si calculamos la desviación estándar de los retornos de A y B tenemos lo siguiente: 
+
+\begin{equation}
+	sd(R_{1}) = sd(R_{2}) = \sigma
+\end{equation}
+
+Es decir, si invertimos todo en A o todo en B, tendremos la misma varianza, pero si hacemos un reparto de, por ejemplo, 50\%/50\%, veremos que la varianza es menor. 
+
+Para ello, dadas las distribuciones de \ref{eq:1}, asumiremos - por ahora - que son independientes. Además, supongamos que existe una variable Y con $1/2$ de $R_{1}$ y $1/2$ de $R_{2}$:
+
+\begin{equation}
+	Y = 1/2R_{1} + 1/2R_{2}
+\end{equation} 
+
+Entonces, lo que hay que calcular es la varianza de Y:
+
+\begin{equation}
+	var(Y) = var(1/2R_{1} + 1/2R_{2})
+\end{equation}
+
+Una de las maneras de calcularlo es teniendo en cuenta lo siguiente:
+
+\begin{align}
+	var(cX) &= c^{2}var(X)\\
+	var(A + B) &= var(A) + var(B)
+\end{align}
+
+Y, por tanto:
+
+\begin{equation}
+	var(1/2R_{1} + 1/2R_{2}) = (1/2)^{2}\sigma^{2} + (1/2)^{2}\sigma^{2} = 1/2\sigma^{2}
+\end{equation}
+
+Es decir: 
+
+\begin{equation}
+	var(1/2R_{1} + 1/2R_{2}) = 1/2\sigma^{2} \rightarrow sd = 1/\sqrt{2}\sigma
+\end{equation}
 
 
-\section{Secciones}
+Esto nos lleva a pensar que podemos obtener los mismos retornos medios pero disminuyendo la varianza - y la desviación estándar -, es decir, asumiendo menos riesgos en nuestras inversiones porque tendremos menor volatilidad. 
 
-Diversificación de una cartera de valores cotizados
+\subsection{Retorno esperado y varianza de una cartera (\emph{portfolio})}
 
-\subsection{Subsecciones}
+En este apartado se tratará de describir una cartera de valores de forma matemática, con el objetivo de buscar una manera de optimizarla. Para ello, empezaré con una serie de definiciones estadísticas.
 
-Volatilidad y rendimiento de un único valor
+Los valores de una cartera tienen unos pesos en la misma. A esos pesos se les puede caracterizar como un vector $w$:
+
+\begin{equation*}
+	w = vector\, de\, longitud\, D
+\end{equation*}
+
+Donde $D$ es la cantidad de valores que tenemos en cartera\footnote{En mi código, en lugar de $D$ utilizo \textit{num\_valores} para hacerlo más intuitivo y para cumplir con las reglas de estilo de \textit{Python}}. Así, la ponderación de un único valor en cartera vendrá representada por $w_{i}$, donde $i = 1,...,D$.
+
+Los pesos tendrán algunas restricciones relevantes, como que la suma de todos ellos debe ser 1:
+
+\begin{equation}
+	\sum_{i=1}^{D}w_{i} = 1
+\end{equation}
+
+Además, podríamos tener otras restricciones como que los pesos deben ser positivos, lo que limitaría el uso de posiciones cortas \citep{wiki:posicion_corta} en cartera. En estos casos, se puede limitar indicando la condición de que $w_{i} \geq 0$. 
+
+Por otro lado, hay que tener en cuenta algunas definiciones que se utilizan de forma habitual, como:
+
+\begin{equation*}
+	R_{i} = retorno\, del\, valor\, i
+\end{equation*}
+
+El retorno medio es el valor esperado de $R_{i}$:
+
+\begin{equation}
+	E(R_{i}) = \mu_{i}\;  (forma\, vectorial\, de\, todos\, los\, \mu_{i}\, :\, \mu)
+\end{equation}
+
+Hay que considerar que es posible que exista una correlación entre los retornos de los valores y, por tanto, necesitaremos hacer uso de la matriz de covarianza:
+
+\begin{equation}
+	E\{(R_{i}-\mu_{i}) (R_{j}-\mu_{j})\} = \sum_{ij}\;  (forma\, matricial\, :\, \sum_{DxD})
+\end{equation}
+
+Si tenemos en cuenta lo anterior, ya es posible definir dos conceptos fundamentales que son el retorno medio esperado y la varianza del retorno de una cartera (\emph{portfolio}):
+
+\begin{align} \label{eq:2}
+	\mu_{p} &= E(R_{p})\\
+	\sigma_{p}^{2} &= var(R_{p})
+\end{align}
+
+Para entender cómo se calculan, voy a empezar por el caso más  sencillo, en el supuesto de tener sólo dos valores en cartera:
+
+\begin{equation} \label{eq:3}
+	R_{p} = wR_{1} + (1 - w)R_{2}
+\end{equation}
+
+$R_{p}$ es una función de variables aleatorias y, por tanto, tendrá una distribución en términos de media y varianza. La media de $R_{p}$ es su valor esperado y recordando que $E$ es un operador lineal podemos operar. Además, podemos sustituir por \ref{eq:2}:
+
+\begin{align} 
+    E(R_{p}) &= E(wR_{1} + (1-w)R_{2}) = wE(R_{1}) + (1-w)E(R_{2}) \\
+    \mu_{p}  &= w\mu_{1} + (1-w)\mu_{2}
+    \label{eq:4}
+\end{align}
+
+La varianza de $R_{p}$ requiere de más cálculos; no podemos hacer la suma directa de las dos varianzas porque puede existir correlación entre $R_{1}$ y $R_{2}$. Entonces, los más sencillo es sustituir en la definición de varianza por \ref{eq:3} y \ref{eq:4}:
+
+\begin{equation} \label{eq:5}
+\begin{aligned}
+    \text{var}(R_{p}) &= E \{(R_{p} - \mu_{p})^{2}\} \\
+    &= E\{[wR_{1} + (1-w)R_{2} - w\mu_{1} - (1-w)\mu_{2}]^{2}\} \\
+    &= E\{[w(R_{1} - \mu_{1}) + (1-w)(R_{2} - \mu_{2})]^{2}\} \\
+    &= E\{w^{2}(R_{1}-\mu_{1})^{2}\} + E\{(1-w)^{2}(R_{2}-\mu_{2})^{2}\} \\
+    &\quad + 2E\{w(1-w)(R_{1}-\mu_{1})(R_{2}-\mu_{2})\} \\
+    &= w^{2}\text{var}(R_{1}) + (1-w)^{2}\text{var}(R_{2})+2w(1-w)\text{cov}(R_{1}, R_{2})
+\end{aligned}
+\end{equation}
+
+Lo visto es \ref{eq:5} se puede escribir en términos de la correlación en lugar de la covarianza, $corr_{12} = \rho_{12} = \sigma_{12}/(\sigma_{1}\sigma_{2})$ \citep{wiki:covarianza_correlacion}:
+
+\begin{equation} \label{eq:6}
+	\sigma_{p}^{2} = w_{2}\sigma_{1}^{2} + (1-w)^{2}\sigma_{2}^2 + 2w(1-w)\sigma_{12}
+\end{equation}
+
+\begin{equation} \label{eq:7}
+	\sigma_{p}^{2} = w_{2}\sigma_{1}^{2} + (1-w)^{2}\sigma_{2}^2 + 2w(1-w)\rho_{12} \sigma_{1}\sigma_{2}
+\end{equation}
+	
+
+Cualquiera de estas dos fórmulas puede ser utilizada para calcular la varianza de una cartera de valores. 
+
+\subsection{Correlación entre valores}
+
+Inicialmente asumía que los retornos de los valores eran totalmente independientes para demostrar que la diversificación disminuye la varianza y, por tanto, el riesgo. Sin embargo, aquí vemos que los retornos no tienen por qué ser independientes. 
+
+Entonces, analizando detenidamente \ref{eq:6} y \ref{eq:7} vemos que, si $0 < w < 1$ y $R_{1}$ y $R_{2}$ están positivamente correlados, la varianza de la cartera aumenta. Y si $R_{1}$ y $R_{2}$ están negativamente correlados disminuimos la varianza del portfolio y, por tanto, tendremos menor riesgo. 
+
+Ahora, para poder adecuar a código de \emph{Python} estas fórmulas, voy a pasarlas a la notación de producto escalar y despejar la matriz de covarianza de $R$, $w^{T}\Sigma w$:
+
+\begin{equation} \label{eq:8}
+\begin{aligned}
+	var(R_{p}) &= E\{(R_{p}-\mu_{p}^{2})\\
+	&= E\{(R^{T}w - \mu^{T}w)^{2}\} \\
+	&= E{(R^{T}w - \mu^{T}w)^{T}(R^{T}w - \mu^{T}w)} \\
+	&= E\{w^{T}(R^{T}-\mu^{T})^{T}(R^{T}-\mu^{T})w\} \\
+	&= w^{T}E\{(R-\mu)(R-\mu)^{T}\}w \\
+	&= w^{T}\Sigma w
+\end{aligned}
+\end{equation}
+
+\subsection{Simulación de Montecarlo}
+
+Es habitual representar las carteras de valores en términos de la relación rentabilidad/riesgo. Para mantener una idea matemática de los conceptos de este trabajo, al riesgo lo voy a denominar volatilidad:
+
+\begin{equation}
+	volatilidad\, cartera = volatilidad_{p} = \sqrt(var(R_{p}))
+\end{equation}
+
+Una vez tenemos las fórmulas definidas se puede realizar una simulación de Montecarlo \citep{simulacion_montecarlo} con múltiples posibles carteras de inversión y ver la relación rentabilidad/riesgo (retorno esperado/varianza):
+
+\imagen{img_03_simulación_montecarlo.png}{Simulación de 10.000 posibles portfolios con los valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024). Fuente: elaboración propia}{1}
+
+De esta gráfica podemos deducir que es posible obtener una mejor rentabilidad sin aumentar el riesgo, i.e., puede mejorarse el rendimiento esperado de nuestra cartera manteniendo la misma volatilidad. Por ejemplo, el punto naranja indica una cartera eficiente, para la que dada una volatilidad, obtenemos el máximo rendimiento esperado posible. Mientras que la cartera representada con un punto rojo obtienen un rendimiento menor para la misma volatilidad. 
+
+Además, podemos intuir que según aumentamos el riesgo que estamos dispuestos a asumir podemos esperar mayores retornos. 
+
+\subsection{Retornos máximo y mínimo posibles}
+
+Para calcular el retorno de una cartera podemos hacer también la representación de producto escalar:
+
+\begin{equation}
+	\mu_{p} = \mu^{T}w
+\end{equation}
+
+Si utilizo la intuición rápida de maximizar el retorno por sí sólo, estaré cometiendo un error en los cálculos, ya que como es de esperar el retorno no puede crecer indefinidamente (el máximo de la ecuación previa es $\infty$). Entonces, hay que añadir al menos dos restricciones, que son la de que los pesos de los valores en cartera deben sumar 1 y que los pesos deben ser positivos. Por tanto, una representación más adecuada sería:
+
+\begin{equation}
+\begin{aligned}
+	\max_{w} \mu^{T}w \\
+	sujeto\, a: 1_{D}^{T}w = 1 \\
+	w_{i} \geq 0
+\end{aligned}
+\end{equation}
+
+Es decir, estamos ante un problema de optimización con restricciones\footnote{Es habitual añadir otras restricciones como que, por ejemplo, ningún valor tenga un peso mayor al 50\%, i.e., $w_{i} \leq 0.5$ pero en mi caso no utilizaré esta limitación.} Y, más concretamente, se trata de un problema de programación lineal (LP)\citep{programacion_lineal}. 
+
+De manera similar se puede calcular el retorno mínimo:
+
+\begin{equation}
+\begin{aligned}
+	\min_{w} \mu^{T}w \\
+	sujeto\, a: 1_{D}^{T}w = 1 \\
+	w_{i} \geq 0
+\end{aligned}
+\end{equation}
+
+En \emph{Python} estas funciones pueden representarse a través de la librería \emph{Scipy}, concretamente, con \texttt{scipy.optimize.linprog} \footnote{En este proyecto se puede ver cómo se aplica \texttt{scipy.optmize.linprog} en \texttt{DashBoard.views.py}, en el método \texttt{\_rendimientos\_min\_y\_max(retornos\_df)}.}
+
+\subsection{Optimización en términos de retorno y riesgo simultáneamente}
+
+En el apartado anterior se ha visto cómo optimizar los retornos, pero sin tener en cuenta el riesgo (o volatilidad). En este apartado se añade el concepto de riesgo para realizar una optimización simultánea. 
+
+Ya hemos visto, de forma intuitiva, que según aumenta el retorno esperado también aumenta el riesgo. La idea de la optimización de carteras es que no tomemos más riesgos de los necesarios. 
+
+El riesgo lo podemos medir con la desviación estándar. Como la minimización de la varianza también implica la minimización de la desviación estándar (la raíz cuadrada es una función monótona creciente), usaré la varianza calculada en \ref{eq:8} por comodidad en los cálculos.
+
+Si suponemos que queremos un determinado retorno $r$, podríamos representar la minimización del riesgo de la siguiente manera:
+
+\begin{equation} \label{eq:9}
+\begin{aligned}
+	min_{w} w^{T}\Sigma w \\
+	sujeto a: \mu^{T}w = r \\
+	1_{D}^{T}w = 1 \\
+	w_{i} \geq 0
+\end{aligned}
+\end{equation}
+
+Como vemos, estamos ante un problema de programación cuadrática (QP), porque la función objetivo es cuadrática en lugar de lineal, aunque las restricciones sí siguen siendo lineales. 
+
+Para simular la optimización de una función cuadrática en \emph{Scipy} hay que utilizar una función genérica llamada \texttt{minimize()} \footnote{En este proyecto se puede ver cómo se aplica \texttt{minimize()} en \texttt{DashBoard.views.\_frontera\_eficiente\_por\_optimizacion()} como un problema de QP y en \texttt{DashBoard.views.\_mejores\_pesos\_por\_optmizacion()} como un problema que no es QP ni LP}. Hay otras librerías más específicas, pero podemos adecuar \emph{Scipy} para problemas QP.
+
+
+\subsection{Frontera eficiente}
+
+Una vez hemos conocidos los retornos mínimo y máximo posibles, con la función que queremos optimizar, \ref{eq:9}, podemos hacer que el retorno, $r$, sea una sucesión de puntos entre el mínimo y el máximo e ir calculando la varianza mínima con esos retornos objetivos. Esto nos dará el mejor nivel de riesgo posible para cada retorno entre el mínimo y el máximo posibles. 
+
+Esto nos dará una representación en forma de hipérbola que se conoce como frontera eficiente \citep{wiki:frontera_eficiente} y que Harry Markowitz representó en \citep{book:Portfolio_selection} con su forma parabólica de la siguiente manera:
+
+\imagen{img_04_frontera_eficiente}{Frontera eficiente. Fuente: \citep{book:Portfolio_selection}}{0.45}
+
+Si aplicamos estos conceptos a la simulación de Montecarlo que se realizaba previamente, se obtiene lo siguiente:
+
+\imagen{img_05_montecarlo_frontera_eficiente}{Simulación de Montecarlo con frontera eficiente y rentabilidad de cartera con valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024) Fuente: Elaboración propia}{0.95}
+
+La parte superior \footnote{Aunque se obtiene toda la curva, por el propio proceso de optimización, la parte inferior no se puede considerar eficiente porque sólo tenemos que proyectar hacia la parte superior de la misma para ver retornos mejores.} de la línea curva negra que rodea la nube de posibles carteras, obtenidas con la simulación de Montecarlo, es lo que se conoce como frontera eficiente. Lo interesante de esta curva es que cualquier punto que seleccionemos de ella nos indica que no hay otra posible cartera con menor riesgo para el mismo retorno - o que no podemos encontrar un retorno esperado mejor para un determinado nivel de riesgo -.
+
+
+\subsection{Sharpe ratio}
+
+Hasta ahora se ha visto que podemos encontrar diferentes carteras óptimas - distintas distribuciones de pesos de los mismos valores cotizados - a lo largo de la frontera eficiente, pero cabe preguntarse cómo podemos comparar dos carteras, i.e., cuál es mejor si las dos están en la frontera eficiente. 
+
+En principio, podemos asumir que el perfil del inversor influirá en una mayor o menor aversión al riesgo, pero lo ideal es hacer un ratio entre el retorno esperado y la volatilidad para tener una medida objetiva. Ese ratio se conoce como \emph{Sharpe ratio} \citep{wiki:sharpe_ratio}:
+
+\begin{equation}
+	SR = \frac{E(R_{p}) - r_{f}}{\sigma_{p}}
+\end{equation}
+
+Donde $r_{f}$ representa la tasa libre de riesgo \footnote{En este proyecto se considera una tasa libre de riesgo de 0, porque sólo se utilizan acciones y, aunque tienen rentabilidades por dividendos, éstos no están garantizados. Otra perspectiva podría ser tomar las rentabilidades de los bonos del estado como referencia para la tasa libre de riesgo, pero he preferido limitar los cálculos al mercado de acciones cotizadas.}, que es un retorno garantizado que pueden tener determinados activos como depósitos, bonos, letras o similares. 
+
+La obtención del \emph{Sharpe ratio} se puede realizar de dos formas diferentes. Por un lado, podemos optimizar la función del \emph{Sharpe ratio} \footnote{En este trabajo se puede ver cómo se optimiza en \texttt{DashBoard.views.\_mejores\_pesos\_por\_optimizacion()}} pero también podemos aprovechar las múltiples carteras de la simulación de Montecarlo y buscar la de mejor ratio entre todas ellas. En cualquier caso, si se han simulado suficientes carteras, los resultados deben de ser similares - no iguales porque en la simulación puede que no se haya creado la cartera óptima global -. 
+
+Para facilitar la comprensión al usuario se puede realizar una gráfica con toda la información necesaria y acompañarlo de información adicional sobre la distribución de pesos de cada caso:
+
+\imagen{img_06_sharpe_ratio}{Simulación de Montecarlo con frontera eficiente y Sharpe ratio con los valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024) Fuente: Elaboración propia}{0.95}
+
+
+
+
+
+-----------------------------------
+Y también podemos estudiar las correlaciones entre los retornos de diferentes valores. 
+
+De hecho, podemos explotar la correlación entre valores para distribuir los pesos de nuestros valores de forma óptima en una cartera. 
+-----------------------------------
+
+\subsection{Volatilidad y rendimiento de un único valor}
 
 \subsection{Subsecciones}
 
