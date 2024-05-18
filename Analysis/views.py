@@ -202,6 +202,7 @@ def signin(request):
                 entrada = model.objects.using(bd).order_by('-date')[:1]
                 compra.ult_cierre = entrada[0].close
                 compra.save()
+
         return redirect("dashboard")
 
     # Si no he redirigido algo está mal

@@ -5,5 +5,5 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Frontera eficiente. Fuente: \citep {book:Portfolio_selection}}}{15}{figure.3.3}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Simulación de Montecarlo con frontera eficiente y rentabilidad de cartera con valores \emph {RED.MC}, \emph {EOAN.DE} y \emph {CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024) Fuente: Elaboración propia}}{15}{figure.3.4}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Simulación de Montecarlo con frontera eficiente y Sharpe ratio con los valores \emph {RED.MC}, \emph {EOAN.DE} y \emph {CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024) Fuente: Elaboración propia}}{17}{figure.3.5}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Autómata para una expresión vacía}}{19}{figure.3.6}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Patrón MVT. Fuente: realización propia}}{23}{figure.4.1}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Evolución de precios de cierre de \emph {ITX.MC} en los últimos dos años y los mismos datos con diferenciación de orden 1. Fuente: elaboración propia}}{20}{figure.3.6}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Patrón MVT. Fuente: realización propia}}{24}{figure.4.1}%

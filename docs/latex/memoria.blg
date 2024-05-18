@@ -23,48 +23,45 @@ Warning--string name "sept" is undefined
 --line 11 of file bibliografia.bib
 Warning--I didn't find a database entry for "simulacion_montecarlo"
 Warning--I didn't find a database entry for "programacion_lineal"
-Warning--I didn't find a database entry for "wiki:latex"
-Warning--I didn't find a database entry for "koza92"
-Warning--I didn't find a database entry for "bortolot2005"
-You've used 75 entries,
+You've used 77 entries,
             2118 wiz_defined-function locations,
-            828 strings with 12848 characters,
-and the built_in function-call counts, 17620 in all, are:
-= -- 1743
-> -- 708
+            832 strings with 13036 characters,
+and the built_in function-call counts, 18054 in all, are:
+= -- 1787
+> -- 722
 < -- 0
-+ -- 297
-- -- 222
-* -- 639
-:= -- 3033
-add.period$ -- 296
-call.type$ -- 75
-change.case$ -- 336
++ -- 303
+- -- 226
+* -- 651
+:= -- 3107
+add.period$ -- 304
+call.type$ -- 77
+change.case$ -- 344
 chr.to.int$ -- 0
-cite$ -- 75
-duplicate$ -- 543
-empty$ -- 1664
-format.name$ -- 222
-if$ -- 3818
+cite$ -- 77
+duplicate$ -- 557
+empty$ -- 1708
+format.name$ -- 226
+if$ -- 3914
 int.to.chr$ -- 0
-int.to.str$ -- 75
+int.to.str$ -- 77
 missing$ -- 6
-newline$ -- 449
-num.names$ -- 150
-pop$ -- 622
+newline$ -- 461
+num.names$ -- 154
+pop$ -- 638
 preamble$ -- 1
-purify$ -- 261
+purify$ -- 267
 quote$ -- 0
-skip$ -- 453
+skip$ -- 465
 stack$ -- 0
-substring$ -- 433
-swap$ -- 75
+substring$ -- 443
+swap$ -- 77
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 296
+type$ -- 304
 warning$ -- 0
-while$ -- 153
-width$ -- 77
-write$ -- 898
-(There were 6 warnings)
+while$ -- 157
+width$ -- 79
+write$ -- 922
+(There were 3 warnings)

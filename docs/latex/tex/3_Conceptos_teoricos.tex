@@ -1,6 +1,6 @@
 \capitulo{3}{Conceptos teóricos}
 
-Los conceptos teóricos más destacables de este proyecto residen en el estudio del modelo de Markowitz para la formación de una cartera bien diversificada - así como la correlación entre valores cotizados - y  en el análisis de \emph{forecasting} de series temporales con modelos ARIMA y con redes LSTM. 
+Los conceptos teóricos más destacables de este proyecto residen en el estudio del modelo de Markowitz para la formación de una cartera bien diversificada - así como la correlación entre valores cotizados - y  en el análisis (\emph{forecasting}) de series temporales con modelos ARIMA y con redes LSTM. 
 
 
 \section{Diversificación de una cartera de valores cotizados}\label{diversificar_cartera}
@@ -268,7 +268,7 @@ La parte superior \footnote{Aunque se obtiene toda la curva, por el propio proce
 
 \subsection{Sharpe ratio}
 
-Hasta ahora se ha visto que podemos encontrar diferentes carteras óptimas - distintas distribuciones de pesos de los mismos valores cotizados - a lo largo de la frontera eficiente, pero cabe preguntarse cómo podemos comparar dos carteras, i.e., cuál es mejor si las dos están en la frontera eficiente. 
+Hasta ahora se ha visto que podemos encontrar diferentes carteras localmente óptimas - distintas distribuciones de pesos de los mismos valores cotizados - a lo largo de la frontera eficiente, pero cabe preguntarse cómo podemos comparar dos carteras, i.e., cuál es mejor si las dos están en la frontera eficiente.
 
 En principio, podemos asumir que el perfil del inversor influirá en una mayor o menor aversión al riesgo, pero lo ideal es hacer un ratio entre el retorno esperado y la volatilidad para tener una medida objetiva. Ese ratio se conoce como \emph{Sharpe ratio} \citep{wiki:sharpe_ratio}:
 
@@ -286,101 +286,137 @@ Para facilitar la comprensión al usuario se puede realizar una gráfica con tod
 
 
 
+\section{Análisis de series temporales con modelos ARIMA}\label{series_temporales}
+
+\subsection{Modelos autorregresivos $(AR_{(p)})$}
+
+En estadística, un modelo autorregresivo (AR) es una representación de un proceso aleatorio en el que la variable de interés depende de sus observaciones pasadas. De forma general podemos decir que estos modelos son, básicamente, modelos de regresión lineal donde los predictores son datos pasados en la serie temporal. En su versión más sencilla lo podemos representar por:
+
+\begin{equation}
+	\hat{y} = mx + b
+\end{equation}
+
+Donde $\hat{y}$ es el estimador, $x$ son los datos de entrada y $m$ y $b$ son parámetros que se encuentran a través de la minimización del error de las predicciones - error entendido como diferencia entre real y estimado -. 
+
+Si tenemos más de una entrada de datos podemos representarlo de la siguiente manera:
+
+\begin{equation}
+	\hat{y} = w_{1}x_{1} + w_{2}x_{2} + b
+\end{equation}
+
+Donde, de nuevo, $w_{1}$, $w_{2}$ y $b$ se encuentran a través de un proceso de minimización del error. 
+
+Un modelo autorregresivo es un modelo de regresión lineal múltiple donde las entradas son los valores ya pasados en la serie temporal. Un modelo autorregresivo de orden $p$ ($AR_{p}$) se puede representar de la siguiente manera:
+
+\begin{equation}
+	\hat{y}_{t} = b + \phi_{1}y_{t-1} + \phi_{2}y_{t-2} + ... + \phi_{p}y_{t-p}
+\end{equation}
+
+Que se puede representar en un momento temporal concreto como:
+
+\begin{equation}
+	y_{t} = b + \phi_{1}y_{t-1} + \phi_{2}y_{t-2} + ... + \phi_{p}y_{t-p} + \epsilon_{t}
+\end{equation}
+
+Donde, $\epsilon_{t}$ es el \emph{ruido} en ese instante $t$: 
+
+\begin{equation}
+	\epsilon_{t} = \mathcal{N}(0,\,\sigma^{2})
+\end{equation}
+
+Es decir, se mide $y_{t}$ como un modelo lineal de las entradas más un \emph{ruido}. Esto nos lleva a pensar - asumiendo que el valor esperado del \emph{ruido} es 0 - que:
+
+\begin{equation}
+	\hat{y}_{t} = E(y_{t})
+\end{equation}
 
 
------------------------------------
-Y también podemos estudiar las correlaciones entre los retornos de diferentes valores. 
 
-De hecho, podemos explotar la correlación entre valores para distribuir los pesos de nuestros valores de forma óptima en una cartera. 
------------------------------------
+\subsection{Modelos de media móvil $(MA_{(q)})$}
 
-\subsection{Volatilidad y rendimiento de un único valor}
+Es importante empezar destacando que no hay que confundir el nombre de estos modelos con la \emph{media móvil simple} ni la \emph{media móvil exponencialmente ponderada} (EWMA, o MMEP en castellano). 
 
-\subsection{Subsecciones}
+Este modelo es similar al autorregresivo en el sentido de que es una función lineal, peo en este caso es una función en términos de errores pasados. Es decir, depende de los errores previos, no de los datos anteriores de la serie temporal. Se representa por:
 
-Volatilidad y rendimiento de una cartera con varios valores
-
-\subsection{Subsecciones}
-
-Modelo de Markowitz
-
-\subsection{Subsecciones}
-
-Simulación de Monte Carlo y sharpe ratio
+\begin{equation}
+	y_{t} = c + \epsilon_{t} + \theta_{1}\epsilon_{t-1} + \theta_{2}\epsilon_{t-2} + ... + \theta_{q}\epsilon_{t-q}
+\end{equation}
 
 
-\subsection{Subsecciones}
+Si seguimos tratando los errores como una distribución normal, $\epsilon_{t} = \mathcal{N}(0,\,\sigma^{2})$, cuando calculamos el valor esperado veremos que todos esos errores son 0 y, por tanto, el valor esperado sólo dependerá de $c$:
 
-Estudio de correlación con NetworkX
+\begin{equation}
+\begin{aligned}
+	E(y_{t}) &= E(c + \epsilon_{t} + \theta_{1}\epsilon_{t-1} + \theta_{2}\epsilon_{t-2} + ... + \theta_{q}\epsilon_{t-q}) \\ 
+	&= c
+\end{aligned}
+\end{equation}
 
-
-
-\subsubsection{Subsubsecciones}
-
-Y subsecciones. 
-
-
-\section{Referencias}
-
-Las referencias se incluyen en el texto usando cite~\cite{wiki:latex}. Para citar webs, artículos o libros~\cite{koza92}, si se desean citar más de uno en el mismo lugar~\cite{bortolot2005, koza92}.
+Entonces, podemos entender el término sesgado $c$ como el valor medio, y los errores como fluctuaciones que hacen que $y_{t}$ vaya arriba o abajo alrededor de $c$. 
 
 
-\section{Imágenes}
+\subsection{Combinación de modelos: $(ARMA_{(p, q)})$}
 
-Se pueden incluir imágenes con los comandos standard de \LaTeX, pero esta plantilla dispone de comandos propios como por ejemplo el siguiente:
+Usaremos este modelo cuando creamos que nuestros datos están linealmente correlados tanto con datos pasados en la serie temporal como con errores pasados del modelo. 
 
-\imagen{escudoInfor.pdf}{Autómata para una expresión vacía}{.5}
+\begin{equation}
+	y_{t} = b + \phi_{1}y_{t-1} + \phi_{2}y_{t-2} + ... + \phi_{p}y_{t-p} + \theta_{1}\epsilon_{t-1} + \theta_{2}\epsilon_{t-2} + ... + \theta_{q}\epsilon_{t-q} + \epsilon_{t}
+\end{equation}
+
+Cuando entrenamos un modelo ARMA nos interesa que los datos estén cercanos a la estacionalidad \citep{wiki:estacionalidad}. La estacionalidad es muy útil en procesos de modelado, porque implica que varios estadísticos, como la media, la varianza, la autocorrelación, etc. se mantendrán constantes con el tiempo. Y en un modelo ARMA estamos tomando ventanas temporales previas para entrenar el modelo, lo cual nos dará buenos resultados si los estadísticos se mantienen a lo largo de otras ventanas temporales. 
+
+
+\subsection{$I_{(d)}$ y $ARIMA_{(p, d, q)}$}
+
+Los datos de los valores cotizados, normalmente, no son estacionarios. Por ello, es necesario realizar un proceso de diferenciación para intentar aproximarlos a la estacionalidad. Aquí es donde entra en juego la \emph{I} de \emph{ARIMA}. 
+
+Un proceso $I_{(d)}$ es un proceso estacionario después de haber diferenciado $d$ veces. Es decir, $I_{(d)}$ es un proceso integrado en orden $d$. Normalmente necesitaremos diferenciar una o dos veces, pero no es aconsejable hacerlo más de dos veces. De hecho, es posible ver que con una sola diferenciación podemos eliminar la tendencia de los datos:
+
+\imagen{img_07_diferenciacion.png}{Evolución de precios de cierre de \emph{ITX.MC} en los últimos dos años y los mismos datos con diferenciación de orden 1. Fuente: elaboración propia}{0.9}
+
+
+Entonces, $ARIMA_{(p, d, q)}$ es un modelo en el que hemos diferenciado $d$ veces antes de aplicar un modelo $ARMA_{(p, q)}$. Y hemos visto que $I_{(d)}$ es una operación que hacemos sobre los datos, mientras que en las partes del modelo autorregresivo y de la media móvil tenemos unas fórmulas que nos permiten hacer predicciones. 
+
+Algunos casos especiales de ARIMA son los siguientes:
+
+\begin{align*}
+	&ARIMA(p, 0, 0) = ARMA(p, 0) = AR(p) \\
+	&ARIMA(0, 0, q) = ARMA(0, q) = MA(q) \\
+	&ARIMA(0, d, 0) = I(d)
+\end{align*}
+
+Otro caso especial interesante es $ARIMA(0, 1, 0) = I(1)$ que no es más que un paseo aleatorio (RW o random walk)\citep{wiki:paseo_aleatorio} en el que lo único que tenemos es un modelo representado por \emph{ruido}. Este modelo tan particular se puede denotar por:
+
+\begin{equation}
+\begin{aligned}
+	&\Delta y_{t} = \epsilon_{t} \\
+	&y_{t} - t_{t-1} = \epsilon_{t} \\
+	&y_{t} = y_{t-1} + \epsilon_{t}
+\end{aligned}
+\end{equation}
+
+Por ejemplo, suponiendo que tenemos un conjunto de datos a modelar formado por retornos logarítmicos de un valor cotizado: 
+
+\begin{equation}
+	r_{t} = p_{t} - p_{t-1} = \epsilon_{t} \sim \mathcal{N}(\mu,\,\sigma^{2})
+\end{equation}
+
+Si entrenamos un modelo ARIMA con dichos datos y los mejores parámetros son $p=0, d=1, q=0$, significa que los retornos no son predecibles a través de los valores previos en la serie temporal. Esto es interesante porque podemos obtener información relevante aunque no estemos haciendo una predicción de la evolución de los precios - o de retornos -. 
 
 
 
-\section{Listas de items}
-
-Existen tres posibilidades:
-
-\begin{itemize}
-	\item primer item.
-	\item segundo item.
-\end{itemize}
-
-\begin{enumerate}
-	\item primer item.
-	\item segundo item.
-\end{enumerate}
-
-\begin{description}
-	\item[Primer item] más información sobre el primer item.
-	\item[Segundo item] más información sobre el segundo item.
-\end{description}
-	
-\begin{itemize}
-\item 
-\end{itemize}
-
-\section{Tablas}
-
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
-
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 
+%\section{Análisis de series temporales}\label{series_temporales}
+%
+%Cuando hacemos un análisis de la evolución de los precios de una acción podemos cometer el error de centrarnos en los datos de un momento concreto en el tiempo, pero debemos tener en cuenta que los precios evolucionan con el tiempo. 
+%
+%Cuando hablamos de \emph{forecasting} (previsión o predicción) de series temporales con productos financieros   una de las cosas que hay que tener en cuenta es que es un proceso especialmente complicado y que los resultados obtenidos, en muchas ocasiones, son erróneos. Por ello, en este trabajo se propone un laboratorio virtual que le permita al usuario experimentar con algunas herramientas relativas al análisis de series temporales y que sea esa persona la que saque sus propias conclusiones a través de los datos obtenidos. 
+%
+%
+%
+%
+%
+%-----------------------------------
+%Y también podemos estudiar las correlaciones entre los retornos de diferentes valores. 
+%
+%De hecho, podemos explotar la correlación entre valores para distribuir los pesos de nuestros valores de forma óptima en una cartera. 
+%-----------------------------------
