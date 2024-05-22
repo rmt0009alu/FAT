@@ -288,6 +288,11 @@ Para facilitar la comprensión al usuario se puede realizar una gráfica con tod
 
 \section{Análisis de series temporales con modelos ARIMA}\label{series_temporales}
 
+Cuando hablamos de \emph{forecasting} (previsión o predicción) de series temporales con productos financieros hay que tener en cuenta que estamos ante un proceso especialmente complicado y que los resultados obtenidos, en muchas ocasiones, son erróneos o decepcionantes. Por ello, en este trabajo se propone un laboratorio virtual para analizar los datos, que le permita al usuario experimentar con algunas herramientas relativas al análisis de series temporales y que sea esa persona la que saque sus propias conclusiones a través de la información obtenida. 
+
+Ya adelanto que "no existe una bola de cristal que nos diga cuál es el precio futuro de un activo". De hecho, al final de esta sección se intenta demostrar que un modelo \emph{naïve forecast} obtiene mejores resultados que un modelo ARIMA cuando hablamos de datos de valores cotizados. 
+
+
 \subsection{Modelos autorregresivos $(AR_{(p)})$}
 
 En estadística, un modelo autorregresivo (AR) es una representación de un proceso aleatorio en el que la variable de interés depende de sus observaciones pasadas. De forma general podemos decir que estos modelos son, básicamente, modelos de regresión lineal donde los predictores son datos pasados en la serie temporal. En su versión más sencilla lo podemos representar por:
@@ -312,7 +317,7 @@ Un modelo autorregresivo es un modelo de regresión lineal múltiple donde las e
 	\hat{y}_{t} = b + \phi_{1}y_{t-1} + \phi_{2}y_{t-2} + ... + \phi_{p}y_{t-p}
 \end{equation}
 
-Que se puede representar en un momento temporal concreto como:
+Y se puede denotar para un momento temporal concreto como:
 
 \begin{equation}
 	y_{t} = b + \phi_{1}y_{t-1} + \phi_{2}y_{t-2} + ... + \phi_{p}y_{t-p} + \epsilon_{t}
@@ -336,7 +341,7 @@ Es decir, se mide $y_{t}$ como un modelo lineal de las entradas más un \emph{ru
 
 Es importante empezar destacando que no hay que confundir el nombre de estos modelos con la \emph{media móvil simple} ni la \emph{media móvil exponencialmente ponderada} (EWMA, o MMEP en castellano). 
 
-Este modelo es similar al autorregresivo en el sentido de que es una función lineal, peo en este caso es una función en términos de errores pasados. Es decir, depende de los errores previos, no de los datos anteriores de la serie temporal. Se representa por:
+Este modelo es similar al autorregresivo en el sentido de que es una función lineal, pero en este caso es una función en términos de errores pasados. Es decir, depende de los errores previos, no de los datos anteriores de la serie temporal. Se representa por:
 
 \begin{equation}
 	y_{t} = c + \epsilon_{t} + \theta_{1}\epsilon_{t-1} + \theta_{2}\epsilon_{t-2} + ... + \theta_{q}\epsilon_{t-q}
@@ -363,21 +368,116 @@ Usaremos este modelo cuando creamos que nuestros datos están linealmente correl
 	y_{t} = b + \phi_{1}y_{t-1} + \phi_{2}y_{t-2} + ... + \phi_{p}y_{t-p} + \theta_{1}\epsilon_{t-1} + \theta_{2}\epsilon_{t-2} + ... + \theta_{q}\epsilon_{t-q} + \epsilon_{t}
 \end{equation}
 
-Cuando entrenamos un modelo ARMA nos interesa que los datos estén cercanos a la estacionalidad \citep{wiki:estacionalidad}. La estacionalidad es muy útil en procesos de modelado, porque implica que varios estadísticos, como la media, la varianza, la autocorrelación, etc. se mantendrán constantes con el tiempo. Y en un modelo ARMA estamos tomando ventanas temporales previas para entrenar el modelo, lo cual nos dará buenos resultados si los estadísticos se mantienen a lo largo de otras ventanas temporales. 
+Cuando entrenamos un modelo ARMA nos interesa que los datos estén cercanos a la estacionariedad \citep{wiki:proceso_estacionario}. La estacionariedad es muy útil en procesos de modelado, porque implica que varios estadísticos, como la media, la varianza, la autocorrelación, etc. se mantendrán constantes con el tiempo. Y en un modelo ARMA estamos tomando ventanas temporales previas para entrenar el modelo, lo cual nos dará buenos resultados si los estadísticos se mantienen a lo largo de otras ventanas temporales. 
 
 
-\subsection{$I_{(d)}$ y $ARIMA_{(p, d, q)}$}
+\subsection{Datos estacionarios. $I_{(d)}$ y $ARIMA_{(p, d, q)}$}
 
-Los datos de los valores cotizados, normalmente, no son estacionarios. Por ello, es necesario realizar un proceso de diferenciación para intentar aproximarlos a la estacionalidad. Aquí es donde entra en juego la \emph{I} de \emph{ARIMA}. 
+Los datos de los valores cotizados, normalmente, no son estacionarios. Por ello, es necesario realizar un proceso de diferenciación para intentar aproximarlos a la estacionariedad. Aquí es donde entra en juego la \emph{I} de \emph{ARIMA}. 
 
 Un proceso $I_{(d)}$ es un proceso estacionario después de haber diferenciado $d$ veces. Es decir, $I_{(d)}$ es un proceso integrado en orden $d$. Normalmente necesitaremos diferenciar una o dos veces, pero no es aconsejable hacerlo más de dos veces. De hecho, es posible ver que con una sola diferenciación podemos eliminar la tendencia de los datos:
 
 \imagen{img_07_diferenciacion.png}{Evolución de precios de cierre de \emph{ITX.MC} en los últimos dos años y los mismos datos con diferenciación de orden 1. Fuente: elaboración propia}{0.9}
 
+Pero esto sólo nos da una idea intuitiva de cómo son los datos y, para poder hacer un buen análisis de los mismos, necesitaremos demostrar de alguna forma si nuestros datos son realmente estacionarios. 
+
+En la sección previa se daba una idea informal de qué son datos no estacionarios, haciendo referencia a la tendencia y a la variación de determinados estadísticos a lo largo de una serie temporal pero, para tener una idea más clara, se pueden ver algunos ejemplos de datos no estacionarios:
+
+\imagen{img_08_serie_no_estacionaria.png}{Serie no estacionaria por variación de media. Fuente: elaboración propia}{0.9}
+
+\imagen{img_09_serie_no_estacionaria.png}{Serie no estacionaria por variación de varianza. Fuente: elaboración propia}{0.9}
+
+De nuevo, esto sólo nos da una idea intuitiva. Pero existe un método para testear si una serie temporal es estacionaria o no: la prueba de Dickey-Fuller aumentada (test ADF, por sus siglas en inglés) \citep{wiki:Dickey-Fuller}. 
+
+En esta prueba tenemos una hipótesis nula - la serie temporal es no estacionaria - y una hipótesis alternativa - la serie temporal es estacionaria -. Introduciremos la serie temporal de datos y obtendremos un resultado con un \emph{p-value}. Entonces, podré comprobar si el \emph{p-value} está por encima o por debajo de un umbral significativo, habitualmente 1\% ó 5\%. Si está por debajo del umbral establecido puedo rechazar la hipótesis nula.
+
+Esto en ARIMA tiene bastante utilidad, porque puedo diferenciar $d$ veces los datos hasta conseguir una serie estacionaria, comprobando con un test ADF. Una vez los datos son estacionarios puedo aplicar un modelo $ARMA_{(p, q)}$.
+
+De manera formal se puede hablar de estacionariedad fuerte o débil (SSS o WSS respectivamente, por sus siglas en inglés)\citep{wiki:proceso_estacionario_en}. Una estacionariedad fuerte significa que la distribución de las variables aleatorias de un proceso estocástico no varia con el tiempo, es decir, no varía en diferentes momentos  $\tau$ de la serie temporal:
+
+\begin{equation}
+	F_{Y}(y_{t_{1}+\tau}, y_{t_{2}+\tau}, \ldots, y_{t_{n}+\tau}) = F_{Y}(y_{t_{1}}, y_{t_{2}}, \ldots, y_{t_{n}}) \quad \forall \tau, t_{1}, t_{2}, \ldots, t_{n}
+\end{equation}
+
+Una estacionariedad débil hace uso de estadísticos de primer y segundo orden, la media y la varianza (o la auto-covarianza). Por tanto, se va a parecer más a la definición informal que había dado previamente. Se puede representa por:
+
+\begin{align}
+	\mu{Y}(t) = \mu_{Y}(t + \tau) \quad \forall \tau \\
+	K_{YY}(t_{1},t_{2}) = K_{YY}(t_{1} - t_{2}, 0) \quad \forall t_{1}, t_{2}
+\end{align}
+
+Lo que significa que no importa en qué momento $\tau$ de la serie temporal miremos, porque tendremos la misma media y que la auto-covarianza no varía con el tiempo.
 
 Entonces, $ARIMA_{(p, d, q)}$ es un modelo en el que hemos diferenciado $d$ veces antes de aplicar un modelo $ARMA_{(p, q)}$. Y hemos visto que $I_{(d)}$ es una operación que hacemos sobre los datos, mientras que en las partes del modelo autorregresivo y de la media móvil tenemos unas fórmulas que nos permiten hacer predicciones. 
 
-Algunos casos especiales de ARIMA son los siguientes:
+
+\subsection{\emph{p-value} de un test ADF sobre precios de cierre y sobre retornos}
+
+Dada la importancia que tiene la estacionariedad de los datos, voy a mostrar cómo un test ADF nos arroja valores muy diferentes de \emph{p-value} dependiendo del tipo de datos que estemos utilizando. En todos los ejemplos voy a utilizar un umbral del 5\% para el \emph{p-value} a través de una función que me diga si los datos son estacionarios, o no, en base a ese umbral, algo similar a:
+
+\begin{verbatim}
+from statsmodels.tsa.stattools import adfuller
+
+def comprobar_serie_temporal(x):
+  res = adfuller(x)
+  p_value = res[1]
+  if res[1] < 0.05:
+  	  return p_value, "Serie temporal estacionaria"
+  return p_value, "Serie temporal no estacionaria"
+\end{verbatim}
+
+Para esta demostración se usan los datos de precios de cierre de los dos últimos años (mayo 2023 a mayo 2024) de la empresa Inditex. En esos datos se puede ver una clara tendencia ascendente y, por tanto, no será una serie estacionaria. 
+
+\imagen{img_10_p_value_test_adf.png}{Serie no estacionaria, con p-value > 0.5. Fuente: elaboración propia}{1}
+
+Además, voy a aplicar un test ADF sobre los retornos - variaciones diarias en \% - de Inditex en el mismo período de tiempo, para ver que el resultado mejora. Y, por último, voy a utilizar \texttt{diff()} para analizar la evolución intradía no porcentual \footnote{Es habitual aplicar una función logarítmica a \texttt{diff()} para suavizar los resultados, pero a efectos gráficos, en este caso, no aporta mejoras significativas.}, que es el tipo de diferenciación que hacen funciones como \texttt{auto.arima} de \texttt{R} o \texttt{pmdarima.arima.auto\_arima} para \texttt{Python}.
+
+De las figuras siguientes podemos deducir que es posible obtener series temporales no estacionarias a partir de precios de cierre de un valor cotizado. Esto permitirá trabajar con esos datos en un modelo ARIMA.
+
+\imagen{img_11_p_value_test_adf.png}{Serie estacionaria, con p-value < 0.5. Fuente: elaboración propia}{0.9}
+
+\imagen{img_12_p_value_test_adf.png}{Serie estacionaria, con p-value < 0.5. Fuente: elaboración propia}{0.9}
+
+
+\subsection{Selección de hiperparámetros $q$ y $p$. ACF y PACF}
+
+Aunque existen funciones automáticas que obtienen los mejores hiperparámetros (p, d, q) de ARIMA, conviene saber de dónde se sacan éstos. Ya hemos visto cómo deducir $d$ a través de los resultados de un test ADF. Ahora voy a mostrar cómo buscar los mejores valores de $p$ y $q$ a través de funciones que pueden ser útiles para el análisis de los datos.
+
+\subsubsection{Función de autocorrelación (ACF, por sus siglas en inglés)}
+
+Sabemos que la covarianza se define como el valor esperado entre dos variables aleatorias cualquiera:
+
+\begin{equation}
+	cov(X, Y) = E\{(X - \mu_{X})(Y - \mu_{Y})\}
+\end{equation}
+
+Y la autocovarianza es la covarianza entre dos variables aleatorias específicas seleccionadas de dos puntos diferentes en una misma serie temporal. 
+
+\begin{equation}
+	autocovarianza = cov(Y_{t_{1}}, Y_{t_{2}})
+\end{equation}
+
+Entonces, en una relación similar a la que hay entre la covarianza y la correlación, podemos establecer la autocorrelación como:
+
+\begin{equation}
+	autocorrelación = \frac{cov(Y_{t_{1}}, Y_{t_{2}})}{\sigma_{Y}(t_{1})\sigma_{Y}(t_{2})}
+\end{equation}
+
+La ACF está definida como si los datos de la serie temporal fueran estacionarios, i.e., que la autocorrelación depende sólo de una diferencia temporal. Esa diferencia entre dos momentos de la serie temporal se puede denotar por $\rho(\tau)$:
+
+\begin{equation}
+	\rho(Y_{t_{1}}, Y_{t_{2}}) = \rho(t_{1}, t_{2}) = \rho(\tau)
+\end{equation}
+
+El porqué del estimador de $\hat(\rho(\tau))$ escapa a los objetivos de explicación de este proyecto, pero si asumimos que la autocorrelación se mantiene constante en el tiempo, podemos usar todas las muestras de la serie para calcular la autocorrelación para cualquier $\tau$ y la fórmula para calcularlo es:
+
+\begin{equation}
+	$\hat(\rho(\tau))$ = \frac{1}{(T-\tau)\hat{\sigma}^{2}} 
+\end{equation}
+
+\subsection{Casos especiales de ARIMA}
+
+Algunos casos especiales de ARIMA son:
 
 \begin{align*}
 	&ARIMA(p, 0, 0) = ARMA(p, 0) = AR(p) \\
@@ -401,20 +501,13 @@ Por ejemplo, suponiendo que tenemos un conjunto de datos a modelar formado por r
 	r_{t} = p_{t} - p_{t-1} = \epsilon_{t} \sim \mathcal{N}(\mu,\,\sigma^{2})
 \end{equation}
 
-Si entrenamos un modelo ARIMA con dichos datos y los mejores parámetros son $p=0, d=1, q=0$, significa que los retornos no son predecibles a través de los valores previos en la serie temporal. Esto es interesante porque podemos obtener información relevante aunque no estemos haciendo una predicción de la evolución de los precios - o de retornos -. 
+Si entrenamos un modelo ARIMA con dichos datos y los mejores parámetros son $p=0, d=1, q=0$, significa que los retornos no son predecibles a través de los valores ni errores previos en la serie temporal. Esto es interesante porque podemos obtener información relevante aunque no estemos haciendo una predicción de la evolución de los precios - o de los retornos -. 
 
 
 
-%\section{Análisis de series temporales}\label{series_temporales}
-%
-%Cuando hacemos un análisis de la evolución de los precios de una acción podemos cometer el error de centrarnos en los datos de un momento concreto en el tiempo, pero debemos tener en cuenta que los precios evolucionan con el tiempo. 
-%
-%Cuando hablamos de \emph{forecasting} (previsión o predicción) de series temporales con productos financieros   una de las cosas que hay que tener en cuenta es que es un proceso especialmente complicado y que los resultados obtenidos, en muchas ocasiones, son erróneos. Por ello, en este trabajo se propone un laboratorio virtual que le permita al usuario experimentar con algunas herramientas relativas al análisis de series temporales y que sea esa persona la que saque sus propias conclusiones a través de los datos obtenidos. 
-%
-%
-%
-%
-%
+
+ 
+
 %-----------------------------------
 %Y también podemos estudiar las correlaciones entre los retornos de diferentes valores. 
 %

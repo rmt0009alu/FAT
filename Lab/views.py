@@ -527,24 +527,74 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
         context (dict): diccionario con los datos del contexto.
     """
     datos_test = datos[tam_entrenamiento:]
-
+    
     datos.index = fechas
     predicciones = pd.DataFrame(predicciones)
     predicciones.index = fechas[tam_entrenamiento:]
 
-    # Preparar figura y buffer
-    plt.figure(figsize=(7, 5))
+    # # Preparar figura y buffer
+    # plt.figure(figsize=(7, 5))
+    # buffer = BytesIO()
+    # # Gráfica con los datos reales y las predicciones
+    # plt.plot(datos.index, datos, color='blue', label='Original')
+    # plt.plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(datos_test)} días\n con validación "walk-forward"')
+    # plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))
+    # plt.legend()
+    # plt.savefig(buffer, format='PNG')
+    # plt.close()
+    # # Obtener los datos de la imagen del buffer
+    # buffer.seek(0)
+    # forecast_arima = base64.b64encode(buffer.read()).decode()
+
+    # Pruebas ----------------------------------------
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+    # Gráfica con los datos reales y las predicciones con validación walk-forward
+    axes[0].plot(datos.index, datos, color='blue', label='Original')
+    axes[0].plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(datos_test)} días\n con validación "walk-forward"')
+    axes[0].xaxis.set_major_locator(plt.MaxNLocator(5))
+    axes[0].legend()
+
+    # Gráfica con predicción directa de todos los días requeridos a la vez
+    d=1
+    # .. USANDO DATOS LOGARÍTMICOS.....................
+    # datos = np.log(datos)
+    # datos_test = datos[tam_entrenamiento:]
+    # .................................................
+    datos_entrenamiento = list(datos[:tam_entrenamiento])
+    modelo = ARIMA(datos_entrenamiento, order=(8,d,1))
+    modelo_fit_2 = modelo.fit()
+    # Por defecto, el forecast es de un step
+    res_forecast = modelo_fit_2.get_forecast(steps=len(datos_test))
+    # Debido al proceso de diferenciación (I de ARIMA) es necesario ajustar los 
+    # índices el número de datos. Cada vez que se diferencie habrá que asjustar los
+    # tamaños (se elimina la primera fila del dataset) y por eso utilizo inicio como 'd'..
+    datos_entrenados = modelo_fit_2.predict(start=d, end=tam_entrenamiento-1, typ='levels')
+    # Calculo la predicción y los intervalos de confianza al 95% (alpha=0.05)
+    forecast = res_forecast.predicted_mean
+    confianzas = res_forecast.conf_int(alpha=0.05)
+    # Muestro juntos los datos reales con los datos entrenados y con la predicción
+    axes[1].plot(datos.index, datos, color='blue', label='Datos reales')
+    # Aquí también ajusto al tamaño desde 'd' por la diferenciación
+    axes[1].plot(datos.index[d:tam_entrenamiento], datos_entrenados, color='green', label='Valores modelo entrenado')
+    axes[1].plot(predicciones.index, forecast, color='red', label=f'Predicción últimos {len(datos_test)} días\n sin validación "walk-forward"')
+    axes[1].fill_between(predicciones.index, confianzas[:,0], confianzas[:,1], color='red', alpha=0.3)
+    axes[1].xaxis.set_major_locator(plt.MaxNLocator(5))
+    axes[1].legend()
+    # IMPRIMIENDO EL MSE Y RMSE
+    mse = np.mean((datos_test-forecast)**2)
+    rmse = np.sqrt(mse)
+    print(mse)
+    print(rmse)
+
+
     buffer = BytesIO()
-    # Gráfica con los datos reales y las predicciones
-    plt.plot(datos.index, datos, color='blue', label='Original')
-    plt.plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(datos_test)} días')
-    plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))
-    plt.legend()
     plt.savefig(buffer, format='PNG')
     plt.close()
-    # Obtener los datos de la imagen del buffer
+
+    # Get the image data from the buffer
     buffer.seek(0)
     forecast_arima = base64.b64encode(buffer.read()).decode()
+    # Pruebas ----------------------------------------
 
     # # Se pueden ver los residuos y su densidad:
     # residuos = pd.DataFrame(modelo_fit.resid)
