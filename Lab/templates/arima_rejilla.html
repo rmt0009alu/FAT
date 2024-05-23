@@ -65,13 +65,12 @@
       <button type="submit" class="btn btn-dark" style="width: 50%; text-align: center; margin: auto;">Estimar</button><br>
     </form>
     <br>
-
-    {% if forecast_arima %}
-      {% include 'includes/_resumen_y_graficas_arima.html' %}
-    {% endif %}
-
   </div>
 </div>
+
+{% if forecast_arima_walk_forward and forecast_arima_intervalos_conf %}
+    {% include 'includes/_resumen_y_graficas_arima.html' %}
+{% endif %}
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>

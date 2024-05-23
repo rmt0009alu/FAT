@@ -1,17 +1,91 @@
+{% load static %}
+
+{% block content %}
+
+<!-- Mis estilos -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_lab.css' %}">
+
 <div style="text-align: center;">
-    <div>
-      <pre style="text-align: left;">
-        {{ resumen }}
-      </pre>
+  <div class="graph-container">
+    <br>
+    <div class="graph">
+        <p class="barra">ARIMA con intervalos de confianza al 95%</p>
+        <div class="flex-container">
+          <img src="data:image/png;base64,{{ forecast_arima_intervalos_conf }}" alt="intervalos_conf" class="graph-image">
+          <div class="info-table">
+              <table>
+                  <tr>
+                      <th>MSE</th>
+                      <td>{{ mse_2 }}</td>
+                  </tr>
+                  <tr>
+                      <th>RMSE</th>
+                      <td>{{ rmse_2 }}</td>
+                  </tr>
+                  <tr>
+                      <th>RMSE de predicción naíf
+                        <div class="ayuda"> 
+                          <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="35" height="35">
+                          <span class="mensaje-ayuda">La predicción naíf consiste en estimar que el próximo día se tendrá el mismo precio de cierre que el de la sesión actual</span>
+                        </div>
+                      </th>
+                      <td>{{ rmse_naive }}</td>
+                  </tr>
+              </table>
+          </div>
+      </div>
     </div>
-
-    <div class="image-container" id="forecast_arima">
-      <img src="data:image/png;base64,{{ forecast_arima }}" alt="ImagenForecastArima" class="responsive-image">
+    <br>
+    <div class="graph">
+        <p class="barra">ARIMA con validación walk-forward (predicción de 1 día)</p>
+        <div class="flex-container">
+            <img src="data:image/png;base64,{{ forecast_arima_walk_forward }}" alt="walk_forward" class="graph-image">
+            <div class="info-table">
+                <table>
+                    <tr>
+                        <th>MSE</th>
+                        <td>{{ mse }}</td>
+                    </tr>
+                    <tr>
+                        <th>RMSE</th>
+                        <td>{{ rmse }}</td>
+                    </tr>
+                    <tr>
+                        <th>Predicción para la próxima sesión</th>
+                        <td>{{ prediccion_prox_sesion }}</td>
+                    </tr>
+                    <tr>
+                        <th>En los datos de test se acierta tendencia</th>
+                        <td>{{ aciertos_tendencia }} veces</td>
+                    </tr>
+                    <tr>
+                        <th>En los datos de test se falla tendencia</th>
+                        <td>{{ fallos_tendencia }} veces</td>
+                    </tr>
+                    <tr>
+                      <th>RMSE de predicción naíf
+                        <div class="ayuda"> 
+                          <img class="icono-ayuda" src="{% static 'icons/help.svg' %}" alt="HelpIcon" width="35" height="35">
+                          <span class="mensaje-ayuda">La predicción naíf consiste en estimar que el próximo día se tendrá el mismo precio de cierre que el de la sesión actual</span>
+                        </div>
+                      </th>
+                      <td>{{ rmse_naive }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
+    <br>
+    <div class="graph">
+        <p class="barra">Informe ARIMA/SARIMAX</p>
+        <pre style="text-align: center;">
+          {{ resumen }}
+        </pre>
+    </div>
+  </div>
 
-    <p>Error cuadrático medio (mse) en datos de test:           {{ mse }}</p>
-    <p>Raíz del error cuadrático medio (rmse) en datos de test: {{ rmse }}</p>
-    <p>Predicción para la próxima sesión:                       {{ prediccion_prox_sesion }}</p>
-    <p>En los datos de test se acierta tendencia:               {{ aciertos_tendencia }} veces</p>
-    <p>En los datos de test se falla tendencia:                 {{ fallos_tendencia }} veces</p>
+  <div>
 </div>
+
+
+{% endblock %}

@@ -9,29 +9,33 @@ import os
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 import sys
 import math
+# Para pasar str a literales
+import ast
+import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+# Para evitar todos los warnings de convergencia y de datos no estacionarios
+# al aplicar los modelos ARIMA
+import warnings
+warnings.filterwarnings("ignore")
 # Para el buffer y las imágenes
-from io import BytesIO, StringIO
 import base64
+from io import BytesIO, StringIO
 from django.shortcuts import render
 from django.apps import apps
 # Para proteger rutas. Las funciones que tienen este decorador
 # sólo son accesibles si se está logueado
 from django.contrib.auth.decorators import login_required
-# Para pasar str a literales
-import ast
-import pandas as pd
-# Para evitar todos los warnings de convergencia y de datos no estacionarios
-# al aplicar los modelos ARIMA
-import warnings
-warnings.filterwarnings("ignore")
+# Para usar django-pandas y frames
+from django_pandas.io import read_frame
 from sklearn.metrics import mean_squared_error
 from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from pmdarima.arima import auto_arima
 from util.tickers.Tickers_BDs import obtener_nombre_bd, tickers_disponibles
 # Mis formularios
-from .forms import ArimaAutoForm, ArimaRejillaForm, ArimaManualForm, LstmForm
-import numpy as np
+from .forms import BuscarParametrosArimaForm, ArimaAutoForm, ArimaRejillaForm, ArimaManualForm, LstmForm
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
 from sklearn.preprocessing import MinMaxScaler
@@ -57,6 +61,132 @@ def lab(request):
         "usuario": usuario,
     }
     return render(request, "lab.html", context)
+
+
+
+@login_required
+def buscar_paramateros_arima(request):
+    """Para buscar, a partir de gráficas, los mejores datos de los parámetros
+    (p, d, q). Requiere que el usuario entienda lo que está viendo. 
+
+    Args:
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
+
+    Returns:
+        (render): renderiza la plantilla 'buscar_paramateros_arima.html' con datos
+            de contexto.
+    """
+    if request.method == 'GET':
+        context = {
+            "lista_tickers": tickers_disponibles(),
+            "form": BuscarParametrosArimaForm,
+        }
+        return render(request, "buscar_paramateros_arima.html", context)
+
+    # POST
+    # ----
+    # El 'ticker' no está en el form para poder usar
+    # una caja de búsqueda autocompletable.
+    ticker = request.POST.get("ticker_a_buscar")
+    # Adaptación a la notación de los tickers en las BDs
+    ticker = ticker.replace(".", "_")
+    ticker = ticker.replace("^", "")
+
+    # Uso el resto del formulario (sin el ticker)
+    form = BuscarParametrosArimaForm(request.POST)
+    if form.is_valid():
+        # Compruebo existencia de ticker y num_sesiones
+        context = _comprobar_formulario_arima(form, ticker, request)
+
+        if context is not False:
+            return render(request, "buscar_paramateros_arima.html", context)
+
+        num_sesiones = form.cleaned_data['num_sesiones']
+
+        model = apps.get_model('Analysis', ticker)
+        bd = obtener_nombre_bd(ticker)
+        entradas = model.objects.using(bd).order_by('-date')[:num_sesiones]
+        df = read_frame(entradas.values('date', 'close', 'ticker', 'name'))
+
+        # Calculo la diferenciación logarítmica y obtengo las gráficas oportunas
+        graf_1 = _diferenciacion_logaritmica(df, 1)
+        graf_2 = _diferenciacion_logaritmica(df, 2)
+        graf_3 = _diferenciacion_logaritmica(df, 3) 
+
+        context = {
+            'form': BuscarParametrosArimaForm(),
+            "lista_tickers": tickers_disponibles(),
+            'graf_1': graf_1,
+            'graf_2': graf_2,
+            'graf_3': graf_3,
+        }
+        # Si todo ha ido bien muestro la info. al usuario
+        return render(request, "buscar_paramateros_arima.html", context)
+
+    # Si el formulario no es válido, busco el motivo e informo al usuario
+    context = _comprobar_formulario_arima(form, ticker, request)
+    return render(request, "buscar_paramateros_arima.html", context)
+
+
+def _diferenciacion_logaritmica(df, d):
+    """Para hacer una diferenciación logarítmica como se haría de forma manual,
+    para hacer la serie estacionaria y que podamos aplicar las funciones ACF y PACF. 
+    Además, genera las gráficas necesarias para que el usuario interprete los datos. 
+
+    Args:
+        df (pandas.core.frame.DataFrame): conjunto total de datos. 
+        d (int): orden de diferenciación (la I_(d) de ARIMA).
+
+    Returns:
+        grafica_acf_pacf (str): imagen con las gráficas de diferenciación de cierres,
+            ACF y PACF.
+    """
+    log_close = np.log(df['close'])
+    df['retorno'] = log_close.diff(d)
+
+    nombre = df['ticker'].iloc[0]
+    nombre = nombre.replace("_", ".")
+    nombre = nombre.replace("^", "")
+
+    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+    # Primer plot = serie diferenciada
+    axs[0].plot(df['date'], df['retorno'], 'b-')
+    axs[0].set_title(f'Diferenciación de precios de cierre {nombre}')
+    axs[0].set_xlabel('Tiempo')
+    axs[0].set_ylabel('diff()')
+    axs[0].xaxis.set_major_locator(mdates.YearLocator())
+    axs[0].xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+    axs[0].grid(True)
+
+    # Segundo plot = ACF
+    # Elimino tantas primeras filas como número de diferenciaciones se hayan 
+    # realizado. Es decir, hago un dropna para los primeros 'd' NaN
+    plot_acf(df['retorno'].dropna(), ax=axs[1])
+    axs[1].set_title('ACF')
+    axs[1].set_xlabel(r'$\tau$')
+    axs[1].set_ylabel(r'$\hat{\rho}(\tau)$')
+    axs[1].grid(True)
+
+    # Tercer plot = PACF
+    plot_pacf(df['retorno'].dropna(), ax=axs[2])
+    axs[2].set_title('PACF')
+    axs[2].set_xlabel(r'$\tau$')
+    axs[2].set_ylabel(r'$\phi(\tau, \tau)$')
+    axs[2].grid(True)
+
+    plt.tight_layout()
+
+    plt.savefig('ALGO.png', format='PNG')
+    buffer = BytesIO()
+    plt.savefig(buffer, format='PNG')
+    plt.close()
+
+    # Obtener la imagen del buffer
+    buffer.seek(0)
+    grafica_acf_pacf = base64.b64encode(buffer.read()).decode()
+
+    return grafica_acf_pacf
 
 
 @login_required
@@ -94,7 +224,6 @@ def arima_auto(request):
     if form.is_valid():
         # Hago un preprocesado común a todas formas de cálculo
         # de los parámetros (p,d,q)
-
         order, fechas, tam_entrenamiento, datos, context = _preprocesar_p_d_q(ticker, form, request)
 
         # Al preprocesar el context debe ser None si todo ha ido bien
@@ -103,7 +232,7 @@ def arima_auto(request):
             modelo_fit, aciertos_tendencia, predicciones = _validacion_walk_forward_arima(tam_entrenamiento, datos, order)
 
             # Generar la gráfica y texto con el forecast en los datos de test
-            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia)
+            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia, order, ticker)
 
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "arima_auto.html", context)
@@ -157,7 +286,7 @@ def arima_rejilla(request):
             modelo_fit, aciertos_tendencia, predicciones = _validacion_walk_forward_arima(tam_entrenamiento, datos, order)
 
             # Generar la gráfica y texto con el forecast en los datos de test
-            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia)
+            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia, order, ticker)
 
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "arima_rejilla.html", context)
@@ -210,7 +339,7 @@ def arima_manual(request):
             modelo_fit, aciertos_tendencia, predicciones = _validacion_walk_forward_arima(tam_entrenamiento, datos, order)
 
             # Generar la gráfica y texto con el forecast en los datos de test
-            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia)
+            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia, order, ticker)
 
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "arima_manual.html", context)
@@ -295,7 +424,7 @@ def _preprocesar_p_d_q(ticker, form, request):
     if auto is True:
         # Calcular 'order' de forma automática con auto_arima. Uso todos
         # los datos para calcular order=(p,d,q) una única vez
-        model = auto_arima(datos, seasonal=False)
+        model = auto_arima(datos, seasonal=False, suppress_warnings=True)
         order = model.order
 
     if rejilla is True:
@@ -393,6 +522,22 @@ def _comprobar_formulario_arima(form, ticker, request):
 
     bd = obtener_nombre_bd(ticker)
 
+    if isinstance(form, BuscarParametrosArimaForm):
+        num_sesiones = request.POST.get('num_sesiones')
+        if bd is None:
+            context["msg_error"] = f'El ticker {ticker} no está disponibe'
+            return context
+
+        if num_sesiones.isdigit():
+            num_sesiones = int(num_sesiones)
+            if not 100 <= num_sesiones <= 500:
+                context["msg_error"] = 'Valor no válido para el nº de sesiones'
+                return context
+        else:
+            context["msg_error"] = 'Valor no válido para el nº de sesiones'
+            return context
+        return False
+    
     # Obtengo datos del form, para formularios NO válidos no puedo usar
     # form.cleaned_data['...'] y, por tanto, los datos serán 'str'
     num_sesiones = request.POST.get('num_sesiones')
@@ -477,7 +622,8 @@ def _validacion_walk_forward_arima(tam_entrenamiento, datos, order):
     # subsecuentes análisis
     conjunto_total = list(datos_entrenamiento)
 
-    # Validación 'walk-forward'
+    # Validación 'walk-forward anchored'. Ojo, no se están cambiando los parátros
+    # de ARIMA en cada recálculo, con lo cual, habrá sesgo.
     for t in range(len(datos_test)):
         modelo = ARIMA(conjunto_total, order=order)
         modelo_fit = modelo.fit()
@@ -506,7 +652,7 @@ def _validacion_walk_forward_arima(tam_entrenamiento, datos, order):
     return modelo_fit, aciertos_tendencia, predicciones
 
 
-def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia):
+def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia, order, ticker):
     """Para generar los resultados gráficos y textuales
     que se mostrarán al usuario en la plantilla HTML para
     informarle sobre los resultados del modelo ARIMA elegido.
@@ -522,6 +668,8 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
             y test) con los cierres del valor seleccionado. 
         aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción
             con los datos de test. 
+        order (tuple): tupla con los valores (p, d, q).
+        ticker (str): nombre del ticker con el que se va a trabajar.
 
     Returns:
         context (dict): diccionario con los datos del contexto.
@@ -532,70 +680,70 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
     predicciones = pd.DataFrame(predicciones)
     predicciones.index = fechas[tam_entrenamiento:]
 
-    # # Preparar figura y buffer
-    # plt.figure(figsize=(7, 5))
-    # buffer = BytesIO()
-    # # Gráfica con los datos reales y las predicciones
-    # plt.plot(datos.index, datos, color='blue', label='Original')
-    # plt.plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(datos_test)} días\n con validación "walk-forward"')
-    # plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))
-    # plt.legend()
-    # plt.savefig(buffer, format='PNG')
-    # plt.close()
-    # # Obtener los datos de la imagen del buffer
-    # buffer.seek(0)
-    # forecast_arima = base64.b64encode(buffer.read()).decode()
-
-    # Pruebas ----------------------------------------
-    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-    # Gráfica con los datos reales y las predicciones con validación walk-forward
-    axes[0].plot(datos.index, datos, color='blue', label='Original')
-    axes[0].plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(datos_test)} días\n con validación "walk-forward"')
-    axes[0].xaxis.set_major_locator(plt.MaxNLocator(5))
-    axes[0].legend()
-
-    # Gráfica con predicción directa de todos los días requeridos a la vez
-    d=1
-    # .. USANDO DATOS LOGARÍTMICOS.....................
-    # datos = np.log(datos)
-    # datos_test = datos[tam_entrenamiento:]
-    # .................................................
+    ticker = ticker.replace("_", ".")
+    ticker = ticker.replace("^", "")
+    
+    # Preparar figura y buffer con validadción walk-forward
+    # -----------------------------------------------------
+    plt.figure(figsize=(7, 5))
+    # Gráfica con los datos reales y las predicciones
+    plt.plot(datos.index, datos, color='blue', label='Original')
+    plt.plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(datos_test)} días\n con validación "walk-forward"')
+    plt.title(f'{ticker}')
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+    interval = 6 if len(datos) > 252 else 3
+    plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=interval))
+    plt.legend()
+    plt.grid()
+    # Obtener los datos de la imagen del buffer
+    buffer = BytesIO()
+    plt.savefig(buffer, format='PNG')
+    plt.close()
+    # Obtener datos de la imagen desde el buffer
+    buffer.seek(0)
+    forecast_arima_walk_forward = base64.b64encode(buffer.read()).decode()
+    #
+    # Hago una predicción adicional para la próxima sesión
+    prediccion = modelo_fit.forecast(steps=1)
+    
+    # Preparar figura y buffer con inetrvalos de confianza
+    # ----------------------------------------------------
     datos_entrenamiento = list(datos[:tam_entrenamiento])
-    modelo = ARIMA(datos_entrenamiento, order=(8,d,1))
+    # order[0], order[1], order[2]
+    modelo = ARIMA(datos_entrenamiento, order=order)
     modelo_fit_2 = modelo.fit()
-    # Por defecto, el forecast es de un step
+    # Por defecto, el forecast es de un step, así que lo adapto al tamaño de los datos de test
     res_forecast = modelo_fit_2.get_forecast(steps=len(datos_test))
     # Debido al proceso de diferenciación (I de ARIMA) es necesario ajustar los 
     # índices el número de datos. Cada vez que se diferencie habrá que asjustar los
     # tamaños (se elimina la primera fila del dataset) y por eso utilizo inicio como 'd'..
-    datos_entrenados = modelo_fit_2.predict(start=d, end=tam_entrenamiento-1, typ='levels')
+    # datos_entrenados = modelo_fit_2.predict(start=order[1], end=tam_entrenamiento-1, typ='levels')
+    #
     # Calculo la predicción y los intervalos de confianza al 95% (alpha=0.05)
     forecast = res_forecast.predicted_mean
     confianzas = res_forecast.conf_int(alpha=0.05)
-    # Muestro juntos los datos reales con los datos entrenados y con la predicción
-    axes[1].plot(datos.index, datos, color='blue', label='Datos reales')
+    # Gráfica con predicción directa de todos los días requeridos a la vez
+    plt.plot(datos.index, datos, color='blue', label='Datos reales')
     # Aquí también ajusto al tamaño desde 'd' por la diferenciación
-    axes[1].plot(datos.index[d:tam_entrenamiento], datos_entrenados, color='green', label='Valores modelo entrenado')
-    axes[1].plot(predicciones.index, forecast, color='red', label=f'Predicción últimos {len(datos_test)} días\n sin validación "walk-forward"')
-    axes[1].fill_between(predicciones.index, confianzas[:,0], confianzas[:,1], color='red', alpha=0.3)
-    axes[1].xaxis.set_major_locator(plt.MaxNLocator(5))
-    axes[1].legend()
-    # IMPRIMIENDO EL MSE Y RMSE
-    mse = np.mean((datos_test-forecast)**2)
-    rmse = np.sqrt(mse)
-    print(mse)
-    print(rmse)
-
-
-    buffer = BytesIO()
-    plt.savefig(buffer, format='PNG')
+    # axes[1].plot(datos.index[d:tam_entrenamiento], datos_entrenados, color='green', label='Valores modelo entrenado')
+    plt.plot(predicciones.index, forecast, color='red', label=f'Predicción últimos {len(datos_test)} días\n sin validación "walk-forward"')
+    plt.title(f'{ticker}')
+    plt.fill_between(predicciones.index, confianzas[:,0], confianzas[:,1], color='red', alpha=0.3, label='Intervalos de confianza')
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+    interval = 6 if len(datos) > 252 else 3
+    plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=interval))
+    plt.legend()
+    plt.grid()
+    # Obtener los datos de la imagen del buffer
+    buffer2 = BytesIO()
+    plt.savefig(buffer2, format='PNG')
     plt.close()
+    # Obtener datos de la imagen desde el buffer
+    buffer2.seek(0)
+    forecast_arima_intervalos_conf = base64.b64encode(buffer2.read()).decode()
 
-    # Get the image data from the buffer
-    buffer.seek(0)
-    forecast_arima = base64.b64encode(buffer.read()).decode()
-    # Pruebas ----------------------------------------
-
+    # NOTA:
+    #
     # # Se pueden ver los residuos y su densidad:
     # residuos = pd.DataFrame(modelo_fit.resid)
     # residuos.plot()
@@ -606,19 +754,29 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
     # # Resumen estadístico de los residuos
     # print(residuos.describe())
 
-    # Hago una predicción adicional para la próxima sesión
-    prediccion = modelo_fit.forecast(steps=1)
+    # Comparar con una predicción Naïve
+    # ---------------------------------
+    # Simplemente establezco que el precio de cierre de hoy será el de mañana
+    # y lo comparo con los datos reales de test (elimino el primer dato por el shift())
+    naive_forecast = datos_test.shift(1)
+    mse_naive = mean_squared_error(datos_test[1:], naive_forecast[1:])
 
     context = {
         "lista_tickers": tickers_disponibles(),
         "form": type(form),
-        "forecast_arima": forecast_arima,
+
+        "forecast_arima_walk_forward": forecast_arima_walk_forward,
         "resumen": modelo_fit.summary(),
         "mse": mean_squared_error(datos_test, predicciones),
         "rmse": math.sqrt(mean_squared_error(datos_test, predicciones)),
-        "prediccion_prox_sesion": prediccion,
+        "prediccion_prox_sesion": prediccion[0],
         "aciertos_tendencia": aciertos_tendencia.count(True),
         "fallos_tendencia": aciertos_tendencia.count(False),
+
+        "forecast_arima_intervalos_conf": forecast_arima_intervalos_conf,
+        "mse_2": mean_squared_error(datos_test, forecast),
+        "rmse_2": math.sqrt(mean_squared_error(datos_test, forecast)),
+        "rmse_naive": math.sqrt(mse_naive)
     }
     return context
 

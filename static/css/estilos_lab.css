@@ -55,9 +55,56 @@
 }
 
 .placeholder {
-    color: gray; /* Adjust the color */
+    color: gray;
 }
 
 select option.placeholder {
     color: gray;
 }
+
+/* A partir de aquí estilos para mostrar resultados de ARIMA */
+/* Centrar las gráficas */
+.graph-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .graph {
+    margin-bottom: 20px;
+  }
+  
+  .graph img {
+    width: 50%;
+    height: auto;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .graph-image {
+    width: 50%;
+    height: auto;
+  }
+  
+  .info-table {
+    width: 50%;
+    margin-left: 20px;
+  }
+  
+  .info-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .info-table th, .info-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .info-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }

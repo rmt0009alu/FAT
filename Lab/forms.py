@@ -5,6 +5,26 @@ from django import forms
 
 # NOTA: aquí no se hereda de ModelForm porque no hay modelo asociado
 
+class BuscarParametrosArimaForm(forms.Form):
+    """Clase que define el fomrulario para introducir los datos
+    necearios para buscar de forma gráfica los mejores valores
+    para (p, d, q). 
+
+    Args:
+        Form (django.forms.Form): tipo formulario de Django. 
+    """
+    # Validación de datos de cantidad de días
+    num_sesiones = forms.IntegerField(
+        min_value=100,
+        max_value=500,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Número de últimas sesiones que se quiere analizar [100-500]'
+        })
+    )
+
+
 class ArimaAutoForm(forms.Form):
     """Clase que define el fomrulario para introducir los datos
     necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)

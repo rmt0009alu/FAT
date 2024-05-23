@@ -189,7 +189,7 @@ Es habitual representar las carteras de valores en términos de la relación ren
 
 Una vez tenemos las fórmulas definidas se puede realizar una simulación de Montecarlo \citep{simulacion_montecarlo} con múltiples posibles carteras de inversión y ver la relación rentabilidad/riesgo (retorno esperado/varianza):
 
-\imagen{img_03_simulación_montecarlo.png}{Simulación de 10.000 posibles portfolios con los valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024). Fuente: elaboración propia}{1}
+\imagen{img_02_simulación_montecarlo.png}{Simulación de 10.000 posibles portfolios con los valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024). Fuente: elaboración propia}{1}
 
 De esta gráfica podemos deducir que es posible obtener una mejor rentabilidad sin aumentar el riesgo, i.e., puede mejorarse el rendimiento esperado de nuestra cartera manteniendo la misma volatilidad. Por ejemplo, el punto naranja indica una cartera eficiente, para la que dada una volatilidad, obtenemos el máximo rendimiento esperado posible. Mientras que la cartera representada con un punto rojo obtienen un rendimiento menor para la misma volatilidad. 
 
@@ -257,11 +257,11 @@ Una vez hemos conocidos los retornos mínimo y máximo posibles, con la función
 
 Esto nos dará una representación en forma de hipérbola que se conoce como frontera eficiente \citep{wiki:frontera_eficiente} y que Harry Markowitz representó en \citep{book:Portfolio_selection} con su forma parabólica de la siguiente manera:
 
-\imagen{img_04_frontera_eficiente}{Frontera eficiente. Fuente: \citep{book:Portfolio_selection}}{0.45}
+\imagen{img_03_frontera_eficiente}{Frontera eficiente. Fuente: \citep{book:Portfolio_selection}}{0.45}
 
 Si aplicamos estos conceptos a la simulación de Montecarlo que se realizaba previamente, se obtiene lo siguiente:
 
-\imagen{img_05_montecarlo_frontera_eficiente}{Simulación de Montecarlo con frontera eficiente y rentabilidad de cartera con valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024) Fuente: Elaboración propia}{0.95}
+\imagen{img_04_montecarlo_frontera_eficiente}{Simulación de Montecarlo con frontera eficiente y rentabilidad de cartera con valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024) Fuente: Elaboración propia}{0.95}
 
 La parte superior \footnote{Aunque se obtiene toda la curva, por el propio proceso de optimización, la parte inferior no se puede considerar eficiente porque sólo tenemos que proyectar hacia la parte superior de la misma para ver retornos mejores.} de la línea curva negra que rodea la nube de posibles carteras, obtenidas con la simulación de Montecarlo, es lo que se conoce como frontera eficiente. Lo interesante de esta curva es que cualquier punto que seleccionemos de ella nos indica que no hay otra posible cartera con menor riesgo para el mismo retorno - o que no podemos encontrar un retorno esperado mejor para un determinado nivel de riesgo -.
 
@@ -282,7 +282,7 @@ La obtención del \emph{Sharpe ratio} se puede realizar de dos formas diferentes
 
 Para facilitar la comprensión al usuario se puede realizar una gráfica con toda la información necesaria y acompañarlo de información adicional sobre la distribución de pesos de cada caso:
 
-\imagen{img_06_sharpe_ratio}{Simulación de Montecarlo con frontera eficiente y Sharpe ratio con los valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024) Fuente: Elaboración propia}{0.95}
+\imagen{img_05_sharpe_ratio}{Simulación de Montecarlo con frontera eficiente y Sharpe ratio con los valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024) Fuente: Elaboración propia}{0.95}
 
 
 
@@ -377,15 +377,15 @@ Los datos de los valores cotizados, normalmente, no son estacionarios. Por ello,
 
 Un proceso $I_{(d)}$ es un proceso estacionario después de haber diferenciado $d$ veces. Es decir, $I_{(d)}$ es un proceso integrado en orden $d$. Normalmente necesitaremos diferenciar una o dos veces, pero no es aconsejable hacerlo más de dos veces. De hecho, es posible ver que con una sola diferenciación podemos eliminar la tendencia de los datos:
 
-\imagen{img_07_diferenciacion.png}{Evolución de precios de cierre de \emph{ITX.MC} en los últimos dos años y los mismos datos con diferenciación de orden 1. Fuente: elaboración propia}{0.9}
+\imagen{img_06_diferenciacion.png}{Evolución de precios de cierre de \emph{ITX.MC} en los últimos dos años y los mismos datos con diferenciación de orden 1. Fuente: elaboración propia}{0.9}
 
 Pero esto sólo nos da una idea intuitiva de cómo son los datos y, para poder hacer un buen análisis de los mismos, necesitaremos demostrar de alguna forma si nuestros datos son realmente estacionarios. 
 
 En la sección previa se daba una idea informal de qué son datos no estacionarios, haciendo referencia a la tendencia y a la variación de determinados estadísticos a lo largo de una serie temporal pero, para tener una idea más clara, se pueden ver algunos ejemplos de datos no estacionarios:
 
-\imagen{img_08_serie_no_estacionaria.png}{Serie no estacionaria por variación de media. Fuente: elaboración propia}{0.9}
+\imagen{img_07_serie_no_estacionaria.png}{Serie no estacionaria por variación de media. Fuente: elaboración propia}{0.85}
 
-\imagen{img_09_serie_no_estacionaria.png}{Serie no estacionaria por variación de varianza. Fuente: elaboración propia}{0.9}
+\imagen{img_08_serie_no_estacionaria.png}{Serie no estacionaria por variación de varianza. Fuente: elaboración propia}{0.85}
 
 De nuevo, esto sólo nos da una idea intuitiva. Pero existe un método para testear si una serie temporal es estacionaria o no: la prueba de Dickey-Fuller aumentada (test ADF, por sus siglas en inglés) \citep{wiki:Dickey-Fuller}. 
 
@@ -428,22 +428,22 @@ def comprobar_serie_temporal(x):
 
 Para esta demostración se usan los datos de precios de cierre de los dos últimos años (mayo 2023 a mayo 2024) de la empresa Inditex. En esos datos se puede ver una clara tendencia ascendente y, por tanto, no será una serie estacionaria. 
 
-\imagen{img_10_p_value_test_adf.png}{Serie no estacionaria, con p-value > 0.5. Fuente: elaboración propia}{1}
+\imagen{img_09_p_value_test_adf.png}{Serie no estacionaria, con p-value > 0.5. Fuente: elaboración propia}{1}
 
 Además, voy a aplicar un test ADF sobre los retornos - variaciones diarias en \% - de Inditex en el mismo período de tiempo, para ver que el resultado mejora. Y, por último, voy a utilizar \texttt{diff()} para analizar la evolución intradía no porcentual \footnote{Es habitual aplicar una función logarítmica a \texttt{diff()} para suavizar los resultados, pero a efectos gráficos, en este caso, no aporta mejoras significativas.}, que es el tipo de diferenciación que hacen funciones como \texttt{auto.arima} de \texttt{R} o \texttt{pmdarima.arima.auto\_arima} para \texttt{Python}.
 
 De las figuras siguientes podemos deducir que es posible obtener series temporales no estacionarias a partir de precios de cierre de un valor cotizado. Esto permitirá trabajar con esos datos en un modelo ARIMA.
 
-\imagen{img_11_p_value_test_adf.png}{Serie estacionaria, con p-value < 0.5. Fuente: elaboración propia}{0.9}
+\imagen{img_10_p_value_test_adf.png}{Serie estacionaria, con p-value < 0.5. Fuente: elaboración propia}{0.9}
 
-\imagen{img_12_p_value_test_adf.png}{Serie estacionaria, con p-value < 0.5. Fuente: elaboración propia}{0.9}
+\imagen{img_11_p_value_test_adf.png}{Serie estacionaria, con p-value < 0.5. Fuente: elaboración propia}{0.9}
 
 
 \subsection{Selección de hiperparámetros $q$ y $p$. ACF y PACF}
 
-Aunque existen funciones automáticas que obtienen los mejores hiperparámetros (p, d, q) de ARIMA, conviene saber de dónde se sacan éstos. Ya hemos visto cómo deducir $d$ a través de los resultados de un test ADF. Ahora voy a mostrar cómo buscar los mejores valores de $p$ y $q$ a través de funciones que pueden ser útiles para el análisis de los datos.
+Aunque existen funciones automáticas que obtienen los mejores hiperparámetros (p, d, q) de ARIMA, conviene saber de dónde se sacan éstos. Ya hemos visto cómo deducir $d$ a través de los resultados de un test ADF. Ahora voy a mostrar cómo buscar los mejores valores de $q$ y $p$ a través de funciones que pueden ser útiles para el análisis de los datos.
 
-\subsubsection{Función de autocorrelación (ACF, por sus siglas en inglés)}
+\subsubsection{Función de autocorrelación (ACF, por sus siglas en inglés) para obtener $q$}
 
 Sabemos que la covarianza se define como el valor esperado entre dos variables aleatorias cualquiera:
 
@@ -472,8 +472,39 @@ La ACF está definida como si los datos de la serie temporal fueran estacionario
 El porqué del estimador de $\hat(\rho(\tau))$ escapa a los objetivos de explicación de este proyecto, pero si asumimos que la autocorrelación se mantiene constante en el tiempo, podemos usar todas las muestras de la serie para calcular la autocorrelación para cualquier $\tau$ y la fórmula para calcularlo es:
 
 \begin{equation}
-	$\hat(\rho(\tau))$ = \frac{1}{(T-\tau)\hat{\sigma}^{2}} 
+	\hat{\rho}(\tau) = \frac{1}{(T-\tau)\hat{\sigma}^{2}} \sum_{t=1}^{T-\tau} (y_{t}-\hat{\mu})(y_{t+\tau}-\hat{\mu})
 \end{equation}
+
+La ventaja de establecerlo como una fórmula es que nos permite mostrar una gráfica de la autocorrelación con $\hat{\rho}$ en el eje vertical y $\tau$ en el horizontal. Pero la parte interesante está en que también se muestran los intervalos de confianza, que se pueden entender como un umbral. Cuando veamos un $\tau$ que supere el umbral de los intervalos de confianza podremos decir que $\hat{\rho}$ no se iguala a 0 en ese punto. Aunque habrá que tener en cuenta que si tenemos un $\alpha$ de, por ejemplo, el 5\%, significa que habrá un 5\% de los datos fuera de los intervalos de manera aleatoria - pero suelen ser datos cercanos al umbral límite -. 
+
+\imagen{img_12_acf.png}{ACF con diferenciación logarítmica de orden 1. Fuente: elaboración propia}{1}
+
+En estas gráficas, normalmente se verá que cuando $\tau$ es 0, la autocorrelación es 1. Esto es porque cuando $\tau$ es 0, hacemos $\frac{varianza}{varianza}$ y será 1. 
+
+Si miramos una gráfica de autocorrelación y vemos que en $\tau$, la ACF $\hat{\rho}$ está fuera del intervalo de confianza, pero justo después de ese $\tau$ resulta que $\hat{\rho}$ no está fuera del intervalo, entonces interpretamos que el primer $\tau$ es la $q$ adecuada para el modelo $MA_{(q)}$.
+
+
+\subsubsection{Función de autocorrelación parcial (PACF, por sus siglas en inglés) para obtener $p$}
+
+En esta función, de manera similar a como se hacía en ACF, se utiliza una representación gráfica de la propia función en el eje vertical y una especie de retraso temporal (como antes $\tau$) en el eje horizontal. También se muestran los intervalos de confianza y su uso es igual que para los modelos $MA_{(q)}$. 
+
+\imagen{img_13_pacf.png}{PACF con diferenciación logarítmica de orden 1. Fuente: elaboración propia}{1}
+
+
+La definición de la fórmula también está fuera de los objetivos de este trabajo, pero de manera general se podría decir que la PACF en $\tau$ es la autocorrelación entre $Y(t)$ y $Y(t+\tau)$ pero condicionada a $Y(t+1), Y(t+2), ... , Y(t+\tau-1)$.
+
+Se puede representar por:
+
+\begin{equation}
+\begin{aligned}
+	\phi(\tau, \tau) = PACF \,en \, \tau \\
+	\phi(\tau, \tau) = corr(Y_{t+\tau} - \hat{Y}_{t+\tau}, Y_{t} - \hat{Y}_t)
+\end{aligned}
+\end{equation}
+
+Por ejemplo, $\phi(0, 0) = 1$ porque no hay valores entre $Y(t)$ e $Y(t)$. 
+
+
 
 \subsection{Casos especiales de ARIMA}
 
@@ -504,6 +535,19 @@ Por ejemplo, suponiendo que tenemos un conjunto de datos a modelar formado por r
 Si entrenamos un modelo ARIMA con dichos datos y los mejores parámetros son $p=0, d=1, q=0$, significa que los retornos no son predecibles a través de los valores ni errores previos en la serie temporal. Esto es interesante porque podemos obtener información relevante aunque no estemos haciendo una predicción de la evolución de los precios - o de los retornos -. 
 
 
+\subsection{Comprobar resultados de ARIMA}
+
+Una vez obtenidos los parámetros deseados de ARIMA y tras realizar un análisis con el modelo, tendremos que comparar nuestros resultados con algún método base de referencia. En este trabajo se propone utilizar como modelo base una predicción naíf, que consistirá en estimar que el precio de cierre de la siguiente sesión será igual al de la sesión actual. 
+
+A priori, se sabe que esto ocurrirá en muy pocas ocasiones, pero como línea de base comparativa puede ser útil, ya que en la mayoría de los casos los usuarios podrán comprobar - por comparación de RMSE - que los resultados de la estrategia naíf son mejores que los de ARIMA. 
+
+\imagen{img_14_arima_sin_walk_forward.png}{Comparación de ARIMA con una estrategia naíf. Fuente: elaboración propia}{1}
+
+Otra posible estrategia es utilizar una validación \emph{walk-forward anchored}\citep{online:walk_forward} para evaluar el MSE y, posteriormente, compararlo de nuevo con una predicción naíf. En este caso, los usuarios podrán ver que los resultados de ARIMA son similares a los de la estrategia naíf y, en muchos casos, peores. 
+
+\imagen{img_15_arima_con_walk_forward.png}{Comparación entre ARIMA, con walk-forward anchored, y una estrategia naíf. Fuente: elaboración propia}{1}
+
+De esto se puede deducir que ARIMA sirve para entender los datos pero, en la gran mayoría de los casos, no funciona bien para predecir precios de valores cotizados\footnote{Estas comprobaciones se pueden hacer con el uso de la web generada en este trabajo, en cualquiera de los apartados de ARIMA(p,d,q) el usuario puede experimentar y sacar sus propias conclusiones a través de resultados similares a los mostrados en esta sección}. 
 
 
  

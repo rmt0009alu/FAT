@@ -23,45 +23,45 @@ Warning--string name "sept" is undefined
 --line 11 of file bibliografia.bib
 Warning--I didn't find a database entry for "simulacion_montecarlo"
 Warning--I didn't find a database entry for "programacion_lineal"
-You've used 77 entries,
+You've used 80 entries,
             2118 wiz_defined-function locations,
-            832 strings with 13036 characters,
-and the built_in function-call counts, 18054 in all, are:
-= -- 1787
-> -- 722
+            845 strings with 13499 characters,
+and the built_in function-call counts, 18705 in all, are:
+= -- 1853
+> -- 743
 < -- 0
-+ -- 303
-- -- 226
-* -- 651
-:= -- 3107
-add.period$ -- 304
-call.type$ -- 77
-change.case$ -- 344
++ -- 312
+- -- 232
+* -- 669
+:= -- 3218
+add.period$ -- 316
+call.type$ -- 80
+change.case$ -- 356
 chr.to.int$ -- 0
-cite$ -- 77
-duplicate$ -- 557
-empty$ -- 1708
-format.name$ -- 226
-if$ -- 3914
+cite$ -- 80
+duplicate$ -- 578
+empty$ -- 1774
+format.name$ -- 232
+if$ -- 4058
 int.to.chr$ -- 0
-int.to.str$ -- 77
+int.to.str$ -- 80
 missing$ -- 6
-newline$ -- 461
-num.names$ -- 154
-pop$ -- 638
+newline$ -- 479
+num.names$ -- 160
+pop$ -- 662
 preamble$ -- 1
-purify$ -- 267
+purify$ -- 276
 quote$ -- 0
-skip$ -- 465
+skip$ -- 483
 stack$ -- 0
-substring$ -- 443
-swap$ -- 77
+substring$ -- 458
+swap$ -- 80
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 304
+type$ -- 316
 warning$ -- 0
-while$ -- 157
-width$ -- 79
-write$ -- 922
+while$ -- 163
+width$ -- 82
+write$ -- 958
 (There were 3 warnings)

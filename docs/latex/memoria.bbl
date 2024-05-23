@@ -62,6 +62,12 @@ Pascal Brachet.
 \newblock \url{https://www.xm1math.net/texmaker/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
+\bibitem{online:walk_forward}
+Marti Castany.
+\newblock \emph{El método walk-forward: la guía definitiva}.
+\newblock \url{https://quantdemy.com/metodo-walk-forward/}, 2023.
+\newblock Online; Accedido el 23-May-2024.
+
 \bibitem{online:circle_ci}
 CircleCI.
 \newblock \emph{CircleCI}.
@@ -387,12 +393,6 @@ Wikipedia.
 \newblock \url{https://en.wikipedia.org/wiki/Efficient_frontier}, 2024.
 \newblock Online; Accedido el 17-May-2024.
 
-\bibitem{wiki:estacionalidad}
-Wikipedia.
-\newblock \emph{Estacionalidad}.
-\newblock \url{https://es.wikipedia.org/wiki/Estacionalidad}, 2024.
-\newblock Online; Accedido el 18-May-2024.
-
 \bibitem{wiki:html}
 Wikipedia.
 \newblock \emph{HTML}.
@@ -439,6 +439,19 @@ Wikipedia.
 \newblock \url{https://es.wikipedia.org/wiki/Posici%C3%B3n_corta}, 2024.
 \newblock Online; Accedido el 15-May-2024.
 
+\bibitem{wiki:proceso_estacionario}
+Wikipedia.
+\newblock \emph{Proceso estacionario}.
+\newblock \url{https://es.wikipedia.org/wiki/Proceso_estacionario}, 2024.
+\newblock Online; Accedido el 19-May-2024.
+
+\bibitem{wiki:Dickey-Fuller}
+Wikipedia.
+\newblock \emph{Prueba de Dickey-Fuller aumentada}.
+\newblock
+  \url{https://es.wikipedia.org/wiki/Prueba_de_Dickey-Fuller_aumentada}, 2024.
+\newblock Online; Accedido el 18-May-2024.
+
 \bibitem{wiki:sharpe_ratio}
 Wikipedia.
 \newblock \emph{Ratio de Sharpe}.
@@ -451,6 +464,12 @@ Wikipedia.
 \newblock \url{https://es.wikipedia.org/wiki/Scrum_(desarrollo_de_software)},
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:proceso_estacionario_en}
+Wikipedia.
+\newblock \emph{Stationary process}.
+\newblock \url{https://en.wikipedia.org/wiki/Stationary_process}, 2024.
+\newblock Online; Accedido el 19-May-2024.
 
 \bibitem{wiki:mpt}
 Wikipedia.
