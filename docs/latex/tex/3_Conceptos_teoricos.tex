@@ -1,6 +1,6 @@
 \capitulo{3}{Conceptos teóricos}
 
-Los conceptos teóricos más destacables de este proyecto residen en el estudio del modelo de Markowitz para la formación de una cartera bien diversificada, el análisis de series temporales con modelos ARIMA y la técnica de aprendizaje por refuerzo Q-learning. 
+Los conceptos teóricos más destacables de este proyecto residen en el estudio del modelo de Markowitz para la formación de una cartera bien diversificada, el análisis de series temporales con modelos ARIMA y en técnicas básicas de trading algorítmico. 
 
 
 \section{Diversificación de una cartera de valores cotizados}\label{diversificar_cartera}
@@ -14,21 +14,27 @@ Una manera de caracterizar una cartera es a través del retorno medio de los act
 
 \subsection{Disminuir la varianza para minorar el riesgo}
 
-El retorno - o variación diaria porcentual - de un valor viene dado por:
+El retorno logarítmico de un valor viene dado por:
+
+\begin{equation} \label{eq:1}
+	R = ln(\frac{P_{t}}{P_{t-1}})
+\end{equation}
+
+En este trabajo, en algunas ocasiones y por simplicidad de las explicaciones, se hablará de rentabilidad\footnote{En los casos en los que sea conveniente el uso del retorno logarítmico, se indicará expresamente haciendo uso de \ref{eq:1}}:
 
 \begin{equation}
-	R = P_{t}/P_{t-1} - 1 = (P_{t} - P_{t-1})/P_{t}
+	R_{simple} = \frac{P_{t-1} - P_{t}}{P_{t}} * 100
 \end{equation}
 
 Donde $P_{t}$ es el último precio de cierre de mercado disponible y $P_{t-1}$ es el precio de cierre previo. 
 
 Los retornos de un valor son aleatorios y podemos asumir, de forma general, que hay una distribución normal subyacente en ellos:
 
-\imagen{img_01_distribución_retornos.png}{Distribuciones de retornos de diferentes valores. Fuente: elaboración propia}{1}
+\imagen{img_01_distribución_retornos.png}{Distribuciones de retornos de diferentes valores. Fuente: elaboración propia}{0.8}
 
 Haciendo esta asunción de distribución normal en los retornos (algo que no siempre se cumple) podemos pensar en una cartera con dos valores, A y B, cuyas distribuciones de retornos son iguales: 
 
-\begin{align} \label{eq:1}
+\begin{align} \label{eq:2}
 	A: R_{1} \sim  \mathcal{N}(\mu,\,\sigma^{2})\\ 
 	B: R_{2} \sim  \mathcal{N}(\mu,\,\sigma^{2})
 \end{align}
@@ -41,7 +47,7 @@ Entonces, el retorno esperado será el mismo, $\mu$ , tengamos el 100\% de A en 
 
 Es decir, si invertimos todo en A o todo en B, tendremos la misma varianza, pero si hacemos un reparto de, por ejemplo, 50\%/50\%, veremos que la varianza es menor. 
 
-Para ello, dadas las distribuciones de \ref{eq:1}, asumiremos - por ahora - que son independientes. Además, supongamos que existe una variable Y con $1/2$ de $R_{1}$ y $1/2$ de $R_{2}$:
+Para ello, dadas las distribuciones de \ref{eq:2}, asumiremos - por ahora - que son independientes. Además, supongamos que existe una variable Y con $1/2$ de $R_{1}$ y $1/2$ de $R_{2}$:
 
 \begin{equation}
 	Y = 1/2R_{1} + 1/2R_{2}
@@ -115,18 +121,18 @@ Hay que considerar que es posible que exista una correlación entre los retornos
 
 Si tenemos en cuenta lo anterior, ya es posible definir dos conceptos fundamentales que son el retorno medio esperado y la varianza del retorno de una cartera (\emph{portfolio}):
 
-\begin{align} \label{eq:2}
+\begin{align} \label{eq:4}
 	\mu_{p} &= E(R_{p})\\
 	\sigma_{p}^{2} &= var(R_{p})
 \end{align}
 
 Para entender cómo se calculan, voy a empezar por el caso más  sencillo, en el supuesto de tener sólo dos valores en cartera:
 
-\begin{equation} \label{eq:3}
+\begin{equation} \label{eq:5}
 	R_{p} = wR_{1} + (1 - w)R_{2}
 \end{equation}
 
-$R_{p}$ es una función de variables aleatorias y, por tanto, tendrá una distribución en términos de media y varianza. La media de $R_{p}$ es su valor esperado y recordando que $E$ es un operador lineal podemos operar. Además, podemos sustituir por \ref{eq:2}:
+$R_{p}$ es una función de variables aleatorias y, por tanto, tendrá una distribución en términos de media y varianza. La media de $R_{p}$ es su valor esperado y recordando que $E$ es un operador lineal podemos operar. Además, podemos sustituir por \ref{eq:3}:
 
 \begin{align} 
     E(R_{p}) &= E(wR_{1} + (1-w)R_{2}) = wE(R_{1}) + (1-w)E(R_{2}) \\
@@ -134,9 +140,9 @@ $R_{p}$ es una función de variables aleatorias y, por tanto, tendrá una distri
     \label{eq:4}
 \end{align}
 
-La varianza de $R_{p}$ requiere de más cálculos; no podemos hacer la suma directa de las dos varianzas porque puede existir correlación entre $R_{1}$ y $R_{2}$. Entonces, los más sencillo es sustituir en la definición de varianza por \ref{eq:3} y \ref{eq:4}:
+La varianza de $R_{p}$ requiere de más cálculos; no podemos hacer la suma directa de las dos varianzas porque puede existir correlación entre $R_{1}$ y $R_{2}$. Entonces, los más sencillo es sustituir en la definición de varianza por \ref{eq:4} y \ref{eq:5}:
 
-\begin{equation} \label{eq:5}
+\begin{equation} \label{eq:6}
 \begin{aligned}
     \text{var}(R_{p}) &= E \{(R_{p} - \mu_{p})^{2}\} \\
     &= E\{[wR_{1} + (1-w)R_{2} - w\mu_{1} - (1-w)\mu_{2}]^{2}\} \\
@@ -147,13 +153,13 @@ La varianza de $R_{p}$ requiere de más cálculos; no podemos hacer la suma dire
 \end{aligned}
 \end{equation}
 
-Lo visto es \ref{eq:5} se puede escribir en términos de la correlación en lugar de la covarianza, $corr_{12} = \rho_{12} = \sigma_{12}/(\sigma_{1}\sigma_{2})$ \citep{wiki:covarianza_correlacion}:
+Lo visto es \ref{eq:6} se puede escribir en términos de la correlación en lugar de la covarianza, $corr_{12} = \rho_{12} = \sigma_{12}/(\sigma_{1}\sigma_{2})$ \citep{wiki:covarianza_correlacion}:
 
-\begin{equation} \label{eq:6}
+\begin{equation} \label{eq:7}
 	\sigma_{p}^{2} = w_{2}\sigma_{1}^{2} + (1-w)^{2}\sigma_{2}^2 + 2w(1-w)\sigma_{12}
 \end{equation}
 
-\begin{equation} \label{eq:7}
+\begin{equation} \label{eq:8}
 	\sigma_{p}^{2} = w_{2}\sigma_{1}^{2} + (1-w)^{2}\sigma_{2}^2 + 2w(1-w)\rho_{12} \sigma_{1}\sigma_{2}
 \end{equation}
 	
@@ -164,11 +170,11 @@ Cualquiera de estas dos fórmulas puede ser utilizada para calcular la varianza 
 
 Inicialmente asumía que los retornos de los valores eran totalmente independientes para demostrar que la diversificación disminuye la varianza y, por tanto, el riesgo. Sin embargo, aquí vemos que los retornos no tienen por qué ser independientes. 
 
-Entonces, analizando detenidamente \ref{eq:6} y \ref{eq:7} vemos que, si $0 < w < 1$ y $R_{1}$ y $R_{2}$ están positivamente correlados, la varianza de la cartera aumenta. Y si $R_{1}$ y $R_{2}$ están negativamente correlados disminuimos la varianza del portfolio y, por tanto, tendremos menor riesgo. 
+Entonces, analizando detenidamente \ref{eq:7} y \ref{eq:8} vemos que, si $0 < w < 1$ y $R_{1}$ y $R_{2}$ están positivamente correlados, la varianza de la cartera aumenta. Y si $R_{1}$ y $R_{2}$ están negativamente correlados disminuimos la varianza del portfolio y, por tanto, tendremos menor riesgo. 
 
 Ahora, para poder adecuar a código de \emph{Python} estas fórmulas, voy a pasarlas a la notación de producto escalar y despejar la matriz de covarianza de $R$, $w^{T}\Sigma w$:
 
-\begin{equation} \label{eq:8}
+\begin{equation} \label{eq:9}
 \begin{aligned}
 	var(R_{p}) &= E\{(R_{p}-\mu_{p}^{2})\\
 	&= E\{(R^{T}w - \mu^{T}w)^{2}\} \\
@@ -233,11 +239,11 @@ En el apartado anterior se ha visto cómo optimizar los retornos, pero sin tener
 
 Ya hemos visto, de forma intuitiva, que según aumenta el retorno esperado también aumenta el riesgo. La idea de la optimización de carteras es que no tomemos más riesgos de los necesarios. 
 
-El riesgo lo podemos medir con la desviación estándar. Como la minimización de la varianza también implica la minimización de la desviación estándar (la raíz cuadrada es una función monótona creciente), usaré la varianza calculada en \ref{eq:8} por comodidad en los cálculos.
+El riesgo lo podemos medir con la desviación estándar. Como la minimización de la varianza también implica la minimización de la desviación estándar (la raíz cuadrada es una función monótona creciente), usaré la varianza calculada en \ref{eq:9} por comodidad en los cálculos.
 
 Si suponemos que queremos un determinado retorno $r$, podríamos representar la minimización del riesgo de la siguiente manera:
 
-\begin{equation} \label{eq:9}
+\begin{equation} \label{eq:10}
 \begin{aligned}
 	min_{w} w^{T}\Sigma w \\
 	sujeto a: \mu^{T}w = r \\
@@ -253,7 +259,7 @@ Para simular la optimización de una función cuadrática en \emph{Scipy} hay qu
 
 \subsection{Frontera eficiente}
 
-Una vez hemos conocidos los retornos mínimo y máximo posibles, con la función que queremos optimizar, \ref{eq:9}, podemos hacer que el retorno, $r$, sea una sucesión de puntos entre el mínimo y el máximo e ir calculando la varianza mínima con esos retornos objetivos. Esto nos dará el mejor nivel de riesgo posible para cada retorno entre el mínimo y el máximo posibles. 
+Una vez hemos conocidos los retornos mínimo y máximo posibles, con la función que queremos optimizar, \ref{eq:10}, podemos hacer que el retorno, $r$, sea una sucesión de puntos entre el mínimo y el máximo e ir calculando la varianza mínima con esos retornos objetivos. Esto nos dará el mejor nivel de riesgo posible para cada retorno entre el mínimo y el máximo posibles. 
 
 Esto nos dará una representación en forma de hipérbola que se conoce como frontera eficiente \citep{wiki:frontera_eficiente} y que Harry Markowitz representó en \citep{book:Portfolio_selection} con su forma parabólica de la siguiente manera:
 
@@ -550,9 +556,9 @@ Otra posible estrategia es utilizar una validación \emph{walk-forward anchored}
 De esto se puede deducir que ARIMA sirve para entender los datos pero, en la gran mayoría de los casos, no funciona bien para predecir precios de valores cotizados\footnote{Estas comprobaciones se pueden hacer con el uso de la web generada en este trabajo, en cualquiera de los apartados de ARIMA(p,d,q) el usuario puede experimentar y sacar sus propias conclusiones a través de resultados similares a los mostrados en esta sección}. 
 
 
-\section{Aprendizaje por refuerzo: Q-learning}\label{q_learning}
+\section{Trading algorítmico}\label{algo_trading}
 
-\subsection{Estrategia de seguimiento de tendencias}
+\subsection{Estrategia de cruce de medias (o seguimiento de tendencias)}
 
 La idea básica de esta estrategia es crear dos medias móviles simples sobre los precios de cierre de valores cotizados. Una será la media móvil \emph{lenta} y la otra será la media móvil \emph{rápida}. De forma intuitiva podemos deducir que si incluimos más datos en una media móvil, ésta se ajustará de manera más lenta, porque cada dato en la media móvil tendrá menor influencia en el resultado. Es decir, una media móvil de 50 días será más lenta que una media móvil de 20 días. 
 
@@ -603,9 +609,13 @@ for fila in df:
   fila["invertido"] = invertido
 \end{verbatim}
 
-Con esta idea, la columna \texttt{df[´invertido´]} va estar retrasada un día, esto es así porque si compramos al final del día, cuando ya ha cerrado el mercado - lo cual no es posible -, no podemos estar invertidos hasta el siguiente día, que es cuando calculo el retorno. Pero ya habré cambiado el retorno, lo cual, desde mi punto de vista, es más conveniente. 
+Con esta idea, la columna \texttt{df[´invertido´]} va estar retrasada un día, esto es así porque no podemos comprar al final del día - cuando ya ha cerrado el mercado -,i.e., no podemos estar invertidos hasta el siguiente día, que es cuando calculo el retorno. Pero ese retorno ya le habré cambiado con un \emph{shift()}, lo cual, desde mi punto de vista, es más conveniente. 
 
-Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hacer es calcular el retorno del algoritmo. Como en \emph{Python} \texttt{True} es 1 y \texttt{False} es 0, se pueden multiplicar las columnas de \emph{invertido} y \emph{retorno\_shift}, por ejemplo:
+Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hacer es calcular el retorno del algoritmo. \footnote{El retorno se calcula habitualmente como se indica en \ref{eq:1} pero en este apartado del trabajo, en la web, se mostrará al usuario información de rentabilidad que le pueda ser de fácil comprensión}. Como en \emph{Python} \texttt{True} es 1 y \texttt{False} es 0, se pueden multiplicar las columnas de \emph{invertido} y \emph{retorno\_shift}, por ejemplo:
+
+\begin{verbatim}
+  df["retorno_algoritmo"] = df["invertido"] * df["retorno_shift"]
+\end{verbatim}
 
 \tablaSmall{Cómo almacenar retornos para algoritmo de seguimiento de tendencias}
 {c|c|c}
@@ -617,4 +627,57 @@ Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hace
  0 & 1  & 0  \\
  0 & -1 & -1 \\
  1 & 2  & 2  \\
+}
+
+\subsubsection{Selección apropiada de medias móviles}
+
+Uno de los problemas de este algoritmo puede residir en la correcta selección de las medias móviles simples que se aplicarán. En este trabajo se realiza una búsqueda por rejilla entre algunas de las medias más frecuentes:
+
+\tablaSmall{Medias móviles simples frecuentes}
+{c|c}
+{tabla_mms_frecuentes}
+{
+ \textbf{MMS\_lenta} & \textbf{MMS\_rápida}\\
+}
+{
+ 5  & 30  \\
+ 10 & 50  \\
+ 15 & 200 \\
+ 20 &  -  \\
+}
+
+La selección de las medias se realiza por comparación entre la suma de retornos totales. El mejor retorno arrojado por el algoritmo será el de la medias escogidas\footnote{Se puede ver más información en \texttt{Lab.views.\_algoritmo\_cruce\_medias\_automaticas()}}. 
+
+
+\subsubsection{Comparar con otras estrategias}
+
+Para determinar cómo de bueno es este algoritmo de cruce de medias, se comparan los resultados con una estrategia básica, comúnmente conocida como \emph{buy and hold} (comprar y aguantar)\citep{wiki:buy_and_hold}.
+
+
+\subsection{Estrategia basada en \emph{Machine Laerning}}
+
+En la estrategia anterior no se usan modelos estadísticos ni hay un \emph{aprendizaje} que se pueda aplicar posteriormente. Sin embargo, es posible aplicar ideas de regresión o clasificación para ayudarnos a realizar mejores operaciones. 
+
+Como ya se ha visto en la sección de ARIMA, predecir la evolución de un valor para varios días es realmente complicado. Por ello, en este apartado se seguirá una idea mucho menos ambiciosa, que es la de intentar predecir la evolución para un sólo día. 
+
+Entonces, se intentará entrenar un modelo con todos los datos disponibles hasta la fecha y estimar únicamente la fecha siguiente. Con este tipo de estrategias, la decisión de vender, comprar o no hacer nada es algo que se tiene que actualizar diariamente. 
+
+La dificultad de esta aproximación radica en la decisión de cómo formar los datos y qué se va a predecir. En mi caso, seguiré la lógica de que hay valores altamente ponderados en un índice y que estos tienen la capacidad de \emph{mover} ese índice \emph{por sí solos} (o, al menos, con mayor influencia que el resto de componentes). Teniendo en cuenta los retornos de dichos valores estimaré si al día siguiente la tendencia será alcista o bajista, de forma general para el índice de referencia. 
+
+Este enfoque se basa en seleccionar los retornos de valores de mayor capitalización de mercado \citep{wiki:market_cap} como si fueran atributos de un modelo de regresión o clasificación. Y la media de los retornos se considerará la clase objetivo. De esta forma, basándome en la hipótesis del aprendizaje inductivo, supondré que es posible que un modelo que aproxime bien una función en los datos de entrenamiento, también lo hará bien en los datos desconocidos. 
+
+La selección de los valores que \emph{representarán} a todo el índice serán:
+
+\tablaSmall{Valores seleccionados de cada índice}
+{c|c|c|c}
+{tabla_valores_seleccionados}
+{
+ \textbf{DJ30} & \textbf{IBEX35} & \textbf{FTSE100} & \textbf{DAX40}\\
+}
+{
+ Microsoft (MSFT)  			& Inditex (ITX.MC)  		& SHELL (SHEL.L) 		& SAP (SAP.DE)\\
+ Apple (AAPL) 				& Iberdrola (IBE.MC)  		& AstraZeneca (AZN.L) 	& Siemens AG (SIE.DE)\\
+ United Health (UNH) 		& Banco Santander (SAN.MC) 	& HSBC (HSBA.L)			& Allianz (ALV.DE)\\
+ Johnson and Jhonson (JNJ) 	& BBVA (BBVA.MC)			& Unilever (ULVR.L)		& Airbus (AIR.DE)\\
+ JP Morgan Chase (JPM) 		& Caixabank (CABK.MC)  		& BP (BP.L)				& Deutsche Telekom\\
 }

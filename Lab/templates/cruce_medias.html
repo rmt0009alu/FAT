@@ -40,36 +40,69 @@
 
 {% if cruce_medias %}
     <div class="graph-container">
-        <div class="graph">
-            <p class="barra">Cruce de medias</p>
-                <div class="flex-container">
-                <img src="data:image/png;base64,{{ cruce_medias }}" alt="img_cruce_medias">
+      <div class="graph">
+          <p class="barra">Gráfica y resultado del algoritmo</p>
+          <div class="flex-container">
+              <img src="data:image/png;base64,{{ cruce_medias }}" alt="img_cruce_medias">
 
-                <div class="table-container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Día de compra</th>
-                                <th>Día de venta</th>
-                                <th>Precio cierre. Día de compra</th>
-                                <th>Precio cierre. Día de venta</th>
-                                <th>Rentabilidad (%)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for index, row in df_resultados.iterrows %}
-                                <tr>
-                                    <td>{{ row.fecha_compra }}</td>
-                                    <td>{{ row.fecha_venta }}</td>
-                                    <td>{{ row.cierre_compra }}</td>
-                                    <td>{{ row.cierre_venta }}</td>
-                                    <td>{{ row.porcentaje }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+              <div class="info-table table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead class="thead-dark">
+                      <tr>
+                          <th>Día de compra</th>
+                          <th>Día de venta</th>
+                          <th>Precio cierre. Día de compra</th>
+                          <th>Precio cierre. Día de venta</th>
+                          <th>Rentabilidad (%)</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for index, row in df_resultados.iterrows %}
+                          <tr>
+                              <td>{{ row.fecha_compra|date:"d/m/Y" }}</td>
+                              <td>{{ row.fecha_venta|date:"d/m/Y" }}</td>
+                              <td>{{ row.cierre_compra|floatformat:3 }}</td>
+                              <td>{{ row.cierre_venta|floatformat:3 }}</td>
+                              <td>{{ row.porcentaje|floatformat:3 }}</td>
+                          </tr>
+                      {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="graph">
+          <p class="barra">Comparación con estrategia 'buy-and-hold'</p>
+          <div class="info-table table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="thead-dark">
+                <th></th>
+                <th>Algoritmo de cruce de medias</th>
+                <th>Estrategia "buy-and-hold"</th>
+              </thead>
+              <tbody>
+              <tr>
+                <th>Retorno logarítmico total</th>
+                <td>{{ retorno_log_total_algo|floatformat:4 }}</td>
+                <td>{{ retorno_log_total|floatformat:4 }}</td>
+              </tr>
+             
+              <tr>
+                <th>Sharpe ratio</th>
+                <td>{{ sharpe_retorno_log_algo|floatformat:4 }}</td>
+                <td>{{ sharpe_retorno_log|floatformat:4 }}</td>
+              </tr>
+              
+                <th>Rentabilidad (%)</th>
+                <td>{{ porcentaje_algo|floatformat:3 }}</td>
+                <td>{{ porcentaje_manteniendo|floatformat:3 }}</td>
+              </tr>
+              
+            </tbody>
+            </table>
+        </div>
+      </div>
     </div>
 {% endif %}
 
@@ -99,6 +132,14 @@
   .graph img {
     width: 50%;
     height: auto;
+  }
+  .info-table {
+    display: flex;
+    justify-content: center;
+  }
+
+  .info-table table {
+    margin: auto;
   }
 </style>
 <script>

@@ -15,66 +15,69 @@
 \contentsline {subsection}{Disminuir la varianza para minorar el riesgo}{7}{section*.7}%
 \contentsline {subsection}{Retorno esperado y varianza de una cartera (\emph {portfolio})}{9}{section*.8}%
 \contentsline {subsection}{Correlación entre valores}{11}{section*.9}%
-\contentsline {subsection}{Simulación de Montecarlo}{11}{section*.10}%
+\contentsline {subsection}{Simulación de Montecarlo}{12}{section*.10}%
 \contentsline {subsection}{Retornos máximo y mínimo posibles}{13}{section*.11}%
-\contentsline {subsection}{Optimización en términos de retorno y riesgo simultáneamente}{13}{section*.12}%
-\contentsline {subsection}{Frontera eficiente}{14}{section*.13}%
-\contentsline {subsection}{Sharpe ratio}{16}{section*.14}%
-\contentsline {section}{\numberline {3.2}Análisis de series temporales con modelos ARIMA}{18}{section.3.2}%
-\contentsline {subsection}{Modelos autorregresivos $(AR_{(p)})$}{18}{section*.15}%
-\contentsline {subsection}{Modelos de media móvil $(MA_{(q)})$}{19}{section*.16}%
-\contentsline {subsection}{Combinación de modelos: $(ARMA_{(p, q)})$}{20}{section*.17}%
-\contentsline {subsection}{Datos estacionarios. $I_{(d)}$ y $ARIMA_{(p, d, q)}$}{20}{section*.18}%
-\contentsline {subsection}{\emph {p-value} de un test ADF sobre precios de cierre y sobre retornos}{24}{section*.19}%
-\contentsline {subsection}{Selección de hiperparámetros $q$ y $p$. ACF y PACF}{27}{section*.20}%
-\contentsline {subsubsection}{Función de autocorrelación (ACF, por sus siglas en inglés) para obtener $q$}{27}{section*.21}%
-\contentsline {subsubsection}{Función de autocorrelación parcial (PACF, por sus siglas en inglés) para obtener $p$}{28}{section*.22}%
-\contentsline {subsection}{Casos especiales de ARIMA}{29}{section*.23}%
-\contentsline {subsection}{Comprobar resultados de ARIMA}{30}{section*.24}%
-\contentsline {section}{\numberline {3.3}Aprendizaje por refuerzo: Q-learning}{32}{section.3.3}%
-\contentsline {subsection}{Estrategia de seguimiento de tendencias}{32}{section*.25}%
-\contentsline {chapter}{4.\hskip .5em\relax Técnicas y herramientas}{35}{chapter*.26}%
-\contentsline {section}{\numberline {4.1}Técnicas metodológicas}{35}{section.4.1}%
-\contentsline {subsection}{Scrum}{35}{section*.27}%
-\contentsline {subsection}{\emph {Test-Driven Development} (TDD)}{35}{section*.28}%
-\contentsline {subsection}{\emph {Behavior-Driven Development} (BDD)}{36}{section*.29}%
-\contentsline {subsection}{\emph {Kanban}}{36}{section*.30}%
-\contentsline {section}{\numberline {4.2}Patrones de diseño}{36}{section.4.2}%
-\contentsline {subsection}{\emph {Model-View-Template} (MVT)}{36}{section*.31}%
-\contentsline {section}{\numberline {4.3}Control de versiones}{37}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Alojamiento del repositorio}{37}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Gestión del proyecto}{38}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Comunicación}{38}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Entorno de desarrollo integrado (IDE)}{38}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Documentación de la memoria}{39}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Documentación del código}{39}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Integración y despliegue continuos (CI/CD)}{40}{section.4.10}%
-\contentsline {section}{\numberline {4.11}Calidad y consistencia de código}{40}{section.4.11}%
-\contentsline {section}{\numberline {4.12}Cobertura de código}{40}{section.4.12}%
-\contentsline {section}{\numberline {4.13}Framework web}{41}{section.4.13}%
-\contentsline {section}{\numberline {4.14}Sistema gestor de bases de datos}{41}{section.4.14}%
-\contentsline {section}{\numberline {4.15}Bibliotecas y librerías relevantes}{41}{section.4.15}%
-\contentsline {subsection}{Pandas}{42}{section*.32}%
-\contentsline {subsection}{Plotly}{42}{section*.33}%
-\contentsline {subsection}{Matplotlib}{42}{section*.34}%
-\contentsline {subsection}{yFinance}{42}{section*.35}%
-\contentsline {subsection}{News API}{42}{section*.36}%
-\contentsline {subsection}{Feedparser}{43}{section*.37}%
-\contentsline {subsection}{NetworkX}{43}{section*.38}%
-\contentsline {subsection}{Statsmodels}{43}{section*.39}%
-\contentsline {subsection}{Scikit-learn}{43}{section*.40}%
-\contentsline {subsection}{Scipy}{44}{section*.41}%
-\contentsline {subsection}{Keras}{44}{section*.42}%
-\contentsline {section}{\numberline {4.16}Desarrollo web}{44}{section.4.16}%
-\contentsline {subsection}{HTML}{44}{section*.43}%
-\contentsline {subsection}{CSS}{44}{section*.44}%
-\contentsline {subsection}{Bootstrap}{44}{section*.45}%
-\contentsline {subsection}{JavaScript}{45}{section*.46}%
-\contentsline {section}{\numberline {4.17}Otras herramientas}{45}{section.4.17}%
-\contentsline {subsection}{python-dotenv}{45}{section*.47}%
-\contentsline {subsection}{Draw.io}{45}{section*.48}%
-\contentsline {subsection}{Mendeley}{45}{section*.49}%
-\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{46}{chapter*.50}%
-\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{47}{chapter*.51}%
-\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{48}{chapter*.52}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{49}{chapter*.53}%
+\contentsline {subsection}{Optimización en términos de retorno y riesgo simultáneamente}{14}{section*.12}%
+\contentsline {subsection}{Frontera eficiente}{15}{section*.13}%
+\contentsline {subsection}{Sharpe ratio}{17}{section*.14}%
+\contentsline {section}{\numberline {3.2}Análisis de series temporales con modelos ARIMA}{19}{section.3.2}%
+\contentsline {subsection}{Modelos autorregresivos $(AR_{(p)})$}{19}{section*.15}%
+\contentsline {subsection}{Modelos de media móvil $(MA_{(q)})$}{20}{section*.16}%
+\contentsline {subsection}{Combinación de modelos: $(ARMA_{(p, q)})$}{21}{section*.17}%
+\contentsline {subsection}{Datos estacionarios. $I_{(d)}$ y $ARIMA_{(p, d, q)}$}{21}{section*.18}%
+\contentsline {subsection}{\emph {p-value} de un test ADF sobre precios de cierre y sobre retornos}{25}{section*.19}%
+\contentsline {subsection}{Selección de hiperparámetros $q$ y $p$. ACF y PACF}{28}{section*.20}%
+\contentsline {subsubsection}{Función de autocorrelación (ACF, por sus siglas en inglés) para obtener $q$}{28}{section*.21}%
+\contentsline {subsubsection}{Función de autocorrelación parcial (PACF, por sus siglas en inglés) para obtener $p$}{29}{section*.22}%
+\contentsline {subsection}{Casos especiales de ARIMA}{30}{section*.23}%
+\contentsline {subsection}{Comprobar resultados de ARIMA}{31}{section*.24}%
+\contentsline {section}{\numberline {3.3}Trading algorítmico}{33}{section.3.3}%
+\contentsline {subsection}{Estrategia de cruce de medias (o seguimiento de tendencias)}{33}{section*.25}%
+\contentsline {subsubsection}{Selección apropiada de medias móviles}{35}{section*.26}%
+\contentsline {subsubsection}{Comparar con otras estrategias}{36}{section*.27}%
+\contentsline {subsection}{Estrategia basada en \emph {Machine Laerning}}{36}{section*.28}%
+\contentsline {chapter}{4.\hskip .5em\relax Técnicas y herramientas}{38}{chapter*.29}%
+\contentsline {section}{\numberline {4.1}Técnicas metodológicas}{38}{section.4.1}%
+\contentsline {subsection}{Scrum}{38}{section*.30}%
+\contentsline {subsection}{\emph {Test-Driven Development} (TDD)}{38}{section*.31}%
+\contentsline {subsection}{\emph {Behavior-Driven Development} (BDD)}{39}{section*.32}%
+\contentsline {subsection}{\emph {Kanban}}{39}{section*.33}%
+\contentsline {section}{\numberline {4.2}Patrones de diseño}{39}{section.4.2}%
+\contentsline {subsection}{\emph {Model-View-Template} (MVT)}{39}{section*.34}%
+\contentsline {section}{\numberline {4.3}Control de versiones}{40}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Alojamiento del repositorio}{40}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Gestión del proyecto}{41}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Comunicación}{41}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Entorno de desarrollo integrado (IDE)}{41}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Documentación de la memoria}{42}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Documentación del código}{42}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Integración y despliegue continuos (CI/CD)}{43}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Calidad y consistencia de código}{43}{section.4.11}%
+\contentsline {section}{\numberline {4.12}Cobertura de código}{43}{section.4.12}%
+\contentsline {section}{\numberline {4.13}Framework web}{44}{section.4.13}%
+\contentsline {section}{\numberline {4.14}Sistema gestor de bases de datos}{44}{section.4.14}%
+\contentsline {section}{\numberline {4.15}Bibliotecas y librerías relevantes}{44}{section.4.15}%
+\contentsline {subsection}{Pandas}{45}{section*.35}%
+\contentsline {subsection}{Plotly}{45}{section*.36}%
+\contentsline {subsection}{Matplotlib}{45}{section*.37}%
+\contentsline {subsection}{yFinance}{45}{section*.38}%
+\contentsline {subsection}{News API}{45}{section*.39}%
+\contentsline {subsection}{Feedparser}{46}{section*.40}%
+\contentsline {subsection}{NetworkX}{46}{section*.41}%
+\contentsline {subsection}{Statsmodels}{46}{section*.42}%
+\contentsline {subsection}{Scikit-learn}{46}{section*.43}%
+\contentsline {subsection}{Scipy}{47}{section*.44}%
+\contentsline {subsection}{Keras}{47}{section*.45}%
+\contentsline {section}{\numberline {4.16}Desarrollo web}{47}{section.4.16}%
+\contentsline {subsection}{HTML}{47}{section*.46}%
+\contentsline {subsection}{CSS}{47}{section*.47}%
+\contentsline {subsection}{Bootstrap}{47}{section*.48}%
+\contentsline {subsection}{JavaScript}{48}{section*.49}%
+\contentsline {section}{\numberline {4.17}Otras herramientas}{48}{section.4.17}%
+\contentsline {subsection}{python-dotenv}{48}{section*.50}%
+\contentsline {subsection}{Draw.io}{48}{section*.51}%
+\contentsline {subsection}{Mendeley}{48}{section*.52}%
+\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{49}{chapter*.53}%
+\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{50}{chapter*.54}%
+\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{51}{chapter*.55}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{52}{chapter*.56}%

@@ -1164,7 +1164,6 @@ def cruce_medias(request):
     if form.is_valid():
         # Compruebo existencia de ticker y num_sesiones
         context = _comprobar_formulario_arima(form, ticker, request)
-
         if context is not False:
             return render(request, "buscar_paramateros_arima.html", context)
 
@@ -1175,100 +1174,30 @@ def cruce_medias(request):
         bd = obtener_nombre_bd(ticker)
         entradas = model.objects.using(bd).order_by('-date')[:num_sesiones]
         df = read_frame(entradas.values('date', 'close', 'ticker', 'name'))
-
         # Ordeno el df para calcular los retornos logarítmicos y adecuarlo
         # a lo explicado en los conceptos teóricos
         df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
 
-        df['MMS_len'] = df['close'].rolling(50).mean()
-        df['MMS_rap'] = df['close'].rolling(20).mean()
-        
-        # Preparar figura y buffer
-        plt.figure(figsize=(7, 5))
-        
-        # Gráfica con los datos reales y las predicciones
-        plt.plot(df['date'], df['close'], color='blue', label='Precios de cierre')
-        plt.plot(df['date'], df['MMS_len'], color='green', label='MMS50 (lenta)')
-        plt.plot(df['date'], df['MMS_rap'], color='orange', label='MMS20 (rápida)')
-        plt.title(f'{nombre_ticker}')
-        plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b. %Y'))
-        interval = 6 if len(df['close']) > 252 else 3
-        plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=interval))
-        plt.legend()
-        plt.grid()
-        buffer = BytesIO()
-        plt.savefig(buffer, format='PNG')
-        plt.close()
-        # Obtener los datos de la imagen del buffer
-        buffer.seek(0)
-        cruce_medias = base64.b64encode(buffer.read()).decode()
+        # Aplico el algoritmo de seguimiento de tendencia o cruce de medias
+        df, mms_len, mms_rap = _algoritmo_cruce_medias_automaticas(df)
 
-        df['retorno_log'] = np.log(df['close']).diff()
-        # Para alinearlo con los comandos de compra/venta que se crean más 
-        # adelante. Al hacer esto se pierde el último valor del df
-        df['retorno_log'] = df['retorno_log'].shift(-1)
-
-        # Creo una máscara que detecte cuando las dos medias empiezan a tener valores
-        mask = df['MMS_rap'].notna() & df['MMS_len'].notna()
-        # Calculo la columna de señal aplicando la máscara
-        df.loc[mask, 'senal'] = np.where(df.loc[mask, 'MMS_rap'] >= df.loc[mask, 'MMS_len'], 1, 0)
-
-        # Y hago las operaciones oportunas para las indicaciones de compra/venta
-        df['senal_prev'] = df['senal'].shift(1)
-        # MMS_rap < MMS_len , cambia a:  MMS_rap > MMS_len
-        df['comprar'] = (df['senal_prev'] == 0) & (df['senal'] == 1)
-        # MMS_rap > MMS_len , cambia a:  MMS_rap < MMS_len
-        df['vender'] = (df['senal_prev'] == 1) & (df['senal'] == 0)
-
-        # Calculo el estado invertido/no invertido
-        df['invertido'] = False
-        invertido = False
-        for i in range(len(df)):
-            if invertido and df.loc[i, 'vender']:
-                invertido = False
-            if not invertido and df.loc[i, 'comprar']:
-                invertido = True
-            df.loc[i, 'invertido'] = invertido
-
-        # Calculo el retorno logarítmico total según el algoritmo
-        df['retorno_log_algoritmo'] = df['invertido'] * df['retorno_log']
         retorno_log_total_algo = df['retorno_log_algoritmo'].sum()
         # Calculo el retorno logarítmico como si se hubiera seguido 
         # una estrategia de comprar y mantener desde la fecha del análisis
         retorno_log_total = df['retorno_log'].sum() 
 
-        df_resultados = pd.DataFrame(columns=['fecha_compra', 'fecha_venta', 'cierre_compra', 'cierre_venta', 'pordentaje'])
-        i = 0
-        for _, r in df.iterrows():
-            if r['comprar']:
-                df_resultados.loc[i, 'fecha_compra'] = r['date']
-                df_resultados.loc[i, 'cierre_compra'] = r['close']
-            if r['vender']:
-                df_resultados.loc[i, 'fecha_venta'] = r['date']
-                df_resultados.loc[i, 'cierre_venta'] = r['close']
-                # Tras la primera venta se incrementa i
-                i += 1
+        df_resultados = _resultados_cruce_medias(df)
+        cruce_medias = _generar_figura_cruce_medias(df, nombre_ticker, mms_len, mms_rap)        
 
-        # Si se sigue invertido no habrá precio de venta, así que se usa el
-        # último cierre del valor
-        if pd.isnull(df_resultados.iloc[-1]['fecha_venta']):
-            df_resultados.iloc[-1]['fecha_venta'] = df.iloc[-1]['date']
-            df_resultados.iloc[-1]['cierre_venta'] = df.iloc[-1]['close']
-        
-        # Puede haberse recibido una señal de venta sin haber compra, entonces,
-        # quedará un NaN en la fecha precios de compra. Como tiene valor, se elimina
-        if pd.isnull(df_resultados.iloc[0]['fecha_compra']):
-            df_resultados = df_resultados.drop(0)
-
-        # Calculos los porcentajes
-        df_resultados['porcentaje'] = (df_resultados['cierre_venta'] - df_resultados['cierre_compra']) / df_resultados['cierre_compra'] * 100
-        
         context = {
             'form': FormBasico(),
             "lista_tickers": tickers_disponibles(),
             'cruce_medias': cruce_medias,
             'retorno_log_total_algo': retorno_log_total_algo,
             'retorno_log_total': retorno_log_total,
+            'sharpe_retorno_log_algo': df['retorno_log_algoritmo'].mean() / df['retorno_log_algoritmo'].std(), 
+            'sharpe_retorno_log': df['retorno_log'].mean() / df['retorno_log'].std(), 
+
             'df_resultados': df_resultados,
             'porcentaje_algo': df_resultados['porcentaje'].sum(),
             'porcentaje_manteniendo': (df.iloc[-1]['close'] - df.iloc[0]['close']) / df.iloc[0]['close'] * 100,
@@ -1280,4 +1209,144 @@ def cruce_medias(request):
     context = _comprobar_formulario_arima(form, ticker, request)
     return render(request, "cruce_medias.html", context)
 
-# %%
+
+def _algoritmo_cruce_medias_automaticas(df):
+    """Para realizar aplicar el algoritmo de cruce de medias (o seguimiento de
+    tendencia).
+
+    Args:
+        df (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    # Para realizar una búsqueda por rejilla que permita obtener las mejores 
+    # MMS (lenta y rápida). Se incluyen medias típicas de análisis técnico
+    MMS_lenta = [30, 50, 200]
+    MMS_rapida = [5, 10, 15, 20]
+
+    mms_len = 0
+    mms_rap = 0
+    mejor = None
+    mejor_retorno = -np.inf 
+
+    for MMS_l in MMS_lenta:
+        for MMS_r in MMS_rapida:
+            df['MMS_len'] = df['close'].rolling(MMS_l).mean()
+            df['MMS_rap'] = df['close'].rolling(MMS_r).mean()
+
+            df['retorno_log'] = np.log(df['close']).diff()
+            # Para alinearlo con los comandos de compra/venta que se crean más 
+            # adelante. Al hacer esto se pierde el último valor del df
+            df['retorno_log'] = df['retorno_log'].shift(-1)
+
+            # Creo una máscara que detecte cuando las dos medias empiezan a tener valores
+            mascara = df['MMS_rap'].notna() & df['MMS_len'].notna()
+            # Calculo la columna de señal aplicando la máscara
+            df.loc[mascara, 'senal'] = np.where(df.loc[mascara, 'MMS_rap'] >= df.loc[mascara, 'MMS_len'], 1, 0)
+
+            # Y hago las operaciones oportunas para las indicaciones de compra/venta
+            df['senal_prev'] = df['senal'].shift(1)
+            # MMS_rap < MMS_len , cambia a:  MMS_rap > MMS_len
+            df['comprar'] = (df['senal_prev'] == 0) & (df['senal'] == 1)
+            # MMS_rap > MMS_len , cambia a:  MMS_rap < MMS_len
+            df['vender'] = (df['senal_prev'] == 1) & (df['senal'] == 0)
+
+            # Calculo el estado invertido/no invertido
+            df['invertido'] = False
+            invertido = False
+            for i in range(len(df)):
+                if invertido and df.loc[i, 'vender']:
+                    invertido = False
+                if not invertido and df.loc[i, 'comprar']:
+                    invertido = True
+                df.loc[i, 'invertido'] = invertido
+
+            # Calculo el retorno logarítmico total según el algoritmo
+            df['retorno_log_algoritmo'] = df['invertido'] * df['retorno_log']
+
+            ret_log_algo = df['retorno_log_algoritmo'].sum()
+
+            # Actualizo el mejor en caso de que el retorno sea mayor
+            if ret_log_algo > mejor_retorno:
+                mejor_retorno = ret_log_algo
+                mejor = df.copy()
+                mms_len = MMS_l
+                mms_rap = MMS_r
+
+    return mejor, mms_len, mms_rap
+
+
+def _resultados_cruce_medias(df):
+    """Para generar un DataFrame con algunos resultados relevantes que se mostrarán al 
+    usuario. 
+
+    Args:
+        df (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    df_resultados = pd.DataFrame(columns=['fecha_compra', 'fecha_venta', 'cierre_compra', 'cierre_venta', 'pordentaje'])
+    i = 0
+    for _, r in df.iterrows():
+        if r['comprar']:
+            df_resultados.loc[i, 'fecha_compra'] = r['date']
+            df_resultados.loc[i, 'cierre_compra'] = r['close']
+        if r['vender']:
+            df_resultados.loc[i, 'fecha_venta'] = r['date']
+            df_resultados.loc[i, 'cierre_venta'] = r['close']
+            # Tras la primera venta se incrementa i
+            i += 1
+
+    # Si se sigue invertido no habrá precio de venta, así que se usa el
+    # último cierre del valor
+    if pd.isnull(df_resultados.iloc[-1]['fecha_venta']):
+        df_resultados.iloc[-1]['fecha_venta'] = df.iloc[-1]['date']
+        df_resultados.iloc[-1]['cierre_venta'] = df.iloc[-1]['close']
+    
+    # Puede haberse recibido una señal de venta sin haber compra, entonces,
+    # quedará un NaN en la fecha precios de compra. Como tiene valor, se elimina
+    if pd.isnull(df_resultados.iloc[0]['fecha_compra']):
+        df_resultados = df_resultados.drop(0)
+
+    # Calculos los porcentajes
+    df_resultados['porcentaje'] = (df_resultados['cierre_venta'] - 
+                                   df_resultados['cierre_compra']) / df_resultados['cierre_compra'] * 100
+    
+    return df_resultados
+
+
+def _generar_figura_cruce_medias(df, nombre_ticker, mms_len, mms_rap):
+    """Para generar la figura del algoritmo de seguimiento de tendencia o cruce de medias. 
+
+    Args:
+        df (_type_): _description_
+        nombre_ticker (_type_): _description_
+        mms_len (_type_): _description_
+        mms_rap (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    # Preparar figura y buffer
+    plt.figure(figsize=(7, 5))
+    
+    # Gráfica con los datos reales y las predicciones
+    plt.plot(df['date'], df['close'], color='blue', label='Precios de cierre')
+    plt.plot(df['date'], df['MMS_len'], color='green', label=f'MMS{mms_len} (lenta)')
+    plt.plot(df['date'], df['MMS_rap'], color='orange', label=f'MMS{mms_rap} (rápida)')
+    plt.title(f'{nombre_ticker}')
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+    interval = 6 if len(df['close']) > 252 else 3
+    plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=interval))
+    plt.legend()
+    plt.grid()
+    buffer = BytesIO()
+    plt.savefig(buffer, format='PNG')
+    plt.close()
+    # Obtener los datos de la imagen del buffer
+    buffer.seek(0)
+    cruce_medias = base64.b64encode(buffer.read()).decode()
+
+    return cruce_medias
