@@ -1,6 +1,6 @@
 \capitulo{3}{Conceptos teóricos}
 
-Los conceptos teóricos más destacables de este proyecto residen en el estudio del modelo de Markowitz para la formación de una cartera bien diversificada - así como la correlación entre valores cotizados - y  en el análisis (\emph{forecasting}) de series temporales con modelos ARIMA y con redes LSTM. 
+Los conceptos teóricos más destacables de este proyecto residen en el estudio del modelo de Markowitz para la formación de una cartera bien diversificada, el análisis de series temporales con modelos ARIMA y la técnica de aprendizaje por refuerzo Q-learning. 
 
 
 \section{Diversificación de una cartera de valores cotizados}\label{diversificar_cartera}
@@ -286,7 +286,7 @@ Para facilitar la comprensión al usuario se puede realizar una gráfica con tod
 
 
 
-\section{Análisis de series temporales con modelos ARIMA}\label{series_temporales}
+\section{Análisis de series temporales con modelos ARIMA}\label{series_temporales_arima}
 
 Cuando hablamos de \emph{forecasting} (previsión o predicción) de series temporales con productos financieros hay que tener en cuenta que estamos ante un proceso especialmente complicado y que los resultados obtenidos, en muchas ocasiones, son erróneos o decepcionantes. Por ello, en este trabajo se propone un laboratorio virtual para analizar los datos, que le permita al usuario experimentar con algunas herramientas relativas al análisis de series temporales y que sea esa persona la que saque sus propias conclusiones a través de la información obtenida. 
 
@@ -550,10 +550,71 @@ Otra posible estrategia es utilizar una validación \emph{walk-forward anchored}
 De esto se puede deducir que ARIMA sirve para entender los datos pero, en la gran mayoría de los casos, no funciona bien para predecir precios de valores cotizados\footnote{Estas comprobaciones se pueden hacer con el uso de la web generada en este trabajo, en cualquiera de los apartados de ARIMA(p,d,q) el usuario puede experimentar y sacar sus propias conclusiones a través de resultados similares a los mostrados en esta sección}. 
 
 
- 
+\section{Aprendizaje por refuerzo: Q-learning}\label{q_learning}
 
-%-----------------------------------
-%Y también podemos estudiar las correlaciones entre los retornos de diferentes valores. 
-%
-%De hecho, podemos explotar la correlación entre valores para distribuir los pesos de nuestros valores de forma óptima en una cartera. 
-%-----------------------------------
+\subsection{Estrategia de seguimiento de tendencias}
+
+La idea básica de esta estrategia es crear dos medias móviles simples sobre los precios de cierre de valores cotizados. Una será la media móvil \emph{lenta} y la otra será la media móvil \emph{rápida}. De forma intuitiva podemos deducir que si incluimos más datos en una media móvil, ésta se ajustará de manera más lenta, porque cada dato en la media móvil tendrá menor influencia en el resultado. Es decir, una media móvil de 50 días será más lenta que una media móvil de 20 días. 
+
+La clave de este algoritmo reside en los puntos en los que la media móvil 'rápida' cruza la media móvil \emph{lenta}. Si la media móvil \emph{rápida} cruza desde abajo, entonces consideramos que es un momento de compra; y la cruza desde arriba, será una señal de venta. Mientras no haya cruce de medias, se asume que la posición se mantiene en cartera sin variación. 
+
+En este algoritmo se utilizan las medias ya comentadas pero, además, se implementan señales de compra y venta que sirven para indicar en qué sentido se está realizando el cruce de medias: si la señal previa es \texttt{False} y la señal actual es \texttt{True} significa que la media \emph{rápida} cruza desde abajo; si la señal previa es \texttt{True} y la señal actual es \texttt{False} significa que la media \emph{rápida} cruza desde arriba. 
+
+Aprovechando la información de las señales se guarda una información en otras columnas para saber en qué momentos comprar. 
+
+\tablaSmall{Cómo almacenar señales para algoritmo de seguimiento de tendencias}
+{c|c|c|c|c|c}
+{tabla_señales_cruce_medias}
+{
+ \textbf{MMS\_ráp} & \textbf{MMS\_len} & \textbf{señal} & \textbf{señal\_prev} & \textbf{comprar} & \textbf{vender} \\
+}
+{
+ .. & .. & 1 & .. & .. & .. \\
+ .. & .. & 0 & 1 & 0 & 1 \\
+ .. & .. & 0 & 0 & 0 & 0 \\
+ .. & .. & 1 & 0 & 1 & 0 \\
+}
+\newpage
+
+El pseudocódigo, suponiendo que se utiliza \emph{Python} y \texttt{pandas.DataFrame} es\footnote{Para calcular los retornos y medias se utilizan precios de cierre, i.e., se entiende que no se pueden hacer compras ni ventas en la apertura del mercado y, por tanto, hay que hacer un shift(1) en las señales, para que tenga sentido}:
+
+\begin{verbatim}
+def algoritmo(df):
+  df["señal"] = df["mms_rápida"] > df["mms_lenta"]
+  df["señal_previa"] = df["señal"].shift(1) 
+  df["comprar"] = (df["señal_previa"]==0) and (df["señal"]==1)
+  df["vender"] = (df["señal_previa"]==1) and (df["señal"]==0)
+  ...
+  return	
+\end{verbatim}
+
+En la implementación de este algoritmo es habitual asumir que no se permiten posiciones cortas en la cartera. Además, cada vez que se obtiene una señal de compra o venta, el algoritmo entiende que se usa todo el dinero disponible para comprar o que se liquida toda la posición. Esto tiene sentido, porque las señales no se basan en el precio, sino en los momentos de compra y venta, es decir, en el tiempo. 
+
+Adicionalmente, en la tabla de datos habrá una columna \emph{invertido} que indicará si el usuario tiene el valor comprado o no. Esto nos permitirá medir si nuestra inversión se ve afectada por los retornos. Es decir, si estamos invertidos en el valor, nuestro patrimonio se verá afectado por el retorno del día y si no estamos invertidos nuestro capital se mantendrá constante. Esta idea se puede implementar de diversas formas, pero en este trabajo se sigue el siguiente enfoque:
+
+\begin{verbatim}
+invertido = False
+
+for fila in df:
+  if invertido and fila["vender"]:
+    invertido = False
+  if not invertido and fila["comprar"]:
+    invertido = True
+  fila["invertido"] = invertido
+\end{verbatim}
+
+Con esta idea, la columna \texttt{df[´invertido´]} va estar retrasada un día, esto es así porque si compramos al final del día, cuando ya ha cerrado el mercado - lo cual no es posible -, no podemos estar invertidos hasta el siguiente día, que es cuando calculo el retorno. Pero ya habré cambiado el retorno, lo cual, desde mi punto de vista, es más conveniente. 
+
+Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hacer es calcular el retorno del algoritmo. Como en \emph{Python} \texttt{True} es 1 y \texttt{False} es 0, se pueden multiplicar las columnas de \emph{invertido} y \emph{retorno\_shift}, por ejemplo:
+
+\tablaSmall{Cómo almacenar retornos para algoritmo de seguimiento de tendencias}
+{c|c|c}
+{tabla_retornos_cruce_medias}
+{
+ \textbf{invertido} & \textbf{retorno\_shift} & \textbf{retorno\_algoritmo}\\
+}
+{
+ 0 & 1  & 0  \\
+ 0 & -1 & -1 \\
+ 1 & 2  & 2  \\
+}

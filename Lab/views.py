@@ -35,7 +35,7 @@ from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from pmdarima.arima import auto_arima
 from util.tickers.Tickers_BDs import obtener_nombre_bd, tickers_disponibles
 # Mis formularios
-from .forms import BuscarParametrosArimaForm, ArimaAutoForm, ArimaRejillaForm, ArimaManualForm, LstmForm
+from .forms import FormBasico, ArimaAutoForm, ArimaRejillaForm, ArimaManualForm, LstmForm
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
 from sklearn.preprocessing import MinMaxScaler
@@ -80,7 +80,7 @@ def buscar_paramateros_arima(request):
     if request.method == 'GET':
         context = {
             "lista_tickers": tickers_disponibles(),
-            "form": BuscarParametrosArimaForm,
+            "form": FormBasico,
         }
         return render(request, "buscar_paramateros_arima.html", context)
 
@@ -94,7 +94,7 @@ def buscar_paramateros_arima(request):
     ticker = ticker.replace("^", "")
 
     # Uso el resto del formulario (sin el ticker)
-    form = BuscarParametrosArimaForm(request.POST)
+    form = FormBasico(request.POST)
     if form.is_valid():
         # Compruebo existencia de ticker y num_sesiones
         context = _comprobar_formulario_arima(form, ticker, request)
@@ -109,13 +109,15 @@ def buscar_paramateros_arima(request):
         entradas = model.objects.using(bd).order_by('-date')[:num_sesiones]
         df = read_frame(entradas.values('date', 'close', 'ticker', 'name'))
 
+        df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
+
         # Calculo la diferenciación logarítmica y obtengo las gráficas oportunas
         graf_1 = _diferenciacion_logaritmica(df, 1)
         graf_2 = _diferenciacion_logaritmica(df, 2)
         graf_3 = _diferenciacion_logaritmica(df, 3) 
 
         context = {
-            'form': BuscarParametrosArimaForm(),
+            'form': FormBasico(),
             "lista_tickers": tickers_disponibles(),
             'graf_1': graf_1,
             'graf_2': graf_2,
@@ -522,7 +524,7 @@ def _comprobar_formulario_arima(form, ticker, request):
 
     bd = obtener_nombre_bd(ticker)
 
-    if isinstance(form, BuscarParametrosArimaForm):
+    if isinstance(form, FormBasico):
         num_sesiones = request.POST.get('num_sesiones')
         if bd is None:
             context["msg_error"] = f'El ticker {ticker} no está disponibe'
@@ -1126,3 +1128,156 @@ def _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_
     }
 
     return context
+
+
+@login_required
+def cruce_medias(request):
+    """Para implementar el algoritmo de seguimiento de tendencias o cruce de medias. 
+    
+    Args:
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
+
+    Returns:
+        (render): renderiza la plantilla 'arima_auto.html' con datos
+            de contexto.
+    """
+    if request.method == 'GET':
+        context = {
+            "lista_tickers": tickers_disponibles(),
+            "form": FormBasico,
+        }
+        return render(request, "cruce_medias.html", context)
+
+    # POST
+    # ----
+    # El 'ticker' no está en el form para poder usar
+    # una caja de búsqueda autocompletable.
+    ticker = request.POST.get("ticker_a_buscar")
+    nombre_ticker = ticker
+    # Adaptación a la notación de los tickers en las BDs
+    ticker = ticker.replace(".", "_")
+    ticker = ticker.replace("^", "")
+
+    # Uso el resto del formulario (sin el ticker)
+    form = FormBasico(request.POST)
+    if form.is_valid():
+        # Compruebo existencia de ticker y num_sesiones
+        context = _comprobar_formulario_arima(form, ticker, request)
+
+        if context is not False:
+            return render(request, "buscar_paramateros_arima.html", context)
+
+        num_sesiones = form.cleaned_data['num_sesiones']
+
+        # Obtengo los datos de las últimas sesiones
+        model = apps.get_model('Analysis', ticker)
+        bd = obtener_nombre_bd(ticker)
+        entradas = model.objects.using(bd).order_by('-date')[:num_sesiones]
+        df = read_frame(entradas.values('date', 'close', 'ticker', 'name'))
+
+        # Ordeno el df para calcular los retornos logarítmicos y adecuarlo
+        # a lo explicado en los conceptos teóricos
+        df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
+
+        df['MMS_len'] = df['close'].rolling(50).mean()
+        df['MMS_rap'] = df['close'].rolling(20).mean()
+        
+        # Preparar figura y buffer
+        plt.figure(figsize=(7, 5))
+        
+        # Gráfica con los datos reales y las predicciones
+        plt.plot(df['date'], df['close'], color='blue', label='Precios de cierre')
+        plt.plot(df['date'], df['MMS_len'], color='green', label='MMS50 (lenta)')
+        plt.plot(df['date'], df['MMS_rap'], color='orange', label='MMS20 (rápida)')
+        plt.title(f'{nombre_ticker}')
+        plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b. %Y'))
+        interval = 6 if len(df['close']) > 252 else 3
+        plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=interval))
+        plt.legend()
+        plt.grid()
+        buffer = BytesIO()
+        plt.savefig(buffer, format='PNG')
+        plt.close()
+        # Obtener los datos de la imagen del buffer
+        buffer.seek(0)
+        cruce_medias = base64.b64encode(buffer.read()).decode()
+
+        df['retorno_log'] = np.log(df['close']).diff()
+        # Para alinearlo con los comandos de compra/venta que se crean más 
+        # adelante. Al hacer esto se pierde el último valor del df
+        df['retorno_log'] = df['retorno_log'].shift(-1)
+
+        # Creo una máscara que detecte cuando las dos medias empiezan a tener valores
+        mask = df['MMS_rap'].notna() & df['MMS_len'].notna()
+        # Calculo la columna de señal aplicando la máscara
+        df.loc[mask, 'senal'] = np.where(df.loc[mask, 'MMS_rap'] >= df.loc[mask, 'MMS_len'], 1, 0)
+
+        # Y hago las operaciones oportunas para las indicaciones de compra/venta
+        df['senal_prev'] = df['senal'].shift(1)
+        # MMS_rap < MMS_len , cambia a:  MMS_rap > MMS_len
+        df['comprar'] = (df['senal_prev'] == 0) & (df['senal'] == 1)
+        # MMS_rap > MMS_len , cambia a:  MMS_rap < MMS_len
+        df['vender'] = (df['senal_prev'] == 1) & (df['senal'] == 0)
+
+        # Calculo el estado invertido/no invertido
+        df['invertido'] = False
+        invertido = False
+        for i in range(len(df)):
+            if invertido and df.loc[i, 'vender']:
+                invertido = False
+            if not invertido and df.loc[i, 'comprar']:
+                invertido = True
+            df.loc[i, 'invertido'] = invertido
+
+        # Calculo el retorno logarítmico total según el algoritmo
+        df['retorno_log_algoritmo'] = df['invertido'] * df['retorno_log']
+        retorno_log_total_algo = df['retorno_log_algoritmo'].sum()
+        # Calculo el retorno logarítmico como si se hubiera seguido 
+        # una estrategia de comprar y mantener desde la fecha del análisis
+        retorno_log_total = df['retorno_log'].sum() 
+
+        df_resultados = pd.DataFrame(columns=['fecha_compra', 'fecha_venta', 'cierre_compra', 'cierre_venta', 'pordentaje'])
+        i = 0
+        for _, r in df.iterrows():
+            if r['comprar']:
+                df_resultados.loc[i, 'fecha_compra'] = r['date']
+                df_resultados.loc[i, 'cierre_compra'] = r['close']
+            if r['vender']:
+                df_resultados.loc[i, 'fecha_venta'] = r['date']
+                df_resultados.loc[i, 'cierre_venta'] = r['close']
+                # Tras la primera venta se incrementa i
+                i += 1
+
+        # Si se sigue invertido no habrá precio de venta, así que se usa el
+        # último cierre del valor
+        if pd.isnull(df_resultados.iloc[-1]['fecha_venta']):
+            df_resultados.iloc[-1]['fecha_venta'] = df.iloc[-1]['date']
+            df_resultados.iloc[-1]['cierre_venta'] = df.iloc[-1]['close']
+        
+        # Puede haberse recibido una señal de venta sin haber compra, entonces,
+        # quedará un NaN en la fecha precios de compra. Como tiene valor, se elimina
+        if pd.isnull(df_resultados.iloc[0]['fecha_compra']):
+            df_resultados = df_resultados.drop(0)
+
+        # Calculos los porcentajes
+        df_resultados['porcentaje'] = (df_resultados['cierre_venta'] - df_resultados['cierre_compra']) / df_resultados['cierre_compra'] * 100
+        
+        context = {
+            'form': FormBasico(),
+            "lista_tickers": tickers_disponibles(),
+            'cruce_medias': cruce_medias,
+            'retorno_log_total_algo': retorno_log_total_algo,
+            'retorno_log_total': retorno_log_total,
+            'df_resultados': df_resultados,
+            'porcentaje_algo': df_resultados['porcentaje'].sum(),
+            'porcentaje_manteniendo': (df.iloc[-1]['close'] - df.iloc[0]['close']) / df.iloc[0]['close'] * 100,
+        }
+        # Si todo ha ido bien muestro la info. al usuario
+        return render(request, "cruce_medias.html", context)
+
+    # Si el formulario no es válido, busco el motivo e informo al usuario
+    context = _comprobar_formulario_arima(form, ticker, request)
+    return render(request, "cruce_medias.html", context)
+
+# %%

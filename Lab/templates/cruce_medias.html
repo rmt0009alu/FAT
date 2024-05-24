@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_lab.css' %}">
+
+<br>
+<P class="cabecera">Algoritmo de cruce de medias</P>
+
+<div class="col-md-6 offset-md-3 mt-5">
+  <div id="buscar_paramateros_arima">
+
+    <form method="POST" action="{% url 'cruce_medias' %}" class="card card-body">
+      <p style="color: red;">{{ msg_error }}</p>
+
+      {% csrf_token %}
+
+      <input type="hidden" id="ticker_a_buscar" name="ticker_a_buscar" value="">
+
+      <div class="ui-widget">
+        <label for="ticker_autocomplete"></label>
+        <input id="ticker_autocomplete" class="form-control" placeholder="Buscador de tickers">
+      </div>
+
+      <!-- No uso {{ form.as_p }} para poder dar los estilos deseados -->
+      <div class="form-group">
+        <!-- num_sesiones -->
+        <label for="{{ form.num_sesiones.id_for_label }}" class="sr-only"></label>
+        {{ form.num_sesiones }}
+      </div>
+      <br>
+      <button type="submit" class="btn btn-dark" style="width: 50%; text-align: center; margin: auto;">Mostrar resultados</button><br>
+    </form>
+    <br>
+  </div>
+</div>
+
+
+{% if cruce_medias %}
+    <div class="graph-container">
+        <div class="graph">
+            <p class="barra">Cruce de medias</p>
+                <div class="flex-container">
+                <img src="data:image/png;base64,{{ cruce_medias }}" alt="img_cruce_medias">
+
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Día de compra</th>
+                                <th>Día de venta</th>
+                                <th>Precio cierre. Día de compra</th>
+                                <th>Precio cierre. Día de venta</th>
+                                <th>Rentabilidad (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for index, row in df_resultados.iterrows %}
+                                <tr>
+                                    <td>{{ row.fecha_compra }}</td>
+                                    <td>{{ row.fecha_venta }}</td>
+                                    <td>{{ row.cierre_compra }}</td>
+                                    <td>{{ row.cierre_venta }}</td>
+                                    <td>{{ row.porcentaje }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+<style>
+  /* Límite para el cuadro de búsqueda de tickers */
+  .ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+  }
+
+  /* Centrar las gráficas */
+  .graph-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .graph {
+    margin-bottom: 20px;
+  }
+
+  .graph img {
+    width: 50%;
+    height: auto;
+  }
+</style>
+<script>
+
+  // Para el cuadro de búsqueda de tickers
+  $(function() {
+    var tickersDisponibles = {{ lista_tickers|safe }};
+    $("#ticker_autocomplete").autocomplete({
+      source: tickersDisponibles,
+      minLength: 0,
+      delay: 300,
+      select: function(event, ui) {
+        // Valores del input visible
+        $("#ticker_autocomplete").val(ui.item.value);
+        // Valores del input oculto
+        $("#ticker_a_buscar").val(ui.item.value);
+        return false;
+      },
+      open: function(event, ui) {
+        // Limitar el número de sugerencias
+        var menu = $(this).autocomplete("widget");
+        menu.element.attr("size", 5);
+      }
+    });
+  });
+
+</script>
+
+{% endblock %}

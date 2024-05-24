@@ -5,7 +5,7 @@ from django import forms
 
 # NOTA: aquí no se hereda de ModelForm porque no hay modelo asociado
 
-class BuscarParametrosArimaForm(forms.Form):
+class FormBasico(forms.Form):
     """Clase que define el fomrulario para introducir los datos
     necearios para buscar de forma gráfica los mejores valores
     para (p, d, q). 
