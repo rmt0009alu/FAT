@@ -568,7 +568,7 @@ En este algoritmo se utilizan las medias ya comentadas pero, además, se impleme
 
 Aprovechando la información de las señales se guarda una información en otras columnas para saber en qué momentos comprar. 
 
-\tablaSmall{Cómo almacenar señales para algoritmo de seguimiento de tendencias}
+\tablaSmallAjustadaConPosicion{Cómo almacenar señales para algoritmo de seguimiento de tendencias}
 {c|c|c|c|c|c}
 {tabla_señales_cruce_medias}
 {
@@ -617,7 +617,7 @@ Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hace
   df["retorno_algoritmo"] = df["invertido"] * df["retorno_shift"]
 \end{verbatim}
 
-\tablaSmall{Cómo almacenar retornos para algoritmo de seguimiento de tendencias}
+\tablaSmallConPosicion{Cómo almacenar retornos para algoritmo de seguimiento de tendencias}
 {c|c|c}
 {tabla_retornos_cruce_medias}
 {
@@ -625,15 +625,15 @@ Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hace
 }
 {
  0 & 1  & 0  \\
- 0 & -1 & -1 \\
+ 1 & -1 & -1 \\
  1 & 2  & 2  \\
-}
+}\label{tabla:1} 
 
 \subsubsection{Selección apropiada de medias móviles}
 
 Uno de los problemas de este algoritmo puede residir en la correcta selección de las medias móviles simples que se aplicarán. En este trabajo se realiza una búsqueda por rejilla entre algunas de las medias más frecuentes:
 
-\tablaSmall{Medias móviles simples frecuentes}
+\tablaSmallConPosicion{Medias móviles simples frecuentes}
 {c|c}
 {tabla_mms_frecuentes}
 {
@@ -654,22 +654,22 @@ La selección de las medias se realiza por comparación entre la suma de retorno
 Para determinar cómo de bueno es este algoritmo de cruce de medias, se comparan los resultados con una estrategia básica, comúnmente conocida como \emph{buy and hold} (comprar y aguantar)\citep{wiki:buy_and_hold}.
 
 
-\subsection{Estrategia basada en \emph{Machine Laerning}}
+\subsection{Estrategia basada en \emph{Machine Learning}}
 
-En la estrategia anterior no se usan modelos estadísticos ni hay un \emph{aprendizaje} que se pueda aplicar posteriormente. Sin embargo, es posible aplicar ideas de regresión o clasificación para ayudarnos a realizar mejores operaciones. 
+En la estrategia anterior no se usan modelos estadísticos ni hay un \emph{aprendizaje} que se pueda aplicar posteriormente. Sin embargo, sí es posible aplicar ideas de regresión o clasificación para ayudarnos a realizar mejores operaciones\footnote{En este trabajo se utilizará la librería \texttt{scikit-learn} con algunnos de sus modelos}. 
 
 Como ya se ha visto en la sección de ARIMA, predecir la evolución de un valor para varios días es realmente complicado. Por ello, en este apartado se seguirá una idea mucho menos ambiciosa, que es la de intentar predecir la evolución para un sólo día. 
 
-Entonces, se intentará entrenar un modelo con todos los datos disponibles hasta la fecha y estimar únicamente la fecha siguiente. Con este tipo de estrategias, la decisión de vender, comprar o no hacer nada es algo que se tiene que actualizar diariamente. 
+Entonces, se intentará entrenar un modelo con todos los datos disponibles hasta la fecha y estimar únicamente la evolución en la fecha siguiente. Con este tipo de estrategias, la decisión de vender, comprar o no hacer nada es algo que se tiene que actualizar diariamente.
 
 La dificultad de esta aproximación radica en la decisión de cómo formar los datos y qué se va a predecir. En mi caso, seguiré la lógica de que hay valores altamente ponderados en un índice y que estos tienen la capacidad de \emph{mover} ese índice \emph{por sí solos} (o, al menos, con mayor influencia que el resto de componentes). Teniendo en cuenta los retornos de dichos valores estimaré si al día siguiente la tendencia será alcista o bajista, de forma general para el índice de referencia. 
 
 Este enfoque se basa en seleccionar los retornos de valores de mayor capitalización de mercado \citep{wiki:market_cap} como si fueran atributos de un modelo de regresión o clasificación. Y la media de los retornos se considerará la clase objetivo. De esta forma, basándome en la hipótesis del aprendizaje inductivo, supondré que es posible que un modelo que aproxime bien una función en los datos de entrenamiento, también lo hará bien en los datos desconocidos. 
 
-La selección de los valores que \emph{representarán} a todo el índice serán:
+La selección de los valores que \emph{representarán} a cada índice serán:
 
-\tablaSmall{Valores seleccionados de cada índice}
-{c|c|c|c}
+\tablaSmallAjustadaConPosicion{Valores seleccionados de cada índice}
+{X|X|X|X}
 {tabla_valores_seleccionados}
 {
  \textbf{DJ30} & \textbf{IBEX35} & \textbf{FTSE100} & \textbf{DAX40}\\
@@ -678,6 +678,49 @@ La selección de los valores que \emph{representarán} a todo el índice serán:
  Microsoft (MSFT)  			& Inditex (ITX.MC)  		& SHELL (SHEL.L) 		& SAP (SAP.DE)\\
  Apple (AAPL) 				& Iberdrola (IBE.MC)  		& AstraZeneca (AZN.L) 	& Siemens AG (SIE.DE)\\
  United Health (UNH) 		& Banco Santander (SAN.MC) 	& HSBC (HSBA.L)			& Allianz (ALV.DE)\\
- Johnson and Jhonson (JNJ) 	& BBVA (BBVA.MC)			& Unilever (ULVR.L)		& Airbus (AIR.DE)\\
+ Johnson and Johnson (JNJ) 	& BBVA (BBVA.MC)			& Unilever (ULVR.L)		& Airbus (AIR.DE)\\
  JP Morgan Chase (JPM) 		& Caixabank (CABK.MC)  		& BP (BP.L)				& Deutsche Telekom\\
 }
+
+Cabe preguntarse por qué no se usan los datos de todos los componentes de cada índice y la respuesta es que, en esos casos, los modelos tienden a sobreajustar y no nos interesa. También es adecuado pensar en el porqué de usar retornos en lugar de precios de cierre; esto lo haré así porque los retornos - como la se ha explicado en la sección de ARIMA - siguen, habitualmente, una distribución normal, con una varianza similar a lo largo del tiempo. Entonces, como los modelos de \emph{Machine Learning} no son buenos extrapolando, si los entrenara con precios de cierre y luego en los test aparecieran datos por encima o por debajo, el modelo \emph{no sabría qué hacer}. Sin embargo, con los retornos esto es menos probable que ocurra, porque se comportan como series estacionarias en la mayoría de los casos. 
+
+\subsubsection{Preprocesado de datos}
+
+Para poder utilizar esta estrategia es necesario adaptar los datos para poder trabajar con ellos de manera adecuada. 
+
+\tablaSmallSinColores{Datos con estrategia basada en ML}
+{c|c|c|c|c|>{\columncolor{gray}}c}
+{tabla_datos_ML}
+{
+ \textbf{MSFT} & \textbf{AAPL} & \textbf{UNH} & \textbf{JNJ} & \textbf{JPM} & \textbf{DJ30} \\
+}
+{
+1 & 1 & 1 & 1 & 1 & 2\\
+2 & 2 & 2 & 2 & 2 & 3\\
+3 & 3 & 3 & 3 & 3 & 4\\
+.. & .. & .. & .. & .. & .. \\
+}
+
+La idea es utilizar los retornos actuales de los valores como entradas del modelo para predecir lo que ocurrirá el día siguiente, por tanto, es adecuado que la columna objetivo esté \emph{adelantada} un día - de nuevo, con un \texttt{shift()} -. A la hora de trabajar con los datos será mucho más sencillo tener toda la información en una sola fila. Así, los datos para usar con los modelos estarán distribuidos de la siguiente manera:
+
+\imagen{img_17_xtrain_ytrain_ml.png}{Conjuntos de entrenamiento y test en estrategia basada en ML. Fuente: elaboración propia}{0.9}
+
+
+\subsubsection{Algoritmo}
+
+Al utilizar modelos de clasificación o de regresión tendremos algo similar a \texttt{predicción = model.predict(X)}. Entonces, puedo utilizar la predicción para guardar información de si un usuario está invertido en ese momento, o no, con un código similar a este:
+
+\begin{verbatim}
+	predicción = model.predict(X)
+	...
+	if predicción > 0:
+		df["invertido"] = 1 
+	else:
+		df["invertido"] = 0 
+\end{verbatim}
+
+Es decir, si la predicción es mayor que 0, entonces se genera una señal de compra o, simplemente, se mantiene la inversión si ya estuviera activa; y al contrario para predicciones menores que 0. Esto permite conocer, con cada predicción, si mantenemos la inversión o no. Y una vez que se conoce el estado de invertido/no invertido se realiza el mismo proceso que en \ref{tabla:1} multiplicando: 
+
+\begin{verbatim}
+  df["retorno_algoritmo"] = df["invertido"] * df["retorno_shift"]
+\end{verbatim}

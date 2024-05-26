@@ -22,6 +22,10 @@
     display: none;
 }
 
+.ocultos-algo {
+  display: none;
+}
+
 .ayuda {
     position: relative;
     display: inline-block;

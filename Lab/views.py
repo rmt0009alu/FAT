@@ -30,12 +30,13 @@ from django.contrib.auth.decorators import login_required
 # Para usar django-pandas y frames
 from django_pandas.io import read_frame
 from sklearn.metrics import mean_squared_error
+from sklearn.linear_model import LinearRegression, LogisticRegression
 from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from pmdarima.arima import auto_arima
 from util.tickers.Tickers_BDs import obtener_nombre_bd, tickers_disponibles
 # Mis formularios
-from .forms import FormBasico, ArimaAutoForm, ArimaRejillaForm, ArimaManualForm, LstmForm
+from .forms import FormBasico, ArimaAutoForm, ArimaRejillaForm, ArimaManualForm, EstrategiaMLForm, LstmForm
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
 from sklearn.preprocessing import MinMaxScaler
@@ -1350,3 +1351,182 @@ def _generar_figura_cruce_medias(df, nombre_ticker, mms_len, mms_rap):
     cruce_medias = base64.b64encode(buffer.read()).decode()
 
     return cruce_medias
+
+
+@login_required
+def estrategia_ML(request):
+    """Para implementar el algoritmo de seguimiento de tendencias o cruce de medias. 
+    
+    Args:
+        request (django.core.handlers.wsgi.WSGIRequest): solicitud
+            HTTP encapsulada por Django.
+
+    Returns:
+        (render): renderiza la plantilla 'arima_auto.html' con datos
+            de contexto.
+    """
+    if request.method == 'GET':
+        context = {
+            "form": EstrategiaMLForm,
+        }
+        return render(request, "estrategia_basada_en_ML.html", context)
+
+    # Uso el resto del formulario (sin el ticker)
+    form = EstrategiaMLForm(request.POST)
+    if form.is_valid():
+        # Compruebo existencia de ticker y num_sesiones
+        
+        
+        # context = _comprobar_formulario_ML(form, request)
+        
+        
+        # if context is not False:
+        #     return render(request, "estrategia_basada_en_ML.html", context)
+
+        num_sesiones = form.cleaned_data['num_sesiones']
+        indice = form.cleaned_data['indice']
+        tipo_modelo = form.cleaned_data['tipo_modelo']
+        porcentaje_entren = form.cleaned_data['porcentaje_entrenamiento']
+
+        valores, clase, tickers_unidos = _obtener_tickers_relevantes(indice)
+
+        df_resultado = pd.DataFrame(columns=tickers_unidos)
+        for ticker in tickers_unidos:
+            # Obtengo los datos de las últimas sesiones
+            model = apps.get_model('Analysis', ticker)
+            bd = obtener_nombre_bd(ticker)
+            entradas = model.objects.using(bd).order_by('-date')[:num_sesiones]
+            df = read_frame(entradas.values('date', 'close', 'ticker', 'name'))
+            # Ordeno el df para calcular los retornos logarítmicos y adecuarlo
+            # a lo explicado en los conceptos teóricos
+            df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
+
+            df_resultado[ticker] = df['close']
+        
+        # Como todos los valores cotizan en el mismo mercado, tendrán las
+        # mismas fechas, así que me aprovecho de ello para añadir una columna
+        # de fechas común que podría ser de utilidad
+        df_resultado['date'] = df['date']
+        # Y la dejo como índice
+        df_resultado.set_index('date', inplace=True)
+
+        # Creo el df de retornos logarítmicos
+        df_retornos = pd.DataFrame()
+        for ticker in df_resultado.columns:
+            df_retornos[ticker] = np.log(df_resultado[ticker]).diff()
+        
+        # Elimino la primera fila que tendrá NaN por hacer el diff()
+        df_retornos.dropna(inplace=True)
+
+        # Split 70/30 o lo que sea (uso el % indicado por el usuario adaptándolo)
+        porcentaje_entren = int(porcentaje_entren.replace('%', ''))/100
+        tam_entrenamiento = int(len(df_retornos) * porcentaje_entren)
+        
+        # Elimino la primera y última fila porque son valores
+        # perdidos tras el diff()
+        train = df_retornos.iloc[:tam_entrenamiento]
+        test = df_retornos.iloc[tam_entrenamiento:]
+
+        x_train = train[valores]
+        y_train = train[clase]
+        x_test = test[valores]
+        y_test = test[clase]
+
+        if tipo_modelo == 'Regresión lineal':
+            model = LinearRegression()
+        elif tipo_modelo == 'Clasificación':
+            model = LogisticRegression
+
+        # Para que en la web vaya más rápido no se hace validación cruzada
+        model.fit(x_train, y_train)
+        print("Rendimiento en entrenamiento", model.score(x_train, y_train))
+        print("Rendimiento en test", model.score(x_test, y_test))
+
+        # No me voy a preocupar por el valor de las predicciones, solo 
+        # me interesa saber si es un resultado positivo o negativo (predicción)
+        # de siguiente día ascendente o descendente)
+        pred_train = model.predict(x_train)
+        pred_test = model.predict(x_test)
+        
+        # Obtengo unos arrays de [1, -1] que me indican la tendencia en ese
+        # punto. Luego los comparo para obtener un array de bool y así puedo
+        # calcular la exactitud (accuracy) con mean()
+        print("Media de aciertos de tendencia en entrenamiento", np.mean(np.sign(pred_train) == np.sign(y_train)))
+        print("Media de aciertos de tendencia en test", np.mean(np.sign(pred_test) == np.sign(y_test)))
+
+        # Creo una nueva columna que permite saber el estado en el que 
+        # está: alcista/basjista. Suponiendo que todas las veces que el algoritmo 
+        # ha indicado posición alcista nos hemos puesto alcistas, podré hacer una 
+        # suma de los retornos en esos días. 
+        # Esto es, si 'pred_train' es > 0 se asigna un True y False en otro caso
+        posiciones = np.zeros(len(df_retornos), dtype=int)
+        posiciones[:tam_entrenamiento] = (pred_train > 0).astype(int)
+        posiciones[tam_entrenamiento:] = (pred_test > 0).astype(int)
+        df_retornos['posicion'] = posiciones
+        # Todas las veces que es alcista se multiplican por el retorno real
+        # para ver lo que habría ocurrido.
+        df_retornos['retorno_algoritmo'] = df_retornos['posicion'] * df_retornos[clase]
+
+        print("Retorno logarítimo total del algoritmo en entrenamiento", df_retornos.iloc[:tam_entrenamiento]['retorno_algoritmo'].sum())
+        print("Retorno logarítimo total del algoritmo en test", df_retornos.iloc[tam_entrenamiento:]['retorno_algoritmo'].sum())
+
+        print("Retorno logarítimo total con 'buy-and-hold' en entrenamiento", y_train.sum())
+        print("Retorno logarítimo total con 'buy-and-hold' en test", y_test.sum())
+
+        # Los datos para realizar una predicción extra corresponden con los del último 
+        # día disponible. Entonces, creo un 'df' con esos datos (para darle la forma necesaria)
+        datos_prediccion = df_resultado.iloc[-1][valores].copy()
+        # Y, posteriormente, hago un diff() manual para obtener los retornos logarítmicos
+        datos_prediccion = np.log(df_resultado.iloc[-1][valores]) - np.log(df_resultado.iloc[-2][valores])
+        # Como sólo tengo una fila de datos, el df aparece como columna, así
+        # que me aseguro de que estará bien transponiendo
+        datos_prediccion = pd.DataFrame(datos_prediccion).T
+
+        # Finalmente hago la predicción con el modelo que ya tenía entrenado
+        pred_siguiente = model.predict(datos_prediccion)
+
+        print("Predicción para el siguiente día:", pred_siguiente)
+
+        context = {
+            'form': EstrategiaMLForm(),
+        }
+        # Si todo ha ido bien muestro la info. al usuario
+        return render(request, "estrategia_basada_en_ML.html", context)
+    
+    # Si el formulario no es válido, busco el motivo e informo al usuario
+    context = _comprobar_formulario_arima(form, ticker, request)
+    return render(request, "estrategia_basada_en_ML.html", context)
+
+
+def _obtener_tickers_relevantes(indice): 
+    """Para obtener los tickers relevantes de cada índice y el propio índice. 
+
+    Args:
+        indice (str): nombre del índice con el que se va a trabajar. 
+
+    Returns:
+        valores (list): lista de los valores que rerpesentan al índice.
+        clase (str): nombre del índice con el formato de guardado en BDs,
+            esta será la clase objetivo.
+        tickers_unidos (list): lista con todos los tickers.
+    """
+    valores = []
+    clase = None
+    tickers_unidos = []
+
+    if indice == 'DJ30':
+        valores = ['MSFT', 'AAPL', 'UNH', 'JNJ', 'JPM']
+        clase = 'DJI'
+    elif indice == 'IBEX35':
+        valores = ['ITX_MC', 'IBE_MC', 'SAN_MC', 'BBVA_MC', 'CABK_MC']
+        clase = 'IBEX'
+    elif indice == 'FTSE100':
+        valores = ['SHEL_L', 'AZN_L', 'HSBA_L', 'ULVR_L', 'BP_L']
+        clase = 'FTSE'
+    elif indice == 'DAX40':
+        valores = ['SAP_DE', 'SIE_DE', 'ALV_DE', 'AIR_DE', 'DTE_DE']
+        clase = 'GDAXI'
+
+    tickers_unidos = valores.copy()
+    tickers_unidos.append(clase)
+    return valores, clase, tickers_unidos

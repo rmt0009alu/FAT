@@ -254,3 +254,67 @@ class LstmForm(forms.Form):
             'placeholder': 'Porcentaje de datos para el entrenamiento'
         })
     )
+
+
+class EstrategiaMLForm(forms.Form):
+    """Clase que define el fomrulario para introducir los datos
+    necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
+    se obtienen de forma automática con 'arima_auto' de 'pmdarima'.
+
+    Args:
+        Form (django.forms.Form): tipo formulario de Django. 
+    """
+    # Validación de datos de cantidad de días
+    num_sesiones = forms.IntegerField(
+        min_value=100,
+        max_value=500,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Número de últimas sesiones que se quiere analizar [100-500]'
+        })
+    )
+
+    # Campo para indicar el índice
+    indice = forms.ChoiceField(
+        choices=(
+            ('DJ30', 'DJI'),
+            ('IBEX35', 'IBEX'),
+            ('FTSE100', 'FTSE'),
+            ('DAX40', 'GDAXI'),
+        ),
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Selecciona un índice sobre el que hacer la previsión'
+        })
+    )
+
+    # Campo para indicar el tipo de modelo
+    tipo_modelo = forms.ChoiceField(
+        choices=(
+            ('Regresión lineal', 'LinearRegression()'),
+            ('Clasificación', 'LosgisticRegression()'),
+        ),
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Selecciona un modelo para realizr la previsión'
+        })
+    )
+
+    # Campo para indicar el % de datos de entrenamiento
+    porcentaje_entrenamiento = forms.ChoiceField(
+        choices=(
+            ('50%', 50),
+            ('66%', 66),
+            ('70%', 70),
+            ('80%', 80),
+            ('90%', 90),
+        ),
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Porcentaje de datos para el entrenamiento'
+        })
+    )

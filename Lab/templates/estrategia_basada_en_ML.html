@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos_lab.css' %}">
+
+<br>
+<P class="cabecera">ARIMA(p, d, q)</P>
+
+<div class="col-md-6 offset-md-3 mt-5">
+  <div id="estrategia_ML">
+
+    <form method="POST" action="{% url 'estrategia_ML' %}" class="card card-body">
+      <p style="color: red;">{{ msg_error }}</p>
+
+      {% csrf_token %}
+
+      <!-- No uso {{ form.as_p }} para poder dar los estilos deseados -->
+      <div class="form-group">
+        <!-- num_sesiones -->
+        <label for="{{ form.num_sesiones.id_for_label }}" class="sr-only"></label>
+        {{ form.num_sesiones }}
+      </div>
+
+      <div class="form-group">
+        <!-- Índice de la predicción -->
+        <label for="{{ form.indice.id_for_label }}" class="sr-only"></label>
+        {{ form.indice }}
+      </div>
+
+      <div class="form-group">
+        <!-- Tipo de modelo de ML que se usará -->
+        <label for="{{ form.tipo_modelo.id_for_label }}" class="sr-only"></label>
+        {{ form.tipo_modelo }}
+      </div>
+
+      <div class="form-group">
+        <!-- porcentaje_entrenamiento -->
+        <label for="{{ form.porcentaje_entrenamiento.id_for_label }}" class="sr-only"></label>
+        {{ form.porcentaje_entrenamiento }}
+        <br>
+      </div>
+      
+      <button type="submit" class="btn btn-dark" style="width: 50%; text-align: center; margin: auto;">Estimar</button><br>
+    </form>
+    <br>
+  </div>
+</div>
+
+{% if forecast_arima_walk_forward and forecast_arima_intervalos_conf %}
+    {% include 'includes/_resumen_y_graficas_arima.html' %}
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+<style>
+  /* Límite para el cuadro de búsqueda de tickers */
+  .ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+  }
+</style>
+<script>
+  // Para el selector de los índices
+  $(function() {
+    var indicesChoices = ['DJ30', 'IBEX35', 'FTSE100', 'DAX40'];
+
+    $("#id_indice").autocomplete({
+      source: indicesChoices,
+      minLength: 0,
+      delay: 300
+    }).focus(function() {
+      $(this).autocomplete("search", "");
+    });
+  });
+
+  // Para el selector de los tipos de modelo de ML
+  $(function() {
+    var tipoModeloChoices = ['Regresión lineal', 'Clasificación'];
+
+    $("#id_tipo_modelo").autocomplete({
+      source: tipoModeloChoices,
+      minLength: 0,
+      delay: 300
+    }).focus(function() {
+      $(this).autocomplete("search", "");
+    });
+  });
+
+  // Para el selector predefinido de % de datos de entrenamiento
+  $(function() {
+    var porcentajeEntrenamientoChoices = ['50%', '66%', '70%', '80%', '90%'];
+
+    $("#id_porcentaje_entrenamiento").autocomplete({
+      source: porcentajeEntrenamientoChoices,
+      minLength: 0,
+      delay: 300
+    }).focus(function() {
+      $(this).autocomplete("search", "");
+    });
+  });
+</script>
+
+{% endblock %}

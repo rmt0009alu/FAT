@@ -2,7 +2,7 @@
 URLs para usar con Lab.
 """
 from django.urls import path
-from .views import lab, buscar_paramateros_arima, arima_auto, arima_rejilla, arima_manual, lstm, cruce_medias
+from .views import lab, buscar_paramateros_arima, arima_auto, arima_rejilla, arima_manual, lstm, cruce_medias, estrategia_ML
 
 urlpatterns = [
     # El home pasa a depender de la app 'News'
@@ -21,4 +21,6 @@ urlpatterns = [
     path('lab/lstm/', lstm, name="lstm"),
 
     path('lab/cruce_medias/', cruce_medias, name="cruce_medias"),
+
+    path('lab/estrategia_ML/', estrategia_ML, name="estrategia_ML"),
 ]

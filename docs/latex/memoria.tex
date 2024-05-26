@@ -18,6 +18,8 @@
 \RequirePackage{xtab}
 \RequirePackage{multirow}
 
+% Para ajustar páginas al ancho de la página
+\usepackage{tabularx}
 
 % Links
 \PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
@@ -126,6 +128,44 @@
     #5
     \bottomrule
    \end{tabular}
+   \caption{#1}
+   \label{tabla:#3}
+  \end{center}
+ \end{table}
+}
+
+% Nuevo comando para tablas pequeñas (menos de una página).
+% con posición fija
+\newcommand{\tablaSmallConPosicion}[5]{%
+ \begin{table}[H]
+  \begin{center}
+   \rowcolors {2}{gray!35}{}
+   \begin{tabular}{#2}
+    \toprule
+    #4
+    \otoprule
+    #5
+    \bottomrule
+   \end{tabular}
+   \caption{#1}
+   \label{tabla:#3}
+  \end{center}
+ \end{table}
+}
+
+% Nuevo comando para tablas pequeñas (menos de una página)
+% y ajustadas al ancho de la página (requiere \usepackage{tabularx})
+\newcommand{\tablaSmallAjustadaConPosicion}[5]{%
+ \begin{table}[H]
+  \begin{center}
+   \rowcolors {2}{gray!35}{}
+   \begin{tabularx}{\textwidth}{#2}
+    \toprule
+    #4
+    \midrule
+    #5
+    \bottomrule
+   \end{tabularx}
    \caption{#1}
    \label{tabla:#3}
   \end{center}

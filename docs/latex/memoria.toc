@@ -35,49 +35,50 @@
 \contentsline {subsection}{Estrategia de cruce de medias (o seguimiento de tendencias)}{33}{section*.25}%
 \contentsline {subsubsection}{Selección apropiada de medias móviles}{35}{section*.26}%
 \contentsline {subsubsection}{Comparar con otras estrategias}{36}{section*.27}%
-\contentsline {subsection}{Estrategia basada en \emph {Machine Laerning}}{36}{section*.28}%
-\contentsline {chapter}{4.\hskip .5em\relax Técnicas y herramientas}{38}{chapter*.29}%
-\contentsline {section}{\numberline {4.1}Técnicas metodológicas}{38}{section.4.1}%
-\contentsline {subsection}{Scrum}{38}{section*.30}%
-\contentsline {subsection}{\emph {Test-Driven Development} (TDD)}{38}{section*.31}%
-\contentsline {subsection}{\emph {Behavior-Driven Development} (BDD)}{39}{section*.32}%
-\contentsline {subsection}{\emph {Kanban}}{39}{section*.33}%
-\contentsline {section}{\numberline {4.2}Patrones de diseño}{39}{section.4.2}%
-\contentsline {subsection}{\emph {Model-View-Template} (MVT)}{39}{section*.34}%
-\contentsline {section}{\numberline {4.3}Control de versiones}{40}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Alojamiento del repositorio}{40}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Gestión del proyecto}{41}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Comunicación}{41}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Entorno de desarrollo integrado (IDE)}{41}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Documentación de la memoria}{42}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Documentación del código}{42}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Integración y despliegue continuos (CI/CD)}{43}{section.4.10}%
-\contentsline {section}{\numberline {4.11}Calidad y consistencia de código}{43}{section.4.11}%
-\contentsline {section}{\numberline {4.12}Cobertura de código}{43}{section.4.12}%
-\contentsline {section}{\numberline {4.13}Framework web}{44}{section.4.13}%
-\contentsline {section}{\numberline {4.14}Sistema gestor de bases de datos}{44}{section.4.14}%
-\contentsline {section}{\numberline {4.15}Bibliotecas y librerías relevantes}{44}{section.4.15}%
-\contentsline {subsection}{Pandas}{45}{section*.35}%
-\contentsline {subsection}{Plotly}{45}{section*.36}%
-\contentsline {subsection}{Matplotlib}{45}{section*.37}%
-\contentsline {subsection}{yFinance}{45}{section*.38}%
-\contentsline {subsection}{News API}{45}{section*.39}%
-\contentsline {subsection}{Feedparser}{46}{section*.40}%
-\contentsline {subsection}{NetworkX}{46}{section*.41}%
-\contentsline {subsection}{Statsmodels}{46}{section*.42}%
-\contentsline {subsection}{Scikit-learn}{46}{section*.43}%
-\contentsline {subsection}{Scipy}{47}{section*.44}%
-\contentsline {subsection}{Keras}{47}{section*.45}%
-\contentsline {section}{\numberline {4.16}Desarrollo web}{47}{section.4.16}%
-\contentsline {subsection}{HTML}{47}{section*.46}%
-\contentsline {subsection}{CSS}{47}{section*.47}%
-\contentsline {subsection}{Bootstrap}{47}{section*.48}%
-\contentsline {subsection}{JavaScript}{48}{section*.49}%
-\contentsline {section}{\numberline {4.17}Otras herramientas}{48}{section.4.17}%
-\contentsline {subsection}{python-dotenv}{48}{section*.50}%
-\contentsline {subsection}{Draw.io}{48}{section*.51}%
-\contentsline {subsection}{Mendeley}{48}{section*.52}%
-\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{49}{chapter*.53}%
-\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{50}{chapter*.54}%
-\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{51}{chapter*.55}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{52}{chapter*.56}%
+\contentsline {subsection}{Estrategia basada en \emph {Machine Learning}}{36}{section*.28}%
+\contentsline {subsubsection}{Preprocesado de datos}{37}{section*.29}%
+\contentsline {chapter}{4.\hskip .5em\relax Técnicas y herramientas}{39}{chapter*.30}%
+\contentsline {section}{\numberline {4.1}Técnicas metodológicas}{39}{section.4.1}%
+\contentsline {subsection}{Scrum}{39}{section*.31}%
+\contentsline {subsection}{\emph {Test-Driven Development} (TDD)}{39}{section*.32}%
+\contentsline {subsection}{\emph {Behavior-Driven Development} (BDD)}{40}{section*.33}%
+\contentsline {subsection}{\emph {Kanban}}{40}{section*.34}%
+\contentsline {section}{\numberline {4.2}Patrones de diseño}{40}{section.4.2}%
+\contentsline {subsection}{\emph {Model-View-Template} (MVT)}{40}{section*.35}%
+\contentsline {section}{\numberline {4.3}Control de versiones}{41}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Alojamiento del repositorio}{41}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Gestión del proyecto}{42}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Comunicación}{42}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Entorno de desarrollo integrado (IDE)}{42}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Documentación de la memoria}{43}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Documentación del código}{43}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Integración y despliegue continuos (CI/CD)}{44}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Calidad y consistencia de código}{44}{section.4.11}%
+\contentsline {section}{\numberline {4.12}Cobertura de código}{44}{section.4.12}%
+\contentsline {section}{\numberline {4.13}Framework web}{45}{section.4.13}%
+\contentsline {section}{\numberline {4.14}Sistema gestor de bases de datos}{45}{section.4.14}%
+\contentsline {section}{\numberline {4.15}Bibliotecas y librerías relevantes}{45}{section.4.15}%
+\contentsline {subsection}{Pandas}{46}{section*.36}%
+\contentsline {subsection}{Plotly}{46}{section*.37}%
+\contentsline {subsection}{Matplotlib}{46}{section*.38}%
+\contentsline {subsection}{yFinance}{46}{section*.39}%
+\contentsline {subsection}{News API}{46}{section*.40}%
+\contentsline {subsection}{Feedparser}{47}{section*.41}%
+\contentsline {subsection}{NetworkX}{47}{section*.42}%
+\contentsline {subsection}{Statsmodels}{47}{section*.43}%
+\contentsline {subsection}{Scikit-learn}{47}{section*.44}%
+\contentsline {subsection}{Scipy}{48}{section*.45}%
+\contentsline {subsection}{Keras}{48}{section*.46}%
+\contentsline {section}{\numberline {4.16}Desarrollo web}{48}{section.4.16}%
+\contentsline {subsection}{HTML}{48}{section*.47}%
+\contentsline {subsection}{CSS}{48}{section*.48}%
+\contentsline {subsection}{Bootstrap}{48}{section*.49}%
+\contentsline {subsection}{JavaScript}{49}{section*.50}%
+\contentsline {section}{\numberline {4.17}Otras herramientas}{49}{section.4.17}%
+\contentsline {subsection}{python-dotenv}{49}{section*.51}%
+\contentsline {subsection}{Draw.io}{49}{section*.52}%
+\contentsline {subsection}{Mendeley}{49}{section*.53}%
+\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{50}{chapter*.54}%
+\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{51}{chapter*.55}%
+\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{52}{chapter*.56}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{53}{chapter*.57}%
