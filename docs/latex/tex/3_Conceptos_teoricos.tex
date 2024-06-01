@@ -121,14 +121,14 @@ Hay que considerar que es posible que exista una correlación entre los retornos
 
 Si tenemos en cuenta lo anterior, ya es posible definir dos conceptos fundamentales que son el retorno medio esperado y la varianza del retorno de una cartera (\emph{portfolio}):
 
-\begin{align} \label{eq:4}
+\begin{align} \label{eq:3}
 	\mu_{p} &= E(R_{p})\\
 	\sigma_{p}^{2} &= var(R_{p})
 \end{align}
 
 Para entender cómo se calculan, voy a empezar por el caso más  sencillo, en el supuesto de tener sólo dos valores en cartera:
 
-\begin{equation} \label{eq:5}
+\begin{equation} \label{eq:4}
 	R_{p} = wR_{1} + (1 - w)R_{2}
 \end{equation}
 
@@ -137,7 +137,7 @@ $R_{p}$ es una función de variables aleatorias y, por tanto, tendrá una distri
 \begin{align} 
     E(R_{p}) &= E(wR_{1} + (1-w)R_{2}) = wE(R_{1}) + (1-w)E(R_{2}) \\
     \mu_{p}  &= w\mu_{1} + (1-w)\mu_{2}
-    \label{eq:4}
+    \label{eq:5}
 \end{align}
 
 La varianza de $R_{p}$ requiere de más cálculos; no podemos hacer la suma directa de las dos varianzas porque puede existir correlación entre $R_{1}$ y $R_{2}$. Entonces, los más sencillo es sustituir en la definición de varianza por \ref{eq:4} y \ref{eq:5}:
@@ -193,7 +193,7 @@ Es habitual representar las carteras de valores en términos de la relación ren
 	volatilidad\, cartera = volatilidad_{p} = \sqrt(var(R_{p}))
 \end{equation}
 
-Una vez tenemos las fórmulas definidas se puede realizar una simulación de Montecarlo \citep{simulacion_montecarlo} con múltiples posibles carteras de inversión y ver la relación rentabilidad/riesgo (retorno esperado/varianza):
+Una vez tenemos las fórmulas definidas se puede realizar una simulación de Montecarlo \citep{online:simulacion_montecarlo} con múltiples posibles carteras de inversión y ver la relación rentabilidad/riesgo (retorno esperado/varianza):
 
 \imagen{img_02_simulación_montecarlo.png}{Simulación de 10.000 posibles portfolios con los valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024). Fuente: elaboración propia}{1}
 
@@ -219,7 +219,7 @@ Si utilizo la intuición rápida de maximizar el retorno por sí sólo, estaré 
 \end{aligned}
 \end{equation}
 
-Es decir, estamos ante un problema de optimización con restricciones\footnote{Es habitual añadir otras restricciones como que, por ejemplo, ningún valor tenga un peso mayor al 50\%, i.e., $w_{i} \leq 0.5$ pero en mi caso no utilizaré esta limitación.} Y, más concretamente, se trata de un problema de programación lineal (LP)\citep{programacion_lineal}. 
+Es decir, estamos ante un problema de optimización con restricciones\footnote{Es habitual añadir otras restricciones como que, por ejemplo, ningún valor tenga un peso mayor al 50\%, i.e., $w_{i} \leq 0.5$ pero en mi caso no utilizaré esta limitación.} Y, más concretamente, se trata de un problema de programación lineal (LP)\citep{wiki:programacion_lineal}. 
 
 De manera similar se puede calcular el retorno mínimo:
 
@@ -475,7 +475,7 @@ La ACF está definida como si los datos de la serie temporal fueran estacionario
 	\rho(Y_{t_{1}}, Y_{t_{2}}) = \rho(t_{1}, t_{2}) = \rho(\tau)
 \end{equation}
 
-El porqué del estimador de $\hat(\rho(\tau))$ escapa a los objetivos de explicación de este proyecto, pero si asumimos que la autocorrelación se mantiene constante en el tiempo, podemos usar todas las muestras de la serie para calcular la autocorrelación para cualquier $\tau$ y la fórmula para calcularlo es:
+El porqué del estimador de $\hat{\rho}(\tau)$ escapa a los objetivos de explicación de este proyecto, pero si asumimos que la autocorrelación se mantiene constante en el tiempo, podemos usar todas las muestras de la serie para calcular la autocorrelación para cualquier $\tau$ y la fórmula para calcularlo es:
 
 \begin{equation}
 	\hat{\rho}(\tau) = \frac{1}{(T-\tau)\hat{\sigma}^{2}} \sum_{t=1}^{T-\tau} (y_{t}-\hat{\mu})(y_{t+\tau}-\hat{\mu})
@@ -562,7 +562,7 @@ De esto se puede deducir que ARIMA sirve para entender los datos pero, en la gra
 
 La idea básica de esta estrategia es crear dos medias móviles simples sobre los precios de cierre de valores cotizados. Una será la media móvil \emph{lenta} y la otra será la media móvil \emph{rápida}. De forma intuitiva podemos deducir que si incluimos más datos en una media móvil, ésta se ajustará de manera más lenta, porque cada dato en la media móvil tendrá menor influencia en el resultado. Es decir, una media móvil de 50 días será más lenta que una media móvil de 20 días. 
 
-La clave de este algoritmo reside en los puntos en los que la media móvil 'rápida' cruza la media móvil \emph{lenta}. Si la media móvil \emph{rápida} cruza desde abajo, entonces consideramos que es un momento de compra; y la cruza desde arriba, será una señal de venta. Mientras no haya cruce de medias, se asume que la posición se mantiene en cartera sin variación. 
+La clave de este algoritmo reside en los puntos en los que la media móvil \emph{rápida} cruza la media móvil \emph{lenta}. Si la media móvil \emph{rápida} cruza desde abajo, entonces consideramos que es un momento de compra; y si la cruza desde arriba, será una señal de venta. Mientras no haya cruce de medias, se asume que la posición se mantiene en cartera sin variación. 
 
 En este algoritmo se utilizan las medias ya comentadas pero, además, se implementan señales de compra y venta que sirven para indicar en qué sentido se está realizando el cruce de medias: si la señal previa es \texttt{False} y la señal actual es \texttt{True} significa que la media \emph{rápida} cruza desde abajo; si la señal previa es \texttt{True} y la señal actual es \texttt{False} significa que la media \emph{rápida} cruza desde arriba. 
 
@@ -609,9 +609,9 @@ for fila in df:
   fila["invertido"] = invertido
 \end{verbatim}
 
-Con esta idea, la columna \texttt{df[´invertido´]} va estar retrasada un día, esto es así porque no podemos comprar al final del día - cuando ya ha cerrado el mercado -,i.e., no podemos estar invertidos hasta el siguiente día, que es cuando calculo el retorno. Pero ese retorno ya le habré cambiado con un \emph{shift()}, lo cual, desde mi punto de vista, es más conveniente. 
+Con esta idea, la columna \texttt{df[´invertido´]} va estar retrasada un día, esto es así porque no podemos comprar al final del día - cuando ya ha cerrado el mercado -,i.e., no podemos estar invertidos hasta el siguiente día, que es cuando calculo el retorno. Pero ese retorno ya le habré cambiado con un \texttt{shift()}, lo cual, desde mi punto de vista, es más conveniente. 
 
-Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hacer es calcular el retorno del algoritmo. \footnote{El retorno se calcula habitualmente como se indica en \ref{eq:1} pero en este apartado del trabajo, en la web, se mostrará al usuario información de rentabilidad que le pueda ser de fácil comprensión}. Como en \emph{Python} \texttt{True} es 1 y \texttt{False} es 0, se pueden multiplicar las columnas de \emph{invertido} y \emph{retorno\_shift}, por ejemplo:
+Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hacer es calcular el retorno del algoritmo\footnote{El retorno se calcula habitualmente como se indica en \ref{eq:1} pero en este apartado del trabajo, en la web, se mostrará al usuario información de rentabilidad que le pueda ser de fácil comprensión}. Como en \emph{Python} \texttt{True} es 1 y \texttt{False} es 0, se pueden multiplicar las columnas de \emph{invertido} y \emph{retorno\_shift}, por ejemplo:
 
 \begin{verbatim}
   df["retorno_algoritmo"] = df["invertido"] * df["retorno_shift"]
@@ -627,7 +627,7 @@ Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hace
  0 & 1  & 0  \\
  1 & -1 & -1 \\
  1 & 2  & 2  \\
-}\label{tabla:1} 
+}
 
 \subsubsection{Selección apropiada de medias móviles}
 
@@ -662,7 +662,7 @@ Como ya se ha visto en la sección de ARIMA, predecir la evolución de un valor 
 
 Entonces, se intentará entrenar un modelo con todos los datos disponibles hasta la fecha y estimar únicamente la evolución en la fecha siguiente. Con este tipo de estrategias, la decisión de vender, comprar o no hacer nada es algo que se tiene que actualizar diariamente.
 
-La dificultad de esta aproximación radica en la decisión de cómo formar los datos y qué se va a predecir. En mi caso, seguiré la lógica de que hay valores altamente ponderados en un índice y que estos tienen la capacidad de \emph{mover} ese índice \emph{por sí solos} (o, al menos, con mayor influencia que el resto de componentes). Teniendo en cuenta los retornos de dichos valores estimaré si al día siguiente la tendencia será alcista o bajista, de forma general para el índice de referencia. 
+La dificultad de esta aproximación radica en la decisión de cómo formar los datos y qué se va a predecir. En mi caso, seguiré la lógica de que hay valores altamente ponderados en un índice y que estos tienen la capacidad de \emph{mover} ese índice \emph{por sí solos} (o, al menos, con mayor influencia que el resto de componentes). Teniendo en cuenta los retornos de dichos valores estimaré si al día siguiente la tendencia será alcista o bajista, de forma general, para el índice de referencia. 
 
 Este enfoque se basa en seleccionar los retornos de valores de mayor capitalización de mercado \citep{wiki:market_cap} como si fueran atributos de un modelo de regresión o clasificación. Y la media de los retornos se considerará la clase objetivo. De esta forma, basándome en la hipótesis del aprendizaje inductivo, supondré que es posible que un modelo que aproxime bien una función en los datos de entrenamiento, también lo hará bien en los datos desconocidos. 
 
@@ -711,16 +711,119 @@ La idea es utilizar los retornos actuales de los valores como entradas del model
 Al utilizar modelos de clasificación o de regresión tendremos algo similar a \texttt{predicción = model.predict(X)}. Entonces, puedo utilizar la predicción para guardar información de si un usuario está invertido en ese momento, o no, con un código similar a este:
 
 \begin{verbatim}
-	predicción = model.predict(X)
-	...
-	if predicción > 0:
-		df["invertido"] = 1 
-	else:
-		df["invertido"] = 0 
+  predicción = model.predict(X)
+  ...
+  if predicción > 0:
+    df["invertido"] = 1 
+  else:
+    df["invertido"] = 0 
 \end{verbatim}
 
-Es decir, si la predicción es mayor que 0, entonces se genera una señal de compra o, simplemente, se mantiene la inversión si ya estuviera activa; y al contrario para predicciones menores que 0. Esto permite conocer, con cada predicción, si mantenemos la inversión o no. Y una vez que se conoce el estado de invertido/no invertido se realiza el mismo proceso que en \ref{tabla:1} multiplicando: 
+Es decir, si la predicción es mayor que 0, entonces se genera una señal de compra o, simplemente, se mantiene la inversión si ya estuviera activa; y al contrario para predicciones menores que 0. Esto permite conocer, con cada predicción, si mantenemos la inversión o no. Y una vez que se conoce el estado de invertido/no invertido se realiza el mismo proceso que en la tabla \ref{tabla:tabla_retornos_cruce_medias}, multiplicando: 
 
 \begin{verbatim}
   df["retorno_algoritmo"] = df["invertido"] * df["retorno_shift"]
 \end{verbatim}
+
+Además, esta técnica permite sumar todos los retornos del algoritmo y compararlo con otras estrategias como, por ejemplo, la denominada \emph{buy and hold}, ya mencionada cuando se explicaba el algoritmo de cruce de medias. 
+
+
+\subsubsection{Modelo de regresión lineal}
+
+La regresión lineal es una técnica estadística utilizada para modelar la relación entre una variable dependiente continua y una o más variables independientes. Esta técnica asume que existe una relación lineal entre las variables. Es uno de los modelos más simples y más utilizados en análisis predictivo. 
+
+El objetivo de este modelo es predecir un valor continuo basado en uno o más valores predictivos. Cuando sólo tenemos una variable independiente la ecuación que define al modelo es:
+
+\begin{equation}
+    y = \beta_{0} + \beta_{1}x
+\end{equation}
+
+Donde $\beta_{0}$ es la constante de la recta de regresión y $\beta_{1}$ la pendiente de dicha recta. Las fórmulas para calcular estos coeficientes son:
+
+\begin{align}
+	\beta_{0} = \overline{y} - \beta_{1}\overline{x} \\
+	\beta_{1} = \frac{\sum_{i=1}^{n} (x_{i} - \overline{x})(y_{i}-\overline{y})}{\sum_{i=1}^{n} (x_{i} - \overline{x})^2}
+\end{align}
+
+Si tuviéramos múltiples variables independientes, la fórmula se puede generalizar a:
+
+\begin{equation}
+    y = \beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \ldots + \beta_{n}x_{n} + \epsilon
+\end{equation}
+
+Donde, $y$ es la variable dependiente, $x_{i}$ es la variable independiente $i$, $\beta_{0}$ es la constante de la ecuación de la regresión lineal múltiple, $\beta_{i}$ es el coeficiente de regresión asociado a la variable $x_{i}$ y $\epsilon$ es el error o residuo. 
+
+Para poder usar este modelo con ciertas garantías se deben de cumplir una serie de supuestos:
+
+\begin{itemize}
+\tightlist
+\item  
+Tiene que haber una relación lineal entre la variable dependiente y las variables independientes. 
+\item
+Las observaciones deben de ser independientes entre sí. 
+\item
+La varianza de los errores tiene que ser constante a lo largo de todas las observaciones, es decir, tiene que existir homocedasticidad\citep{wiki:homocedasticidad}.
+\item
+Los errores del modelo seguirán una distribución normal. 
+\end{itemize}
+
+Este modelo, habitualmente, se evalúa con el coeficiente de determinación $R^{2}$ (proporción de varianza en la variable dependiente que puede ser explicada por las variables independientes) o a través de los errores: MSE (Error Cuadrático Medio) y RMSE (Raíz del Error Cuadrático Medio). 
+
+En este trabajo, la aplicación de este modelo se realiza sobre retornos logarítmicos, que tienen ciertas ventajas como la aditividad (pueden sumarse sobre varios periodos), la tendencia a seguir una distribución normal y que tienen cierta simetría. Sin embargo, este tipo de retorno no es ideal porque los errores no suelen tener una varianza constante - aunque sí se mantiene en el tiempo en unos rangos -, es decir, no son del todo homocedásticos y, además, pueden tener autocorrelación, lo que también afectaría al modelo. 
+
+\subsubsection{Modelo de regresión logística}
+
+La regresión logística es un modelo estadístico utilizado para realizar clasificación binaria, es decir, para predecir la probabilidad de que una observación pertenezca a una de dos posibles categorías. Aunque el nombre puede llevar a engaños, se trata de un modelo de clasificación.
+
+La ecuación (a veces representada como $logit(p)$) de la regresión logística es: 
+
+\begin{equation}
+	\ln (\frac{p}{1-p}) = \beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \ldots + \beta_{n}x_{n}
+\end{equation}
+
+Entonces, la probabilidad de que la variable dependiente tome un valor 1\footnote{En el código de este trabajo tomará valores \texttt{True}, que es asimilable a 1.} se calcula de la siguiente manera:
+
+\begin{equation}
+	p = \frac{1}{1 + e^{-(\beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \ldots + \beta_{n}x_{n})}}
+\end{equation}
+
+De nuevo, para poder utilizar este modelo de forma adecuada se deben de cumplir una serie de condiciones:
+
+\begin{itemize}
+\tightlist
+\item  
+Tiene que haber independencia de los errores, es decir, las observaciones tienen que ser independientes entre sí. 
+\item
+La relación entre las variables independientes y el $\ln (\frac{p}{1-p})$ de la variable dependiente debe de ser lineal.
+\item
+Las variables independientes no deben estar altamente correlacionadas entre sí.
+\end{itemize}
+
+Los modelos de clasificación se suelen evaluar a través de una matriz de confusión, que nos permite deducir la precisión, el \emph{recall}, la sensibilidad o la especificidad, entre otros:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{\textbf{Predicción}} \\
+\hline
+\multicolumn{2}{|c|}{} & \textbf{True} & \textbf{False} \\
+\hline
+\multirow{2}{*}{\textbf{Real}} & \textbf{True} & TP & FN \\
+\cline{2-4}
+& \textbf{False} & FP & TN \\
+\hline
+\end{tabular}
+\caption{Matriz de confusión}
+\end{table}
+
+\begin{align*}
+	Precision = TP\, /\, (TP + FP) \\
+	Recall = TP\, /\, (TP + FN) \\
+	Especificidad\, (True\, negative\, rate) = TN\,/\,(TN+FP) \\
+	Sensibilidad\, (True\, positive\, rate) = TP\,/\,(TP+FN) \\
+\end{align*}
+
+Sin embargo, en este trabajo se ha optado por una comparación más práctica a efectos de interpretación de un usuario. Por ello, aunque sería posible obtener una matriz de confusión sin demasiada complicación, se ha preferido hacer una comparación con una estrategia \emph{buy and hold} para el mismo período de tiempo en el que trabaje el modelo. De esta manera, el usuario podrá determinar si es mejor una estrategia u otra\footnote{Para más información, ver el método \texttt{Lab.vies.\_clasificacion\_regresion\_logistica}}.
+
+Los mismos problemas relativos a los retornos logarítmicos, comentados en la subsección previa, se pueden considerar para este modelo\footnote{Se recomienda al usuario la realización de múltiples pruebas, para recabar sus propias conclusiones sobre la idoneidad de un modelo u otro}.

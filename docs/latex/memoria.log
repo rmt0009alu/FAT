@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  25 MAY 2024 07:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  1 JUN 2024 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -787,16 +787,18 @@ LaTeX Info: Redefining \% on input line 12.
 LaTeX Info: Redefining \. on input line 13.
 LaTeX Info: Redefining \% on input line 13.
  (tex/1_Introduccion.aux) (tex/2_Objetivos_del_proyecto.aux)
-(tex/3_Conceptos_teoricos.aux
-
-LaTeX Warning: Label `eq:4' multiply defined.
-
-) (tex/4_Tecnicas_y_herramientas.aux
+(tex/3_Conceptos_teoricos.aux) (tex/4_Tecnicas_y_herramientas.aux
 
 LaTeX Warning: Label `editor_texto' multiply defined.
 
-) (tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux)
-(tex/6_Trabajos_relacionados.aux)
+) (tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux
+
+LaTeX Warning: Label `inicio-del-proyecto' multiply defined.
+
+
+LaTeX Warning: Label `noticias' multiply defined.
+
+) (tex/6_Trabajos_relacionados.aux)
 (tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux))
 \openout1 = `memoria.aux'.
 
@@ -871,7 +873,7 @@ Package hyperref Info: Link coloring ON on input line 413.
 \@outlinefile=\write4
 \openout4 = `memoria.out'.
 
-<./img/cabecera.pdf, id=147, 617.67549pt x 135.51413pt>
+<./img/cabecera.pdf, id=199, 617.67549pt x 135.51413pt>
 File: ./img/cabecera.pdf Graphic file (type pdf)
 <use ./img/cabecera.pdf>
 Package pdftex.def Info: ./img/cabecera.pdf  used on input line 415.
@@ -906,7 +908,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 415.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 415.
-<./img/escudoInfor.pdf, id=148, 618.11432pt x 737.07487pt>
+<./img/escudoInfor.pdf, id=200, 618.11432pt x 737.07487pt>
 File: ./img/escudoInfor.pdf Graphic file (type pdf)
 <use ./img/escudoInfor.pdf>
 Package pdftex.def Info: ./img/escudoInfor.pdf  used on input line 415.
@@ -959,7 +961,7 @@ Package microtype Info: Character `029' is missing
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 5
-43.
+41.
  (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -981,14 +983,14 @@ LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 [3
 
 ])
-LaTeX Info: Redefining \. on input line 544.
-LaTeX Info: Redefining \% on input line 544.
+LaTeX Info: Redefining \. on input line 542.
+LaTeX Info: Redefining \% on input line 542.
 
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 544.
+(in both cases you will find help in the memoir manual). on input line 542.
 
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
@@ -1002,8 +1004,8 @@ LaTeX Info: Redefining \% on input line 2.
  [5
 
 ])
-LaTeX Info: Redefining \. on input line 548.
-LaTeX Info: Redefining \% on input line 548.
+LaTeX Info: Redefining \. on input line 546.
+LaTeX Info: Redefining \% on input line 546.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
@@ -1029,31 +1031,30 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 \section
-             {Estructura de la memoria}\label{estructura-de-la-memoria}
-[1
+l.33 
+      [1
 
 
 
 
 ]
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.97 	\textbf
-             {Herramienta web FAT}: Financial Analysis Tool. [2])
-LaTeX Info: Redefining \. on input line 554.
-LaTeX Info: Redefining \% on input line 554.
+l.88 \end{itemize}
+                   [2])
+LaTeX Info: Redefining \. on input line 552.
+LaTeX Info: Redefining \% on input line 552.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.554 \include{./tex/1_Introduccion}
+l.552 \include{./tex/1_Introduccion}
                                      [3]
 \openout2 = `./tex/2_Objetivos_del_proyecto.aux'.
 
@@ -1068,16 +1069,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.45 D
-      iseÃ±ar formularios que permitan la interacciÃ³n con el usuario para r...
+l.44 A
+      plicar la arquitectura MVC (\emph{Model-View-Controler}), mÃ¡s conocid...
 [4
 
 
 
 
 ])
-LaTeX Info: Redefining \. on input line 555.
-LaTeX Info: Redefining \% on input line 555.
+LaTeX Info: Redefining \. on input line 553.
+LaTeX Info: Redefining \% on input line 553.
  [5]
 \openout2 = `./tex/3_Conceptos_teoricos.aux'.
 
@@ -1099,7 +1100,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 23.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 23.
-<./img/img_01_distribuciÃ³n_retornos.png, id=723, 770.12718pt x 589.4522pt>
+<./img/img_01_distribuciÃ³n_retornos.png, id=800, 770.12718pt x 589.4522pt>
 File: ./img/img_01_distribuciÃ³n_retornos.png Graphic file (type png)
 <use ./img/img_01_distribuciÃ³n_retornos.png>
 Package pdftex.def Info: ./img/img_01_distribuciÃ³n_retornos.png  used on input
@@ -1118,25 +1119,19 @@ LaTeX Info: Redefining \. on input line 114.
 LaTeX Info: Redefining \% on input line 114.
  [9{C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.e
 nc}]
-
-LaTeX Warning: Reference `eq:3' on page 10 undefined on input line 135.
-
 LaTeX Info: Redefining \. on input line 154.
 LaTeX Info: Redefining \% on input line 154.
-[10]
+ [10]
 LaTeX Info: Redefining \. on input line 186.
 LaTeX Info: Redefining \% on input line 186.
  [11]
-
-Package natbib Warning: Citation `simulacion_montecarlo' on page 12 undefined o
-n input line 196.
-
-<./img/img_02_simulaciÃ³n_montecarlo.png, id=796, 526.96875pt x 376.40625pt>
+<./img/img_02_simulaciÃ³n_montecarlo.png, id=875, 526.96875pt x 376.40625pt>
 File: ./img/img_02_simulaciÃ³n_montecarlo.png Graphic file (type png)
 <use ./img/img_02_simulaciÃ³n_montecarlo.png>
 Package pdftex.def Info: ./img/img_02_simulaciÃ³n_montecarlo.png  used on input
  line 198.
 (pdftex.def)             Requested size: 383.0pt x 273.58536pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1146,13 +1141,9 @@ LaTeX Info: Redefining \% on input line 198.
 LaTeX Info: Redefining \. on input line 210.
 LaTeX Info: Redefining \% on input line 210.
  [13 <./img/img_02_simulaciÃ³n_montecarlo.png>]
-
-Package natbib Warning: Citation `programacion_lineal' on page 14 undefined on 
-input line 222.
-
 LaTeX Info: Redefining \. on input line 243.
 LaTeX Info: Redefining \% on input line 243.
-[14]
+ [14]
 Underfull \hbox (badness 10000) in paragraph at lines 257--257
 [][] [][][]\T1/lmr/m/n/10 (+20) En es-te pro-yec-to se pue-de ver có-mo se apli
 -ca \T1/lmtt/m/n/10 minimize() \T1/lmr/m/n/10 (+20) en
@@ -1164,7 +1155,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 257--257
 m/n/10 (+20) co-mo un pro-ble-
  []
 
-<./img/img_03_frontera_eficiente.png, id=830, 249.93375pt x 250.68657pt>
+<./img/img_03_frontera_eficiente.png, id=912, 249.93375pt x 250.68657pt>
 File: ./img/img_03_frontera_eficiente.png Graphic file (type png)
 <use ./img/img_03_frontera_eficiente.png>
 Package pdftex.def Info: ./img/img_03_frontera_eficiente.png  used on input lin
@@ -1176,7 +1167,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 266.
 LaTeX Info: Redefining \% on input line 266.
 [15]
-<./img/img_04_montecarlo_frontera_eficiente.png, id=841, 526.96875pt x 349.305p
+<./img/img_04_montecarlo_frontera_eficiente.png, id=923, 526.96875pt x 349.305p
 t>
 File: ./img/img_04_montecarlo_frontera_eficiente.png Graphic file (type png)
 <use ./img/img_04_montecarlo_frontera_eficiente.png>
@@ -1195,7 +1186,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 287--287
 LaTeX Info: Redefining \. on input line 289.
 LaTeX Info: Redefining \% on input line 289.
 [17]
-<./img/img_05_sharpe_ratio.png, id=861, 513.41812pt x 590.95781pt>
+<./img/img_05_sharpe_ratio.png, id=943, 513.41812pt x 590.95781pt>
 File: ./img/img_05_sharpe_ratio.png Graphic file (type png)
 <use ./img/img_05_sharpe_ratio.png>
 Package pdftex.def Info: ./img/img_05_sharpe_ratio.png  used on input line 291.
@@ -1212,7 +1203,7 @@ LaTeX Info: Redefining \% on input line 322.
 LaTeX Info: Redefining \. on input line 369.
 LaTeX Info: Redefining \% on input line 369.
  [20]
-<./img/img_06_diferenciacion.png, id=887, 505.89pt x 361.35pt>
+<./img/img_06_diferenciacion.png, id=969, 505.89pt x 361.35pt>
 File: ./img/img_06_diferenciacion.png Graphic file (type png)
 <use ./img/img_06_diferenciacion.png>
 Package pdftex.def Info: ./img/img_06_diferenciacion.png  used on input line 38
@@ -1225,7 +1216,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 386.
 LaTeX Info: Redefining \% on input line 386.
 [21]
-<./img/img_07_serie_no_estacionaria.png, id=896, 505.89pt x 361.35pt>
+<./img/img_07_serie_no_estacionaria.png, id=978, 505.89pt x 361.35pt>
 File: ./img/img_07_serie_no_estacionaria.png Graphic file (type png)
 <use ./img/img_07_serie_no_estacionaria.png>
 Package pdftex.def Info: ./img/img_07_serie_no_estacionaria.png  used on input 
@@ -1238,7 +1229,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 392.
 LaTeX Info: Redefining \% on input line 392.
 [22 <./img/img_06_diferenciacion.png>]
-<./img/img_08_serie_no_estacionaria.png, id=902, 505.89pt x 361.35pt>
+<./img/img_08_serie_no_estacionaria.png, id=984, 505.89pt x 361.35pt>
 File: ./img/img_08_serie_no_estacionaria.png Graphic file (type png)
 <use ./img/img_08_serie_no_estacionaria.png>
 Package pdftex.def Info: ./img/img_08_serie_no_estacionaria.png  used on input 
@@ -1251,7 +1242,7 @@ ia.png>]
 LaTeX Info: Redefining \. on input line 423.
 LaTeX Info: Redefining \% on input line 423.
  [24]
-<./img/img_09_p_value_test_adf.png, id=922, 505.89pt x 361.35pt>
+<./img/img_09_p_value_test_adf.png, id=1004, 505.89pt x 361.35pt>
 File: ./img/img_09_p_value_test_adf.png Graphic file (type png)
 <use ./img/img_09_p_value_test_adf.png>
 Package pdftex.def Info: ./img/img_09_p_value_test_adf.png  used on input line 
@@ -1264,7 +1255,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 437.
 LaTeX Info: Redefining \% on input line 437.
 [25]
-<./img/img_10_p_value_test_adf.png, id=929, 505.89pt x 361.35pt>
+<./img/img_10_p_value_test_adf.png, id=1011, 505.89pt x 361.35pt>
 File: ./img/img_10_p_value_test_adf.png Graphic file (type png)
 <use ./img/img_10_p_value_test_adf.png>
 Package pdftex.def Info: ./img/img_10_p_value_test_adf.png  used on input line 
@@ -1277,7 +1268,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 443.
 LaTeX Info: Redefining \% on input line 443.
 [26 <./img/img_09_p_value_test_adf.png>]
-<./img/img_11_p_value_test_adf.png, id=937, 505.89pt x 361.35pt>
+<./img/img_11_p_value_test_adf.png, id=1019, 505.89pt x 361.35pt>
 File: ./img/img_11_p_value_test_adf.png Graphic file (type png)
 <use ./img/img_11_p_value_test_adf.png>
 Package pdftex.def Info: ./img/img_11_p_value_test_adf.png  used on input line 
@@ -1292,12 +1283,12 @@ LaTeX Warning: Command \' invalid in math mode on input line 469.
 LaTeX Info: Redefining \. on input line 485.
 LaTeX Info: Redefining \% on input line 485.
 [28]
-<./img/img_12_acf.png, id=955, 724.1454pt x 361.35pt>
+<./img/img_12_acf.png, id=1037, 724.1454pt x 361.35pt>
 File: ./img/img_12_acf.png Graphic file (type png)
 <use ./img/img_12_acf.png>
 Package pdftex.def Info: ./img/img_12_acf.png  used on input line 486.
 (pdftex.def)             Requested size: 383.0pt x 191.1176pt.
-<./img/img_13_pacf.png, id=956, 724.1454pt x 361.35pt>
+<./img/img_13_pacf.png, id=1038, 724.1454pt x 361.35pt>
 File: ./img/img_13_pacf.png Graphic file (type png)
 <use ./img/img_13_pacf.png>
 Package pdftex.def Info: ./img/img_13_pacf.png  used on input line 497.
@@ -1308,7 +1299,7 @@ LaTeX Info: Redefining \% on input line 497.
 LaTeX Info: Redefining \. on input line 526.
 LaTeX Info: Redefining \% on input line 526.
  [30 <./img/img_13_pacf.png>]
-<./img/img_14_arima_sin_walk_forward.png, id=971, 1123.19624pt x 378.66469pt>
+<./img/img_14_arima_sin_walk_forward.png, id=1053, 1123.19624pt x 378.66469pt>
 File: ./img/img_14_arima_sin_walk_forward.png Graphic file (type png)
 <use ./img/img_14_arima_sin_walk_forward.png>
 Package pdftex.def Info: ./img/img_14_arima_sin_walk_forward.png  used on input
@@ -1321,7 +1312,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 550.
 LaTeX Info: Redefining \% on input line 550.
 [31]
-<./img/img_15_arima_con_walk_forward.png, id=981, 1117.17375pt x 359.09157pt>
+<./img/img_15_arima_con_walk_forward.png, id=1063, 1117.17375pt x 359.09157pt>
 File: ./img/img_15_arima_con_walk_forward.png Graphic file (type png)
 <use ./img/img_15_arima_con_walk_forward.png>
 Package pdftex.def Info: ./img/img_15_arima_con_walk_forward.png  used on input
@@ -1447,38 +1438,59 @@ Underfull \hbox (badness 7685) in paragraph at lines 683--683
 []|\T1/lmr/m/n/12 (+20) Deutsche Te-le-
  []
 
-LaTeX Info: Redefining \. on input line 684.
-LaTeX Info: Redefining \% on input line 684.
+LaTeX Info: Redefining \. on input line 683.
+LaTeX Info: Redefining \% on input line 683.
 [36]
 LaTeX Info: Redefining \. on input line 703.
 LaTeX Info: Redefining \% on input line 703.
  [37]
-<./img/img_17_xtrain_ytrain_ml.png, id=1029, 429.85594pt x 126.4725pt>
+<./img/img_17_xtrain_ytrain_ml.png, id=1113, 429.85594pt x 126.4725pt>
 File: ./img/img_17_xtrain_ytrain_ml.png Graphic file (type png)
 <use ./img/img_17_xtrain_ytrain_ml.png>
 Package pdftex.def Info: ./img/img_17_xtrain_ytrain_ml.png  used on input line 
 706.
 (pdftex.def)             Requested size: 344.69766pt x 101.41936pt.
-)
-LaTeX Info: Redefining \. on input line 556.
-LaTeX Info: Redefining \% on input line 556.
+LaTeX Info: Redefining \. on input line 723.
+LaTeX Info: Redefining \% on input line 723.
  [38 <./img/img_17_xtrain_ytrain_ml.png>]
+Overfull \hbox (18.3752pt too wide) in paragraph at lines 725--725
+[]  \T1/lmtt/m/n/12 df["retorno_algoritmo"] = df["invertido"] * df["retorno_shi
+ft"][] 
+ []
+
+LaTeX Info: Redefining \. on input line 756.
+LaTeX Info: Redefining \% on input line 756.
+[39]
+LaTeX Info: Redefining \. on input line 788.
+LaTeX Info: Redefining \% on input line 788.
+ [40]
+Overfull \hbox (19.32718pt too wide) in paragraph at lines 827--827
+[][] [][][]\T1/lmr/m/n/10 (-20) Para más in-for-ma-ción, ver el mé-to-do \T1/lm
+tt/m/n/10 Lab.vies._clasificacion_regresion_logistica| 
+ []
+
+)
+LaTeX Info: Redefining \. on input line 554.
+LaTeX Info: Redefining \% on input line 554.
+ [41]
+LaTeX Info: Redefining \. on input line 554.
+LaTeX Info: Redefining \% on input line 554.
+ [42]
 \openout2 = `./tex/4_Tecnicas_y_herramientas.aux'.
 
-
-(tex/4_Tecnicas_y_herramientas.tex
+ (tex/4_Tecnicas_y_herramientas.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 5.87491pt
 (hyperref)                replaced by space on input line 1.
 
-[39
+[43
 
 
 
 
 ]
-<./img/img_16_django_MVT.png, id=1053, 426.84468pt x 203.25937pt>
+<./img/img_16_django_MVT.png, id=1170, 426.84468pt x 203.25937pt>
 File: ./img/img_16_django_MVT.png Graphic file (type png)
 <use ./img/img_16_django_MVT.png>
 Package pdftex.def Info: ./img/img_16_django_MVT.png  used on input line 59.
@@ -1489,35 +1501,35 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 59.
 LaTeX Info: Redefining \% on input line 59.
-[40]
+[44]
 LaTeX Info: Redefining \. on input line 102.
 LaTeX Info: Redefining \% on input line 102.
- [41 <./img/img_16_django_MVT.png>]
+ [45 <./img/img_16_django_MVT.png>]
 LaTeX Info: Redefining \. on input line 156.
 LaTeX Info: Redefining \% on input line 156.
- [42]
+ [46]
 LaTeX Info: Redefining \. on input line 205.
 LaTeX Info: Redefining \% on input line 205.
- [43]
+ [47]
 LaTeX Info: Redefining \. on input line 252.
 LaTeX Info: Redefining \% on input line 252.
- [44]
+ [48]
 LaTeX Info: Redefining \. on input line 291.
 LaTeX Info: Redefining \% on input line 291.
- [45]
+ [49]
 LaTeX Info: Redefining \. on input line 313.
 LaTeX Info: Redefining \% on input line 313.
- [46]
+ [50]
 LaTeX Info: Redefining \. on input line 333.
 LaTeX Info: Redefining \% on input line 333.
- [47]
+ [51]
 LaTeX Info: Redefining \. on input line 359.
 LaTeX Info: Redefining \% on input line 359.
- [48])
-LaTeX Info: Redefining \. on input line 557.
-LaTeX Info: Redefining \% on input line 557.
+ [52])
+LaTeX Info: Redefining \. on input line 555.
+LaTeX Info: Redefining \% on input line 555.
 
-[49]
+[53]
 \openout2 = `./tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux'.
 
  (tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.tex
@@ -1526,12 +1538,147 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 5.87491pt
 (hyperref)                replaced by space on input line 1.
 
-) [50
+[54
 
 
 
 
 ]
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+ [55]
+LaTeX Info: Redefining \. on input line 48.
+LaTeX Info: Redefining \% on input line 48.
+ [56]
+Overfull \hbox (13.05058pt too wide) in paragraph at lines 82--83
+[]\T1/lmr/m/n/12 (-20) Clase del Dr. Pe-ter Kem-pthor-ne, del MIT, so-bre \T1/l
+mr/m/it/12 (-20) Port-fo-lio Theory\T1/lmr/m/n/12 (-20) [[]]. 
+ []
+
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+[57]
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
+ [58]
+Overfull \hbox (80.12523pt too wide) in paragraph at lines 104--104
+[]\T1/lmtt/m/n/12 Crear una clase base con una serie de atributos (id, precios,
+ moneda, etc.)[] 
+ []
+
+
+Overfull \hbox (61.60022pt too wide) in paragraph at lines 109--109
+[]    \T1/lmtt/m/n/12 Por cada ticker generar una clase dinámica del tipo de la
+ clase base[] 
+ []
+
+
+Overfull \hbox (36.9002pt too wide) in paragraph at lines 110--110
+[]\T1/lmtt/m/n/12 Asignar a la clase dinámica el nombre de la tabla como el del
+ ticker[] 
+ []
+
+
+Overfull \hbox (43.07521pt too wide) in paragraph at lines 111--111
+[]\T1/lmtt/m/n/12 Crear una nueva entrada en el diccionario con la nueva clase 
+dinámica[] 
+ []
+
+
+Overfull \hbox (73.95023pt too wide) in paragraph at lines 113--113
+[]\T1/lmtt/m/n/12 Hacer el diccionario accesible a los scripts de creación de b
+ases de datos[] 
+ []
+
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
+[59]
+LaTeX Info: Redefining \. on input line 167.
+LaTeX Info: Redefining \% on input line 167.
+ [60]
+Overfull \hbox (30.7252pt too wide) in paragraph at lines 168--168
+[]        \T1/lmtt/m/n/12 Iniciar transacción con la conexión (asegurando atomi
+cidad)[] 
+ []
+
+
+Overfull \hbox (111.00024pt too wide) in paragraph at lines 170--170
+[]            \T1/lmtt/m/n/12 Obtener datos históricos del stock (stock = yfina
+nce.Ticker(ticker))[] 
+ []
+
+
+Overfull \hbox (55.42522pt too wide) in paragraph at lines 173--173
+[]            \T1/lmtt/m/n/12 Calcular medias móviles y añadir información de l
+a compañía[] 
+ []
+
+
+Overfull \hbox (12.2002pt too wide) in paragraph at lines 174--174
+[]            \T1/lmtt/m/n/12 Verificar existencia de la tabla en la base de da
+tos[] 
+ []
+
+
+Overfull \hbox (10.88582pt too wide) in paragraph at lines 198--229
+ [][] 
+ []
+
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
+[61]
+LaTeX Info: Redefining \. on input line 242.
+LaTeX Info: Redefining \% on input line 242.
+ [62]
+Overfull \hbox (28.81137pt too wide) in paragraph at lines 254--255
+[]\T1/lmr/m/n/12 (-20) Dentro de es-te pro-yec-to se ha de-ja-do un ar-chi-vo d
+e ejem-plo, \T1/lmtt/m/n/12 FAT/.env.example\T1/lmr/m/n/12 (-20) ,
+ []
+
+LaTeX Info: Redefining \. on input line 255.
+LaTeX Info: Redefining \% on input line 255.
+[63]
+LaTeX Info: Redefining \. on input line 279.
+LaTeX Info: Redefining \% on input line 279.
+ [64]
+Overfull \hbox (52.54929pt too wide) in paragraph at lines 279--279
+[][] [][][]\T1/lmr/m/n/10 (-20) Es re-co-men-da-ble ver el mé-to-do \T1/lmtt/m/
+n/10 DashBoard.views.mostrar_markowitz_frontera_y_mejores()
+ []
+
+LaTeX Info: Redefining \. on input line 303.
+LaTeX Info: Redefining \% on input line 303.
+[65]
+LaTeX Info: Redefining \. on input line 333.
+LaTeX Info: Redefining \% on input line 333.
+ [66]
+LaTeX Info: Redefining \. on input line 355.
+LaTeX Info: Redefining \% on input line 355.
+ [67]
+LaTeX Info: Redefining \. on input line 363.
+LaTeX Info: Redefining \% on input line 363.
+ [68]
+Underfull \hbox (badness 10000) in paragraph at lines 382--382
+[][] [][][]\T1/lmr/m/n/10 (+20) Ver los mé-to-dos \T1/lmtt/m/n/10 DashBoard.vie
+ws._hay_errores() \T1/lmr/m/n/10 (+20) y
+ []
+
+LaTeX Info: Redefining \. on input line 388.
+LaTeX Info: Redefining \% on input line 388.
+[69]
+Overfull \hbox (1.46526pt too wide) in alignment at lines 408--408
+[][][][] 
+ []
+
+
+Overfull \hbox (1.46526pt too wide) in alignment at lines 422--422
+[][][][] 
+ []
+
+)
+LaTeX Info: Redefining \. on input line 556.
+LaTeX Info: Redefining \% on input line 556.
+ [70]
 \openout2 = `./tex/6_Trabajos_relacionados.aux'.
 
  (tex/6_Trabajos_relacionados.tex
@@ -1540,7 +1687,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 5.87491pt
 (hyperref)                replaced by space on input line 1.
 
-) [51
+) [71
 
 
 
@@ -1554,128 +1701,214 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 5.87491pt
 (hyperref)                replaced by space on input line 1.
 
-) [52
+[72
 
 
 
 
-] (memoria.bbl
-Underfull \hbox (badness 1817) in paragraph at lines 10--14
+]
+LaTeX Info: Redefining \. on input line 20.
+LaTeX Info: Redefining \% on input line 20.
+ [73])
+LaTeX Info: Redefining \. on input line 558.
+LaTeX Info: Redefining \% on input line 558.
+ [74] (memoria.bbl
+Underfull \hbox (badness 1137) in paragraph at lines 10--14
 []\T1/lmr/m/n/12 (+20) News API.  \T1/lmr/m/it/12 (+20) News API\T1/lmr/m/n/12 
 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / newsapi . org / docs / client -[]
  []
 
 
-Underfull \hbox (badness 1924) in paragraph at lines 53--58
+Underfull \hbox (badness 2547) in paragraph at lines 22--26
+[]\T1/lmr/m/n/12 (+20) Ran Arous-si.  \T1/lmr/m/it/12 (+20) yFi-nan-ce\T1/lmr/m
+/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / github . com / ranaroussi /
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 40--44
+[]\T1/lmr/m/n/12 (+20) Sphinx Authors.  \T1/lmr/m/it/12 (+20) Sphinx\T1/lmr/m/n
+/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / www . sphinx -[] doc . org / en /
+
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 59--64
 []\T1/lmr/m/n/12 (+20) Bootstrap.  \T1/lmr/m/it/12 (+20) Boots-trap\T1/lmr/m/n/
 12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / getbootstrap . com / docs / 5 . 3 
 /
  []
 
-[53
+[75
 
 
 
 ]
-LaTeX Info: Redefining \. on input line 158.
-LaTeX Info: Redefining \% on input line 158.
+Underfull \hbox (badness 10000) in paragraph at lines 87--93
+[]\T1/lmr/m/n/12 (+20) Julian Chang.  \T1/lmr/m/it/12 (+20) Mo-dern Port-fo-lio
+ Theory with Python\T1/lmr/m/n/12 (+20) .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--93
+[][]$\T1/lmtt/m/n/12 https : / / medium . com / @changjulian17 / modern -[] por
+tfolio -[]
+ []
+
+
+Underfull \hbox (badness 3250) in paragraph at lines 87--93
+\T1/lmtt/m/n/12 theory -[] with -[] python -[] f33c9f517cd4$[][]\T1/lmr/m/n/12 
+(+20) , 2021.  On-li-ne; Ac-ce-di-do
+ []
+
+
+Underfull \hbox (badness 2644) in paragraph at lines 95--99
+[]\T1/lmr/m/n/12 (+20) CircleCI.  \T1/lmr/m/it/12 (+20) Cir-cle-CI\T1/lmr/m/n/1
+2 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / circleci . com / docs / language -[
+]
+ []
+
+
+Underfull \hbox (badness 1005) in paragraph at lines 125--131
+[]\T1/lmr/m/n/12 (+20) Comisión Na-cio-nal del Mer-ca-do de Va-lo-res.  \T1/lmr
+/m/it/12 (+20) Plan de Edu-ca-
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 125--131
+\T1/lmr/m/it/12 (+20) ción Fi-nan-cie-ra 2022-2025\T1/lmr/m/n/12 (+20) .  [][]$
+\T1/lmtt/m/n/12 https : / / www . cnmv . es / docportal /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--131
+\T1/lmtt/m/n/12 publicaciones / planeducacion / planeducacionfinanciera _ 22 _
+ []
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 140--144
+[]\T1/lmr/m/n/12 (+20) Django de-ve-lo-pers.  \T1/lmr/m/it/12 (+20) Djan-go do-
+cu-men-ta-tion\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / docs .
+ []
+
+LaTeX Info: Redefining \. on input line 151.
+LaTeX Info: Redefining \% on input line 151.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[54]
-LaTeX Info: Redefining \. on input line 246.
-LaTeX Info: Redefining \% on input line 246.
+[76]
+Underfull \hbox (badness 10000) in paragraph at lines 170--176
+\T1/lmtt/m/n/12 en / 5 . 0 / topics / db / multi -[] db / #topics -[] db -[] mu
+lti -[] db -[] routing$[][]\T1/lmr/m/n/12 (+20) ,
+ []
+
+LaTeX Info: Redefining \. on input line 242.
+LaTeX Info: Redefining \% on input line 242.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[55]
-Underfull \hbox (badness 2717) in paragraph at lines 247--253
+[77]
+Underfull \hbox (badness 10000) in paragraph at lines 274--280
+\T1/lmtt/m/n/12 / / ocw . mit . edu / courses / 18 -[] s096 -[] topics -[] in -
+[] mathematics -[] with -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--280
+\T1/lmtt/m/n/12 applications -[] in -[] finance -[] fall -[] 2013 / resources /
+ lecture -[] 14 -[]
+ []
+
+
+Underfull \hbox (badness 2521) in paragraph at lines 294--300
+[]\T1/lmr/m/n/12 (+20) José Fran-cis-co Ló-pez.  \T1/lmr/m/it/12 (+20) Si-mu-la
+-ción de Mon-te-car-lo\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--300
+\T1/lmtt/m/n/12 / / economipedia . com / definiciones / simulacion -[] de -[] m
+ontecarlo .
+ []
+
+
+Underfull \hbox (badness 1694) in paragraph at lines 319--325
 []\T1/lmr/m/n/12 (+20) Microsoft.  \T1/lmr/m/it/12 (+20) MS Teams\T1/lmr/m/n/12
  (+20) .  [][]$\T1/lmtt/m/n/12 https : / / www . microsoft . com / es -[] es /
  []
 
+LaTeX Info: Redefining \. on input line 325.
+LaTeX Info: Redefining \% on input line 325.
 
-Underfull \hbox (badness 6284) in paragraph at lines 291--295
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[78]
+Underfull \hbox (badness 4454) in paragraph at lines 369--373
 []\T1/lmr/m/n/12 (+20) pytest-cov con-tri-bu-tors.  \T1/lmr/m/it/12 (+20) Pytes
 t-cov\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / pytest -[] cov .
  []
 
-LaTeX Info: Redefining \. on input line 332.
-LaTeX Info: Redefining \% on input line 332.
+LaTeX Info: Redefining \. on input line 412.
+LaTeX Info: Redefining \% on input line 412.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[56]
-LaTeX Info: Redefining \. on input line 403.
-LaTeX Info: Redefining \% on input line 403.
+[79]
+LaTeX Info: Redefining \. on input line 481.
+LaTeX Info: Redefining \% on input line 481.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[57]
-Underfull \hbox (badness 7415) in paragraph at lines 416--420
+[80]
+Underfull \hbox (badness 5064) in paragraph at lines 544--548
 []\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Ja-vaS-cript\T1/lmr/m/
 n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / es . wikipedia . org / wiki /
  []
 
+LaTeX Info: Redefining \. on input line 567.
+LaTeX Info: Redefining \% on input line 567.
 
-Underfull \hbox (badness 5711) in paragraph at lines 434--440
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[81]
+Underfull \hbox (badness 4120) in paragraph at lines 568--574
 []\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Mo-de-lo au-to-rre-gre
 -si-vo in-te-gra-do de me-dia mó-
  []
 
-
-Underfull \hbox (badness 3098) in paragraph at lines 434--440
-\T1/lmr/m/it/12 (+20) vil\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : /
- / es . wikipedia . org / wiki / Modelo _ autorregresivo _
- []
-
-
-Underfull \hbox (badness 1019) in paragraph at lines 462--467
-[]\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Prue-ba de Dickey-Full
-er au-men-ta-da\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / es .
- []
-
-
-Underfull \hbox (badness 1960) in paragraph at lines 462--467
-\T1/lmtt/m/n/12 wikipedia . org / wiki / Prueba _ de _ Dickey -[] Fuller _ aume
-ntada$[][]\T1/lmr/m/n/12 (+20) , 2024.
- []
-
-LaTeX Info: Redefining \. on input line 493.
-LaTeX Info: Redefining \% on input line 493.
+LaTeX Info: Redefining \. on input line 653.
+LaTeX Info: Redefining \% on input line 653.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[58])
-LaTeX Info: Redefining \. on input line 566.
-LaTeX Info: Redefining \% on input line 566.
+[82])
+LaTeX Info: Redefining \. on input line 564.
+LaTeX Info: Redefining \% on input line 564.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[59]
+[83]
 
 pdfTeX warning: pdflatex (file ./img/licencia.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<./img/licencia.pdf, id=1388, 597.23125pt x 845.1575pt>
+<./img/licencia.pdf, id=1709, 597.23125pt x 845.1575pt>
 File: ./img/licencia.pdf Graphic file (type pdf)
 <use ./img/licencia.pdf>
-Package pdftex.def Info: ./img/licencia.pdf  used on input line 574.
+Package pdftex.def Info: ./img/licencia.pdf  used on input line 572.
 (pdftex.def)             Requested size: 113.81102pt x 161.04585pt.
-[60 <./img/licencia.pdf>]
+[84 <./img/licencia.pdf>]
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 583.
-
-
-Package natbib Warning: There were undefined citations.
+(in both cases you will find help in the memoir manual). on input line 581.
 
 \tf@toc=\write5
 \openout5 = `memoria.toc'.
@@ -1705,22 +1938,19 @@ L3 programming layer <2020/03/25>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: F7FAA21A138949453E3CE3215330261F;6780.
+(rerunfilecheck)             Checksum: DAAD896AE0C81CDFC9AD7291E8B9CF4C;9308.
  ) 
 Here is how much of TeX's memory you used:
- 19266 strings out of 474591
- 314996 string characters out of 5745778
- 1945533 words of memory out of 5000000
- 40451 multiletter control sequences out of 15000+600000
- 691685 words of font info for 275 fonts, out of 8000000 for 9000
+ 19479 strings out of 474591
+ 318742 string characters out of 5745778
+ 1948533 words of memory out of 5000000
+ 40539 multiletter control sequences out of 15000+600000
+ 701897 words of font info for 290 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,12n,93p,1006b,915s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,12n,93p,1184b,1015s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
@@ -1745,9 +1975,9 @@ ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Us
 ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on memoria.pdf (71 pages, 2441167 bytes).
+Output written on memoria.pdf (95 pages, 2554006 bytes).
 PDF statistics:
- 1579 PDF objects out of 1728 (max. 8388607)
- 316 named destinations out of 1000 (max. 500000)
- 74117 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1921 PDF objects out of 2073 (max. 8388607)
+ 415 named destinations out of 1000 (max. 500000)
+ 78317 words of extra memory for PDF output out of 89155 (max. 10000000)
 

@@ -9,7 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
 import keras
-from Lab.views import _preprocesar_p_d_q, _evaluar_modelo_arima_mse, _comprobar_formulario_arima, _validacion_walk_forward_arima, _generar_resultados_arima, _preprocesado_lstm, _crear_modelo, _comprobar_formulario_lstm, _validacion_walk_forward_lstm, _generar_resultados_lstm
+from Lab.views import _preprocesar_p_d_q, _evaluar_modelo_arima_mse, _comprobar_formularios, _validacion_walk_forward_arima, _generar_resultados_arima, _preprocesado_lstm, _crear_modelo, _comprobar_formulario_lstm, _validacion_walk_forward_lstm, _generar_resultados_lstm
 import pandas as pd
 import numpy as np
 from django.contrib.auth.models import User
@@ -602,7 +602,7 @@ class TestLabViews(TestCase):
             'rejilla': False,
         }
         form = ArimaAutoForm(data=form_data)
-        contexto = _comprobar_formulario_arima(form, ticker, request)
+        contexto = _comprobar_formularios(form, ticker, request)
         # False indicaría que no hay errores
         self.assertIsNotNone(contexto, " - [NO OK] Comprobar num_sesiones formulario ARIMA")
         self.assertEquals(contexto["msg_error"], 'Valor no válido para el nº de sesiones', 

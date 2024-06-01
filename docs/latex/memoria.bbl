@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
 
 \bibitem{online:apache_subversion}
 Apache.
@@ -17,6 +17,12 @@ Ran Aroussi.
 \newblock \emph{yFinance}.
 \newblock \url{https://pypi.org/project/yfinance/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:yfinance_github}
+Ran Aroussi.
+\newblock \emph{yFinance}.
+\newblock \url{https://github.com/ranaroussi/yfinance}, 2024.
+\newblock Online; Accedido el 31-May-2024.
 
 \bibitem{online:jira}
 Atlassian.
@@ -62,11 +68,28 @@ Pascal Brachet.
 \newblock \url{https://www.xm1math.net/texmaker/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
+\bibitem{online:walk_forward_code}
+Jason Bronwlee.
+\newblock \emph{How to Create an ARIMA Model for Time Series Forecasting in
+  Python}.
+\newblock
+  \url{https://machinelearningmastery.com/arima-for-time-series-forecasting-with-python/},
+  2024.
+\newblock Online; Accedido el 01-Jun-2024.
+
 \bibitem{online:walk_forward}
 Marti Castany.
 \newblock \emph{El método walk-forward: la guía definitiva}.
 \newblock \url{https://quantdemy.com/metodo-walk-forward/}, 2023.
 \newblock Online; Accedido el 23-May-2024.
+
+\bibitem{online:mpt_python_medium}
+Julian Chang.
+\newblock \emph{Modern Portfolio Theory with Python}.
+\newblock
+  \url{https://medium.com/@changjulian17/modern-portfolio-theory-with-python-f33c9f517cd4},
+  2021.
+\newblock Online; Accedido el 31-May-2024.
 
 \bibitem{online:circle_ci}
 CircleCI.
@@ -85,6 +108,12 @@ Ian~Stapleton Cordasco.
 \newblock \emph{Flake8}.
 \newblock \url{https://flake8.pycqa.org/en/latest/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:django_full_course}
+Django~Full Course.
+\newblock \emph{Django Full Course}.
+\newblock \url{https://www.youtube.com/@djangofullcourse1171}, 2023.
+\newblock Online; Accedido el 31-May-2024.
 
 \bibitem{online:bde}
 Banco de~España.
@@ -107,6 +136,18 @@ Comisión~Nacional del Mercado~de Valores.
 \newblock \url{https://www.cnmv.es/portal/home.aspx}, 2023.
 \newblock Online; Accedido el 06-Nov-2023.
 
+\bibitem{online:django_doc}
+Django developers.
+\newblock \emph{Django documentation}.
+\newblock \url{https://docs.djangoproject.com/en/5.0/}, 2024.
+\newblock Online; Accedido el 31-May-2024.
+
+\bibitem{online:fbprophet}
+Mera developers.
+\newblock \emph{Prophet}.
+\newblock \url{https://facebook.github.io/prophet/}, 2024.
+\newblock Online; Accedido el 01-Jun-2024.
+
 \bibitem{online:networkx}
 NetworkX developers.
 \newblock \emph{NetworkX}.
@@ -125,11 +166,25 @@ Django.
 \newblock \url{https://docs.djangoproject.com/en/5.0/faq/general/}, 2023.
 \newblock Online; Accedido el 20-Abr-2024.
 
+\bibitem{online:django_routers}
+Django.
+\newblock \emph{Django multi routing}.
+\newblock
+  \url{https://docs.djangoproject.com/en/5.0/topics/db/multi-db/#topics-db-multi-db-routing},
+  2024.
+\newblock Online; Accedido el 31-May-2024.
+
 \bibitem{online:mendeley}
 Elsevier.
 \newblock \emph{Mendeley}.
 \newblock \url{https://www.mendeley.com/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:django_fatz}
+Fazt.
+\newblock \emph{Django, Curso de Django para Principiantes}.
+\newblock \url{https://www.youtube.com/watch?v=T1intZyhXDU}, 2023.
+\newblock Online; Accedido el 31-May-2024.
 
 \bibitem{online:django}
 Django~Software Foundation.
@@ -178,11 +233,6 @@ The PostgreSQL Global~Development Group.
 \newblock \url{https://www.postgresql.org/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
-\bibitem{10.1162/neco.1997.9.8.1735}
-Sepp Hochreiter and J\"{u}rgen Schmidhuber.
-\newblock Long short-term memory.
-\newblock {\em Neural Comput.}, 9(8):1735–1780, nov 1997.
-
 \bibitem{online:spyder}
 Spyder IDE.
 \newblock \emph{Spyder IDE}.
@@ -220,6 +270,14 @@ Jonathan Taylor y statsmodels-developers Josef~Perktold, Skipper~Seabold.
 \newblock \url{https://www.statsmodels.org/stable/index.html}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
+\bibitem{online:portfolio_theory_mit}
+Dr.~Peter Kempthorne.
+\newblock \emph{Lecture 14: Portfolio Theory}.
+\newblock
+  \url{https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/resources/lecture-14-portfolio-theory/},
+  2021.
+\newblock Online; Accedido el 31-May-2024.
+
 \bibitem{online:pylint}
 Pylint Logilab.
 \newblock \emph{Pylint}.
@@ -232,6 +290,14 @@ JGraph Ltd.
 \newblock \url{https://www.drawio.com/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
+\bibitem{online:simulacion_montecarlo}
+José~Francisco López.
+\newblock \emph{Simulación de Montecarlo}.
+\newblock
+  \url{https://economipedia.com/definiciones/simulacion-de-montecarlo.html},
+  2020.
+\newblock Online; Accedido el 16-May-2024.
+
 \bibitem{online:MarketScreener}
 MarketScreener.
 \newblock \emph{Financial information for investors and traders}.
@@ -242,6 +308,12 @@ MarketScreener.
 Harry Markowitz.
 \newblock {\em Portfolio selection. Efficient diversification of investments}.
 \newblock Cowles Foundation, 1st edition, 1959.
+
+\bibitem{online:FAT_read_docs}
+Rodrigo Merino.
+\newblock \emph{FAT: Financial Analysis Tool’s documentation}.
+\newblock \url{https://fat.readthedocs.io/es/latest/}, 2024.
+\newblock Online; Accedido el 01-Jun-2024.
 
 \bibitem{online:ms_teams}
 Microsoft.
@@ -269,6 +341,12 @@ Vinayak Nishant.
 \newblock \url{https://www.askpython.com/django/django-mvt-architecture}, 2020.
 \newblock Online; Accedido el 20-Abr-2024.
 
+\bibitem{online:jinja_doc}
+Pallets.
+\newblock \emph{Jinja}.
+\newblock \url{https://jinja.palletsprojects.com/en/3.0.x/}, 2023.
+\newblock Online; Accedido el 31-May-2024.
+
 \bibitem{online:flask}
 Pallets.
 \newblock \emph{Flask}.
@@ -293,6 +371,14 @@ pytest-cov contributors.
 \newblock \url{https://pytest-cov.readthedocs.io/en/latest/readme.html}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
+\bibitem{online:efficient_frontier}
+QuantPy.
+\newblock \emph{Efficient Frontier}.
+\newblock
+  \url{https://www.youtube.com/playlist?list=PLqpCwow11-OooQGB3vuiCdsRLQ5i-6AEH},
+  2021.
+\newblock Online; Accedido el 31-May-2024.
+
 \bibitem{online:scikit_learn}
 scikit-learn developers.
 \newblock \emph{scikit-learn}.
@@ -310,6 +396,12 @@ Google~Brain Team.
 \newblock \emph{TensorFlow}.
 \newblock \url{https://www.tensorflow.org/?hl=es}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:financial_engineering}
+The Lazy~Programmer Team.
+\newblock \emph{Financial Engineering and Artificial Intelligence in Python}.
+\newblock \url{https://www.udemy.com/course/ai-finance/}, 2024.
+\newblock Online; Accedido el 31-May-2024.
 
 \bibitem{online:readthedocs}
 Read the Docs~Inc and contributors.
@@ -349,12 +441,36 @@ Pauli Virtanen, Ralf Gommers, Travis~E. Oliphant, Matt Haberland, Tyler Reddy,
   Python}.
 \newblock {\em Nature Methods}, 17:261--272, 2020.
 
+\bibitem{wiki:programacion_lineal}
+Wikipedia.
+\newblock \emph{Programación lineal}.
+\newblock \url{https://es.wikipedia.org/wiki/Programaci%C3%B3n_lineal}, 2020.
+\newblock Online; Accedido el 16-May-2024.
+
+\bibitem{wiki:analisis_fundamental}
+Wikipedia.
+\newblock \emph{Análisis fundamental}.
+\newblock \url{https://es.wikipedia.org/wiki/An%C3%A1lisis_fundamental}, 2024.
+\newblock Online; Accedido el 01-Jun-2024.
+
+\bibitem{wiki:api}
+Wikipedia.
+\newblock \emph{API}.
+\newblock \url{https://es.wikipedia.org/wiki/API}, 2024.
+\newblock Online; Accedido el 31-May-2024.
+
 \bibitem{wiki:BDD}
 Wikipedia.
 \newblock \emph{Behavior-driven development}.
 \newblock \url{https://en.wikipedia.org/wiki/Behavior-driven_development},
   2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:burndown}
+Wikipedia.
+\newblock \emph{Burndown chart}.
+\newblock \url{https://en.wikipedia.org/wiki/Burndown_chart}, 2024.
+\newblock Online; Accedido el 31-May-2024.
 
 \bibitem{wiki:buy_and_hold}
 Wikipedia.
@@ -406,11 +522,23 @@ Wikipedia.
 \newblock \url{https://en.wikipedia.org/wiki/Efficient_frontier}, 2024.
 \newblock Online; Accedido el 17-May-2024.
 
+\bibitem{wiki:homocedasticidad}
+Wikipedia.
+\newblock \emph{Homocedasticidad}.
+\newblock \url{https://es.wikipedia.org/wiki/Homocedasticidad}, 2024.
+\newblock Online; Accedido el 24-May-2024.
+
 \bibitem{wiki:html}
 Wikipedia.
 \newblock \emph{HTML}.
 \newblock \url{https://es.wikipedia.org/wiki/HTML}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{wiki:issue}
+Wikipedia.
+\newblock \emph{Issue}.
+\newblock \url{https://es.wikipedia.org/wiki/Issue}, 2024.
+\newblock Online; Accedido el 31-May-2024.
 
 \bibitem{wiki:javascript}
 Wikipedia.
@@ -423,6 +551,12 @@ Wikipedia.
 \newblock \emph{Kanban (desarrollo)}.
 \newblock \url{https://es.wikipedia.org/wiki/Kanban_(desarrollo)}, 2024.
 \newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:lstm}
+Wikipedia.
+\newblock \emph{Long short-term memory}.
+\newblock \url{https://en.wikipedia.org/wiki/Long_short-term_memory}, 2024.
+\newblock Online; Accedido el 31-May-2024.
 
 \bibitem{wiki:miktex}
 Wikipedia.

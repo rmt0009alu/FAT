@@ -21,47 +21,49 @@ Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
 Warning--string name "sept" is undefined
 --line 11 of file bibliografia.bib
-Warning--I didn't find a database entry for "simulacion_montecarlo"
-Warning--I didn't find a database entry for "programacion_lineal"
-You've used 82 entries,
+Repeated entry---line 814 of file bibliografia.bib
+ : @misc{ online:yfinance
+ :                       ,
+I'm skipping whatever remains of this entry
+You've used 102 entries,
             2118 wiz_defined-function locations,
-            852 strings with 13728 characters,
-and the built_in function-call counts, 19139 in all, are:
-= -- 1897
-> -- 757
+            916 strings with 16100 characters,
+and the built_in function-call counts, 23340 in all, are:
+= -- 2324
+> -- 891
 < -- 0
-+ -- 318
-- -- 236
-* -- 681
-:= -- 3292
-add.period$ -- 324
-call.type$ -- 82
-change.case$ -- 364
++ -- 376
+- -- 274
+* -- 776
+:= -- 4013
+add.period$ -- 405
+call.type$ -- 102
+change.case$ -- 443
 chr.to.int$ -- 0
-cite$ -- 82
-duplicate$ -- 592
-empty$ -- 1818
-format.name$ -- 236
-if$ -- 4154
+cite$ -- 102
+duplicate$ -- 728
+empty$ -- 2249
+format.name$ -- 274
+if$ -- 5088
 int.to.chr$ -- 0
-int.to.str$ -- 82
-missing$ -- 6
-newline$ -- 491
-num.names$ -- 164
-pop$ -- 678
+int.to.str$ -- 102
+missing$ -- 5
+newline$ -- 612
+num.names$ -- 204
+pop$ -- 843
 preamble$ -- 1
-purify$ -- 282
+purify$ -- 341
 quote$ -- 0
-skip$ -- 495
+skip$ -- 612
 stack$ -- 0
-substring$ -- 468
-swap$ -- 82
+substring$ -- 535
+swap$ -- 102
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 324
+type$ -- 404
 warning$ -- 0
-while$ -- 167
-width$ -- 84
-write$ -- 982
-(There were 3 warnings)
+while$ -- 206
+width$ -- 105
+write$ -- 1223
+(There was 1 error message)

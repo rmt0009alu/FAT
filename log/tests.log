@@ -13,7 +13,6 @@ INFO:AnalysisViews  : - [OK] Generar grafo correlaciones negativas
 INFO:AnalysisViews  : - [OK] Generar grafo correlaciones positivas
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de _generar_graficas_comparacion
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de _get_datos
-INFO:AnalysisViews  : - [OK] Obtener listas RSS
 INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd falsa
 INFO:AnalysisViews  : - [OK] Respuesta 404 de mapa_stocks con bd vacía
 INFO:AnalysisViews  : - [OK] Respuesta adecuada de mapa_stocks con parámetros válidos en dax40
@@ -173,7 +172,6 @@ INFO:LabViews       : - [OK] Comprobar num_sesiones (2) formulario LSTM
 INFO:LabViews       : - [OK] Comprobar num_sesiones (2) formulario LSTM
 INFO:LabViews       : - [OK] Crear modelo LSTM
 INFO:LabViews       : - [OK] Evaluar ARIMA con MSE
-INFO:LabViews       : - [OK] Generar resultados ARIMA
 INFO:LabViews       : - [OK] Generar resultados LSTM
 INFO:LabViews       : - [OK] Que página de lab retorne '200 ok'
 INFO:LabViews       : - [OK] No utilizar otros 'templates' por error
