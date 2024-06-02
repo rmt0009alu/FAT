@@ -19,51 +19,44 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
-Warning--string name "sept" is undefined
---line 11 of file bibliografia.bib
-Repeated entry---line 814 of file bibliografia.bib
- : @misc{ online:yfinance
- :                       ,
-I'm skipping whatever remains of this entry
-You've used 102 entries,
+You've used 116 entries,
             2118 wiz_defined-function locations,
-            916 strings with 16100 characters,
-and the built_in function-call counts, 23340 in all, are:
-= -- 2324
-> -- 891
-< -- 0
-+ -- 376
-- -- 274
-* -- 776
-:= -- 4013
-add.period$ -- 405
-call.type$ -- 102
-change.case$ -- 443
+            1002 strings with 18549 characters,
+and the built_in function-call counts, 28063 in all, are:
+= -- 2807
+> -- 1088
+< -- 6
++ -- 456
+- -- 338
+* -- 1064
+:= -- 4781
+add.period$ -- 447
+call.type$ -- 116
+change.case$ -- 517
 chr.to.int$ -- 0
-cite$ -- 102
-duplicate$ -- 728
-empty$ -- 2249
-format.name$ -- 274
-if$ -- 5088
+cite$ -- 116
+duplicate$ -- 929
+empty$ -- 2601
+format.name$ -- 338
+if$ -- 6101
 int.to.chr$ -- 0
-int.to.str$ -- 102
-missing$ -- 5
-newline$ -- 612
-num.names$ -- 204
-pop$ -- 843
+int.to.str$ -- 116
+missing$ -- 20
+newline$ -- 682
+num.names$ -- 232
+pop$ -- 914
 preamble$ -- 1
-purify$ -- 341
+purify$ -- 401
 quote$ -- 0
-skip$ -- 612
+skip$ -- 778
 stack$ -- 0
-substring$ -- 535
-swap$ -- 102
-text.length$ -- 0
+substring$ -- 837
+swap$ -- 166
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 404
+type$ -- 458
 warning$ -- 0
-while$ -- 206
-width$ -- 105
-write$ -- 1223
-(There was 1 error message)
+while$ -- 255
+width$ -- 119
+write$ -- 1373

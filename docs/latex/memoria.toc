@@ -104,7 +104,7 @@
 \contentsline {section}{\numberline {5.10}Desarrollo de formularios para interactuar con el usuario}{69}{section.5.10}%
 \contentsline {section}{\numberline {5.11}Testing}{70}{section.5.11}%
 \contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{71}{chapter*.68}%
-\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{72}{chapter*.69}%
-\contentsline {section}{\numberline {7.1}Conclusiones}{72}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Líneas de trabajo futuras}{73}{section.7.2}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{75}{chapter*.70}%
+\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{73}{chapter*.69}%
+\contentsline {section}{\numberline {7.1}Conclusiones}{73}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Líneas de trabajo futuras}{74}{section.7.2}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{76}{chapter*.70}%

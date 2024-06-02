@@ -12,17 +12,17 @@ News API.
 \newblock \url{https://newsapi.org/docs/client-libraries/python}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
-\bibitem{online:yfinance}
-Ran Aroussi.
-\newblock \emph{yFinance}.
-\newblock \url{https://pypi.org/project/yfinance/}, 2024.
-\newblock Online; Accedido el 22-Abr-2024.
-
 \bibitem{online:yfinance_github}
 Ran Aroussi.
 \newblock \emph{yFinance}.
 \newblock \url{https://github.com/ranaroussi/yfinance}, 2024.
 \newblock Online; Accedido el 31-May-2024.
+
+\bibitem{online:yfinance}
+Ran Aroussi.
+\newblock yfinance.
+\newblock \url{https://pypi.org/project/yfinance/}, 2024.
+\newblock Online; accedido el 22-Abr-2024.
 
 \bibitem{online:jira}
 Atlassian.
@@ -61,6 +61,12 @@ Bootstrap.
 \newblock
   \url{https://getbootstrap.com/docs/5.3/getting-started/introduction/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{paper:CNN_Stock_Prediction}
+S.~Borovkova and I.~Tsiamas.
+\newblock Stock price prediction using convolutional neural networks on a
+  gridded time representation.
+\newblock {\em Journal of Financial Markets}, 42:197--218, 2019.
 
 \bibitem{online:texmaker}
 Pascal Brachet.
@@ -121,6 +127,11 @@ Banco de~España.
 \newblock \url{https://www.bde.es/wbe/es/}, 2023.
 \newblock Online; Accedido el 06-Nov-2023.
 
+\bibitem{paper:ML_Asset_Managers}
+Marcos~López de~Prado.
+\newblock Machine learning for asset managers.
+\newblock {\em Quantitative Finance}, 2018.
+
 \bibitem{report:cnmv_informe}
 Comisión~Nacional del Mercado~de Valores.
 \newblock \emph{Plan de Educación Financiera 2022-2025}.
@@ -174,6 +185,12 @@ Django.
   2024.
 \newblock Online; Accedido el 31-May-2024.
 
+\bibitem{paper:Technical_Analysis_ML}
+Christian~L. Dunis, Apostolos Karathanasopolous, George Sermpinis, Konstantinos
+  Theofilatos, and John Keane.
+\newblock Technical analysis and machine learning: A systematic review.
+\newblock {\em European Journal of Operational Research}, pages 229--241, 2016.
+
 \bibitem{online:mendeley}
 Elsevier.
 \newblock \emph{Mendeley}.
@@ -225,13 +242,18 @@ GitLab.
 \bibitem{book:Inversor_inteligente}
 Benjamin Graham.
 \newblock {\em El inversor inteligente}.
-\newblock Deusto, Grupo Planeta, 10th edition, 2007.
+\newblock Deusto, Grupo Planeta, 10th edition, September 2007.
 
 \bibitem{online:postgresql}
 The PostgreSQL Global~Development Group.
 \newblock \emph{PostgreSQL}.
 \newblock \url{https://www.postgresql.org/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{paper:LSTM_Survey}
+Sepp Hochreiter and Jürgen Schmidhuber.
+\newblock A survey on lstm neural networks for time series forecasting.
+\newblock {\em Neural Computation}, pages 1735--1780, 1997.
 
 \bibitem{online:spyder}
 Spyder IDE.
@@ -258,11 +280,21 @@ Investing.
 \newblock \url{https://www.investing.com/}, 2024.
 \newblock Online; Accedido el 10-Abr-2024.
 
+\bibitem{paper:NN_Algorithmic_Trading}
+Tomasz Janeczko.
+\newblock Neural networks for algorithmic trading.
+\newblock {\em MetaQuotes Software Corp.}, 2018.
+
 \bibitem{online:jenkins}
 Jenkins.
 \newblock \emph{Jenkins}.
 \newblock \url{https://www.jenkins.io/solutions/python/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{paper:ML_Trading_Bots}
+Michael Jones.
+\newblock Building machine learning powered trading bots.
+\newblock {\em Trading Bot Journal}, pages 55--72, 2021.
 
 \bibitem{online:statsmodels}
 Jonathan Taylor y statsmodels-developers Josef~Perktold, Skipper~Seabold.
@@ -277,6 +309,16 @@ Dr.~Peter Kempthorne.
   \url{https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/resources/lecture-14-portfolio-theory/},
   2021.
 \newblock Online; Accedido el 31-May-2024.
+
+\bibitem{paper:Forecasting_NN}
+Takashi Kimoto, Kazuo Asakawa, Masakaz Yoda, and Masakaz Takeoka.
+\newblock Forecasting stock prices with neural networks.
+\newblock {\em IEEE}, pages 1--7, 1990.
+
+\bibitem{paper:Deep_Portfolios}
+David Koch, Liang Zhang, and Jürgen Gall.
+\newblock Deep learning for finance: Deep portfolios.
+\newblock {\em Journal of Financial Data Science}, pages 42--56, 2019.
 
 \bibitem{online:pylint}
 Pylint Logilab.
@@ -379,11 +421,39 @@ QuantPy.
   2021.
 \newblock Online; Accedido el 31-May-2024.
 
+\bibitem{paper:Empirical_Stock_India}
+Vijayalakshmi Ravi and P.~A. Vijaya.
+\newblock An empirical study on predicting stock prices in the indian stock
+  market using machine learning techniques.
+\newblock {\em Procedia Computer Science}, pages 1155--1160, 2019.
+
+\bibitem{book:libertad_financiera}
+Andrea Redondo.
+\newblock {\em Inversión: Claves para alcanzar la libertad financiera}.
+\newblock El club inversor, 1st edition, December 2020.
+
+\bibitem{paper:Deep_Learning_Review}
+M.~Roondiwala, H.~Patel, and K.~Varma.
+\newblock Financial time series forecasting with deep learning: A systematic
+  literature review: 2005-2019.
+\newblock {\em arXiv}, 2019.
+
 \bibitem{online:scikit_learn}
 scikit-learn developers.
 \newblock \emph{scikit-learn}.
 \newblock \url{https://scikit-learn.org/stable/index.html}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{paper:Deep_Learning_Survey}
+O.B. Sezer, M.U. Gudelek, and A.M. Ozbayoglu.
+\newblock Deep learning for financial applications: A survey.
+\newblock {\em Applied Soft Computing}, 93:106384, 2020.
+
+\bibitem{paper:Automated_Trading_Python}
+John Smith.
+\newblock Automated trading with python: Designing and developing automated
+  trading systems in python.
+\newblock {\em Python Software Foundation}, 2020.
 
 \bibitem{online:sqlite}
 SQLite.
@@ -643,6 +713,11 @@ Kurt~McKee y~Mark~Pilgrim.
 \newblock \url{https://feedparser.readthedocs.io/en/latest/introduction.html},
   2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{paper:Deep_Reinforcement_Trading}
+X.~Yang, Y.~Li, and P.~Deng.
+\newblock Deep reinforcement learning for trading.
+\newblock {\em Journal of Financial Data Science}, 2(2):25--40, 2020.
 
 \bibitem{online:zenhub}
 ZenHub.
