@@ -182,7 +182,6 @@ def _diferenciacion_logaritmica(df, d):
 
     plt.tight_layout()
 
-    plt.savefig('ALGO.png', format='PNG')
     buffer = BytesIO()
     plt.savefig(buffer, format='PNG')
     plt.close()

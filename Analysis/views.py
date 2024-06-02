@@ -959,7 +959,6 @@ def _distribucion_retornos_ult_252_sesiones(ticker):
     plt.hist(df_ticker['percent_variance'], bins=10)
     plt.xlabel('Retorno (variación diaria en %)')
     plt.title(f'Distribución de retornos de {nombre} en el último año')
-    plt.savefig('Pruebas2.png', format='PNG')
     plt.savefig(buffer, format="PNG")
     plt.close()
 
