@@ -1378,3 +1378,883 @@
 2024-03-21 02:05:21,392 - INFO: [OK] Bases de datos actualizadas.
 2024-03-21 02:05:21,392 - INFO: Proceso finalizado.
 
+2024-06-02 21:47:50,021 - INFO: 
+2024-06-02 21:47:50,026 - INFO: --------------------------------------------------
+2024-06-02 21:47:50,026 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-02 21:47:50,026 - INFO: --------------------------------------------------
+2024-06-02 21:47:53,556 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
+2024-06-02 21:47:53,707 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
+2024-06-02 21:47:53,846 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
+2024-06-02 21:47:53,996 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
+2024-06-02 21:47:54,146 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
+2024-06-02 21:47:54,306 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
+2024-06-02 21:47:54,481 - INFO:  - [Fuera de horario] No se puede actualizar. Cisco Systems, Inc.
+2024-06-02 21:47:54,607 - INFO:  - [Fuera de horario] No se puede actualizar. Chevron Corporation
+2024-06-02 21:47:54,740 - INFO:  - [Fuera de horario] No se puede actualizar. The Walt Disney Company
+2024-06-02 21:47:54,876 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Inc.
+2024-06-02 21:47:55,016 - INFO:  - [Fuera de horario] No se puede actualizar. The Goldman Sachs Group, Inc.
+2024-06-02 21:47:55,146 - INFO:  - [Fuera de horario] No se puede actualizar. The Home Depot, Inc.
+2024-06-02 21:47:55,286 - INFO:  - [Fuera de horario] No se puede actualizar. Honeywell International Inc.
+2024-06-02 21:47:55,426 - INFO:  - [Fuera de horario] No se puede actualizar. International Business Machines Corporation
+2024-06-02 21:47:55,568 - INFO:  - [Fuera de horario] No se puede actualizar. Intel Corporation
+2024-06-02 21:47:55,713 - INFO:  - [Fuera de horario] No se puede actualizar. Johnson & Johnson
+2024-06-02 21:47:55,857 - INFO:  - [Fuera de horario] No se puede actualizar. JPMorgan Chase & Co.
+2024-06-02 21:47:56,001 - INFO:  - [Fuera de horario] No se puede actualizar. The Coca-Cola Company
+2024-06-02 21:47:56,146 - INFO:  - [Fuera de horario] No se puede actualizar. McDonald's Corporation
+2024-06-02 21:47:56,296 - INFO:  - [Fuera de horario] No se puede actualizar. 3M Company
+2024-06-02 21:47:56,433 - INFO:  - [Fuera de horario] No se puede actualizar. Merck & Co., Inc.
+2024-06-02 21:47:56,566 - INFO:  - [Fuera de horario] No se puede actualizar. Microsoft Corporation
+2024-06-02 21:47:56,713 - INFO:  - [Fuera de horario] No se puede actualizar. NIKE, Inc.
+2024-06-02 21:47:56,925 - INFO:  - [Fuera de horario] No se puede actualizar. The Procter & Gamble Company
+2024-06-02 21:47:57,131 - INFO:  - [Fuera de horario] No se puede actualizar. The Travelers Companies, Inc.
+2024-06-02 21:47:57,261 - INFO:  - [Fuera de horario] No se puede actualizar. UnitedHealth Group Incorporated
+2024-06-02 21:47:57,411 - INFO:  - [Fuera de horario] No se puede actualizar. Visa Inc.
+2024-06-02 21:47:57,556 - INFO:  - [Fuera de horario] No se puede actualizar. Verizon Communications Inc.
+2024-06-02 21:47:57,700 - INFO:  - [Fuera de horario] No se puede actualizar. Walgreens Boots Alliance, Inc.
+2024-06-02 21:47:57,846 - INFO:  - [Fuera de horario] No se puede actualizar. Walmart Inc.
+2024-06-02 21:47:57,982 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Jones Industrial Average
+2024-06-02 21:47:57,984 - INFO: 
+2024-06-02 21:47:57,987 - INFO: [OK] Bases de datos actualizadas.
+2024-06-02 21:47:57,989 - INFO: Proceso finalizado.
+
+2024-06-02 21:47:57,991 - INFO: 
+2024-06-02 21:47:57,993 - INFO: --------------------------------------------------
+2024-06-02 21:47:57,996 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-02 21:47:57,999 - INFO: --------------------------------------------------
+2024-06-02 21:47:58,141 - INFO:  - [Fuera de horario] No se puede actualizar. ACS, Actividades de Construcción y Servicios, S.A.
+2024-06-02 21:47:58,278 - INFO:  - [Fuera de horario] No se puede actualizar. Acerinox, S.A.
+2024-06-02 21:47:58,500 - INFO:  - [Fuera de horario] No se puede actualizar. Aena S.M.E., S.A.
+2024-06-02 21:47:58,626 - INFO:  - [Fuera de horario] No se puede actualizar. Amadeus IT Group, S.A.
+2024-06-02 21:47:58,785 - INFO:  - [Fuera de horario] No se puede actualizar. Acciona, S.A.
+2024-06-02 21:47:58,921 - INFO:  - [Fuera de horario] No se puede actualizar. Corporación Acciona Energías Renovables, S.A.
+2024-06-02 21:47:59,062 - INFO:  - [Fuera de horario] No se puede actualizar. Banco Bilbao Vizcaya Argentaria, S.A.
+2024-06-02 21:47:59,200 - INFO:  - [Fuera de horario] No se puede actualizar. Bankinter, S.A.
+2024-06-02 21:47:59,346 - INFO:  - [Fuera de horario] No se puede actualizar. CaixaBank, S.A.
+2024-06-02 21:47:59,486 - INFO:  - [Fuera de horario] No se puede actualizar. Cellnex Telecom, S.A.
+2024-06-02 21:47:59,626 - INFO:  - [Fuera de horario] No se puede actualizar. Inmobiliaria Colonial, SOCIMI, S.A.
+2024-06-02 21:47:59,766 - INFO:  - [Fuera de horario] No se puede actualizar. Endesa, S.A.
+2024-06-02 21:47:59,906 - INFO:  - [Fuera de horario] No se puede actualizar. Enagás, S.A.
+2024-06-02 21:48:00,046 - INFO:  - [Fuera de horario] No se puede actualizar. Fluidra, S.A.
+2024-06-02 21:48:00,176 - INFO:  - [Fuera de horario] No se puede actualizar. Ferrovial SE
+2024-06-02 21:48:00,316 - INFO:  - [Fuera de horario] No se puede actualizar. Grifols, S.A.
+2024-06-02 21:48:00,466 - INFO:  - [Fuera de horario] No se puede actualizar. International Consolidated Airlines Group S.A.
+2024-06-02 21:48:00,606 - INFO:  - [Fuera de horario] No se puede actualizar. Iberdrola, S.A.
+2024-06-02 21:48:00,756 - INFO:  - [Fuera de horario] No se puede actualizar. Indra Sistemas, S.A.
+2024-06-02 21:48:00,906 - INFO:  - [Fuera de horario] No se puede actualizar. Industria de Diseño Textil, S.A.
+2024-06-02 21:48:01,036 - INFO:  - [Fuera de horario] No se puede actualizar. Logista Integral, S.A.
+2024-06-02 21:48:01,177 - INFO:  - [Fuera de horario] No se puede actualizar. Mapfre, S.A.
+2024-06-02 21:48:01,331 - INFO:  - [Fuera de horario] No se puede actualizar. Meliá Hotels International, S.A.
+2024-06-02 21:48:01,468 - INFO:  - [Fuera de horario] No se puede actualizar. MERLIN Properties SOCIMI, S.A.
+2024-06-02 21:48:01,610 - INFO:  - [Fuera de horario] No se puede actualizar. ArcelorMittal S.A.
+2024-06-02 21:48:01,746 - INFO:  - [Fuera de horario] No se puede actualizar. Naturgy Energy Group, S.A.
+2024-06-02 21:48:01,888 - INFO:  - [Fuera de horario] No se puede actualizar. Redeia Corporación, S.A.
+2024-06-02 21:48:02,056 - INFO:  - [Fuera de horario] No se puede actualizar. Repsol, S.A.
+2024-06-02 21:48:02,198 - INFO:  - [Fuera de horario] No se puede actualizar. Laboratorios Farmaceuticos Rovi, S.A.
+2024-06-02 21:48:02,346 - INFO:  - [Fuera de horario] No se puede actualizar. Banco de Sabadell, S.A.
+2024-06-02 21:48:02,486 - INFO:  - [Fuera de horario] No se puede actualizar. Banco Santander, S.A.
+2024-06-02 21:48:02,638 - INFO:  - [Fuera de horario] No se puede actualizar. Sacyr, S.A.
+2024-06-02 21:48:02,766 - INFO:  - [Fuera de horario] No se puede actualizar. Solaria Energía y Medio Ambiente, S.A.
+2024-06-02 21:48:02,914 - INFO:  - [Fuera de horario] No se puede actualizar. Telefónica, S.A.
+2024-06-02 21:48:03,046 - INFO:  - [Fuera de horario] No se puede actualizar. Unicaja Banco, S.A.
+2024-06-02 21:48:03,179 - INFO:  - [Fuera de horario] No se puede actualizar. IBEX 35...
+2024-06-02 21:48:03,186 - INFO: 
+2024-06-02 21:48:03,186 - INFO: [OK] Bases de datos actualizadas.
+2024-06-02 21:48:03,186 - INFO: Proceso finalizado.
+
+2024-06-02 21:48:03,193 - INFO: 
+2024-06-02 21:48:03,196 - INFO: --------------------------------------------------
+2024-06-02 21:48:03,198 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-02 21:48:03,201 - INFO: --------------------------------------------------
+2024-06-02 21:48:03,337 - INFO:  - [Fuera de horario] No se puede actualizar. 3i Group Ord
+2024-06-02 21:48:03,488 - INFO:  - [Fuera de horario] No se puede actualizar. Admiral Group plc
+2024-06-02 21:48:03,636 - INFO:  - [Fuera de horario] No se puede actualizar. Airtel Africa Plc
+2024-06-02 21:48:03,786 - INFO:  - [Fuera de horario] No se puede actualizar. Anglo American plc
+2024-06-02 21:48:03,929 - INFO:  - [Fuera de horario] No se puede actualizar. Antofagasta plc
+2024-06-02 21:48:04,060 - INFO:  - [Fuera de horario] No se puede actualizar. Ashtead Group plc
+2024-06-02 21:48:04,206 - INFO:  - [Fuera de horario] No se puede actualizar. Associated British Foods plc
+2024-06-02 21:48:04,344 - INFO:  - [Fuera de horario] No se puede actualizar. AstraZeneca PLC
+2024-06-02 21:48:04,480 - INFO:  - [Fuera de horario] No se puede actualizar. Auto Trader Group plc
+2024-06-02 21:48:04,616 - INFO:  - [Fuera de horario] No se puede actualizar. Aviva plc
+2024-06-02 21:48:04,755 - INFO:  - [Fuera de horario] No se puede actualizar. B&M European Value Retail S.A.
+2024-06-02 21:48:04,896 - INFO:  - [Fuera de horario] No se puede actualizar. BAE Systems plc
+2024-06-02 21:48:05,038 - INFO:  - [Fuera de horario] No se puede actualizar. Barclays PLC
+2024-06-02 21:48:05,179 - INFO:  - [Fuera de horario] No se puede actualizar. Barratt Developments plc
+2024-06-02 21:48:05,323 - INFO:  - [Fuera de horario] No se puede actualizar. Beazley plc
+2024-06-02 21:48:05,456 - INFO:  - [Fuera de horario] No se puede actualizar. The Berkeley Group Holdings plc
+2024-06-02 21:48:05,586 - INFO:  - [Fuera de horario] No se puede actualizar. BP p.l.c.
+2024-06-02 21:48:05,733 - INFO:  - [Fuera de horario] No se puede actualizar. British American Tobacco p.l.c.
+2024-06-02 21:48:05,871 - INFO:  - [Fuera de horario] No se puede actualizar. BT Group plc
+2024-06-02 21:48:06,006 - INFO:  - [Fuera de horario] No se puede actualizar. Bunzl plc
+2024-06-02 21:48:06,136 - INFO:  - [Fuera de horario] No se puede actualizar. Burberry Group plc
+2024-06-02 21:48:06,276 - INFO:  - [Fuera de horario] No se puede actualizar. Centrica plc
+2024-06-02 21:48:06,426 - INFO:  - [Fuera de horario] No se puede actualizar. Coca-Cola HBC AG
+2024-06-02 21:48:06,566 - INFO:  - [Fuera de horario] No se puede actualizar. Compass Group PLC
+2024-06-02 21:48:06,710 - INFO:  - [Fuera de horario] No se puede actualizar. ConvaTec Group PLC
+2024-06-02 21:48:06,836 - INFO:  - [Fuera de horario] No se puede actualizar. Croda International Plc
+2024-06-02 21:48:06,982 - INFO:  - [Fuera de horario] No se puede actualizar. DCC plc
+2024-06-02 21:48:07,126 - INFO:  - [Fuera de horario] No se puede actualizar. Diageo plc
+2024-06-02 21:48:07,266 - INFO:  - [Fuera de horario] No se puede actualizar. Diploma PLC
+2024-06-02 21:48:07,398 - INFO:  - [Fuera de horario] No se puede actualizar. Endeavour Mining plc
+2024-06-02 21:48:07,541 - INFO:  - [Fuera de horario] No se puede actualizar. Entain Plc
+2024-06-02 21:48:07,686 - INFO:  - [Fuera de horario] No se puede actualizar. Experian plc
+2024-06-02 21:48:07,825 - INFO:  - [Fuera de horario] No se puede actualizar. F&C Investment Trust Ord
+2024-06-02 21:48:07,956 - INFO:  - [Fuera de horario] No se puede actualizar. Flutter Entertainment plc
+2024-06-02 21:48:08,086 - INFO:  - [Fuera de horario] No se puede actualizar. Frasers Group Plc
+2024-06-02 21:48:08,237 - INFO:  - [Fuera de horario] No se puede actualizar. Fresnillo plc
+2024-06-02 21:48:08,366 - INFO:  - [Fuera de horario] No se puede actualizar. Glencore plc
+2024-06-02 21:48:08,506 - INFO:  - [Fuera de horario] No se puede actualizar. GSK plc
+2024-06-02 21:48:08,657 - INFO:  - [Fuera de horario] No se puede actualizar. Haleon plc
+2024-06-02 21:48:08,806 - INFO:  - [Fuera de horario] No se puede actualizar. Halma plc
+2024-06-02 21:48:08,936 - INFO:  - [Fuera de horario] No se puede actualizar. Hikma Pharmaceuticals PLC
+2024-06-02 21:48:09,061 - INFO:  - [Fuera de horario] No se puede actualizar. Howden Joinery Group Plc
+2024-06-02 21:48:09,186 - INFO:  - [Fuera de horario] No se puede actualizar. HSBC Holdings plc
+2024-06-02 21:48:09,328 - INFO:  - [Fuera de horario] No se puede actualizar. IMI plc
+2024-06-02 21:48:09,466 - INFO:  - [Fuera de horario] No se puede actualizar. Imperial Brands PLC
+2024-06-02 21:48:09,606 - INFO:  - [Fuera de horario] No se puede actualizar. Informa plc
+2024-06-02 21:48:09,755 - INFO:  - [Fuera de horario] No se puede actualizar. InterContinental Hotels Group PLC
+2024-06-02 21:48:09,904 - INFO:  - [Fuera de horario] No se puede actualizar. Intermediate Capital Group plc
+2024-06-02 21:48:10,048 - INFO:  - [Fuera de horario] No se puede actualizar. Intertek Group plc
+2024-06-02 21:48:10,201 - INFO:  - [Fuera de horario] No se puede actualizar. International Consolidated Airlines Group S.A.
+2024-06-02 21:48:10,351 - INFO:  - [Fuera de horario] No se puede actualizar. JD Sports Fashion Plc
+2024-06-02 21:48:10,484 - INFO:  - [Fuera de horario] No se puede actualizar. Kingfisher plc
+2024-06-02 21:48:10,626 - INFO:  - [Fuera de horario] No se puede actualizar. Land Securities Group Plc
+2024-06-02 21:48:10,761 - INFO:  - [Fuera de horario] No se puede actualizar. Legal & General Group Plc
+2024-06-02 21:48:10,892 - INFO:  - [Fuera de horario] No se puede actualizar. Lloyds Banking Group plc
+2024-06-02 21:48:11,025 - INFO:  - [Fuera de horario] No se puede actualizar. London Stock Exchange Group plc
+2024-06-02 21:48:11,177 - INFO:  - [Fuera de horario] No se puede actualizar. M&G plc
+2024-06-02 21:48:11,316 - INFO:  - [Fuera de horario] No se puede actualizar. Marks and Spencer Group plc
+2024-06-02 21:48:11,456 - INFO:  - [Fuera de horario] No se puede actualizar. Melrose Industries PLC
+2024-06-02 21:48:11,606 - INFO:  - [Fuera de horario] No se puede actualizar. Mondi plc
+2024-06-02 21:48:11,756 - INFO:  - [Fuera de horario] No se puede actualizar. National Grid plc
+2024-06-02 21:48:11,906 - INFO:  - [Fuera de horario] No se puede actualizar. NatWest Group plc
+2024-06-02 21:48:12,046 - INFO: Proceso finalizado.
+
+2024-06-02 21:49:01,999 - INFO: 
+2024-06-02 21:49:01,999 - INFO: --------------------------------------------------
+2024-06-02 21:49:01,999 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-02 21:49:02,005 - INFO: --------------------------------------------------
+2024-06-02 21:49:04,596 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
+2024-06-02 21:49:04,756 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
+2024-06-02 21:49:04,926 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
+2024-06-02 21:49:05,064 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
+2024-06-02 21:49:05,201 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
+2024-06-02 21:49:05,337 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
+2024-06-02 21:49:05,496 - INFO:  - [Fuera de horario] No se puede actualizar. Cisco Systems, Inc.
+2024-06-02 21:49:05,641 - INFO:  - [Fuera de horario] No se puede actualizar. Chevron Corporation
+2024-06-02 21:49:05,788 - INFO:  - [Fuera de horario] No se puede actualizar. The Walt Disney Company
+2024-06-02 21:49:05,946 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Inc.
+2024-06-02 21:49:06,086 - INFO:  - [Fuera de horario] No se puede actualizar. The Goldman Sachs Group, Inc.
+2024-06-02 21:49:06,236 - INFO:  - [Fuera de horario] No se puede actualizar. The Home Depot, Inc.
+2024-06-02 21:49:06,376 - INFO:  - [Fuera de horario] No se puede actualizar. Honeywell International Inc.
+2024-06-02 21:49:06,534 - INFO:  - [Fuera de horario] No se puede actualizar. International Business Machines Corporation
+2024-06-02 21:49:06,666 - INFO:  - [Fuera de horario] No se puede actualizar. Intel Corporation
+2024-06-02 21:49:06,810 - INFO:  - [Fuera de horario] No se puede actualizar. Johnson & Johnson
+2024-06-02 21:49:06,944 - INFO:  - [Fuera de horario] No se puede actualizar. JPMorgan Chase & Co.
+2024-06-02 21:49:07,081 - INFO:  - [Fuera de horario] No se puede actualizar. The Coca-Cola Company
+2024-06-02 21:49:07,228 - INFO:  - [Fuera de horario] No se puede actualizar. McDonald's Corporation
+2024-06-02 21:49:07,386 - INFO:  - [Fuera de horario] No se puede actualizar. 3M Company
+2024-06-02 21:49:07,506 - INFO:  - [Fuera de horario] No se puede actualizar. Merck & Co., Inc.
+2024-06-02 21:49:07,646 - INFO:  - [Fuera de horario] No se puede actualizar. Microsoft Corporation
+2024-06-02 21:49:07,796 - INFO:  - [Fuera de horario] No se puede actualizar. NIKE, Inc.
+2024-06-02 21:49:07,948 - INFO:  - [Fuera de horario] No se puede actualizar. The Procter & Gamble Company
+2024-06-02 21:49:08,106 - INFO:  - [Fuera de horario] No se puede actualizar. The Travelers Companies, Inc.
+2024-06-02 21:49:08,243 - INFO:  - [Fuera de horario] No se puede actualizar. UnitedHealth Group Incorporated
+2024-06-02 21:49:08,316 - INFO: Proceso finalizado.
+
+2024-06-02 21:49:23,982 - INFO: 
+2024-06-02 21:49:23,982 - INFO: --------------------------------------------------
+2024-06-02 21:49:23,982 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-02 21:49:23,982 - INFO: --------------------------------------------------
+2024-06-02 21:49:26,356 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
+2024-06-02 21:49:26,504 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
+2024-06-02 21:49:26,651 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
+2024-06-02 21:49:26,786 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
+2024-06-02 21:49:26,926 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
+2024-06-02 21:49:27,086 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
+2024-06-02 21:49:27,226 - INFO:  - [Fuera de horario] No se puede actualizar. Cisco Systems, Inc.
+2024-06-02 21:49:27,376 - INFO:  - [Fuera de horario] No se puede actualizar. Chevron Corporation
+2024-06-02 21:49:27,516 - INFO:  - [Fuera de horario] No se puede actualizar. The Walt Disney Company
+2024-06-02 21:49:27,666 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Inc.
+2024-06-02 21:49:27,821 - INFO:  - [Fuera de horario] No se puede actualizar. The Goldman Sachs Group, Inc.
+2024-06-02 21:49:28,014 - INFO:  - [Fuera de horario] No se puede actualizar. The Home Depot, Inc.
+2024-06-02 21:49:28,136 - INFO:  - [Fuera de horario] No se puede actualizar. Honeywell International Inc.
+2024-06-02 21:49:28,266 - INFO:  - [Fuera de horario] No se puede actualizar. International Business Machines Corporation
+2024-06-02 21:49:28,396 - INFO:  - [Fuera de horario] No se puede actualizar. Intel Corporation
+2024-06-02 21:49:28,526 - INFO:  - [Fuera de horario] No se puede actualizar. Johnson & Johnson
+2024-06-02 21:49:28,673 - INFO:  - [Fuera de horario] No se puede actualizar. JPMorgan Chase & Co.
+2024-06-02 21:49:28,806 - INFO:  - [Fuera de horario] No se puede actualizar. The Coca-Cola Company
+2024-06-02 21:49:28,946 - INFO:  - [Fuera de horario] No se puede actualizar. McDonald's Corporation
+2024-06-02 21:49:29,086 - INFO:  - [Fuera de horario] No se puede actualizar. 3M Company
+2024-06-02 21:49:29,252 - INFO:  - [Fuera de horario] No se puede actualizar. Merck & Co., Inc.
+2024-06-02 21:49:29,376 - INFO:  - [Fuera de horario] No se puede actualizar. Microsoft Corporation
+2024-06-02 21:49:29,526 - INFO:  - [Fuera de horario] No se puede actualizar. NIKE, Inc.
+2024-06-02 21:49:29,528 - INFO: Proceso finalizado.
+
+2024-06-02 21:49:47,501 - INFO: 
+2024-06-02 21:49:47,501 - INFO: --------------------------------------------------
+2024-06-02 21:49:47,502 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-02 21:49:47,502 - INFO: --------------------------------------------------
+2024-06-02 21:49:50,656 - INFO:  - [Actualizando... ] Apple Inc.
+2024-06-02 21:49:50,676 - INFO: 		[OK] Datos
+2024-06-02 21:49:50,716 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:50,996 - INFO:  - [Actualizando... ] Amgen Inc.
+2024-06-02 21:49:51,006 - INFO: 		[OK] Datos
+2024-06-02 21:49:51,046 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:51,360 - INFO:  - [Actualizando... ] American Express Company
+2024-06-02 21:49:51,376 - INFO: 		[OK] Datos
+2024-06-02 21:49:51,421 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:51,736 - INFO:  - [Actualizando... ] The Boeing Company
+2024-06-02 21:49:51,753 - INFO: 		[OK] Datos
+2024-06-02 21:49:51,814 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:52,131 - INFO:  - [Actualizando... ] Caterpillar Inc.
+2024-06-02 21:49:52,153 - INFO: 		[OK] Datos
+2024-06-02 21:49:52,198 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:52,456 - INFO:  - [Actualizando... ] Salesforce, Inc.
+2024-06-02 21:49:52,475 - INFO: 		[OK] Datos
+2024-06-02 21:49:52,528 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:52,791 - INFO:  - [Actualizando... ] Cisco Systems, Inc.
+2024-06-02 21:49:52,808 - INFO: 		[OK] Datos
+2024-06-02 21:49:52,852 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:53,166 - INFO:  - [Actualizando... ] Chevron Corporation
+2024-06-02 21:49:53,176 - INFO: 		[OK] Datos
+2024-06-02 21:49:53,236 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:53,536 - INFO:  - [Actualizando... ] The Walt Disney Company
+2024-06-02 21:49:53,550 - INFO: 		[OK] Datos
+2024-06-02 21:49:53,611 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:53,891 - INFO:  - [Actualizando... ] Dow Inc.
+2024-06-02 21:49:53,905 - INFO: 		[OK] Datos
+2024-06-02 21:49:53,960 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:54,241 - INFO:  - [Actualizando... ] The Goldman Sachs Group, Inc.
+2024-06-02 21:49:54,256 - INFO: 		[OK] Datos
+2024-06-02 21:49:54,296 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:54,596 - INFO:  - [Actualizando... ] The Home Depot, Inc.
+2024-06-02 21:49:54,615 - INFO: 		[OK] Datos
+2024-06-02 21:49:54,656 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:55,006 - INFO:  - [Actualizando... ] Honeywell International Inc.
+2024-06-02 21:49:55,022 - INFO: 		[OK] Datos
+2024-06-02 21:49:55,078 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:55,456 - INFO:  - [Actualizando... ] International Business Machines Corporation
+2024-06-02 21:49:55,474 - INFO: 		[OK] Datos
+2024-06-02 21:49:55,516 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:55,791 - INFO:  - [Actualizando... ] Intel Corporation
+2024-06-02 21:49:55,808 - INFO: 		[OK] Datos
+2024-06-02 21:49:55,863 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:56,181 - INFO:  - [Actualizando... ] Johnson & Johnson
+2024-06-02 21:49:56,199 - INFO: 		[OK] Datos
+2024-06-02 21:49:56,246 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:56,541 - INFO:  - [Actualizando... ] JPMorgan Chase & Co.
+2024-06-02 21:49:56,557 - INFO: 		[OK] Datos
+2024-06-02 21:49:56,600 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:56,926 - INFO:  - [Actualizando... ] The Coca-Cola Company
+2024-06-02 21:49:56,936 - INFO: 		[OK] Datos
+2024-06-02 21:49:56,986 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:57,326 - INFO:  - [Actualizando... ] McDonald's Corporation
+2024-06-02 21:49:57,345 - INFO: 		[OK] Datos
+2024-06-02 21:49:57,393 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:57,766 - INFO:  - [Actualizando... ] 3M Company
+2024-06-02 21:49:57,776 - INFO: 		[OK] Datos
+2024-06-02 21:49:57,833 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:58,145 - INFO:  - [Actualizando... ] Merck & Co., Inc.
+2024-06-02 21:49:58,161 - INFO: 		[OK] Datos
+2024-06-02 21:49:58,216 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:58,496 - INFO:  - [Actualizando... ] Microsoft Corporation
+2024-06-02 21:49:58,513 - INFO: 		[OK] Datos
+2024-06-02 21:49:58,561 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:58,851 - INFO:  - [Actualizando... ] NIKE, Inc.
+2024-06-02 21:49:58,870 - INFO: 		[OK] Datos
+2024-06-02 21:49:58,916 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:59,230 - INFO:  - [Actualizando... ] The Procter & Gamble Company
+2024-06-02 21:49:59,250 - INFO: 		[OK] Datos
+2024-06-02 21:49:59,296 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:59,546 - INFO:  - [Actualizando... ] The Travelers Companies, Inc.
+2024-06-02 21:49:59,560 - INFO: 		[OK] Datos
+2024-06-02 21:49:59,606 - INFO: 		[OK] Medias móviles
+2024-06-02 21:49:59,894 - INFO:  - [Actualizando... ] UnitedHealth Group Incorporated
+2024-06-02 21:49:59,913 - INFO: 		[OK] Datos
+2024-06-02 21:49:59,966 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:00,236 - INFO:  - [Actualizando... ] Visa Inc.
+2024-06-02 21:50:00,251 - INFO: 		[OK] Datos
+2024-06-02 21:50:00,295 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:00,616 - INFO:  - [Actualizando... ] Verizon Communications Inc.
+2024-06-02 21:50:00,626 - INFO: 		[OK] Datos
+2024-06-02 21:50:00,681 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:00,983 - INFO:  - [Actualizando... ] Walgreens Boots Alliance, Inc.
+2024-06-02 21:50:01,000 - INFO: 		[OK] Datos
+2024-06-02 21:50:01,047 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:01,362 - INFO:  - [Actualizando... ] Walmart Inc.
+2024-06-02 21:50:01,378 - INFO: 		[OK] Datos
+2024-06-02 21:50:01,436 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:01,666 - INFO:  - [Actualizando... ] Dow Jones Industrial Average
+2024-06-02 21:50:01,686 - INFO: 		[OK] Datos
+2024-06-02 21:50:01,736 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:01,736 - INFO: 
+2024-06-02 21:50:01,736 - INFO: [OK] Bases de datos actualizadas.
+2024-06-02 21:50:01,740 - INFO: Proceso finalizado.
+
+2024-06-02 21:50:01,740 - INFO: 
+2024-06-02 21:50:01,740 - INFO: --------------------------------------------------
+2024-06-02 21:50:01,740 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-02 21:50:01,740 - INFO: --------------------------------------------------
+2024-06-02 21:50:02,031 - INFO:  - [Actualizando... ] ACS, Actividades de Construcción y Servicios, S.A.
+2024-06-02 21:50:02,058 - INFO: 		[OK] Datos
+2024-06-02 21:50:02,196 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:02,516 - INFO:  - [Actualizando... ] Acerinox, S.A.
+2024-06-02 21:50:02,545 - INFO: 		[OK] Datos
+2024-06-02 21:50:02,696 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:02,956 - INFO:  - [Actualizando... ] Aena S.M.E., S.A.
+2024-06-02 21:50:02,972 - INFO: 		[OK] Datos
+2024-06-02 21:50:03,036 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:03,373 - INFO:  - [Actualizando... ] Amadeus IT Group, S.A.
+2024-06-02 21:50:03,386 - INFO: 		[OK] Datos
+2024-06-02 21:50:03,466 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:03,766 - INFO:  - [Actualizando... ] Acciona, S.A.
+2024-06-02 21:50:03,776 - INFO: 		[OK] Datos
+2024-06-02 21:50:03,916 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:04,166 - INFO:  - [Actualizando... ] Corporación Acciona Energías Renovables, S.A.
+2024-06-02 21:50:04,186 - INFO: 		[OK] Datos
+2024-06-02 21:50:04,227 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:04,536 - INFO:  - [Actualizando... ] Banco Bilbao Vizcaya Argentaria, S.A.
+2024-06-02 21:50:04,556 - INFO: 		[OK] Datos
+2024-06-02 21:50:04,716 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:05,024 - INFO:  - [Actualizando... ] Bankinter, S.A.
+2024-06-02 21:50:05,039 - INFO: 		[OK] Datos
+2024-06-02 21:50:05,166 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:05,456 - INFO:  - [Actualizando... ] CaixaBank, S.A.
+2024-06-02 21:50:05,475 - INFO: 		[OK] Datos
+2024-06-02 21:50:05,570 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:05,820 - INFO:  - [Actualizando... ] Cellnex Telecom, S.A.
+2024-06-02 21:50:05,837 - INFO: 		[OK] Datos
+2024-06-02 21:50:05,912 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:06,196 - INFO:  - [Actualizando... ] Inmobiliaria Colonial, SOCIMI, S.A.
+2024-06-02 21:50:06,206 - INFO: 		[OK] Datos
+2024-06-02 21:50:06,330 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:06,622 - INFO:  - [Actualizando... ] Endesa, S.A.
+2024-06-02 21:50:06,640 - INFO: 		[OK] Datos
+2024-06-02 21:50:06,766 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:07,066 - INFO:  - [Actualizando... ] Enagás, S.A.
+2024-06-02 21:50:07,089 - INFO: 		[OK] Datos
+2024-06-02 21:50:07,216 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:07,491 - INFO:  - [Actualizando... ] Fluidra, S.A.
+2024-06-02 21:50:07,516 - INFO: 		[OK] Datos
+2024-06-02 21:50:07,606 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:07,906 - INFO:  - [Actualizando... ] Ferrovial SE
+2024-06-02 21:50:07,918 - INFO: 		[OK] Datos
+2024-06-02 21:50:08,045 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:08,321 - INFO:  - [Actualizando... ] Grifols, S.A.
+2024-06-02 21:50:08,337 - INFO: 		[OK] Datos
+2024-06-02 21:50:08,436 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:08,706 - INFO:  - [Actualizando... ] International Consolidated Airlines Group S.A.
+2024-06-02 21:50:08,729 - INFO: 		[OK] Datos
+2024-06-02 21:50:08,806 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:09,086 - INFO:  - [Actualizando... ] Iberdrola, S.A.
+2024-06-02 21:50:09,108 - INFO: 		[OK] Datos
+2024-06-02 21:50:09,230 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:09,526 - INFO:  - [Actualizando... ] Indra Sistemas, S.A.
+2024-06-02 21:50:09,536 - INFO: 		[OK] Datos
+2024-06-02 21:50:09,656 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:09,928 - INFO:  - [Actualizando... ] Industria de Diseño Textil, S.A.
+2024-06-02 21:50:09,944 - INFO: 		[OK] Datos
+2024-06-02 21:50:10,067 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:10,330 - INFO:  - [Actualizando... ] Logista Integral, S.A.
+2024-06-02 21:50:10,343 - INFO: 		[OK] Datos
+2024-06-02 21:50:10,416 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:10,716 - INFO:  - [Actualizando... ] Mapfre, S.A.
+2024-06-02 21:50:10,732 - INFO: 		[OK] Datos
+2024-06-02 21:50:10,852 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:11,141 - INFO:  - [Actualizando... ] Meliá Hotels International, S.A.
+2024-06-02 21:50:11,156 - INFO: 		[OK] Datos
+2024-06-02 21:50:11,296 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:11,553 - INFO:  - [Actualizando... ] MERLIN Properties SOCIMI, S.A.
+2024-06-02 21:50:11,567 - INFO: 		[OK] Datos
+2024-06-02 21:50:11,629 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:11,956 - INFO:  - [Actualizando... ] ArcelorMittal S.A.
+2024-06-02 21:50:11,973 - INFO: 		[OK] Datos
+2024-06-02 21:50:12,083 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:12,416 - INFO:  - [Actualizando... ] Naturgy Energy Group, S.A.
+2024-06-02 21:50:12,436 - INFO: 		[OK] Datos
+2024-06-02 21:50:12,563 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:13,000 - INFO:  - [Actualizando... ] Redeia Corporación, S.A.
+2024-06-02 21:50:13,015 - INFO: 		[OK] Datos
+2024-06-02 21:50:13,156 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:13,456 - INFO:  - [Actualizando... ] Repsol, S.A.
+2024-06-02 21:50:13,470 - INFO: 		[OK] Datos
+2024-06-02 21:50:13,606 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:13,926 - INFO:  - [Actualizando... ] Laboratorios Farmaceuticos Rovi, S.A.
+2024-06-02 21:50:13,937 - INFO: 		[OK] Datos
+2024-06-02 21:50:14,038 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:14,376 - INFO:  - [Actualizando... ] Banco de Sabadell, S.A.
+2024-06-02 21:50:14,398 - INFO: 		[OK] Datos
+2024-06-02 21:50:14,537 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:14,859 - INFO:  - [Actualizando... ] Banco Santander, S.A.
+2024-06-02 21:50:14,866 - INFO: 		[OK] Datos
+2024-06-02 21:50:15,016 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:15,342 - INFO:  - [Actualizando... ] Sacyr, S.A.
+2024-06-02 21:50:15,357 - INFO: 		[OK] Datos
+2024-06-02 21:50:15,476 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:15,701 - INFO:  - [Actualizando... ] Solaria Energía y Medio Ambiente, S.A.
+2024-06-02 21:50:15,706 - INFO: 		[OK] Datos
+2024-06-02 21:50:15,800 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:16,066 - INFO:  - [Actualizando... ] Telefónica, S.A.
+2024-06-02 21:50:16,081 - INFO: 		[OK] Datos
+2024-06-02 21:50:16,219 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:16,491 - INFO:  - [Actualizando... ] Unicaja Banco, S.A.
+2024-06-02 21:50:16,506 - INFO: 		[OK] Datos
+2024-06-02 21:50:16,566 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:16,871 - INFO:  - [Actualizando... ] IBEX 35...
+2024-06-02 21:50:16,886 - INFO: 		[OK] Datos
+2024-06-02 21:50:17,046 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:17,046 - INFO: 
+2024-06-02 21:50:17,046 - INFO: [OK] Bases de datos actualizadas.
+2024-06-02 21:50:17,046 - INFO: Proceso finalizado.
+
+2024-06-02 21:50:17,046 - INFO: 
+2024-06-02 21:50:17,046 - INFO: --------------------------------------------------
+2024-06-02 21:50:17,046 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-02 21:50:17,054 - INFO: --------------------------------------------------
+2024-06-02 21:50:17,361 - INFO:  - [Actualizando... ] 3i Group Ord
+2024-06-02 21:50:17,380 - INFO: 		[OK] Datos
+2024-06-02 21:50:17,429 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:17,691 - INFO:  - [Actualizando... ] Admiral Group plc
+2024-06-02 21:50:17,705 - INFO: 		[OK] Datos
+2024-06-02 21:50:17,762 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:18,046 - INFO:  - [Actualizando... ] Airtel Africa Plc
+2024-06-02 21:50:18,061 - INFO: 		[OK] Datos
+2024-06-02 21:50:18,128 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:18,416 - INFO:  - [Actualizando... ] Anglo American plc
+2024-06-02 21:50:18,436 - INFO: 		[OK] Datos
+2024-06-02 21:50:18,478 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:18,931 - INFO:  - [Actualizando... ] Antofagasta plc
+2024-06-02 21:50:18,946 - INFO: 		[OK] Datos
+2024-06-02 21:50:18,996 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:19,391 - INFO:  - [Actualizando... ] Ashtead Group plc
+2024-06-02 21:50:19,406 - INFO: 		[OK] Datos
+2024-06-02 21:50:19,460 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:19,906 - INFO:  - [Actualizando... ] Associated British Foods plc
+2024-06-02 21:50:19,927 - INFO: 		[OK] Datos
+2024-06-02 21:50:19,968 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:20,409 - INFO:  - [Actualizando... ] AstraZeneca PLC
+2024-06-02 21:50:20,424 - INFO: 		[OK] Datos
+2024-06-02 21:50:20,476 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:20,721 - INFO:  - [Actualizando... ] Auto Trader Group plc
+2024-06-02 21:50:20,745 - INFO: 		[OK] Datos
+2024-06-02 21:50:20,796 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:21,078 - INFO:  - [Actualizando... ] Aviva plc
+2024-06-02 21:50:21,099 - INFO: 		[OK] Datos
+2024-06-02 21:50:21,156 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:21,526 - INFO:  - [Actualizando... ] B&M European Value Retail S.A.
+2024-06-02 21:50:21,544 - INFO: 		[OK] Datos
+2024-06-02 21:50:21,606 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:21,986 - INFO:  - [Actualizando... ] BAE Systems plc
+2024-06-02 21:50:22,004 - INFO: 		[OK] Datos
+2024-06-02 21:50:22,116 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:22,396 - INFO:  - [Actualizando... ] Barclays PLC
+2024-06-02 21:50:22,426 - INFO: 		[OK] Datos
+2024-06-02 21:50:22,466 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:22,731 - INFO:  - [Actualizando... ] Barratt Developments plc
+2024-06-02 21:50:22,751 - INFO: 		[OK] Datos
+2024-06-02 21:50:22,795 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:23,271 - INFO:  - [Actualizando... ] Beazley plc
+2024-06-02 21:50:23,286 - INFO: 		[OK] Datos
+2024-06-02 21:50:23,328 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:23,776 - INFO:  - [Actualizando... ] The Berkeley Group Holdings plc
+2024-06-02 21:50:23,786 - INFO: 		[OK] Datos
+2024-06-02 21:50:23,836 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:24,166 - INFO:  - [Actualizando... ] BP p.l.c.
+2024-06-02 21:50:24,176 - INFO: 		[OK] Datos
+2024-06-02 21:50:24,228 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:24,643 - INFO:  - [Actualizando... ] British American Tobacco p.l.c.
+2024-06-02 21:50:24,660 - INFO: 		[OK] Datos
+2024-06-02 21:50:24,712 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:25,006 - INFO:  - [Actualizando... ] BT Group plc
+2024-06-02 21:50:25,035 - INFO: 		[OK] Datos
+2024-06-02 21:50:25,086 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:25,471 - INFO:  - [Actualizando... ] Bunzl plc
+2024-06-02 21:50:25,488 - INFO: 		[OK] Datos
+2024-06-02 21:50:25,533 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:25,786 - INFO:  - [Actualizando... ] Burberry Group plc
+2024-06-02 21:50:25,810 - INFO: 		[OK] Datos
+2024-06-02 21:50:25,911 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:26,268 - INFO:  - [Actualizando... ] Centrica plc
+2024-06-02 21:50:26,291 - INFO: 		[OK] Datos
+2024-06-02 21:50:26,336 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:26,636 - INFO:  - [Actualizando... ] Coca-Cola HBC AG
+2024-06-02 21:50:26,653 - INFO: 		[OK] Datos
+2024-06-02 21:50:26,697 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:27,011 - INFO:  - [Actualizando... ] Compass Group PLC
+2024-06-02 21:50:27,026 - INFO: 		[OK] Datos
+2024-06-02 21:50:27,079 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:27,337 - INFO:  - [Actualizando... ] ConvaTec Group PLC
+2024-06-02 21:50:27,349 - INFO: 		[OK] Datos
+2024-06-02 21:50:27,386 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:27,696 - INFO:  - [Actualizando... ] Croda International Plc
+2024-06-02 21:50:27,716 - INFO: 		[OK] Datos
+2024-06-02 21:50:27,766 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:28,096 - INFO:  - [Actualizando... ] DCC plc
+2024-06-02 21:50:28,111 - INFO: 		[OK] Datos
+2024-06-02 21:50:28,166 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:28,516 - INFO:  - [Actualizando... ] Diageo plc
+2024-06-02 21:50:28,537 - INFO: 		[OK] Datos
+2024-06-02 21:50:28,596 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:29,036 - INFO:  - [Actualizando... ] Diploma PLC
+2024-06-02 21:50:29,051 - INFO: 		[OK] Datos
+2024-06-02 21:50:29,096 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:29,444 - INFO:  - [Actualizando... ] Endeavour Mining plc
+2024-06-02 21:50:29,456 - INFO: 		[OK] Datos
+2024-06-02 21:50:29,506 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:29,948 - INFO:  - [Actualizando... ] Entain Plc
+2024-06-02 21:50:29,962 - INFO: 		[OK] Datos
+2024-06-02 21:50:30,016 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:30,338 - INFO:  - [Actualizando... ] Experian plc
+2024-06-02 21:50:30,353 - INFO: 		[OK] Datos
+2024-06-02 21:50:30,406 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:30,946 - INFO:  - [Actualizando... ] F&C Investment Trust Ord
+2024-06-02 21:50:30,960 - INFO: 		[OK] Datos
+2024-06-02 21:50:31,016 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:31,291 - INFO:  - [Actualizando... ] Flutter Entertainment plc
+2024-06-02 21:50:31,310 - INFO: 		[OK] Datos
+2024-06-02 21:50:31,349 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:31,600 - INFO:  - [Actualizando... ] Frasers Group Plc
+2024-06-02 21:50:31,615 - INFO: 		[OK] Datos
+2024-06-02 21:50:31,663 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:32,091 - INFO:  - [Actualizando... ] Fresnillo plc
+2024-06-02 21:50:32,106 - INFO: 		[OK] Datos
+2024-06-02 21:50:32,162 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:32,646 - INFO:  - [Actualizando... ] Glencore plc
+2024-06-02 21:50:32,668 - INFO: 		[OK] Datos
+2024-06-02 21:50:32,715 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:33,201 - INFO:  - [Actualizando... ] GSK plc
+2024-06-02 21:50:33,216 - INFO: 		[OK] Datos
+2024-06-02 21:50:33,278 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:33,611 - INFO:  - [Actualizando... ] Haleon plc
+2024-06-02 21:50:33,626 - INFO: 		[OK] Datos
+2024-06-02 21:50:33,663 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:34,036 - INFO:  - [Actualizando... ] Halma plc
+2024-06-02 21:50:34,046 - INFO: 		[OK] Datos
+2024-06-02 21:50:34,106 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:34,546 - INFO:  - [Actualizando... ] Hikma Pharmaceuticals PLC
+2024-06-02 21:50:34,617 - INFO: 		[OK] Datos
+2024-06-02 21:50:34,666 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:35,051 - INFO:  - [Actualizando... ] Howden Joinery Group Plc
+2024-06-02 21:50:35,058 - INFO: 		[OK] Datos
+2024-06-02 21:50:35,116 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:35,411 - INFO:  - [Actualizando... ] HSBC Holdings plc
+2024-06-02 21:50:35,429 - INFO: 		[OK] Datos
+2024-06-02 21:50:35,479 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:35,832 - INFO:  - [Actualizando... ] IMI plc
+2024-06-02 21:50:35,846 - INFO: 		[OK] Datos
+2024-06-02 21:50:35,894 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:36,206 - INFO:  - [Actualizando... ] Imperial Brands PLC
+2024-06-02 21:50:36,226 - INFO: 		[OK] Datos
+2024-06-02 21:50:36,278 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:36,551 - INFO:  - [Actualizando... ] Informa plc
+2024-06-02 21:50:36,566 - INFO: 		[OK] Datos
+2024-06-02 21:50:36,626 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:36,928 - INFO:  - [Actualizando... ] InterContinental Hotels Group PLC
+2024-06-02 21:50:36,953 - INFO: 		[OK] Datos
+2024-06-02 21:50:36,996 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:37,281 - INFO:  - [Actualizando... ] Intermediate Capital Group plc
+2024-06-02 21:50:37,296 - INFO: 		[OK] Datos
+2024-06-02 21:50:37,346 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:37,646 - INFO:  - [Actualizando... ] Intertek Group plc
+2024-06-02 21:50:37,656 - INFO: 		[OK] Datos
+2024-06-02 21:50:37,716 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:37,986 - INFO:  - [Actualizando... ] International Consolidated Airlines Group S.A.
+2024-06-02 21:50:38,006 - INFO: 		[OK] Datos
+2024-06-02 21:50:38,056 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:38,471 - INFO:  - [Actualizando... ] JD Sports Fashion Plc
+2024-06-02 21:50:38,491 - INFO: 		[OK] Datos
+2024-06-02 21:50:38,546 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:38,957 - INFO:  - [Actualizando... ] Kingfisher plc
+2024-06-02 21:50:38,972 - INFO: 		[OK] Datos
+2024-06-02 21:50:39,029 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:39,376 - INFO:  - [Actualizando... ] Land Securities Group Plc
+2024-06-02 21:50:39,386 - INFO: 		[OK] Datos
+2024-06-02 21:50:39,441 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:39,859 - INFO:  - [Actualizando... ] Legal & General Group Plc
+2024-06-02 21:50:39,879 - INFO: 		[OK] Datos
+2024-06-02 21:50:39,929 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:40,361 - INFO:  - [Actualizando... ] Lloyds Banking Group plc
+2024-06-02 21:50:40,383 - INFO: 		[OK] Datos
+2024-06-02 21:50:40,429 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:40,823 - INFO:  - [Actualizando... ] London Stock Exchange Group plc
+2024-06-02 21:50:40,846 - INFO: 		[OK] Datos
+2024-06-02 21:50:40,894 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:41,296 - INFO:  - [Actualizando... ] M&G plc
+2024-06-02 21:50:41,313 - INFO: 		[OK] Datos
+2024-06-02 21:50:41,406 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:41,781 - INFO:  - [Actualizando... ] Marks and Spencer Group plc
+2024-06-02 21:50:41,786 - INFO: 		[OK] Datos
+2024-06-02 21:50:41,836 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:42,186 - INFO:  - [Actualizando... ] Melrose Industries PLC
+2024-06-02 21:50:42,196 - INFO: 		[OK] Datos
+2024-06-02 21:50:42,266 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:42,586 - INFO:  - [Actualizando... ] Mondi plc
+2024-06-02 21:50:42,601 - INFO: 		[OK] Datos
+2024-06-02 21:50:42,647 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:43,031 - INFO:  - [Actualizando... ] National Grid plc
+2024-06-02 21:50:43,048 - INFO: 		[OK] Datos
+2024-06-02 21:50:43,096 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:43,366 - INFO:  - [Actualizando... ] NatWest Group plc
+2024-06-02 21:50:43,388 - INFO: 		[OK] Datos
+2024-06-02 21:50:43,433 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:43,749 - INFO:  - [Actualizando... ] NEXT plc
+2024-06-02 21:50:43,756 - INFO: 		[OK] Datos
+2024-06-02 21:50:43,814 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:44,056 - INFO:  - [Actualizando... ] Ocado Group plc
+2024-06-02 21:50:44,078 - INFO: 		[OK] Datos
+2024-06-02 21:50:44,129 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:44,621 - INFO:  - [Actualizando... ] Pearson plc
+2024-06-02 21:50:44,637 - INFO: 		[OK] Datos
+2024-06-02 21:50:44,696 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:44,961 - INFO:  - [Actualizando... ] Pershing Square Holdings Ord
+2024-06-02 21:50:44,976 - INFO: 		[OK] Datos
+2024-06-02 21:50:45,029 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:45,456 - INFO:  - [Actualizando... ] Persimmon Plc
+2024-06-02 21:50:45,476 - INFO: 		[OK] Datos
+2024-06-02 21:50:45,529 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:45,877 - INFO:  - [Actualizando... ] Phoenix Group Holdings plc
+2024-06-02 21:50:45,897 - INFO: 		[OK] Datos
+2024-06-02 21:50:45,936 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:46,389 - INFO:  - [Actualizando... ] Prudential plc
+2024-06-02 21:50:46,404 - INFO: 		[OK] Datos
+2024-06-02 21:50:46,456 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:46,711 - INFO:  - [Actualizando... ] Reckitt Benckiser Group plc
+2024-06-02 21:50:46,727 - INFO: 		[OK] Datos
+2024-06-02 21:50:46,766 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:47,166 - INFO:  - [Actualizando... ] RELX PLC
+2024-06-02 21:50:47,189 - INFO: 		[OK] Datos
+2024-06-02 21:50:47,236 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:47,571 - INFO:  - [Actualizando... ] Rentokil Initial plc
+2024-06-02 21:50:47,591 - INFO: 		[OK] Datos
+2024-06-02 21:50:47,636 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:48,036 - INFO:  - [Actualizando... ] Rightmove plc
+2024-06-02 21:50:48,056 - INFO: 		[OK] Datos
+2024-06-02 21:50:48,106 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:48,551 - INFO:  - [Actualizando... ] Rio Tinto Group
+2024-06-02 21:50:48,566 - INFO: 		[OK] Datos
+2024-06-02 21:50:48,627 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:48,986 - INFO:  - [Actualizando... ] Rolls-Royce Holdings plc
+2024-06-02 21:50:49,006 - INFO: 		[OK] Datos
+2024-06-02 21:50:49,049 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:49,486 - INFO:  - [Actualizando... ] RS Group plc
+2024-06-02 21:50:49,496 - INFO: 		[OK] Datos
+2024-06-02 21:50:49,566 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:49,901 - INFO:  - [Actualizando... ] The Sage Group plc
+2024-06-02 21:50:49,917 - INFO: 		[OK] Datos
+2024-06-02 21:50:49,966 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:50,216 - INFO:  - [Actualizando... ] J Sainsbury plc
+2024-06-02 21:50:50,227 - INFO: 		[OK] Datos
+2024-06-02 21:50:50,268 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:50,701 - INFO:  - [Actualizando... ] Schroders plc
+2024-06-02 21:50:50,706 - INFO: 		[OK] Datos
+2024-06-02 21:50:50,760 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:51,256 - INFO:  - [Actualizando... ] Scottish Mortgage Ord
+2024-06-02 21:50:51,266 - INFO: 		[OK] Datos
+2024-06-02 21:50:51,316 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:51,586 - INFO:  - [Actualizando... ] SEGRO Plc
+2024-06-02 21:50:51,607 - INFO: 		[OK] Datos
+2024-06-02 21:50:51,652 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:52,016 - INFO:  - [Actualizando... ] Severn Trent PLC
+2024-06-02 21:50:52,026 - INFO: 		[OK] Datos
+2024-06-02 21:50:52,079 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:52,457 - INFO:  - [Actualizando... ] Shell plc
+2024-06-02 21:50:52,472 - INFO: 		[OK] Datos
+2024-06-02 21:50:52,516 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:53,141 - INFO:  - [Actualizando... ] Smith & Nephew plc
+2024-06-02 21:50:53,156 - INFO: 		[OK] Datos
+2024-06-02 21:50:53,211 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:53,506 - INFO:  - [Actualizando... ] DS Smith Plc
+2024-06-02 21:50:53,522 - INFO: 		[OK] Datos
+2024-06-02 21:50:53,566 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:53,851 - INFO:  - [Actualizando... ] Smiths Group plc
+2024-06-02 21:50:53,866 - INFO: 		[OK] Datos
+2024-06-02 21:50:53,911 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:54,160 - INFO:  - [Actualizando... ] Smurfit Kappa Group Plc
+2024-06-02 21:50:54,166 - INFO: 		[OK] Datos
+2024-06-02 21:50:54,260 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:54,576 - INFO:  - [Actualizando... ] Spirax-Sarco Engineering plc
+2024-06-02 21:50:54,586 - INFO: 		[OK] Datos
+2024-06-02 21:50:54,636 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:54,916 - INFO:  - [Actualizando... ] SSE plc
+2024-06-02 21:50:54,926 - INFO: 		[OK] Datos
+2024-06-02 21:50:54,994 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:55,276 - INFO:  - [Actualizando... ] St. James's Place plc
+2024-06-02 21:50:55,286 - INFO: 		[OK] Datos
+2024-06-02 21:50:55,336 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:55,631 - INFO:  - [Actualizando... ] Standard Chartered PLC
+2024-06-02 21:50:55,645 - INFO: 		[OK] Datos
+2024-06-02 21:50:55,696 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:56,026 - INFO:  - [Actualizando... ] Taylor Wimpey plc
+2024-06-02 21:50:56,036 - INFO: 		[OK] Datos
+2024-06-02 21:50:56,086 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:56,386 - INFO:  - [Actualizando... ] Tesco PLC
+2024-06-02 21:50:56,400 - INFO: 		[OK] Datos
+2024-06-02 21:50:56,456 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:56,816 - INFO:  - [Actualizando... ] Unilever PLC
+2024-06-02 21:50:56,833 - INFO: 		[OK] Datos
+2024-06-02 21:50:56,877 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:57,226 - INFO:  - [Actualizando... ] Unite Group PLC
+2024-06-02 21:50:57,246 - INFO: 		[OK] Datos
+2024-06-02 21:50:57,296 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:57,561 - INFO:  - [Actualizando... ] United Utilities Group PLC
+2024-06-02 21:50:57,576 - INFO: 		[OK] Datos
+2024-06-02 21:50:57,629 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:57,926 - INFO:  - [Actualizando... ] Vodafone Group Public Limited Company
+2024-06-02 21:50:57,944 - INFO: 		[OK] Datos
+2024-06-02 21:50:57,986 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:58,251 - INFO:  - [Actualizando... ] The Weir Group PLC
+2024-06-02 21:50:58,274 - INFO: 		[OK] Datos
+2024-06-02 21:50:58,311 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:58,636 - INFO:  - [Actualizando... ] Whitbread plc
+2024-06-02 21:50:58,646 - INFO: 		[OK] Datos
+2024-06-02 21:50:58,711 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:58,996 - INFO:  - [Actualizando... ] WPP plc
+2024-06-02 21:50:59,006 - INFO: 		[OK] Datos
+2024-06-02 21:50:59,066 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:59,307 - INFO:  - [Actualizando... ] FTSE 100
+2024-06-02 21:50:59,323 - INFO: 		[OK] Datos
+2024-06-02 21:50:59,366 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:59,366 - INFO: 
+2024-06-02 21:50:59,366 - INFO: [OK] Bases de datos actualizadas.
+2024-06-02 21:50:59,366 - INFO: Proceso finalizado.
+
+2024-06-02 21:50:59,366 - INFO: 
+2024-06-02 21:50:59,366 - INFO: --------------------------------------------------
+2024-06-02 21:50:59,373 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-02 21:50:59,374 - INFO: --------------------------------------------------
+2024-06-02 21:50:59,651 - INFO:  - [Actualizando... ] Covestro AG
+2024-06-02 21:50:59,664 - INFO: 		[OK] Datos
+2024-06-02 21:50:59,712 - INFO: 		[OK] Medias móviles
+2024-06-02 21:50:59,991 - INFO:  - [Actualizando... ] adidas AG
+2024-06-02 21:51:00,010 - INFO: 		[OK] Datos
+2024-06-02 21:51:00,056 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:00,341 - INFO:  - [Actualizando... ] Airbus SE
+2024-06-02 21:51:00,355 - INFO: 		[OK] Datos
+2024-06-02 21:51:00,396 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:00,706 - INFO:  - [Actualizando... ] Allianz SE
+2024-06-02 21:51:00,719 - INFO: 		[OK] Datos
+2024-06-02 21:51:00,766 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:01,046 - INFO:  - [Actualizando... ] BASF SE
+2024-06-02 21:51:01,063 - INFO: 		[OK] Datos
+2024-06-02 21:51:01,111 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:01,476 - INFO:  - [Actualizando... ] Bayer Aktiengesellschaft
+2024-06-02 21:51:01,497 - INFO: 		[OK] Datos
+2024-06-02 21:51:01,546 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:01,843 - INFO:  - [Actualizando... ] Beiersdorf Aktiengesellschaft
+2024-06-02 21:51:01,858 - INFO: 		[OK] Datos
+2024-06-02 21:51:01,916 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:02,206 - INFO:  - [Actualizando... ] Bayerische Motoren Werke Aktiengesellschaft
+2024-06-02 21:51:02,216 - INFO: 		[OK] Datos
+2024-06-02 21:51:02,266 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:02,566 - INFO:  - [Actualizando... ] Continental Aktiengesellschaft
+2024-06-02 21:51:02,578 - INFO: 		[OK] Datos
+2024-06-02 21:51:02,627 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:02,906 - INFO:  - [Actualizando... ] Deutsche Börse AG
+2024-06-02 21:51:02,927 - INFO: 		[OK] Datos
+2024-06-02 21:51:02,968 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:03,256 - INFO:  - [Actualizando... ] Deutsche Bank Aktiengesellschaft
+2024-06-02 21:51:03,276 - INFO: 		[OK] Datos
+2024-06-02 21:51:03,316 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:03,556 - INFO:  - [Actualizando... ] Deutsche Post AG
+2024-06-02 21:51:03,575 - INFO: 		[OK] Datos
+2024-06-02 21:51:03,616 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:03,896 - INFO:  - [Actualizando... ] Deutsche Telekom AG
+2024-06-02 21:51:03,919 - INFO: 		[OK] Datos
+2024-06-02 21:51:03,966 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:04,216 - INFO:  - [Actualizando... ] Daimler Truck Holding AG
+2024-06-02 21:51:04,226 - INFO: 		[OK] Datos
+2024-06-02 21:51:04,266 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:04,506 - INFO:  - [Actualizando... ] Siemens Energy AG
+2024-06-02 21:51:04,516 - INFO: 		[OK] Datos
+2024-06-02 21:51:04,566 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:04,906 - INFO:  - [Actualizando... ] E.ON SE
+2024-06-02 21:51:04,921 - INFO: 		[OK] Datos
+2024-06-02 21:51:04,978 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:05,330 - INFO:  - [Actualizando... ] Fresenius Medical Care AG
+2024-06-02 21:51:05,344 - INFO: 		[OK] Datos
+2024-06-02 21:51:05,396 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:05,656 - INFO:  - [Actualizando... ] Fresenius SE & Co. KGaA
+2024-06-02 21:51:05,676 - INFO: 		[OK] Datos
+2024-06-02 21:51:05,718 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:06,010 - INFO:  - [Actualizando... ] Heidelberg Materials AG
+2024-06-02 21:51:06,021 - INFO: 		[OK] Datos
+2024-06-02 21:51:06,068 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:06,351 - INFO:  - [Actualizando... ] Henkel AG & Co. KGaA
+2024-06-02 21:51:06,367 - INFO: 		[OK] Datos
+2024-06-02 21:51:06,413 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:06,651 - INFO:  - [Actualizando... ] HelloFresh SE
+2024-06-02 21:51:06,672 - INFO: 		[OK] Datos
+2024-06-02 21:51:06,716 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:06,981 - INFO:  - [Actualizando... ] Hannover Rück SE
+2024-06-02 21:51:06,991 - INFO: 		[OK] Datos
+2024-06-02 21:51:07,056 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:07,391 - INFO:  - [Actualizando... ] Infineon Technologies AG
+2024-06-02 21:51:07,406 - INFO: 		[OK] Datos
+2024-06-02 21:51:07,466 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:07,751 - INFO:  - [Actualizando... ] Klöckner & Co SE
+2024-06-02 21:51:07,767 - INFO: 		[OK] Datos
+2024-06-02 21:51:07,828 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:08,117 - INFO:  - [Actualizando... ] Deutsche Lufthansa AG
+2024-06-02 21:51:08,133 - INFO: 		[OK] Datos
+2024-06-02 21:51:08,186 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:08,446 - INFO:  - [Actualizando... ] Linde plc
+2024-06-02 21:51:08,460 - INFO: 		[OK] Datos
+2024-06-02 21:51:08,516 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:08,804 - INFO:  - [Actualizando... ] Merck KGaA
+2024-06-02 21:51:08,816 - INFO: 		[OK] Datos
+2024-06-02 21:51:08,863 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:09,144 - INFO:  - [Actualizando... ] MTU Aero Engines AG
+2024-06-02 21:51:09,162 - INFO: 		[OK] Datos
+2024-06-02 21:51:09,201 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:09,496 - INFO:  - [Actualizando... ] Münchener Rückversicherungs-Gesellschaft Aktiengesellschaft in München
+2024-06-02 21:51:09,516 - INFO: 		[OK] Datos
+2024-06-02 21:51:09,578 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:09,841 - INFO:  - [Actualizando... ] Dr. Ing. h.c. F. Porsche AG
+2024-06-02 21:51:09,856 - INFO: 		[OK] Datos
+2024-06-02 21:51:09,886 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:10,161 - INFO:  - [Actualizando... ] Porsche Automobil Holding SE
+2024-06-02 21:51:10,178 - INFO: 		[OK] Datos
+2024-06-02 21:51:10,219 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:10,546 - INFO:  - [Actualizando... ] PREOS Global Office Real Estate & Technology AG
+2024-06-02 21:51:10,556 - INFO: 		[OK] Datos
+2024-06-02 21:51:10,606 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:10,906 - INFO:  - [Actualizando... ] RWE Aktiengesellschaft
+2024-06-02 21:51:10,926 - INFO: 		[OK] Datos
+2024-06-02 21:51:10,966 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:11,264 - INFO:  - [Actualizando... ] SAP SE
+2024-06-02 21:51:11,275 - INFO: 		[OK] Datos
+2024-06-02 21:51:11,323 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:11,576 - INFO:  - [Actualizando... ] Siemens Healthineers AG
+2024-06-02 21:51:11,596 - INFO: 		[OK] Datos
+2024-06-02 21:51:11,644 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:11,921 - INFO:  - [Actualizando... ] Siemens Aktiengesellschaft
+2024-06-02 21:51:11,936 - INFO: 		[OK] Datos
+2024-06-02 21:51:11,986 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:12,266 - INFO:  - [Actualizando... ] Symrise AG
+2024-06-02 21:51:12,285 - INFO: 		[OK] Datos
+2024-06-02 21:51:12,330 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:12,621 - INFO:  - [Actualizando... ] Vonovia SE
+2024-06-02 21:51:12,636 - INFO: 		[OK] Datos
+2024-06-02 21:51:12,678 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:12,956 - INFO:  - [Actualizando... ] Volkswagen AG
+2024-06-02 21:51:12,974 - INFO: 		[OK] Datos
+2024-06-02 21:51:13,017 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:13,246 - INFO:  - [Actualizando... ] Zalando SE
+2024-06-02 21:51:13,262 - INFO: 		[OK] Datos
+2024-06-02 21:51:13,336 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:13,581 - INFO:  - [Actualizando... ] DAX PERFORMANCE-INDEX
+2024-06-02 21:51:13,591 - INFO: 		[OK] Datos
+2024-06-02 21:51:13,646 - INFO: 		[OK] Medias móviles
+2024-06-02 21:51:13,646 - INFO: 
+2024-06-02 21:51:13,646 - INFO: [OK] Bases de datos actualizadas.
+2024-06-02 21:51:13,646 - INFO: Proceso finalizado.
+
+2024-06-02 21:51:13,646 - INFO: 
+2024-06-02 21:51:13,646 - INFO: -------------------------------------------------------
+2024-06-02 21:51:13,646 - INFO: Actualizando tabla de cambio de moneda en 'db.sqlite3':
+2024-06-02 21:51:13,653 - INFO: -------------------------------------------------------
+2024-06-02 21:51:14,121 - INFO:  - [OK] EURUSD
+2024-06-02 21:51:14,121 - INFO:  - [OK] EURGBP
+2024-06-02 21:51:14,126 - INFO: 
+2024-06-02 21:51:14,126 - INFO: [OK] Tabla actualizada con éxito.
+2024-06-02 21:51:14,133 - INFO: Proceso finalizado.
