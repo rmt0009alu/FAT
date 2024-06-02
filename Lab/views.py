@@ -543,7 +543,6 @@ def _comprobar_formularios(form, ticker, request):
         if num_sesiones.isdigit():
             num_sesiones = int(num_sesiones)
             if not 100 <= num_sesiones <= 500:
-                print("entro")
                 context["msg_error"] = 'Valor no válido para el nº de sesiones'
                 return context
         else:
@@ -740,8 +739,8 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
     forecast_arima_walk_forward = base64.b64encode(buffer.read()).decode()
     #
     # Hago una predicción adicional para la próxima sesión
-    prediccion = modelo_fit.forecast(steps=1)
-    
+    # prediccion = modelo_fit.forecast(steps=1)
+
     # Preparar figura y buffer con inetrvalos de confianza
     # ----------------------------------------------------
     datos_entrenamiento = list(datos[:tam_entrenamiento])
@@ -805,7 +804,7 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
         "resumen": modelo_fit.summary(),
         "mse": mean_squared_error(datos_test, predicciones),
         "rmse": math.sqrt(mean_squared_error(datos_test, predicciones)),
-        "prediccion_prox_sesion": prediccion[0],
+        # "prediccion_prox_sesion": prediccion[0],
         "aciertos_tendencia": aciertos_tendencia.count(True),
         "fallos_tendencia": aciertos_tendencia.count(False),
 
@@ -981,7 +980,7 @@ def _crear_modelo(look_back, X_norm, y_norm):
     #             los pesos de la red, i.e., factor del tamaño de los 
     #             conjuntos de datos de entrenamiento y prueba.
     # shuffle: desactivar la reproducción aleatoria de muestras 
-    modelo.fit(X_norm, y_norm, epochs=100, batch_size=1, verbose=0, shuffle=False)
+    modelo.fit(X_norm, y_norm, epochs=100, batch_size=1, verbose=None, shuffle=False)
 
     return modelo
 
@@ -1065,7 +1064,7 @@ def _validacion_walk_forward_lstm(df, tam_entrenamiento, scaler, look_back, mode
         X_test_norm = scaler.transform(X_test.reshape(-1, 1))
         
         # Predicción del siguiente time_step (1 día)
-        predic_normalizada = modelo.predict(X_test_norm)
+        predic_normalizada = modelo.predict(X_test_norm, verbose=None)
         # Paso a su escala real (la de precios de cierre)
         estimado = scaler.inverse_transform(predic_normalizada)[0][0]
         predicciones.append(estimado)
@@ -1137,7 +1136,7 @@ def _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_
     # Hago una predicción adicional con el último dato de test
     X_test = datos_test['close'].iloc[-1].reshape(1, look_back, 1)
     X_test_norm = scaler.transform(X_test.reshape(-1, 1))
-    predic_normalizada = modelo.predict(X_test_norm)
+    predic_normalizada = modelo.predict(X_test_norm, verbose=None)
     prediccion = scaler.inverse_transform(predic_normalizada)[0][0]
 
     # Creao un objeto StringIO para 'capturar' la salida
@@ -1199,7 +1198,7 @@ def cruce_medias(request):
         # Compruebo existencia de ticker y num_sesiones
         context = _comprobar_formularios(form, ticker, request)
         if context is not False:
-            return render(request, "buscar_paramateros_arima.html", context)
+            return render(request, "cruce_medias.html", context)
 
         num_sesiones = form.cleaned_data['num_sesiones']
 

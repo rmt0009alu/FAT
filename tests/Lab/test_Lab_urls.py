@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from Lab.views import lab, arima_auto, arima_rejilla, arima_manual, lstm
+from Lab.views import lab, arima_auto, arima_rejilla, arima_manual, lstm, cruce_medias, estrategia_ML
 from log.logger.logger import get_logger_configurado
 
 
@@ -64,3 +64,15 @@ class TestLabUrls(SimpleTestCase):
         url = reverse('lstm')
         self.assertEquals(resolve(url).func, lstm, " - [NO OK] URL lstm")
         self.log.info(" - [OK] URL lstm")
+
+    
+    def test_url_cruce_medias(self):
+        url = reverse('cruce_medias')
+        self.assertEquals(resolve(url).func, cruce_medias, " - [NO OK] URL cruce_medias")
+        self.log.info(" - [OK] URL cruce_medias")
+
+
+    def test_url_estrategia_ML(self):
+        url = reverse('estrategia_ML')
+        self.assertEquals(resolve(url).func, estrategia_ML, " - [NO OK] URL estrategia_ML")
+        self.log.info(" - [OK] URL estrategia_ML")
