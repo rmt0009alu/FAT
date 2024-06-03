@@ -5,9 +5,9 @@ Métodos de vistas para usar con Lab.
 # https://stackoverflow.com/questions/77921357/warning-while-using-tensorflow-tensorflow-core-util-port-cc113-onednn-custom
 # para optimizar el rendimiento en arquitecturas Intel, pero arroja 
 # un warning constantemente. Para eliminarlo:
-import os
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-import sys
+# import os
+# os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+# import sys
 import math
 # Para pasar str a literales
 import ast
@@ -37,9 +37,9 @@ from pmdarima.arima import auto_arima
 from util.tickers.Tickers_BDs import obtener_nombre_bd, tickers_disponibles
 # Mis formularios
 from .forms import FormBasico, ArimaAutoForm, ArimaRejillaForm, ArimaManualForm, EstrategiaMLForm, LstmForm
-from keras.models import Sequential
-from keras.layers import Dense, LSTM
-from sklearn.preprocessing import MinMaxScaler
+# from keras.models import Sequential
+# from keras.layers import Dense, LSTM
+# from sklearn.preprocessing import MinMaxScaler
 # from sklearn.metrics import confusion_matrix
 
 
@@ -815,351 +815,351 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
     return context
 
 
-@login_required
-def lstm(request):
-    """Para crear una red neuronal LSTM. 
+# @login_required
+# def lstm(request):
+#     """Para crear una red neuronal LSTM. 
     
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+#     Args:
+#         request (django.core.handlers.wsgi.WSGIRequest): solicitud
+#             HTTP encapsulada por Django.
 
-    Returns:
-        (render): renderiza la plantilla 'arima_auto.html' con datos
-            de contexto.
-    """
-    if request.method == 'GET':
-        context = {
-            "lista_tickers": tickers_disponibles(),
-            "form": LstmForm,
-        }
-        return render(request, "lstm.html", context)
+#     Returns:
+#         (render): renderiza la plantilla 'arima_auto.html' con datos
+#             de contexto.
+#     """
+#     if request.method == 'GET':
+#         context = {
+#             "lista_tickers": tickers_disponibles(),
+#             "form": LstmForm,
+#         }
+#         return render(request, "lstm.html", context)
 
-    # POST
-    # ----
-    # El 'ticker' no está en el form para poder usar
-    # una caja de búsqueda autocompletable.
-    ticker = request.POST.get("ticker_a_buscar")
-    # Adaptación a la notación de los tickers en las BDs
-    ticker = ticker.replace(".", "_")
-    ticker = ticker.replace("^", "")
+#     # POST
+#     # ----
+#     # El 'ticker' no está en el form para poder usar
+#     # una caja de búsqueda autocompletable.
+#     ticker = request.POST.get("ticker_a_buscar")
+#     # Adaptación a la notación de los tickers en las BDs
+#     ticker = ticker.replace(".", "_")
+#     ticker = ticker.replace("^", "")
 
-    # Uso el resto del formulario (sin el ticker)
-    form = LstmForm(request.POST)
-    if form.is_valid():
-        # Hago un preprocesado para adaptar los datos
-        look_back, X_norm, y_norm, df, tam_entrenamiento, scaler = _preprocesado_lstm(ticker, form, request)
+#     # Uso el resto del formulario (sin el ticker)
+#     form = LstmForm(request.POST)
+#     if form.is_valid():
+#         # Hago un preprocesado para adaptar los datos
+#         look_back, X_norm, y_norm, df, tam_entrenamiento, scaler = _preprocesado_lstm(ticker, form, request)
 
-        # Obtengo el modelo de la red LSTM (ya compilado y entrenado)
-        modelo = _crear_modelo(look_back, X_norm, y_norm)
+#         # Obtengo el modelo de la red LSTM (ya compilado y entrenado)
+#         modelo = _crear_modelo(look_back, X_norm, y_norm)
         
-        # Hago una validación diaria para los datos de test
-        predicciones, aciertos_tendencia = _validacion_walk_forward_lstm(df, tam_entrenamiento, scaler, look_back, modelo)
+#         # Hago una validación diaria para los datos de test
+#         predicciones, aciertos_tendencia = _validacion_walk_forward_lstm(df, tam_entrenamiento, scaler, look_back, modelo)
 
-        # Generar un contexto con datos relevantes
-        context = _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_entrenamiento, df, aciertos_tendencia)
+#         # Generar un contexto con datos relevantes
+#         context = _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_entrenamiento, df, aciertos_tendencia)
 
-        # Si todo ha ido bien muestro la info. al usuario
-        return render(request, "lstm.html", context)
+#         # Si todo ha ido bien muestro la info. al usuario
+#         return render(request, "lstm.html", context)
 
-    # Si el formulario no es válido, busco el motivo e informo al usuario
-    context = _comprobar_formulario_lstm(form, ticker, request)
-    return render(request, "lstm.html", context)
+#     # Si el formulario no es válido, busco el motivo e informo al usuario
+#     context = _comprobar_formulario_lstm(form, ticker, request)
+#     return render(request, "lstm.html", context)
 
 
-def _preprocesado_lstm(ticker, form, request):
-    """Para preprocesar la información y no saturar de código los
-    métodos de LSTM. 
+# def _preprocesado_lstm(ticker, form, request):
+#     """Para preprocesar la información y no saturar de código los
+#     métodos de LSTM. 
 
-    Args:
-        ticker (str): nombre del ticker. 
-        form (Lab.forms.Form): formulario utilizado para recabar datos. 
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+#     Args:
+#         ticker (str): nombre del ticker. 
+#         form (Lab.forms.Form): formulario utilizado para recabar datos. 
+#         request (django.core.handlers.wsgi.WSGIRequest): solicitud
+#             HTTP encapsulada por Django.
 
-    Returns:
-        look_back (int): número de time_steps que se hacen hacia atrás. 
-        X_norm (numpy.ndarray): datos de entrada de la red. 
-        y_norm (numpy.ndarray): datos esperados en la salida de la red. 
-        df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento
-            y test) con sólo cierres del valor seleccionado. 
-        tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento.
-        scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
-    """
-    # Obtengo datos del form
-    num_sesiones = form.cleaned_data['num_sesiones']
-    porcentaje_entren = form.cleaned_data['porcentaje_entrenamiento']
+#     Returns:
+#         look_back (int): número de time_steps que se hacen hacia atrás. 
+#         X_norm (numpy.ndarray): datos de entrada de la red. 
+#         y_norm (numpy.ndarray): datos esperados en la salida de la red. 
+#         df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento
+#             y test) con sólo cierres del valor seleccionado. 
+#         tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento.
+#         scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
+#     """
+#     # Obtengo datos del form
+#     num_sesiones = form.cleaned_data['num_sesiones']
+#     porcentaje_entren = form.cleaned_data['porcentaje_entrenamiento']
 
-    # Compruebo existencia de ticker
-    context = _comprobar_formulario_lstm(form, ticker, request)
+#     # Compruebo existencia de ticker
+#     context = _comprobar_formulario_lstm(form, ticker, request)
 
-    if context is not False:
-        # Si hay datos en el contexto es porque algo está mal y se
-        # añade un mensaje informativo al usuario
-        return render(request, "lstm.html", context)
+#     if context is not False:
+#         # Si hay datos en el contexto es porque algo está mal y se
+#         # añade un mensaje informativo al usuario
+#         return render(request, "lstm.html", context)
         
-    # Busco la info para el nº de sesiones indicado por ususario
-    modelo = apps.get_model('Analysis', ticker)
-    bd = obtener_nombre_bd(ticker)
-    entrada = modelo.objects.using(bd).order_by('-date')[:num_sesiones]
-    df = pd.DataFrame(list(entrada.values()))
-    # Y ordeno el resultado
-    df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
+#     # Busco la info para el nº de sesiones indicado por ususario
+#     modelo = apps.get_model('Analysis', ticker)
+#     bd = obtener_nombre_bd(ticker)
+#     entrada = modelo.objects.using(bd).order_by('-date')[:num_sesiones]
+#     df = pd.DataFrame(list(entrada.values()))
+#     # Y ordeno el resultado
+#     df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
 
-    datos = df['close']
+#     datos = df['close']
 
-    # Split 70/30 o lo que sea (uso el % indicado por el usuario adaptándolo)
-    porcentaje_entren = int(porcentaje_entren.replace('%', ''))/100
-    tam_entrenamiento = int(len(datos) * porcentaje_entren)
+#     # Split 70/30 o lo que sea (uso el % indicado por el usuario adaptándolo)
+#     porcentaje_entren = int(porcentaje_entren.replace('%', ''))/100
+#     tam_entrenamiento = int(len(datos) * porcentaje_entren)
 
-    # Nº de días previos para usar como input
-    look_back = 1
-    # Columna con los datos del día siguiente para usar como salida
-    # esperada de la red. Es decir, se va a transformar una serie temporal
-    # en un problema de aprendizaje supervisado
-    df['siguiente_dia'] = df['close'].shift(-1)
-    # Elimino el último cierre porque no habrá un resultado del siguiente
-    # día (será NaN, lógicamente). Lo puedo estimar a posteriori
-    df.dropna(inplace=True)
-    # print(df[['date','close', 'siguiente_dia']])
+#     # Nº de días previos para usar como input
+#     look_back = 1
+#     # Columna con los datos del día siguiente para usar como salida
+#     # esperada de la red. Es decir, se va a transformar una serie temporal
+#     # en un problema de aprendizaje supervisado
+#     df['siguiente_dia'] = df['close'].shift(-1)
+#     # Elimino el último cierre porque no habrá un resultado del siguiente
+#     # día (será NaN, lógicamente). Lo puedo estimar a posteriori
+#     df.dropna(inplace=True)
+#     # print(df[['date','close', 'siguiente_dia']])
 
-    # Creo los datasets
-    datos_entrenamiento = df[:tam_entrenamiento]
+#     # Creo los datasets
+#     datos_entrenamiento = df[:tam_entrenamiento]
     
-    # X = input cierres / y = output días siguientes
-    X = datos_entrenamiento['close'].values[:-1]
-    y = datos_entrenamiento['siguiente_dia'].values[:-1]
+#     # X = input cierres / y = output días siguientes
+#     X = datos_entrenamiento['close'].values[:-1]
+#     y = datos_entrenamiento['siguiente_dia'].values[:-1]
     
-    # Redimensionar para ajustar a valores esperados en la capa de 
-    # entrada de la red LSTM [samples, time_steps, features].
-    # samples: nº de secuencias en el dataset (uso -1 para que Numpy 
-    #          lo busque automáticamente según el tamaño de la entrada)
-    #          1 secuencia por día. 
-    # time_steps: nº de días previos a considerar en cada secuencia
-    # features: nº de variables en cada día previo (time_step)
-    X = X.reshape(-1, look_back, 1)
+#     # Redimensionar para ajustar a valores esperados en la capa de 
+#     # entrada de la red LSTM [samples, time_steps, features].
+#     # samples: nº de secuencias en el dataset (uso -1 para que Numpy 
+#     #          lo busque automáticamente según el tamaño de la entrada)
+#     #          1 secuencia por día. 
+#     # time_steps: nº de días previos a considerar en cada secuencia
+#     # features: nº de variables en cada día previo (time_step)
+#     X = X.reshape(-1, look_back, 1)
 
-    # En LSTM es recomendable normalizar los datos
-    scaler = MinMaxScaler(feature_range=(0, 1))
-    X_norm = scaler.fit_transform(X.reshape(-1, 1))
-    # El scaler usará la misma escala que la que tenga X, por eso
-    # uso transform y no fit_transform (el final, son los mismos datos
-    # pero con un día de retraso)
-    y_norm = scaler.transform(y.reshape(-1, 1))
+#     # En LSTM es recomendable normalizar los datos
+#     scaler = MinMaxScaler(feature_range=(0, 1))
+#     X_norm = scaler.fit_transform(X.reshape(-1, 1))
+#     # El scaler usará la misma escala que la que tenga X, por eso
+#     # uso transform y no fit_transform (el final, son los mismos datos
+#     # pero con un día de retraso)
+#     y_norm = scaler.transform(y.reshape(-1, 1))
 
-    return look_back, X_norm, y_norm, df, tam_entrenamiento, scaler
+#     return look_back, X_norm, y_norm, df, tam_entrenamiento, scaler
 
 
-def _crear_modelo(look_back, X_norm, y_norm):
-    """Para crear el modelo de la red, compilarla y entrenarla. 
-    Devuelve el modelo de la red ya entrenado. 
+# def _crear_modelo(look_back, X_norm, y_norm):
+#     """Para crear el modelo de la red, compilarla y entrenarla. 
+#     Devuelve el modelo de la red ya entrenado. 
 
-    Args:
-        look_back (int): número de time_steps que se hacen hacia atrás. 
-        X_norm (numpy.ndarray): datos de entrada de la red. 
-        y_norm (numpy.ndarray): datos esperados en la salida de la red. 
+#     Args:
+#         look_back (int): número de time_steps que se hacen hacia atrás. 
+#         X_norm (numpy.ndarray): datos de entrada de la red. 
+#         y_norm (numpy.ndarray): datos esperados en la salida de la red. 
     
-    Returns:
-        modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
-    """
-    # Para crear capa a capa de forma secuencial (cada capa 
-    # adicional se conecta a la anterior)
-    modelo = Sequential()
-    # Añadir la capa de LSTM (RNN) con 5 LSTM unit (5 neuronas), con
-    # forma de (1, look_back). Las secuencias de entrada serán 
-    # de longitud look_back (time_steps), i.e, los días que se mira 
-    # hacia atrás en los datos para estimar la misma cantidad de días. 
-    # Y sólo hay una variable que es el propio cierre
-    modelo.add(LSTM(units=5, input_shape=(1, look_back)))
-    # Añadir capa d esalida, completamente conectada, de 1 neurona
-    modelo.add(Dense(units=1))
+#     Returns:
+#         modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
+#     """
+#     # Para crear capa a capa de forma secuencial (cada capa 
+#     # adicional se conecta a la anterior)
+#     modelo = Sequential()
+#     # Añadir la capa de LSTM (RNN) con 5 LSTM unit (5 neuronas), con
+#     # forma de (1, look_back). Las secuencias de entrada serán 
+#     # de longitud look_back (time_steps), i.e, los días que se mira 
+#     # hacia atrás en los datos para estimar la misma cantidad de días. 
+#     # Y sólo hay una variable que es el propio cierre
+#     modelo.add(LSTM(units=5, input_shape=(1, look_back)))
+#     # Añadir capa d esalida, completamente conectada, de 1 neurona
+#     modelo.add(Dense(units=1))
 
-    # Compilar y entrenar
-    modelo.compile(loss='mean_squared_error', optimizer='adam')
-    # batch_size: nº de muestras que se procesan cada vez antes de ajustar
-    #             los pesos de la red, i.e., factor del tamaño de los 
-    #             conjuntos de datos de entrenamiento y prueba.
-    # shuffle: desactivar la reproducción aleatoria de muestras 
-    modelo.fit(X_norm, y_norm, epochs=100, batch_size=1, verbose=None, shuffle=False)
+#     # Compilar y entrenar
+#     modelo.compile(loss='mean_squared_error', optimizer='adam')
+#     # batch_size: nº de muestras que se procesan cada vez antes de ajustar
+#     #             los pesos de la red, i.e., factor del tamaño de los 
+#     #             conjuntos de datos de entrenamiento y prueba.
+#     # shuffle: desactivar la reproducción aleatoria de muestras 
+#     modelo.fit(X_norm, y_norm, epochs=100, batch_size=1, verbose=None, shuffle=False)
 
-    return modelo
-
-
-def _comprobar_formulario_lstm(form, ticker, request):
-    """Permite comprobar si los datos introducidos por
-    el usuario en cualquiera de los formularios disponibles
-    son coherentes.
-
-    Args:
-        form (Lab.forms.Form): formulario que se quiere comrpobar. 
-        ticker (str): nombre del ticker.
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
-
-    Returns:
-        False / context (boolean / dict): False o diccionario con datos del 
-            cotexto en caso de fallo en formulario.
-    """
-    context = {
-        "form": type(form),
-        "lista_tickers": tickers_disponibles(),
-    }
-
-    bd = obtener_nombre_bd(ticker)
-
-    # Obtengo datos del form, para formularios NO válidos no puedo usar
-    # form.cleaned_data['...'] y, por tanto, los datos serán 'str'
-    num_sesiones = request.POST.get('num_sesiones')
-    porcentaje_entren = request.POST.get('porcentaje_entrenamiento')
-
-    if bd is None:
-        context["msg_error"] = f'El ticker {ticker} no está disponibe'
-        return context
-
-    if num_sesiones.isdigit():
-        num_sesiones = int(num_sesiones)
-        if not 400 <= num_sesiones <= 1000:
-            context["msg_error"] = 'Valor no válido para el nº de sesiones'
-            return context
-    else:
-        context["msg_error"] = 'Valor no válido para el nº de sesiones'
-        return context
-
-    if porcentaje_entren not in ['50%', '66%', '70%', '80%', '90%']:
-        context["msg_error"] = 'Porcentaje indicado no válido'
-        return context
-
-    # Si no hay errores
-    return False
+#     return modelo
 
 
-def _validacion_walk_forward_lstm(df, tam_entrenamiento, scaler, look_back, modelo):
-    """Para realizar la validación basada en el MSE. Se realiza 
-    una validación de un paso hacia atrás, i.e., se comprueba el
-    error cuadrático medio (mse) cometido entre la predicción
-    para el día siguiente y el resultado real de cierre en ese día.      
+# def _comprobar_formulario_lstm(form, ticker, request):
+#     """Permite comprobar si los datos introducidos por
+#     el usuario en cualquiera de los formularios disponibles
+#     son coherentes.
 
-    Args:
-        df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento
-            y test) con sólo cierres del valor seleccionado. 
-        tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
-        scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
-        look_back (int): número de time_steps que se hacen hacia atrás. 
-        modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
+#     Args:
+#         form (Lab.forms.Form): formulario que se quiere comrpobar. 
+#         ticker (str): nombre del ticker.
+#         request (django.core.handlers.wsgi.WSGIRequest): solicitud
+#             HTTP encapsulada por Django.
 
-    Returns:
-        predicciones (lista): lista con predicciones realizadas. 
-        aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción
-            con los datos de test.
-    """
-    datos_test = df[tam_entrenamiento:]
-    datos_entrenamiento = df[:tam_entrenamiento]
-    predicciones = []
-    aciertos_tendencia = []
-    acierta_tendencia = None
+#     Returns:
+#         False / context (boolean / dict): False o diccionario con datos del 
+#             cotexto en caso de fallo en formulario.
+#     """
+#     context = {
+#         "form": type(form),
+#         "lista_tickers": tickers_disponibles(),
+#     }
 
-    for t in range(len(datos_test)):
-        # Adaptar forma y normalizar el nuevo dato de test
-        X_test = datos_test['close'].values[t].reshape(1, look_back, 1)
-        X_test_norm = scaler.transform(X_test.reshape(-1, 1))
+#     bd = obtener_nombre_bd(ticker)
+
+#     # Obtengo datos del form, para formularios NO válidos no puedo usar
+#     # form.cleaned_data['...'] y, por tanto, los datos serán 'str'
+#     num_sesiones = request.POST.get('num_sesiones')
+#     porcentaje_entren = request.POST.get('porcentaje_entrenamiento')
+
+#     if bd is None:
+#         context["msg_error"] = f'El ticker {ticker} no está disponibe'
+#         return context
+
+#     if num_sesiones.isdigit():
+#         num_sesiones = int(num_sesiones)
+#         if not 400 <= num_sesiones <= 1000:
+#             context["msg_error"] = 'Valor no válido para el nº de sesiones'
+#             return context
+#     else:
+#         context["msg_error"] = 'Valor no válido para el nº de sesiones'
+#         return context
+
+#     if porcentaje_entren not in ['50%', '66%', '70%', '80%', '90%']:
+#         context["msg_error"] = 'Porcentaje indicado no válido'
+#         return context
+
+#     # Si no hay errores
+#     return False
+
+
+# def _validacion_walk_forward_lstm(df, tam_entrenamiento, scaler, look_back, modelo):
+#     """Para realizar la validación basada en el MSE. Se realiza 
+#     una validación de un paso hacia atrás, i.e., se comprueba el
+#     error cuadrático medio (mse) cometido entre la predicción
+#     para el día siguiente y el resultado real de cierre en ese día.      
+
+#     Args:
+#         df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento
+#             y test) con sólo cierres del valor seleccionado. 
+#         tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
+#         scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
+#         look_back (int): número de time_steps que se hacen hacia atrás. 
+#         modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
+
+#     Returns:
+#         predicciones (lista): lista con predicciones realizadas. 
+#         aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción
+#             con los datos de test.
+#     """
+#     datos_test = df[tam_entrenamiento:]
+#     datos_entrenamiento = df[:tam_entrenamiento]
+#     predicciones = []
+#     aciertos_tendencia = []
+#     acierta_tendencia = None
+
+#     for t in range(len(datos_test)):
+#         # Adaptar forma y normalizar el nuevo dato de test
+#         X_test = datos_test['close'].values[t].reshape(1, look_back, 1)
+#         X_test_norm = scaler.transform(X_test.reshape(-1, 1))
         
-        # Predicción del siguiente time_step (1 día)
-        predic_normalizada = modelo.predict(X_test_norm, verbose=None)
-        # Paso a su escala real (la de precios de cierre)
-        estimado = scaler.inverse_transform(predic_normalizada)[0][0]
-        predicciones.append(estimado)
+#         # Predicción del siguiente time_step (1 día)
+#         predic_normalizada = modelo.predict(X_test_norm, verbose=None)
+#         # Paso a su escala real (la de precios de cierre)
+#         estimado = scaler.inverse_transform(predic_normalizada)[0][0]
+#         predicciones.append(estimado)
         
-        if t>0:
-            previo = datos_test['siguiente_dia'].iloc[t-1]
-        else:
-            # Cuando t=0 el dato anterior corresponde a los de entrenamiento
-            previo = datos_entrenamiento['siguiente_dia'].iloc[-1]
+#         if t>0:
+#             previo = datos_test['siguiente_dia'].iloc[t-1]
+#         else:
+#             # Cuando t=0 el dato anterior corresponde a los de entrenamiento
+#             previo = datos_entrenamiento['siguiente_dia'].iloc[-1]
 
-        # Comprobación de aciertos vs fallos para mostrar al usuario
-        # El dato real es el que está en datos_test en el siguiente día
-        real = datos_test['siguiente_dia'].iloc[t]
-        #
-        if (previo < estimado and previo < real) or (previo > estimado and previo > real) or (previo == estimado and previo == real):
-            acierta_tendencia = True
-        else:
-            acierta_tendencia = False
+#         # Comprobación de aciertos vs fallos para mostrar al usuario
+#         # El dato real es el que está en datos_test en el siguiente día
+#         real = datos_test['siguiente_dia'].iloc[t]
+#         #
+#         if (previo < estimado and previo < real) or (previo > estimado and previo > real) or (previo == estimado and previo == real):
+#             acierta_tendencia = True
+#         else:
+#             acierta_tendencia = False
 
-        aciertos_tendencia.append(acierta_tendencia)
+#         aciertos_tendencia.append(acierta_tendencia)
 
-    return predicciones, aciertos_tendencia
+#     return predicciones, aciertos_tendencia
 
 
-def _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_entrenamiento, df, aciertos_tendencia):
-    """Para generar los resultados gráficos y textuales
-    que se mostrarán al usuario en la plantilla HTML para
-    informarle sobre los resultados de una red LSTM.
+# def _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_entrenamiento, df, aciertos_tendencia):
+#     """Para generar los resultados gráficos y textuales
+#     que se mostrarán al usuario en la plantilla HTML para
+#     informarle sobre los resultados de una red LSTM.
 
-    Args:
-        form (Lab.forms.Form): formulario creado para recabar información. 
-        scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
-        look_back (int): número de time_steps que se hacen hacia atrás. 
-        modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
-        predicciones (list): lista con las predicciones realizadas. 
-        tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
-        df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento
-            y test) con sólo cierres del valor seleccionado. 
-        aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción
-            con los datos de test. 
+#     Args:
+#         form (Lab.forms.Form): formulario creado para recabar información. 
+#         scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
+#         look_back (int): número de time_steps que se hacen hacia atrás. 
+#         modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
+#         predicciones (list): lista con las predicciones realizadas. 
+#         tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
+#         df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento
+#             y test) con sólo cierres del valor seleccionado. 
+#         aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción
+#             con los datos de test. 
 
-    Returns:
-        context (dict): diccionario con los datos del contexto.
-    """
-    datos_test = df[tam_entrenamiento:]
-    datos = df['close']
-    fechas = df['date']
-    datos.index = fechas
-    predicciones = pd.DataFrame(predicciones)
-    # Resto un día porque hay una estimación menos por los datos
-    # de test. La predicción adicional se calcula a posteriori
-    predicciones.index = fechas[tam_entrenamiento:]
+#     Returns:
+#         context (dict): diccionario con los datos del contexto.
+#     """
+#     datos_test = df[tam_entrenamiento:]
+#     datos = df['close']
+#     fechas = df['date']
+#     datos.index = fechas
+#     predicciones = pd.DataFrame(predicciones)
+#     # Resto un día porque hay una estimación menos por los datos
+#     # de test. La predicción adicional se calcula a posteriori
+#     predicciones.index = fechas[tam_entrenamiento:]
 
-    # Preparar figura y buffer
-    plt.figure(figsize=(7, 5))
-    buffer = BytesIO()
-    # Gráfica con los datos reales y las predicciones
-    plt.plot(datos.index, datos, color='blue', label='Original')
-    plt.plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(predicciones)} días')
-    plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))
-    plt.legend()
+#     # Preparar figura y buffer
+#     plt.figure(figsize=(7, 5))
+#     buffer = BytesIO()
+#     # Gráfica con los datos reales y las predicciones
+#     plt.plot(datos.index, datos, color='blue', label='Original')
+#     plt.plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(predicciones)} días')
+#     plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))
+#     plt.legend()
     
-    plt.savefig(buffer, format='PNG')
-    plt.close()
-    # Obtener los datos de la imagen del buffer
-    buffer.seek(0)
-    forecast_lstm = base64.b64encode(buffer.read()).decode()
+#     plt.savefig(buffer, format='PNG')
+#     plt.close()
+#     # Obtener los datos de la imagen del buffer
+#     buffer.seek(0)
+#     forecast_lstm = base64.b64encode(buffer.read()).decode()
 
-    # Hago una predicción adicional con el último dato de test
-    X_test = datos_test['close'].iloc[-1].reshape(1, look_back, 1)
-    X_test_norm = scaler.transform(X_test.reshape(-1, 1))
-    predic_normalizada = modelo.predict(X_test_norm, verbose=None)
-    prediccion = scaler.inverse_transform(predic_normalizada)[0][0]
+#     # Hago una predicción adicional con el último dato de test
+#     X_test = datos_test['close'].iloc[-1].reshape(1, look_back, 1)
+#     X_test_norm = scaler.transform(X_test.reshape(-1, 1))
+#     predic_normalizada = modelo.predict(X_test_norm, verbose=None)
+#     prediccion = scaler.inverse_transform(predic_normalizada)[0][0]
 
-    # Creao un objeto StringIO para 'capturar' la salida
-    buffer_resumen_modelo = StringIO()
-    # Redirijo la salida a mi buffer
-    sys.stdout = buffer_resumen_modelo
-    # Resumen del modelo
-    modelo.summary()
-    # Reseteo la salida estándar
-    sys.stdout = sys.__stdout__
+#     # Creao un objeto StringIO para 'capturar' la salida
+#     buffer_resumen_modelo = StringIO()
+#     # Redirijo la salida a mi buffer
+#     sys.stdout = buffer_resumen_modelo
+#     # Resumen del modelo
+#     modelo.summary()
+#     # Reseteo la salida estándar
+#     sys.stdout = sys.__stdout__
 
-    context = {
-        "lista_tickers": tickers_disponibles(),
-        "form": type(form),
-        "forecast_lstm": forecast_lstm,
-        "resumen": buffer_resumen_modelo.getvalue(),
-        "mse": mean_squared_error(datos_test['siguiente_dia'], predicciones),
-        "rmse": math.sqrt(mean_squared_error(datos_test['siguiente_dia'], predicciones)),
-        "prediccion_prox_sesion": prediccion,
-        "aciertos_tendencia": aciertos_tendencia.count(True),
-        "fallos_tendencia": aciertos_tendencia.count(False),
-    }
+#     context = {
+#         "lista_tickers": tickers_disponibles(),
+#         "form": type(form),
+#         "forecast_lstm": forecast_lstm,
+#         "resumen": buffer_resumen_modelo.getvalue(),
+#         "mse": mean_squared_error(datos_test['siguiente_dia'], predicciones),
+#         "rmse": math.sqrt(mean_squared_error(datos_test['siguiente_dia'], predicciones)),
+#         "prediccion_prox_sesion": prediccion,
+#         "aciertos_tendencia": aciertos_tendencia.count(True),
+#         "fallos_tendencia": aciertos_tendencia.count(False),
+#     }
 
-    return context
+#     return context
 
 
 @login_required
