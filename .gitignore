@@ -33,3 +33,6 @@ setup.cfg
 
 # Para ignorar los tests
 /tests
+
+# Ignorar los docs
+/docs
