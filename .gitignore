@@ -19,9 +19,6 @@ VerInfoÚtil.py
 # Para ignorar el archivo de cobertura de tests
 .coverage
 
-# Para ignorar el archivo de configuración de Flake8
-setup.cfg
-
 # Para ignorar la carpeta de HTML de 'coverage'
 /htmlcov
 
