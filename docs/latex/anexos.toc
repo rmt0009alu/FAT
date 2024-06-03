@@ -1,0 +1,40 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\'{I}ndice general}{\es@scroman {i}}{section*.1}%
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iii}}{section*.2}%
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {iv}}{section*.3}%
+\contentsline {appendix}{\chapternumberline {A}Plan de Proyecto Software}{1}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Introducción}{1}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Planificación temporal}{1}{section.Alph1.2}%
+\contentsline {subsection}{Sprints}{2}{section*.4}%
+\contentsline {subsubsection}{Sprint 0. Presentación inicial a tutores del TFG}{2}{section*.5}%
+\contentsline {subsubsection}{Sprint 1. Empezar TFG con selección de herramientas adecuadas}{2}{section*.6}%
+\contentsline {subsubsection}{Sprint 2. Mostrar primeras tablas y gráficos en servidor web}{3}{section*.7}%
+\contentsline {subsubsection}{Sprint 3. Mejorar lógica de web y proteger enlaces con registro. Mostrar gráficos y dar primeros estilos.}{4}{section*.8}%
+\contentsline {section}{\numberline {A.3}Estudio de viabilidad}{4}{section.Alph1.3}%
+\contentsline {subsection}{Viabilidad económica}{4}{section*.9}%
+\contentsline {subsection}{Viabilidad legal}{4}{section*.10}%
+\contentsline {appendix}{\chapternumberline {B}Especificación de Requisitos}{5}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Introducción}{5}{section.Alph2.1}%
+\contentsline {section}{\numberline {B.2}Objetivos generales}{5}{section.Alph2.2}%
+\contentsline {section}{\numberline {B.3}Catálogo de requisitos}{5}{section.Alph2.3}%
+\contentsline {section}{\numberline {B.4}Especificación de requisitos}{5}{section.Alph2.4}%
+\contentsline {appendix}{\chapternumberline {C}Especificación de diseño}{7}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Introducción}{7}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Diseño de datos}{7}{section.Alph3.2}%
+\contentsline {section}{\numberline {C.3}Diseño procedimental}{7}{section.Alph3.3}%
+\contentsline {section}{\numberline {C.4}Diseño arquitectónico}{7}{section.Alph3.4}%
+\contentsline {appendix}{\chapternumberline {D}Documentación técnica de programación}{9}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Introducción}{9}{section.Alph4.1}%
+\contentsline {section}{\numberline {D.2}Estructura de directorios}{9}{section.Alph4.2}%
+\contentsline {section}{\numberline {D.3}Manual del programador}{9}{section.Alph4.3}%
+\contentsline {section}{\numberline {D.4}Compilación, instalación y ejecución del proyecto}{9}{section.Alph4.4}%
+\contentsline {section}{\numberline {D.5}Pruebas del sistema}{9}{section.Alph4.5}%
+\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{11}{appendix.Alph5}%
+\contentsline {section}{\numberline {E.1}Introducción}{11}{section.Alph5.1}%
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{11}{section.Alph5.2}%
+\contentsline {section}{\numberline {E.3}Instalación}{11}{section.Alph5.3}%
+\contentsline {section}{\numberline {E.4}Manual del usuario}{11}{section.Alph5.4}%
+\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{13}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Introducción}{13}{section.Alph6.1}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{15}{appendix*.11}%

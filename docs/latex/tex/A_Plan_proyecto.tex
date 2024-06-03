@@ -2,7 +2,160 @@
 
 \section{Introducción}
 
+En un proyecto con un equipo completo de personas trabajando, podríamos definir la planificación de un proyecto software como una etapa que implica definir los objetivos y el alcance del proyecto, identificar los requisitos y recursos necesarios, establecer un cronograma con hitos clave, asignar tareas a los miembros del equipo y prever los posibles riesgos. 
+
+Dentro del contexto de este trabajo académico, se va a detallar en qué ha consistido la planificación temporal y se tratará de hacer un estudio de viabilidad realista.
+
+
 \section{Planificación temporal}
+
+En la memoria se ha indicado que se ha utilizado una metodología ágil de gestión de proyectos, con clara fundamentación en Scrum. Algunos de los aspectos más relevantes que han cubierto esta filosofía han sido:
+
+\begin{itemize}
+\tightlist
+\item  
+Desarrollo incremental a través de iteraciones llamadas \emph{sprints}.
+\item
+Utilización de repositorio \emph{Git} para solicitud de mejoras y para realizar un seguimiento de la evolución, con acceso para los tutores desde las fases iniciales. 
+\item
+Control temporal a través de los \emph{sprints}, valorando al inicio de cada uno 
+cuál sería la duración adecuada basándonos en las tareas que se iban a realizar y el producto que se esperaba al final de esa iteración. 
+\item
+Seguimiento de tareas en un panel \emph{Kanban}.
+\end{itemize}
+
+Además de los \emph{sprints} se diseñaron hitos relevantes denominados \emph{Milestones} en \emph{GitHub} que sirven como referencia de la producción realizada. 
+
+\subsection{Sprints}
+
+A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar en las diferentes fases de este trabajo:
+
+
+\subsubsection{Sprint 0. Presentación inicial a tutores del TFG}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 19/10/2023 a 23/10/2023
+
+\item
+\textbf{Objetivo:} Presentar una idea de TFG a los posibles tutores. 
+
+\item
+\textbf{Contexto:} Inicio del último curso del Grado de Ingeniería Informática. Se trata de contactar con los posibles tutores que controlen el desarrollo de un TFG. Este TFG estará basado en la idea de desarrollar una herramienta, escrita en Python, para realizar análisis financiero. 
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Contactar con los posibles tutores por email.
+	\item
+	Contactar por Teams con los tutores que muestren interés en el TFG e intercambiar primeras impresiones.
+	\item
+	Determinar las herramientas necesarias para desarrollar un TFG.
+	\item
+	Preguntar por consejos y opiniones que puedan ser relevantes. 
+	\item
+	Concertar cita para una futura reunión cuando se haya avanzado con los primeros pasos del TFG.
+	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 1. Empezar TFG con selección de herramientas adecuadas}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 24/10/2023 a 08/11/2023
+
+\item
+\textbf{Objetivo:} Empezar el desarrollo del TFG y su correspondiente documentación. Hacerlo utilizando las herramientas adecuadas sugeridas por los tutores en el trascurso del sprint 0. 
+
+\item
+\textbf{Contexto:} Tras haber mantenido una primera reunión con los tutores, se detectan ciertas necesidades en cuanto a la utilización de herramientas adecuadas para el desarrollo de un TFG. 
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Lectura completa de documentación de TFGs disponible en la plataforma UBUVirtual. 
+	\item 	
+	Rellenar el formulario de "Oferta de TFG Grado de Informática Online". Buscar referencias bibliográficas teóricas más adecuadas. 
+	\item 
+	Utilización de Zube para gestionar un proyecto con metodología ágil: https://zube.io/. Para ello, hay que buscar la documentación adecuada que permita entender su utilización.
+  	\item 
+  	Crear un repositorio en GitHub que permita llevar un seguimiento de las acciones realizadas. 
+  	\item 
+  	En el repositorio, añadir a los tutores e integrar con Zube. 
+	\item 
+	Determinar la mejor herramienta para la documentación del TFG. Elegir entre LaTex y Word. Justificar la elección y documentar. 
+  	\item 
+  	Buscar un gestor de referencias bibliográficas: Zotero vs Mendeley. 
+  	\item 
+  	Concertar cita para una futura reunión cuando se haya avanzado con los primeros pasos del TFG.
+  	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 2. Mostrar primeras tablas y gráficos en servidor web}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 08/11/2023 a 29/11/2023
+
+\item
+\textbf{Objetivo:} Comenzar a desarrollar una aplicación web, mostrando información de precios cotizados y de gráficos. Almacenar información en una base de datos SQLite3, no en DataFrames ni en archivos .csv. 
+
+\item
+\textbf{Contexto:} Una de las primeras recomendaciones de los tutores fue no utilizar archivos .csv para almacenar la información, por lo tanto, se va a utilizar un sistema de almacenamiento en base de datos. La idea general es que dichos datos se descargan con una API, se almacenan y, posteriormente, se procesan para mostrar la información relevante al usuario en archivos HTML. 
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Preparar entorno local para utilizar una base de datos SQLite3. Instalar una GUI para la BD (no relevante para el usuario final). 
+	\item 	
+	Preparar clases (Descargador, Vista, Ticker y/o similares) que permitan automatizar la tarea de almacenar información en una base de datos. 
+	\item 
+	Mostrar un primer producto - no necesariamente visualmente atractivo - en un servidor web con tablas extraídas de la BD. 
+  	\item 
+  	Documentar, en el capítulo 4 de la memoria, las herramientas utilizadas. 
+  	\item 
+  	Concertar cita para una futura reunión con los tutores. 
+  	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 3. Mejorar lógica de web y proteger enlaces con registro. Mostrar gráficos y dar primeros estilos.}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 29/11/2023 a 13/12/2023
+
+\item
+\textbf{Objetivo:} Mejorar la lógica de acceso a la web. Proteger los enlaces no públicos mediante registro de usuarios. Mostrar gráficos y no sólo tablas en un estilo visualmente atractivo. 
+
+\item
+\textbf{Contexto:} Una vez llevado el proyecto a "producción" (subido a un servidor web) hay que mejorar y asegurar los enlaces para que no sean accesibles en un mal uso de los mismos. Además, es necesario hacer un registro de usuarios que permita mostrar información relevante dependiendo del rol (invitado / registrado). 
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Crear lógica de control de usuarios registrados.
+	\item 	
+	Asignar permiso de acceso a enlaces dependiendo del tipo de usuario. 
+	\item 
+	Crear portada y dar primeros estilos visuales. 
+  	\item 
+  	Preparar un índice o zona de breadcrumbs de la página para mejorar la navegación.
+  	\item 
+  	Diseñar una vista que permita mostrar gráficos según el stock escogido. 
+  	\end{itemize}
+\end{itemize}
+
 
 \section{Estudio de viabilidad}
 
