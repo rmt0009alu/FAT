@@ -19,15 +19,15 @@
 \contentsline {subsection}{Retornos máximo y mínimo posibles}{13}{section*.11}%
 \contentsline {subsection}{Optimización en términos de retorno y riesgo simultáneamente}{14}{section*.12}%
 \contentsline {subsection}{Frontera eficiente}{15}{section*.13}%
-\contentsline {subsection}{Sharpe ratio}{17}{section*.14}%
-\contentsline {section}{\numberline {3.2}Análisis de series temporales con modelos ARIMA}{19}{section.3.2}%
+\contentsline {subsection}{Sharpe ratio}{16}{section*.14}%
+\contentsline {section}{\numberline {3.2}Análisis de series temporales con modelos ARIMA}{18}{section.3.2}%
 \contentsline {subsection}{Modelos autorregresivos $(AR_{(p)})$}{19}{section*.15}%
 \contentsline {subsection}{Modelos de media móvil $(MA_{(q)})$}{20}{section*.16}%
 \contentsline {subsection}{Combinación de modelos: $(ARMA_{(p, q)})$}{21}{section*.17}%
 \contentsline {subsection}{Datos estacionarios. $I_{(d)}$ y $ARIMA_{(p, d, q)}$}{21}{section*.18}%
 \contentsline {subsection}{\emph {p-value} de un test ADF sobre precios de cierre y sobre retornos}{25}{section*.19}%
-\contentsline {subsection}{Selección de hiperparámetros $q$ y $p$. ACF y PACF}{28}{section*.20}%
-\contentsline {subsubsection}{Función de autocorrelación (ACF, por sus siglas en inglés) para obtener $q$}{28}{section*.21}%
+\contentsline {subsection}{Selección de hiperparámetros $q$ y $p$. ACF y PACF}{27}{section*.20}%
+\contentsline {subsubsection}{Función de autocorrelación (ACF, por sus siglas en inglés) para obtener $q$}{27}{section*.21}%
 \contentsline {subsubsection}{Función de autocorrelación parcial (PACF, por sus siglas en inglés) para obtener $p$}{29}{section*.22}%
 \contentsline {subsection}{Casos especiales de ARIMA}{30}{section*.23}%
 \contentsline {subsection}{Comprobar resultados de ARIMA}{31}{section*.24}%
@@ -92,7 +92,7 @@
 \contentsline {subsection}{Paso 2. Enrutamiento a la base de datos adecuada}{59}{section*.61}%
 \contentsline {subsection}{Paso 3. Realizar las migraciones}{59}{section*.62}%
 \contentsline {subsection}{Paso 4. Almacenamiento de los datos}{60}{section*.63}%
-\contentsline {section}{\numberline {5.5}División por aplicaciones}{61}{section.5.5}%
+\contentsline {section}{\numberline {5.5}División por aplicaciones}{62}{section.5.5}%
 \contentsline {section}{\numberline {5.6}Fuentes de noticias}{63}{section.5.6}%
 \contentsline {section}{\numberline {5.7}Securizar claves de APIs}{63}{section.5.7}%
 \contentsline {section}{\numberline {5.8}Desarrollo backend y frontend de \emph {DashBoard} de usuario}{64}{section.5.8}%

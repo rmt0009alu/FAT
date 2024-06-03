@@ -101,16 +101,23 @@ Tras tener claro de dónde obtener los datos empecé a trabajar con algunos mode
 La creación de modelos fue uno de los mayores problemas encontrados al inicio del trabajo, sobre todo porque quería que  fuera escalable a más índices y valores cotizados (hasta el punto de que ahora mismo es viable añadir una nueva base de datos en relativamente pocos pasos). La estrategia seguida fue la de crear un modelo base común e ir modificando el nombre de la tabla de manera dinámica. Así, cada valor cotizado tiene su propia tabla en la base de datos de su índice. La forma de conseguirlo fue la siguiente\footnote{Consultar \texttt{Analysis.models.py} para más información.}: 
 
 \begin{verbatim}
-Crear una clase base con una serie de atributos (id, precios, moneda, etc.)
+Crear una clase base con una serie de atributos (id, precios, 
+moneda, etc.)
 
 Crear un diccionario de clases vacío
 
 Recorrer una lista con todos los tickers de todos los índices:
-    Por cada ticker generar una clase dinámica del tipo de la clase base
-	Asignar a la clase dinámica el nombre de la tabla como el del ticker    
-	Crear una nueva entrada en el diccionario con la nueva clase dinámica
+    Por cada ticker generar una clase dinámica del tipo de 
+    la clase base
+    
+    Asignar a la clase dinámica el nombre de la tabla como 
+    el del ticker    
 
-Hacer el diccionario accesible a los scripts de creación de bases de datos
+    Crear una nueva entrada en el diccionario con la nueva 
+    clase dinámica
+
+Hacer el diccionario accesible a los scripts de creación de 
+bases de datos
 \end{verbatim}
 
 \subsection{Paso 2. Enrutamiento a la base de datos adecuada}
@@ -160,23 +167,32 @@ Cada índice tiene su propia base de datos y, adicionalmente, hay otra base de d
 El pseudocódigo para la obtención de la información y el volcado inicial a las bases de datos es el siguiente\footnote{Para ver cómo se rellenan las bases de datos se puede consultar el script \texttt{util.CrearBDs.py}}
 
 \begin{verbatim}
-
 Inicio de la función crear_bds(índice, bd, logger):
     Registrar información en el logger
     Establecer conexión a la base de datos
     Intentar:
-        Iniciar transacción con la conexión (asegurando atomicidad)
-        Para cada ticker en el índice:
-            Obtener datos históricos del stock (stock = yfinance.Ticker(ticker))
-            Ajustar formato de fechas según la base de datos
-            Agregar columnas relevantes a los datos históricos
-            Calcular medias móviles y añadir información de la compañía
-            Verificar existencia de la tabla en la base de datos
-            Si la tabla existe:
-                Guardar los datos en la base de datos
-                Registrar éxito en el logger
-            Si no:
-                Registrar error en el logger
+      Iniciar transacción con la conexión (asegurando 
+      atomicidad)
+
+      Para cada ticker en el índice:
+          Obtener datos históricos del stock 
+          (stock = yfinance.Ticker(ticker))
+
+          Ajustar formato de fechas según la base de 
+          datos
+
+          Agregar columnas relevantes a los datos históricos
+          
+          Calcular medias móviles y añadir información de 
+          la compañía
+
+          Verificar existencia de la tabla en la base de datos
+          Si la tabla existe:
+              Guardar los datos en la base de datos
+              Registrar éxito en el logger
+          Si no:
+              Registrar error en el logger
+              
     Capturar excepciones de SQLite y otras
     Finalmente:
         Cerrar conexión a la base de datos
@@ -251,7 +267,7 @@ Sin estas claves no funciona el proyecto, así que tuve que buscar una manera de
 
 Tanto en el repositorio de \emph{GitHub} como en la web publicada se han eliminado las claves y se han sustituido por variables de entorno que permiten la ejecución del código sin problema. En el repositorio se crean variables de entorno para poder utilizar las \emph{GitHub actions}, concretamente, la que permite comprobar la cobertura del código con \texttt{coverage}\footnote{Ver el código de \texttt{/.github/worflows/coverage.yml} para ampliar información}. Y en la web se han creado variables de entorno con una consola en el servidor. 
 
-Dentro de este proyecto se ha dejado un archivo de ejemplo, \texttt{FAT/.env.example}, para la configuración de las variables de entorno. Cada usuario que descargue el repositorio deberá utilizar sus propias claves, que son fáciles de conseguir en NewsAPI y al al crear nuestro propio proyecto de \emph{Django}\footnote{Ver la guía de usuario de los anexos para mayor información}. Una vez sustituidas las claves de \texttt{FAT/.env.example} sólo es necesario cambiar el nombre de ese mismo archivo a \texttt{FAT/.env} y todo debería de funcionar con normalidad. 
+Dentro de este proyecto, en \texttt{FAT/.env.example}, se ha dejado un archivo de ejemplo, para la configuración de las variables de entorno. Cada usuario que descargue el repositorio deberá utilizar sus propias claves, que son fáciles de conseguir en NewsAPI y al al crear nuestro propio proyecto de \emph{Django}\footnote{Ver la guía de usuario de los anexos para mayor información}. Una vez sustituidas las claves de \texttt{FAT/.env.example} sólo es necesario cambiar el nombre de ese mismo archivo a \texttt{FAT/.env} y todo debería de funcionar con normalidad. 
 
 
 
@@ -276,7 +292,7 @@ Añadir información de valores en el mismo sector que aquellos que el usuario t
 
 Todas estas modificaciones iban en el mismo sentido: tratar de que los usuarios tuvieran una herramienta para buscar los mejores valores con los que diversificar su cartera. 
 
-Finalmente, en las últimas modificaciones conseguí añadir una gráfica de Markowitz junto con el ratio de Sharpe, así como una tabla que permite ver el reparto de pesos actual y lo que sería idóneo según la \emph{Modern Portfolio Theory}. En el backend\footnote{Es recomendable ver el método \texttt{DashBoard.views.mostrar\_markowitz\_frontera\_y\_mejores()} y todos sus métodos auxiliares} de esta gráfica hay una serie de métodos de minimización que son muy interesantes, pero que me costó implementar, especialmente por la inclusión de restricciones adicionales a los problemas (problemas LP y QP, como se ha explicado en la sección de teoría de esta memoria). 
+Finalmente, en las últimas modificaciones conseguí añadir una gráfica de Markowitz junto con el ratio de Sharpe, así como una tabla que permite ver el reparto de pesos actual y lo que sería idóneo según la \emph{Modern Portfolio Theory}. En el backend\footnote{Ver el método \texttt{DashBoard.views.mostrar\_markowitz\_frontera\_y\_mejores()} y todos sus métodos auxiliares} de esta gráfica hay una serie de métodos de minimización que son muy interesantes, pero que me costó implementar, especialmente por la inclusión de restricciones adicionales a los problemas (problemas LP y QP, como se ha explicado en la sección de teoría de esta memoria). 
 
 Todos estos cambios implicaron la creación de modelos adicionales para guardar información sobre los valores en cartera y en seguimiento de un usuario - \texttt{StockComprado} y \texttt{StockSeguimiento}\footnote{Ver \texttt{DashBoard.models.py}} - y sobre el cambio de divisas - \texttt{CambioMoneda}\footnote{Ver \texttt{Analysis.models.py}} -. Según iba creando nuevos modelos iba realizando mejoras incrementales sobre la creación de las bases de datos. 
 

@@ -195,7 +195,7 @@ Es habitual representar las carteras de valores en términos de la relación ren
 
 Una vez tenemos las fórmulas definidas se puede realizar una simulación de Montecarlo \citep{online:simulacion_montecarlo} con múltiples posibles carteras de inversión y ver la relación rentabilidad/riesgo (retorno esperado/varianza):
 
-\imagen{img_02_simulación_montecarlo.png}{Simulación de 10.000 posibles portfolios con los valores \emph{RED.MC}, \emph{EOAN.DE} y \emph{CSCO}, permitiendo posiciones cortas (covarianza calculada con datos de mayo-2023 a mayo-2024). Fuente: elaboración propia}{1}
+\imagen{img_02_simulación_montecarlo.png}{Simulación de 10.000 posibles portfolios (covarianza calculada con datos de mayo-2023 a mayo-2024). Fuente: elaboración propia}{0.85}
 
 De esta gráfica podemos deducir que es posible obtener una mejor rentabilidad sin aumentar el riesgo, i.e., puede mejorarse el rendimiento esperado de nuestra cartera manteniendo la misma volatilidad. Por ejemplo, el punto naranja indica una cartera eficiente, para la que dada una volatilidad, obtenemos el máximo rendimiento esperado posible. Mientras que la cartera representada con un punto rojo obtienen un rendimiento menor para la misma volatilidad. 
 
@@ -263,7 +263,7 @@ Una vez hemos conocidos los retornos mínimo y máximo posibles, con la función
 
 Esto nos dará una representación en forma de hipérbola que se conoce como frontera eficiente \citep{wiki:frontera_eficiente} y que Harry Markowitz representó en \citep{book:Portfolio_selection} con su forma parabólica de la siguiente manera:
 
-\imagen{img_03_frontera_eficiente}{Frontera eficiente. Fuente: \citep{book:Portfolio_selection}}{0.45}
+\imagen{img_03_frontera_eficiente}{Frontera eficiente. Fuente: \citep{book:Portfolio_selection}}{0.75}
 
 Si aplicamos estos conceptos a la simulación de Montecarlo que se realizaba previamente, se obtiene lo siguiente:
 
@@ -381,9 +381,11 @@ Cuando entrenamos un modelo ARMA nos interesa que los datos estén cercanos a la
 
 Los datos de los valores cotizados, normalmente, no son estacionarios. Por ello, es necesario realizar un proceso de diferenciación para intentar aproximarlos a la estacionariedad. Aquí es donde entra en juego la \emph{I} de \emph{ARIMA}. 
 
-Un proceso $I_{(d)}$ es un proceso estacionario después de haber diferenciado $d$ veces. Es decir, $I_{(d)}$ es un proceso integrado en orden $d$. Normalmente necesitaremos diferenciar una o dos veces, pero no es aconsejable hacerlo más de dos veces. De hecho, es posible ver que con una sola diferenciación podemos eliminar la tendencia de los datos:
+Un proceso $I_{(d)}$ es un proceso estacionario después de haber diferenciado $d$ veces. Es decir, $I_{(d)}$ es un proceso integrado en orden $d$. Normalmente necesitaremos diferenciar una o dos veces, pero no es aconsejable hacerlo más de dos veces. 
 
-\imagen{img_06_diferenciacion.png}{Evolución de precios de cierre de \emph{ITX.MC} en los últimos dos años y los mismos datos con diferenciación de orden 1. Fuente: elaboración propia}{0.9}
+De hecho, es posible ver que con una sola diferenciación podemos eliminar la tendencia de los datos:
+
+\imagen{img_06_diferenciacion.png}{Evolución de precios de cierre de \emph{ITX.MC} en los últimos dos años y los mismos datos con diferenciación de orden 1. Fuente: elaboración propia}{1}
 
 Pero esto sólo nos da una idea intuitiva de cómo son los datos y, para poder hacer un buen análisis de los mismos, necesitaremos demostrar de alguna forma si nuestros datos son realmente estacionarios. 
 
@@ -423,7 +425,6 @@ Dada la importancia que tiene la estacionariedad de los datos, voy a mostrar có
 
 \begin{verbatim}
 from statsmodels.tsa.stattools import adfuller
-
 def comprobar_serie_temporal(x):
   res = adfuller(x)
   p_value = res[1]
@@ -434,7 +435,7 @@ def comprobar_serie_temporal(x):
 
 Para esta demostración se usan los datos de precios de cierre de los dos últimos años (mayo 2023 a mayo 2024) de la empresa Inditex. En esos datos se puede ver una clara tendencia ascendente y, por tanto, no será una serie estacionaria. 
 
-\imagen{img_09_p_value_test_adf.png}{Serie no estacionaria, con p-value > 0.5. Fuente: elaboración propia}{1}
+\imagen{img_09_p_value_test_adf.png}{Serie no estacionaria, p-value > 0.5. Fuente: elaboración propia}{0.85}
 
 Además, voy a aplicar un test ADF sobre los retornos - variaciones diarias en \% - de Inditex en el mismo período de tiempo, para ver que el resultado mejora. Y, por último, voy a utilizar \texttt{diff()} para analizar la evolución intradía no porcentual \footnote{Es habitual aplicar una función logarítmica a \texttt{diff()} para suavizar los resultados, pero a efectos gráficos, en este caso, no aporta mejoras significativas.}, que es el tipo de diferenciación que hacen funciones como \texttt{auto.arima} de \texttt{R} o \texttt{pmdarima.arima.auto\_arima} para \texttt{Python}.
 
@@ -582,7 +583,7 @@ Aprovechando la información de las señales se guarda una información en otras
 }
 \newpage
 
-El pseudocódigo, suponiendo que se utiliza \emph{Python} y \texttt{pandas.DataFrame} es\footnote{Para calcular los retornos y medias se utilizan precios de cierre, i.e., se entiende que no se pueden hacer compras ni ventas en la apertura del mercado y, por tanto, hay que hacer un shift(1) en las señales, para que tenga sentido}:
+El pseudocódigo, suponiendo que se utiliza \emph{Python} y \texttt{pandas} es\footnote{Para calcular los retornos y medias se utilizan precios de cierre, i.e., se entiende que no se pueden hacer compras ni ventas en la apertura del mercado y, por tanto, hay que hacer un shift(1) en las señales, para que tenga sentido}:
 
 \begin{verbatim}
 def algoritmo(df):
@@ -614,7 +615,7 @@ Con esta idea, la columna \texttt{df[´invertido´]} va estar retrasada un día,
 Una vez que sabemos si se está invertido en un valor, o no, lo que hay que hacer es calcular el retorno del algoritmo\footnote{El retorno se calcula habitualmente como se indica en \ref{eq:1} pero en este apartado del trabajo, en la web, se mostrará al usuario información de rentabilidad que le pueda ser de fácil comprensión}. Como en \emph{Python} \texttt{True} es 1 y \texttt{False} es 0, se pueden multiplicar las columnas de \emph{invertido} y \emph{retorno\_shift}, por ejemplo:
 
 \begin{verbatim}
-  df["retorno_algoritmo"] = df["invertido"] * df["retorno_shift"]
+df["retorno_algoritmo"] = df["invertido"] * df["retorno_shift"]
 \end{verbatim}
 
 \tablaSmallConPosicion{Cómo almacenar retornos para algoritmo de seguimiento de tendencias}
@@ -646,7 +647,7 @@ Uno de los problemas de este algoritmo puede residir en la correcta selección d
  20 &  -  \\
 }
 
-La selección de las medias se realiza por comparación entre la suma de retornos totales. El mejor retorno arrojado por el algoritmo será el de la medias escogidas\footnote{Se puede ver más información en \texttt{Lab.views.\_algoritmo\_cruce\_medias\_automaticas()}}. 
+La selección de las medias se realiza por comparación entre la suma de retornos totales. El mejor retorno arrojado por el algoritmo será el de la medias escogidas\footnote{En \texttt{Lab.views.\_algoritmo\_cruce\_medias\_automaticas()} se puede consultar más información}. 
 
 
 \subsubsection{Comparar con otras estrategias}
@@ -722,7 +723,7 @@ Al utilizar modelos de clasificación o de regresión tendremos algo similar a \
 Es decir, si la predicción es mayor que 0, entonces se genera una señal de compra o, simplemente, se mantiene la inversión si ya estuviera activa; y al contrario para predicciones menores que 0. Esto permite conocer, con cada predicción, si mantenemos la inversión o no. Y una vez que se conoce el estado de invertido/no invertido se realiza el mismo proceso que en la tabla \ref{tabla:tabla_retornos_cruce_medias}, multiplicando: 
 
 \begin{verbatim}
-  df["retorno_algoritmo"] = df["invertido"] * df["retorno_shift"]
+df["retorno_algoritmo"] = df["invertido"] * df["retorno_shift"]
 \end{verbatim}
 
 Además, esta técnica permite sumar todos los retornos del algoritmo y compararlo con otras estrategias como, por ejemplo, la denominada \emph{buy and hold}, ya mencionada cuando se explicaba el algoritmo de cruce de medias. 
@@ -824,6 +825,6 @@ Los modelos de clasificación se suelen evaluar a través de una matriz de confu
 	Sensibilidad\, (True\, positive\, rate) = TP\,/\,(TP+FN) \\
 \end{align*}
 
-Sin embargo, en este trabajo se ha optado por una comparación más práctica a efectos de interpretación de un usuario. Por ello, aunque sería posible obtener una matriz de confusión sin demasiada complicación, se ha preferido hacer una comparación con una estrategia \emph{buy and hold} para el mismo período de tiempo en el que trabaje el modelo. De esta manera, el usuario podrá determinar si es mejor una estrategia u otra\footnote{Para más información, ver el método \texttt{Lab.vies.\_clasificacion\_regresion\_logistica}}.
+Sin embargo, en este trabajo se ha optado por una comparación más práctica a efectos de interpretación de un usuario. Por ello, aunque sería posible obtener una matriz de confusión sin demasiada complicación, se ha preferido hacer una comparación con una estrategia \emph{buy and hold} para el mismo período de tiempo en el que trabaje el modelo. De esta manera, el usuario podrá determinar si es mejor una estrategia u otra\footnote{Ver el método \texttt{Lab.vies.\_clasificacion\_regresion\_logistica} para más información}.
 
 Los mismos problemas relativos a los retornos logarítmicos, comentados en la subsección previa, se pueden considerar para este modelo\footnote{Se recomienda al usuario la realización de múltiples pruebas, para recabar sus propias conclusiones sobre la idoneidad de un modelo u otro}.
