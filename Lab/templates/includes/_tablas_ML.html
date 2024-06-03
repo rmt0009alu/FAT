@@ -1,0 +1,79 @@
+<div class="centered-table-section">
+    <div class="info-table table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>MÉTRICA</th>
+                    <th>VALOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- En clasificación no muestro los score porque equivalen a los % de las medias de aciertos -->
+                {% if regresion_lineal %}
+                <tr>
+                    <td>'Score' en datos de entrenamiento</td>
+                    <td>{{ score_entren|floatformat:3 }}</td>
+                </tr>
+                <tr>
+                    <td>'Score' en datos de test</td>
+                    <td>{{ score_test|floatformat:3 }}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td>Media de aciertos de tendencia en entrenamiento</td>
+                    <td>{{ media_aciertos_entren|floatformat:2 }}%</td>
+                </tr>
+                <tr>
+                    <td>Media de aciertos de tendencia en test</td>
+                    <td>{{ media_aciertos_test|floatformat:2 }}%</td>
+                </tr>
+                <tr>
+                    <td>Retorno logarítimo total del algoritmo en entrenamiento</td>
+                    <td>{{ ret_total_algo_entre|floatformat:3 }}</td>
+                </tr>
+                <tr>
+                    <td>Retorno logarítimo total del algoritmo en test</td>
+                    <td>{{ ret_total_algo_test|floatformat:3 }}</td>
+                </tr>
+                <tr>
+                    <td>Retorno logarítimo total con 'buy-and-hold' en entrenamiento</td>
+                    <td>{{ ret_total_buyhold_entre|floatformat:3 }}</td>
+                </tr>
+                <tr>
+                    <td>Retorno logarítimo total con 'buy-and-hold' en test</td>
+                    <td>{{ ret_total_buyhold_test|floatformat:3 }}</td>
+                </tr>
+                <tr {% if pred_siguiente == 'BAJISTA' %} style="color: lightcoral;" {% else %} style="color: lightgreen;" {% endif %}>
+                    <td>Predicción para la próxima sesión</td>
+                    <td>{{ pred_siguiente }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .centered-table-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .info-table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .info-table table {
+        margin: auto;
+        border-collapse: collapse;
+        width: 50%;
+    }
+    .info-table th, .info-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    .info-table th {
+        background-color: #f2f2f2;
+    }
+</style>

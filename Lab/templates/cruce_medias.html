@@ -72,35 +72,38 @@
           </div>
       </div>
       <br>
-      <div class="graph">
-          <p class="barra">Comparación con estrategia 'buy-and-hold'</p>
-          <div class="info-table table-responsive">
-            <table class="table table-bordered table-hover">
-              <thead class="thead-dark">
+      <div>
+        <p class="barra">Comparación con estrategia 'buy-and-hold'</p>
+      </div>
+      <div class="centered-table-section">
+        <div class="info-table table-responsive">
+          <table class="table table-bordered table-hover" style="margin-bottom: 20px;">
+            <thead class="thead-dark">
+              <tr>
                 <th></th>
                 <th>Algoritmo de cruce de medias</th>
                 <th>Estrategia "buy-and-hold"</th>
-              </thead>
-              <tbody>
+              </tr>
+            </thead>
+            <tbody>
               <tr>
                 <th>Retorno logarítmico total</th>
                 <td>{{ retorno_log_total_algo|floatformat:4 }}</td>
                 <td>{{ retorno_log_total|floatformat:4 }}</td>
               </tr>
-             
               <tr>
                 <th>Sharpe ratio</th>
                 <td>{{ sharpe_retorno_log_algo|floatformat:4 }}</td>
                 <td>{{ sharpe_retorno_log|floatformat:4 }}</td>
               </tr>
-              
+              <tr>
                 <th>Rentabilidad (%)</th>
                 <td>{{ porcentaje_algo|floatformat:3 }}</td>
                 <td>{{ porcentaje_manteniendo|floatformat:3 }}</td>
               </tr>
-              
             </tbody>
-            </table>
+          </table>
+          <br>
         </div>
       </div>
     </div>
@@ -140,6 +143,13 @@
 
   .info-table table {
     margin: auto;
+  }
+
+  .centered-table-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 </style>
 <script>

@@ -1429,7 +1429,7 @@ def estrategia_ML(request):
         y_test = test[clase]
 
         if tipo_modelo == 'Regresión lineal':
-            _regresion_lineal(LinearRegression(), x_train, y_train, x_test, y_test, df_retornos, 
+            context = _regresion_lineal(LinearRegression(), x_train, y_train, x_test, y_test, df_retornos, 
                               tam_entrenamiento, clase, df_resultado, valores)
         elif tipo_modelo == 'Clasificación':
             # Se pasa C al modelo. C sirve para controlar lo que se conoce
@@ -1437,12 +1437,12 @@ def estrategia_ML(request):
             # los pesos, para que no sean demasiado grandes (lo que podría
             # resultar en un problema). C es la inversa de la fuerza de 
             # regularización, i.e., C = 1/λ
-            _clasificacion_regresion_logistica(LogisticRegression(C=10), x_train, y_train, x_test, y_test, df_retornos, 
-                                               tam_entrenamiento, clase, df_resultado, valores)
-
-        context = {
-            'form': EstrategiaMLForm(),
-        }
+            context = _clasificacion_regresion_logistica(LogisticRegression(C=10), x_train, y_train, x_test, y_test, 
+                                               df_retornos, tam_entrenamiento, clase, df_resultado, valores)
+        else:
+            context = {
+                'form': EstrategiaMLForm(),
+            }
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "estrategia_basada_en_ML.html", context)
     
@@ -1547,8 +1547,8 @@ def _preprocesado_datos_ML(tickers_unidos, num_sesiones, porcentaje_entren):
 def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_entrenamiento, clase, df_resultado, valores):
     # Para que en la web vaya más rápido no se hace validación cruzada
     model.fit(x_train, y_train)
-    print("Rendimiento en entrenamiento", model.score(x_train, y_train))
-    print("Rendimiento en test", model.score(x_test, y_test))
+    score_entren = model.score(x_train, y_train)
+    score_test = model.score(x_test, y_test)
 
     # No me voy a preocupar por el valor de las predicciones, solo 
     # me interesa saber si es un resultado positivo o negativo (predicción)
@@ -1559,8 +1559,8 @@ def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_
     # Obtengo unos arrays de [1, -1] que me indican la tendencia en ese
     # punto. Luego los comparo para obtener un array de bool y así puedo
     # calcular la exactitud (accuracy) con mean()
-    print("Media de aciertos de tendencia en entrenamiento", np.mean(np.sign(pred_train) == np.sign(y_train)))
-    print("Media de aciertos de tendencia en test", np.mean(np.sign(pred_test) == np.sign(y_test)))
+    media_aciertos_entren =  np.mean(np.sign(pred_train) == np.sign(y_train))
+    media_aciertos_test = np.mean(np.sign(pred_test) == np.sign(y_test))
 
     # Creo una nueva columna que permite saber el estado en el que 
     # está: alcista/basjista. Suponiendo que todas las veces que el algoritmo 
@@ -1575,11 +1575,16 @@ def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_
     # para ver lo que habría ocurrido.
     df_retornos['retorno_algoritmo'] = df_retornos['posicion'] * df_retornos[clase]
 
-    print("Retorno logarítimo total del algoritmo en entrenamiento", df_retornos.iloc[:tam_entrenamiento]['retorno_algoritmo'].sum())
-    print("Retorno logarítimo total del algoritmo en test", df_retornos.iloc[tam_entrenamiento:]['retorno_algoritmo'].sum())
+    # print("Retorno logarítimo total del algoritmo en entrenamiento", df_retornos.iloc[:tam_entrenamiento]['retorno_algoritmo'].sum())
+    # print("Retorno logarítimo total del algoritmo en test", df_retornos.iloc[tam_entrenamiento:]['retorno_algoritmo'].sum())
+    ret_total_algo_entre = df_retornos.iloc[:tam_entrenamiento]['retorno_algoritmo'].sum()
+    ret_total_algo_test = df_retornos.iloc[tam_entrenamiento:]['retorno_algoritmo'].sum()
 
-    print("Retorno logarítimo total con 'buy-and-hold' en entrenamiento", y_train.sum())
-    print("Retorno logarítimo total con 'buy-and-hold' en test", y_test.sum())
+
+    # print("Retorno logarítimo total con 'buy-and-hold' en entrenamiento", y_train.sum())
+    # print("Retorno logarítimo total con 'buy-and-hold' en test", y_test.sum())
+    ret_total_buyhold_entre = y_train.sum()
+    ret_total_buyhold_test = y_test.sum()
 
     # Los datos para realizar una predicción extra corresponden con los del último 
     # día disponible. Entonces, creo un 'df' con esos datos (para darle la forma necesaria)
@@ -1590,12 +1595,24 @@ def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_
     # que me aseguro de que estará bien transponiendo
     datos_prediccion = pd.DataFrame(datos_prediccion).T
 
-    # Finalmente hago la predicción con el modelo que ya tenía entrenado
     pred_siguiente = model.predict(datos_prediccion)
+    pred_siguiente = 'BAJISTA' if pred_siguiente[0] <= 0 else 'ALCISTA'
 
-    print("Predicción para el siguiente día:", pred_siguiente)
-
-    return
+    context = {
+            'form': EstrategiaMLForm(),
+            'score_entren': score_entren,
+            'score_test': score_test,
+            'media_aciertos_entren': media_aciertos_entren*100,
+            'media_aciertos_test': media_aciertos_test*100,
+            'ret_total_algo_entre': ret_total_algo_entre,
+            'ret_total_algo_test': ret_total_algo_test,
+            'ret_total_buyhold_entre': ret_total_buyhold_entre,
+            'ret_total_buyhold_test': ret_total_buyhold_test,
+            # Finalmente hago la predicción con el modelo que ya tenía entrenado
+            'pred_siguiente': pred_siguiente,
+            'regresion_lineal': True,
+        }
+    return context
 
 
 def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, df_retornos, tam_entrenamiento, clase, df_resultado, valores):
@@ -1606,8 +1623,8 @@ def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, 
 
     # Para que en la web vaya más rápido no se hace validación cruzada
     model.fit(x_train, c_train)
-    print("Rendimiento en entrenamiento", model.score(x_train, c_train))
-    print("Rendimiento en test", model.score(x_test, c_test))
+    score_entren = model.score(x_train, c_train)
+    score_test = model.score(x_test, c_test)
 
     # No me voy a preocupar por el valor de las predicciones, solo 
     # me interesa saber si es un resultado positivo o negativo (i.e., 
@@ -1621,8 +1638,9 @@ def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, 
     
     # Obtengo unos arrays de [True, False] que me indican la tendencia en ese
     # punto
-    print("Media de aciertos de tendencia en entrenamiento", np.mean(pred_train == c_train))
-    print("Media de aciertos de tendencia en test", np.mean(pred_test == c_test))
+    media_aciertos_entren = np.mean(pred_train == c_train)
+    media_aciertos_test = np.mean(pred_test == c_test)
+
 
     # Creo una nueva columna que permite saber el estado en el que 
     # está: alcista/basjista. Suponiendo que todas las veces que el algoritmo 
@@ -1637,11 +1655,11 @@ def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, 
     # para ver lo que habría ocurrido.
     df_retornos['retorno_algoritmo'] = df_retornos['posicion'] * df_retornos[clase]
 
-    print("Retorno logarítimo total del algoritmo en entrenamiento", df_retornos.iloc[:tam_entrenamiento]['retorno_algoritmo'].sum())
-    print("Retorno logarítimo total del algoritmo en test", df_retornos.iloc[tam_entrenamiento:]['retorno_algoritmo'].sum())
+    ret_total_algo_entre = df_retornos.iloc[:tam_entrenamiento]['retorno_algoritmo'].sum()
+    ret_total_algo_test = df_retornos.iloc[tam_entrenamiento:]['retorno_algoritmo'].sum()
 
-    print("Retorno logarítimo total con 'buy-and-hold' en entrenamiento", y_train.sum())
-    print("Retorno logarítimo total con 'buy-and-hold' en test", y_test.sum())
+    ret_total_buyhold_entre = y_train.sum()
+    ret_total_buyhold_test = y_test.sum()
 
     # Los datos para realizar una predicción extra corresponden con los del último 
     # día disponible. Entonces, creo un 'df' con esos datos (para darle la forma necesaria)
@@ -1654,7 +1672,20 @@ def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, 
 
     # Finalmente hago la predicción con el modelo que ya tenía entrenado
     pred_siguiente = model.predict(datos_prediccion)
+    pred_siguiente = 'BAJISTA' if pred_siguiente[0] <= 0 else 'ALCISTA'
 
-    print("Predicción para el siguiente día:", pred_siguiente)
-
-    return
+    context = {
+            'form': EstrategiaMLForm(),
+            'score_entren': score_entren,
+            'score_test': score_test,
+            'media_aciertos_entren': media_aciertos_entren*100,
+            'media_aciertos_test': media_aciertos_test*100,
+            'ret_total_algo_entre': ret_total_algo_entre,
+            'ret_total_algo_test': ret_total_algo_test,
+            'ret_total_buyhold_entre': ret_total_buyhold_entre,
+            'ret_total_buyhold_test': ret_total_buyhold_test,
+            # Finalmente hago la predicción con el modelo que ya tenía entrenado
+            'pred_siguiente': pred_siguiente,
+            'clasificacion': True,
+        }
+    return context

@@ -49,8 +49,18 @@
   </div>
 </div>
 
-{% if forecast_arima_walk_forward and forecast_arima_intervalos_conf %}
-    {% include 'includes/_resumen_y_graficas_arima.html' %}
+{% if regresion_lineal %}
+  <div style="width: 80%; margin: 0 auto; text-align: center;">
+    <p class="barra">Resultados regresión lineal</p>
+  </div>
+    {% include 'includes/_tablas_ML.html' %}
+{% endif %}
+
+{% if clasificacion %}
+  <div style="width: 80%; margin: 0 auto; text-align: center;">
+    <p class="barra">Resultados clasificación</p>
+  </div>
+    {% include 'includes/_tablas_ML.html' %}
 {% endif %}
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
