@@ -1,3 +1,34 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{online:networkx}
+NetworkX developers.
+\newblock \emph{NetworkX}.
+\newblock \url{https://networkx.org/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:django_MVT_2}
+Django.
+\newblock \emph{Django documentation}.
+\newblock \url{https://docs.djangoproject.com/en/5.0/faq/general/}, 2023.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{online:zube}
+Pivit Inc.
+\newblock \emph{Zube}.
+\newblock \url{https://zube.io/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{wiki:cron}
+Wikipedia.
+\newblock \emph{cron (Unix)}.
+\newblock \url{https://es.wikipedia.org/wiki/Cron_(Unix))}, 2024.
+\newblock Online; Accedido el 04-Jun-2024.
+
+\bibitem{wiki:scrum}
+Wikipedia.
+\newblock \emph{Scrum (desarrollo de software)}.
+\newblock \url{https://es.wikipedia.org/wiki/Scrum_(desarrollo_de_software)},
+  2024.
+\newblock Online; Accedido el 20-Abr-2024.
 
 \end{thebibliography}

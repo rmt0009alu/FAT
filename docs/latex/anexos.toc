@@ -10,31 +10,49 @@
 \contentsline {subsubsection}{Sprint 0. Presentación inicial a tutores del TFG}{2}{section*.5}%
 \contentsline {subsubsection}{Sprint 1. Empezar TFG con selección de herramientas adecuadas}{2}{section*.6}%
 \contentsline {subsubsection}{Sprint 2. Mostrar primeras tablas y gráficos en servidor web}{3}{section*.7}%
-\contentsline {subsubsection}{Sprint 3. Mejorar lógica de web y proteger enlaces con registro. Mostrar gráficos y dar primeros estilos.}{4}{section*.8}%
-\contentsline {section}{\numberline {A.3}Estudio de viabilidad}{4}{section.Alph1.3}%
-\contentsline {subsection}{Viabilidad económica}{4}{section*.9}%
-\contentsline {subsection}{Viabilidad legal}{4}{section*.10}%
-\contentsline {appendix}{\chapternumberline {B}Especificación de Requisitos}{5}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Introducción}{5}{section.Alph2.1}%
-\contentsline {section}{\numberline {B.2}Objetivos generales}{5}{section.Alph2.2}%
-\contentsline {section}{\numberline {B.3}Catálogo de requisitos}{5}{section.Alph2.3}%
-\contentsline {section}{\numberline {B.4}Especificación de requisitos}{5}{section.Alph2.4}%
-\contentsline {appendix}{\chapternumberline {C}Especificación de diseño}{7}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Introducción}{7}{section.Alph3.1}%
-\contentsline {section}{\numberline {C.2}Diseño de datos}{7}{section.Alph3.2}%
-\contentsline {section}{\numberline {C.3}Diseño procedimental}{7}{section.Alph3.3}%
-\contentsline {section}{\numberline {C.4}Diseño arquitectónico}{7}{section.Alph3.4}%
-\contentsline {appendix}{\chapternumberline {D}Documentación técnica de programación}{9}{appendix.Alph4}%
-\contentsline {section}{\numberline {D.1}Introducción}{9}{section.Alph4.1}%
-\contentsline {section}{\numberline {D.2}Estructura de directorios}{9}{section.Alph4.2}%
-\contentsline {section}{\numberline {D.3}Manual del programador}{9}{section.Alph4.3}%
-\contentsline {section}{\numberline {D.4}Compilación, instalación y ejecución del proyecto}{9}{section.Alph4.4}%
-\contentsline {section}{\numberline {D.5}Pruebas del sistema}{9}{section.Alph4.5}%
-\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{11}{appendix.Alph5}%
-\contentsline {section}{\numberline {E.1}Introducción}{11}{section.Alph5.1}%
-\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{11}{section.Alph5.2}%
-\contentsline {section}{\numberline {E.3}Instalación}{11}{section.Alph5.3}%
-\contentsline {section}{\numberline {E.4}Manual del usuario}{11}{section.Alph5.4}%
-\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{13}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Introducción}{13}{section.Alph6.1}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{15}{appendix*.11}%
+\contentsline {subsubsection}{Sprint 3. Mejorar lógica de web y proteger enlaces con registro. Mostrar gráficos y dar primeros estilos}{4}{section*.8}%
+\contentsline {subsubsection}{Sprint 4. Manejar imágenes estáticas. Añadir base de datos de DJ30 y buscar método para auto-actualizar las BDs}{4}{section*.9}%
+\contentsline {subsubsection}{Sprint 5. Añadir un carrusel de noticias y cambiar el acceso a las BDs. Incorporar tests y mejorar los logs}{5}{section*.10}%
+\contentsline {subsubsection}{Sprint 6. Añadir un \emph {dashboard} para almacenar y controlar una cartera por parte del usuario. Operaciones CRUD en BDs}{5}{section*.11}%
+\contentsline {subsubsection}{Sprint 7. Refactoring y testing. Poder eliminar stocks en seguimiento desde el DashBoard.}{6}{section*.12}%
+\contentsline {subsubsection}{Sprint 8. Correlaciones entre valores con NetworkX}{7}{section*.13}%
+\contentsline {subsubsection}{Sprint 9. Aplicación de modelos. \emph {Forecasting} para series temporales}{8}{section*.14}%
+\contentsline {subsubsection}{Sprint 10. Documentación y limpieza de código y avanzar considerablemente en la memoria.}{8}{section*.15}%
+\contentsline {subsubsection}{Sprint 11. Gráfica de Markowitz con frontera efciente y ratio de Sharpe. Mejoras visuales.}{9}{section*.16}%
+\contentsline {subsubsection}{Sprint 12. Mejorar gráficas ARIMA. Incluir estrategias basadas en \emph {machine learning}}{10}{section*.17}%
+\contentsline {subsubsection}{Sprint 13. Finalizar memoria. Empezar anexos. Correcciones en plantillas y en \emph {cron} de servidor web}{11}{section*.18}%
+\contentsline {section}{\numberline {A.3}Estudio de viabilidad}{11}{section.Alph1.3}%
+\contentsline {subsection}{Viabilidad económica}{11}{section*.19}%
+\contentsline {subsubsection}{Estudio de costes}{12}{section*.20}%
+\contentsline {subsubsection}{Análisis de beneficios}{13}{section*.21}%
+\contentsline {subsection}{Viabilidad legal}{13}{section*.22}%
+\contentsline {subsubsection}{Descargo de responsabilidades}{13}{section*.23}%
+\contentsline {subsubsection}{Licencias \emph {software}}{14}{section*.24}%
+\contentsline {subsubsection}{Consideraciones adicionales}{15}{section*.25}%
+\contentsline {appendix}{\chapternumberline {B}Especificación de Requisitos}{17}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Introducción}{17}{section.Alph2.1}%
+\contentsline {section}{\numberline {B.2}Objetivos generales}{18}{section.Alph2.2}%
+\contentsline {section}{\numberline {B.3}Catálogo de requisitos}{18}{section.Alph2.3}%
+\contentsline {subsection}{Requisitos funcionales}{18}{section*.26}%
+\contentsline {subsection}{Requisitos no funcionales}{21}{section*.27}%
+\contentsline {section}{\numberline {B.4}Especificación de requisitos}{21}{section.Alph2.4}%
+\contentsline {subsection}{Casos de uso}{21}{section*.28}%
+\contentsline {appendix}{\chapternumberline {C}Especificación de diseño}{37}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Introducción}{37}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Diseño de datos}{37}{section.Alph3.2}%
+\contentsline {section}{\numberline {C.3}Diseño procedimental}{37}{section.Alph3.3}%
+\contentsline {section}{\numberline {C.4}Diseño arquitectónico}{37}{section.Alph3.4}%
+\contentsline {appendix}{\chapternumberline {D}Documentación técnica de programación}{39}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Introducción}{39}{section.Alph4.1}%
+\contentsline {section}{\numberline {D.2}Estructura de directorios}{39}{section.Alph4.2}%
+\contentsline {section}{\numberline {D.3}Manual del programador}{39}{section.Alph4.3}%
+\contentsline {section}{\numberline {D.4}Compilación, instalación y ejecución del proyecto}{39}{section.Alph4.4}%
+\contentsline {section}{\numberline {D.5}Pruebas del sistema}{39}{section.Alph4.5}%
+\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{41}{appendix.Alph5}%
+\contentsline {section}{\numberline {E.1}Introducción}{41}{section.Alph5.1}%
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{41}{section.Alph5.2}%
+\contentsline {section}{\numberline {E.3}Instalación}{41}{section.Alph5.3}%
+\contentsline {section}{\numberline {E.4}Manual del usuario}{41}{section.Alph5.4}%
+\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{43}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Introducción}{43}{section.Alph6.1}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{45}{appendix*.29}%

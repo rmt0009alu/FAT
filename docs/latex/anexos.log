@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  3 JUN 2024 20:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  5 JUN 2024 19:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -554,6 +554,31 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@dima=\skip196
 \bigstrutjot=\dimen258
 )
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nom
+etadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+))
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2023-10-27 v7.01d Hypertext links for LaTeX
 
@@ -675,9 +700,16 @@ Package: memhfixc 2023/07/28 v1.21 hyperref package fixes for memoir class
 \c@memhycontfloat=\count337
 \c@Hpagenote=\count338
 )
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip198
+\bibsep=\skip199
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count339
+)
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
-\@mathmargin=\skip198
+\@mathmargin=\skip256
 
 For additional information on amsmath, use the `?' option.
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
@@ -695,14 +727,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count339
+\inf@bad=\count340
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count340
-\leftroot@=\count341
+\uproot@=\count341
+\leftroot@=\count342
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count342
-\DOTSCASE@=\count343
+\classnum@=\count343
+\DOTSCASE@=\count344
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -715,20 +747,20 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen265
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count344
+\macc@depth=\count345
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count345
+\c@MaxMatrixCols=\count346
 \dotsspace@=\muskip17
-\c@parentequation=\count346
-\dspbrk@lvl=\count347
+\c@parentequation=\count347
+\dspbrk@lvl=\count348
 \tag@help=\toks33
-\row@=\count348
-\column@=\count349
-\maxfields@=\count350
+\row@=\count349
+\column@=\count350
+\maxfields@=\count351
 \andhelp@=\toks34
 \eqnshift@=\dimen266
 \alignsep@=\dimen267
@@ -737,39 +769,80 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \totwidth@=\dimen270
 \lineht@=\dimen271
 \@envbody=\toks35
-\multlinegap=\skip199
-\multlinetaggap=\skip256
+\multlinegap=\skip257
+\multlinetaggap=\skip258
 \mathdisplay@stack=\toks36
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-)
-(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
-fg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 107.
-)
 \Gin@req@height=\dimen272
 \Gin@req@width=\dimen273
-) (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count351
-\float@exts=\toks37
-\float@box=\box61
-\@float@everytoks=\toks38
-\@floatcapt=\box62
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 36
-1.
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.sty
+Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks37
+\XKV@tempa@toks=\toks38
+)
+\XKV@depth=\count352
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.s
+ty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box61
+)
+\tc@llx=\dimen274
+\tc@lly=\dimen275
+\tc@urx=\dimen276
+\tc@ury=\dimen277
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen278
+\adjbox@Height=\dimen279
+\adjbox@Depth=\dimen280
+\adjbox@Totalheight=\dimen281
+\adjbox@pwidth=\dimen282
+\adjbox@pheight=\dimen283
+\adjbox@pdepth=\dimen284
+\adjbox@ptotalheight=\dimen285
+
+(C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count353
+LaTeX Info: Redefining \checkoddpage on input line 45.
+) (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box62
+\sift@deathcycles=\count354
+\@vwid@loff=\dimen286
+\@vwid@roff=\dimen287
+)) (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count355
+\float@exts=\toks39
+\float@box=\box63
+\@float@everytoks=\toks40
+\@floatcapt=\box64
+)
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 38
+9.
 
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -777,45 +850,49 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (anexos.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
-LaTeX Info: Redefining \. on input line 13.
-LaTeX Info: Redefining \% on input line 13.
- (tex/A_Plan_proyecto.aux) (tex/B_Requisitos.aux) (tex/C_Diseno.aux) (tex/D_Man
-ual_programador.aux) (tex/E_Manual_usuario.aux) (tex/F_ODS.aux))
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+ (tex/A_Plan_proyecto.aux
+
+LaTeX Warning: Label `tabla:coste_total' multiply defined.
+
+) (tex/B_Requisitos.aux) (tex/C_Diseno.aux) (tex/D_Manual_programador.aux)
+(tex/E_Manual_usuario.aux) (tex/F_ODS.aux))
 \openout1 = `anexos.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 361.
-LaTeX Font Info:    ... okay on input line 361.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 361.
-LaTeX Font Info:    ... okay on input line 361.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 361.
-LaTeX Font Info:    ... okay on input line 361.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 361.
-LaTeX Font Info:    ... okay on input line 361.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 361.
-LaTeX Font Info:    ... okay on input line 361.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 361.
-LaTeX Font Info:    ... okay on input line 361.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 361.
-LaTeX Font Info:    ... okay on input line 361.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 361.
-LaTeX Font Info:    ... okay on input line 361.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 361.
-LaTeX Font Info:    ... okay on input line 361.
-LaTeX Info: Redefining \. on input line 361.
-LaTeX Info: Redefining \% on input line 361.
-LaTeX Info: Redefining \microtypecontext on input line 361.
-Package microtype Info: Applying patch `item' on input line 361.
-Package microtype Info: Applying patch `toc' on input line 361.
-Package microtype Info: Applying patch `eqnum' on input line 361.
-Package microtype Info: Applying patch `footnote' on input line 361.
-Package microtype Info: Applying patch `verbatim' on input line 361.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 389.
+LaTeX Font Info:    ... okay on input line 389.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 389.
+LaTeX Font Info:    ... okay on input line 389.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 389.
+LaTeX Font Info:    ... okay on input line 389.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 389.
+LaTeX Font Info:    ... okay on input line 389.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 389.
+LaTeX Font Info:    ... okay on input line 389.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 389.
+LaTeX Font Info:    ... okay on input line 389.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 389.
+LaTeX Font Info:    ... okay on input line 389.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 389.
+LaTeX Font Info:    ... okay on input line 389.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 389.
+LaTeX Font Info:    ... okay on input line 389.
+LaTeX Info: Redefining \. on input line 389.
+LaTeX Info: Redefining \% on input line 389.
+LaTeX Info: Redefining \microtypecontext on input line 389.
+Package microtype Info: Applying patch `item' on input line 389.
+Package microtype Info: Applying patch `toc' on input line 389.
+Package microtype Info: Applying patch `eqnum' on input line 389.
+Package microtype Info: Applying patch `footnote' on input line 389.
+Package microtype Info: Applying patch `verbatim' on input line 389.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 361.
+LaTeX Info: Redefining \showhyphens on input line 389.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -827,17 +904,17 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count352
-\scratchdimen=\dimen274
-\scratchbox=\box63
-\nofMPsegments=\count353
-\nofMParguments=\count354
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count355
-\MPscratchDim=\dimen275
-\MPnumerator=\count356
-\makeMPintoPDFobject=\count357
-\everyMPtoPDFconversion=\toks40
+\scratchcounter=\count356
+\scratchdimen=\dimen288
+\scratchbox=\box65
+\nofMPsegments=\count357
+\nofMParguments=\count358
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count359
+\MPscratchDim=\dimen289
+\MPnumerator=\count360
+\makeMPintoPDFobject=\count361
+\everyMPtoPDFconversion=\toks42
 )
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -849,7 +926,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 361.
+Package hyperref Info: Link coloring ON on input line 389.
  (anexos.out) (anexos.out)
 \@outlinefile=\write4
 \openout4 = `anexos.out'.
@@ -857,45 +934,45 @@ Package hyperref Info: Link coloring ON on input line 361.
 <./img/cabecera.pdf, id=127, 617.67549pt x 135.51413pt>
 File: ./img/cabecera.pdf Graphic file (type pdf)
 <use ./img/cabecera.pdf>
-Package pdftex.def Info: ./img/cabecera.pdf  used on input line 363.
+Package pdftex.def Info: ./img/cabecera.pdf  used on input line 391.
 (pdftex.def)             Requested size: 383.0pt x 84.02823pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-63.
+91.
 
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-63.
+91.
 
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-363.
+391.
 
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-363.
+391.
 
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 363.
+(Font)              <12> on input line 391.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 363.
+(Font)              <8> on input line 391.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 363.
+(Font)              <6> on input line 391.
 <./img/escudoInfor.pdf, id=128, 618.11432pt x 737.07487pt>
 File: ./img/escudoInfor.pdf Graphic file (type pdf)
 <use ./img/escudoInfor.pdf>
-Package pdftex.def Info: ./img/escudoInfor.pdf  used on input line 363.
+Package pdftex.def Info: ./img/escudoInfor.pdf  used on input line 391.
 (pdftex.def)             Requested size: 76.59883pt x 91.3356pt.
 
-Overfull \hbox (27.54143pt too wide) in paragraph at lines 363--363
+Overfull \hbox (27.54143pt too wide) in paragraph at lines 391--391
 [][][][][][][] $[]$ 
  []
 
@@ -910,8 +987,8 @@ pdfs with page group included in a single page
 >] [2
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 3
-82.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 4
+10.
  (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -938,14 +1015,14 @@ Package microtype Info: Character `029' is missing
 
 
 ])
-LaTeX Info: Redefining \. on input line 383.
-LaTeX Info: Redefining \% on input line 383.
+LaTeX Info: Redefining \. on input line 411.
+LaTeX Info: Redefining \% on input line 411.
 
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 383.
+(in both cases you will find help in the memoir manual). on input line 411.
 
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
@@ -997,77 +1074,23 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.83 	R
-       ellenar el formulario de "Oferta de TFG Grado de Informática Online"...
+       ellenar el formulario de \emph{Oferta de TFG Grado de Informática On...
 [2{C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
 LaTeX Info: Redefining \. on input line 126.
 LaTeX Info: Redefining \% on input line 126.
-[3])
-LaTeX Info: Redefining \. on input line 397.
-LaTeX Info: Redefining \% on input line 397.
+[3]
+LaTeX Info: Redefining \. on input line 177.
+LaTeX Info: Redefining \% on input line 177.
  [4]
-\openout2 = `./tex/B_Requisitos.aux'.
-
- (tex/B_Requisitos.tex
-Underfull \hbox (badness 10000) in paragraph at lines 30--30
-[]|\T1/lmr/bx/sc/12 (+20) Requisitos
- []
-
-
-Underfull \hbox (badness 10000) in alignment at lines 30--30
-[][] 
- []
-
-) [5
-
-
-
-
-]
-LaTeX Info: Redefining \. on input line 398.
-LaTeX Info: Redefining \% on input line 398.
- [6
-pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.1
-}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.398 \include{./tex/B_Requisitos}
-                                  ]
-\openout2 = `./tex/C_Diseno.aux'.
-
- (tex/C_Diseno.tex) [7
-
-
-
-
-]
-\openout2 = `./tex/D_Manual_programador.aux'.
-
-
-(tex/D_Manual_programador.tex [8
-
-
-
-
-]) [9]
-\openout2 = `./tex/E_Manual_usuario.aux'.
-
- (tex/E_Manual_usuario.tex [10
-
-
-
-
-]) [11]
-\openout2 = `./tex/F_ODS.aux'.
-
-
-(tex/F_ODS.tex [12
-
-
-
-
-]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
-.
+LaTeX Info: Redefining \. on input line 229.
+LaTeX Info: Redefining \% on input line 229.
+ [5{C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.e
+nc}]
+LaTeX Info: Redefining \. on input line 275.
+LaTeX Info: Redefining \% on input line 275.
+ [6]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+87.
 
 (C:\Users\rodri\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1076,29 +1099,428 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+LaTeX Info: Redefining \. on input line 326.
+LaTeX Info: Redefining \% on input line 326.
+ [7]
+LaTeX Info: Redefining \. on input line 381.
+LaTeX Info: Redefining \% on input line 381.
 
+[8]
+LaTeX Info: Redefining \. on input line 437.
+LaTeX Info: Redefining \% on input line 437.
+ [9]
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
+ [10]
+LaTeX Info: Redefining \. on input line 557.
+LaTeX Info: Redefining \% on input line 557.
+ [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 580.
+LaTeX Info: Redefining \% on input line 580.
+ [12
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph1.1
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.580 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph1.2
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.580 
+      ]
+LaTeX Info: Redefining \. on input line 607.
+LaTeX Info: Redefining \% on input line 607.
+ [13
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph1.3
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.607 \subsubsection
+                    {Licencias \emph{software}}
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph1.4
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.607 \subsubsection
+                    {Licencias \emph{software}}]
+
+Package natbib Warning: Citation `online:licencia' on page 14 undefined on inpu
+t line 635.
+
+LaTeX Info: Redefining \. on input line 640.
+LaTeX Info: Redefining \% on input line 640.
+[14
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph1.5
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.640 
+      ])
+LaTeX Info: Redefining \. on input line 425.
+LaTeX Info: Redefining \% on input line 425.
+ [15]
+\openout2 = `./tex/B_Requisitos.aux'.
+
+ (tex/B_Requisitos.tex [16
+
+
+
+
+]
+
+Package natbib Warning: Citation `1998IEEESpecifications' on page 17 undefined 
+on input line 5.
+
+[17]
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
+ [18]
+LaTeX Info: Redefining \. on input line 136.
+LaTeX Info: Redefining \% on input line 136.
+ [19]
+LaTeX Info: Redefining \. on input line 179.
+LaTeX Info: Redefining \% on input line 179.
+ [20]
+<./img/img_anex_01_casos_uso.png, id=713, 954.56625pt x 1021.8175pt>
+File: ./img/img_anex_01_casos_uso.png Graphic file (type png)
+<use ./img/img_anex_01_casos_uso.png>
+Package pdftex.def Info: ./img/img_anex_01_casos_uso.png  used on input line 21
+3.
+(pdftex.def)             Requested size: 555.34883pt x 594.46321pt.
+
+
+LaTeX Warning: Float too large for page by 48.29652pt on input line 213.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 213.
+LaTeX Info: Redefining \% on input line 213.
+[21]
+LaTeX Info: Redefining \. on input line 213.
+LaTeX Info: Redefining \% on input line 213.
+ [22
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph2.
+1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.213 ...asos de uso. Fuente: elaboración propia}
+                                                   <./img/img_anex_01_casos_uso
+.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 245--245
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 245--245
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--277
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 277--277
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--309
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 309--309
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--342
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 342--342
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--376
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 376--376
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 410--410
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 410--410
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 443--443
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 471--471
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 471--471
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--503
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 503--503
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--537
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 537--537
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 571--571
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 571--571
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 607--607
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 607--607
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 640--640
+[]|\T1/lmr/bx/sc/12 (+20) Requisitos
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 640--640
+[][] 
+ []
+
+)
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [23
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.1
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [24
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.2
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [25
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.3
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [26
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.4
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [27
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.5
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [28
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.6
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [29
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.7
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [30
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.8
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [31
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.9
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [32
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.1
+0}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [33
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.1
+1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [34
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.1
+2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+LaTeX Info: Redefining \. on input line 426.
+LaTeX Info: Redefining \% on input line 426.
+ [35
+pdfTeX warning (ext4): destination with the same identifier (name{table.Alph2.1
+3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 \include{./tex/B_Requisitos}
+                                  ]
+\openout2 = `./tex/C_Diseno.aux'.
+
+ (tex/C_Diseno.tex [36
+
+
+
+
+
+]) [37]
+\openout2 = `./tex/D_Manual_programador.aux'.
+
+
+(tex/D_Manual_programador.tex [38
+
+
+
+
+]) [39]
+\openout2 = `./tex/E_Manual_usuario.aux'.
+
+ (tex/E_Manual_usuario.tex [40
+
+
+
+
+])
+[41]
+\openout2 = `./tex/F_ODS.aux'.
+
+ (tex/F_ODS.tex [42
+
+
+
+
+]
 Overfull \hbox (19.4857pt too wide) in paragraph at lines 7--8
 \T1/lmtt/m/n/12 wp -[] content / uploads / 2020 / 02 / Directrices _ Sostenibli
 dad _ Crue2012 . pdf$[][]\T1/lmr/m/n/12 (-20) . 
  []
 
-) [13] (anexos.bbl [14
+) [43] (anexos.bbl [44
 
 
 
-]
-bibitemlist
+]) [45]
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-)
+pdfTeX warning: pdflatex (file ./img/licencia.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<./img/licencia.pdf, id=878, 597.23125pt x 845.1575pt>
+File: ./img/licencia.pdf Graphic file (type pdf)
+<use ./img/licencia.pdf>
+Package pdftex.def Info: ./img/licencia.pdf  used on input line 443.
+(pdftex.def)             Requested size: 113.81102pt x 161.04585pt.
+[46 <./img/licencia.pdf>]
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 408.
+(in both cases you will find help in the memoir manual). on input line 452.
 
-[15]
+
+Package natbib Warning: There were undefined citations.
+
 \tf@toc=\write5
 \openout5 = `anexos.toc'.
 
@@ -1108,14 +1530,13 @@ either increase the head height or redesign the header
 \tf@lot=\write7
 \openout7 = `anexos.lot'.
 
- (anexos.aux
+(anexos.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
-LaTeX Info: Redefining \. on input line 13.
-LaTeX Info: Redefining \% on input line 13.
- (tex/A_Plan_proyecto.aux) (tex/B_Requisitos.aux)
-(tex/C_Diseno.aux) (tex/D_Manual_programador.aux) (tex/E_Manual_usuario.aux)
-(tex/F_ODS.aux))
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+ (tex/A_Plan_proyecto.aux) (tex/B_Requisitos.aux) (tex/C_Diseno.aux) (tex/D_Man
+ual_programador.aux) (tex/E_Manual_usuario.aux) (tex/F_ODS.aux))
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2020/03/25>
@@ -1125,39 +1546,35 @@ L3 programming layer <2020/03/25>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-Package rerunfilecheck Warning: File `anexos.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: Checksums for `anexos.out':
-(rerunfilecheck)             Before: 479C40B1F86F66338F5A0EC055E2271A;5238
-(rerunfilecheck)             After:  E5F2C5E190EDC333AA872797F4E1CAA5;5239.
+Package rerunfilecheck Info: File `anexos.out' has not changed.
+(rerunfilecheck)             Checksum: B691C480DBADC78FA1F5257D71B5075C;5239.
  ) 
 Here is how much of TeX's memory you used:
- 17773 strings out of 474591
- 284527 string characters out of 5745778
- 1935533 words of memory out of 5000000
- 39461 multiletter control sequences out of 15000+600000
- 636822 words of font info for 142 fonts, out of 8000000 for 9000
+ 19532 strings out of 474591
+ 313787 string characters out of 5745778
+ 1983533 words of memory out of 5000000
+ 40959 multiletter control sequences out of 15000+600000
+ 646195 words of font info for 191 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,12n,93p,1005b,821s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{appendix*.9} has been referenced but does not exist
-, replaced by a fixed one
-
-<C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb>
-<C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb
-><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
-<C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><
-C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:
-/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:
-/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:
-/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><
-C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso17.pfb>
-<C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on anexos.pdf (21 pages, 644196 bytes).
+ 89i,13n,95p,1005b,823s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
+b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
+fb><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.
+pfb><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.p
+fb><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pf
+b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb>
+<C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb>
+<C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb>
+<C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pf
+b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso17.p
+fb><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.p
+fb><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.p
+fb>
+Output written on anexos.pdf (52 pages, 890342 bytes).
 PDF statistics:
- 695 PDF objects out of 1000 (max. 8388607)
- 62 named destinations out of 1000 (max. 500000)
- 47875 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 981 PDF objects out of 1000 (max. 8388607)
+ 177 named destinations out of 1000 (max. 500000)
+ 49933 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -2,14 +2,14 @@
 
 \section{Introducción}
 
-En un proyecto con un equipo completo de personas trabajando, podríamos definir la planificación de un proyecto software como una etapa que implica definir los objetivos y el alcance del proyecto, identificar los requisitos y recursos necesarios, establecer un cronograma con hitos clave, asignar tareas a los miembros del equipo y prever los posibles riesgos. 
+En un proyecto con un equipo completo de personas trabajando, podríamos definir la planificación de un proyecto software como una etapa que implica detallar los objetivos y el alcance del proyecto, identificar los requisitos y recursos necesarios, establecer un cronograma con hitos clave, asignar tareas a los miembros del equipo y prever los posibles riesgos. 
 
 Dentro del contexto de este trabajo académico, se va a detallar en qué ha consistido la planificación temporal y se tratará de hacer un estudio de viabilidad realista.
 
 
 \section{Planificación temporal}
 
-En la memoria se ha indicado que se ha utilizado una metodología ágil de gestión de proyectos, con clara fundamentación en Scrum. Algunos de los aspectos más relevantes que han cubierto esta filosofía han sido:
+En la memoria se ha indicado que se ha utilizado una metodología ágil de gestión de proyectos, con clara fundamentación en Scrum\citep{wiki:scrum}. Algunos de los aspectos más relevantes que han cubierto esta filosofía han sido:
 
 \begin{itemize}
 \tightlist
@@ -80,17 +80,17 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 	\item 
 	Lectura completa de documentación de TFGs disponible en la plataforma UBUVirtual. 
 	\item 	
-	Rellenar el formulario de "Oferta de TFG Grado de Informática Online". Buscar referencias bibliográficas teóricas más adecuadas. 
+	Rellenar el formulario de \emph{Oferta de TFG Grado de Informática Online}. Buscar referencias bibliográficas teóricas más adecuadas. 
 	\item 
-	Utilización de Zube para gestionar un proyecto con metodología ágil: https://zube.io/. Para ello, hay que buscar la documentación adecuada que permita entender su utilización.
+	Utilización de \emph{Zube}\citep{online:zube} para gestionar un proyecto con metodología ágil. Para ello, hay que buscar la documentación adecuada que permita entender su utilización.
   	\item 
-  	Crear un repositorio en GitHub que permita llevar un seguimiento de las acciones realizadas. 
+  	Crear un repositorio en \emph{GitHub} que permita llevar un seguimiento de las acciones realizadas. 
   	\item 
-  	En el repositorio, añadir a los tutores e integrar con Zube. 
+  	En el repositorio, añadir a los tutores e integrar con \emph{Zube}. 
 	\item 
-	Determinar la mejor herramienta para la documentación del TFG. Elegir entre LaTex y Word. Justificar la elección y documentar. 
+	Determinar la mejor herramienta para la documentación del TFG. Elegir entre \LaTeX y \emph{Word}. Justificar la elección y documentar. 
   	\item 
-  	Buscar un gestor de referencias bibliográficas: Zotero vs Mendeley. 
+  	Buscar un gestor de referencias bibliográficas: \emph{Zotero vs Mendeley}. 
   	\item 
   	Concertar cita para una futura reunión cuando se haya avanzado con los primeros pasos del TFG.
   	\end{itemize}
@@ -127,7 +127,7 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 \end{itemize}
 
 
-\subsubsection{Sprint 3. Mejorar lógica de web y proteger enlaces con registro. Mostrar gráficos y dar primeros estilos.}
+\subsubsection{Sprint 3. Mejorar lógica de web y proteger enlaces con registro. Mostrar gráficos y dar primeros estilos}
 
 \begin{itemize}
 \item  
@@ -137,7 +137,7 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 \textbf{Objetivo:} Mejorar la lógica de acceso a la web. Proteger los enlaces no públicos mediante registro de usuarios. Mostrar gráficos y no sólo tablas en un estilo visualmente atractivo. 
 
 \item
-\textbf{Contexto:} Una vez llevado el proyecto a "producción" (subido a un servidor web) hay que mejorar y asegurar los enlaces para que no sean accesibles en un mal uso de los mismos. Además, es necesario hacer un registro de usuarios que permita mostrar información relevante dependiendo del rol (invitado / registrado). 
+\textbf{Contexto:} Una vez llevado el proyecto a \emph{producción} (subido a un servidor web) hay que mejorar y asegurar los enlaces para que no sean accesibles en un mal uso de los mismos. Además, es necesario hacer un registro de usuarios que permita mostrar información relevante dependiendo del rol (invitado / registrado). 
 
 \item
 \textbf{Tareas:}
@@ -150,17 +150,502 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 	\item 
 	Crear portada y dar primeros estilos visuales. 
   	\item 
-  	Preparar un índice o zona de breadcrumbs de la página para mejorar la navegación.
+  	Preparar un índice o zona de \emph{breadcrumbs} de la página para mejorar la navegación.
   	\item 
-  	Diseñar una vista que permita mostrar gráficos según el stock escogido. 
+  	Diseñar una vista que permita mostrar gráficos según el valor cotizado escogido. 
   	\end{itemize}
 \end{itemize}
+
+
+\subsubsection{Sprint 4. Manejar imágenes estáticas. Añadir base de datos de DJ30 y buscar método para auto-actualizar las BDs}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 14/12/2023 a 28/12/2023
+
+\item
+\textbf{Objetivo:} Mejorar estética y mostrar imágenes estáticas. Crear y añadir una nueva base de datos. Hacer las bases de datos auto-actualizables.
+
+\item
+\textbf{Contexto:} El proyecto en local permite mostrar imágenes estáticas en la navbar y en portada, pero en \emph{producción} (subido a un servidor web) no. Hay que mejorar este aspecto para que resulte visualmente atractivo. Además, hay que crear y añadir una nueva base de datos para el índice DJ30 y hay que buscar un método para auto-actualizar las BD en producción: con \emph{cron}\citep{wiki:cron} o con \emph{tasks}. 
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Mostrar imágenes estáticas en producción (en servidor web).
+	\item 	
+	Crear una nueva BD y hacerla accesible. 
+	\item 
+	Investigar e implantar un método de auto-actualización de BDs en producción. 
+  	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 5. Añadir un carrusel de noticias y cambiar el acceso a las BDs. Incorporar tests y mejorar los logs}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 04/01/2024 a 18/01/2024
+
+\item
+\textbf{Objetivo:} Añadir noticias relacionadas con los mercados financieros, para hacer un interfaz más útil y agradable para el usuario. Cambiar la lógica de acceso a las bases de datos, para evitar las sentencias en SQL y aprovechar las capacidades del patrón MVT\citep{online:django_MVT_2} de Django. Aplicar primeros tests para mejorar el comportamiento y aumentar la seguridad. 
+
+\item
+\textbf{Contexto:} Ahora mismo la portada principal de la página es una imagen estática que permite hacer \emph{login}, pero que no aporta la utilidad que se espera de este tipo de aplicaciones. Por ello, parece razonable añadir una zona de noticias relacionadas con los mercados financieros, que hagan la página más dinámica y agradable de usar. Además, aunque tengo diseñados unos pequeños tests, se tiene que mejorar toda la estructura de \emph{testing} y ampliar el \emph{logger}. 
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Añadir una nueva aplicación al proyecto, que permita controlar lo que ocurre en la portada:
+		\begin{itemize}
+		\tightlist
+		\item
+		Mostrar noticas en portada.
+		\item
+		Mostrar información sobre los mejores y peores stocks en portada.
+		\item
+		Mejorar el logging para lo que ocurra en esta nueva aplicación.
+		\end{itemize}
+	\item
+	Mejorar la lógica de acceso a las BDs. Aplicar MVC y evitar consultas directas de SQL en la medida de lo posible.
+	\item 	
+	Ampliar los tests y mejorar la estructura de testing. 
+  	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 6. Añadir un \emph{dashboard} para almacenar y controlar una cartera por parte del usuario. Operaciones CRUD en BDs}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 22/01/2024 a 05/02/2024
+
+\item
+\textbf{Objetivo:} Añadir un área personal que permita realizar el control de una cartera de acciones, con posiciones abiertas y posiciones objetivo. Poder crear informes con la composición de la cartera y mostrar porcentajes de inversión de forma agradable al usuario.   
+
+\item
+\textbf{Contexto:} Aunque un usuario puede consultar los datos de un valor concreto y de su índice de referencia, ahora mismo no puede tener una lista de seguimiento que le permita controlar sus inversiones. Se pretende integrar una nueva aplicación que permita ofrecer un \emph{dashboard} a los usuarios, para que puedan hacer un seguimiento de sus inversiones. 
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Añadir una nueva aplicación al proyecto, que permita controlar un dashboard. 
+		\begin{itemize}
+		\tightlist
+		\item
+		Permitir al usuario almacenar información sobre sus inversiones actuales y futuras. 
+		\item
+		Mostrar acciones compradas, i.e., posiciones abiertas.
+		\item
+		Mostrar una lista de seguimiento. 
+		\item
+		Mejorar el \emph{logging} para lo que ocurra en esta nueva aplicación.
+		\item
+		Preparar los tests más relevantes para el control de esta nueva aplicación. 
+		\item
+		Integrar esta aplicación con las actuales. 
+		\end{itemize}
+	\item
+	Aprovechar la lógica mejorada de acceso a las BDs para facilitar todas las operaciones CRUD. 
+	\item 	
+	Ampliar los tests.
+  	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 7. Refactoring y testing. Poder eliminar stocks en seguimiento desde el DashBoard.}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 07/02/2024 a 14/02/2024
+
+\item
+\textbf{Objetivo:} Ahora mismo hay bastantes casos sin cubrir con los tests, especialmente en las \emph{views} de las \emph{apps} incorporadas al proyecto. Por ello, se hace necesario, antes de continuar, realizar un testeo exhaustivo para asegurar una buena base en desarrollos posteriores. 
+
+Además, voy a incorporar una nueva funcionalidad dentro del DashBoard, que permitirá al usuario eliminar valores en seguimiento (de manera similar a como se eliminan actualmente los valores en cartera).
+
+\item
+\textbf{Contexto:} Tras intentar seguir un enfoque TDD en la creación del DashBoard en el sprint 6, se detecta la necesidad de resolver algunos fallos y cubrir el código, al 100\%, con tests. Además, hay que mejorar el estilo y la calidad del código, así como medir dicha calidad con alguna herramienta que ofrezca información final que justifique las mejoras. 
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Cubrir todas las normas de estilo de \emph{PEP-8} enhancement
+	\item
+	Solucionar problema formularios \emph{DashBoard} con precios de más de 2 decimales.
+	\item
+	Incluir funcionalidad de eliminación de stocks en seguimiento.
+	\item
+	Completar tests unitarios de \texttt{News.views}
+	\item
+	Completar tests unitarios \texttt{DashBoard.views}
+	\item
+	Completar tests unitarios de \texttt{Analysis.views}
+	\item
+	Medir con \emph{flake8} y \emph{pylint} la calidad del código.
+  	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 8. Correlaciones entre valores con NetworkX}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 17/02/2024 a 02/03/2024
+
+\item
+\textbf{Objetivo:} Permitir al usuario comparar la evolución de un valor con respecto al resto, en un tiempo determinado. La idea es mostrar al usuario un grafo creado con \emph{NetworkX}\citep{online:networkx} que permita entender las correlaciones (positiva y negativa) que haya entre diferentes valores. De esta manera se podrá hacer un análisis de diversificación de cartera, ya que tener valores muy correlacionados puede ser indicativo de no tener la cartera bien balanceada. 
+
+\item
+\textbf{Contexto:} El usuario puede acceder a la información de un valor pero no puede compararlo con otros. Además, aunque tenga valores comprados o en seguimiento, realmente, ahora mismo, no se le está ofreciendo capacidad analítica, así que hay que proporcionársela. 
+
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Añadir dos índices adicionales, con sus valores, para ampliar la información disponible y ofrecer un mayor abanico comparativo. 
+	\item
+	Agregar una funcionalidad que permita ver la correlación de un valor con todos los demás disponibles. 
+		\begin{itemize}
+		\tightlist
+		\item 
+		Como la correlación puede ser positiva o negativa, hacer diferenciación entre ambas. 
+		\item
+		Además, puede que interese obtener información sobre las mayores correlaciones (positivas o directas; y negativas o inversas)
+		\item
+		Una vez obtenidas las correlaciones, sobre los precios de cierre, ver la información en grafos de \emph{NetworkX}. 
+		\end{itemize}
+	\item
+	Adicionalmente, intentar permitir al usuario ver los gráficos de la mayor correlación de forma conjunta. 
+	\item
+	Ampliar los tests a la nueva funcionalidad. 
+	\item
+	Integrar los grafos en la plataforma web de forma temporal para cada usuario (sin almacenar en el servidor).
+  	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 9. Aplicación de modelos. \emph{Forecasting} para series temporales}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 13/03/2024 a 27/03/2024
+
+\item
+\textbf{Objetivo:} Aportar una visión diferenciadora al análisis de valores cotizados, permitiendo que un usuario pueda aplicar un modelo que le permita tener una idea intuitiva de la futura evolución de la cotización. En cualquier caso, se informará al usuario de que los datos aportados por el modelo no pueden ser considerados como una fuente única para tomar decisiones de inversión. 
+
+
+\item
+\textbf{Contexto:} En las webs que ofrecen información de productos cotizados no se ofrece un apartado de experimentación con modelos de \emph{forecasting}. Puede ser un factor diferenciador para aquellos usuarios que entiendan los riesgos y las ventajas de aplicar estos modelos.  
+
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Añadir el análisis a través de un modelo ARIMA. 
+	\item
+	Añadir el análisis a través de una red LSTM. 
+	\item
+	Permitir al usuario ver alguna información gráfica que facilite la comprensión de los resultados. 
+	\item
+	Ampliar los tests de las nuevas funcionalidades. 
+	\item
+	Integrar las gráficas o diagramas en la plataforma web de forma temporal para cada usuario (sin almacenar en el servidor).
+  	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 10. Documentación y limpieza de código y avanzar considerablemente en la memoria.}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 10/04/2024 a 24/04/2024
+
+\item
+\textbf{Objetivo:} Documentación de código y de la memoria. 
+
+
+\item
+\textbf{Contexto:} Actualmente el proyecto está documentado con notas internas del autor y debe empezarse a documentar utilizando las herramientas y guías oficiales. 
+
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Configurar \emph{MikTex}.
+	\item
+	Descargar y preparar plantilla oficial de Trabajos de Fin de Grado. 
+	\item
+	Añadir resumen / abstract. 
+	\item
+	Documentar introducción. 
+	\item
+	Describir objetivos del proyecto. 
+	\item
+	Documentar conceptos teóricos. 
+	\item
+	Explicar las técnicas y herramientas utilizadas. 
+	\item
+	Indicar aspectos relevantes del desarrollo del proyecto que se hayan dado hasta ahora. 
+	\item
+	Detallar trabajos relacionados.
+	\item
+	Añadir referencias bibliográficas en todos los apartados de la memoria. 
+	\item
+	Medir la calidad del código e introducir las mejoras necesarias. 
+  	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Sprint 11. Gráfica de Markowitz con frontera efciente y ratio de Sharpe. Mejoras visuales.}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 09/05/2024 a 19/05/2024
+
+\item
+\textbf{Objetivo:} Favorecer el estudio de una cartera de valores a través de la distribución de pesos de los mismos. Mostrar una gráfica de Markowitz con la cartera ideal encontrada por simulación de Montecarlo y, también, por optimización de funciones. Realizar pequeñas mejoras estéticas y funcionales. 
+
+
+\item
+\textbf{Contexto:} Es necesario mejorar el \emph{DashBoard} de los usuarios para que reciban una información más completa y, de entre las opciones barajadas, una de las más interesantes es la de mostrar cuál sería la mejor distribución de los valores que ya tenga en cartera el usuario, basándome en los retornos y pesos en la propia cartera. 
+
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Añadir nuevos métodos que permitan hacer una simulación de Montecarlo con diferentes pesos de valores en una cartera. 
+	\item
+	Añadir nuevos métodos al \emph{DashBoard} para calcular la frontera eficiente. 
+	\item
+	Desarrollar las funciones de optimización que permitan calcular la mejor distribución de pesos.
+	\item
+	Preparar los métodos necesarios para mostrar la gráfica de Markowitz junto con la frontera eficiente y las mejores carteras encontradas. 
+	\item
+	Implementar los tests necesarios para las nuevas funcionalidades. 
+	\item
+	Integrar en las plantillas existentes del \emph{DashBoard} para mostrar. 
+	\item
+	Documentar de forma interna en el apartado de conceptos teóricos (apartado 3 de la memoria del TFG). 
+	\item
+	Mejoras estéticas en botones y página principal. 
+	\item
+	Añadir referencias bibliográficas en todos los apartados de la memoria aunque sea a nivel local. 
+	\item
+	Medir la calidad de nuevo código y testear de forma automática con \emph{GitHub actions}. 
+	\item
+	Desplegar nueva documentación de código de forma automática con \emph{Sphinx}. 
+  	\end{itemize}
+\end{itemize}
+
+
+
+\subsubsection{Sprint 12. Mejorar gráficas ARIMA. Incluir estrategias basadas en \emph{machine learning}}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 22/05/2024 a 26/05/2024
+
+\item
+\textbf{Objetivo:} Completar documentación teórica de ARIMA en memoria, añadir apartado de \emph{trading} algorítmico con su documentación y contemplar redes LSTM como posible mejora del proyecto. 
+
+
+\item
+\textbf{Contexto:} Ahora mismo se puede acceder a un apartado de \emph{forecasting} con redes LSTM pero no me convencen los resultados obtenidos, así que se dejará como una de las posibles mejoras del proyecto. Sin embargo, voy a añadir un apartado nuevo al \emph{Lab} sobre \emph{trading} algorítmico. 
+
+Además, tengo que terminar la documentación de ARIMA en la memoria y añadir la nueva documentación de \emph{trading} algorítmico. 
+
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Terminar documentación ARIMA. 
+	\item
+	Mejorar gráficas y plantillas HTML para ARIMA.  
+	\item
+	Incluir mejoras de estrategia basada en ML, en lugar de redes LSTM, y documentar. 
+	\item
+	Pasar redes LSTM a apartado de posibles mejoras del proyecto. 
+	\item
+	Realizar nuevos tests para estrategias basadas en ML.
+	\item
+	Crear un \emph{release} con el cambio, porque es relevante. 
+  	\end{itemize}
+\end{itemize}
+
+
+
+\subsubsection{Sprint 13. Finalizar memoria. Empezar anexos. Correcciones en plantillas y en \emph{cron} de servidor web}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 31/05/2024 a 04/06/2024
+
+\item
+\textbf{Objetivo:} Finalizar memoria y empezar anexos. Realizar mejoras estéticas. Corregir tarea \emph{cron} de actualización de BDs en servidor web. Realizar la \emph{release} que está pendiente desde el \emph{sprint} anterior, no realizado por falta de comprobaciones. 
+
+
+\item
+\textbf{Contexto:} En este momento es posible trabajar con todas las herramientas, pero quedan algunos detalles que mejorar antes de realizar un \emph{release}. Además, es necesario avanzar con la documentación de la memoria (que ya tiene cubierta toda la parte teórica). 
+
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Finalizar sección 5 de memoria.
+	\item
+	Finalizar sección 6 de memoria.
+	\item
+	Finalizar sección 7 de memoria.
+	\item
+	Empezar anexos. 
+	\item
+	Mejorar gráficas y plantillas HTML para estrategias basadas en ML. 
+	\item
+	Ampliar tests para cubrir todos los métodos. 
+	\item
+	Mejorar la calidad de código. Comprobar con \emph{pylint}.  
+	\item
+	Mejoras gráficas en grafos de correlaciones de \emph{NetworkX} y adaptación de plantillas en local.
+	\item
+	Corregir problemas de tarea \emph{cron} en servidor web. 
+	\item
+	Crear un release con los cambios, siempre y cuando haya terminado todas las correcciones.
+  	\end{itemize}
+\end{itemize}
+
+
 
 
 \section{Estudio de viabilidad}
 
 \subsection{Viabilidad económica}
 
+Se va a realizar una estimación de costes lo más aproximada a la realidad, como si el proyecto se hubiese realizado en un entorno empresarial. 
+
+\subsubsection{Estudio de costes}
+
+De manera general se pueden considerar costes de personal, de \emph{hardware} y \emph{software} y, en caso de necesidad, costes de infraestructura. La mayor partida económica se tiene que destinar a los recursos humanos:
+
+\tablaSmallSinColores{Costes en RRHH}{l|r|r}{costes_personal}{
+\textbf{Concepto} & \textbf{Coste anual} & \textbf{Prorrateo (6 meses)}\\
+}{
+\textit{Salario bruto} & 25.000,00€ & 12.500,00€\\
+\textit{Retención IRPF} & 4.250,00€ & 2.125,00€\\
+\textit{Seguridad Social} & 1.587,50€ & 793,75€\\
+\textit{Salario neto} & 19.162,50€ & 9.581,25€\\ 
+}
+
+Se aplica un 17\% de retención sobre la nómina, considerando ausencia de deducciones tributarias.
+
+A continuación se muestran los costes de \emph{hardware} y \emph{software}. Para el \emph{hardware} se estima una amortización de 5 años y una utilización de 6 meses. El \emph{software}, por su parte, tendrá una amortización estimada de 2 años. 
+
+\tablaSmallSinColores{Costes de \emph{HW} y \emph{SW}}{l|r|r}{costes_hw_sw}{
+\textbf{Concepto} & \textbf{Coste} & \textbf{Coste amortizado} \\
+}{
+\textit{Ordenador portátil} & 1.600,00€ & 160,00€\\
+\textit{Licencia MS Windows 10 pro} & 279,00€ & 69,75€\\
+}
+
+Por último, se realiza un análisis de costes de infraestructura (solo asimilable en caso de necesidad) de nuevo, el coste amortizado se calcula a 6 meses:
+
+\tablaSmallSinColores{Costes infraestructura}{l|r|r}{costes_infraestructura}{
+\textbf{Concepto} & \textbf{Coste anual} & \textbf{Coste amortizado} \\
+}{
+\textit{Consumo eléctrico} & 350,00€ & 175,00€\\
+\textit{Espacio \emph{coworking}} & 4.000,00€ & 2.000,0€\\
+\textit{Material de oficina} & 10,00€ & 5,00€\\
+\textit{Alojamiento web} & 72,00€ & 36,00€\\
+}
+
+
+Los costes totales estimados son:
+
+\tablaSmallSinColores{Costes totales}{l|r}{coste_total}{
+\textbf{Concepto} & \textbf{Coste}\\
+}{
+\textit{Costes en RRHH} & 12.500,00€\\
+\textit{Costes de \emph{HW} y \emph{SW}} & 229.75€\\
+\textit{Costes infraestructura} & 2.216,00€\\
+\textit{\textbf{TOTAL}} & 14.945,75€\\
+}
+
+\subsubsection{Análisis de beneficios}
+
+Este trabajo no se plantea inicialmente como un mecanismo para generar beneficios económicos, sino como una herramienta gratuita para ayudar a los inversores a mejorar la distribución de sus carteras y para que los analistas financieros experimenten con diferentes técnicas. 
+
+En caso de monetizar el proyecto se podría optar por incluir publicidad en la web para generar ingresos que, al menos, cubran los gastos anuales. 
+
 \subsection{Viabilidad legal}
+
+\subsubsection{Descargo de responsabilidades}
+
+El \emph{software} que se proporciona en este trabajo es solo para fines informativos y no debe considerarse como asesoramiento financiero. La información proporcionada no está garantizada como precisa o completa y puede cambiar sin previo aviso.
+
+El usuario es el único responsable de sus decisiones de inversión y de las consecuencias de las mismas. No se debe confiar en este \emph{software} para tomar decisiones de inversión sin realizar una investigación profunda y consultar con un asesor financiero calificado.
+
+\subsubsection{Licencias \emph{software}}
+
+En este trabajo se utilizan múltiples librerías de terceros. Además, aunque los datos son almacenados en bases de datos propias, hay que considerar que se hace uso de información externa a través de la API \emph{yFinance}. 
+
+Las licencias asociadas a las librerías y APIs utilizadas, se detallan en la siguiente tabla:
+
+\tablaSmallSinColores{Licencias de terceros}{l|r}{coste_total}{
+\textbf{Librería / API} & \textbf{Licencia}\\
+}{
+\textit{Python} & OSI-Open Source\\
+\textit{Django} & BSD\\
+\textit{yFinance} & Apache 2.0\\
+\textit{Pandas} & BSD\\
+\textit{Numpy} & BSD 3-Clause\\
+\textit{Scikit-Learn} & BSD 3-Clause\\
+\textit{Scipy} & BSD\\
+\textit{NetworkX} & BSD 3-Clause\\
+\textit{Matplotlib} & Licencia libre propia\\
+\textit{Plotly} & MIT\\
+\textit{Statsmodels} & BSD 3-Clause\\
+\textit{Feedparser} & BSD 3-Clause\\
+\textit{NewsAPI} & MIT\\
+\textit{pmdarima} & MIT\\
+\textit{Keras} & Apache 2.0\\
+}
+
+Todas las librerías y el \emph{framework Django} utilizan licencias de código abierto permisivas - la más restrictiva sería Apache 2.0 - lo que significa que el código de \emph{FAT: Financial Analysis Tool} se puede usar, modificar y distribuir libremente, incluyendo para fines comerciales, siempre que se cumplan los requisitos de atribución y exención de responsabilidad establecidos en cada licencia.
+
+Por tanto, se toma la decisión de publicar este proyecto bajo licencia CC BY-NC-SA 4.0\citep{online:licencia}.
+
+\subsubsection{Consideraciones adicionales}
+
+Dada la condición académica de este proyecto no hay limitación en el uso de los datos financieros almacenados y no se recoge información personal; pero dependiendo del uso que se dé a este \emph{software} es posible que se deba cumplir con regulaciones específicas, como la Ley de Protección de Datos de la Unión Europea (GDPR) o la Ley de Protección de la Privacidad de la Información Financiera (FINRA). 
+
+
+
+
+
+
+
+
+
+
 
 

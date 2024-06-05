@@ -2,39 +2,1120 @@
 
 \section{Introducción}
 
-Una muestra de cómo podría ser una tabla de casos de uso:
+En este anexo se recogen los requisitos y casos de uso que se han tenido en cuenta para el desarrollo de este trabajo. Se han seguido las recomendaciones del estándar IEEE 830-1998\citep{1998IEEESpecifications} como guía de buenas prácticas.
 
-% Caso de Uso 1 -> Consultar Experimentos.
+En este proyecto se ha tratado de crear una especificación de requisitos que cumpla con las siguientes condiciones:
+
+\begin{itemize}
+\tightlist
+\item
+	Completa y consistente
+	\begin{itemize}
+	\item 
+	Incluir todos los requisitos y referencias necesarias.
+	\item
+	Ser coherente con los propios requisitos y otros documentos de especificación.
+	\end{itemize}
+\item
+	Claridad y accesibilidad
+	\begin{itemize}
+	\item 
+	Redacción clara para evitar malas interpretaciones.
+	\item
+	Uso de términos y definiciones precisos.
+	\end{itemize}
+\item
+	Verificabilidad y trazabilidad
+	\begin{itemize}
+	\item 
+	Debe de existir un método finito y sin costo para probar los requisitos.
+	\item
+	Uso de términos y definiciones precisos.
+	\end{itemize}
+\item
+	Modificabilidad y priorización
+	\begin{itemize}
+	\item 
+	Fácilmente modificable.
+	\item
+	Jerarquía de priorización según relevancia para el negocio (o fin).
+	\end{itemize}
+\item
+	Correctitud y accesibilidad
+	\begin{itemize}
+	\item 
+	El software debe cumplir con los requisitos de la especificación.
+	\item
+	Accesibilidad y facilidad de comprensión para los usuarios y desarrolladores.
+	\end{itemize}
+\end{itemize}
+
+
+\section{Objetivos generales}\label{objetivos-generales}
+
+Este trabajo persigue los siguientes objetivos generales:
+
+\begin{itemize}
+\item
+Proporcionar una herramienta que otorgue capacidad crítica en inversiones personales.
+\item
+El sistema tiene que poder controlar la evolución de valores en cartera y en seguimiento. 
+\item
+Tiene que mostrarse información relevante en cuanto a distribución de carteras y posibles pesos para los valores escogidos. 
+\item
+Permitir trabajar, de manera experimental, con herramientas de \emph{trading} algorítmico. 
+\item
+Facilitar el acceso a la información con una página web pública y gratuita. 
+\end{itemize}
+
+
+\section{Catálogo de requisitos}
+
+\subsection{Requisitos funcionales}
+
+\begin{itemize}
+\item 
+\textbf{RF-1 Mostrar portada con información general de diferentes índices bursátiles:} la web tiene que tener información agregada de todos los índices disponibles. 
+    \begin{itemize}
+        \item \textbf{RF-1.1 Mostrar carrusel de noticias generales}: en la portada se 
+        tiene que disponer de noticias relevantes dentro del mundo bursátil.
+        \item \textbf{RF-1.2 Mostrar mejores y peores valores de cada índice}: se tiene que 
+        poder consultar, de forma ágil, cuáles han sido los mejores y peores valores de 
+        cada índice.
+        \begin{itemize}
+            \item \textbf{RF-1.2.1 Mostrar gráfica}: tiene que estar disponible una gráfica 
+            evolutiva junto a cada valor de los mostrados. 
+        \end{itemize}
+	\end{itemize}
+
+\item
+\textbf{RF-2 Control de usuarios}: los usuarios tendrán acceso a información adicional si
+están dados de alta. 
+	\begin{itemize}
+        \item \textbf{RF-2.1 Permitir registro}: el usuario se podrá registrar. 
+        \item \textbf{RF-2.2 Permitir hacer \emph{login}}: el usuario podrá acceder con su 
+        cuenta en la web.
+        \item \textbf{RF-2.3 Permitir \emph{logout}}: el usuario podrá cerrar su sesión. 
+	\end{itemize}
+
+\item
+\textbf{RF-3 Gestionar \emph{DashBoard}}: tiene que haber una zona de usuario, denominada \emph{DashBoard}, con información relevante sobre valores seleccionados por el usuario. 
+	\begin{itemize}
+        \item \textbf{RF-3.1 Crear nuevo valor en cartera}: el usuario podrá añadir un 
+        nuevo valor, con fecha y precio de compra, a su cartera.
+        \begin{itemize}
+            \item \textbf{RF-3.1.1 Mostrar 'donut', sectores y divisas}: si un usuario 
+            tiene valores en cartera, éste contará con diagramas de información relevante.
+            \item \textbf{RF-3.1.2 Ver gráfica de Markowitz, ratio de Sharpe y pesos}: si 
+            un usuario tiene valores en cartera podrá ver lla mejor distribución de pesos 
+            para la misma. 
+            \item \textbf{RF-3.1.3 Ver posiciones abiertas y evolución de cartera}: si hay 
+            valores en cartera se podrá comprobar la evolución de la misma. 
+        \end{itemize}
+		\item \textbf{RF-3.2 Eliminar valor de cartera}: el usuario podrá eliminar un 
+        valor de los que tuviera almacenados. 
+        \item \textbf{RF-3.3 Crear un nuevo valor en seguimiento}: el usuario podrá 		
+        hacer seguimiento de valores de su interés.
+        \item \textbf{RF-3.4 Eliminar valor de seguimiento}: el usuario podrá eliminar un 
+        valor de los que tuviera en seguimiento. 
+	\end{itemize}
+
+\item
+\textbf{RF-4 Consultar índice}: se debe presentar, de forma ordenada, información relevante de cada índice por separado.  
+	\begin{itemize}
+        \item \textbf{RF-4.1 Mostrar tabla de valores}: al consultar un índice se mostrará 
+        una tabla con todos los componentes de ese índice, con información relevante sobre 
+        la última sesión disponible. 
+        \item \textbf{RF-4.2 Consultar un valor del índice}: se podrá consultar información 
+        de un único valor. 
+        \begin{itemize}
+            \item \textbf{RF-4.2.1 Dar acceso a gráfica interactiva}: se ofrecerá una 
+            gráfica interactiva, con medias móviles y volumen. 
+            \item \textbf{RF-4.2.2 Mostrar distribución de retornos}: habrá una gráfica con 
+            la distribución que hayan seguido los retornos en los últimos meses. 
+            \item \textbf{RF-4.2.3 Mostrar datos del último mes}: disponer datos en formato 
+            tabular para ver precios de apertura y cierre de los últimos 30 días. 
+            \item \textbf{RF-4.2.4 Ver evolución del sector}: facilitar una comparativa con 
+            el sector de referencia del valor. 
+            \item \textbf{RF-4.2.5 Comparar con otros valores}: existirá la posibilidad de 
+            comparar gráficas de precios de cierre con otros valores. 
+            \item \textbf{RF-4.2.6 Mostrar grafos de correlación}: mostrar grafos de alta 
+            correlación positiva y negativa con otros valores. 
+        \end{itemize}
+        \item \textbf{RF-4.3 Mostrar noticias relacionadas}: facilitar enlaces de fuentes 
+        RSS que estén relacionadas con el índice.
+        \item \textbf{RF-4.4 Ver gráfica de evolución}: mostrar gráfica de evolución del
+        índice en su conjunto. 
+	\end{itemize}	
+
+
+
+\item
+\textbf{RF-5 Gestionar \emph{Lab}}: dar acceso a un laboratorio virtual. 
+	\begin{itemize}
+        \item \textbf{RF-5.1 Trabajar con ARIMA}: permitir realizar estimaciones y búsqueda 
+        de parámetros con ARIMA. 
+        \begin{itemize}
+            \item \textbf{RF-5.1.1 Buscar parámetros (p,d,q) con fnuciones ACF y PACF}: se 
+            mostrarán gráficas de funciones para interpretación del usuario. 
+            \item \textbf{RF-5.1.2 Introducir (p,d,q) de forma manual}: el usuario podrá 
+            introducir los parámetros deseados para aplicar un modelo ARIMA. 
+            \item \textbf{RF-5.1.3 Buscar (p,d,q) de forma automática}: se proporcionará 
+            una funcionalidad de búsqueda automática de los parámetros más adecuados a un 
+            valor.
+            \item \textbf{RF-5.1.4 Hacer búsqueda por rejilla para (p,d,q)}: se podrá 
+            realizar una búsqueda de parámetros (p,d,q) de entre una serie de posibles 
+            valores preestablecidos.             
+        \end{itemize}
+        \item \textbf{RF-5.2 Trabajar con \emph{trading} algorítmico}: facilitar el acceso 
+        a herramientas de \emph{trading} algorítmico.
+        \begin{itemize}
+            \item \textbf{RF-5.2.1 Usar algoritmo de cruce de medias}: se mostrará el 
+            resultado de buscar las mejores medias móviles para un valor, en un período de 
+            tiempo concreto. 
+            \item \textbf{RF-5.2.2 Utilizar estrategia basada en \emph{machine learning}}: 
+            permitir interactuar con modelos de regresión y clasificación para estimar la 
+            tendencia de la próxima sesión de un índice.
+        \end{itemize}
+	\end{itemize}
+
+\end{itemize}
+
+
+\subsection{Requisitos no funcionales}
+
+En este apartado se tratará de dar detalle de aquellas características que no son funcionales pero que aportan un valor añadido al proyecto y a la interacción con la herramienta desarrollada:
+
+\begin{itemize}
+\item
+\textbf{RNF-1 Escalabilidad}: la web tiene que permitir y favorecer, en la medida de lo posible, la incorporación de nuevas funcionalidades y de bases de datos adicionales. 
+
+\item
+\textbf{RNF-2 Privacidad}: los datos de usuario, como nombres o contraseñas, se debe gestionar de forma segura. 
+
+\item
+\textbf{RNF-3 Disponibilidad}: la web debe ser compatible con los navegadores más modernos y tendrá alta disponibilidad a través de un servicio de alojamiento fiable. 
+
+\item
+\textbf{RNF-4 Usabilidad}: la interfaz de la web será \emph{user friendly}, resultar intuitiva y facilitará comentarios de ayuda adicional en los apartados más especializados. 
+
+\item
+\textbf{RNF-5 Mantenibilidad}: se tiene que favorecer un mantenimiento posterior a la puesta en producción. Además, se facilitará información a los desarrolladores para que puedan realizar mejoras incrementales posteriores. 
+\end{itemize}
+
+
+\section{Especificación de requisitos}
+
+\subsection{Casos de uso}\label{casos_uso}
+
+A continuación se muestran todos los casos de uso contemplados. Muchos de estos casos de uso se plantearon en las fases iniciales del proyecto y se fueron mejorando en las sucesivas iteraciones de cada \emph{sprint}. Se trató de realizar mejoras incrementales para satisfacer las expectativas de un inversor o potencial cliente:
+
+\imagenSinMargen{img_anex_01_casos_uso.png}{Diagrama de casos de uso. Fuente: elaboración propia}
+
+
 \begin{table}[p]
 	\centering
 	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
 		\toprule
-		\textbf{CU-1}    & \textbf{Ejemplo de caso de uso}\\
+		\textbf{CU-1}    & \textbf{Consultar portada}\\
 		\toprule
 		\textbf{Versión}              & 1.0    \\
-		\textbf{Autor}                & Alumno \\
-		\textbf{Requisitos asociados} & RF-xx, RF-xx \\
-		\textbf{Descripción}          & La descripción del CU \\
-		\textbf{Precondición}         & Precondiciones (podría haber más de una) \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-1, RF-1.1, RF-1.2 y RF-1.2.1 \\
+		\textbf{Descripción}          & Permite al usuario ver la página principal\\
+		\textbf{Precondición}         & La base de datos se encuentra disponible \\
 		\textbf{Acciones}             &
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist
-			\item Pasos del CU
-			\item Pasos del CU (añadir tantos como sean necesarios)
+			\item El usuario accede a la página web.
+			\item Se muestran noticias del mundo bursátil. 
+			\item Se listan los índices con los mejores y peores valores
 		\end{enumerate}\\
-		\textbf{Postcondición}        & Postcondiciones (podría haber más de una) \\
-		\textbf{Excepciones}          & Excepciones \\
-		\textbf{Importancia}          & Alta o Media o Baja... \\
+		\textbf{Postcondición}        & El número de valores mostrados es múltiplo del 
+										número de índices disponibles.  \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Error al cargar valores (mensaje de error).
+			\item Error al cargar una noticia (pasar a siguiente). 
+		\end{itemize}\\
+		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
-	\caption{CU-1 Nombre del caso de uso.}
+	\caption{CU-1 Consultar portada.}
 \end{table}
 
-\section{Objetivos generales}
 
-\section{Catálogo de requisitos}
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-2}    & \textbf{Mostrar carrusel noticias generales}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-1, RF-1.1 \\
+		\textbf{Descripción}          & Mostrar carrusel de noticias bursátiles\\
+		\textbf{Precondición}         & La API \emph{NewsAPI} está activa \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario ve texto preliminar de una noticia y su imagen asociada. 
+			\item Se \emph{navega} entre noticias con selectores laterales o se dejan pasar automáticamente.
+			\item Se muestra un botón para \emph{leer más} en la fuente original.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & La imagen y el enlace externo se corresponden con el texto de la noticia.  \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Error al cargar una noticia (pasar a siguiente). 
+		\end{itemize}\\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-2 Mostrar carrusel noticias generales.}
+\end{table}
 
-\section{Especificación de requisitos}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-3}    & \textbf{Mostrar mejores y peores valores}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-1, RF-1.2 y RF-1.2.1 \\
+		\textbf{Descripción}          & Mostrar 3 mejores y 3 peores valores de cada índice en la última sesión bursátil.\\
+		\textbf{Precondición}         & Las bases de datos están disponibles. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario ve valores de cierre de última sesión de mejores valores de un 			índice. 
+			\item El usuario ve valores de cierre de última sesión de peores valores de un 				índice. 
+			\item Se muestra gráfica asociada a cada valor.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Las gráficas se corresponden con los valores 												mejores y peores y se muestran en orden de mejor a 											peor  \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Error al cargar un valor (mensaje de error). 
+		\end{itemize}\\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-3 Mostrar mejores y peores valores.}
+\end{table}
 
 
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-4}    & \textbf{Mostrar gráfica}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-1, RF-1.2, RF-1.2.1 y RF-4.4 \\
+		\textbf{Descripción}          & Mostrar gráficas de valores o índices.\\
+		\textbf{Precondición}         & Las bases de datos están disponibles. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario ve gráficas de última sesión de mejores valores de un 						índice. 
+			\item El usuario ve gráficas de última sesión de peores valores de un 						índice. 
+			\item Se muestran valores de cierre asociados a cada valor.
+			\item El usuario consulta gráfica de índice.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Las gráficas se corresponden con los valores 												mejores y peores y se muestran en orden de mejor a peor. O la gráfica del índice consultado está disponible. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Error al cargar un valor o índice (mensaje de error). 
+		\end{itemize}\\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-4 Mostrar gráfica.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-5}    & \textbf{Gestionar usuario}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-2, RF-2.1, RF-2.2 y RF-2.3 \\
+		\textbf{Descripción}          & Controlar sesión de usuario.\\
+		\textbf{Precondición}         & La base de datos de usuarios está disponible. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario se registra. 
+			\item El usuario hace \emph{login}. 
+			\item Diferentes acciones dependiendo de la labor a realizar.
+			\item El usuario hace \emph{logout} para cerrar sesión.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Tras \emph{logout} la cookie de sesión se inhabilita. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Error al registrar por contraseña o nombre (mensaje informativo). 
+			\item Error en \emph{login} por contraseña o nombre (mensaje informativo). 
+		\end{itemize}\\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-5 Gestionar usuario.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-6}    & \textbf{Registro}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-2 y RF-2.1 \\
+		\textbf{Descripción}          & Permitir registro de usuarios.\\
+		\textbf{Precondición}         & El usuario no está registrado. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario se registra. 
+			\item Mostrar un mensaje de bienvenida. 
+			\item Dejar usuario ya activo con \emph{login}.
+			\item Redirigir a página principal.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Nuevo usuario en base de datos. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Error al registrar por contraseña o nombre (mensaje informativo). 
+			\item Error por usuario duplicado (mensaje informativo). 
+		\end{itemize}\\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-6 Registro.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-7}    & \textbf{Login}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-2 y RF-2.2 \\
+		\textbf{Descripción}          & Permitir \emph{login} de usuarios.\\
+		\textbf{Precondición}         & El usuario no está logueado. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario hace \emph{login}. 
+			\item Mostrar \emph{DashBoard}. 
+			\item Permitir acceso a funciones adicionales.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Usuario logueado y con acceso a funciones adicionales. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Error al loguear (mensaje informativo y repetición). 
+			\item Error forzado (mensaje informativo). 
+		\end{itemize}\\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-6 Login.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-8}    & \textbf{Logout}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-2 y RF-2.3 \\
+		\textbf{Descripción}          & Permitir \emph{logout} de usuarios.\\
+		\textbf{Precondición}         & El usuario está logueado. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario hace \emph{logout}. 
+			\item Mostrar página principal. 
+			\item No permitir acceso a funciones adicionales.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Usuario no logueado y sin acceso a funciones adicionales. \\
+		\textbf{Excepciones}          & \\
+		\textbf{Importancia}          & Baja \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-8 Logout.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-9}    & \textbf{Gestionar \emph{DashBoard}}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-3, RF-3.1, RF-3.1.1, RF-3.1.2, RF-3.1.3, RF-3.2, RF-3.3 y RF-3.4  \\
+		\textbf{Descripción}          & Mostrar información agregada de valores en cartera y en seguimiento de un usuario.\\
+		\textbf{Precondición}         & El usuario está logueado y las bases de datos están disponibles.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario hace \emph{login}. 
+			\item Mostrar página de \emph{DashBoard} con información de usuario.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario puede consultar precios, añadir o quitar valores en cartera y añadir o quitar valores en seguimiento. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay valores previos en cartera (se muestran tablas vacías).
+			\item No hay valores previos en seguimiento (se muestran tablas vacías).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-9 \emph{DashBoard}.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-10}    & \textbf{Crear nuevo valor en cartera}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-3, RF-3.1, RF-3.1.1, RF-3.1.2 y RF-3.1.3  \\
+		\textbf{Descripción}          & Añadir un valor a la cartera del usuario.\\
+		\textbf{Precondición}         & El usuario está logueado y las bases de datos están disponibles.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede al \emph{DashBoard}. 
+			\item Pinchar en botón \emph{Nueva posición de cartera}.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve un nuevo valor asociado a su cuenta. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Valor no existe (mensaje informativo y reintento).
+			\item Fecha no válida (mensaje informativo y reintento).
+			\item Precio valor no adecuado para la fecha (mensaje informativo y reintento).
+			\item Valores formulario fuera de rango (mensaje informativo y reintento).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-10 Crear nuevo valor en cartera.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-11}    & \textbf{Mostrar \emph{donut}, sectores y divisas}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-3, RF-3.1 y RF-3.1.1 \\
+		\textbf{Descripción}          & Mostrar información de composición de cartera en gráficas y diagramas que resulten agradables para el usuario.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el usuario tiene valores guardados en cartera.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede al \emph{DashBoard}. 
+			\item Mostrar \emph{donut} con valores en cartera.
+			\item Mostrar diagrama de sectores en los que se está invertido.  
+			\item Mostrar inversión por tipo de divisa. 
+			\item Ver cambios de divisa de última sesión disponible.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve información relevante sobre el estado de su cartera. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay valores previos en cartera (se muestran tablas vacías).
+		\end{itemize} \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-11 Mostrar \emph{donut}, sectores y divisas.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-12}    & \textbf{Ver gráfica de Markowitz, ratio de Sharpe
+y pesos}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-3, RF-3.1 y RF-3.1.2 \\
+		\textbf{Descripción}          & Mostrar información de distribución de pesos de los valores en cartera.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el usuario tiene valores guardados en cartera.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede al \emph{DashBoard}. 
+			\item Mostrar gráfica de Markowitz.
+			\item Ver simulación de Montecarlo de 10.000 carteras.  
+			\item Indicar frontera eficiente. 
+			\item Mostrar ratio de Sharpe. 
+			\item Mostrar información de distribución de pesos en tablas.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve información relevante sobre posibles distribuciones mejores para su cartera. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay valores previos en cartera (se muestran tablas vacías).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-12 Ver gráfica de Markowitz, ratio de Sharpe y pesos.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-13}    & \textbf{Ver posiciones abiertas y evolución de cartera}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-3, RF-3.1 y RF-3.1.3 \\
+		\textbf{Descripción}          & Mostrar información de evolución de inversiones realizadas.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el usuario tiene valores guardados en cartera.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede al \emph{DashBoard}. 
+			\item Mostrar evolución individual de valores en cartera.
+			\item Hacer cálculos de cambio de divisa a euros.  
+			\item Mostrar evolución de cartera en euros.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve la evolución de su cartera. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay valores previos en cartera (se muestran tablas vacías).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-13 Ver posiciones abiertas y evolución de cartera.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-14}    & \textbf{Eliminar valor de cartera}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-3 y RF-3.2 \\
+		\textbf{Descripción}          & Eliminar valor guardado en cartera.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el usuario tiene valores guardados en cartera.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede al \emph{DashBoard}. 
+			\item Mostrar información relativa a cartera.
+			\item El usuario pulsa el botón \emph{Eliminar posición de cartera}.  
+			\item Mostrar lista de valores en cartera.
+			\item Seleccionar valores a eliminar.
+			\item Pulsar \emph{Eliminar seleccionados}.
+			\item Volver al \emph{DashBoard}
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve datos actualizados de su cartera. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay valores posteriores en cartera (se muestran tablas vacías).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-14 Eliminar valor de cartera.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-15}    & \textbf{Crear un nuevo valor en seguimiento}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-3 y RF-3.3 \\
+		\textbf{Descripción}          & Guardar un nuevo valor para realizar seguimiento.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el usuario no tiene el valor previamente en seguimiento.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede al \emph{DashBoard}. 
+			\item Mostrar información relativa a cartera.
+			\item El usuario pulsa el botón \emph{Nuevo valor a seguir}.  
+			\item Mostrar formulario de búsqueda de valores (\emph{tickers}).
+			\item Seleccionar valor a seguir.
+			\item Pulsar \emph{Guardar}.
+			\item Buscar valores del mismo sector.
+			\item Volver al \emph{DashBoard}
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve nuevo \emph{stock} en seguimiento junto con aquellos valores que pertenezcan al mismo sector. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay valores posteriores en seguimiento (se muestran tablas vacías).
+		\end{itemize} \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-15 Crear un nuevo valor en seguimiento.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-16}    & \textbf{Eliminar un valor de seguimiento}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-3 y RF-3.4 \\
+		\textbf{Descripción}          & Para eliminar un valor que estuviera en seguimiento.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el usuario tiene previamente valores en seguimiento.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede al \emph{DashBoard}. 
+			\item Mostrar información relativa a cartera.
+			\item El usuario pulsa el botón \emph{Eliminar valor en seguimiento}.  
+			\item Mostrar valores en seguimiento).
+			\item Seleccionar valores a eliminar.
+			\item Pulsar \emph{Eliminar seleccionados}.
+			\item Volver al \emph{DashBoard}
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve valores en seguimiento actualizados. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay valores previos en seguimiento (se muestran tablas vacías).
+			\item No hay valores posteriores en seguimiento (se muestran tablas vacías).
+		\end{itemize} \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-16 Eliminar un valor de seguimiento.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-17}    & \textbf{Consultar índice}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4, RF-4.1, RF-4.2, RF-4.3, RF-4.4 y RF-1.2.1  \\
+		\textbf{Descripción}          & Para mostrar datos de valores de un índice de forma agregada.\\
+		\textbf{Precondición}         & Las bases de datos están disponibles.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario selecciona el índice que quiere consultar. 
+			\item Mostrar tabla con componentes del índice.
+			\item Visualizar gráfica de evolución del índice en su conjunto.  
+			\item Facilitar enlaces RSS a noticias relacionadas.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve información del índice. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos de índice (mensaje de página inexistente).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-17 Consultar índice.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-18}    & \textbf{Mostrar tabla de valores}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4 y RF-4.1  \\
+		\textbf{Descripción}          & Para mostrar tabla de componentes de un índice.\\
+		\textbf{Precondición}         & Las bases de datos están disponibles.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario selecciona el índice que quiere consultar. 
+			\item Mostrar tabla con componentes del índice.
+			\item El usuario ordena según variación diaria.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario consulta precios de todos los valores del índice. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos de índice (mensaje de página inexistente).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-18 Mostrar tabla de valores.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-19}    & \textbf{Consultar un valor del índice}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4, RF-4.1, RF-4.2, RF-4.2.1, RF-4.2.2 y RF-4.2.3, RF-4.2.4, RF-4.2.5 y RF-4.2.6 \\
+		\textbf{Descripción}          & Para consultar información detallada de un único valor cotizado.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el valor existe.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario selecciona el índice del valor de su interés. 
+			\item El usuario selecciona el valor que quiere consultar. 
+			\item Dar acceso a gráfica interactiva.
+			\item Mostrar distribución de retornos.
+			\item Mostrar datos de último mes.
+			\item Ver evolución del sector.
+			\item Mostrar formulario de comparación con otros valores.
+			\item Mostrar grafos de correlación.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve toda la información ordenada en forma de tablas o gráficas; es posible interactuar (de forma básica) con la gráfica interactiva. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos del valor (mensaje de página inexistente).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-19 Consultar un valor del índice.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-20}    & \textbf{Mostrar gráfica interactiva}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4, RF-4.1, RF-4.2 y RF-4.2.1 \\
+		\textbf{Descripción}          & Para interactuar con temporalidades e indicadores de un valor cotizado.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el valor existe.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario selecciona el valor que quiere consultar. 
+			\item Dar acceso a gráfica interactiva.
+			\item Se varían temporalidades ajustando volumen y medias móviles.
+			\item Se comprueban datos diarios.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario interactúa con la gráfica del valor. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos del valor (mensaje de página inexistente).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-20 Mostrar gráfica interactiva.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-21}    & \textbf{Mostrar distribución de retornos}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4, RF-4.1, RF-4.2 y RF-4.2.2 \\
+		\textbf{Descripción}          & Para ver la distribución que siguen los retornos de un valor en el último año (252 sesiones).\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles, el valor existe y tiene datos históricos suficientes.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario selecciona el valor que quiere consultar. 
+			\item Dar acceso a gráfica de distribución de retornos.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario consulta la distribución de los retornos de un valor. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos del valor (mensaje de página inexistente).
+		\end{itemize} \\
+		\textbf{Importancia}          & Baja \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-21 Mostrar distribución de retornos.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-22}    & \textbf{Mostrar datos del último mes}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4, RF-4.1, RF-4.2 y RF-4.2.3 \\
+		\textbf{Descripción}          & Para ver tabla con precios de un valor en el último mes.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles, el valor existe y tiene datos históricos suficientes.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario selecciona el valor que quiere consultar. 
+			\item Dar acceso a tabla con datos de último mes.
+			\item Mostrar tabla con colores verde (alcista) y rojo (bajista).
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario consulta la tabla de precios del último mes. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos del valor (mensaje de página inexistente).
+		\end{itemize} \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-22 Mostrar datos del último mes.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-23}    & \textbf{Mostrar evolución del sector}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4, RF-4.1, RF-4.2 y RF-4.2.4 \\
+		\textbf{Descripción}          & Para ver comparación - en términos relativos - entre el valor y su sector de referencia.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles, el valor existe y tiene datos históricos suficientes.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario selecciona el valor que quiere consultar. 
+			\item Obtener el sector de referencia del valor.
+			\item Obtener listado de valores del mismo sector.
+			\item Calcular media de evolución de todos los valores del mismo sector. 
+			\item Ajustar datos de forma relativa (porcentual).
+			\item Mostrar gráfica con evolución de valor y evolución de sector.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario consulta la gráfica comparativa de valor con sector de referencia. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos del valor (mensaje de página inexistente).
+			\item No hay datos de valores del sector (gráfica sin comparación).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-23 Mostrar evolución del sector.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-24}    & \textbf{Comparar con otros valores}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4, RF-4.1, RF-4.2 y RF-4.2.5 \\
+		\textbf{Descripción}          & Para ver comparación - en términos relativos - con otros valores seleccionados por el usuario.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles, el valor existe y tiene datos históricos suficientes.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario selecciona el valor que quiere consultar. 
+			\item El usuario selecciona en un formulario otro valor con el que comparar. 
+			\item Mostrar comparación relativa de precios de cierre. 
+			\item Mostrar comparación relativa de rentabilidades diarias. 
+		\end{enumerate}\\
+		\textbf{Postcondición}        & Recargar página con nueva gráfica comparativa. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos del valor (mensaje de página inexistente).
+			\item No hay datos del valor con el que comparar (mensaje de \emph{ticker} no válido).
+		\end{itemize} \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-24 Comparar con otros valores.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-25}    & \textbf{Mostrar grafos de correlación}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4, RF-4.1, RF-4.2 y RF-4.2.5 \\
+		\textbf{Descripción}          & Para ver grafos de correlación positiva y negativa con el resto de valores disponibles.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles, el valor existe y tiene datos históricos suficientes.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario selecciona el valor que quiere consultar. 
+			\item Crear matriz de correlación entre todos los valores disponibles.
+			\item Crear grafo de correlación positiva (correl. mayor a 0,75)
+			\item Crear grafo de correlación negativa (correl. mayor a -0,75)
+			\item Mostrar grafos de correlaciones.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario consulta los grafos de correlaciones. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos del valor (mensaje de página inexistente).
+			\item No hay correlaciones que superen los umbrales (mostrar grafo con nodo de valor sin más datos).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-25 Mostrar grafos de correlación.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-26}    & \textbf{Mostrar noticias relacionadas}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-4 y RF-4.3 \\
+		\textbf{Descripción}          & Para facilitar enlaces de fuentes RSS que estén relacionadas con el índice.\\
+		\textbf{Precondición}         & Las bases de datos están disponibles y las fuentes RSS están activas.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario selecciona el índice que quiere consultar. 
+			\item Mostrar listado de noticias relacionadas de fuentes RSS.
+			\item Pulsar el botón \emph{leer más} de una fuente.
+			\item Redirigir a web externa. 
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve listado de noticias relacionadas relevantes y puede seleccionar \emph{leer más} en fuente externa. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos de fuentes RSS (mensaje de error).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-26 Mostrar noticias relacionadas.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-27}    & \textbf{Gestionar \emph{Lab}}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-5, RF-5.1, RF-5.1.1, RF-5.1.2, RF-5.1.3, RF-5.1.4, RF-5.2, RF-5.2.1 y RF-5.2.2 \\
+		\textbf{Descripción}          & Para controlar una sección de \emph{laboratorio} virtual con el que experimentar sobre los datos disponibles.\\
+		\textbf{Precondición}         & El usuario está logueado y las bases de datos están disponibles.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario selecciona el índice que quiere consultar. 
+			\item Mostrar listado de noticias relacionadas de fuentes RSS.
+			\item Pulsar el botón \emph{leer más} de una fuente.
+			\item Redirigir a web externa. 
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario ve listado de noticias relacionadas relevantes y puede seleccionar \emph{leer más} en fuente externa. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item No hay datos de fuentes RSS (mensaje de error).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-27 Gestionar \emph{Lab}.}
+\end{table}
