@@ -272,3 +272,9 @@ La documentación del proyecto puede ser consultada en este directorio. Los arch
 
 
 \subsection{Directorio \emph{.github}}
+
+Al utilizar \emph{GitHub actions} es necesario configurarlas previamente. Los pasos que se deben realizar en las acciones - cada vez que se hace un \emph{push to origin/main} - se describen en los archivos que podemos encontrar en este directorio.
+
+\imagen{img_anex_22_diagrama_paquetes_13.png}{Diagrama de directorio \emph{.github}.}{1}
+
+Las \emph{GitHub actions} están configuradas para generar archivos \emph{.zip}, llamados \emph{Artifacts}, que permitan descargar los informes de resultados tanto de \texttt{pylint} como de \texttt{coverage}. 
