@@ -20,6 +20,28 @@
 \contentsline {table}{\numberline {B.11}{\ignorespaces CU-11 Mostrar \emph {donut}, sectores y divisas.}}{33}{table.Alph2.11}%
 \contentsline {table}{\numberline {B.12}{\ignorespaces CU-12 Ver gráfica de Markowitz, ratio de Sharpe y pesos.}}{34}{table.Alph2.12}%
 \contentsline {table}{\numberline {B.13}{\ignorespaces CU-13 Ver posiciones abiertas y evolución de cartera.}}{35}{table.Alph2.13}%
+\contentsline {table}{\numberline {B.14}{\ignorespaces CU-14 Eliminar valor de cartera.}}{36}{table.Alph2.14}%
+\contentsline {table}{\numberline {B.15}{\ignorespaces CU-15 Crear un nuevo valor en seguimiento.}}{37}{table.Alph2.15}%
+\contentsline {table}{\numberline {B.16}{\ignorespaces CU-16 Eliminar un valor de seguimiento.}}{38}{table.Alph2.16}%
+\contentsline {table}{\numberline {B.17}{\ignorespaces CU-17 Consultar índice.}}{39}{table.Alph2.17}%
+\contentsline {table}{\numberline {B.18}{\ignorespaces CU-18 Mostrar tabla de valores.}}{40}{table.Alph2.18}%
+\contentsline {table}{\numberline {B.19}{\ignorespaces CU-19 Consultar un valor del índice.}}{41}{table.Alph2.19}%
+\contentsline {table}{\numberline {B.20}{\ignorespaces CU-20 Mostrar gráfica interactiva.}}{42}{table.Alph2.20}%
+\contentsline {table}{\numberline {B.21}{\ignorespaces CU-21 Mostrar distribución de retornos.}}{43}{table.Alph2.21}%
+\contentsline {table}{\numberline {B.22}{\ignorespaces CU-22 Mostrar datos del último mes.}}{44}{table.Alph2.22}%
+\contentsline {table}{\numberline {B.23}{\ignorespaces CU-23 Mostrar evolución del sector.}}{45}{table.Alph2.23}%
+\contentsline {table}{\numberline {B.24}{\ignorespaces CU-24 Comparar con otros valores.}}{46}{table.Alph2.24}%
+\contentsline {table}{\numberline {B.25}{\ignorespaces CU-25 Mostrar grafos de correlación.}}{47}{table.Alph2.25}%
+\contentsline {table}{\numberline {B.26}{\ignorespaces CU-26 Mostrar noticias relacionadas.}}{48}{table.Alph2.26}%
+\contentsline {table}{\numberline {B.27}{\ignorespaces CU-27 Gestionar \emph {Lab}.}}{49}{table.Alph2.27}%
+\contentsline {table}{\numberline {B.28}{\ignorespaces CU-28 Trabajar con ARIMA.}}{50}{table.Alph2.28}%
+\contentsline {table}{\numberline {B.29}{\ignorespaces CU-29 Buscar (p,d,q) con funciones ACF y PACF.}}{51}{table.Alph2.29}%
+\contentsline {table}{\numberline {B.30}{\ignorespaces CU-30 Introducir (p,d,q) manualmente.}}{52}{table.Alph2.30}%
+\contentsline {table}{\numberline {B.31}{\ignorespaces CU-31 Estimar (p,d,q) de forma automática.}}{53}{table.Alph2.31}%
+\contentsline {table}{\numberline {B.32}{\ignorespaces CU-32 Hacer búsqueda por rejilla para (p,d,q).}}{54}{table.Alph2.32}%
+\contentsline {table}{\numberline {B.33}{\ignorespaces CU-33 Trabajar con \emph {trading} algorítmico.}}{55}{table.Alph2.33}%
+\contentsline {table}{\numberline {B.34}{\ignorespaces CU-34 Usar algoritmo de cruce de medias.}}{56}{table.Alph2.34}%
+\contentsline {table}{\numberline {B.35}{\ignorespaces CU-35 Usar estrategia basada en \emph {machine learning}.}}{57}{table.Alph2.35}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

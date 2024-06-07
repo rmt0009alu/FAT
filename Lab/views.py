@@ -1255,7 +1255,7 @@ def _algoritmo_cruce_medias_automaticas(df):
     # Para realizar una búsqueda por rejilla que permita obtener las mejores 
     # MMS (lenta y rápida). Se incluyen medias típicas de análisis técnico
     MMS_lenta = [30, 50, 200]
-    MMS_rapida = [5, 10, 15, 20]
+    MMS_rapida = [10, 15, 20, 50]
 
     mms_len = 0
     mms_rap = 0
@@ -1264,47 +1264,51 @@ def _algoritmo_cruce_medias_automaticas(df):
 
     for MMS_l in MMS_lenta:
         for MMS_r in MMS_rapida:
-            df['MMS_len'] = df['close'].rolling(MMS_l).mean()
-            df['MMS_rap'] = df['close'].rolling(MMS_r).mean()
+            if MMS_l != MMS_r:
+                df['MMS_len'] = df['close'].rolling(MMS_l).mean()
+                df['MMS_rap'] = df['close'].rolling(MMS_r).mean()
 
-            df['retorno_log'] = np.log(df['close']).diff()
-            # Para alinearlo con los comandos de compra/venta que se crean más 
-            # adelante. Al hacer esto se pierde el último valor del df
-            df['retorno_log'] = df['retorno_log'].shift(-1)
+                df['retorno_log'] = np.log(df['close']).diff()
+                # Para alinearlo con los comandos de compra/venta que se crean más 
+                # adelante. Al hacer esto se pierde el último valor del df
+                df['retorno_log'] = df['retorno_log'].shift(-1)
 
-            # Creo una máscara que detecte cuando las dos medias empiezan a tener valores
-            mascara = df['MMS_rap'].notna() & df['MMS_len'].notna()
-            # Calculo la columna de señal aplicando la máscara
-            df.loc[mascara, 'senal'] = np.where(df.loc[mascara, 'MMS_rap'] >= df.loc[mascara, 'MMS_len'], 1, 0)
+                # Inicializo la columna 'senal' con 0
+                df['senal'] = 0
 
-            # Y hago las operaciones oportunas para las indicaciones de compra/venta
-            df['senal_prev'] = df['senal'].shift(1)
-            # MMS_rap < MMS_len , cambia a:  MMS_rap > MMS_len
-            df['comprar'] = (df['senal_prev'] == 0) & (df['senal'] == 1)
-            # MMS_rap > MMS_len , cambia a:  MMS_rap < MMS_len
-            df['vender'] = (df['senal_prev'] == 1) & (df['senal'] == 0)
+                # Creo una máscara que detecte cuando las dos medias empiezan a tener valores
+                mascara = df['MMS_len'].notna()
+                # Calculo la columna de señal aplicando la máscara
+                df.loc[mascara, 'senal'] = np.where(df.loc[mascara, 'MMS_rap'] >= df.loc[mascara, 'MMS_len'], 1, 0)
 
-            # Calculo el estado invertido/no invertido
-            df['invertido'] = False
-            invertido = False
-            for i in range(len(df)):
-                if invertido and df.loc[i, 'vender']:
-                    invertido = False
-                if not invertido and df.loc[i, 'comprar']:
-                    invertido = True
-                df.loc[i, 'invertido'] = invertido
+                # Y hago las operaciones oportunas para las indicaciones de compra/venta
+                df['senal_prev'] = df['senal'].shift(1)
+                # MMS_rap < MMS_len , cambia a:  MMS_rap > MMS_len
+                df['comprar'] = (df['senal_prev'] == 0) & (df['senal'] == 1)
+                # MMS_rap > MMS_len , cambia a:  MMS_rap < MMS_len
+                df['vender'] = (df['senal_prev'] == 1) & (df['senal'] == 0)
 
-            # Calculo el retorno logarítmico total según el algoritmo
-            df['retorno_log_algoritmo'] = df['invertido'] * df['retorno_log']
+                # Calculo el estado invertido/no invertido
+                df['invertido'] = False
+                invertido = False
+                for i in range(len(df)):
+                    if invertido and df.loc[i, 'vender']:
+                        invertido = False
+                    if not invertido and df.loc[i, 'comprar']:
+                        invertido = True
+                    df.loc[i, 'invertido'] = invertido
 
-            ret_log_algo = df['retorno_log_algoritmo'].sum()
+                # Calculo el retorno logarítmico total según el algoritmo
+                df['retorno_log_algoritmo'] = df['invertido'] * df['retorno_log']
 
-            # Actualizo el mejor en caso de que el retorno sea mayor
-            if ret_log_algo > mejor_retorno:
-                mejor_retorno = ret_log_algo
-                mejor = df.copy()
-                mms_len = MMS_l
-                mms_rap = MMS_r
+                ret_log_algo = df['retorno_log_algoritmo'].sum()
+
+                # Actualizo el mejor en caso de que el retorno sea mayor
+                if ret_log_algo > mejor_retorno:
+                    mejor_retorno = ret_log_algo
+                    mejor = df.copy()
+                    mms_len = MMS_l
+                    mms_rap = MMS_r
 
     return mejor, mms_len, mms_rap
 

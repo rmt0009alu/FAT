@@ -1081,7 +1081,7 @@ y pesos}\\
 			\tightlist
 			\item No hay datos de fuentes RSS (mensaje de error).
 		\end{itemize} \\
-		\textbf{Importancia}          & Alta \\
+		\textbf{Importancia}          & Baja \\
 		\bottomrule
 	\end{tabularx}
 	\caption{CU-26 Mostrar noticias relacionadas.}
@@ -1103,19 +1103,342 @@ y pesos}\\
 		\begin{enumerate}
 			\def\labelenumi{\arabic{enumi}.}
 			\tightlist 
-			\item El usuario selecciona el índice que quiere consultar. 
-			\item Mostrar listado de noticias relacionadas de fuentes RSS.
-			\item Pulsar el botón \emph{leer más} de una fuente.
-			\item Redirigir a web externa. 
+			\item El usuario pulsa en en el apartado de \emph{Lab}.
+			\item Se muestran opciones de modelado ARIMA y de \emph{trading} algorítmico.
+			\item Para los usuarios del repositorio en local se muestra una opción de \emph{forecasting} con redes LSTM.
+			\item Al pulsar cualquier opción disponible se facilitan los accesos a las funcionalidades concretas.
+			\item Al lado de las funcionalidades disponibles se muestra información de ayuda al usuario.  
 		\end{enumerate}\\
-		\textbf{Postcondición}        & El usuario ve listado de noticias relacionadas relevantes y puede seleccionar \emph{leer más} en fuente externa. \\
-		\textbf{Excepciones}          & 
-		\begin{itemize}
-			\tightlist
-			\item No hay datos de fuentes RSS (mensaje de error).
-		\end{itemize} \\
+		\textbf{Postcondición}        & El usuario puede consultar las herramientas disponibles dentro del \emph{Lab}. \\
+		\textbf{Excepciones}          & \\
 		\textbf{Importancia}          & Alta \\
 		\bottomrule
 	\end{tabularx}
 	\caption{CU-27 Gestionar \emph{Lab}.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-28}    & \textbf{Trabajar con ARIMA}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-5, RF-5.1, RF-5.1.1, RF-5.1.2, RF-5.1.3 y RF-5.1.4  \\
+		\textbf{Descripción}          & Para tratar de hacer \emph{forecasting} de series temporales con modelos ARIMA .\\
+		\textbf{Precondición}         & El usuario está logueado y las bases de datos están disponibles.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario entra en el \emph{Lab}.
+			\item Se pulsa el botón \emph{ARIMA}.
+			\item Se muestran las opciones para trabajar con modelos ARIMA. 
+			\item Se despliegan los botones de las herramientas disponibles: funciones ACF y PACF, modelado manual, modelado automático y modelado con búsqueda de parámetros por rejilla. 
+			\item Al lado de cada opción se muestra una breve ayuda. 
+			\item Pulsar de la opción deseada.
+			\item Redirigir a la web con el formulario correpondiente. 
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario es dirigido a la plantilla con el formulario adecuado. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item La redirección no es adecuada (mensaje de error inesperado).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-28 Trabajar con ARIMA.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-29}    & \textbf{Buscar (p,d,q) con funciones ACF y PACF:}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-5, RF-5.1 y RF-5.1.1  \\
+		\textbf{Descripción}          & Para buscar los parámetros (p,d,q) de un modelo ARIMA de forma visual, a través del uso de funciones ACF y PACF.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles, el valor buscado existe.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario accede a la sección de ARIMA dentro del \emph{Lab}.
+			\item Se pulsa el botón \emph{Buscar parámetros (p,d,q) con funciones ACF y PACF}. 
+			\item Se accede al formulario de interacción adecuado. 
+			\item El usuario introduce el valor buscado y la cantidad de sesiones previas que desea utilizar para el modelo. 
+			\item El usuario pulsa el botón \emph{Mostrar resultados}.
+			\item Se muestran las diferenciaciones más habituales: d=1, d=2 y d=3.			
+			\item Se muestran las gráficas de ACF y PACF junto con precios de cierre diferenciados.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario puede consultar la información y sacar conclusiones de los mejores parámetros para la serie temporal escogida. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Se indica un valor que no existe (mensaje de error y reintento).
+			\item Se indica una cantidad inadecuada de sesiones (mensaje de error y reintento).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-29 Buscar (p,d,q) con funciones ACF y PACF.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-30}    & \textbf{Introducir (p,d,q) manualmente:}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-5, RF-5.1 y RF-5.1.2  \\
+		\textbf{Descripción}          & Para realizar \emph{forecasting} con un modelo ARIMA que tenga los parámetros (p,d,q) deseados por el usuario.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles, el valor buscado existe y el usuario conoce los parámetros que va a utilizar.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario accede a la sección del \emph{Lab}.
+			\item Se pulsa el botón \emph{Parámetros (p,d,q) introducidos por usuario}. 
+			\item Se accede al formulario de interacción adecuado. 
+			\item El usuario introduce valor buscado y cantidad de sesiones que desea utilizar con el modelo. 
+			\item El usuario introduce la cantidad de datos que quiere utilizar para entrenar el modelo.
+			\item El usuario introduce los parámetros (p,d,q).
+			\item El usuario pulsa el botón \emph{Estimar}.
+			\item Calcular intervalos de confianza y validación \emph{WF}.
+			\item Calcular aciertos de tendencia al usar validación \emph{WF}.
+			\item Se hace predicción de ARIMA sobre el porcentaje de datos de entrenamiento.
+			\item Se muestran métricas de error: MSE y RMSE. 
+			\item Se muestra comparación con una predicción naíf.			
+			\item Se muestra gráfica con validación \emph{walk forward}.
+			\item Mostrar resultados sobre datos de test con validación \emph{WF}.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario puede consultar la información. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Se indica un valor que no existe (mensaje de error y reintento).
+			\item Se indica una cantidad inadecuada de sesiones (mensaje de error y reintento).
+			\item Se indica un porcentaje de datos de entrenamiento no válido (mensaje de error y reintento).
+			\item Se indican parámetros (p,d,q) no válidos (mensaje de error y reintento).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-30 Introducir (p,d,q) manualmente.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-31}    & \textbf{Estimar (p,d,q) de forma automática:}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-5, RF-5.1 y RF-5.1.3  \\
+		\textbf{Descripción}          & Para realizar \emph{forecasting} con un modelo ARIMA que tenga los parámetros (p,d,q) calculados de forma automática.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el valor buscado existe.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario accede a la sección de ARIMA dentro del \emph{Lab}.
+			\item Se pulsa el botón \emph{Parámetros (p,d,q) estimados automáticamente}. 
+			\item Se accede al formulario de interacción adecuado. 
+			\item El usuario introduce el valor buscado y la cantidad de sesiones previas que desea utilizar para el modelo. 
+			\item El usuario introduce la cantidad de datos que quiere utilizar para entrenar el modelo.
+			\item El usuario pulsa el botón \emph{Estimar}.
+			\item Se utiliza \emph{auto\_arima} para estimar parámetros.
+			\item Calcular intervalos de confianza y validación \emph{WF}.
+			\item Calcular aciertos de tendencia al usar \emph{walk forward}
+			\item Se hace predicción de ARIMA sobre el porcentaje de datos de entrenamiento.
+			\item Se muestran métricas de error: MSE y RMSE. 
+			\item Se muestra comparación con una predicción naíf.			
+			\item Se muestra gráfica con validación \emph{walk forward}.
+			\item Mostrar resultados sobre datos de test con \emph{WF}.
+			\item Se muestra informe ARIMA/SARIMAX.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario puede consultar la información. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Se indica un valor que no existe (mensaje de error y reintento).
+			\item Se indica una cantidad inadecuada de sesiones (mensaje de error y reintento).
+			\item Se indica un porcentaje de datos de entrenamiento no válido (mensaje de error y reintento).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-31 Estimar (p,d,q) de forma automática.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-32}    & \textbf{Hacer búsqueda por rejilla para (p,d,q):}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-5, RF-5.1 y RF-5.1.4  \\
+		\textbf{Descripción}          & Para realizar \emph{forecasting} con un modelo ARIMA que tenga los parámetros (p,d,q) obtenidos tras una búsqueda por rejilla de entre unos valores preestablecidos.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles, el valor buscado existe, los posibles valores de los parámetros están preestablecidos.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario accede a la sección de ARIMA.
+			\item Se pulsa el botón \emph{Parámetros (p,d,q) creados con búsqueda por rejilla}. 
+			\item Se accede al formulario de interacción adecuado. 
+			\item El usuario introduce el valor buscado y la cantidad de sesiones previas que desea utilizar. 
+			\item El usuario selecciona posibles valores (p,d,q).
+			\item El usuario pulsa el botón \emph{Estimar}.
+			\item Se evalúan todas las posibles combinaciones de parámetros y se selecciona el modelo con menor MSE (es decir, el mejor modelo posible). 
+			\item Calcular intervalos de confianza y validación \emph{walk forward}.
+			\item Se calculan aciertos de tendencia al usar \emph{WF}.
+			\item Se hace predicción de ARIMA sobre el porcentaje de datos de entrenamiento.
+			\item Se muestran métricas de error: MSE y RMSE. 
+			\item Se muestra comparación con una predicción naíf.			
+			\item Se muestra gráfica con validación \emph{walk forward}.
+			\item Se muestran resultados sobre datos de test con \emph{walk forward} e informe ARIMA/SARIMAX.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario puede consultar la información. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Se indica un valor que no existe (mensaje de error y reintento).
+			\item Se indica una cantidad inadecuada de sesiones (mensaje de error y reintento).
+			\item Se indica un porcentaje de datos de entrenamiento no válido (mensaje de error y reintento).
+			\item Se indican posibles valores de (p,d,q) no válidos (mensaje de error y reintento).
+		\end{itemize} \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-32 Hacer búsqueda por rejilla para (p,d,q).}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-33}    & \textbf{Trabajar con \emph{trading} algorítmico:}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-5, RF-5.2, RF-5.2.1 y RF-5.2.2   \\
+		\textbf{Descripción}          & Para poder utilizar técnicas de \emph{trading} algorítmico aplicadas a los valores disponibles.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el valor buscado existe.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario entra en el \emph{Lab}.
+			\item Se pulsa el botón \emph{Trading algorítmico}.
+			\item Se muestran las opciones para trabajar con técnicas de \emph{trading} algorítmico. 
+			\item Se despliegan los botones de las herramientas disponibles: algoritmo de cruce de medias y estrategia basada en \emph{machine learning}.
+			\item Al lado de cada opción se muestra una breve ayuda. 
+			\item Pulsar de la opción deseada.
+			\item Redirigir a la web con el formulario correpondiente. 
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario puede consultar la información y sacar conclusiones sobre los resultados tanto en gráficas como en resumen descriptivo del modelo. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item La redirección no es adecuada (mensaje de error inesperado).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-33 Trabajar con \emph{trading} algorítmico.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-34}    & \textbf{Usar algoritmo de cruce de medias:}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-5, RF-5.2 y RF-5.2.1   \\
+		\textbf{Descripción}          & Para utilizar el algoritmo de cruce de medias sobre un valor seleccionado.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el valor buscado existe.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario accede a la sección de \emph{trading} algorítmico dentro del \emph{Lab}.
+			\item Se pulsa el botón \emph{Algoritmo de cruce de medias}. 
+			\item Se accede al formulario de interacción adecuado. 
+			\item El usuario introduce el valor buscado y la cantidad de sesiones previas que desea utilizar para el algoritmo.
+			\item Se hace una búsqueda por rejilla calculando las mejores rentabilidades con distintos cruces de medias preestablecidos ([30, 50, 200] y [10, 15, 20, 50]).
+			\item Se muestra el mejor resultado posible. 
+			\item Se hace una comparación con una estrategia \emph{buy and hold} en el mismo número de sesiones seleccionado.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario puede ver un resultado porcentual de haber seguido la estrategia de cruce de medias en el período seleccionado y puede comparar con una estrategia \emph{buy and hold} para sacar conclusiones. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Se indica un valor que no existe (mensaje de error y reintento).
+			\item Se indica una cantidad inadecuada de sesiones (mensaje de error y reintento).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-34 Usar algoritmo de cruce de medias.}
+\end{table}
+
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-35}    & \textbf{Usar estrategia basada en \emph{machine learning}:}\\
+		\toprule
+		\textbf{Versión}              & 1.0    \\
+		\textbf{Autor}                & Rodrigo Merino Tovar \\
+		\textbf{Requisitos asociados} & RF-5, RF-5.2 y RF-5.2.2   \\
+		\textbf{Descripción}          & Para hacer una predicción para la siguiente sesión de un índice con modelos de regresión y de clasificación.\\
+		\textbf{Precondición}         & El usuario está logueado, las bases de datos están disponibles y el índice sobre el que predecir existe.  \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist 
+			\item El usuario accede a la sección de \emph{trading} algorítmico dentro del \emph{Lab}.
+			\item Se pulsa el botón \emph{Estrategia basada en ML}. 
+			\item Se accede al formulario de interacción adecuado. 
+			\item El usuario introduce el valor buscado y la cantidad de sesiones previas que desea utilizar para el algoritmo.
+			\item El usuario indica el tipo de modelo. 
+			\item El usuario indica el porcentaje de datos para entrenar el modelo.
+			\item Se seleccionan los datos de los valores que representan al índice para el mismo período (mismo número de sesiones).
+			\item Se entrena el modelo y se calculan los \emph{scores} en entrenamiento y en test. 
+			\item Se hace una predicción adicional, fuera de los datos de test. 
+			\item Se muestra al usuario información tabular con resultados obtenidos y con predicción para la siguiente sesión. 
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El usuario puede consultar una tabla de resultados tras entrenar el modelo y la predicción. \\
+		\textbf{Excepciones}          & 
+		\begin{itemize}
+			\tightlist
+			\item Se indica una cantidad inadecuada de sesiones (mensaje de error y reintento).
+			\item Se indica un índice que no existe (mensaje de error y reintento).
+			\item Se indica un tipo de modelo no disponible (mensaje de error y reintento).
+			\item Se indica un porcentaje de datos de entrenamiento no válido (mensaje de error y reintento).
+		\end{itemize} \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-35 Usar estrategia basada en \emph{machine learning}.}
 \end{table}

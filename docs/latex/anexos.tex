@@ -46,15 +46,15 @@
 \nouppercaseheads
 
 % Imagenes
-\usepackage{graphicx}
-\newcommand{\imagen}[2]{
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width=0.9\textwidth]{#1}
-		\caption{#2}\label{fig:#1}
-	\end{figure}
-	\FloatBarrier
-}
+%\usepackage{graphicx}
+%\newcommand{\imagen}[2]{
+%	\begin{figure}[!h]
+%		\centering
+%		\includegraphics[width=0.9\textwidth]{#1}
+%		\caption{#2}\label{fig:#1}
+%	\end{figure}
+%	\FloatBarrier
+%}
 
 \newcommand{\imagenflotante}[2]{
 	\begin{figure}%[!h]
@@ -66,24 +66,60 @@
 
 % Para insertar una imagen sobrepasando los márgenes
 \usepackage[export]{adjustbox}
-%\newcommand{\imagenSinMargen}[2]{
-%    \begin{figure}[!h]
-%        \centering
-%        \includegraphics[width=1.3\textwidth, center]{#1} % Ajustar el ancho para que sobresalga del margen
-%        \caption{#2}\label{fig:#1}
-%    \end{figure}
-%    \FloatBarrier
-%}
-
 \newcommand{\imagenSinMargen}[2]{
     \begin{figure}[!h]
-        \makebox[\textwidth][c]{\includegraphics[width=1.45\textwidth]{#1}} % Ajusta el ancho para sobresalir ambos márgenes
+        \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{#1}} % Ajusta el ancho para sobresalir ambos márgenes
         \caption{#2}\label{fig:#1}
     \end{figure}
     \FloatBarrier
 }
 
+\newcommand{\imagenSinMargenSubsection}[3]{
+    \begin{figure}[!h]
+        \subsection*{#1} % Añade un título superior sin numerar
+        \makebox[\textwidth][c]{\includegraphics[width=1.4\textwidth]{#2}} % Ajusta el ancho para sobresalir ambos márgenes
+        \caption{#3}\label{fig:#2}
+    \end{figure}
+    \FloatBarrier
+}
 
+\newcommand{\imagenSinMargenSeccionYSubseccion}[4]{
+    \section{#1} % Añade una sección
+    \subsection{#2} % Añade una subsección
+    \begin{figure}[!h]
+        \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{#3}} % Ajusta el ancho para sobresalir ambos márgenes
+        \caption{#4}\label{fig:#3}
+    \end{figure}
+    \FloatBarrier
+}
+
+
+\newcommand{\imagenSinMargenSubsectionApasiada}[3]{
+	\begin{landscape}
+    	\begin{figure}[!h]
+        	\subsection*{#1} % Añade un título superior sin numerar
+        	\makebox[\textwidth][c]{\includegraphics[width=1.6\textwidth]{#2}} % Ajusta el ancho para sobresalir ambos márgenes
+        	\caption{#3}\label{fig:#2}
+    	\end{figure}
+    \end{landscape}
+    \FloatBarrier
+}
+
+
+% Comando para insertar una imagen en un lugar concreto.
+% Los parámetros son:
+% 1 --> Ruta absoluta/relativa de la figura
+% 2 --> Texto a pie de figura
+% 3 --> Tamaño en tanto por uno relativo al ancho de página
+\usepackage{graphicx}
+\newcommand{\imagen}[3]{
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=#3\textwidth]{#1}
+		\caption{#2}\label{fig:#1}
+	\end{figure}
+	\FloatBarrier
+}
 
 % El comando \figura nos permite insertar figuras comodamente, y utilizando
 % siempre el mismo formato. Los parametros son:

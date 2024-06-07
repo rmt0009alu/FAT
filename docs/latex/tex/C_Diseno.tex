@@ -2,10 +2,150 @@
 
 \section{Introducción}
 
+En este anexo se describe la resolución de los requisitos y casos de uso previos. Además, se muestra cómo se almacenan y manejan los datos, detalles procedimentales y la estructura interna del proyecto, entre otros.
+
 \section{Diseño de datos}
 
-\section{Diseño procedimental}
+En este proyecto de \emph{Django} se han creado cinco aplicaciones, intentado separar la lógica y funcionalidades de cada una de ellas de manera coherente con los resultados esperados. Hay una aplicación principal, denominada \emph{FAT} que se encarga de la gestión y configuración general del proyecto, y otras cuatro aplicaciones que se llaman \emph{News}, \emph{Analysis}, \emph{DashBoard} y \emph{Lab}. 
+
+Por otro lado, es importante destacar que se han utilizado cinco bases de datos. Una de ellas  dedicada a la gestión de usuarios y sus datos asociados, así como a tablas comunes de datos entre valores: divisas, sectores, etc. Las otras cuatro bases de datos almacenan información histórica de los componentes de cada índice:
+
+\imagen{img_anex_02_bases_datos.png}{Diseño de bases de datos. Fuente: elaboración propia}{1}
+
+La decisión de diseño inicial ha implicado una adaptación consecuente de los datos, en donde se crean las siguientes entidades:
+
+\begin{itemize}
+\item
+\textbf{Usuario} tiene un nombre y un identificador únicos, una marca que indica si es \emph{superusuario} y una contraseña que debe cumplir unas condiciones de complejidad. A su vez puede estar asociado a grupos de usuarios y tener permisos de acceso según su rol. Esta entidad viene predefinida por \emph{Django} y de ella no se utilizan los grupos. 
+
+\item
+\textbf{StockComprado}: representa a un valor que tenga el usuario en cartera. Se define a través de: \emph{usuario}, \emph{ticker\_bd}, \emph{bd}, \emph{ticker}, \emph{nombre\_stock}, \emph{fecha\_compra}, \emph{num\_acciones}, \emph{precio\_compra}, \emph{moneda}, \emph{sector}, \emph{ult\_cierre} y \emph{objects} (para \emph{Django}). Los nombres de los \emph{ticker} se diferencian entre el nombre con formato de punto y el nombre con formato de '\_', en todos los casos, para referenciar a las tablas en las bases de datos y evitar conflictos de notación. 
+
+\item
+\textbf{StockSeguimiento}: representa a un valor que tenga el usuario en seguimiento. sus atributos son: \emph{usuario}, \emph{ticker\_bd}, \emph{bd}, \emph{ticker}, \emph{nombre\_stock}, \emph{fecha\_inicio\_seguimiento}, \emph{precio\_entrada\_deseado}, \emph{moneda}, \emph{sector} y \emph{objects}.
+
+\item 
+\textbf{Sectores}: para almacenar de forma conjunta todos los valores disponibles en todas las bases de datos junto con su sector de referencia. Este modelo se crea única y exclusivamente para mejorar el rendimiento y evitar la búsqueda recurrente de valor-sector. Sus atributos son: \emph{id}, \emph{ticker\_bd}, \emph{bd}, \emph{ticker}, \emph{nombre}, \emph{sector} y \emph{objects}. 
+
+\item
+\textbf{CambioMoneda}: se utiliza para guardar la información de la última sesión de las divisas afectadas por las bases de datos y sus cambios de divisa. Es una entidad muy pequeña, pero necesaria para el correcto funcionamiento de las aplicaciones. Su estructura interna viene definida por: \emph{id}, \emph{ticker\_forex}, \emph{date}, \emph{ultimo\_cierre}, \emph{objects}.
+
+\item 
+\textbf{StockBase}: representa a cada uno de los valores cotizados. Estos valores tienen los siguientes atributos: \emph{id}, \emph{date}, \emph{open}, \emph{high}, \emph{low}, \emph{close}, \emph{volume}, \emph{dividends}, \emph{stock\_splits}, \emph{ticker}, \emph{previous\_close}, \emph{percent\_variance}, \emph{mm20}, \emph{mm50}, \emph{mm200}, \emph{name}, \emph{sector}, \emph{currency} y \emph{objects}. La mayoría de estos atributos vienen impuestos por la API \emph{yFinance} utilizada para la obtención de los datos. Además, es recomendable no modificar los nombres para facilitar la compatibilidad con otras librerías, como \emph{plotly}.
+\end{itemize}
+
+\newpage
+
+
+\imagenSinMargenSubsection{Diagrama E/R}{img_anex_03_diagrama_ER.png}{Diagrama E/R}
+
+
+\imagenSinMargenSubsection{Diagrama relacional}{img_anex_04_diagrama_relacional.png}{Diagrama relacional}
+
+
+% Título de section añadido con la imagen para mejor integración
+\imagenSinMargenSeccionYSubseccion{Diseño procedimental}{Diagrama de secuencias \emph{News} y \emph{Analysis}}{img_anex_05_diagrama_secuencia_1.png}{Diagrama de secuencias \emph{News} y \emph{Analysis}}
+
+\imagenSinMargenSubsectionApasiada{Diagrama de secuencias \emph{DashBoard}}{img_anex_06_diagrama_secuencia_2.png}{Diagrama de secuencias \emph{DashBoard}}
+
+\imagenSinMargenSubsection{Diagrama de secuencias \emph{Lab}}{img_anex_07_diagrama_secuencia_3.png}{Diagrama de secuencias \emph{Lab}}
 
 \section{Diseño arquitectónico}
 
+\subsection{Patrón MVT}
 
+Al realizar un proyecto en \emph{Django} hay varias decisiones de diseño que vienen impuestas por el propio \emph{framework}. La característica más importante es que se sigue el patrón MVT (\emph{Model View Template}).
+
+El patrón MVT es una arquitectura de desarrollo web donde \emph{Model} maneja la lógica de la base de datos, \emph{View} procesa las solicitudes y devuelve respuestas y \emph{Template} define la presentación visual. MVT facilita la separación de responsabilidades, permitiendo un desarrollo mejor organizado y un mantenimiento más eficiente. Las comunicaciones entre estos componentes son gestionadas por el \emph{framework}, lo que simplifica la creación de aplicaciones web.
+
+\imagen{img_anex_08_diagrama_MVT.png}{Diagrama de patrón MVT. Fuente: elaboración propia}{1}
+
+
+\subsection{Patrón \emph{Repository}}
+
+\emph{Django} trabaja con el patrón \emph{Repository} de manera implícita a través de su sistema de modelos y el ORM (Object-Relational Mapping). Aunque no se implementa este patrón de manera estricta, su ORM y sus \emph{managers} proporcionan una funcionalidad muy similar.
+
+El patrón \emph{Repository} actúa como una capa intermedia entre la lógica de negocio y la capa de acceso a datos. Sus principales objetivos son:
+
+\begin{itemize}
+\tightlist
+\item 
+\textbf{Encapsulamiento} encapsula el acceso a la base de datos, proporcionando un entorno accesible para la lógica de negocio.
+\item
+\textbf{Desacoplamiento} desacopla la lógica de negocio de los detalles de persistencia.
+\item 
+\textbf{Consistencia} proporciona una forma de trabajar con colecciones de objetos de dominio sin exponer detalles de la base de datos.
+\end{itemize}
+
+En este proyecto, de manera adicional, se siguen ideas basadas en este patrón y se crea un esquema muy similar al de un patrón \emph{Respository}:
+
+\imagen{img_anex_09_patrón_repositorio.png}{Patrón repositorio. Fuente: elaboración propia}{1}
+
+\subsection{Patrón \emph{Factory}}
+
+Para la creación de los objetos \emph{StockBase} se utiliza el patrón \emph{Factory}. La idea subyacente de la aplicación de este patrón al proyecto es que se crea una clase común sin definir completamente y, según la necesidad, se va utilizando de forma dinámica para crear las tablas de los valores cotizados. 
+
+La lógica para crear las clases de modelos se encapsula en un bucle que itera sobre los \emph{tickers} disponibles, abstrayendo el proceso de creación de instancias concretas de modelos.
+
+Este enfoque permite mejorar la mantenibilidad, ya que no será necesario crear nuevas clases por cada valor que queramos añadir, sino que se pueden actualizar las  listas de valores\footnote{Ver \texttt{/util/tickers/Tickers\_BDs.py} para más información.} (llamados \emph{tickers} por sencillez de uso a lo largo del proyecto) y, a través de este patrón, se generarán las clases y tablas oportunas. 
+
+\subsection{Patrón \emph{Strategy}}
+
+Aunque no sigue exactamente este patrón en el diseño del proyecto, he de mencionar que sí se utiliza un enfoque similar a la hora de enrutar la información hacia las bases de datos. 
+
+El \emph{router}\footnote{Ver \texttt{/FAT/routers/router\_bases\_datos.py} para más información} clasifica las bases de datos en función del modelo y define estrategias para:
+
+\begin{itemize}
+\tightlist
+\item 
+Lectura de Datos (\emph{db\_for\_read}).
+\item 
+Escritura de Datos (\emph{db\_for\_write}).
+\item 
+Permitir Relaciones (\emph{allow\_relation}).
+\item
+Migraciones (\emph{allow\_migrate}).
+\end{itemize}
+
+La mayor ventaja de seguir ideas basadas en este patrón es que las estrategias se pueden cambiar fácilmente, modificando la implementación de los métodos sin afectar a otras partes del proyecto. 
+
+
+\subsection{Diagramas de paquetes}
+
+En el contexto de \emph{Django}, cada aplicación (\emph{app}) puede considerarse un paquete. \emph{Django} está diseñado de manera modular, permitiendo que cada \emph{app} sea una unidad independiente y reutilizable dentro del proyecto y, por tanto, se va a mostrar la estructura de paquetes basada en esta concepción:
+
+\newpage
+\subsubsection{Directorio general de todo el proyecto. Distribución de paquetes}
+
+\imagen{img_anex_10_diagrama_paquetes_1.png}{Diagrama de paquetes general.}{1}
+
+
+\subsubsection{Paquete \emph{FAT}}
+
+
+\imagen{img_anex_11_diagrama_paquetes_2.png}{Diagrama de paquete \emph{FAT}.}{1}
+
+Como se ve en la figura anterior, este paquete cumple las siguientes funciones:
+
+\begin{itemize}
+\tightlist
+\item
+Configuración general del proyecto (\emph{settings}) y direccionamiento de \emph{URLs}.
+\item
+Gestión de \emph{router} para las bases de datos.
+\item
+Almacenamiento de variables de entorno secretas (\emph{.env})
+\end{itemize}
+
+
+\subsubsection{Paquete \emph{News}}
+
+\imagen{img_anex_12_diagrama_paquetes_3.png}{Diagrama de paquete \emph{News}.}{1}
+
+\subsubsection{Paquete \emph{Analysis}}
+
+\imagen{img_anex_13_diagrama_paquetes_4.png}{Diagrama de paquete \emph{Analysis}.}{1}
+
+\subsubsection{Paquete \emph{DashBoard}}
+
+\subsection{Paquete \emph{Lab}}

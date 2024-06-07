@@ -37,22 +37,34 @@
 \contentsline {subsection}{Requisitos no funcionales}{21}{section*.27}%
 \contentsline {section}{\numberline {B.4}Especificación de requisitos}{21}{section.Alph2.4}%
 \contentsline {subsection}{Casos de uso}{21}{section*.28}%
-\contentsline {appendix}{\chapternumberline {C}Especificación de diseño}{37}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Introducción}{37}{section.Alph3.1}%
-\contentsline {section}{\numberline {C.2}Diseño de datos}{37}{section.Alph3.2}%
-\contentsline {section}{\numberline {C.3}Diseño procedimental}{37}{section.Alph3.3}%
-\contentsline {section}{\numberline {C.4}Diseño arquitectónico}{37}{section.Alph3.4}%
-\contentsline {appendix}{\chapternumberline {D}Documentación técnica de programación}{39}{appendix.Alph4}%
-\contentsline {section}{\numberline {D.1}Introducción}{39}{section.Alph4.1}%
-\contentsline {section}{\numberline {D.2}Estructura de directorios}{39}{section.Alph4.2}%
-\contentsline {section}{\numberline {D.3}Manual del programador}{39}{section.Alph4.3}%
-\contentsline {section}{\numberline {D.4}Compilación, instalación y ejecución del proyecto}{39}{section.Alph4.4}%
-\contentsline {section}{\numberline {D.5}Pruebas del sistema}{39}{section.Alph4.5}%
-\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{41}{appendix.Alph5}%
-\contentsline {section}{\numberline {E.1}Introducción}{41}{section.Alph5.1}%
-\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{41}{section.Alph5.2}%
-\contentsline {section}{\numberline {E.3}Instalación}{41}{section.Alph5.3}%
-\contentsline {section}{\numberline {E.4}Manual del usuario}{41}{section.Alph5.4}%
-\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{43}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Introducción}{43}{section.Alph6.1}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{45}{appendix*.29}%
+\contentsline {appendix}{\chapternumberline {C}Especificación de diseño}{59}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Introducción}{59}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Diseño de datos}{59}{section.Alph3.2}%
+\contentsline {section}{\numberline {C.3}Diseño procedimental}{64}{section.Alph3.3}%
+\contentsline {subsection}{Diagrama de secuencias \emph {News} y \emph {Analysis}}{64}{section*.31}%
+\contentsline {section}{\numberline {C.4}Diseño arquitectónico}{66}{section.Alph3.4}%
+\contentsline {subsection}{Patrón MVT}{66}{section*.34}%
+\contentsline {subsection}{Patrón \emph {Repository}}{67}{section*.35}%
+\contentsline {subsection}{Patrón \emph {Factory}}{68}{section*.36}%
+\contentsline {subsection}{Patrón \emph {Strategy}}{69}{section*.37}%
+\contentsline {subsection}{Diagramas de paquetes}{69}{section*.38}%
+\contentsline {subsubsection}{Directorio general de todo el proyecto. Distribución de paquetes}{70}{section*.39}%
+\contentsline {subsubsection}{Paquete \emph {FAT}}{70}{section*.40}%
+\contentsline {subsubsection}{Paquete \emph {News}}{71}{section*.41}%
+\contentsline {subsubsection}{Paquete \emph {Analysis}}{71}{section*.42}%
+\contentsline {subsubsection}{Paquete \emph {DashBoard}}{72}{section*.43}%
+\contentsline {subsection}{Paquete \emph {Lab}}{72}{section*.44}%
+\contentsline {appendix}{\chapternumberline {D}Documentación técnica de programación}{73}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Introducción}{73}{section.Alph4.1}%
+\contentsline {section}{\numberline {D.2}Estructura de directorios}{73}{section.Alph4.2}%
+\contentsline {section}{\numberline {D.3}Manual del programador}{73}{section.Alph4.3}%
+\contentsline {section}{\numberline {D.4}Compilación, instalación y ejecución del proyecto}{73}{section.Alph4.4}%
+\contentsline {section}{\numberline {D.5}Pruebas del sistema}{73}{section.Alph4.5}%
+\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{75}{appendix.Alph5}%
+\contentsline {section}{\numberline {E.1}Introducción}{75}{section.Alph5.1}%
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{75}{section.Alph5.2}%
+\contentsline {section}{\numberline {E.3}Instalación}{75}{section.Alph5.3}%
+\contentsline {section}{\numberline {E.4}Manual del usuario}{75}{section.Alph5.4}%
+\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{77}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Introducción}{77}{section.Alph6.1}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{79}{appendix*.45}%

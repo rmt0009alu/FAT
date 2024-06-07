@@ -299,7 +299,7 @@ class EstrategiaMLForm(forms.Form):
         required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Selecciona un modelo para realizr la previsión'
+            'placeholder': 'Selecciona un modelo para realizar la previsión'
         })
     )
 
