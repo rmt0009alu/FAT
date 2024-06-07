@@ -110,7 +110,7 @@ Migraciones (\emph{allow\_migrate}).
 La mayor ventaja de seguir ideas basadas en este patrón es que las estrategias se pueden cambiar fácilmente, modificando la implementación de los métodos sin afectar a otras partes del proyecto. 
 
 
-\subsection{Diagramas de paquetes}
+\subsection{Diagramas de paquetes y directorios}
 
 En el contexto de \emph{Django}, cada aplicación (\emph{app}) puede considerarse un paquete. \emph{Django} está diseñado de manera modular, permitiendo que cada \emph{app} sea una unidad independiente y reutilizable dentro del proyecto y, por tanto, se va a mostrar la estructura de paquetes basada en esta concepción:
 
@@ -142,10 +142,133 @@ Almacenamiento de variables de entorno secretas (\emph{.env})
 
 \imagen{img_anex_12_diagrama_paquetes_3.png}{Diagrama de paquete \emph{News}.}{1}
 
+En \emph{News} se gestiona, fundamentalmente, la conexión con la API \emph{NewsAPI}, que permite ofrecer noticias en tiempo real al usuario en portada. Además, permite realizar una búsqueda de los mejores y peores valores de cada índice y dispone de una función de representación gráfica que se integra con otras \emph{apps} del proyecto\footnote{Ver \texttt{/News/views/\_generar\_figura()} para más información.}. 
+
+En este proyecto la cuenta utilizada para la obtención de noticias es gratuita (cualquiera puede adquirir una \emph{API key} gratuita\footnote{Visitar \textbf{https://newsapi.org/}.}) y los contenidos son, en muchos casos, relacionados con India y Estados Unidos, pero como muestra de integración en una web, parece interesante incluirlo al trabajo por los fines didácticos. 
+
+
 \subsubsection{Paquete \emph{Analysis}}
 
 \imagen{img_anex_13_diagrama_paquetes_4.png}{Diagrama de paquete \emph{Analysis}.}{1}
 
+Este paquete cumple las siguientes funciones:
+
+\begin{itemize}
+\tightlist
+\item
+Creación y gestión de modelos \emph{StockBase}, \emph{Sectores} y \emph{CambioMoneda}.
+\item
+Controlar las vistas de registro, \emph{login} y \emph{logout}.
+\item
+Control de gráficas dinámicas de valores cotizados.
+\item
+Gestión de datos asociados a valores y su sector de referencia.
+\item 
+Manejo de datos de índices y fuentes RSS asociadas. 
+\end{itemize}
+
+
 \subsubsection{Paquete \emph{DashBoard}}
 
+El paquete \emph{DashBoard} se encarga de:
+
+\begin{itemize}
+\tightlist
+\item
+Controlar la evolución de la cartera de un usuario en la divisa seleccionada (euros). 
+\item
+Creación y gestión de modelos \emph{StockComprado} y \emph{StockSeguimiento}. 
+\item
+Control de gráficas de Markowitz y distribución de pesos con ratio de Sharpe.
+\item
+Manejo de plantillas de zona privada de usuario para ofrecer información agregada. 
+\end{itemize}
+
+Además, en esta aplicación e incluyen varios formularios de interacción con el usuario, aprovechando el potencial de \emph{Django} para este tipo de tareas.
+
+\imagen{img_anex_14_diagrama_paquetes_5.png}{Diagrama de paquete \emph{DashBoard}.}{1}
+
+
 \subsection{Paquete \emph{Lab}}
+
+Este paquete cumple con las siguientes funcionalidades\footnote{Para los usuarios del repositorio y no de la web también está disponible la utilización de redes LSTM con funciones muy básicas.}:
+
+\begin{itemize}
+\tightlist
+\item
+Control de \emph{forecasting} con modelos ARIMA.
+\item
+Control de funciones de \emph{trading} algorítmico.
+\end{itemize}
+
+\imagen{img_anex_15_diagrama_paquetes_6.png}{Diagrama de paquete \emph{Lab}.}{1}
+
+
+\subsection{Paquete \emph{util}}
+
+\imagen{img_anex_16_diagrama_paquetes_7.png}{Diagrama de paquete \emph{util}.}{1}
+
+
+Aquí se almacenan los siguientes módulos de utilidad:
+
+\begin{itemize}
+\tightlist
+\item
+Directorio \emph{rss} con las direcciones de los \emph{feeds} asociados a los índices. 
+\item
+Directorio \emph{tickers} con métodos que permiten acceder, de forma sencilla, a todos los \emph{tickers} disponibles en la aplicación. Si se quiere añadir un nuevo índice, es recomendable empezar por añadir aquí los \emph{tickers} de dicho índice, ya que esto facilitaría mucho los pasos posteriores. 
+\item
+Archivos para crear y actualizar las bases de datos de los valores. 
+\item
+Archivo para crear un árbol de directorios del proyecto\footnote{Requiere de la instalación de \texttt{seedir} (y \texttt{emoji} si se desea).}.
+\end{itemize}
+
+
+\subsection{Directorio \emph{tests}}
+
+\imagen{img_anex_17_diagrama_paquetes_8.png}{Diagrama de directorio \emph{tests}.}{1}
+
+Como se puede observar en la figura anterior, en \emph{tests} se almacenan todos los tests del proyecto, tratando de seguir la misma estructura de carpetas para mayor mantenibilidad en futuras mejoras. 
+
+Se recomienda el uso de \texttt{coverage} para lanzar los tests.
+
+
+\subsection{Directorio \emph{log}}
+
+En este paquete se almacenan una serie de archivos de \emph{log} que permiten comprobar lo que ha ocurrido con los tests. Son meramente informativos para el desarrollador. Además, aquí se incluye la configuración del \emph{logger} para todos los tests.
+
+\imagen{img_anex_18_diagrama_paquetes_9.png}{Diagrama de directorio \emph{log}.}{1}
+
+
+\subsection{Directorio \emph{htmlcov}}
+
+Al utilizar la librería \texttt{coverage} podemos generar un informe HTML que permite visualizar las partes de código que quedan sin cubrir y las que ya están cubiertas. Este informe está accesible en este paquete y es consultable haciendo doble \emph{click} sobre el archivo \emph{index.html}:
+
+\imagen{img_anex_19_diagrama_paquetes_10.png}{Diagrama de directorio \emph{htmlcov}.}{1}
+
+
+\subsection{Directorio \emph{databases}}
+
+Las bases de datos utilizadas por las aplicaciones se encuentran en este directorio:
+
+\imagen{img_anex_20_diagrama_paquetes_11.png}{Diagrama de directorio \emph{databases}.}{1}
+
+
+\subsection{Directorio \emph{docs}}
+
+La documentación del proyecto puede ser consultada en este directorio. Los archivos están distribuidos de la siguiente manera:
+
+\begin{itemize}
+\tightlist
+\item
+\emph{/burndowns}: recoge imágenes de la evolución de los diferentes \emph{sprints}.
+\item
+\emph{/sphinx}: al ejecutar el archivo \texttt{/sphinx/\_build/html/index.html} se puede consultar la documentación del código con el mismo formato que el disponible en \emph{ReadTheDocs}.
+\item
+\emph{/latex}: almacena la memoria y los anexos, así como los archivos \LaTeX utilizados y las imágenes asociadas.
+\end{itemize}
+
+\imagen{img_anex_21_diagrama_paquetes_12.png}{Diagrama de directorio \emph{docs}.}{1}
+
+
+\subsection{Directorio \emph{.github}}

@@ -20,7 +20,7 @@ VerInfoÚtil.py
 .coverage
 
 # Para ignorar la carpeta de HTML de 'coverage'
-/htmlcov
+# /htmlcov
 
 # Para ignorar el archivo en el que tengo variables de entorno
 .env
