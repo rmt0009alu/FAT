@@ -67,7 +67,7 @@ El repositorio del proyecto tiene la siguiente distribución de directorios:
 \texttt{/docs/latex}: documentación de la memoria y los anexos del Trabajo de Fin de Grado que ha llevado al desarrollo de este proyecto. 
 
 \item 
-\texttt{/docs/sphinx/_build/html}: documentación en formato HTML de todo el código del proyecto siguiendo el estilo de \emph{ReadTheDocs}.
+\texttt{/docs/sphinx/\_build/html}: documentación en formato HTML de todo el código del proyecto siguiendo el estilo de \emph{ReadTheDocs}.
 
 \item 
 \texttt{/FAT}: aplicación principal para gestión del proyecto. Aquí se encuentra el archivo de \texttt{settings.py} junto con otros archivos relevantes para el correcto funcionamiento del resto de aplicaciones. También se puede ver la configuración del enrutamiento a las bases de datos. Además, aquí se encuentra el archivo \texttt{.env} donde se guardan las claves secretas de \emph{Django} y \emph{NewsAPI}.
@@ -97,28 +97,33 @@ El repositorio del proyecto tiene la siguiente distribución de directorios:
 \texttt{/News/migrations}: directorio vacío, igual que en \texttt{/Lab/migrations}.
 
 \item 
-\texttt{/Lab/templates}: plantillas HTML que permiten ver información y mostrar con los formularios con los campos predefinidos en \texttt{forms.py}.
+\texttt{/News/templates}: plantillas HTML que permiten ver información de portada. 
 
 \item 
-\texttt{/Lab/templates/includes}: plantillas HTML auxiliares.
+\texttt{/News/templates/includes}: diseño de botones HTML de utilidad. 
 
 \item 
-\texttt{/htmlcov}:
+\texttt{/static}: archivos estáticos. 
+
 
 \item 
-\texttt{/htmlcov}:
+\texttt{/static/admin}: archivos de \emph{Django} que permiten el acceso, a través de \texttt{http://127.0.0.1:8000/admin/}, al área de gestión visual de administración.
 
 \item 
-\texttt{/htmlcov}:
+\texttt{/static/css}: archivos CSS utilizados en el proyecto para mantener los mismos estilos en las diferentes aplicaciones. 
 
 \item 
-\texttt{/htmlcov}:
+\texttt{/static/icons}: diferentes iconos para mostrar en la herramienta. 
 
 
+\item 
+\texttt{/tests}: todos los tests de las distintas aplicaciones y pruebas de algunas de las herramientas de utilidad creadas para favorecer el desarrollo. 
 
-
-
+\item 
+\texttt{/util}: herramientas de utilidad para controlar los índices bursátiles y valores disponibles. Además, aquí se almacenan las referencias de los \emph{feed} RSS y los archivos que sirven para crear y/o actualizar las bases de datos. 
 \end{itemize}
+
+
 \section{Manual del programador}
 
 \section{Compilación, instalación y ejecución del proyecto}

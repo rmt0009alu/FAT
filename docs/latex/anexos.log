@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  7 JUN 2024 18:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  8 JUN 2024 12:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2312,19 +2312,38 @@ l.463 \include{./tex/C_Diseno}
 
 
 
-]) [81]
+] [81]
+Overfull \hbox (5.31541pt too wide) in paragraph at lines 43--44
+[]\T1/lmtt/m/n/12 /Analysis/templates/includes\T1/lmr/m/n/12 (-20) : plan-ti-ll
+as HTML au-xi-lia-res que apor-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
+ [82]
+Overfull \hbox (86.70543pt too wide) in paragraph at lines 110--111
+\T1/lmr/m/n/12 (-20) mien-ta de ges-tión vi-sual de ad-mi-nis-tra-ción a tra-vé
+s de \T1/lmtt/m/n/12 http://127.0.0.1:8000/admin/\T1/lmr/m/n/12 (-20) . 
+ []
+
+)
+LaTeX Info: Redefining \. on input line 464.
+LaTeX Info: Redefining \% on input line 464.
+ [83]
 \openout2 = `./tex/E_Manual_usuario.aux'.
 
- (tex/E_Manual_usuario.tex [82
+ (tex/E_Manual_usuario.tex [84
 
 
 
 
-])
-[83]
+]) [85]
 \openout2 = `./tex/F_ODS.aux'.
 
- (tex/F_ODS.tex [84
+ (tex/F_ODS.tex [86
 
 
 
@@ -2335,20 +2354,20 @@ Overfull \hbox (19.4857pt too wide) in paragraph at lines 7--8
 dad _ Crue2012 . pdf$[][]\T1/lmr/m/n/12 (-20) . 
  []
 
-) [85] (anexos.bbl [86
+) [87] (anexos.bbl [88
 
 
 
-]) [87]
+]) [89]
 
 pdfTeX warning: pdflatex (file ./img/licencia.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<./img/licencia.pdf, id=1379, 597.23125pt x 845.1575pt>
+<./img/licencia.pdf, id=1388, 597.23125pt x 845.1575pt>
 File: ./img/licencia.pdf Graphic file (type pdf)
 <use ./img/licencia.pdf>
 Package pdftex.def Info: ./img/licencia.pdf  used on input line 479.
 (pdftex.def)             Requested size: 113.81102pt x 161.04585pt.
-[88 <./img/licencia.pdf>]
+[90 <./img/licencia.pdf>]
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
@@ -2389,11 +2408,11 @@ Package rerunfilecheck Info: File `anexos.out' has not changed.
 (rerunfilecheck)             Checksum: 039A9CCBE4154A4061B3B1580160F4F6;5239.
  ) 
 Here is how much of TeX's memory you used:
- 20114 strings out of 474591
- 327113 string characters out of 5745778
+ 20118 strings out of 474591
+ 327151 string characters out of 5745778
  2096533 words of memory out of 5000000
  41208 multiletter control sequences out of 15000+600000
- 673453 words of font info for 232 fonts, out of 8000000 for 9000
+ 673582 words of font info for 233 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,13n,95p,1005b,823s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
@@ -2413,9 +2432,9 @@ C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso17.pfb>
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
 
-Output written on anexos.pdf (96 pages, 1578647 bytes).
+Output written on anexos.pdf (98 pages, 1587748 bytes).
 PDF statistics:
- 1554 PDF objects out of 1728 (max. 8388607)
- 444 named destinations out of 1000 (max. 500000)
+ 1564 PDF objects out of 1728 (max. 8388607)
+ 446 named destinations out of 1000 (max. 500000)
  64886 words of extra memory for PDF output out of 74296 (max. 10000000)
 

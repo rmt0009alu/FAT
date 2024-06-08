@@ -57,7 +57,7 @@ Aquí se detallan los paso más importantes que hay que dar para utilizar esta h
 
  - Crear un entorno virtual en el mismo directorio en el que tengamos los archivos del repositorio:
 
-   > python -m venv venv
+   `> python -m venv venv`
 
 ### Paso 6. Instalar las dependencias en el entorno virtual:
 
@@ -65,7 +65,7 @@ En este proyecto se puede encontrar un archivo requirements.txt con todas las de
 
 - Abrir entorno virtual:
 
-  > .\venv\Scripts\activate
+  `> .\venv\Scripts\activate`
 
 - Instalar framework, librerías y APIs:
 
