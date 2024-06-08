@@ -153,29 +153,29 @@ Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
   información de la base de datos por defecto o si se quiere ampliar la cantidad de datos históricos de los índices
   bursátiles. 
   
-  Para realizar esta operación hay que eliminar las migraciones previas:
+    Para realizar esta operación hay que eliminar las migraciones previas:
 
-  > (venv) > python .\manage.py migrate Analysis zero<br>
-  > (venv) > python .\manage.py migrate DashBoard zero
+    > (venv) > python .\manage.py migrate Analysis zero<br>
+    > (venv) > python .\manage.py migrate DashBoard zero
   
-  Además de los comandos anteriores es altamente recomendable eliminar los archivos /Analysis/migrations/0001_initial.py
-  y /DashBoard/migrations/0001_initial.py
+    Además de los comandos anteriores es altamente recomendable eliminar los archivos /Analysis/migrations/0001_initial.py
+    y /DashBoard/migrations/0001_initial.py
 
-  Con las migraciones eliminadas, el siguiente paso es eliminar las bases de datos del directorio /databases.
+    Con las migraciones eliminadas, el siguiente paso es eliminar las bases de datos del directorio /databases.
 
-  Posteriormente ya podremos crear las nuevas migraciones con:
+    Posteriormente ya podremos crear las nuevas migraciones con:
 
-  > (venv) > python manage.py makemigrations<br>
-  > (venv) > python manage.py migrate<br>
-  > (venv) > python manage.py migrate --database=dj30<br>
-  > (venv) > python manage.py migrate --database=ibex35<br>
-  > (venv) > python manage.py migrate --database=ftse100<br>
-  > (venv) > python manage.py migrate --database=dax40
+    > (venv) > python manage.py makemigrations<br>
+    > (venv) > python manage.py migrate<br>
+    > (venv) > python manage.py migrate --database=dj30<br>
+    > (venv) > python manage.py migrate --database=ibex35<br>
+    > (venv) > python manage.py migrate --database=ftse100<br>
+    > (venv) > python manage.py migrate --database=dax40
 
-  Por último, hay que lanzar el script _CrearBDs.py_, asegurnándonos, como se indica en el paso 9, de no tener el 
-  servidor activo y de que los mercados bursátiles están cerrados:
+    Por último, hay que lanzar el script _CrearBDs.py_, asegurnándonos, como se indica en el paso 9, de no tener el 
+    servidor activo y de que los mercados bursátiles están cerrados:
 
-  > (venv) > python .\util\CrearBDs.py
+    > (venv) > python .\util\CrearBDs.py
 
 
 ### Paso 11. ¿Quieres crear un usuario administrador?
@@ -183,11 +183,11 @@ Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
   - Los usuarios administradores en Django tienen la capacidad de gestionar información de la plataforma en un entorno
   visual agradable, pudiendo crear, eliminar y modificar objetos. 
   
-  Lo que el administrador podrá modificar depende de la configuración establecida en los archivos _admin.py_ de las diferentes aplicaciones.
+    Lo que el administrador podrá modificar depende de la configuración establecida en los archivos _admin.py_ de las diferentes aplicaciones.
 
-  Para crear un _admin_ sólo hay que lanzar el siguiente comando:
+    Para crear un _admin_ sólo hay que lanzar el siguiente comando:
 
-  > (venv) > python manage.py createsuperuser
+    > (venv) > python manage.py createsuperuser
 
 
 ### Opcional. Dependencias adicionales interesantes:
