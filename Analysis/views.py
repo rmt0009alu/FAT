@@ -312,7 +312,7 @@ def chart_y_datos(request, ticker, nombre_bd):
         
     Returns
     -------
-        render
+        : render
             Renderiza la plantilla 'chart_y_datos.html' con datos de contexto.
     """
     if (nombre_bd not in bases_datos_disponibles()) or (ticker not in tickers_adaptados_disponibles()):
@@ -368,7 +368,7 @@ def _formatear_volumen(volumen):
 
     Returns
     -------
-        str
+        : str
             Volumen formateado.
     """
     if volumen >= 1000000:

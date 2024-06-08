@@ -50,12 +50,15 @@ def lab(request):
     pueden aplicar. El usuario verá la vista de 'lab.html'
     con la información necesaria. 
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
-        (render): renderiza la plantilla 'lab.html' con datos de contexto.
+    Returns
+    -------
+        : render
+            Renderiza la plantilla 'lab.html' con datos de contexto.
     """
     # Obtener el nombre del usuario
     usuario = request.user.username
@@ -72,12 +75,15 @@ def buscar_paramateros_arima(request):
     """Para buscar, a partir de gráficas, los mejores datos de los parámetros
     (p, d, q). Requiere que el usuario entienda lo que está viendo. 
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest)
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
-        (render): renderiza la plantilla 'buscar_paramateros_arima.html' con datos
+    Returns
+    -------
+        : render)
+            Renderiza la plantilla 'buscar_paramateros_arima.html' con datos
             de contexto.
     """
     if request.method == 'GET':
@@ -139,13 +145,18 @@ def _diferenciacion_logaritmica(df, d):
     para hacer la serie estacionaria y que podamos aplicar las funciones ACF y PACF. 
     Además, genera las gráficas necesarias para que el usuario interprete los datos. 
 
-    Args:
-        df (pandas.core.frame.DataFrame): conjunto total de datos. 
-        d (int): orden de diferenciación (la I_(d) de ARIMA).
+    Parameters
+    ----------
+        df : pandas.core.frame.DataFrame)
+            Conjunto total de datos. 
 
-    Returns:
-        grafica_acf_pacf (str): imagen con las gráficas de diferenciación de cierres,
-            ACF y PACF.
+        d : int
+            Orden de diferenciación (la I_(d) de ARIMA).
+
+    Returns
+    -------
+        grafica_acf_pacf : str
+            Imagen con las gráficas de diferenciación de cierres, ACF y PACF.
     """
     log_close = np.log(df['close'])
     df['retorno'] = log_close.diff(d)
@@ -199,13 +210,15 @@ def arima_auto(request):
     cuyos parámetros (p,d,q) son calculados automáticamente
     con 'auto_arima'. 
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
-        (render): renderiza la plantilla 'arima_auto.html' con datos
-            de contexto.
+    Returns
+    -------
+        : render
+            Renderiza la plantilla 'arima_auto.html' con datos de contexto.
     """
     if request.method == 'GET':
         context = {
@@ -252,12 +265,15 @@ def arima_rejilla(request):
     cuyos parámetros (p,d,q) son calculados a través de 
     una búsqueda por rejilla predefinida por el usuario. 
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
-        (render): renderiza la plantilla 'arima_rejilla.html' con datos
+    Returns
+    -------
+        : render
+            Renderiza la plantilla 'arima_rejilla.html' con datos 
             de contexto.
     """
     if request.method == 'GET':
@@ -305,12 +321,15 @@ def arima_manual(request):
     """Para mostrar el resultado de un modelo ARIMA
     cuyos parámetros (p,d,q) son conocidos por el usuario. 
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
-        (render): renderiza la plantilla 'arima_manual.html' con datos
+    Returns
+    -------
+        : render
+            Renderiza la plantilla 'arima_manual.html' con datos
             de contexto.
     """
     if request.method == 'GET':
@@ -357,21 +376,32 @@ def _preprocesar_p_d_q(ticker, form, request):
     """Para preprocesar la información y no saturar de código los
     métodos de ARIMA. 
 
-    Args:
-        ticker (str): nombre del ticker. 
-        form (Lab.forms.Form): formulario utilizado para recabar datos. 
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        ticker : str
+            Nombre del ticker. 
+        
+        form : Lab.forms.Form
+            Formulario utilizado para recabar datos. 
 
-    Returns:
-        order (tuple): tupla con los parámetros (p, d, q)
-        fechas (pandas.core.series.Series): fechas asociadas a los precios
-            de cierre que hay en 'datos'.
-        tam_entrenamiento (int): tamaño de los datos (%) dedicados a entrenamiento. 
-        datos (pandas.core.series.Series): conjunto total de datos (entrenamiento
-            y test) con los cierres del valor seleccionado.
-        context (dict / None): diccionario con los datos del contexto o None
-            en caso de que no haya errores en formulario. 
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
+
+    Returns
+    -------
+        Tuple: Tupla con información relevante para modelar
+            * order : tuple
+                Tupla con los parámetros (p, d, q)
+            * fechas : pandas.core.series.Series
+                Fechas asociadas a los precios de cierre que hay en 'datos'.
+            * tam_entrenamiento : int
+                Tamaño de los datos (%) dedicados a entrenamiento. 
+            * datos : pandas.core.series.Series
+                Conjunto total de datos (entrenamiento y test) con los 
+                cierres del valor seleccionado.
+            * context : dict / None
+                Diccionario con los datos del contexto o None en caso de 
+                que no haya errores en formulario. 
     """
     # Obtengo datos del form
     num_sesiones = form.cleaned_data['num_sesiones']
@@ -465,16 +495,22 @@ def _evaluar_modelo_arima_mse(datos_entrenamiento, datos_test, order):
     estimados. Se pueden usar otras métricas como AIC, BIC o HQIC,
     pero esta es muy fiable. 
 
-    Args:
-        datos_entrenamiento (pandas.core.series.Series): datos de 
-            entrenamiento del modelo. 
-        datos_test (pandas.core.series.Series): datos para testear
-            el modelo. 
-        order (tuple): tupla con los parámetros (p, d, q)
+    Parameters
+    ----------
+        datos_entrenamiento : pandas.core.series.Series
+            Datos de  entrenamiento del modelo. 
 
-    Returns:
-        mse (numpy.float64): error cuadrático medio calculado entre
-            los datos reales (datos_test) y las predicciones. 
+        datos_test : pandas.core.series.Series
+            Datos para testear el modelo. 
+
+        order : tuple
+            Tupla con los parámetros (p, d, q)
+
+    Returns
+    -------
+        mse : numpy.float64
+            Error cuadrático medio calculado entre los datos 
+            reales (datos_test) y las predicciones. 
     """
     conjunto_total = list(datos_entrenamiento)
     lista_predicciones = []
@@ -508,16 +544,30 @@ def _comprobar_formularios(form, ticker, request):
     el usuario en cualquiera de los formularios disponibles
     son coherentes.
 
-    Args:
-        bd (str): nombre de la base de datos.
-        ticker (str): nombre del ticker.
-        num_sesiones (int): número de sesiones que se quieren analizar. 
-        porcentaje_entren (int): % de datos para el entrenamiento del modelo.
-        caso (int): indicador del caso a tratar.
+    Parameters
+    ----------
+        bd : str
+            Nombre de la base de datos.
 
-    Returns:
-        False / context (boolean / dict): False o diccionario con datos del 
-            cotexto en caso de fallo en formulario.
+        ticker : str
+            Nombre del ticker.
+
+        num_sesiones : int
+            Número de sesiones que se quieren analizar. 
+
+        porcentaje_entren : int
+            Porcentaje de datos para el entrenamiento del modelo.
+
+        caso : int
+            Indicador del caso a tratar.
+
+    Returns
+    -------
+        Union[False, context]
+            * False : bool
+                Valor booleano.
+            * context : dict
+                Diccionario con datos del contexto.
     """
     # A partir de aquí se realiza la comprobación de resto de formularios.
     context = {
@@ -633,17 +683,27 @@ def _validacion_walk_forward_arima(tam_entrenamiento, datos, order):
     error cuadrático medio (mse) cometido entre la predicción
     para el día siguiente y el resultado real de cierre en ese día.
 
-    Args:
-        tam_entrenamiento (int): tamaño de los datos (%) dedicados a entrenamiento. 
-        datos (pandas.core.series.Series): conjunto total de datos (entrenamiento
-            y test) con los cierres del valor seleccionado. 
-        order (tuple): tupla con los valores (p, d, q).
+    Parameters
+    ----------
+        tam_entrenamiento : int
+            Tamaño de los datos (%) dedicados a entrenamiento. 
 
-    Returns:
-        modelo_fit (statsmodels.tsa.arima.model.ARIMAResultsWrapper): modelo. 
-        aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción
-            con los datos de test.
-        predicciones (lista): lista con predicciones realizadas. 
+        datos : pandas.core.series.Series
+            Conjunto total de datos (entrenamiento y test) con los 
+            cierres del valor seleccionado. 
+
+        order : tuple
+            Tupla con los valores (p, d, q).
+
+    Returns
+    -------
+        Tuple: Tupla con información relevante para modelar
+            * modelo_fit : statsmodels.tsa.arima.model.ARIMAResultsWrapper
+                Modelo. 
+            * aciertos_tendencia : list
+                Cantidad de aciertos/fallos en la predicción con los datos de test.
+            * predicciones : lista
+                Lista con predicciones realizadas. 
     """
     modelo_fit = None
     predicciones = []
@@ -691,22 +751,40 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
     que se mostrarán al usuario en la plantilla HTML para
     informarle sobre los resultados del modelo ARIMA elegido.
 
-    Args:
-        form (Lab.forms.Form): formulario creado para recabar información. 
-        modelo_fit (statsmodels.tsa.arima.model.ARIMAResultsWrapper): modelo. 
-        fechas (pandas.core.series.Series): fechas asociadas a los precios de cierre
-            que hay en 'datos'.
-        predicciones (list): lista con las predicciones realizadas. 
-        tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
-        datos (pandas.core.series.Series): conjunto total de datos (entrenamiento
-            y test) con los cierres del valor seleccionado. 
-        aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción
-            con los datos de test. 
-        order (tuple): tupla con los valores (p, d, q).
-        ticker (str): nombre del ticker con el que se va a trabajar.
+    Parameters
+    ----------
+        form : Lab.forms.Form
+            Formulario creado para recabar información. 
 
-    Returns:
-        context (dict): diccionario con los datos del contexto.
+        modelo_fit : statsmodels.tsa.arima.model.ARIMAResultsWrapper
+            Modelo. 
+
+        fechas : pandas.core.series.Series
+            Fechas asociadas a los precios de cierre que hay en 'datos'.
+
+        predicciones : list
+            Lista con las predicciones realizadas. 
+
+        tam_entrenamiento : int
+            Tamaño de los datos dedicados a entrenamiento. 
+
+        datos : pandas.core.series.Series
+            Conjunto total de datos (entrenamiento y test) con los 
+            cierres del valor seleccionado. 
+
+        aciertos_tendencia : list
+            Cantidad de aciertos/fallos en la predicción con los datos de test. 
+
+        order : tuple
+            Tupla con los valores (p, d, q).
+
+        ticker : str
+            Nombre del ticker con el que se va a trabajar.
+
+    Returns
+    -------
+        context : dict
+            Diccionario con los datos del contexto.
     """
     datos_test = datos[tam_entrenamiento:]
     
@@ -819,13 +897,15 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
 def lstm(request):
     """Para crear una red neuronal LSTM. 
     
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
-        (render): renderiza la plantilla 'arima_auto.html' con datos
-            de contexto.
+    Returns
+    -------
+        : render
+            Renderiza la plantilla 'arima_auto.html' con datos de contexto.
     """
     if request.method == 'GET':
         context = {
@@ -870,20 +950,33 @@ def _preprocesado_lstm(ticker, form, request):
     """Para preprocesar la información y no saturar de código los
     métodos de LSTM. 
 
-    Args:
-        ticker (str): nombre del ticker. 
-        form (Lab.forms.Form): formulario utilizado para recabar datos. 
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        ticker : str
+            Nombre del ticker. 
 
-    Returns:
-        look_back (int): número de time_steps que se hacen hacia atrás. 
-        X_norm (numpy.ndarray): datos de entrada de la red. 
-        y_norm (numpy.ndarray): datos esperados en la salida de la red. 
-        df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento
-            y test) con sólo cierres del valor seleccionado. 
-        tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento.
-        scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
+        form : Lab.forms.Form
+            Formulario utilizado para recabar datos. 
+
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
+
+    Returns
+    -------
+        Tuple: Tupla con información relevante para modelar
+            * look_back : int
+                Número de time_steps que se hacen hacia atrás. 
+            * X_norm : numpy.ndarray
+                Datos de entrada de la red. 
+            * y_norm : numpy.ndarray
+                Datos esperados en la salida de la red. 
+            * df : pandas.core.frame.DataFrame
+                Conjunto total de datos (entrenamiento y test) con sólo 
+                cierres del valor seleccionado. 
+            * tam_entrenamiento : int
+                Tamaño de los datos dedicados a entrenamiento.
+            * scaler : sklearn.preprocessing._data.MinMaxScaler
+                Scaler para normalizar en [0,1].
     """
     # Obtengo datos del form
     num_sesiones = form.cleaned_data['num_sesiones']
@@ -953,13 +1046,21 @@ def _crear_modelo(look_back, X_norm, y_norm):
     """Para crear el modelo de la red, compilarla y entrenarla. 
     Devuelve el modelo de la red ya entrenado. 
 
-    Args:
-        look_back (int): número de time_steps que se hacen hacia atrás. 
-        X_norm (numpy.ndarray): datos de entrada de la red. 
-        y_norm (numpy.ndarray): datos esperados en la salida de la red. 
+    Parameters
+    ----------
+        look_back : int
+            Número de time_steps que se hacen hacia atrás. 
+
+        X_norm : numpy.ndarray
+            Datos de entrada de la red. 
+
+        y_norm : numpy.ndarray
+            Datos esperados en la salida de la red. 
     
-    Returns:
-        modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
+    Returns
+    -------
+        modelo : keras.src.models.sequential.Sequential)
+            Modelo de la red LSTM.
     """
     # Para crear capa a capa de forma secuencial (cada capa 
     # adicional se conecta a la anterior)
@@ -989,15 +1090,24 @@ def _comprobar_formulario_lstm(form, ticker, request):
     el usuario en cualquiera de los formularios disponibles
     son coherentes.
 
-    Args:
-        form (Lab.forms.Form): formulario que se quiere comrpobar. 
-        ticker (str): nombre del ticker.
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        form : Lab.forms.Form
+            Formulario que se quiere comrpobar. 
 
-    Returns:
-        False / context (boolean / dict): False o diccionario con datos del 
-            cotexto en caso de fallo en formulario.
+        ticker : str
+            Nombre del ticker.
+
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
+
+    Returns
+    -------
+        Union[False, context]
+            * False : bool
+                Valor booleano.
+            * context : dict
+                Diccionario con datos del contexto.
     """
     context = {
         "form": type(form),
@@ -1038,18 +1148,32 @@ def _validacion_walk_forward_lstm(df, tam_entrenamiento, scaler, look_back, mode
     error cuadrático medio (mse) cometido entre la predicción
     para el día siguiente y el resultado real de cierre en ese día.      
 
-    Args:
-        df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento
-            y test) con sólo cierres del valor seleccionado. 
-        tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
-        scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
-        look_back (int): número de time_steps que se hacen hacia atrás. 
-        modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
+    Parameters
+    ----------
+        df : pandas.core.frame.DataFrame
+            Conjunto total de datos (entrenamiento y test) con sólo 
+            cierres del valor seleccionado. 
 
-    Returns:
-        predicciones (lista): lista con predicciones realizadas. 
-        aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción
-            con los datos de test.
+        tam_entrenamiento : int
+            Tamaño de los datos dedicados a entrenamiento. 
+
+        scaler : sklearn.preprocessing._data.MinMaxScaler
+            Scaler para normalizar en [0,1].
+
+        look_back : int
+            Número de time_steps que se hacen hacia atrás. 
+
+        modelo : keras.src.models.sequential.Sequential
+            Modelo de la red LSTM.
+
+    Returns
+    -------
+        Tuple: Tupla con predicciones e indicadores de acierto
+            * predicciones : lista
+                Lista con predicciones realizadas. 
+            * aciertos_tendencia : list
+                Cantidad de aciertos/fallos en la predicción con 
+                los datos de test.
     """
     datos_test = df[tam_entrenamiento:]
     datos_entrenamiento = df[:tam_entrenamiento]
@@ -1093,20 +1217,38 @@ def _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_
     que se mostrarán al usuario en la plantilla HTML para
     informarle sobre los resultados de una red LSTM.
 
-    Args:
-        form (Lab.forms.Form): formulario creado para recabar información. 
-        scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
-        look_back (int): número de time_steps que se hacen hacia atrás. 
-        modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
-        predicciones (list): lista con las predicciones realizadas. 
-        tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
-        df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento
-            y test) con sólo cierres del valor seleccionado. 
-        aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción
-            con los datos de test. 
+    Parameters
+    ----------
+        form : Lab.forms.Form
+            Formulario creado para recabar información. 
 
-    Returns:
-        context (dict): diccionario con los datos del contexto.
+        scaler : sklearn.preprocessing._data.MinMaxScaler
+            Scaler para normalizar en [0,1].
+
+        look_back : int
+            Número de time_steps que se hacen hacia atrás. 
+
+        modelo : keras.src.models.sequential.Sequential
+            Modelo de la red LSTM.
+
+        predicciones : list
+            Lista con las predicciones realizadas. 
+
+        tam_entrenamiento : int
+            Tamaño de los datos dedicados a entrenamiento. 
+
+        df : pandas.core.frame.DataFrame
+            Conjunto total de datos (entrenamiento y test) con sólo 
+            cierres del valor seleccionado. 
+
+        aciertos_tendencia : list
+            Cantidad de aciertos/fallos en la predicción con los datos 
+            de test. 
+
+    Returns
+    -------
+        context : dict
+            Diccionario con los datos del contexto.
     """
     datos_test = df[tam_entrenamiento:]
     datos = df['close']
@@ -1166,12 +1308,15 @@ def _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_
 def cruce_medias(request):
     """Para implementar el algoritmo de seguimiento de tendencias o cruce de medias. 
     
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
-        (render): renderiza la plantilla 'arima_auto.html' con datos
+    Returns
+    -------
+        : render
+            Renderiza la plantilla 'arima_auto.html' con datos
             de contexto.
     """
     if request.method == 'GET':
@@ -1246,11 +1391,16 @@ def _algoritmo_cruce_medias_automaticas(df):
     """Para realizar aplicar el algoritmo de cruce de medias (o seguimiento de
     tendencia).
 
-    Args:
+    Parameters
+    ----------
         df (_type_): _description_
 
-    Returns:
-        _type_: _description_
+    Returns
+    -------
+        Tuple: Tupla con datos de las medias
+            * mejor
+            * mms_len
+            * mms_rap
     """
     # Para realizar una búsqueda por rejilla que permita obtener las mejores 
     # MMS (lenta y rápida). Se incluyen medias típicas de análisis técnico
@@ -1317,10 +1467,12 @@ def _resultados_cruce_medias(df):
     """Para generar un DataFrame con algunos resultados relevantes que se mostrarán al 
     usuario. 
 
-    Args:
+    Parameters
+    ----------
         df (_type_): _description_
 
-    Returns:
+    Returns
+    -------
         _type_: _description_
     """
     df_resultados = pd.DataFrame(columns=['fecha_compra', 'fecha_venta', 'cierre_compra', 'cierre_venta', 'pordentaje'])
@@ -1356,13 +1508,15 @@ def _resultados_cruce_medias(df):
 def _generar_figura_cruce_medias(df, nombre_ticker, mms_len, mms_rap):
     """Para generar la figura del algoritmo de seguimiento de tendencia o cruce de medias. 
 
-    Args:
+    Parameters
+    ----------
         df (_type_): _description_
         nombre_ticker (_type_): _description_
         mms_len (_type_): _description_
         mms_rap (_type_): _description_
 
-    Returns:
+    Returns
+    -------
         _type_: _description_
     """
     # Preparar figura y buffer
@@ -1392,11 +1546,13 @@ def _generar_figura_cruce_medias(df, nombre_ticker, mms_len, mms_rap):
 def estrategia_ML(request):
     """Para implementar el algoritmo de seguimiento de tendencias o cruce de medias. 
     
-    Args:
+    Parameters
+    ----------
         request (django.core.handlers.wsgi.WSGIRequest): solicitud
             HTTP encapsulada por Django.
 
-    Returns:
+    Returns
+    -------
         (render): renderiza la plantilla 'arima_auto.html' con datos
             de contexto.
     """
@@ -1458,12 +1614,14 @@ def estrategia_ML(request):
 def _obtener_tickers_relevantes(indice): 
     """Para obtener los tickers relevantes de cada índice y el propio índice. 
 
-    Args:
+    Parameters
+    ----------
         indice (str): nombre del índice con el que se va a trabajar. 
         request (django.core.handlers.wsgi.WSGIRequest): solicitud
             HTTP encapsulada por Django.
 
-    Returns:
+    Returns
+    -------
         valores (list): lista de los valores que rerpesentan al índice.
         clase (str): nombre del índice con el formato de guardado en BDs,
             esta será la clase objetivo.
@@ -1494,14 +1652,16 @@ def _obtener_tickers_relevantes(indice):
 def _preprocesado_datos_ML(tickers_unidos, num_sesiones, porcentaje_entren):
     """Para preparar los datos de la estrategia ML con el formato adecuado. 
 
-    Args:
+    Parameters
+    ----------
         tickers_unidos (list): lista con los tickers de los valores más relevantes
             y el índice sobre el que se va a hacer una estimación. 
         num_sesiones (int): número de sesiones a tener en cuenta para entrenar los modelos.
         valores (lista): lista con los tickers más relevantes de un índice. 
         clase (str): nombre del índice. 
 
-    Returns:
+    Returns
+    -------
         df_retornos (pandas.core.frame.DataFrame): df con los retornos logarítmicos. 
         df_resultado (pandas.core.frame.DataFrame): df con los valores de precios de cierre.
         tam_entrenamiento (int): número de datos dedicados al entrenamiento del modelo. 
@@ -1549,6 +1709,25 @@ def _preprocesado_datos_ML(tickers_unidos, num_sesiones, porcentaje_entren):
 
 
 def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_entrenamiento, clase, df_resultado, valores):
+    """_summary_
+
+    Parameters
+    ----------
+        model (_type_): _description_
+        x_train (_type_): _description_
+        y_train (_type_): _description_
+        x_test (_type_): _description_
+        y_test (_type_): _description_
+        df_retornos (_type_): _description_
+        tam_entrenamiento (_type_): _description_
+        clase (_type_): _description_
+        df_resultado (_type_): _description_
+        valores (_type_): _description_
+
+    Returns
+    -------
+        _type_: _description_
+    """
     # Para que en la web vaya más rápido no se hace validación cruzada
     model.fit(x_train, y_train)
     score_entren = model.score(x_train, y_train)
@@ -1620,6 +1799,25 @@ def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_
 
 
 def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, df_retornos, tam_entrenamiento, clase, df_resultado, valores):
+    """_summary_
+
+    Parameters
+    ----------
+        model (_type_): _description_
+        x_train (_type_): _description_
+        y_train (_type_): _description_
+        x_test (_type_): _description_
+        y_test (_type_): _description_
+        df_retornos (_type_): _description_
+        tam_entrenamiento (_type_): _description_
+        clase (_type_): _description_
+        df_resultado (_type_): _description_
+        valores (_type_): _description_
+
+    Returns
+    -------
+        _type_: _description_
+    """
     # Con este modelo, a diferencia de LinearRegression(), es necesario
     # convertir la clase objetivoo a valores binarios
     c_train = (y_train > 0)

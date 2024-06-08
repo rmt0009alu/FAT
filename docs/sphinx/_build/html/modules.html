@@ -19,8 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="FAT: Financial Analysis Tool" href="intro.html" />
-    <link rel="prev" title="Welcome to FAT: Financial Analysis Tool’s documentation!" href="index.html" /> 
+    <link rel="prev" title="FAT: Financial Analysis Tool" href="intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,6 +43,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html"> FAT: Financial Analysis Tool</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Analysis.apps.AnalysisConfig"><code class="docutils literal notranslate"><span class="pre">AnalysisConfig</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Analysis.apps.AnalysisConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">AnalysisConfig.default_auto_field</span></code></a></li>
@@ -316,7 +316,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#News.views._generar_figura"><code class="docutils literal notranslate"><span class="pre">_generar_figura()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="intro.html"> FAT: Financial Analysis Tool</a></li>
 </ul>
 
         </div>
@@ -835,7 +834,7 @@ object the first time, the query is executed.</p>
 <h2>Returns<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>render</dt><dd><p>Renderiza la plantilla ‘chart_y_datos.html’ con datos de contexto.</p>
+<dt>: render</dt><dd><p>Renderiza la plantilla ‘chart_y_datos.html’ con datos de contexto.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -859,7 +858,7 @@ object the first time, the query is executed.</p>
 <h2>Returns<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>str</dt><dd><p>Volumen formateado.</p>
+<dt>: str</dt><dd><p>Volumen formateado.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -2369,11 +2368,12 @@ Function views</p>
 </section>
 <section id="module-FAT.routers.router_bases_datos">
 <span id="fat-routers"></span><h1>FAT.routers<a class="headerlink" href="#module-FAT.routers.router_bases_datos" title="Link to this heading">¶</a></h1>
+<p>Clase para enrutar hacias las bases de datos.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="FAT.routers.router_bases_datos.RouterBDs">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">FAT.routers.router_bases_datos.</span></span><span class="sig-name descname"><span class="pre">RouterBDs</span></span><a class="headerlink" href="#FAT.routers.router_bases_datos.RouterBDs" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Clase para routear hacia las BDs adecuadas
+<p>Clase para enrutar hacia las BDs adecuadas
 cuando se hace ‘makemigrations’ y ‘migrate’.
 Recordar que ‘migrate’ migra las BDs de una en una
 y es necesario hacer ‘migrate’ por cada BD (‘makemigrations’
@@ -2389,52 +2389,92 @@ los tickers.</p>
 <dt class="sig sig-object py" id="FAT.routers.router_bases_datos.RouterBDs.db_for_read">
 <span class="sig-name descname"><span class="pre">db_for_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">hints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FAT.routers.router_bases_datos.RouterBDs.db_for_read" title="Link to this definition">¶</a></dt>
 <dd><p>Para indicar las BDs en caso de lectura.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>model (django.db.models.Model): el modelo a leer</p>
-</dd>
-<dt>Returns:</dt><dd><p>(str): nombre de la bd tal y como está en settings.py</p>
+<section id="id82">
+<h2>Parameters<a class="headerlink" href="#id82" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>model<span class="classifier">django.db.models.Model</span></dt><dd><p>El modelo a leer.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
+<section id="id83">
+<h2>Returns<a class="headerlink" href="#id83" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: str</dt><dd><p>Nombre de la bd tal y como está en settings.py</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="FAT.routers.router_bases_datos.RouterBDs.db_for_write">
 <span class="sig-name descname"><span class="pre">db_for_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">hints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FAT.routers.router_bases_datos.RouterBDs.db_for_write" title="Link to this definition">¶</a></dt>
 <dd><p>Para indicar las BDs en caso de escritura.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>model (django.db.models.Model): el modelo a leer</p>
-</dd>
-<dt>Returns:</dt><dd><p>(str): nombre de la bd tal y como está en settings.py</p>
+<section id="id84">
+<h2>Parameters<a class="headerlink" href="#id84" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>model<span class="classifier">django.db.models.Model</span></dt><dd><p>El modelo a leer.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
+<section id="id85">
+<h2>Returns<a class="headerlink" href="#id85" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: str</dt><dd><p>Nombre de la bd tal y como está en settings.py.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="FAT.routers.router_bases_datos.RouterBDs.allow_relation">
 <span class="sig-name descname"><span class="pre">allow_relation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">hints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FAT.routers.router_bases_datos.RouterBDs.allow_relation" title="Link to this definition">¶</a></dt>
 <dd><p>Siempre se permite la relación.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>(bool): siempre True</p>
+<section id="id86">
+<h2>Returns<a class="headerlink" href="#id86" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: bool</dt><dd><p>Siempre de vuelve True.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="FAT.routers.router_bases_datos.RouterBDs.allow_migrate">
 <span class="sig-name descname"><span class="pre">allow_migrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">hints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#FAT.routers.router_bases_datos.RouterBDs.allow_migrate" title="Link to this definition">¶</a></dt>
 <dd><p>Para indicar en qué BDs se hacen las migraciones.</p>
-<dl>
-<dt>Args:</dt><dd><p>db (django.db): base de datos
-app_label (str): nombre de la aplicación si se usará con</p>
+<section id="id87">
+<h2>Parameters<a class="headerlink" href="#id87" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>migraciones dependientes de aplicaciones, pero no es
-el caso.</p>
-</div></blockquote>
-<p>model_name (str, optional): nombre del modelo. Por defecto None.</p>
+<div><dl class="simple">
+<dt>db<span class="classifier">django.db</span></dt><dd><p>Base de datos.</p>
 </dd>
-<dt>Returns:</dt><dd><p>(django.db): nombre de la BD con la que se trabaja.</p>
+<dt>app_label<span class="classifier">str</span></dt><dd><p>Nombre de la aplicación si se usará con migraciones 
+dependientes de aplicaciones, pero no es el caso.</p>
+</dd>
+<dt>model_name<span class="classifier">str</span></dt><dd><p>Opcional. Nombre del modelo. Por defecto None.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
+<section id="id88">
+<h2>Returns<a class="headerlink" href="#id88" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: django.db</dt><dd><p>Nombre de la BD con la que se trabaja.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 </dd></dl>
@@ -2448,13 +2488,14 @@ el caso.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Lab.apps.</span></span><span class="sig-name descname"><span class="pre">LabConfig</span></span><a class="headerlink" href="#Lab.apps.LabConfig" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
 <p>Configuración de la app de Lab.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>AppConfig (django.apps): configurador de aplicaciones</dt><dd><p>en Django.</p>
+<section id="id89">
+<h2>Parameters<a class="headerlink" href="#id89" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>AppConfig<span class="classifier">django.apps</span></dt><dd><p>Configurador de aplicaciones en Django.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="Lab.apps.LabConfig.default_auto_field">
 <span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#Lab.apps.LabConfig.default_auto_field" title="Link to this definition">¶</a></dt>
@@ -2465,6 +2506,7 @@ el caso.</p>
 <span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Lab'</span></em><a class="headerlink" href="#Lab.apps.LabConfig.name" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
 </dd></dl>
 
 <p id="module-Lab.forms">Formularios para usar con Lab.</p>
@@ -2475,10 +2517,14 @@ el caso.</p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para buscar de forma gráfica los mejores valores
 para (p, d, q).</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
+<section id="id90">
+<h2>Parameters<a class="headerlink" href="#id90" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>Form<span class="classifier">django.forms.Form)</span></dt><dd><p>Tipo formulario de Django.</p>
 </dd>
 </dl>
+</div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="Lab.forms.FormBasico.base_fields">
 <span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.FormBasico.base_fields" title="Link to this definition">¶</a></dt>
@@ -2495,6 +2541,7 @@ para (p, d, q).</p>
 <dd><p>Return all media required to render the widgets on this form.</p>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 <dl class="py class">
@@ -2504,10 +2551,14 @@ para (p, d, q).</p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
 se obtienen de forma automática con ‘arima_auto’ de ‘pmdarima’.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
+<section id="id91">
+<h2>Parameters<a class="headerlink" href="#id91" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>Form<span class="classifier">django.forms.Form</span></dt><dd><p>Tipo formulario de Django.</p>
 </dd>
 </dl>
+</div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="Lab.forms.ArimaAutoForm.base_fields">
 <span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'auto':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'manual':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'rejilla':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.ArimaAutoForm.base_fields" title="Link to this definition">¶</a></dt>
@@ -2524,6 +2575,7 @@ se obtienen de forma automática con ‘arima_auto’ de ‘pmdarima’.</p>
 <dd><p>Return all media required to render the widgets on this form.</p>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 <dl class="py class">
@@ -2533,10 +2585,14 @@ se obtienen de forma automática con ‘arima_auto’ de ‘pmdarima’.</p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
 se obtienen mediante búsqueda por rejilla.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
+<section id="id92">
+<h2>Parameters<a class="headerlink" href="#id92" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>Form<span class="classifier">django.forms.Form</span></dt><dd><p>Tipo formulario de Django.</p>
 </dd>
 </dl>
+</div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="Lab.forms.ArimaRejillaForm.base_fields">
 <span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'auto':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'manual':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'rejilla':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'valores_d':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'valores_p':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'valores_q':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.ArimaRejillaForm.base_fields" title="Link to this definition">¶</a></dt>
@@ -2553,6 +2609,7 @@ se obtienen mediante búsqueda por rejilla.</p>
 <dd><p>Return all media required to render the widgets on this form.</p>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 <dl class="py class">
@@ -2562,10 +2619,14 @@ se obtienen mediante búsqueda por rejilla.</p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
 son previamente conocidos por el usuario.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
+<section id="id93">
+<h2>Parameters<a class="headerlink" href="#id93" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>Form<span class="classifier">django.forms.Form</span></dt><dd><p>Tipo formulario de Django.</p>
 </dd>
 </dl>
+</div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="Lab.forms.ArimaManualForm.base_fields">
 <span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'auto':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'manual':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'rejilla':</span> <span class="pre">&lt;django.forms.fields.BooleanField</span> <span class="pre">object&gt;,</span> <span class="pre">'valor_d':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'valor_p':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'valor_q':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.ArimaManualForm.base_fields" title="Link to this definition">¶</a></dt>
@@ -2582,6 +2643,7 @@ son previamente conocidos por el usuario.</p>
 <dd><p>Return all media required to render the widgets on this form.</p>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 <dl class="py class">
@@ -2590,10 +2652,14 @@ son previamente conocidos por el usuario.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para aplicar una red LSTM automáticamente.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
+<section id="id94">
+<h2>Parameters<a class="headerlink" href="#id94" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>Form<span class="classifier">django.forms.Form</span></dt><dd><p>Tipo formulario de Django.</p>
 </dd>
 </dl>
+</div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="Lab.forms.LstmForm.base_fields">
 <span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.LstmForm.base_fields" title="Link to this definition">¶</a></dt>
@@ -2610,6 +2676,7 @@ necearios para aplicar una red LSTM automáticamente.</p>
 <dd><p>Return all media required to render the widgets on this form.</p>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 <dl class="py class">
@@ -2619,10 +2686,14 @@ necearios para aplicar una red LSTM automáticamente.</p>
 <p>Clase que define el fomrulario para introducir los datos
 necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
 se obtienen de forma automática con ‘arima_auto’ de ‘pmdarima’.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
+<section id="id95">
+<h2>Parameters<a class="headerlink" href="#id95" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>Form<span class="classifier">django.forms.Form</span></dt><dd><p>Tipo formulario de Django.</p>
 </dd>
 </dl>
+</div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="Lab.forms.EstrategiaMLForm.base_fields">
 <span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'indice':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'tipo_modelo':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.EstrategiaMLForm.base_fields" title="Link to this definition">¶</a></dt>
@@ -2639,6 +2710,7 @@ se obtienen de forma automática con ‘arima_auto’ de ‘pmdarima’.</p>
 <dd><p>Return all media required to render the widgets on this form.</p>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 <p id="module-Lab.urls">URLs para usar con Lab.</p>
@@ -2649,15 +2721,24 @@ se obtienen de forma automática con ‘arima_auto’ de ‘pmdarima’.</p>
 <dd><p>Para mostrar los modelos disponibles que se
 pueden aplicar. El usuario verá la vista de ‘lab.html’
 con la información necesaria.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<section id="id96">
+<h2>Parameters<a class="headerlink" href="#id96" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(render): renderiza la plantilla ‘lab.html’ con datos de contexto.</p>
+</div></blockquote>
+</section>
+<section id="id97">
+<h2>Returns<a class="headerlink" href="#id97" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: render</dt><dd><p>Renderiza la plantilla ‘lab.html’ con datos de contexto.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2665,18 +2746,25 @@ con la información necesaria.</p>
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">buscar_paramateros_arima</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.buscar_paramateros_arima" title="Link to this definition">¶</a></dt>
 <dd><p>Para buscar, a partir de gráficas, los mejores datos de los parámetros
 (p, d, q). Requiere que el usuario entienda lo que está viendo.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<section id="id98">
+<h2>Parameters<a class="headerlink" href="#id98" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest)</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>(render): renderiza la plantilla ‘buscar_paramateros_arima.html’ con datos</dt><dd><p>de contexto.</p>
+</div></blockquote>
+</section>
+<section id="id99">
+<h2>Returns<a class="headerlink" href="#id99" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: render)</dt><dd><p>Renderiza la plantilla ‘buscar_paramateros_arima.html’ con datos
+de contexto.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2685,16 +2773,26 @@ con la información necesaria.</p>
 <dd><p>Para hacer una diferenciación logarítmica como se haría de forma manual,
 para hacer la serie estacionaria y que podamos aplicar las funciones ACF y PACF. 
 Además, genera las gráficas necesarias para que el usuario interprete los datos.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>df (pandas.core.frame.DataFrame): conjunto total de datos. 
-d (int): orden de diferenciación (la I_(d) de ARIMA).</p>
+<section id="id100">
+<h2>Parameters<a class="headerlink" href="#id100" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>df<span class="classifier">pandas.core.frame.DataFrame)</span></dt><dd><p>Conjunto total de datos.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>grafica_acf_pacf (str): imagen con las gráficas de diferenciación de cierres,</dt><dd><p>ACF y PACF.</p>
+<dt>d<span class="classifier">int</span></dt><dd><p>Orden de diferenciación (la I_(d) de ARIMA).</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
+<section id="id101">
+<h2>Returns<a class="headerlink" href="#id101" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>grafica_acf_pacf<span class="classifier">str</span></dt><dd><p>Imagen con las gráficas de diferenciación de cierres, ACF y PACF.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2703,18 +2801,24 @@ d (int): orden de diferenciación (la I_(d) de ARIMA).</p>
 <dd><p>Para mostrar el resultado de un modelo ARIMA
 cuyos parámetros (p,d,q) son calculados automáticamente
 con ‘auto_arima’.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<section id="id102">
+<h2>Parameters<a class="headerlink" href="#id102" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>(render): renderiza la plantilla ‘arima_auto.html’ con datos</dt><dd><p>de contexto.</p>
+</div></blockquote>
+</section>
+<section id="id103">
+<h2>Returns<a class="headerlink" href="#id103" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: render</dt><dd><p>Renderiza la plantilla ‘arima_auto.html’ con datos de contexto.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2723,18 +2827,25 @@ con ‘auto_arima’.</p>
 <dd><p>Para mostrar el resultado de un modelo ARIMA
 cuyos parámetros (p,d,q) son calculados a través de 
 una búsqueda por rejilla predefinida por el usuario.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<section id="id104">
+<h2>Parameters<a class="headerlink" href="#id104" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>(render): renderiza la plantilla ‘arima_rejilla.html’ con datos</dt><dd><p>de contexto.</p>
+</div></blockquote>
+</section>
+<section id="id105">
+<h2>Returns<a class="headerlink" href="#id105" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: render</dt><dd><p>Renderiza la plantilla ‘arima_rejilla.html’ con datos 
+de contexto.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2742,18 +2853,25 @@ una búsqueda por rejilla predefinida por el usuario.</p>
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">arima_manual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.arima_manual" title="Link to this definition">¶</a></dt>
 <dd><p>Para mostrar el resultado de un modelo ARIMA
 cuyos parámetros (p,d,q) son conocidos por el usuario.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<section id="id106">
+<h2>Parameters<a class="headerlink" href="#id106" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>(render): renderiza la plantilla ‘arima_manual.html’ con datos</dt><dd><p>de contexto.</p>
+</div></blockquote>
+</section>
+<section id="id107">
+<h2>Returns<a class="headerlink" href="#id107" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: render</dt><dd><p>Renderiza la plantilla ‘arima_manual.html’ con datos
+de contexto.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2761,30 +2879,56 @@ cuyos parámetros (p,d,q) son conocidos por el usuario.</p>
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_preprocesar_p_d_q</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._preprocesar_p_d_q" title="Link to this definition">¶</a></dt>
 <dd><p>Para preprocesar la información y no saturar de código los
 métodos de ARIMA.</p>
-<dl>
-<dt>Args:</dt><dd><p>ticker (str): nombre del ticker. 
-form (Lab.forms.Form): formulario utilizado para recabar datos. 
-request (django.core.handlers.wsgi.WSGIRequest): solicitud</p>
+<section id="id108">
+<h2>Parameters<a class="headerlink" href="#id108" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>HTTP encapsulada por Django.</p>
-</div></blockquote>
+<div><dl class="simple">
+<dt>ticker<span class="classifier">str</span></dt><dd><p>Nombre del ticker.</p>
 </dd>
-<dt>Returns:</dt><dd><p>order (tuple): tupla con los parámetros (p, d, q)
-fechas (pandas.core.series.Series): fechas asociadas a los precios</p>
-<blockquote>
-<div><p>de cierre que hay en ‘datos’.</p>
-</div></blockquote>
-<p>tam_entrenamiento (int): tamaño de los datos (%) dedicados a entrenamiento. 
-datos (pandas.core.series.Series): conjunto total de datos (entrenamiento</p>
-<blockquote>
-<div><p>y test) con los cierres del valor seleccionado.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>context (dict / None): diccionario con los datos del contexto o None</dt><dd><p>en caso de que no haya errores en formulario.</p>
+<dt>form<span class="classifier">Lab.forms.Form</span></dt><dd><p>Formulario utilizado para recabar datos.</p>
+</dd>
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
+<section id="id109">
+<h2>Returns<a class="headerlink" href="#id109" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>Tuple: Tupla con información relevante para modelar</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>order<span class="classifier">tuple</span></dt><dd><p>Tupla con los parámetros (p, d, q)</p>
 </dd>
 </dl>
+</li>
+<li><dl class="simple">
+<dt>fechas<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Fechas asociadas a los precios de cierre que hay en ‘datos’.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Tamaño de los datos (%) dedicados a entrenamiento.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>datos<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Conjunto total de datos (entrenamiento y test) con los 
+cierres del valor seleccionado.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>context<span class="classifier">dict / None</span></dt><dd><p>Diccionario con los datos del contexto o None en caso de 
+que no haya errores en formulario.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2794,21 +2938,29 @@ datos (pandas.core.series.Series): conjunto total de datos (entrenamiento</p>
 error cuadrático medio (mse) entre los datos de test y los datos
 estimados. Se pueden usar otras métricas como AIC, BIC o HQIC,
 pero esta es muy fiable.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="simple">
-<dt>datos_entrenamiento (pandas.core.series.Series): datos de </dt><dd><p>entrenamiento del modelo.</p>
+<section id="id110">
+<h2>Parameters<a class="headerlink" href="#id110" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>datos_entrenamiento<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Datos de  entrenamiento del modelo.</p>
 </dd>
-<dt>datos_test (pandas.core.series.Series): datos para testear</dt><dd><p>el modelo.</p>
+<dt>datos_test<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Datos para testear el modelo.</p>
 </dd>
-</dl>
-<p>order (tuple): tupla con los parámetros (p, d, q)</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>mse (numpy.float64): error cuadrático medio calculado entre</dt><dd><p>los datos reales (datos_test) y las predicciones.</p>
+<dt>order<span class="classifier">tuple</span></dt><dd><p>Tupla con los parámetros (p, d, q)</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
+<section id="id111">
+<h2>Returns<a class="headerlink" href="#id111" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>mse<span class="classifier">numpy.float64</span></dt><dd><p>Error cuadrático medio calculado entre los datos 
+reales (datos_test) y las predicciones.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2817,19 +2969,43 @@ pero esta es muy fiable.</p>
 <dd><p>Permite comprobar si los datos introducidos por
 el usuario en cualquiera de los formularios disponibles
 son coherentes.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>bd (str): nombre de la base de datos.
-ticker (str): nombre del ticker.
-num_sesiones (int): número de sesiones que se quieren analizar. 
-porcentaje_entren (int): % de datos para el entrenamiento del modelo.
-caso (int): indicador del caso a tratar.</p>
+<section id="id112">
+<h2>Parameters<a class="headerlink" href="#id112" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>bd<span class="classifier">str</span></dt><dd><p>Nombre de la base de datos.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>False / context (boolean / dict): False o diccionario con datos del </dt><dd><p>cotexto en caso de fallo en formulario.</p>
+<dt>ticker<span class="classifier">str</span></dt><dd><p>Nombre del ticker.</p>
+</dd>
+<dt>num_sesiones<span class="classifier">int</span></dt><dd><p>Número de sesiones que se quieren analizar.</p>
+</dd>
+<dt>porcentaje_entren<span class="classifier">int</span></dt><dd><p>Porcentaje de datos para el entrenamiento del modelo.</p>
+</dd>
+<dt>caso<span class="classifier">int</span></dt><dd><p>Indicador del caso a tratar.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
+<section id="id113">
+<h2>Returns<a class="headerlink" href="#id113" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>Union[False, context]</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>False<span class="classifier">bool</span></dt><dd><p>Renderiza la plantilla ‘login.html’ con datos de contexto (para GET).</p>
 </dd>
 </dl>
+</li>
+<li><dl class="simple">
+<dt>context<span class="classifier">dict</span></dt><dd><p>Plantilla de dashboard (para POST).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2839,22 +3015,28 @@ caso (int): indicador del caso a tratar.</p>
 una validación de un paso hacia atrás, i.e., se comprueba el
 error cuadrático medio (mse) cometido entre la predicción
 para el día siguiente y el resultado real de cierre en ese día.</p>
-<dl>
-<dt>Args:</dt><dd><p>tam_entrenamiento (int): tamaño de los datos (%) dedicados a entrenamiento. 
+<section id="id114">
+<h2>Parameters<a class="headerlink" href="#id114" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>tam_entrenamiento (int): tamaño de los datos (%) dedicados a entrenamiento. 
 datos (pandas.core.series.Series): conjunto total de datos (entrenamiento</p>
 <blockquote>
 <div><p>y test) con los cierres del valor seleccionado.</p>
 </div></blockquote>
 <p>order (tuple): tupla con los valores (p, d, q).</p>
-</dd>
-<dt>Returns:</dt><dd><p>modelo_fit (statsmodels.tsa.arima.model.ARIMAResultsWrapper): modelo. 
+</div></blockquote>
+</section>
+<section id="id115">
+<h2>Returns<a class="headerlink" href="#id115" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>modelo_fit (statsmodels.tsa.arima.model.ARIMAResultsWrapper): modelo. 
 aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</p>
 <blockquote>
 <div><p>con los datos de test.</p>
 </div></blockquote>
 <p>predicciones (lista): lista con predicciones realizadas.</p>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2863,8 +3045,10 @@ aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</p>
 <dd><p>Para generar los resultados gráficos y textuales
 que se mostrarán al usuario en la plantilla HTML para
 informarle sobre los resultados del modelo ARIMA elegido.</p>
-<dl>
-<dt>Args:</dt><dd><p>form (Lab.forms.Form): formulario creado para recabar información. 
+<section id="id116">
+<h2>Parameters<a class="headerlink" href="#id116" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>form (Lab.forms.Form): formulario creado para recabar información. 
 modelo_fit (statsmodels.tsa.arima.model.ARIMAResultsWrapper): modelo. 
 fechas (pandas.core.series.Series): fechas asociadas a los precios de cierre</p>
 <blockquote>
@@ -2882,28 +3066,38 @@ datos (pandas.core.series.Series): conjunto total de datos (entrenamiento</p>
 </dl>
 <p>order (tuple): tupla con los valores (p, d, q).
 ticker (str): nombre del ticker con el que se va a trabajar.</p>
-</dd>
-<dt>Returns:</dt><dd><p>context (dict): diccionario con los datos del contexto.</p>
-</dd>
-</dl>
+</div></blockquote>
+</section>
+<section id="id117">
+<h2>Returns<a class="headerlink" href="#id117" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>context (dict): diccionario con los datos del contexto.</p>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views.lstm">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">lstm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.lstm" title="Link to this definition">¶</a></dt>
 <dd><p>Para crear una red neuronal LSTM.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
+<section id="id118">
+<h2>Parameters<a class="headerlink" href="#id118" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
 <dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
+</div></blockquote>
+</section>
+<section id="id119">
+<h2>Returns<a class="headerlink" href="#id119" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
 <dt>(render): renderiza la plantilla ‘arima_auto.html’ con datos</dt><dd><p>de contexto.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2911,15 +3105,21 @@ ticker (str): nombre del ticker con el que se va a trabajar.</p>
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_preprocesado_lstm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._preprocesado_lstm" title="Link to this definition">¶</a></dt>
 <dd><p>Para preprocesar la información y no saturar de código los
 métodos de LSTM.</p>
-<dl>
-<dt>Args:</dt><dd><p>ticker (str): nombre del ticker. 
+<section id="id120">
+<h2>Parameters<a class="headerlink" href="#id120" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>ticker (str): nombre del ticker. 
 form (Lab.forms.Form): formulario utilizado para recabar datos. 
 request (django.core.handlers.wsgi.WSGIRequest): solicitud</p>
 <blockquote>
 <div><p>HTTP encapsulada por Django.</p>
 </div></blockquote>
-</dd>
-<dt>Returns:</dt><dd><p>look_back (int): número de time_steps que se hacen hacia atrás. 
+</div></blockquote>
+</section>
+<section id="id121">
+<h2>Returns<a class="headerlink" href="#id121" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>look_back (int): número de time_steps que se hacen hacia atrás. 
 X_norm (numpy.ndarray): datos de entrada de la red. 
 y_norm (numpy.ndarray): datos esperados en la salida de la red. 
 df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
@@ -2928,8 +3128,8 @@ df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
 </div></blockquote>
 <p>tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento.
 scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].</p>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2937,14 +3137,20 @@ scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_crear_modelo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">look_back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_norm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_norm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._crear_modelo" title="Link to this definition">¶</a></dt>
 <dd><p>Para crear el modelo de la red, compilarla y entrenarla. 
 Devuelve el modelo de la red ya entrenado.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>look_back (int): número de time_steps que se hacen hacia atrás. 
+<section id="id122">
+<h2>Parameters<a class="headerlink" href="#id122" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>look_back (int): número de time_steps que se hacen hacia atrás. 
 X_norm (numpy.ndarray): datos de entrada de la red. 
 y_norm (numpy.ndarray): datos esperados en la salida de la red.</p>
-</dd>
-<dt>Returns:</dt><dd><p>modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.</p>
-</dd>
-</dl>
+</div></blockquote>
+</section>
+<section id="id123">
+<h2>Returns<a class="headerlink" href="#id123" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.</p>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2953,20 +3159,26 @@ y_norm (numpy.ndarray): datos esperados en la salida de la red.</p>
 <dd><p>Permite comprobar si los datos introducidos por
 el usuario en cualquiera de los formularios disponibles
 son coherentes.</p>
-<dl>
-<dt>Args:</dt><dd><p>form (Lab.forms.Form): formulario que se quiere comrpobar. 
+<section id="id124">
+<h2>Parameters<a class="headerlink" href="#id124" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>form (Lab.forms.Form): formulario que se quiere comrpobar. 
 ticker (str): nombre del ticker.
 request (django.core.handlers.wsgi.WSGIRequest): solicitud</p>
 <blockquote>
 <div><p>HTTP encapsulada por Django.</p>
 </div></blockquote>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
+</div></blockquote>
+</section>
+<section id="id125">
+<h2>Returns<a class="headerlink" href="#id125" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
 <dt>False / context (boolean / dict): False o diccionario con datos del </dt><dd><p>cotexto en caso de fallo en formulario.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -2976,8 +3188,10 @@ request (django.core.handlers.wsgi.WSGIRequest): solicitud</p>
 una validación de un paso hacia atrás, i.e., se comprueba el
 error cuadrático medio (mse) cometido entre la predicción
 para el día siguiente y el resultado real de cierre en ese día.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="simple">
+<section id="id126">
+<h2>Parameters<a class="headerlink" href="#id126" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
 <dt>df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</dt><dd><p>y test) con sólo cierres del valor seleccionado.</p>
 </dd>
 </dl>
@@ -2985,14 +3199,18 @@ para el día siguiente y el resultado real de cierre en ese día.</p>
 scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
 look_back (int): número de time_steps que se hacen hacia atrás. 
 modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.</p>
-</dd>
-<dt>Returns:</dt><dd><p>predicciones (lista): lista con predicciones realizadas. 
+</div></blockquote>
+</section>
+<section id="id127">
+<h2>Returns<a class="headerlink" href="#id127" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>predicciones (lista): lista con predicciones realizadas. 
 aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</p>
 <blockquote>
 <div><p>con los datos de test.</p>
 </div></blockquote>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -3001,8 +3219,10 @@ aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</p>
 <dd><p>Para generar los resultados gráficos y textuales
 que se mostrarán al usuario en la plantilla HTML para
 informarle sobre los resultados de una red LSTM.</p>
-<dl>
-<dt>Args:</dt><dd><p>form (Lab.forms.Form): formulario creado para recabar información. 
+<section id="id128">
+<h2>Parameters<a class="headerlink" href="#id128" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>form (Lab.forms.Form): formulario creado para recabar información. 
 scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
 look_back (int): número de time_steps que se hacen hacia atrás. 
 modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
@@ -3016,28 +3236,38 @@ df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
 <dt>aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</dt><dd><p>con los datos de test.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>context (dict): diccionario con los datos del contexto.</p>
-</dd>
-</dl>
+</div></blockquote>
+</section>
+<section id="id129">
+<h2>Returns<a class="headerlink" href="#id129" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>context (dict): diccionario con los datos del contexto.</p>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views.cruce_medias">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">cruce_medias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.cruce_medias" title="Link to this definition">¶</a></dt>
 <dd><p>Para implementar el algoritmo de seguimiento de tendencias o cruce de medias.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
+<section id="id130">
+<h2>Parameters<a class="headerlink" href="#id130" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
 <dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
+</div></blockquote>
+</section>
+<section id="id131">
+<h2>Returns<a class="headerlink" href="#id131" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
 <dt>(render): renderiza la plantilla ‘arima_auto.html’ con datos</dt><dd><p>de contexto.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -3045,12 +3275,18 @@ df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_algoritmo_cruce_medias_automaticas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._algoritmo_cruce_medias_automaticas" title="Link to this definition">¶</a></dt>
 <dd><p>Para realizar aplicar el algoritmo de cruce de medias (o seguimiento de
 tendencia).</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>df (_type_): _description_</p>
-</dd>
-<dt>Returns:</dt><dd><p>_type_: _description_</p>
-</dd>
-</dl>
+<section id="id132">
+<h2>Parameters<a class="headerlink" href="#id132" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>df (_type_): _description_</p>
+</div></blockquote>
+</section>
+<section id="id133">
+<h2>Returns<a class="headerlink" href="#id133" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>_type_: _description_</p>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -3058,99 +3294,173 @@ tendencia).</p>
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_resultados_cruce_medias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._resultados_cruce_medias" title="Link to this definition">¶</a></dt>
 <dd><p>Para generar un DataFrame con algunos resultados relevantes que se mostrarán al 
 usuario.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>df (_type_): _description_</p>
-</dd>
-<dt>Returns:</dt><dd><p>_type_: _description_</p>
-</dd>
-</dl>
+<section id="id134">
+<h2>Parameters<a class="headerlink" href="#id134" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>df (_type_): _description_</p>
+</div></blockquote>
+</section>
+<section id="id135">
+<h2>Returns<a class="headerlink" href="#id135" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>_type_: _description_</p>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._generar_figura_cruce_medias">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_generar_figura_cruce_medias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre_ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mms_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mms_rap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._generar_figura_cruce_medias" title="Link to this definition">¶</a></dt>
 <dd><p>Para generar la figura del algoritmo de seguimiento de tendencia o cruce de medias.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>df (_type_): _description_
+<section id="id136">
+<h2>Parameters<a class="headerlink" href="#id136" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>df (_type_): _description_
 nombre_ticker (_type_): _description_
 mms_len (_type_): _description_
 mms_rap (_type_): _description_</p>
-</dd>
-<dt>Returns:</dt><dd><p>_type_: _description_</p>
-</dd>
-</dl>
+</div></blockquote>
+</section>
+<section id="id137">
+<h2>Returns<a class="headerlink" href="#id137" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>_type_: _description_</p>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views.estrategia_ML">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">estrategia_ML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.estrategia_ML" title="Link to this definition">¶</a></dt>
 <dd><p>Para implementar el algoritmo de seguimiento de tendencias o cruce de medias.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
+<section id="id138">
+<h2>Parameters<a class="headerlink" href="#id138" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
 <dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
+</div></blockquote>
+</section>
+<section id="id139">
+<h2>Returns<a class="headerlink" href="#id139" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
 <dt>(render): renderiza la plantilla ‘arima_auto.html’ con datos</dt><dd><p>de contexto.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._obtener_tickers_relevantes">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_obtener_tickers_relevantes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indice</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._obtener_tickers_relevantes" title="Link to this definition">¶</a></dt>
 <dd><p>Para obtener los tickers relevantes de cada índice y el propio índice.</p>
-<dl>
-<dt>Args:</dt><dd><p>indice (str): nombre del índice con el que se va a trabajar. 
+<section id="id140">
+<h2>Parameters<a class="headerlink" href="#id140" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>indice (str): nombre del índice con el que se va a trabajar. 
 request (django.core.handlers.wsgi.WSGIRequest): solicitud</p>
 <blockquote>
 <div><p>HTTP encapsulada por Django.</p>
 </div></blockquote>
-</dd>
-<dt>Returns:</dt><dd><p>valores (list): lista de los valores que rerpesentan al índice.
+</div></blockquote>
+</section>
+<section id="id141">
+<h2>Returns<a class="headerlink" href="#id141" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>valores (list): lista de los valores que rerpesentan al índice.
 clase (str): nombre del índice con el formato de guardado en BDs,</p>
 <blockquote>
 <div><p>esta será la clase objetivo.</p>
 </div></blockquote>
 <p>tickers_unidos (list): lista con todos los tickers.</p>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._preprocesado_datos_ML">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_preprocesado_datos_ML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tickers_unidos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_sesiones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">porcentaje_entren</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._preprocesado_datos_ML" title="Link to this definition">¶</a></dt>
 <dd><p>Para preparar los datos de la estrategia ML con el formato adecuado.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="simple">
+<section id="id142">
+<h2>Parameters<a class="headerlink" href="#id142" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
 <dt>tickers_unidos (list): lista con los tickers de los valores más relevantes</dt><dd><p>y el índice sobre el que se va a hacer una estimación.</p>
 </dd>
 </dl>
 <p>num_sesiones (int): número de sesiones a tener en cuenta para entrenar los modelos.
 valores (lista): lista con los tickers más relevantes de un índice. 
 clase (str): nombre del índice.</p>
-</dd>
-<dt>Returns:</dt><dd><p>df_retornos (pandas.core.frame.DataFrame): df con los retornos logarítmicos. 
+</div></blockquote>
+</section>
+<section id="id143">
+<h2>Returns<a class="headerlink" href="#id143" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>df_retornos (pandas.core.frame.DataFrame): df con los retornos logarítmicos. 
 df_resultado (pandas.core.frame.DataFrame): df con los valores de precios de cierre.
 tam_entrenamiento (int): número de datos dedicados al entrenamiento del modelo. 
 train (pandas.core.frame.DataFrame): subconjunto de entrenamiento de df_retornos. 
 test (pandas.core.frame.DataFrame): subconjunto de test de df_retornos.</p>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._regresion_lineal">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_regresion_lineal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_retornos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam_entrenamiento</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_resultado</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._regresion_lineal" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>_summary_</p>
+<section id="id144">
+<h2>Parameters<a class="headerlink" href="#id144" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>model (_type_): _description_
+x_train (_type_): _description_
+y_train (_type_): _description_
+x_test (_type_): _description_
+y_test (_type_): _description_
+df_retornos (_type_): _description_
+tam_entrenamiento (_type_): _description_
+clase (_type_): _description_
+df_resultado (_type_): _description_
+valores (_type_): _description_</p>
+</div></blockquote>
+</section>
+<section id="id145">
+<h2>Returns<a class="headerlink" href="#id145" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>_type_: _description_</p>
+</div></blockquote>
+</section>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._clasificacion_regresion_logistica">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_clasificacion_regresion_logistica</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_retornos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam_entrenamiento</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_resultado</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._clasificacion_regresion_logistica" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>_summary_</p>
+<section id="id146">
+<h2>Parameters<a class="headerlink" href="#id146" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>model (_type_): _description_
+x_train (_type_): _description_
+y_train (_type_): _description_
+x_test (_type_): _description_
+y_test (_type_): _description_
+df_retornos (_type_): _description_
+tam_entrenamiento (_type_): _description_
+clase (_type_): _description_
+df_resultado (_type_): _description_
+valores (_type_): _description_</p>
+</div></blockquote>
+</section>
+<section id="id147">
+<h2>Returns<a class="headerlink" href="#id147" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>_type_: _description_</p>
+</div></blockquote>
+</section>
+</dd></dl>
 
 </section>
 <section id="module-News.apps">
@@ -3258,8 +3568,7 @@ entre los mejores/peores del último día.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to FAT: Financial Analysis Tool’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="intro.html" class="btn btn-neutral float-right" title="FAT: Financial Analysis Tool" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="intro.html" class="btn btn-neutral float-left" title="FAT: Financial Analysis Tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

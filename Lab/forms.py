@@ -10,8 +10,10 @@ class FormBasico(forms.Form):
     necearios para buscar de forma gráfica los mejores valores
     para (p, d, q). 
 
-    Args:
-        Form (django.forms.Form): tipo formulario de Django. 
+    Parameters
+    ----------
+        Form : django.forms.Form)
+            Tipo formulario de Django. 
     """
     # Validación de datos de cantidad de días
     num_sesiones = forms.IntegerField(
@@ -30,8 +32,10 @@ class ArimaAutoForm(forms.Form):
     necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
     se obtienen de forma automática con 'arima_auto' de 'pmdarima'.
 
-    Args:
-        Form (django.forms.Form): tipo formulario de Django. 
+    Parameters
+    ----------
+        Form : django.forms.Form
+            Tipo formulario de Django. 
     """
     # Validación de datos de cantidad de días
     num_sesiones = forms.IntegerField(
@@ -73,8 +77,10 @@ class ArimaRejillaForm(forms.Form):
     necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
     se obtienen mediante búsqueda por rejilla. 
 
-    Args:
-        Form (django.forms.Form): tipo formulario de Django. 
+    Parameters
+    ----------
+        Form : django.forms.Form
+            Tipo formulario de Django. 
     """
     # Validación de datos de cantidad de días
     num_sesiones = forms.IntegerField(
@@ -160,8 +166,10 @@ class ArimaManualForm(forms.Form):
     necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
     son previamente conocidos por el usuario. 
 
-    Args:
-        Form (django.forms.Form): tipo formulario de Django. 
+    Parameters
+    ----------
+        Form : django.forms.Form
+            Tipo formulario de Django. 
     """
     # Validación de datos de cantidad de días
     num_sesiones = forms.IntegerField(
@@ -225,8 +233,10 @@ class LstmForm(forms.Form):
     """Clase que define el fomrulario para introducir los datos
     necearios para aplicar una red LSTM automáticamente. 
 
-    Args:
-        Form (django.forms.Form): tipo formulario de Django. 
+    Parameters
+    ----------
+        Form : django.forms.Form
+            Tipo formulario de Django. 
     """
     # Validación de datos de cantidad de días
     num_sesiones = forms.IntegerField(
@@ -261,8 +271,10 @@ class EstrategiaMLForm(forms.Form):
     necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
     se obtienen de forma automática con 'arima_auto' de 'pmdarima'.
 
-    Args:
-        Form (django.forms.Form): tipo formulario de Django. 
+    Parameters
+    ----------
+        Form : django.forms.Form
+            Tipo formulario de Django. 
     """
     # Validación de datos de cantidad de días
     num_sesiones = forms.IntegerField(

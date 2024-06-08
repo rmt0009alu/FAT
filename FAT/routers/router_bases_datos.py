@@ -1,9 +1,12 @@
+"""
+Clase para enrutar hacias las bases de datos. 
+"""
 from util.tickers import Tickers_BDs
 
 
 # https://docs.djangoproject.com/en/5.0/topics/db/multi-db/#topics-db-multi-db-routing
 class RouterBDs:
-    """Clase para routear hacia las BDs adecuadas
+    """Clase para enrutar hacia las BDs adecuadas
     cuando se hace 'makemigrations' y 'migrate'.
     Recordar que 'migrate' migra las BDs de una en una
     y es necesario hacer 'migrate' por cada BD ('makemigrations'
@@ -25,11 +28,15 @@ class RouterBDs:
     def db_for_read(self, model, **hints):
         """Para indicar las BDs en caso de lectura.
 
-        Args:
-            model (django.db.models.Model): el modelo a leer
+        Parameters
+        ----------
+             model : django.db.models.Model
+                El modelo a leer.
 
-        Returns:
-            (str): nombre de la bd tal y como está en settings.py
+        Returns
+        -------
+            : str
+                Nombre de la bd tal y como está en settings.py
         """
         if model.__name__ in self.tickers_dj30:
             return 'dj30'
@@ -45,11 +52,15 @@ class RouterBDs:
     def db_for_write(self, model, **hints):
         """Para indicar las BDs en caso de escritura.
 
-        Args:
-            model (django.db.models.Model): el modelo a leer
+        Parameters
+        ----------
+            model : django.db.models.Model
+                El modelo a leer.
 
-        Returns:
-            (str): nombre de la bd tal y como está en settings.py
+        Returns
+        -------
+            : str
+                Nombre de la bd tal y como está en settings.py.
         """
         return self.db_for_read(model, **hints)
 
@@ -57,8 +68,10 @@ class RouterBDs:
     def allow_relation(self, obj1, obj2, **hints):
         """Siempre se permite la relación.
 
-        Returns:
-            (bool): siempre True
+        Returns
+        -------
+            : bool
+                Siempre de vuelve True.
         """
         return True
 
@@ -66,15 +79,22 @@ class RouterBDs:
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """Para indicar en qué BDs se hacen las migraciones.
 
-        Args:
-            db (django.db): base de datos
-            app_label (str): nombre de la aplicación si se usará con
-                migraciones dependientes de aplicaciones, pero no es
-                el caso.
-            model_name (str, optional): nombre del modelo. Por defecto None.
+        Parameters
+        ----------
+            db : django.db
+                Base de datos.
 
-        Returns:
-            (django.db): nombre de la BD con la que se trabaja.
+            app_label : str
+                Nombre de la aplicación si se usará con migraciones 
+                dependientes de aplicaciones, pero no es el caso.
+
+            model_name : str
+                Opcional. Nombre del modelo. Por defecto None.
+
+        Returns
+        -------
+            : django.db
+                Nombre de la BD con la que se trabaja.
         """
         if model_name in self.tickers_dj30:
             return db == 'dj30'

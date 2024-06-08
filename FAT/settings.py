@@ -106,7 +106,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'databases/dax40.sqlite3',
     },
-    
 }
 
 
