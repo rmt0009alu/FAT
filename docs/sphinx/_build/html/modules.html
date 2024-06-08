@@ -119,6 +119,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Analysis.views._normalizar_dataframes"><code class="docutils literal notranslate"><span class="pre">_normalizar_dataframes()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Analysis.views._grafica_evolucion_sector"><code class="docutils literal notranslate"><span class="pre">_grafica_evolucion_sector()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Analysis.views._calcular_media_sector"><code class="docutils literal notranslate"><span class="pre">_calcular_media_sector()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Analysis.views._distribucion_retornos_ult_252_sesiones"><code class="docutils literal notranslate"><span class="pre">_distribucion_retornos_ult_252_sesiones()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-DashBoard.apps">DashBoard</a><ul>
@@ -238,6 +239,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#Lab.apps.LabConfig.name"><code class="docutils literal notranslate"><span class="pre">LabConfig.name</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.forms.FormBasico"><code class="docutils literal notranslate"><span class="pre">FormBasico</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.FormBasico.base_fields"><code class="docutils literal notranslate"><span class="pre">FormBasico.base_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.FormBasico.declared_fields"><code class="docutils literal notranslate"><span class="pre">FormBasico.declared_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.FormBasico.media"><code class="docutils literal notranslate"><span class="pre">FormBasico.media</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.forms.ArimaAutoForm"><code class="docutils literal notranslate"><span class="pre">ArimaAutoForm</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaAutoForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ArimaAutoForm.base_fields</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Lab.forms.ArimaAutoForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ArimaAutoForm.declared_fields</span></code></a></li>
@@ -262,13 +269,21 @@
 <li class="toctree-l3"><a class="reference internal" href="#Lab.forms.LstmForm.media"><code class="docutils literal notranslate"><span class="pre">LstmForm.media</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.forms.EstrategiaMLForm"><code class="docutils literal notranslate"><span class="pre">EstrategiaMLForm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.EstrategiaMLForm.base_fields"><code class="docutils literal notranslate"><span class="pre">EstrategiaMLForm.base_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.EstrategiaMLForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">EstrategiaMLForm.declared_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lab.forms.EstrategiaMLForm.media"><code class="docutils literal notranslate"><span class="pre">EstrategiaMLForm.media</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views.lab"><code class="docutils literal notranslate"><span class="pre">lab()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views.buscar_paramateros_arima"><code class="docutils literal notranslate"><span class="pre">buscar_paramateros_arima()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._diferenciacion_logaritmica"><code class="docutils literal notranslate"><span class="pre">_diferenciacion_logaritmica()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views.arima_auto"><code class="docutils literal notranslate"><span class="pre">arima_auto()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views.arima_rejilla"><code class="docutils literal notranslate"><span class="pre">arima_rejilla()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views.arima_manual"><code class="docutils literal notranslate"><span class="pre">arima_manual()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._preprocesar_p_d_q"><code class="docutils literal notranslate"><span class="pre">_preprocesar_p_d_q()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._evaluar_modelo_arima_mse"><code class="docutils literal notranslate"><span class="pre">_evaluar_modelo_arima_mse()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Lab.views._comprobar_formulario_arima"><code class="docutils literal notranslate"><span class="pre">_comprobar_formulario_arima()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._comprobar_formularios"><code class="docutils literal notranslate"><span class="pre">_comprobar_formularios()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._validacion_walk_forward_arima"><code class="docutils literal notranslate"><span class="pre">_validacion_walk_forward_arima()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._generar_resultados_arima"><code class="docutils literal notranslate"><span class="pre">_generar_resultados_arima()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views.lstm"><code class="docutils literal notranslate"><span class="pre">lstm()</span></code></a></li>
@@ -277,6 +292,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._comprobar_formulario_lstm"><code class="docutils literal notranslate"><span class="pre">_comprobar_formulario_lstm()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._validacion_walk_forward_lstm"><code class="docutils literal notranslate"><span class="pre">_validacion_walk_forward_lstm()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._generar_resultados_lstm"><code class="docutils literal notranslate"><span class="pre">_generar_resultados_lstm()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views.cruce_medias"><code class="docutils literal notranslate"><span class="pre">cruce_medias()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._algoritmo_cruce_medias_automaticas"><code class="docutils literal notranslate"><span class="pre">_algoritmo_cruce_medias_automaticas()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._resultados_cruce_medias"><code class="docutils literal notranslate"><span class="pre">_resultados_cruce_medias()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._generar_figura_cruce_medias"><code class="docutils literal notranslate"><span class="pre">_generar_figura_cruce_medias()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views.estrategia_ML"><code class="docutils literal notranslate"><span class="pre">estrategia_ML()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._obtener_tickers_relevantes"><code class="docutils literal notranslate"><span class="pre">_obtener_tickers_relevantes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._preprocesado_datos_ML"><code class="docutils literal notranslate"><span class="pre">_preprocesado_datos_ML()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._regresion_lineal"><code class="docutils literal notranslate"><span class="pre">_regresion_lineal()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._clasificacion_regresion_logistica"><code class="docutils literal notranslate"><span class="pre">_clasificacion_regresion_logistica()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-News.apps">News</a><ul>
@@ -1085,6 +1109,32 @@ media de los cierres del sector.</p>
 </section>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="Analysis.views._distribucion_retornos_ult_252_sesiones">
+<span class="sig-prename descclassname"><span class="pre">Analysis.views.</span></span><span class="sig-name descname"><span class="pre">_distribucion_retornos_ult_252_sesiones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Analysis.views._distribucion_retornos_ult_252_sesiones" title="Link to this definition">¶</a></dt>
+<dd><p>Para mostrar la distribución de los retornos (varaiaciones diarias en %)
+de un valor.</p>
+<section id="id33">
+<h2>Parameters<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>ticker<span class="classifier">str</span></dt><dd><p>Nombre del ticker de un valor.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id34">
+<h2>Returns<a class="headerlink" href="#id34" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>grafica_retornos<span class="classifier">str</span></dt><dd><p>Cadena de datos con la distribución de los retornos (gráfica del 
+buffer decodificada).</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
 </section>
 <section id="module-DashBoard.apps">
 <span id="dashboard"></span><h1>DashBoard<a class="headerlink" href="#module-DashBoard.apps" title="Link to this heading">¶</a></h1>
@@ -1094,8 +1144,8 @@ media de los cierres del sector.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DashBoard.apps.</span></span><span class="sig-name descname"><span class="pre">DashboardConfig</span></span><a class="headerlink" href="#DashBoard.apps.DashboardConfig" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
 <p>Configuración de la app de DashBoard.</p>
-<section id="id33">
-<h2>Parameters<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h2>
+<section id="id35">
+<h2>Parameters<a class="headerlink" href="#id35" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>AppConfig<span class="classifier">django.apps)</span></dt><dd><p>Configurador de aplicaciones en Django.</p>
@@ -1123,8 +1173,8 @@ media de los cierres del sector.</p>
 <p>Clase que hace uso del ModelForm para crear
 un formulario para los stocks comprados siguiendo
 el modelo definido en ‘models’.</p>
-<section id="id34">
-<h2>Parameters<a class="headerlink" href="#id34" title="Link to this heading">¶</a></h2>
+<section id="id36">
+<h2>Parameters<a class="headerlink" href="#id36" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>ModelForm<span class="classifier">django.forms</span></dt><dd><p>Modelo de formulario de Django.</p>
@@ -1191,8 +1241,8 @@ el modelo del formulario.</p>
 <p>Clase que hace uso del ModelForm para crear
 un formulario para los stocks en seguimiento.
 Hago uso del modelo definido en ‘models’.</p>
-<section id="id35">
-<h2>Parameters<a class="headerlink" href="#id35" title="Link to this heading">¶</a></h2>
+<section id="id37">
+<h2>Parameters<a class="headerlink" href="#id37" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>ModelForm<span class="classifier">django.forms</span></dt><dd><p>Modelo de formulario de Django.</p>
@@ -1258,8 +1308,8 @@ el modelo del formulario.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DashBoard.models.</span></span><span class="sig-name descname"><span class="pre">StockComprado</span></span><a class="headerlink" href="#DashBoard.models.StockComprado" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
 <p>Modelo para los stocks comprados por el usuario.</p>
-<section id="id36">
-<h2>Parameters<a class="headerlink" href="#id36" title="Link to this heading">¶</a></h2>
+<section id="id38">
+<h2>Parameters<a class="headerlink" href="#id38" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>models<span class="classifier">django.db.models.Model</span></dt><dd><p>Modelo de Django.</p>
@@ -1359,8 +1409,8 @@ object the first time, the query is executed.</p>
 <span class="sig-name descname"><span class="pre">posicion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.models.StockComprado.posicion" title="Link to this definition">¶</a></dt>
 <dd><p>No se guarda como un campo, pero facilita el
 acceso a la información.</p>
-<section id="id37">
-<h3>Parameters<a class="headerlink" href="#id37" title="Link to this heading">¶</a></h3>
+<section id="id39">
+<h3>Parameters<a class="headerlink" href="#id39" title="Link to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="simple">
 <dt>self</dt><dd><p>La propia clase StockComprado.</p>
@@ -1368,8 +1418,8 @@ acceso a la información.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id38">
-<h3>Returns<a class="headerlink" href="#id38" title="Link to this heading">¶</a></h3>
+<section id="id40">
+<h3>Returns<a class="headerlink" href="#id40" title="Link to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="simple">
 <dt>float</dt><dd><p>Precio por número de acciones = cantidad gastada</p>
@@ -1426,8 +1476,8 @@ object the first time, the query is executed.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DashBoard.models.</span></span><span class="sig-name descname"><span class="pre">StockSeguimiento</span></span><a class="headerlink" href="#DashBoard.models.StockSeguimiento" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
 <p>Modelo para los stocks seguidos por el usuario.</p>
-<section id="id39">
-<h2>Parameters<a class="headerlink" href="#id39" title="Link to this heading">¶</a></h2>
+<section id="id41">
+<h2>Parameters<a class="headerlink" href="#id41" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>models<span class="classifier">django.db.models.Model)</span></dt><dd><p>Modelo de Django.</p>
@@ -1556,8 +1606,8 @@ object the first time, the query is executed.</p>
 <dt class="sig sig-object py" id="DashBoard.views.dashboard">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">dashboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.dashboard" title="Link to this definition">¶</a></dt>
 <dd><p>Para mostrar un dashboard al usuario.</p>
-<section id="id40">
-<h2>Parameters<a class="headerlink" href="#id40" title="Link to this heading">¶</a></h2>
+<section id="id42">
+<h2>Parameters<a class="headerlink" href="#id42" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
@@ -1565,8 +1615,8 @@ object the first time, the query is executed.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id41">
-<h2>Returns<a class="headerlink" href="#id41" title="Link to this heading">¶</a></h2>
+<section id="id43">
+<h2>Returns<a class="headerlink" href="#id43" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>render</dt><dd><p>Renderiza la plantilla ‘dashboard.html’ con datos de contexto.</p>
@@ -1580,8 +1630,8 @@ object the first time, the query is executed.</p>
 <dt class="sig sig-object py" id="DashBoard.views.nueva_compra">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">nueva_compra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.nueva_compra" title="Link to this definition">¶</a></dt>
 <dd><p>Para registrar una nueva compra.</p>
-<section id="id42">
-<h2>Parameters<a class="headerlink" href="#id42" title="Link to this heading">¶</a></h2>
+<section id="id44">
+<h2>Parameters<a class="headerlink" href="#id44" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
@@ -1589,8 +1639,8 @@ object the first time, the query is executed.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id43">
-<h2>Returns<a class="headerlink" href="#id43" title="Link to this heading">¶</a></h2>
+<section id="id45">
+<h2>Returns<a class="headerlink" href="#id45" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>Union[render, redirect]: </dt><dd><ul class="simple">
@@ -1615,8 +1665,8 @@ object the first time, the query is executed.</p>
 <dt class="sig sig-object py" id="DashBoard.views.eliminar_compras">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">eliminar_compras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.eliminar_compras" title="Link to this definition">¶</a></dt>
 <dd><p>Para eliminar las compras (posiciones abiertas) asociadas a un usuario.</p>
-<section id="id44">
-<h2>Parameters<a class="headerlink" href="#id44" title="Link to this heading">¶</a></h2>
+<section id="id46">
+<h2>Parameters<a class="headerlink" href="#id46" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
@@ -1624,8 +1674,8 @@ object the first time, the query is executed.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id45">
-<h2>Returns<a class="headerlink" href="#id45" title="Link to this heading">¶</a></h2>
+<section id="id47">
+<h2>Returns<a class="headerlink" href="#id47" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>Union[render, redirect]:</dt><dd><ul class="simple">
@@ -1650,8 +1700,8 @@ object the first time, the query is executed.</p>
 <dt class="sig sig-object py" id="DashBoard.views.nuevo_seguimiento">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">nuevo_seguimiento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.nuevo_seguimiento" title="Link to this definition">¶</a></dt>
 <dd><p>Para registrar un nuevo valor en seguimiento.</p>
-<section id="id46">
-<h2>Parameters<a class="headerlink" href="#id46" title="Link to this heading">¶</a></h2>
+<section id="id48">
+<h2>Parameters<a class="headerlink" href="#id48" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
@@ -1659,8 +1709,8 @@ object the first time, the query is executed.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id47">
-<h2>Returns<a class="headerlink" href="#id47" title="Link to this heading">¶</a></h2>
+<section id="id49">
+<h2>Returns<a class="headerlink" href="#id49" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>Union[render, redirect]:</dt><dd><ul class="simple">
@@ -1685,8 +1735,8 @@ object the first time, the query is executed.</p>
 <dt class="sig sig-object py" id="DashBoard.views.eliminar_seguimientos">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">eliminar_seguimientos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views.eliminar_seguimientos" title="Link to this definition">¶</a></dt>
 <dd><p>Para eliminar valores en seguimiento asociados a un usuario.</p>
-<section id="id48">
-<h2>Parameters<a class="headerlink" href="#id48" title="Link to this heading">¶</a></h2>
+<section id="id50">
+<h2>Parameters<a class="headerlink" href="#id50" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
@@ -1694,8 +1744,8 @@ object the first time, the query is executed.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id49">
-<h2>Returns<a class="headerlink" href="#id49" title="Link to this heading">¶</a></h2>
+<section id="id51">
+<h2>Returns<a class="headerlink" href="#id51" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>Union[render, redirect]: </dt><dd><ul class="simple">
@@ -1720,8 +1770,8 @@ object the first time, the query is executed.</p>
 <dt class="sig sig-object py" id="DashBoard.views._stocks_en_seguimiento">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_stocks_en_seguimiento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seguimiento_usuario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._stocks_en_seguimiento" title="Link to this definition">¶</a></dt>
 <dd><p>Para obtener una lista de los stocks en seguimiento de un usuario.</p>
-<section id="id50">
-<h2>Parameters<a class="headerlink" href="#id50" title="Link to this heading">¶</a></h2>
+<section id="id52">
+<h2>Parameters<a class="headerlink" href="#id52" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>seguimiento_usuario<span class="classifier">QuerySet</span></dt><dd><p>objetos StockSeguimiento del usuario.</p>
@@ -1729,8 +1779,8 @@ object the first time, the query is executed.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id51">
-<h2>Returns<a class="headerlink" href="#id51" title="Link to this heading">¶</a></h2>
+<section id="id53">
+<h2>Returns<a class="headerlink" href="#id53" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>stocks_en_seg<span class="classifier">list</span></dt><dd><p>Stocks en seguimiento con información adicional (como los valores que son 
@@ -1745,8 +1795,8 @@ similares según el sector al que pertenecen).</p>
 <dt class="sig sig-object py" id="DashBoard.views._evolucion_cartera">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_evolucion_cartera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compras_usuario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._evolucion_cartera" title="Link to this definition">¶</a></dt>
 <dd><p>Para calular la evolución de las posiciones abiertas y del total de la cartera.</p>
-<section id="id52">
-<h2>Parameters<a class="headerlink" href="#id52" title="Link to this heading">¶</a></h2>
+<section id="id54">
+<h2>Parameters<a class="headerlink" href="#id54" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>compras_usuario<span class="classifier">QuerySet</span></dt><dd><p>Objetos StockComprado del usuario.</p>
@@ -1754,8 +1804,8 @@ similares según el sector al que pertenecen).</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id53">
-<h2>Returns<a class="headerlink" href="#id53" title="Link to this heading">¶</a></h2>
+<section id="id55">
+<h2>Returns<a class="headerlink" href="#id55" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>tuple: Tupla que contiene las evoluciones.</dt><dd><ul class="simple">
@@ -1780,8 +1830,8 @@ similares según el sector al que pertenecen).</p>
 <dt class="sig sig-object py" id="DashBoard.views._hay_errores">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_hay_errores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fecha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entrada</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precio_compra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caso</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._hay_errores" title="Link to this definition">¶</a></dt>
 <dd><p>Permite comprobar si los datos introducidos por el usuario son coherentes.</p>
-<section id="id54">
-<h2>Parameters<a class="headerlink" href="#id54" title="Link to this heading">¶</a></h2>
+<section id="id56">
+<h2>Parameters<a class="headerlink" href="#id56" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>fecha<span class="classifier">django.utils.timezone</span></dt><dd><p>Timezone actual.</p>
@@ -1799,8 +1849,8 @@ similares según el sector al que pertenecen).</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id55">
-<h2>Returns<a class="headerlink" href="#id55" title="Link to this heading">¶</a></h2>
+<section id="id57">
+<h2>Returns<a class="headerlink" href="#id57" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>Union[dict, bool]: </dt><dd><ul class="simple">
@@ -1828,8 +1878,8 @@ similares según el sector al que pertenecen).</p>
 de la cartera del usuario en base al sharpe ratio. Además, sirve para mostrar 
 lo que se puede considerar una cartera óptima, con los mismos valores, pero maximizando
 el sharpe ratio.</p>
-<section id="id56">
-<h2>Parameters<a class="headerlink" href="#id56" title="Link to this heading">¶</a></h2>
+<section id="id58">
+<h2>Parameters<a class="headerlink" href="#id58" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>eur_usd<span class="classifier">django.db.models.query.QuerySet)</span></dt><dd><p>Últimos datos actualizados del par EURUSD.</p>
@@ -1841,8 +1891,8 @@ el sharpe ratio.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id57">
-<h2>Returns<a class="headerlink" href="#id57" title="Link to this heading">¶</a></h2>
+<section id="id59">
+<h2>Returns<a class="headerlink" href="#id59" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>tuple: la gráfica de Markowitz y las diferentes distribuciones de pesos junto con los sharpe ratio</dt><dd><ul class="simple">
@@ -1868,8 +1918,8 @@ de la mejor cartera por optimización y los sharpe ratios de cada cartera.</p>
 <dt class="sig sig-object py" id="DashBoard.views._volatilidad_cartera">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_volatilidad_cartera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eur_usd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eur_gbp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compras_usuario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._volatilidad_cartera" title="Link to this definition">¶</a></dt>
 <dd><p>Para calcular la volatilidad de una cartera referenciada en Euros.</p>
-<section id="id58">
-<h2>Parameters<a class="headerlink" href="#id58" title="Link to this heading">¶</a></h2>
+<section id="id60">
+<h2>Parameters<a class="headerlink" href="#id60" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>eur_usd<span class="classifier">django.db.models.query.QuerySet)</span></dt><dd><p>Últimos datos actualizados del par EURUSD.</p>
@@ -1881,8 +1931,8 @@ de la mejor cartera por optimización y los sharpe ratios de cada cartera.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id59">
-<h2>Returns<a class="headerlink" href="#id59" title="Link to this heading">¶</a></h2>
+<section id="id61">
+<h2>Returns<a class="headerlink" href="#id61" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>tuple: Tupla de datos relevantes para otros métodos auxiliares.</dt><dd><ul class="simple">
@@ -1919,8 +1969,8 @@ de la mejor cartera por optimización y los sharpe ratios de cada cartera.</p>
 <dd><p>Para simular un número elevado de carteras con los mismos valores (y, por tanto
 mismos retornos de últimas 252 sesiones) que tenga el usuario en cartera pero realizando
 diferentes distribuciones de pesos con el objetivo de buscar una distribución óptima.</p>
-<section id="id60">
-<h2>Parameters<a class="headerlink" href="#id60" title="Link to this heading">¶</a></h2>
+<section id="id62">
+<h2>Parameters<a class="headerlink" href="#id62" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>retornos_df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.</p>
@@ -1930,8 +1980,8 @@ diferentes distribuciones de pesos con el objetivo de buscar una distribución �
 </dl>
 </div></blockquote>
 </section>
-<section id="id61">
-<h2>Returns<a class="headerlink" href="#id61" title="Link to this heading">¶</a></h2>
+<section id="id63">
+<h2>Returns<a class="headerlink" href="#id63" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>tuple<span class="classifier">Tupla con los cálculos realizados durante la simulación de Monte Carlo</span></dt><dd><ul class="simple">
@@ -1962,8 +2012,8 @@ diferentes distribuciones de pesos con el objetivo de buscar una distribución �
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_rendimientos_min_y_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retornos_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._rendimientos_min_y_max" title="Link to this definition">¶</a></dt>
 <dd><p>Para calcular los rendimientos máximo y mínimo posibles de una 
 cartera según los rendimientos/retornos del último año.</p>
-<section id="id62">
-<h2>Parameters<a class="headerlink" href="#id62" title="Link to this heading">¶</a></h2>
+<section id="id64">
+<h2>Parameters<a class="headerlink" href="#id64" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>retornos_df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.</p>
@@ -1971,8 +2021,8 @@ cartera según los rendimientos/retornos del último año.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id63">
-<h2>Returns<a class="headerlink" href="#id63" title="Link to this heading">¶</a></h2>
+<section id="id65">
+<h2>Returns<a class="headerlink" href="#id65" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>tuple<span class="classifier">Tupla con los rendimientos máximo y mínimo, y con los límites de la programación lineal. </span></dt><dd><ul class="simple">
@@ -2005,8 +2055,8 @@ eficiente o la selección de mejores pesos.</p>
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_opt_funcion_objetivo_varianza</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pesos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matriz_covarianza</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._opt_funcion_objetivo_varianza" title="Link to this definition">¶</a></dt>
 <dd><p>Devuelve la varianza de la cartera. Esta función se minimiza en el método
 _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, limites).</p>
-<section id="id64">
-<h2>Parameters<a class="headerlink" href="#id64" title="Link to this heading">¶</a></h2>
+<section id="id66">
+<h2>Parameters<a class="headerlink" href="#id66" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
@@ -2016,8 +2066,8 @@ _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, limi
 </dl>
 </div></blockquote>
 </section>
-<section id="id65">
-<h2>Returns<a class="headerlink" href="#id65" title="Link to this heading">¶</a></h2>
+<section id="id67">
+<h2>Returns<a class="headerlink" href="#id67" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>varianza<span class="classifier">numpy.float64</span></dt><dd><p>Valor que se intenta minimizar en el proceso de optimización.</p>
@@ -2032,8 +2082,8 @@ _frontera_eficiente_por_optimizacion(retorno_min, retorno_max, retornos_df, limi
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_opt_restriccion_retorno_objetivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pesos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retornos_medios_reales</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retorno_objetivo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._opt_restriccion_retorno_objetivo" title="Link to this definition">¶</a></dt>
 <dd><p>Función que sirve como restricción de igualdad. Devuleve 0 si se
 llega a la restricción.</p>
-<section id="id66">
-<h2>Parameters<a class="headerlink" href="#id66" title="Link to this heading">¶</a></h2>
+<section id="id68">
+<h2>Parameters<a class="headerlink" href="#id68" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
@@ -2041,31 +2091,6 @@ llega a la restricción.</p>
 <dt>retornos_medios_reales<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Retorno medio de las útimas 252 sesiones de cada valor en cartera</p>
 </dd>
 <dt>retorno_objetivo<span class="classifier">numpy.float64</span></dt><dd><p>Retorno entre el mínimo y el máximo posibles.</p>
-</dd>
-</dl>
-</div></blockquote>
-</section>
-<section id="id67">
-<h2>Returns<a class="headerlink" href="#id67" title="Link to this heading">¶</a></h2>
-<blockquote>
-<div><dl class="simple">
-<dt>numpy.float64</dt><dd><p>Restricción de igualdad del proceso de optimización.</p>
-</dd>
-</dl>
-</div></blockquote>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DashBoard.views._opt_restriccion_cartera">
-<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_opt_restriccion_cartera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pesos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._opt_restriccion_cartera" title="Link to this definition">¶</a></dt>
-<dd><p>Función que sirve como restricción de igualdad. Obliga a que los pesos de 
-los valores en cartera tengan suma de 1 (i.e., 100%).</p>
-<section id="id68">
-<h2>Parameters<a class="headerlink" href="#id68" title="Link to this heading">¶</a></h2>
-<blockquote>
-<div><dl class="simple">
-<dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -2082,12 +2107,37 @@ los valores en cartera tengan suma de 1 (i.e., 100%).</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="DashBoard.views._opt_restriccion_cartera">
+<span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_opt_restriccion_cartera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pesos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._opt_restriccion_cartera" title="Link to this definition">¶</a></dt>
+<dd><p>Función que sirve como restricción de igualdad. Obliga a que los pesos de 
+los valores en cartera tengan suma de 1 (i.e., 100%).</p>
+<section id="id70">
+<h2>Parameters<a class="headerlink" href="#id70" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="id71">
+<h2>Returns<a class="headerlink" href="#id71" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>numpy.float64</dt><dd><p>Restricción de igualdad del proceso de optimización.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="DashBoard.views._frontera_eficiente_por_optimizacion">
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_frontera_eficiente_por_optimizacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retorno_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retorno_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retornos_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limites</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._frontera_eficiente_por_optimizacion" title="Link to this definition">¶</a></dt>
 <dd><p>Para calcular la frontera eficiente de una cartera de valores a través de
 un proceso de optimización.</p>
-<section id="id70">
-<h2>Parameters<a class="headerlink" href="#id70" title="Link to this heading">¶</a></h2>
+<section id="id72">
+<h2>Parameters<a class="headerlink" href="#id72" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>retorno_min<span class="classifier">float</span></dt><dd><p>Rendimiento mínimo posible con los valores de la cartera.</p>
@@ -2102,8 +2152,8 @@ y que se usa en otros procesos de optimización.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id71">
-<h2>Returns<a class="headerlink" href="#id71" title="Link to this heading">¶</a></h2>
+<section id="id73">
+<h2>Returns<a class="headerlink" href="#id73" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>tuple<span class="classifier">Tupla con la volatilidad y el rendimiento optimizados. </span></dt><dd><ul class="simple">
@@ -2130,8 +2180,8 @@ y que se usa en otros procesos de optimización.</p>
 <dd><p>Función que va a pasar por un proceso de minimización de pesos
 para obtener el mínimo óptimo del sharpe ratio. Como quiero el sharpe 
 ratio máximo, lo que hago es que devuelva el mismo resultado pero en negativo.</p>
-<section id="id72">
-<h2>Parameters<a class="headerlink" href="#id72" title="Link to this heading">¶</a></h2>
+<section id="id74">
+<h2>Parameters<a class="headerlink" href="#id74" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>pesos<span class="classifier">numpy.ndarray</span></dt><dd><p>Porcentajes de representación de los valores en la cartera.</p>
@@ -2141,8 +2191,8 @@ ratio máximo, lo que hago es que devuelva el mismo resultado pero en negativo.<
 </dl>
 </div></blockquote>
 </section>
-<section id="id73">
-<h2>Returns<a class="headerlink" href="#id73" title="Link to this heading">¶</a></h2>
+<section id="id75">
+<h2>Returns<a class="headerlink" href="#id75" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>sharpe_ratio_negativo<span class="classifier">numpy.float64</span></dt><dd><p>Sharpe ratio de una cartera de valores.</p>
@@ -2157,8 +2207,8 @@ ratio máximo, lo que hago es que devuelva el mismo resultado pero en negativo.<
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_mejores_pesos_por_optimizacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retornos_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limites</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._mejores_pesos_por_optimizacion" title="Link to this definition">¶</a></dt>
 <dd><p>Para calcular los mejores pesos posibles de una cartera a través de 
 un proceso de optimización del Sharpe ratio.</p>
-<section id="id74">
-<h2>Parameters<a class="headerlink" href="#id74" title="Link to this heading">¶</a></h2>
+<section id="id76">
+<h2>Parameters<a class="headerlink" href="#id76" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>retornos_df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Retornos de las últimas 252 sesiones de cada valor en la cartera del usuario.</p>
@@ -2169,8 +2219,8 @@ y que se usa en otros procesos de optimización.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id75">
-<h2>Returns<a class="headerlink" href="#id75" title="Link to this heading">¶</a></h2>
+<section id="id77">
+<h2>Returns<a class="headerlink" href="#id77" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>tuple<span class="classifier">Tupla con el mejor sharpe ratio y los mejores pesos de una cartera.</span></dt><dd><ul class="simple">
@@ -2196,8 +2246,8 @@ y que se usa en otros procesos de optimización.</p>
 <span class="sig-prename descclassname"><span class="pre">DashBoard.views.</span></span><span class="sig-name descname"><span class="pre">_mejores_pesos_por_monte_carlo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volatilidades_aleatorias</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retornos_aleatorios</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pesos_aleatorios</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DashBoard.views._mejores_pesos_por_monte_carlo" title="Link to this definition">¶</a></dt>
 <dd><p>Para buscar por ‘fuerza bruta’ la mejor distribución de pesos entre 
 todas las carteras generadas durante la simulación de Monte Carlo.</p>
-<section id="id76">
-<h2>Parameters<a class="headerlink" href="#id76" title="Link to this heading">¶</a></h2>
+<section id="id78">
+<h2>Parameters<a class="headerlink" href="#id78" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>volatilidades_aleatorias<span class="classifier">numpy.ndarray</span></dt><dd><p>Array con las volatilidades de cada cartera ficticia generada en la simulación 
@@ -2212,8 +2262,8 @@ de Monte Carlo.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id77">
-<h2>Returns<a class="headerlink" href="#id77" title="Link to this heading">¶</a></h2>
+<section id="id79">
+<h2>Returns<a class="headerlink" href="#id79" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>tuple<span class="classifier">Tupla con el mejor sharpe ratio y los mejores pesos de una cartera.</span></dt><dd><ul class="simple">
@@ -2240,8 +2290,8 @@ de Monte Carlo.</p>
 <dd><p>Para agregar toda la información obtenida referente a la optimización de carteras.
 La idea es almacenar la información en una estructura que sea fácilmente accesible
 en una plantilla HTML.</p>
-<section id="id78">
-<h2>Parameters<a class="headerlink" href="#id78" title="Link to this heading">¶</a></h2>
+<section id="id80">
+<h2>Parameters<a class="headerlink" href="#id80" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>compras_usuario<span class="classifier">django.db.models.query.QuerySet</span></dt><dd><p>QuerySet con las compras que tiene un usuario en cartera.</p>
@@ -2261,8 +2311,8 @@ en una plantilla HTML.</p>
 </dl>
 </div></blockquote>
 </section>
-<section id="id79">
-<h2>Returns<a class="headerlink" href="#id79" title="Link to this heading">¶</a></h2>
+<section id="id81">
+<h2>Returns<a class="headerlink" href="#id81" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>distribuciones_pesos_agregadas<span class="classifier">list</span></dt><dd><p>Lista con toda la información ordenada de manera fácilmente accesible.</p>
@@ -2417,6 +2467,35 @@ el caso.</p>
 
 <p id="module-Lab.forms">Formularios para usar con Lab.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="Lab.forms.FormBasico">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Lab.forms.</span></span><span class="sig-name descname"><span class="pre">FormBasico</span></span><a class="headerlink" href="#Lab.forms.FormBasico" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
+<p>Clase que define el fomrulario para introducir los datos
+necearios para buscar de forma gráfica los mejores valores
+para (p, d, q).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.FormBasico.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.FormBasico.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.FormBasico.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.FormBasico.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="Lab.forms.FormBasico.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#Lab.forms.FormBasico.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="Lab.forms.ArimaAutoForm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Lab.forms.</span></span><span class="sig-name descname"><span class="pre">ArimaAutoForm</span></span><a class="headerlink" href="#Lab.forms.ArimaAutoForm" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
@@ -2531,6 +2610,35 @@ necearios para aplicar una red LSTM automáticamente.</p>
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="Lab.forms.EstrategiaMLForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Lab.forms.</span></span><span class="sig-name descname"><span class="pre">EstrategiaMLForm</span></span><a class="headerlink" href="#Lab.forms.EstrategiaMLForm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
+<p>Clase que define el fomrulario para introducir los datos
+necearios para aplicar un modelo ARIMA cuyos parámetros (p,d,q)
+se obtienen de forma automática con ‘arima_auto’ de ‘pmdarima’.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>Form (django.forms.Form): tipo formulario de Django.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.EstrategiaMLForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'indice':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'tipo_modelo':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.EstrategiaMLForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Lab.forms.EstrategiaMLForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'indice':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'num_sesiones':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'porcentaje_entrenamiento':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'tipo_modelo':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Lab.forms.EstrategiaMLForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="Lab.forms.EstrategiaMLForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#Lab.forms.EstrategiaMLForm.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
 <p id="module-Lab.urls">URLs para usar con Lab.</p>
 <p id="module-Lab.views">Métodos de vistas para usar con Lab.</p>
 <dl class="py function">
@@ -2546,6 +2654,43 @@ con la información necesaria.</p>
 </dl>
 </dd>
 <dt>Returns:</dt><dd><p>(render): renderiza la plantilla ‘lab.html’ con datos de contexto.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views.buscar_paramateros_arima">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">buscar_paramateros_arima</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.buscar_paramateros_arima" title="Link to this definition">¶</a></dt>
+<dd><p>Para buscar, a partir de gráficas, los mejores datos de los parámetros
+(p, d, q). Requiere que el usuario entienda lo que está viendo.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>(render): renderiza la plantilla ‘buscar_paramateros_arima.html’ con datos</dt><dd><p>de contexto.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views._diferenciacion_logaritmica">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_diferenciacion_logaritmica</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._diferenciacion_logaritmica" title="Link to this definition">¶</a></dt>
+<dd><p>Para hacer una diferenciación logarítmica como se haría de forma manual,
+para hacer la serie estacionaria y que podamos aplicar las funciones ACF y PACF. 
+Además, genera las gráficas necesarias para que el usuario interprete los datos.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (pandas.core.frame.DataFrame): conjunto total de datos. 
+d (int): orden de diferenciación (la I_(d) de ARIMA).</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>grafica_acf_pacf (str): imagen con las gráficas de diferenciación de cierres,</dt><dd><p>ACF y PACF.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -2665,8 +2810,8 @@ pero esta es muy fiable.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="Lab.views._comprobar_formulario_arima">
-<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_comprobar_formulario_arima</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._comprobar_formulario_arima" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Lab.views._comprobar_formularios">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_comprobar_formularios</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._comprobar_formularios" title="Link to this definition">¶</a></dt>
 <dd><p>Permite comprobar si los datos introducidos por
 el usuario en cualquiera de los formularios disponibles
 son coherentes.</p>
@@ -2712,7 +2857,7 @@ aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._generar_resultados_arima">
-<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_generar_resultados_arima</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modelo_fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fechas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicciones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam_entrenamiento</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aciertos_tendencia</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._generar_resultados_arima" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_generar_resultados_arima</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modelo_fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fechas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicciones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam_entrenamiento</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aciertos_tendencia</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._generar_resultados_arima" title="Link to this definition">¶</a></dt>
 <dd><p>Para generar los resultados gráficos y textuales
 que se mostrarán al usuario en la plantilla HTML para
 informarle sobre los resultados del modelo ARIMA elegido.</p>
@@ -2733,6 +2878,8 @@ datos (pandas.core.series.Series): conjunto total de datos (entrenamiento</p>
 <dt>aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</dt><dd><p>con los datos de test.</p>
 </dd>
 </dl>
+<p>order (tuple): tupla con los valores (p, d, q).
+ticker (str): nombre del ticker con el que se va a trabajar.</p>
 </dd>
 <dt>Returns:</dt><dd><p>context (dict): diccionario con los datos del contexto.</p>
 </dd>
@@ -2872,6 +3019,136 @@ df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views.cruce_medias">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">cruce_medias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.cruce_medias" title="Link to this definition">¶</a></dt>
+<dd><p>Para implementar el algoritmo de seguimiento de tendencias o cruce de medias.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>(render): renderiza la plantilla ‘arima_auto.html’ con datos</dt><dd><p>de contexto.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views._algoritmo_cruce_medias_automaticas">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_algoritmo_cruce_medias_automaticas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._algoritmo_cruce_medias_automaticas" title="Link to this definition">¶</a></dt>
+<dd><p>Para realizar aplicar el algoritmo de cruce de medias (o seguimiento de
+tendencia).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (_type_): _description_</p>
+</dd>
+<dt>Returns:</dt><dd><p>_type_: _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views._resultados_cruce_medias">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_resultados_cruce_medias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._resultados_cruce_medias" title="Link to this definition">¶</a></dt>
+<dd><p>Para generar un DataFrame con algunos resultados relevantes que se mostrarán al 
+usuario.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (_type_): _description_</p>
+</dd>
+<dt>Returns:</dt><dd><p>_type_: _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views._generar_figura_cruce_medias">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_generar_figura_cruce_medias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre_ticker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mms_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mms_rap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._generar_figura_cruce_medias" title="Link to this definition">¶</a></dt>
+<dd><p>Para generar la figura del algoritmo de seguimiento de tendencia o cruce de medias.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (_type_): _description_
+nombre_ticker (_type_): _description_
+mms_len (_type_): _description_
+mms_rap (_type_): _description_</p>
+</dd>
+<dt>Returns:</dt><dd><p>_type_: _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views.estrategia_ML">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">estrategia_ML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.estrategia_ML" title="Link to this definition">¶</a></dt>
+<dd><p>Para implementar el algoritmo de seguimiento de tendencias o cruce de medias.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>(render): renderiza la plantilla ‘arima_auto.html’ con datos</dt><dd><p>de contexto.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views._obtener_tickers_relevantes">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_obtener_tickers_relevantes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indice</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._obtener_tickers_relevantes" title="Link to this definition">¶</a></dt>
+<dd><p>Para obtener los tickers relevantes de cada índice y el propio índice.</p>
+<dl>
+<dt>Args:</dt><dd><p>indice (str): nombre del índice con el que se va a trabajar. 
+request (django.core.handlers.wsgi.WSGIRequest): solicitud</p>
+<blockquote>
+<div><p>HTTP encapsulada por Django.</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>valores (list): lista de los valores que rerpesentan al índice.
+clase (str): nombre del índice con el formato de guardado en BDs,</p>
+<blockquote>
+<div><p>esta será la clase objetivo.</p>
+</div></blockquote>
+<p>tickers_unidos (list): lista con todos los tickers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views._preprocesado_datos_ML">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_preprocesado_datos_ML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tickers_unidos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_sesiones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">porcentaje_entren</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._preprocesado_datos_ML" title="Link to this definition">¶</a></dt>
+<dd><p>Para preparar los datos de la estrategia ML con el formato adecuado.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>tickers_unidos (list): lista con los tickers de los valores más relevantes</dt><dd><p>y el índice sobre el que se va a hacer una estimación.</p>
+</dd>
+</dl>
+<p>num_sesiones (int): número de sesiones a tener en cuenta para entrenar los modelos.
+valores (lista): lista con los tickers más relevantes de un índice. 
+clase (str): nombre del índice.</p>
+</dd>
+<dt>Returns:</dt><dd><p>df_retornos (pandas.core.frame.DataFrame): df con los retornos logarítmicos. 
+df_resultado (pandas.core.frame.DataFrame): df con los valores de precios de cierre.
+tam_entrenamiento (int): número de datos dedicados al entrenamiento del modelo. 
+train (pandas.core.frame.DataFrame): subconjunto de entrenamiento de df_retornos. 
+test (pandas.core.frame.DataFrame): subconjunto de test de df_retornos.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views._regresion_lineal">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_regresion_lineal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_retornos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam_entrenamiento</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_resultado</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._regresion_lineal" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Lab.views._clasificacion_regresion_logistica">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_clasificacion_regresion_logistica</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_retornos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam_entrenamiento</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_resultado</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._clasificacion_regresion_logistica" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </section>
 <section id="module-News.apps">

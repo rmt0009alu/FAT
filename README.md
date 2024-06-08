@@ -128,37 +128,45 @@ Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
 
   - Para limpiar las rutas de _pycache_:
 
-  > (venv) > python -m pip install pyclean
+    > (venv) > python -m pip install pyclean
   
-  Modo de uso:
+    Modo de uso:
   
-  > (venv) > pyclean .
+    > (venv) > pyclean .
+
 
   - Para testear el código:
 
-  > (venv) > python -m pip install coverage
+    > (venv) > python -m pip install coverage
 
-  Modos de uso:
+    Modo de uso:
 
-  > (venv) > coverage run manage.py test tests<br>
-  > (venv) > coverage html
+    > (venv) > coverage run manage.py test tests<br>
+    > (venv) > coverage html
+    
+    Consular el informe generado en /htmlcov/index.html
 
-  - Para comprobar la calidad del código:**
 
-  > (venv) > python -m pip install pylint
+  - Para comprobar la calidad del código:
+
+    > (venv) > python -m pip install pylint
   
-  Modos de uso:
+    Modos de uso:
   
-  > (venv) > pylint .\DashBoard\views.py<br>
-  > (venv) > pylint .\DashBoard<br>
-  > (venv) > pylint .<br>
+    > (venv) > pylint .\DashBoard\views.py<br>
+    > (venv) > pylint .\DashBoard<br>
+    > (venv) > pylint .<br>
+
 
   - Para crear documentación del estilo de ReadTheDocs:**
 
-  > (venv) > python -m pip install sphinx<br>
-  > (venv) > python -m pip install sphinxcontrib-django<br>
-  > (venv) > python -m pip install sphinx_rtd_theme<br>
+    > (venv) > python -m pip install sphinx<br>
+    > (venv) > python -m pip install sphinxcontrib-django<br>
+    > (venv) > python -m pip install sphinx_rtd_theme<br>
 
-  Modo de uso:
+    Modo de uso:
+    
+    > cd .\docs\sphinx\
+    > (venv) \docs\sphinx\ > .\make.bat html
 
-  > (venv) > .\make.bat html
+    Consular la documentación del código generada en /docs/sphinx/_build/html/index.html
