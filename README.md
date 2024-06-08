@@ -59,7 +59,7 @@ Aquí se detallan los paso más importantes que hay que dar para utilizar esta h
 
    > python -m venv venv
 
-### **Paso 6. Instalar las dependencias en el entorno virtual:**
+### Paso 6. Instalar las dependencias en el entorno virtual:
 
 En este proyecto se puede encontrar un archivo requirements.txt con todas las dependencias. Pero para facilitar la instalación se recomienda seguir los siguientes pasos, ya que se instalarán las librerías en el orden adecuado y todas las dependencias de terceros estarán disponibles igualmente:
 
@@ -69,54 +69,53 @@ En este proyecto se puede encontrar un archivo requirements.txt con todas las de
 
 - Instalar framework, librerías y APIs:
 
-  (venv) > python -m pip install Django
-  (venv) > python -m pip install pandas
-  (venv) > python -m pip install plotly==5.18.0
-  (venv) > python -m pip install newsapi-python
-  (venv) > python -m pip install -U matplotlib
-  (venv) > python -m pip install mpld3
-  (venv) > python -m pip install django-pandas
-  (venv) > python -m pip install feedparser
-  (venv) > python -m pip install yfinance
-  (venv) > python -m pip install python-dotenv
-  (venv) > python -m pip install networkx
-  (venv) > python -m pip install statsmodels
-  (venv) > python -m pip install scikit-learn
-  (venv) > python -m pip install pmdarima
-  (venv) > python -m pip install tensorflow
+  > (venv) > python -m pip install Django
+  > (venv) > python -m pip install pandas
+  > (venv) > python -m pip install plotly==5.18.0
+  > (venv) > python -m pip install newsapi-python
+  > (venv) > python -m pip install -U matplotlib
+  > (venv) > python -m pip install mpld3
+  > (venv) > python -m pip install django-pandas
+  > (venv) > python -m pip install feedparser
+  > (venv) > python -m pip install yfinance
+  > (venv) > python -m pip install python-dotenv
+  > (venv) > python -m pip install networkx
+  > (venv) > python -m pip install statsmodels
+  > (venv) > python -m pip install scikit-learn
+  > (venv) > python -m pip install pmdarima
+  > (venv) > python -m pip install tensorflow
 
-### **Paso 7. Configurar claves secretas:**
+### Paso 7. Configurar claves secretas:
 
-Esta herramienta requiere dos claves secretas que no están disponibles pero que son fácilmente conseguibles:
-- **Clave SECRET_KEY de Django**
-- **Clave para conexión a la API de noticias NewsAPI**
+Esta herramienta requiere dos claves secretas que no están disponibles pero que son fácilmente conseguibles.
 
 Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
 
-#### **Paso 7.1. SECRET_KEY de Django:**
+ - #### **Paso 7.1. SECRET_KEY de Django:**
 
-Generar una SECRET_KEY de Django de manera aleatoria desde una terminal en el entorno virtual:
+ + Generar una SECRET_KEY de Django de manera aleatoria desde una terminal en el entorno virtual:
 
-> (venv) > python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+   > (venv) > python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 
-Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
+ + Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
 
-> export SECRET_KEY=clave_larga_6v2_ldx_clave_larga
+   > export SECRET_KEY=clave_larga_6v2_ldx_clave_larga
 
-#### **Paso 7.2. Clave de API NewsAPI:**
+ - #### **Paso 7.2. Clave de API NewsAPI:**
 
-Acceder a [NewsAPI](https://newsapi.org/) y solicitar una clave de acceso con un registro (puede usarse un '10 minute mail' o similar):
+ + Acceder a [NewsAPI](https://newsapi.org/) y solicitar una clave de acceso con un registro (puede usarse un '10 minute mail' o similar):
 
-Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
+ + Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
 
-> export SECRET_KEY=clave_larga_6v2_ldx_clave_larga
-> export NEWS_API_KEY=clave_api_123456_clave_api
+   > export SECRET_KEY=clave_larga_6v2_ldx_clave_larga
+   > export NEWS_API_KEY=clave_api_123456_clave_api
 
-#### **Paso 7.3. Cambiar el nombre de .env.example:**
+ - #### Paso 7.3. Cambiar el nombre de .env.example:
 
-Cambiar el nombre de /FAT/.env.example por /FAT/.env
+ + Cambiar el nombre de /FAT/.env.example por /FAT/.env
 
-### **Paso 8. Lanzar el servidor:**
+
+### Paso 8. Lanzar el servidor:
 
 Como ya tenemos configruado el entorno, sólo queda empezar a utilizarlo:
 
