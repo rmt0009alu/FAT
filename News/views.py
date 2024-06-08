@@ -1,26 +1,26 @@
 """
 Métodos de vistas para usar con News.
 """
+import os
+import base64
+# Para etiquetas de gráficos en castellano
+import locale
+from io import BytesIO
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-# import mpld3
-import os 
-from io import BytesIO
-import base64
-# Para etiquetas de gráficos en castellano
-import locale
 # Para usar django-pandas y frames
 from django_pandas.io import read_frame
-from newsapi import NewsApiClient
 from django.shortcuts import render
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
-# Para obtener los tickers y los paths de las BDs
-from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_dax40, tickers_adaptados_indices, obtener_nombre_bd
+from newsapi import NewsApiClient
 # Para cargar variables de entorno
 from dotenv import load_dotenv
+# Para obtener los tickers y los paths de las BDs
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100
+from util.tickers.Tickers_BDs import tickers_adaptados_dax40, tickers_adaptados_indices, obtener_nombre_bd
 
 # Para evitar el "UserWarning: Starting a Matplotlib GUI outside of the main thread will likely fail"
 # https://stackoverflow.com/questions/69924881/userwarning-starting-a-matplotlib-gui-outside-of-the-main-thread-will-likely-fa
@@ -32,22 +32,26 @@ def home(request):
     de noticias junto con información de los mejores
     y peores stocks.
 
-    Args:
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+    Parameters
+    ----------
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
-    Returns:
-        (render): renderiza la plantilla 'home.html' con datos de contexto.
+    Returns
+    -------
+        : render
+            Renderiza la plantilla 'home.html' con datos de contexto.
     """
     # NOTICIAS
     # ----------------------------------
     load_dotenv()
-    NEWS_API_KEY = os.getenv("NEWS_API_KEY")
-    newsapi = NewsApiClient(api_key=NEWS_API_KEY)
+    news_api_key = os.getenv("NEWS_API_KEY")
+    newsapi = NewsApiClient(api_key=news_api_key)
 
     # Creo un diccionario para las noticias
     top_headlines = newsapi.get_top_headlines(q='stock',
                                               category='business',
+                                              country='us',
                                               language='en')
 
     # Con la clave 'articles' cojo los artículos de
@@ -59,8 +63,7 @@ def home(request):
     lista_articulos = []
     urls = []
 
-    for i in range(len(mis_articulos)):
-        articulo = mis_articulos[i]
+    for _, articulo in enumerate(mis_articulos):
         # Comprobar que los artículos tengan imagen
         if articulo['urlToImage'] is not None:
             noticias.append(articulo['title'])
@@ -68,7 +71,8 @@ def home(request):
             img.append(articulo['urlToImage'])
             urls.append(articulo['url'])
 
-            lista_articulos = zip(noticias, descripcion, img, urls)
+    # Crear la lista de artículos
+    lista_articulos = list(zip(noticias, descripcion, img, urls))
 
     # MEJORES Y PEORES
     # ----------------------------------
@@ -136,16 +140,19 @@ def _mejores_peores(lista_tickers):
     """Para calcular los mejores y peores valores de la
     última sesión de cada base de datos.
 
-    Args:
-        lista_tickers (list): lista de tickers adaptados de cada bd.
-        bd (str): nombre de la bd.
+    Parameters
+    ----------
+        lista_tickers : list
+            Lista de tickers adaptados de cada bd.
 
-    Returns:
-        (pandas.core.frame.DataFrame): DataFrame con los datos ordenados
-            de los stocks según la variación en la última sesión.
+    Returns
+    -------
+        df_ultimos : pandas.core.frame.DataFrame
+            DataFrame con los datos ordenados de los stocks 
+            según la variación en la última sesión.
     """
-    # DataFrame que voy a devolver
-    df_ultimos = pd.DataFrame(columns=['ticker', 'variacion'])
+    # Inicializar lista vacía para mejorar rendimiento
+    data = []
 
     for t in lista_tickers:
         if t not in tickers_adaptados_indices():
@@ -155,16 +162,14 @@ def _mejores_peores(lista_tickers):
             # Query de acceso a la BD
             ultima_entrada = model.objects.using(bd).values('percent_variance', 'ticker').order_by('-date').first()
             if ultima_entrada:
-                datos = {'ticker': ultima_entrada['ticker'], 
-                         'bd': bd, 
-                         'variacion': ultima_entrada['percent_variance']}
-                # Pandas append() deprecated:
-                # https://stackoverflow.com/questions/75956209/error-dataframe-object-has-no-attribute-append
-                # df_ultimosRegistros = df_ultimosRegistros.append(datos, ignore_index=True)
-                # https://stackoverflow.com/questions/77254777/alternative-to-concat-of-empty-dataframe-now-that-it-is-being-deprecated
-                df_ultimos = pd.concat([df_ultimos if not df_ultimos.empty else None,
-                                        pd.DataFrame([datos])], ignore_index=True)
+                data.append({
+                    'ticker': ultima_entrada['ticker'],
+                    'bd': bd,
+                    'variacion': ultima_entrada['percent_variance']
+                })
 
+    # Crear DataFrame con la lista de diccionarios
+    df_ultimos = pd.DataFrame(data)
     df_ultimos.sort_values(by='variacion', ascending=False, inplace=True, ignore_index=True)
 
     return df_ultimos
@@ -175,15 +180,21 @@ def _lista_de_graficos(mejores, peores):
     que están en 'mejores' y 'peores' para mostrarlos
     al usuario en la página principal.
 
-    Args:
-        mejores (pandas.core.frame.DataFrame): DataFrame con
-            los 3 mejores de la bd.
-        peores (pandas.core.frame.DataFrame): DataFrame con
-            los 3 peores de la bd.
-        bd (str): nombre e la bd.
+    Parameters
+    ----------
+        mejores : pandas.core.frame.DataFrame
+            DataFrame con los 3 mejores de la bd.
 
-    Returns:
-        (list): lista con los gráficos de los mejores y peores.
+        peores : pandas.core.frame.DataFrame
+            DataFrame con los 3 peores de la bd.
+
+        bd : str
+            Nombre e la bd.
+
+    Returns
+    -------
+        figuras: list
+            Lista con los gráficos de los mejores y peores.
     """
     tickers_mejores_peores = mejores['ticker'].tolist()
     for _, fila in peores.iterrows():
@@ -198,7 +209,7 @@ def _lista_de_graficos(mejores, peores):
         # Cojo las últimas 252 sesiones de cada stock (aprox. 1 año)
         entradas = model.objects.using(bd).order_by('-date')[:252].values('date', 'close', 'ticker', 'name')
         figura = _generar_figura(entradas)
-        # Añado la figura a la lista de figuras (con mpld3 se pierde 
+        # Añado la figura a la lista de figuras (con mpld3 se pierde
         # configuración y se gana interactividad):
         # figuras.append(mpld3.fig_to_html(figura))
         figuras.append(figura)
@@ -210,12 +221,15 @@ def _generar_figura(entradas):
     """Para generar las figuras de los stocks que están
     entre los mejores/peores del último día.
 
-    Args:
-        entradas (queryset): los últimos 200 registros del
-            ticker asociado
+    Parameters
+    ----------
+        entradas : django.db.models.query.QuerySet
+            Los últimos 200 registros del ticker asociado.
 
-    Returns:
-        (str): la figura que se crea, codificada en base64.
+    Returns
+    -------
+        figura : str
+            La figura que se crea, codificada en base64.
     """
     # Obtener los 'values' del queryset 'entradas'
     # y pasar a df
@@ -223,7 +237,7 @@ def _generar_figura(entradas):
 
     # Creo la figura de Matplotlib.pyplot
     plt.figure(facecolor='white')
-    
+
     plt.plot(df['date'], df['close'], color='#212428', linewidth=2, label='Cierre')
     plt.fill_between(df['date'], df['close'], color='#212428', alpha=0.2)
     plt.ylabel('Cierre', fontsize=10)
@@ -240,7 +254,7 @@ def _generar_figura(entradas):
     # Modificación para evitar error de GitHub actions de Coverage: 'locale.Error: unsupported locale setting'
     # Idea sacada de: https://github.com/israel-dryer/ttkbootstrap/issues/505
     locale.setlocale(locale.LC_ALL, locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8'))
-    
+
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
     plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=2))
 

@@ -2,8 +2,8 @@
 Métodos de vistas para usar con Lab.
 """
 import sys
-import os
 import base64
+import os
 # Para el buffer y las imágenes
 from io import BytesIO, StringIO
 import math
@@ -28,17 +28,17 @@ from sklearn.preprocessing import MinMaxScaler
 from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from pmdarima.arima import auto_arima
+# Keras utiliza la librería oneAPI Deep Neural Network Library (oneDNN)
+# https://stackoverflow.com/questions/77921357/warning-while-using-tensorflow-tensorflow-core-util-port-cc113-onednn-custom
+# para optimizar el rendimiento en arquitecturas Intel, pero arroja
+# un warning constantemente. Para eliminarlo:
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
 from util.tickers.Tickers_BDs import obtener_nombre_bd, tickers_disponibles
 # Mis formularios
 from .forms import FormBasico, ArimaAutoForm, ArimaRejillaForm, ArimaManualForm, EstrategiaMLForm, LstmForm
 # from sklearn.metrics import confusion_matrix
-# Keras utiliza la librería oneAPI Deep Neural Network Library (oneDNN)
-# https://stackoverflow.com/questions/77921357/warning-while-using-tensorflow-tensorflow-core-util-port-cc113-onednn-custom
-# para optimizar el rendimiento en arquitecturas Intel, pero arroja
-# un warning constantemente. Para eliminarlo:
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 # Para evitar warnings al aplicar los modelos ARIMA
 warnings.filterwarnings("ignore")
 
