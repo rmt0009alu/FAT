@@ -2992,12 +2992,12 @@ son coherentes.</p>
 <div><dl class="simple">
 <dt>Union[False, context]</dt><dd><ul class="simple">
 <li><dl class="simple">
-<dt>False<span class="classifier">bool</span></dt><dd><p>Renderiza la plantilla ‘login.html’ con datos de contexto (para GET).</p>
+<dt>False<span class="classifier">bool</span></dt><dd><p>Valor booleano.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>context<span class="classifier">dict</span></dt><dd><p>Plantilla de dashboard (para POST).</p>
+<dt>context<span class="classifier">dict</span></dt><dd><p>Diccionario con datos del contexto.</p>
 </dd>
 </dl>
 </li>
@@ -3018,23 +3018,40 @@ para el día siguiente y el resultado real de cierre en ese día.</p>
 <section id="id114">
 <h2>Parameters<a class="headerlink" href="#id114" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>tam_entrenamiento (int): tamaño de los datos (%) dedicados a entrenamiento. 
-datos (pandas.core.series.Series): conjunto total de datos (entrenamiento</p>
-<blockquote>
-<div><p>y test) con los cierres del valor seleccionado.</p>
-</div></blockquote>
-<p>order (tuple): tupla con los valores (p, d, q).</p>
+<div><dl class="simple">
+<dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Tamaño de los datos (%) dedicados a entrenamiento.</p>
+</dd>
+<dt>datos<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Conjunto total de datos (entrenamiento y test) con los 
+cierres del valor seleccionado.</p>
+</dd>
+<dt>order<span class="classifier">tuple</span></dt><dd><p>Tupla con los valores (p, d, q).</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id115">
 <h2>Returns<a class="headerlink" href="#id115" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>modelo_fit (statsmodels.tsa.arima.model.ARIMAResultsWrapper): modelo. 
-aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</p>
-<blockquote>
-<div><p>con los datos de test.</p>
-</div></blockquote>
-<p>predicciones (lista): lista con predicciones realizadas.</p>
+<div><dl class="simple">
+<dt>Tuple: Tupla con información relevante para modelar</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>modelo_fit<span class="classifier">statsmodels.tsa.arima.model.ARIMAResultsWrapper</span></dt><dd><p>Modelo.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>aciertos_tendencia<span class="classifier">list</span></dt><dd><p>Cantidad de aciertos/fallos en la predicción con los datos de test.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>predicciones<span class="classifier">lista</span></dt><dd><p>Lista con predicciones realizadas.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3048,30 +3065,36 @@ informarle sobre los resultados del modelo ARIMA elegido.</p>
 <section id="id116">
 <h2>Parameters<a class="headerlink" href="#id116" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>form (Lab.forms.Form): formulario creado para recabar información. 
-modelo_fit (statsmodels.tsa.arima.model.ARIMAResultsWrapper): modelo. 
-fechas (pandas.core.series.Series): fechas asociadas a los precios de cierre</p>
-<blockquote>
-<div><p>que hay en ‘datos’.</p>
-</div></blockquote>
-<p>predicciones (list): lista con las predicciones realizadas. 
-tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
-datos (pandas.core.series.Series): conjunto total de datos (entrenamiento</p>
-<blockquote>
-<div><p>y test) con los cierres del valor seleccionado.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</dt><dd><p>con los datos de test.</p>
+<div><dl class="simple">
+<dt>form<span class="classifier">Lab.forms.Form</span></dt><dd><p>Formulario creado para recabar información.</p>
+</dd>
+<dt>modelo_fit<span class="classifier">statsmodels.tsa.arima.model.ARIMAResultsWrapper</span></dt><dd><p>Modelo.</p>
+</dd>
+<dt>fechas<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Fechas asociadas a los precios de cierre que hay en ‘datos’.</p>
+</dd>
+<dt>predicciones<span class="classifier">list</span></dt><dd><p>Lista con las predicciones realizadas.</p>
+</dd>
+<dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Tamaño de los datos dedicados a entrenamiento.</p>
+</dd>
+<dt>datos<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Conjunto total de datos (entrenamiento y test) con los 
+cierres del valor seleccionado.</p>
+</dd>
+<dt>aciertos_tendencia<span class="classifier">list</span></dt><dd><p>Cantidad de aciertos/fallos en la predicción con los datos de test.</p>
+</dd>
+<dt>order<span class="classifier">tuple</span></dt><dd><p>Tupla con los valores (p, d, q).</p>
+</dd>
+<dt>ticker<span class="classifier">str</span></dt><dd><p>Nombre del ticker con el que se va a trabajar.</p>
 </dd>
 </dl>
-<p>order (tuple): tupla con los valores (p, d, q).
-ticker (str): nombre del ticker con el que se va a trabajar.</p>
 </div></blockquote>
 </section>
 <section id="id117">
 <h2>Returns<a class="headerlink" href="#id117" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>context (dict): diccionario con los datos del contexto.</p>
+<div><dl class="simple">
+<dt>context<span class="classifier">dict</span></dt><dd><p>Diccionario con los datos del contexto.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3084,7 +3107,7 @@ ticker (str): nombre del ticker con el que se va a trabajar.</p>
 <h2>Parameters<a class="headerlink" href="#id118" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -3093,7 +3116,7 @@ ticker (str): nombre del ticker con el que se va a trabajar.</p>
 <h2>Returns<a class="headerlink" href="#id119" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>(render): renderiza la plantilla ‘arima_auto.html’ con datos</dt><dd><p>de contexto.</p>
+<dt>: render</dt><dd><p>Renderiza la plantilla ‘arima_auto.html’ con datos de contexto.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -3108,26 +3131,55 @@ métodos de LSTM.</p>
 <section id="id120">
 <h2>Parameters<a class="headerlink" href="#id120" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>ticker (str): nombre del ticker. 
-form (Lab.forms.Form): formulario utilizado para recabar datos. 
-request (django.core.handlers.wsgi.WSGIRequest): solicitud</p>
-<blockquote>
-<div><p>HTTP encapsulada por Django.</p>
-</div></blockquote>
+<div><dl class="simple">
+<dt>ticker<span class="classifier">str</span></dt><dd><p>Nombre del ticker.</p>
+</dd>
+<dt>form<span class="classifier">Lab.forms.Form</span></dt><dd><p>Formulario utilizado para recabar datos.</p>
+</dd>
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id121">
 <h2>Returns<a class="headerlink" href="#id121" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>look_back (int): número de time_steps que se hacen hacia atrás. 
-X_norm (numpy.ndarray): datos de entrada de la red. 
-y_norm (numpy.ndarray): datos esperados en la salida de la red. 
-df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
-<blockquote>
-<div><p>y test) con sólo cierres del valor seleccionado.</p>
-</div></blockquote>
-<p>tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento.
-scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].</p>
+<div><dl class="simple">
+<dt>Tuple: Tupla con información relevante para modelar</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>look_back<span class="classifier">int</span></dt><dd><p>Número de time_steps que se hacen hacia atrás.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>X_norm<span class="classifier">numpy.ndarray</span></dt><dd><p>Datos de entrada de la red.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>y_norm<span class="classifier">numpy.ndarray</span></dt><dd><p>Datos esperados en la salida de la red.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto total de datos (entrenamiento y test) con sólo 
+cierres del valor seleccionado.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Tamaño de los datos dedicados a entrenamiento.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>scaler<span class="classifier">sklearn.preprocessing._data.MinMaxScaler</span></dt><dd><p>Scaler para normalizar en [0,1].</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3140,15 +3192,23 @@ Devuelve el modelo de la red ya entrenado.</p>
 <section id="id122">
 <h2>Parameters<a class="headerlink" href="#id122" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>look_back (int): número de time_steps que se hacen hacia atrás. 
-X_norm (numpy.ndarray): datos de entrada de la red. 
-y_norm (numpy.ndarray): datos esperados en la salida de la red.</p>
+<div><dl class="simple">
+<dt>look_back<span class="classifier">int</span></dt><dd><p>Número de time_steps que se hacen hacia atrás.</p>
+</dd>
+<dt>X_norm<span class="classifier">numpy.ndarray</span></dt><dd><p>Datos de entrada de la red.</p>
+</dd>
+<dt>y_norm<span class="classifier">numpy.ndarray</span></dt><dd><p>Datos esperados en la salida de la red.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id123">
 <h2>Returns<a class="headerlink" href="#id123" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.</p>
+<div><dl class="simple">
+<dt>modelo<span class="classifier">keras.src.models.sequential.Sequential)</span></dt><dd><p>Modelo de la red LSTM.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3162,19 +3222,32 @@ son coherentes.</p>
 <section id="id124">
 <h2>Parameters<a class="headerlink" href="#id124" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>form (Lab.forms.Form): formulario que se quiere comrpobar. 
-ticker (str): nombre del ticker.
-request (django.core.handlers.wsgi.WSGIRequest): solicitud</p>
-<blockquote>
-<div><p>HTTP encapsulada por Django.</p>
-</div></blockquote>
+<div><dl class="simple">
+<dt>form<span class="classifier">Lab.forms.Form</span></dt><dd><p>Formulario que se quiere comrpobar.</p>
+</dd>
+<dt>ticker<span class="classifier">str</span></dt><dd><p>Nombre del ticker.</p>
+</dd>
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id125">
 <h2>Returns<a class="headerlink" href="#id125" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>False / context (boolean / dict): False o diccionario con datos del </dt><dd><p>cotexto en caso de fallo en formulario.</p>
+<dt>Union[False, context]</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>False<span class="classifier">bool</span></dt><dd><p>Valor booleano.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>context<span class="classifier">dict</span></dt><dd><p>Diccionario con datos del contexto.</p>
+</dd>
+</dl>
+</li>
+</ul>
 </dd>
 </dl>
 </div></blockquote>
@@ -3192,23 +3265,39 @@ para el día siguiente y el resultado real de cierre en ese día.</p>
 <h2>Parameters<a class="headerlink" href="#id126" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</dt><dd><p>y test) con sólo cierres del valor seleccionado.</p>
+<dt>df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto total de datos (entrenamiento y test) con sólo 
+cierres del valor seleccionado.</p>
+</dd>
+<dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Tamaño de los datos dedicados a entrenamiento.</p>
+</dd>
+<dt>scaler<span class="classifier">sklearn.preprocessing._data.MinMaxScaler</span></dt><dd><p>Scaler para normalizar en [0,1].</p>
+</dd>
+<dt>look_back<span class="classifier">int</span></dt><dd><p>Número de time_steps que se hacen hacia atrás.</p>
+</dd>
+<dt>modelo<span class="classifier">keras.src.models.sequential.Sequential</span></dt><dd><p>Modelo de la red LSTM.</p>
 </dd>
 </dl>
-<p>tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
-scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
-look_back (int): número de time_steps que se hacen hacia atrás. 
-modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.</p>
 </div></blockquote>
 </section>
 <section id="id127">
 <h2>Returns<a class="headerlink" href="#id127" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>predicciones (lista): lista con predicciones realizadas. 
-aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</p>
-<blockquote>
-<div><p>con los datos de test.</p>
-</div></blockquote>
+<div><dl class="simple">
+<dt>Tuple: Tupla con predicciones e indicadores de acierto</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>predicciones<span class="classifier">lista</span></dt><dd><p>Lista con predicciones realizadas.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>aciertos_tendencia<span class="classifier">list</span></dt><dd><p>Cantidad de aciertos/fallos en la predicción con 
+los datos de test.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3222,18 +3311,24 @@ informarle sobre los resultados de una red LSTM.</p>
 <section id="id128">
 <h2>Parameters<a class="headerlink" href="#id128" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>form (Lab.forms.Form): formulario creado para recabar información. 
-scaler (sklearn.preprocessing._data.MinMaxScaler): scaler para normalizar en [0,1].
-look_back (int): número de time_steps que se hacen hacia atrás. 
-modelo (keras.src.models.sequential.Sequential): modelo de la red LSTM.
-predicciones (list): lista con las predicciones realizadas. 
-tam_entrenamiento (int): tamaño de los datos dedicados a entrenamiento. 
-df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
-<blockquote>
-<div><p>y test) con sólo cierres del valor seleccionado.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>aciertos_tendencia (list): cantidad de aciertos/fallos en la predicción</dt><dd><p>con los datos de test.</p>
+<div><dl class="simple">
+<dt>form<span class="classifier">Lab.forms.Form</span></dt><dd><p>Formulario creado para recabar información.</p>
+</dd>
+<dt>scaler<span class="classifier">sklearn.preprocessing._data.MinMaxScaler</span></dt><dd><p>Scaler para normalizar en [0,1].</p>
+</dd>
+<dt>look_back<span class="classifier">int</span></dt><dd><p>Número de time_steps que se hacen hacia atrás.</p>
+</dd>
+<dt>modelo<span class="classifier">keras.src.models.sequential.Sequential</span></dt><dd><p>Modelo de la red LSTM.</p>
+</dd>
+<dt>predicciones<span class="classifier">list</span></dt><dd><p>Lista con las predicciones realizadas.</p>
+</dd>
+<dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Tamaño de los datos dedicados a entrenamiento.</p>
+</dd>
+<dt>df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto total de datos (entrenamiento y test) con sólo 
+cierres del valor seleccionado.</p>
+</dd>
+<dt>aciertos_tendencia<span class="classifier">list</span></dt><dd><p>Cantidad de aciertos/fallos en la predicción con los datos 
+de test.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -3241,7 +3336,10 @@ df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
 <section id="id129">
 <h2>Returns<a class="headerlink" href="#id129" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>context (dict): diccionario con los datos del contexto.</p>
+<div><dl class="simple">
+<dt>context<span class="classifier">dict</span></dt><dd><p>Diccionario con los datos del contexto.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3254,7 +3352,7 @@ df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
 <h2>Parameters<a class="headerlink" href="#id130" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -3263,7 +3361,8 @@ df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
 <h2>Returns<a class="headerlink" href="#id131" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>(render): renderiza la plantilla ‘arima_auto.html’ con datos</dt><dd><p>de contexto.</p>
+<dt>: render</dt><dd><p>Renderiza la plantilla ‘arima_auto.html’ con datos
+de contexto.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -3273,18 +3372,41 @@ df (pandas.core.frame.DataFrame): conjunto total de datos (entrenamiento</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._algoritmo_cruce_medias_automaticas">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_algoritmo_cruce_medias_automaticas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._algoritmo_cruce_medias_automaticas" title="Link to this definition">¶</a></dt>
-<dd><p>Para realizar aplicar el algoritmo de cruce de medias (o seguimiento de
+<dd><p>Para aplicar el algoritmo de cruce de medias (o seguimiento de
 tendencia).</p>
 <section id="id132">
 <h2>Parameters<a class="headerlink" href="#id132" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>df (_type_): _description_</p>
+<div><dl class="simple">
+<dt>df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto de datos de las últimas sesiones de un valor.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id133">
 <h2>Returns<a class="headerlink" href="#id133" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>_type_: _description_</p>
+<div><dl class="simple">
+<dt>Tuple: Tupla con datos de las medias</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>mejor<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto de datos de las últimas sesiones de un valor junto
+con los mejores retornos posibles según el algoritmo.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>mms_len<span class="classifier">int</span></dt><dd><p>Valor de la mejor media lenta.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>mms_rap<span class="classifier">int</span></dt><dd><p>Valor de la mejor media rápida.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3297,13 +3419,20 @@ usuario.</p>
 <section id="id134">
 <h2>Parameters<a class="headerlink" href="#id134" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>df (_type_): _description_</p>
+<div><dl class="simple">
+<dt>df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto de datos de las últimas sesiones de un valor junto
+con los mejores retornos posibles según el algoritmo.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id135">
 <h2>Returns<a class="headerlink" href="#id135" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>_type_: _description_</p>
+<div><dl class="simple">
+<dt>df_resultados<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto de datos de resultados.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3315,16 +3444,26 @@ usuario.</p>
 <section id="id136">
 <h2>Parameters<a class="headerlink" href="#id136" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>df (_type_): _description_
-nombre_ticker (_type_): _description_
-mms_len (_type_): _description_
-mms_rap (_type_): _description_</p>
+<div><dl class="simple">
+<dt>df<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto de datos de las últimas sesiones de un valor junto
+con los mejores retornos posibles según el algoritmo.</p>
+</dd>
+<dt>nombre_ticker<span class="classifier">str</span></dt><dd><p>Nombre del ticker del valor sobre el que se aplica el algoritmo.</p>
+</dd>
+<dt>mms_len<span class="classifier">int </span></dt><dd><p>Media móvil simple lenta.</p>
+</dd>
+<dt>mms_rap<span class="classifier">int</span></dt><dd><p>Media móvil simple rápida.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id137">
 <h2>Returns<a class="headerlink" href="#id137" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>_type_: _description_</p>
+<div><dl class="simple">
+<dt>cruce_medias<span class="classifier">str</span></dt><dd><p>Cadena de datos que guarda la gráfica con el cruce de medias.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3332,12 +3471,13 @@ mms_rap (_type_): _description_</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views.estrategia_ML">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">estrategia_ML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.estrategia_ML" title="Link to this definition">¶</a></dt>
-<dd><p>Para implementar el algoritmo de seguimiento de tendencias o cruce de medias.</p>
+<dd><p>Para implementar los mecanismos de trading con técnicas de 
+machine learning.</p>
 <section id="id138">
 <h2>Parameters<a class="headerlink" href="#id138" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -3346,7 +3486,7 @@ mms_rap (_type_): _description_</p>
 <h2>Returns<a class="headerlink" href="#id139" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>(render): renderiza la plantilla ‘arima_auto.html’ con datos</dt><dd><p>de contexto.</p>
+<dt>: render</dt><dd><p>Renderiza la plantilla ‘arima_auto.html’ con datos de contexto.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -3360,22 +3500,36 @@ mms_rap (_type_): _description_</p>
 <section id="id140">
 <h2>Parameters<a class="headerlink" href="#id140" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>indice (str): nombre del índice con el que se va a trabajar. 
-request (django.core.handlers.wsgi.WSGIRequest): solicitud</p>
-<blockquote>
-<div><p>HTTP encapsulada por Django.</p>
-</div></blockquote>
+<div><dl class="simple">
+<dt>indice<span class="classifier">str</span></dt><dd><p>Nombre del índice con el que se va a trabajar.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id141">
 <h2>Returns<a class="headerlink" href="#id141" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>valores (list): lista de los valores que rerpesentan al índice.
-clase (str): nombre del índice con el formato de guardado en BDs,</p>
-<blockquote>
-<div><p>esta será la clase objetivo.</p>
-</div></blockquote>
-<p>tickers_unidos (list): lista con todos los tickers.</p>
+<div><dl class="simple">
+<dt>Tuple<span class="classifier">Tupla con información del índice</span></dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>valores<span class="classifier">list</span></dt><dd><p>Lista de los valores que rerpesentan al índice.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>clase<span class="classifier">str</span></dt><dd><p>Nombre del índice con el formato de guardado en BDs,
+esta será la clase objetivo.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>tickers_unidos<span class="classifier">list</span></dt><dd><p>Lista con todos los tickers.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3388,22 +3542,50 @@ clase (str): nombre del índice con el formato de guardado en BDs,</p>
 <h2>Parameters<a class="headerlink" href="#id142" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>tickers_unidos (list): lista con los tickers de los valores más relevantes</dt><dd><p>y el índice sobre el que se va a hacer una estimación.</p>
+<dt>tickers_unidos<span class="classifier">list</span></dt><dd><p>Lista con los tickers de los valores más relevantes
+y el índice sobre el que se va a hacer una estimación.</p>
+</dd>
+<dt>num_sesiones<span class="classifier">int</span></dt><dd><p>Número de sesiones a tener en cuenta para entrenar los modelos.</p>
+</dd>
+<dt>porcentaje_entren<span class="classifier">str</span></dt><dd><p>Porcentaje de datos que se usará para entrenar los modelos.</p>
 </dd>
 </dl>
-<p>num_sesiones (int): número de sesiones a tener en cuenta para entrenar los modelos.
-valores (lista): lista con los tickers más relevantes de un índice. 
-clase (str): nombre del índice.</p>
 </div></blockquote>
 </section>
 <section id="id143">
 <h2>Returns<a class="headerlink" href="#id143" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>df_retornos (pandas.core.frame.DataFrame): df con los retornos logarítmicos. 
-df_resultado (pandas.core.frame.DataFrame): df con los valores de precios de cierre.
-tam_entrenamiento (int): número de datos dedicados al entrenamiento del modelo. 
-train (pandas.core.frame.DataFrame): subconjunto de entrenamiento de df_retornos. 
-test (pandas.core.frame.DataFrame): subconjunto de test de df_retornos.</p>
+<div><dl>
+<dt>Tuple: Tupla con información de resultados de preprocesado</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>df_retornos<span class="classifier">pandas.core.frame.DataFrame)</span></dt><dd><p>df con los retornos logarítmicos.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>df_resultado<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>df con los valores de precios de cierre.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Número de datos dedicados al entrenamiento del modelo.</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><dl class="simple">
+<dt>train<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Subconjunto de entrenamiento de df_retornos.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>test<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Subconjunto de test de df_retornos.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3411,26 +3593,44 @@ test (pandas.core.frame.DataFrame): subconjunto de test de df_retornos.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._regresion_lineal">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_regresion_lineal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_retornos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam_entrenamiento</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_resultado</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._regresion_lineal" title="Link to this definition">¶</a></dt>
-<dd><p>_summary_</p>
+<dd><p>Para aplicar un modelo de regresión lineal siguiendo la idea de que unos valores
+de un índice se comportan como atributos y el valor del día siguiente de ese índice
+se comporta como clase objetivo.</p>
 <section id="id144">
 <h2>Parameters<a class="headerlink" href="#id144" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>model (_type_): _description_
-x_train (_type_): _description_
-y_train (_type_): _description_
-x_test (_type_): _description_
-y_test (_type_): _description_
-df_retornos (_type_): _description_
-tam_entrenamiento (_type_): _description_
-clase (_type_): _description_
-df_resultado (_type_): _description_
-valores (_type_): _description_</p>
+<div><dl class="simple">
+<dt>model<span class="classifier">sklearn.linear_model._base.LinearRegression)</span></dt><dd><p>Modelo de regresión lineal.</p>
+</dd>
+<dt>x_train<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Datos de entrenamiento.</p>
+</dd>
+<dt>y_train<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Datos de resultado esperado en entrenamiento.</p>
+</dd>
+<dt>x_test<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Datos de test.</p>
+</dd>
+<dt>y_test<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Datos de resultado esperado en test.</p>
+</dd>
+<dt>df_retornos<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto de datos con retornos de la clase objetivo.</p>
+</dd>
+<dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Tamaño de los datos de entrenamiento.</p>
+</dd>
+<dt>clase<span class="classifier">str</span></dt><dd><p>Clase objetivo.</p>
+</dd>
+<dt>df_resultado<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Datos de resultado.</p>
+</dd>
+<dt>valores<span class="classifier">list</span></dt><dd><p>Lista de los valores que se usan como ‘atributos’ para entrenar el
+modelo y estimar la clase objetivo.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id145">
 <h2>Returns<a class="headerlink" href="#id145" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>_type_: _description_</p>
+<div><dl class="simple">
+<dt>context<span class="classifier">dict</span></dt><dd><p>Diccionario con datos del contexto.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>
@@ -3438,26 +3638,44 @@ valores (_type_): _description_</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._clasificacion_regresion_logistica">
 <span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_clasificacion_regresion_logistica</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_retornos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam_entrenamiento</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_resultado</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valores</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._clasificacion_regresion_logistica" title="Link to this definition">¶</a></dt>
-<dd><p>_summary_</p>
+<dd><p>Para aplicar un modelo de clasificación siguiendo la idea de que unos valores
+de un índice se comportan como atributos y el valor del día siguiente de ese índice
+se comporta como clase objetivo.</p>
 <section id="id146">
 <h2>Parameters<a class="headerlink" href="#id146" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>model (_type_): _description_
-x_train (_type_): _description_
-y_train (_type_): _description_
-x_test (_type_): _description_
-y_test (_type_): _description_
-df_retornos (_type_): _description_
-tam_entrenamiento (_type_): _description_
-clase (_type_): _description_
-df_resultado (_type_): _description_
-valores (_type_): _description_</p>
+<div><dl class="simple">
+<dt>model<span class="classifier">sklearn.linear_model._base.LinearRegression)</span></dt><dd><p>Modelo de regresión lineal.</p>
+</dd>
+<dt>x_train<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Datos de entrenamiento.</p>
+</dd>
+<dt>y_train<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Datos de resultado esperado en entrenamiento.</p>
+</dd>
+<dt>x_test<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Datos de test.</p>
+</dd>
+<dt>y_test<span class="classifier">pandas.core.series.Series</span></dt><dd><p>Datos de resultado esperado en test.</p>
+</dd>
+<dt>df_retornos<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Conjunto de datos con retornos de la clase objetivo.</p>
+</dd>
+<dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Tamaño de los datos de entrenamiento.</p>
+</dd>
+<dt>clase<span class="classifier">str</span></dt><dd><p>Clase objetivo.</p>
+</dd>
+<dt>df_resultado<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Datos de resultado.</p>
+</dd>
+<dt>valores<span class="classifier">list</span></dt><dd><p>Lista de los valores que se usan como ‘atributos’ para entrenar el
+modelo y estimar la clase objetivo.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 <section id="id147">
 <h2>Returns<a class="headerlink" href="#id147" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><p>_type_: _description_</p>
+<div><dl class="simple">
+<dt>context<span class="classifier">dict</span></dt><dd><p>Diccionario con datos del contexto.</p>
+</dd>
+</dl>
 </div></blockquote>
 </section>
 </dd></dl>

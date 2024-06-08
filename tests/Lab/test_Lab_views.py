@@ -9,7 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
 import keras
-from Lab.views import _preprocesar_p_d_q, _evaluar_modelo_arima_mse, _comprobar_formularios, _validacion_walk_forward_arima, _generar_resultados_arima, _preprocesado_lstm, _crear_modelo, _comprobar_formulario_lstm, _validacion_walk_forward_lstm, _generar_resultados_lstm, cruce_medias, _obtener_tickers_relevantes, _preprocesado_datos_ML
+from Lab.views import _preprocesar_p_d_q, _evaluar_modelo_arima_mse, _comprobar_formularios, _validacion_walk_forward_arima, _generar_resultados_arima, _preprocesado_lstm, _crear_modelo, _comprobar_formulario_lstm, _validacion_walk_forward_lstm, _generar_resultados_lstm, cruce_medias, _obtener_tickers_relevantes, _preprocesado_datos_ml
 import pandas as pd
 import numpy as np
 from django.contrib.auth.models import User
@@ -598,7 +598,7 @@ class TestLabViews(TestCase):
         num_sesiones = 10
         porcentaje_entren = '70%'
 
-        df_retornos, df_resultado, tam_entrenamiento, train, test = _preprocesado_datos_ML(tickers_unidos, num_sesiones, porcentaje_entren)
+        df_retornos, df_resultado, tam_entrenamiento, train, test = _preprocesado_datos_ml(tickers_unidos, num_sesiones, porcentaje_entren)
 
         self.assertFalse(df_retornos.empty)
         self.assertFalse(df_resultado.empty)

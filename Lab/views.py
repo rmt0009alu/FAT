@@ -1,14 +1,13 @@
 """
 Métodos de vistas para usar con Lab.
 """
-# Keras utiliza la librería oneAPI Deep Neural Network Library (oneDNN)
-# https://stackoverflow.com/questions/77921357/warning-while-using-tensorflow-tensorflow-core-util-port-cc113-onednn-custom
-# para optimizar el rendimiento en arquitecturas Intel, pero arroja 
-# un warning constantemente. Para eliminarlo:
-import os
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 import sys
+import os
+import base64
+# Para el buffer y las imágenes
+from io import BytesIO, StringIO
 import math
+import warnings
 # Para pasar str a literales
 import ast
 import pandas as pd
@@ -16,12 +15,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 # Para evitar todos los warnings de convergencia y de datos no estacionarios
-# al aplicar los modelos ARIMA
-import warnings
-warnings.filterwarnings("ignore")
-# Para el buffer y las imágenes
-import base64
-from io import BytesIO, StringIO
 from django.shortcuts import render
 from django.apps import apps
 # Para proteger rutas. Las funciones que tienen este decorador
@@ -31,16 +24,23 @@ from django.contrib.auth.decorators import login_required
 from django_pandas.io import read_frame
 from sklearn.metrics import mean_squared_error
 from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.preprocessing import MinMaxScaler
 from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from pmdarima.arima import auto_arima
+from keras.models import Sequential
+from keras.layers import Dense, LSTM
 from util.tickers.Tickers_BDs import obtener_nombre_bd, tickers_disponibles
 # Mis formularios
 from .forms import FormBasico, ArimaAutoForm, ArimaRejillaForm, ArimaManualForm, EstrategiaMLForm, LstmForm
-from keras.models import Sequential
-from keras.layers import Dense, LSTM
-from sklearn.preprocessing import MinMaxScaler
 # from sklearn.metrics import confusion_matrix
+# Keras utiliza la librería oneAPI Deep Neural Network Library (oneDNN)
+# https://stackoverflow.com/questions/77921357/warning-while-using-tensorflow-tensorflow-core-util-port-cc113-onednn-custom
+# para optimizar el rendimiento en arquitecturas Intel, pero arroja
+# un warning constantemente. Para eliminarlo:
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+# Para evitar warnings al aplicar los modelos ARIMA
+warnings.filterwarnings("ignore")
 
 
 
@@ -123,7 +123,7 @@ def buscar_paramateros_arima(request):
         # Calculo la diferenciación logarítmica y obtengo las gráficas oportunas
         graf_1 = _diferenciacion_logaritmica(df, 1)
         graf_2 = _diferenciacion_logaritmica(df, 2)
-        graf_3 = _diferenciacion_logaritmica(df, 3) 
+        graf_3 = _diferenciacion_logaritmica(df, 3)
 
         context = {
             'form': FormBasico(),
@@ -165,7 +165,7 @@ def _diferenciacion_logaritmica(df, d):
     nombre = nombre.replace("_", ".")
     nombre = nombre.replace("^", "")
 
-    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+    _, axs = plt.subplots(1, 3, figsize=(15, 5))
     # Primer plot = serie diferenciada
     axs[0].plot(df['date'], df['retorno'], 'b-')
     axs[0].set_title(f'Diferenciación de precios de cierre {nombre}')
@@ -176,7 +176,7 @@ def _diferenciacion_logaritmica(df, d):
     axs[0].grid(True)
 
     # Segundo plot = ACF
-    # Elimino tantas primeras filas como número de diferenciaciones se hayan 
+    # Elimino tantas primeras filas como número de diferenciaciones se hayan
     # realizado. Es decir, hago un dropna para los primeros 'd' NaN
     plot_acf(df['retorno'].dropna(), ax=axs[1])
     axs[1].set_title('ACF')
@@ -246,10 +246,12 @@ def arima_auto(request):
         # Al preprocesar el context debe ser None si todo ha ido bien
         if context is None:
             # Hago una validación diaria para los datos de test
-            modelo_fit, aciertos_tendencia, predicciones = _validacion_walk_forward_arima(tam_entrenamiento, datos, order)
+            modelo_fit, aciertos_tendencia, predicciones = _validacion_walk_forward_arima(tam_entrenamiento,
+                                                                                          datos, order)
 
             # Generar la gráfica y texto con el forecast en los datos de test
-            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia, order, ticker)
+            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento,
+                                                datos, aciertos_tendencia, order, ticker)
 
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "arima_auto.html", context)
@@ -303,10 +305,12 @@ def arima_rejilla(request):
         # Al preprocesar el context debe ser None si todo ha ido bien
         if context is None:
             # Hago una validación diaria para los datos de test
-            modelo_fit, aciertos_tendencia, predicciones = _validacion_walk_forward_arima(tam_entrenamiento, datos, order)
+            modelo_fit, aciertos_tendencia, predicciones = _validacion_walk_forward_arima(tam_entrenamiento,
+                                                                                          datos, order)
 
             # Generar la gráfica y texto con el forecast en los datos de test
-            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia, order, ticker)
+            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones,
+                                                tam_entrenamiento, datos, aciertos_tendencia, order, ticker)
 
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "arima_rejilla.html", context)
@@ -359,10 +363,12 @@ def arima_manual(request):
         # Al preprocesar el context debe ser None si todo ha ido bien
         if context is None:
             # Hago una validación diaria para los datos de test
-            modelo_fit, aciertos_tendencia, predicciones = _validacion_walk_forward_arima(tam_entrenamiento, datos, order)
+            modelo_fit, aciertos_tendencia, predicciones = _validacion_walk_forward_arima(tam_entrenamiento,
+                                                                                          datos, order)
 
             # Generar la gráfica y texto con el forecast en los datos de test
-            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia, order, ticker)
+            context = _generar_resultados_arima(form, modelo_fit, fechas, predicciones,
+                                                tam_entrenamiento, datos, aciertos_tendencia, order, ticker)
 
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "arima_manual.html", context)
@@ -468,10 +474,10 @@ def _preprocesar_p_d_q(ticker, form, request):
             for d in valores_d:
                 for q in valores_q:
                     order = (p,d,q)
-                    # En 'statsmodels', ARIMA utiliza internamente procedimientos de 
-                    # optimización numérica para encontrar un conjunto de coeficientes 
-                    # para el modelo. Estos procedimiento pueden fallar y lanzar una 
-                    # excepción que se debe controlar. En este caso, hago que se continúe 
+                    # En 'statsmodels', ARIMA utiliza internamente procedimientos de
+                    # optimización numérica para encontrar un conjunto de coeficientes
+                    # para el modelo. Estos procedimiento pueden fallar y lanzar una
+                    # excepción que se debe controlar. En este caso, hago que se continúe
                     # con la evaluación
                     try:
                         # Se podría usar AIC, BIC o HQIC, pero MSE/RMSE es más fiable
@@ -604,7 +610,7 @@ def _comprobar_formularios(form, ticker, request):
             context["msg_error"] = 'Modelo indicado no válido'
             return context
         return False
-    
+
     # El resto de formularios tienen campos en común
     if isinstance(form, FormBasico):
         num_sesiones = request.POST.get('num_sesiones')
@@ -621,7 +627,7 @@ def _comprobar_formularios(form, ticker, request):
             context["msg_error"] = 'Valor no válido para el nº de sesiones'
             return context
         return False
-    
+
     # Obtengo datos del form, para formularios NO válidos no puedo usar
     # form.cleaned_data['...'] y, por tanto, los datos serán 'str'
     num_sesiones = request.POST.get('num_sesiones')
@@ -746,7 +752,8 @@ def _validacion_walk_forward_arima(tam_entrenamiento, datos, order):
     return modelo_fit, aciertos_tendencia, predicciones
 
 
-def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos, aciertos_tendencia, order, ticker):
+def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entrenamiento, datos,
+                              aciertos_tendencia, order, ticker):
     """Para generar los resultados gráficos y textuales
     que se mostrarán al usuario en la plantilla HTML para
     informarle sobre los resultados del modelo ARIMA elegido.
@@ -787,20 +794,21 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
             Diccionario con los datos del contexto.
     """
     datos_test = datos[tam_entrenamiento:]
-    
+
     datos.index = fechas
     predicciones = pd.DataFrame(predicciones)
     predicciones.index = fechas[tam_entrenamiento:]
 
     ticker = ticker.replace("_", ".")
     ticker = ticker.replace("^", "")
-    
+
     # Preparar figura y buffer con validadción walk-forward
     # -----------------------------------------------------
     plt.figure(figsize=(7, 5))
     # Gráfica con los datos reales y las predicciones
     plt.plot(datos.index, datos, color='blue', label='Original')
-    plt.plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(datos_test)} días\n con validación "walk-forward"')
+    plt.plot(predicciones.index, predicciones, color='red',
+             label=f'Predicción últimos {len(datos_test)} días\n con validación "walk-forward"')
     plt.title(f'{ticker}')
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
     interval = 6 if len(datos) > 252 else 3
@@ -826,7 +834,7 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
     modelo_fit_2 = modelo.fit()
     # Por defecto, el forecast es de un step, así que lo adapto al tamaño de los datos de test
     res_forecast = modelo_fit_2.get_forecast(steps=len(datos_test))
-    # Debido al proceso de diferenciación (I de ARIMA) es necesario ajustar los 
+    # Debido al proceso de diferenciación (I de ARIMA) es necesario ajustar los
     # índices el número de datos. Cada vez que se diferencie habrá que asjustar los
     # tamaños (se elimina la primera fila del dataset) y por eso utilizo inicio como 'd'..
     # datos_entrenados = modelo_fit_2.predict(start=order[1], end=tam_entrenamiento-1, typ='levels')
@@ -838,9 +846,11 @@ def _generar_resultados_arima(form, modelo_fit, fechas, predicciones, tam_entren
     plt.plot(datos.index, datos, color='blue', label='Datos reales')
     # Aquí también ajusto al tamaño desde 'd' por la diferenciación
     # axes[1].plot(datos.index[d:tam_entrenamiento], datos_entrenados, color='green', label='Valores modelo entrenado')
-    plt.plot(predicciones.index, forecast, color='red', label=f'Predicción últimos {len(datos_test)} días\n sin validación "walk-forward"')
+    plt.plot(predicciones.index, forecast, color='red',
+             label=f'Predicción últimos {len(datos_test)} días\n sin validación "walk-forward"')
     plt.title(f'{ticker}')
-    plt.fill_between(predicciones.index, confianzas[:,0], confianzas[:,1], color='red', alpha=0.3, label='Intervalos de confianza')
+    plt.fill_between(predicciones.index, confianzas[:,0], confianzas[:,1],
+                     color='red', alpha=0.3, label='Intervalos de confianza')
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
     interval = 6 if len(datos) > 252 else 3
     plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=interval))
@@ -927,16 +937,18 @@ def lstm(request):
     form = LstmForm(request.POST)
     if form.is_valid():
         # Hago un preprocesado para adaptar los datos
-        look_back, X_norm, y_norm, df, tam_entrenamiento, scaler = _preprocesado_lstm(ticker, form, request)
+        look_back, x_norm, y_norm, df, tam_entrenamiento, scaler = _preprocesado_lstm(ticker, form, request)
 
         # Obtengo el modelo de la red LSTM (ya compilado y entrenado)
-        modelo = _crear_modelo(look_back, X_norm, y_norm)
-        
+        modelo = _crear_modelo(look_back, x_norm, y_norm)
+
         # Hago una validación diaria para los datos de test
-        predicciones, aciertos_tendencia = _validacion_walk_forward_lstm(df, tam_entrenamiento, scaler, look_back, modelo)
+        predicciones, aciertos_tendencia = _validacion_walk_forward_lstm(df, tam_entrenamiento, scaler,
+                                                                         look_back, modelo)
 
         # Generar un contexto con datos relevantes
-        context = _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_entrenamiento, df, aciertos_tendencia)
+        context = _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones,
+                                           tam_entrenamiento, df, aciertos_tendencia)
 
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "lstm.html", context)
@@ -989,7 +1001,7 @@ def _preprocesado_lstm(ticker, form, request):
         # Si hay datos en el contexto es porque algo está mal y se
         # añade un mensaje informativo al usuario
         return render(request, "lstm.html", context)
-        
+
     # Busco la info para el nº de sesiones indicado por ususario
     modelo = apps.get_model('Analysis', ticker)
     bd = obtener_nombre_bd(ticker)
@@ -1017,32 +1029,32 @@ def _preprocesado_lstm(ticker, form, request):
 
     # Creo los datasets
     datos_entrenamiento = df[:tam_entrenamiento]
-    
-    # X = input cierres / y = output días siguientes
-    X = datos_entrenamiento['close'].values[:-1]
+
+    # x = input cierres / y = output días siguientes
+    x = datos_entrenamiento['close'].values[:-1]
     y = datos_entrenamiento['siguiente_dia'].values[:-1]
-    
-    # Redimensionar para ajustar a valores esperados en la capa de 
+
+    # Redimensionar para ajustar a valores esperados en la capa de
     # entrada de la red LSTM [samples, time_steps, features].
-    # samples: nº de secuencias en el dataset (uso -1 para que Numpy 
+    # samples: nº de secuencias en el dataset (uso -1 para que Numpy
     #          lo busque automáticamente según el tamaño de la entrada)
-    #          1 secuencia por día. 
+    #          1 secuencia por día.
     # time_steps: nº de días previos a considerar en cada secuencia
     # features: nº de variables en cada día previo (time_step)
-    X = X.reshape(-1, look_back, 1)
+    x = x.reshape(-1, look_back, 1)
 
     # En LSTM es recomendable normalizar los datos
     scaler = MinMaxScaler(feature_range=(0, 1))
-    X_norm = scaler.fit_transform(X.reshape(-1, 1))
+    x_norm = scaler.fit_transform(x.reshape(-1, 1))
     # El scaler usará la misma escala que la que tenga X, por eso
     # uso transform y no fit_transform (el final, son los mismos datos
     # pero con un día de retraso)
     y_norm = scaler.transform(y.reshape(-1, 1))
 
-    return look_back, X_norm, y_norm, df, tam_entrenamiento, scaler
+    return look_back, x_norm, y_norm, df, tam_entrenamiento, scaler
 
 
-def _crear_modelo(look_back, X_norm, y_norm):
+def _crear_modelo(look_back, x_norm, y_norm):
     """Para crear el modelo de la red, compilarla y entrenarla. 
     Devuelve el modelo de la red ya entrenado. 
 
@@ -1051,7 +1063,7 @@ def _crear_modelo(look_back, X_norm, y_norm):
         look_back : int
             Número de time_steps que se hacen hacia atrás. 
 
-        X_norm : numpy.ndarray
+        x_norm : numpy.ndarray
             Datos de entrada de la red. 
 
         y_norm : numpy.ndarray
@@ -1062,13 +1074,13 @@ def _crear_modelo(look_back, X_norm, y_norm):
         modelo : keras.src.models.sequential.Sequential)
             Modelo de la red LSTM.
     """
-    # Para crear capa a capa de forma secuencial (cada capa 
+    # Para crear capa a capa de forma secuencial (cada capa
     # adicional se conecta a la anterior)
     modelo = Sequential()
     # Añadir la capa de LSTM (RNN) con 5 LSTM unit (5 neuronas), con
-    # forma de (1, look_back). Las secuencias de entrada serán 
-    # de longitud look_back (time_steps), i.e, los días que se mira 
-    # hacia atrás en los datos para estimar la misma cantidad de días. 
+    # forma de (1, look_back). Las secuencias de entrada serán
+    # de longitud look_back (time_steps), i.e, los días que se mira
+    # hacia atrás en los datos para estimar la misma cantidad de días.
     # Y sólo hay una variable que es el propio cierre
     modelo.add(LSTM(units=5, input_shape=(1, look_back)))
     # Añadir capa d esalida, completamente conectada, de 1 neurona
@@ -1077,10 +1089,10 @@ def _crear_modelo(look_back, X_norm, y_norm):
     # Compilar y entrenar
     modelo.compile(loss='mean_squared_error', optimizer='adam')
     # batch_size: nº de muestras que se procesan cada vez antes de ajustar
-    #             los pesos de la red, i.e., factor del tamaño de los 
+    #             los pesos de la red, i.e., factor del tamaño de los
     #             conjuntos de datos de entrenamiento y prueba.
-    # shuffle: desactivar la reproducción aleatoria de muestras 
-    modelo.fit(X_norm, y_norm, epochs=100, batch_size=1, verbose=None, shuffle=False)
+    # shuffle: desactivar la reproducción aleatoria de muestras
+    modelo.fit(x_norm, y_norm, epochs=100, batch_size=1, verbose=None, shuffle=False)
 
     return modelo
 
@@ -1183,15 +1195,15 @@ def _validacion_walk_forward_lstm(df, tam_entrenamiento, scaler, look_back, mode
 
     for t in range(len(datos_test)):
         # Adaptar forma y normalizar el nuevo dato de test
-        X_test = datos_test['close'].values[t].reshape(1, look_back, 1)
-        X_test_norm = scaler.transform(X_test.reshape(-1, 1))
-        
+        x_test = datos_test['close'].values[t].reshape(1, look_back, 1)
+        x_test_norm = scaler.transform(x_test.reshape(-1, 1))
+
         # Predicción del siguiente time_step (1 día)
-        predic_normalizada = modelo.predict(X_test_norm, verbose=None)
+        predic_normalizada = modelo.predict(x_test_norm, verbose=None)
         # Paso a su escala real (la de precios de cierre)
         estimado = scaler.inverse_transform(predic_normalizada)[0][0]
         predicciones.append(estimado)
-        
+
         if t>0:
             previo = datos_test['siguiente_dia'].iloc[t-1]
         else:
@@ -1267,7 +1279,7 @@ def _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_
     plt.plot(predicciones.index, predicciones, color='red', label=f'Predicción últimos {len(predicciones)} días')
     plt.gca().xaxis.set_major_locator(plt.MaxNLocator(5))
     plt.legend()
-    
+
     plt.savefig(buffer, format='PNG')
     plt.close()
     # Obtener los datos de la imagen del buffer
@@ -1275,9 +1287,9 @@ def _generar_resultados_lstm(form, scaler, look_back, modelo, predicciones, tam_
     forecast_lstm = base64.b64encode(buffer.read()).decode()
 
     # Hago una predicción adicional con el último dato de test
-    X_test = datos_test['close'].iloc[-1].reshape(1, look_back, 1)
-    X_test_norm = scaler.transform(X_test.reshape(-1, 1))
-    predic_normalizada = modelo.predict(X_test_norm, verbose=None)
+    x_test = datos_test['close'].iloc[-1].reshape(1, look_back, 1)
+    x_test_norm = scaler.transform(x_test.reshape(-1, 1))
+    predic_normalizada = modelo.predict(x_test_norm, verbose=None)
     prediccion = scaler.inverse_transform(predic_normalizada)[0][0]
 
     # Creao un objeto StringIO para 'capturar' la salida
@@ -1359,17 +1371,17 @@ def cruce_medias(request):
         df, mms_len, mms_rap = _algoritmo_cruce_medias_automaticas(df)
 
         retorno_log_total_algo = df['retorno_log_algoritmo'].sum()
-        # Calculo el retorno logarítmico como si se hubiera seguido 
+        # Calculo el retorno logarítmico como si se hubiera seguido
         # una estrategia de comprar y mantener desde la fecha del análisis
-        retorno_log_total = df['retorno_log'].sum() 
+        retorno_log_total = df['retorno_log'].sum()
 
         df_resultados = _resultados_cruce_medias(df)
-        cruce_medias = _generar_figura_cruce_medias(df, nombre_ticker, mms_len, mms_rap)        
+        cruce_medias_var = _generar_figura_cruce_medias(df, nombre_ticker, mms_len, mms_rap)
 
         context = {
             'form': FormBasico(),
             "lista_tickers": tickers_disponibles(),
-            'cruce_medias': cruce_medias,
+            'cruce_medias': cruce_medias_var,
             'retorno_log_total_algo': retorno_log_total_algo,
             'retorno_log_total': retorno_log_total,
             'sharpe_retorno_log_algo': df['retorno_log_algoritmo'].mean() / df['retorno_log_algoritmo'].std(), 
@@ -1388,38 +1400,43 @@ def cruce_medias(request):
 
 
 def _algoritmo_cruce_medias_automaticas(df):
-    """Para realizar aplicar el algoritmo de cruce de medias (o seguimiento de
+    """Para aplicar el algoritmo de cruce de medias (o seguimiento de
     tendencia).
 
     Parameters
     ----------
-        df (_type_): _description_
+        df : pandas.core.frame.DataFrame
+            Conjunto de datos de las últimas sesiones de un valor.
 
     Returns
     -------
         Tuple: Tupla con datos de las medias
-            * mejor
-            * mms_len
-            * mms_rap
+            * mejor : pandas.core.frame.DataFrame
+                Conjunto de datos de las últimas sesiones de un valor junto
+                con los mejores retornos posibles según el algoritmo.
+            * mms_len : int
+                Valor de la mejor media lenta.
+            * mms_rap : int
+                Valor de la mejor media rápida.
     """
-    # Para realizar una búsqueda por rejilla que permita obtener las mejores 
+    # Para realizar una búsqueda por rejilla que permita obtener las mejores
     # MMS (lenta y rápida). Se incluyen medias típicas de análisis técnico
-    MMS_lenta = [30, 50, 200]
-    MMS_rapida = [10, 15, 20, 50]
+    lista_mms_lenta = [30, 50, 200]
+    lista_mms_rapida = [10, 15, 20, 50]
 
     mms_len = 0
     mms_rap = 0
     mejor = None
-    mejor_retorno = -np.inf 
+    mejor_retorno = -np.inf
 
-    for MMS_l in MMS_lenta:
-        for MMS_r in MMS_rapida:
-            if MMS_l != MMS_r:
-                df['MMS_len'] = df['close'].rolling(MMS_l).mean()
-                df['MMS_rap'] = df['close'].rolling(MMS_r).mean()
+    for mms_l in lista_mms_lenta:
+        for mms_r in lista_mms_rapida:
+            if mms_l != mms_r:
+                df['MMS_len'] = df['close'].rolling(mms_l).mean()
+                df['MMS_rap'] = df['close'].rolling(mms_r).mean()
 
                 df['retorno_log'] = np.log(df['close']).diff()
-                # Para alinearlo con los comandos de compra/venta que se crean más 
+                # Para alinearlo con los comandos de compra/venta que se crean más
                 # adelante. Al hacer esto se pierde el último valor del df
                 df['retorno_log'] = df['retorno_log'].shift(-1)
 
@@ -1457,8 +1474,8 @@ def _algoritmo_cruce_medias_automaticas(df):
                 if ret_log_algo > mejor_retorno:
                     mejor_retorno = ret_log_algo
                     mejor = df.copy()
-                    mms_len = MMS_l
-                    mms_rap = MMS_r
+                    mms_len = mms_l
+                    mms_rap = mms_r
 
     return mejor, mms_len, mms_rap
 
@@ -1469,11 +1486,14 @@ def _resultados_cruce_medias(df):
 
     Parameters
     ----------
-        df (_type_): _description_
+        df : pandas.core.frame.DataFrame
+            Conjunto de datos de las últimas sesiones de un valor junto
+            con los mejores retornos posibles según el algoritmo.
 
     Returns
     -------
-        _type_: _description_
+        df_resultados : pandas.core.frame.DataFrame
+            Conjunto de datos de resultados.
     """
     df_resultados = pd.DataFrame(columns=['fecha_compra', 'fecha_venta', 'cierre_compra', 'cierre_venta', 'pordentaje'])
     i = 0
@@ -1492,16 +1512,16 @@ def _resultados_cruce_medias(df):
     if pd.isnull(df_resultados.iloc[-1]['fecha_venta']):
         df_resultados.iloc[-1]['fecha_venta'] = df.iloc[-1]['date']
         df_resultados.iloc[-1]['cierre_venta'] = df.iloc[-1]['close']
-    
+
     # Puede haberse recibido una señal de venta sin haber compra, entonces,
     # quedará un NaN en la fecha precios de compra. Como tiene valor, se elimina
     if pd.isnull(df_resultados.iloc[0]['fecha_compra']):
         df_resultados = df_resultados.drop(0)
 
     # Calculos los porcentajes
-    df_resultados['porcentaje'] = (df_resultados['cierre_venta'] - 
+    df_resultados['porcentaje'] = (df_resultados['cierre_venta'] -
                                    df_resultados['cierre_compra']) / df_resultados['cierre_compra'] * 100
-    
+
     return df_resultados
 
 
@@ -1510,18 +1530,27 @@ def _generar_figura_cruce_medias(df, nombre_ticker, mms_len, mms_rap):
 
     Parameters
     ----------
-        df (_type_): _description_
-        nombre_ticker (_type_): _description_
-        mms_len (_type_): _description_
-        mms_rap (_type_): _description_
+        df : pandas.core.frame.DataFrame
+            Conjunto de datos de las últimas sesiones de un valor junto
+            con los mejores retornos posibles según el algoritmo.
+
+        nombre_ticker : str
+            Nombre del ticker del valor sobre el que se aplica el algoritmo.
+            
+        mms_len : int 
+            Media móvil simple lenta.
+
+        mms_rap : int
+            Media móvil simple rápida.
 
     Returns
     -------
-        _type_: _description_
+        cruce_medias_var : str
+            Cadena de datos que guarda la gráfica con el cruce de medias.
     """
     # Preparar figura y buffer
     plt.figure(figsize=(7, 5))
-    
+
     # Gráfica con los datos reales y las predicciones
     plt.plot(df['date'], df['close'], color='blue', label='Precios de cierre')
     plt.plot(df['date'], df['MMS_len'], color='green', label=f'MMS{mms_len} (lenta)')
@@ -1537,24 +1566,25 @@ def _generar_figura_cruce_medias(df, nombre_ticker, mms_len, mms_rap):
     plt.close()
     # Obtener los datos de la imagen del buffer
     buffer.seek(0)
-    cruce_medias = base64.b64encode(buffer.read()).decode()
+    cruce_medias_var = base64.b64encode(buffer.read()).decode()
 
-    return cruce_medias
+    return cruce_medias_var
 
 
 @login_required
-def estrategia_ML(request):
-    """Para implementar el algoritmo de seguimiento de tendencias o cruce de medias. 
+def estrategia_machine_learning(request):
+    """Para implementar los mecanismos de trading con técnicas de 
+    machine learning. 
     
     Parameters
     ----------
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+        request : django.core.handlers.wsgi.WSGIRequest
+            Solicitud HTTP encapsulada por Django.
 
     Returns
     -------
-        (render): renderiza la plantilla 'arima_auto.html' con datos
-            de contexto.
+        : render
+            Renderiza la plantilla 'arima_auto.html' con datos de contexto.
     """
     if request.method == 'GET':
         context = {
@@ -1563,13 +1593,13 @@ def estrategia_ML(request):
         return render(request, "estrategia_basada_en_ML.html", context)
 
     indice = request.POST.get("indice")
-    # En caso de valores fuera de rango no pasa nada porque se 
+    # En caso de valores fuera de rango no pasa nada porque se
     # hace otra comprobación al final y se manda un mensaje al usuario
     valores, clase, tickers_unidos = _obtener_tickers_relevantes(indice)
 
     # Uso el resto del formulario (sin el ticker)
     form = EstrategiaMLForm(request.POST)
-    if form.is_valid():        
+    if form.is_valid():
         num_sesiones = form.cleaned_data['num_sesiones']
         tipo_modelo = form.cleaned_data['tipo_modelo']
         porcentaje_entren = form.cleaned_data['porcentaje_entrenamiento']
@@ -1577,10 +1607,10 @@ def estrategia_ML(request):
         # Compruebo ticker/indice, num_sesiones, tipo_modelo y porcentajes
         context = _comprobar_formularios(form, clase, request)
         if context is not False:
-            return render(request, "estrategia_basada_en_ML.html", context)      
+            return render(request, "estrategia_basada_en_ML.html", context)
 
-        df_retornos, df_resultado, tam_entrenamiento, train, test = _preprocesado_datos_ML(tickers_unidos, 
-                                                                                           num_sesiones, 
+        df_retornos, df_resultado, tam_entrenamiento, train, test = _preprocesado_datos_ml(tickers_unidos,
+                                                                                           num_sesiones,
                                                                                            porcentaje_entren)
 
         x_train = train[valores]
@@ -1589,43 +1619,46 @@ def estrategia_ML(request):
         y_test = test[clase]
 
         if tipo_modelo == 'Regresión lineal':
-            context = _regresion_lineal(LinearRegression(), x_train, y_train, x_test, y_test, df_retornos, 
-                              tam_entrenamiento, clase, df_resultado, valores)
+            context = _regresion_lineal(LinearRegression(), x_train, y_train, x_test, y_test, df_retornos,
+                                        tam_entrenamiento, clase, df_resultado, valores)
         elif tipo_modelo == 'Clasificación':
             # Se pasa C al modelo. C sirve para controlar lo que se conoce
-            # como 'sanción de regularización'. Es una manera de controlar 
+            # como 'sanción de regularización'. Es una manera de controlar
             # los pesos, para que no sean demasiado grandes (lo que podría
-            # resultar en un problema). C es la inversa de la fuerza de 
+            # resultar en un problema). C es la inversa de la fuerza de
             # regularización, i.e., C = 1/λ
-            context = _clasificacion_regresion_logistica(LogisticRegression(C=10), x_train, y_train, x_test, y_test, 
-                                               df_retornos, tam_entrenamiento, clase, df_resultado, valores)
+            context = _clasificacion_regresion_logistica(LogisticRegression(C=10), x_train, y_train, x_test, y_test,
+                                                         df_retornos, tam_entrenamiento, clase, df_resultado, valores)
         else:
             context = {
                 'form': EstrategiaMLForm(),
             }
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "estrategia_basada_en_ML.html", context)
-    
+
     # Si el formulario no es válido, busco el motivo e informo al usuario
     context = _comprobar_formularios(form, clase, request)
     return render(request, "estrategia_basada_en_ML.html", context)
 
 
-def _obtener_tickers_relevantes(indice): 
+def _obtener_tickers_relevantes(indice):
     """Para obtener los tickers relevantes de cada índice y el propio índice. 
 
     Parameters
     ----------
-        indice (str): nombre del índice con el que se va a trabajar. 
-        request (django.core.handlers.wsgi.WSGIRequest): solicitud
-            HTTP encapsulada por Django.
+        indice : str
+            Nombre del índice con el que se va a trabajar. 
 
     Returns
     -------
-        valores (list): lista de los valores que rerpesentan al índice.
-        clase (str): nombre del índice con el formato de guardado en BDs,
-            esta será la clase objetivo.
-        tickers_unidos (list): lista con todos los tickers.
+        Tuple : Tupla con información del índice
+            * valores : list
+                Lista de los valores que rerpesentan al índice.
+            * clase : str
+                Nombre del índice con el formato de guardado en BDs,
+                esta será la clase objetivo.
+            * tickers_unidos : list
+                Lista con todos los tickers.
     """
     valores = []
     clase = None
@@ -1649,24 +1682,34 @@ def _obtener_tickers_relevantes(indice):
     return valores, clase, tickers_unidos
 
 
-def _preprocesado_datos_ML(tickers_unidos, num_sesiones, porcentaje_entren):
+def _preprocesado_datos_ml(tickers_unidos, num_sesiones, porcentaje_entren):
     """Para preparar los datos de la estrategia ML con el formato adecuado. 
 
     Parameters
     ----------
-        tickers_unidos (list): lista con los tickers de los valores más relevantes
+        tickers_unidos : list
+            Lista con los tickers de los valores más relevantes
             y el índice sobre el que se va a hacer una estimación. 
-        num_sesiones (int): número de sesiones a tener en cuenta para entrenar los modelos.
-        valores (lista): lista con los tickers más relevantes de un índice. 
-        clase (str): nombre del índice. 
+
+        num_sesiones : int
+            Número de sesiones a tener en cuenta para entrenar los modelos.
+
+        porcentaje_entren : str
+            Porcentaje de datos que se usará para entrenar los modelos.
 
     Returns
     -------
-        df_retornos (pandas.core.frame.DataFrame): df con los retornos logarítmicos. 
-        df_resultado (pandas.core.frame.DataFrame): df con los valores de precios de cierre.
-        tam_entrenamiento (int): número de datos dedicados al entrenamiento del modelo. 
-        train (pandas.core.frame.DataFrame): subconjunto de entrenamiento de df_retornos. 
-        test (pandas.core.frame.DataFrame): subconjunto de test de df_retornos. 
+        Tuple: Tupla con información de resultados de preprocesado
+            * df_retornos : pandas.core.frame.DataFrame)
+                df con los retornos logarítmicos. 
+            * df_resultado : pandas.core.frame.DataFrame
+                df con los valores de precios de cierre.
+            tam_entrenamiento : int
+                Número de datos dedicados al entrenamiento del modelo. 
+            * train : pandas.core.frame.DataFrame
+                Subconjunto de entrenamiento de df_retornos. 
+            * test : pandas.core.frame.DataFrame
+                Subconjunto de test de df_retornos. 
     """
     df_resultado = pd.DataFrame(columns=tickers_unidos)
     for ticker in tickers_unidos:
@@ -1680,7 +1723,7 @@ def _preprocesado_datos_ML(tickers_unidos, num_sesiones, porcentaje_entren):
         df.sort_values(by='date', ascending=True, inplace=True, ignore_index=True)
 
         df_resultado[ticker] = df['close']
-    
+
     # Como todos los valores cotizan en el mismo mercado, tendrán las
     # mismas fechas, así que me aprovecho de ello para añadir una columna
     # de fechas común que podría ser de utilidad
@@ -1692,14 +1735,14 @@ def _preprocesado_datos_ML(tickers_unidos, num_sesiones, porcentaje_entren):
     df_retornos = pd.DataFrame()
     for ticker in df_resultado.columns:
         df_retornos[ticker] = np.log(df_resultado[ticker]).diff()
-    
+
     # Elimino la primera fila que tendrá NaN por hacer el diff()
     df_retornos.dropna(inplace=True)
 
     # Split 70/30 o lo que sea (uso el % indicado por el usuario adaptándolo)
     porcentaje_entren = int(porcentaje_entren.replace('%', ''))/100
     tam_entrenamiento = int(len(df_retornos) * porcentaje_entren)
-    
+
     # Elimino la primera y última fila porque son valores
     # perdidos tras el diff()
     train = df_retornos.iloc[:tam_entrenamiento]
@@ -1708,47 +1751,72 @@ def _preprocesado_datos_ML(tickers_unidos, num_sesiones, porcentaje_entren):
     return df_retornos, df_resultado, tam_entrenamiento, train, test
 
 
-def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_entrenamiento, clase, df_resultado, valores):
-    """_summary_
+def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_entrenamiento, clase,
+                      df_resultado, valores):
+    """Para aplicar un modelo de regresión lineal siguiendo la idea de que unos valores
+    de un índice se comportan como atributos y el valor del día siguiente de ese índice
+    se comporta como clase objetivo. 
 
     Parameters
     ----------
-        model (_type_): _description_
-        x_train (_type_): _description_
-        y_train (_type_): _description_
-        x_test (_type_): _description_
-        y_test (_type_): _description_
-        df_retornos (_type_): _description_
-        tam_entrenamiento (_type_): _description_
-        clase (_type_): _description_
-        df_resultado (_type_): _description_
-        valores (_type_): _description_
+        model : sklearn.linear_model._base.LinearRegression)
+            Modelo de regresión lineal.
+
+        x_train : pandas.core.frame.DataFrame
+            Datos de entrenamiento.
+
+        y_train : pandas.core.series.Series
+            Datos de resultado esperado en entrenamiento.
+
+        x_test : pandas.core.frame.DataFrame
+            Datos de test.
+
+        y_test : pandas.core.series.Series
+            Datos de resultado esperado en test.
+
+        df_retornos : pandas.core.frame.DataFrame
+            Conjunto de datos con retornos de la clase objetivo. 
+
+        tam_entrenamiento : int
+            Tamaño de los datos de entrenamiento.
+
+        clase : str
+            Clase objetivo. 
+
+        df_resultado : pandas.core.frame.DataFrame
+            Datos de resultado. 
+
+        valores : list
+            Lista de los valores que se usan como 'atributos' para entrenar el
+            modelo y estimar la clase objetivo. 
+
 
     Returns
     -------
-        _type_: _description_
+        context : dict
+            Diccionario con datos del contexto.
     """
     # Para que en la web vaya más rápido no se hace validación cruzada
     model.fit(x_train, y_train)
     score_entren = model.score(x_train, y_train)
     score_test = model.score(x_test, y_test)
 
-    # No me voy a preocupar por el valor de las predicciones, solo 
+    # No me voy a preocupar por el valor de las predicciones, solo
     # me interesa saber si es un resultado positivo o negativo (predicción)
     # de siguiente día ascendente o descendente)
     pred_train = model.predict(x_train)
     pred_test = model.predict(x_test)
-    
+
     # Obtengo unos arrays de [1, -1] que me indican la tendencia en ese
     # punto. Luego los comparo para obtener un array de bool y así puedo
     # calcular la exactitud (accuracy) con mean()
     media_aciertos_entren =  np.mean(np.sign(pred_train) == np.sign(y_train))
     media_aciertos_test = np.mean(np.sign(pred_test) == np.sign(y_test))
 
-    # Creo una nueva columna que permite saber el estado en el que 
-    # está: alcista/basjista. Suponiendo que todas las veces que el algoritmo 
-    # ha indicado posición alcista nos hemos puesto alcistas, podré hacer una 
-    # suma de los retornos en esos días. 
+    # Creo una nueva columna que permite saber el estado en el que
+    # está: alcista/basjista. Suponiendo que todas las veces que el algoritmo
+    # ha indicado posición alcista nos hemos puesto alcistas, podré hacer una
+    # suma de los retornos en esos días.
     # Esto es, si 'pred_train' es > 0 se asigna un True y False en otro caso
     posiciones = np.zeros(len(df_retornos), dtype=int)
     posiciones[:tam_entrenamiento] = (pred_train > 0).astype(int)
@@ -1758,18 +1826,13 @@ def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_
     # para ver lo que habría ocurrido.
     df_retornos['retorno_algoritmo'] = df_retornos['posicion'] * df_retornos[clase]
 
-    # print("Retorno logarítimo total del algoritmo en entrenamiento", df_retornos.iloc[:tam_entrenamiento]['retorno_algoritmo'].sum())
-    # print("Retorno logarítimo total del algoritmo en test", df_retornos.iloc[tam_entrenamiento:]['retorno_algoritmo'].sum())
     ret_total_algo_entre = df_retornos.iloc[:tam_entrenamiento]['retorno_algoritmo'].sum()
     ret_total_algo_test = df_retornos.iloc[tam_entrenamiento:]['retorno_algoritmo'].sum()
 
-
-    # print("Retorno logarítimo total con 'buy-and-hold' en entrenamiento", y_train.sum())
-    # print("Retorno logarítimo total con 'buy-and-hold' en test", y_test.sum())
     ret_total_buyhold_entre = y_train.sum()
     ret_total_buyhold_test = y_test.sum()
 
-    # Los datos para realizar una predicción extra corresponden con los del último 
+    # Los datos para realizar una predicción extra corresponden con los del último
     # día disponible. Entonces, creo un 'df' con esos datos (para darle la forma necesaria)
     datos_prediccion = df_resultado.iloc[-1][valores].copy()
     # Y, posteriormente, hago un diff() manual para obtener los retornos logarítmicos
@@ -1798,56 +1861,81 @@ def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_
     return context
 
 
-def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, df_retornos, tam_entrenamiento, clase, df_resultado, valores):
-    """_summary_
+def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, df_retornos,
+                                       tam_entrenamiento, clase, df_resultado, valores):
+    """Para aplicar un modelo de clasificación siguiendo la idea de que unos valores
+    de un índice se comportan como atributos y el valor del día siguiente de ese índice
+    se comporta como clase objetivo. 
 
     Parameters
     ----------
-        model (_type_): _description_
-        x_train (_type_): _description_
-        y_train (_type_): _description_
-        x_test (_type_): _description_
-        y_test (_type_): _description_
-        df_retornos (_type_): _description_
-        tam_entrenamiento (_type_): _description_
-        clase (_type_): _description_
-        df_resultado (_type_): _description_
-        valores (_type_): _description_
+        model : sklearn.linear_model._base.LinearRegression)
+            Modelo de regresión lineal.
+
+        x_train : pandas.core.frame.DataFrame
+            Datos de entrenamiento.
+
+        y_train : pandas.core.series.Series
+            Datos de resultado esperado en entrenamiento.
+
+        x_test : pandas.core.frame.DataFrame
+            Datos de test.
+
+        y_test : pandas.core.series.Series
+            Datos de resultado esperado en test.
+
+        df_retornos : pandas.core.frame.DataFrame
+            Conjunto de datos con retornos de la clase objetivo. 
+
+        tam_entrenamiento : int
+            Tamaño de los datos de entrenamiento.
+
+        clase : str
+            Clase objetivo. 
+
+        df_resultado : pandas.core.frame.DataFrame
+            Datos de resultado. 
+
+        valores : list
+            Lista de los valores que se usan como 'atributos' para entrenar el
+            modelo y estimar la clase objetivo. 
+
 
     Returns
     -------
-        _type_: _description_
+        context : dict
+            Diccionario con datos del contexto.
     """
     # Con este modelo, a diferencia de LinearRegression(), es necesario
     # convertir la clase objetivoo a valores binarios
-    c_train = (y_train > 0)
-    c_test = (y_test > 0)
+    c_train = y_train > 0
+    c_test = y_test > 0
 
     # Para que en la web vaya más rápido no se hace validación cruzada
     model.fit(x_train, c_train)
     score_entren = model.score(x_train, c_train)
     score_test = model.score(x_test, c_test)
 
-    # No me voy a preocupar por el valor de las predicciones, solo 
-    # me interesa saber si es un resultado positivo o negativo (i.e., 
+    # No me voy a preocupar por el valor de las predicciones, solo
+    # me interesa saber si es un resultado positivo o negativo (i.e.,
     # predicción de siguiente día ascendente o descendente)
     pred_train = model.predict(x_train)
     pred_test = model.predict(x_test)
-    
+
     # Como se explica en el apartado teórico de la memoria, es posible
     # obtener una matriz de confusión y trabajar con ella si fuera necesario:
     # M = confusion_matrix(c_test, pred_test)
-    
+
     # Obtengo unos arrays de [True, False] que me indican la tendencia en ese
     # punto
     media_aciertos_entren = np.mean(pred_train == c_train)
     media_aciertos_test = np.mean(pred_test == c_test)
 
 
-    # Creo una nueva columna que permite saber el estado en el que 
-    # está: alcista/basjista. Suponiendo que todas las veces que el algoritmo 
-    # ha indicado posición alcista nos hemos puesto alcistas, podré hacer una 
-    # suma de los retornos en esos días. 
+    # Creo una nueva columna que permite saber el estado en el que
+    # está: alcista/basjista. Suponiendo que todas las veces que el algoritmo
+    # ha indicado posición alcista nos hemos puesto alcistas, podré hacer una
+    # suma de los retornos en esos días.
     # Esto es, si 'pred_train' es > 0 se asigna un True y False en otro caso
     posiciones = np.zeros(len(df_retornos), dtype=bool)
     posiciones[:tam_entrenamiento] = pred_train
@@ -1863,7 +1951,7 @@ def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, 
     ret_total_buyhold_entre = y_train.sum()
     ret_total_buyhold_test = y_test.sum()
 
-    # Los datos para realizar una predicción extra corresponden con los del último 
+    # Los datos para realizar una predicción extra corresponden con los del último
     # día disponible. Entonces, creo un 'df' con esos datos (para darle la forma necesaria)
     datos_prediccion = df_resultado.iloc[-1][valores].copy()
     # Y, posteriormente, hago un diff() manual para obtener los retornos logarítmicos

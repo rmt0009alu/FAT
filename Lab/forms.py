@@ -108,7 +108,7 @@ class ArimaRejillaForm(forms.Form):
             'placeholder': 'Porcentaje de datos para el entrenamiento'
         })
     )
-    
+
     valores_p = forms.ChoiceField(
         choices=[
             ([0,1], '[0, 1]'),
@@ -153,7 +153,7 @@ class ArimaRejillaForm(forms.Form):
             'placeholder': "Rango de posibles valores de 'q'"
         })
     )
-    
+
     # Campos para indicar el tipo de cálculo para (p,d,q). Obligatorio
     # indicar que no son 'required' porque no se van a mostrar en el 'form'
     auto = forms.BooleanField(initial=False, required=False)
@@ -197,7 +197,7 @@ class ArimaManualForm(forms.Form):
             'placeholder': 'Porcentaje de datos para el entrenamiento'
         })
     )
-    
+
     valor_p = forms.IntegerField(
         required=True,
         widget=forms.TextInput(attrs={
@@ -221,7 +221,7 @@ class ArimaManualForm(forms.Form):
             'placeholder': "Valor  de 'q' [0 - 10]"
         })
     )
-    
+
     # Campos para indicar el tipo de cálculo para (p,d,q). Obligatorio
     # indicar que no son 'required' porque no se van a mostrar en el 'form'
     auto = forms.BooleanField(initial=False, required=False)
