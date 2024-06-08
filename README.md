@@ -8,15 +8,15 @@ Tome decisiones financieras más inteligentes, basadas en información poco conv
 
 Entre las principales funcionalidades que podrá encontrar, destacan las siguientes:
 
- - Disponer de un área de usuario (DashBoard) para realizar seguimiento de valores y almacenar información relevante sobre su cartera.
- - Comparación de distribuciones de cartera con gráficas de Markowitz y Sharpe ratio.
+ - Disponer de un área de usuario para realizar _seguimiento de valores_ y _almacenar información relevante sobre su cartera_.
+ - Comparación de distribuciones de cartera con gráficas de _Markowitz_ y _Sharpe ratio_.
  - Gráficas interactivas de valores. 
- - Comparación con sectores de referencia de valores cotizados. 
- - Disponibilidad de grafos de correlaciones con NetworkX.
- - Experimentación con modelos ARIMA para forecasting de series temporales.  
- - Experimentación con algoritmo de cruce de medias.
- - Experimentación con modelos de regresión y clasificación para realizar forecasting de series temporales. 
- - En caso de que utilice este repositorio podrá utlizar redes LSTM para realizar forecasting de series temporales (funcionalidad no disponible en la web). 
+ - Comparación con _sectores de referencia_ de valores cotizados. 
+ - Disponibilidad de _grafos de correlaciones con NetworkX_.
+ - Experimentación con _modelos ARIMA_ para forecasting de series temporales.  
+ - Experimentación con algoritmo de _cruce de medias_.
+ - Experimentación con _modelos de regresión y clasificación_ para realizar forecasting de series temporales. 
+ - En caso de que utilice este repositorio podrá utlizar _redes LSTM_ para realizar forecasting de series temporales (funcionalidad no disponible en la web). 
 
 
 ## Empieza a controlar tus inversiones:
@@ -107,7 +107,7 @@ Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
 
    Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
 
-   > export SECRET_KEY=clave_larga_6v2_ldx_clave_larga
+   > export SECRET_KEY=clave_larga_6v2_ldx_clave_larga<br>
    > export NEWS_API_KEY=clave_api_123456_clave_api
 
  - #### Paso 7.3. Cambiar el nombre de .env.example:
@@ -158,7 +158,7 @@ Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
     > (venv) > pylint .<br>
 
 
-  - Para crear documentación del estilo de ReadTheDocs:**
+  - Para crear documentación del estilo de ReadTheDocs:
 
     > (venv) > python -m pip install sphinx<br>
     > (venv) > python -m pip install sphinxcontrib-django<br>
