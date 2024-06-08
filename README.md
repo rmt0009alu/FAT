@@ -8,8 +8,8 @@ Tome decisiones financieras más inteligentes, basadas en información poco conv
 
 Entre las principales funcionalidades que podrá encontrar, destacan las siguientes:
 
- - Disponer de un área de usuario (DashBoard) para realizar seguimiento de valores y almacenar información relevante sobre su cartera. 
- - Comparación de distribuciones de cartera con gráficas de Markowitz y Sharpe ratio. 
+ - **Disponer de un área de usuario (DashBoard) para realizar seguimiento de valores y almacenar información relevante sobre su cartera.**
+ - **Comparación de distribuciones de cartera con gráficas de Markowitz y Sharpe ratio.**
  - Gráficas interactivas de valores. 
  - Comparación con sectores de referencia de valores cotizados. 
  - Disponibilidad de grafos de correlaciones con NetworkX.
@@ -31,33 +31,33 @@ Entre las principales funcionalidades que podrá encontrar, destacan las siguien
 
 Aquí se detallan los paso más importantes que hay que dar para utilizar esta herramienta de forma local:
 
-### <span style="color:blue">Paso 1. Descargar repositorio:</span>
+### **Paso 1.** Descargar repositorio:
 
-Descargar el repositorio [FAT](https://github.com/rmt0009alu/FAT)
+ - Descargar el repositorio [FAT](https://github.com/rmt0009alu/FAT)
 
-<\br>
-### <span style="color:blue">Paso 2. Intalar Python:</span>
+ 
+### **Paso 2.** Intalar Python:
 
-Instalar [Python](https://www.python.org/downloads/). 
+ - Instalar [Python](https://www.python.org/downloads/). 
 
-Para el desarrollo de esta herramienta se ha trabajado con Python 3.11.5
+   Para el desarrollo de esta herramienta se ha trabajado con Python 3.11.5
 
 
 ### Paso 3. Instalar entorno:
 
-Instalar un entorno de desarrollo del gusto del usuario. Se recomienda el uso de [VS Code](https://code.visualstudio.com/download).
+ - Instalar un entorno de desarrollo del gusto del usuario. Se recomienda el uso de [VS Code](https://code.visualstudio.com/download).
 
 
 ### Paso 4. Abrir directorio del respositorio:
 
-Abrir la ruta donde están los archivos del repositorio desde VS Code (o el editor/entorno deseado).
+ - Abrir la ruta donde están los archivos del repositorio desde VS Code (o el editor/entorno deseado).
 
 
 ### Paso 5. Entorno virtual:
 
-Crear un entorno virtual en el mismo directorio en el que tengamos los archivos del repositorio:
+ - Crear un entorno virtual en el mismo directorio en el que tengamos los archivos del repositorio:
 
-> python -m venv venv
+   > python -m venv venv
 
 ### Paso 6. Instalar las dependencias en el entorno virtual:
 
