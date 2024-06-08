@@ -2,7 +2,7 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{\'{I}ndice general}{\es@scroman {i}}{section*.1}%
 \contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iii}}{section*.2}%
-\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {iv}}{section*.3}%
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {v}}{section*.3}%
 \contentsline {appendix}{\chapternumberline {A}Plan de Proyecto Software}{1}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Introducción}{1}{section.Alph1.1}%
 \contentsline {section}{\numberline {A.2}Planificación temporal}{1}{section.Alph1.2}%
@@ -65,13 +65,12 @@
 \contentsline {section}{\numberline {D.1}Introducción}{81}{section.Alph4.1}%
 \contentsline {section}{\numberline {D.2}Estructura de directorios}{81}{section.Alph4.2}%
 \contentsline {section}{\numberline {D.3}Manual del programador}{83}{section.Alph4.3}%
-\contentsline {section}{\numberline {D.4}Compilación, instalación y ejecución del proyecto}{83}{section.Alph4.4}%
-\contentsline {section}{\numberline {D.5}Pruebas del sistema}{83}{section.Alph4.5}%
-\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{85}{appendix.Alph5}%
-\contentsline {section}{\numberline {E.1}Introducción}{85}{section.Alph5.1}%
-\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{85}{section.Alph5.2}%
-\contentsline {section}{\numberline {E.3}Instalación}{85}{section.Alph5.3}%
-\contentsline {section}{\numberline {E.4}Manual del usuario}{85}{section.Alph5.4}%
-\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{87}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Introducción}{87}{section.Alph6.1}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{89}{appendix*.52}%
+\contentsline {section}{\numberline {D.4}Pruebas del sistema}{91}{section.Alph4.4}%
+\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{93}{appendix.Alph5}%
+\contentsline {section}{\numberline {E.1}Introducción}{93}{section.Alph5.1}%
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{93}{section.Alph5.2}%
+\contentsline {section}{\numberline {E.3}Instalación}{93}{section.Alph5.3}%
+\contentsline {section}{\numberline {E.4}Manual del usuario}{93}{section.Alph5.4}%
+\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{95}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Introducción}{95}{section.Alph6.1}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{97}{appendix*.52}%

@@ -2,7 +2,7 @@
 
 \section{Introducción}
 
-En este anexo se recoge la documentación técnica de programación, que incluye recomendaciones para el entorno de desarrollo, la estructura de directorio, los procesos de compilación, la configuración de integración e instalación de dependencias y las baterías de tests realizadas. 
+En este anexo se recoge la documentación técnica de programación, que incluye recomendaciones para el entorno de desarrollo, la estructura de directorios, los procesos de compilación, la configuración de integración e instalación de dependencias y las baterías de tests realizadas. 
 
 \section{Estructura de directorios}
 
@@ -126,6 +126,295 @@ El repositorio del proyecto tiene la siguiente distribución de directorios:
 
 \section{Manual del programador}
 
-\section{Compilación, instalación y ejecución del proyecto}
+En este manual se explican los pasos más relevantes que se han seguido para la creación de este proyecto y que pueden servir como referencia para futuros desarrolladores. En él se explica cómo preparar el entorno de desarrollo y qué dependencias necesitaremos. Además, se detallan los pasos más relevantes en cuanto a compilación, instalación y ejecución.
+
+Se recomienda consultar la \href{https://fat.readthedocs.io/es/latest/intro.html#}{documentación} y, especialmente, el apartado de \emph{Instalación en local}, donde se encuentra disponible un resumen de este manual. El mismo resumen se puede encontrar en la portada del \href{https://github.com/rmt0009alu/FAT}{repositorio de este proyecto}. 
+
+A continuación se detallan los pasos lógicos que se pueden seguir para trabajar con este proyecto:
+
+
+
+\textbf{Paso 1. Descargar, clonar o hacer un \emph{fork} del repositorio}
+
+Podemos descargar los archivos desde el \href{https://github.com/rmt0009alu/FAT}{repositorio}. 
+
+\imagen{img_anex_23.png}{Descargar proyecto en formato .zip}{1}
+
+Si tenemos instalado un sistema de control de versiones distribuido como \href{https://git-scm.com/downloads}{Git}, podremos hacer un \emph{clon} del repositorio para trabajar con él en local. Este método es ideal si no se pretenden hacer contribuciones con el proyecto original. Sólo debemos crear un directorio donde queramos instalar los archivos del repositorio y lanzar el siguiente comando:
+
+\imagen{img_anex_24.png}{Clonar con \emph{Git} .zip}{0.8}
+
+Otra opción es que se haga un \emph{fork} para guardar los datos en un repositorio del desarrollador. De esta manera se podrá contribuir fácilmente con el desarrollo realizado hasta ahora. 
+
+
+
+\textbf{Paso 2. Intalar Python}
+
+Una vez tenemos los archivos en nuestro equipo tendremos que instalar \href{https://www.python.org/downloads/}{Python}. En el desarrollo de este proyecto se ha utilizado Python 3.11.5. 
+
+
+
+\textbf{Paso 3. Instalar entorno}
+
+Instalar un IDE del gusto del desarrollador. Se recomienda el uso de \href{https://code.visualstudio.com/download}{VS Code}.
+
+\emph{VS Code} ya se puede considerar un entorno de desarrollo integrado. Aunque inicialmente fue concebido como un editor de código fuente ligero, ha evolucionado para ofrecer muchas de las funcionalidades que se esperan de un IDE; y en el desarrollo de este proyecto no han sido necesarias más herramientas. 
+
+\imagen{img_anex_25.png}{VS Code}{1}
+
+
+
+\textbf{Paso 4. Abrir directorio del respositorio}
+
+Abrir la ruta donde están los archivos del repositorio desde VS Code (o el editor/entorno deseado).
+
+
+
+\textbf{Paso 5. Entorno virtual}
+
+Es altamente recomendable trabajar con un entorno virtual. Su instalación es sencilla y puede ayudarnos a controlar mejor las dependencias necesarias.
+
+Pulsamos \texttt{F1} y podemos escribir \emph{Interpreter} para seleccionar el \emph{interpreter} de \emph{Python} que se adapte a las características del proyecto: 
+
+\imagen{img_anex_26.png}{Selección de \emph{interpreter}}{1}
+
+Luego volvemos a pulsar \texttt{F1} y escribimos \texttt{Terminal} para abrir una nueva terminal. Desde esa terminal creamos nuestro entorno virtual, en el mismo directorio en el que tengamos los archivos del repositorio:
+
+\begin{verbatim}
+  > python -m venv venv
+\end{verbatim}
+
+
+
+\textbf{Paso 6. Instalar las dependencias en el entorno virtual}
+
+En este proyecto se puede encontrar un archivo \emph{requirements.txt} con todas las dependencias. Pero para facilitar la instalación se recomienda seguir los siguientes pasos, ya que se instalarán las librerías en el orden adecuado y todas las dependencias de terceros estarán disponibles igualmente:
+
+Primero abrimos el entorno virtual que hemos creado en el paso previo:
+
+\begin{verbatim}
+  > .\venv\Scripts\activate
+\end{verbatim}
+
+Veremos algo similar a lo siguiente: 
+
+\imagen{img_anex_27.png}{Activar entorno virtual}{0.8}
+
+\newpage
+
+Luego se instalan, en ese entorno virtual, el \emph{framework}, las librerías y las APIs necesarias:
+
+\begin{verbatim}
+  (venv) > python -m pip install Django
+  (venv) > python -m pip install pandas
+  (venv) > python -m pip install plotly==5.18.0
+  (venv) > python -m pip install newsapi-python
+  (venv) > python -m pip install -U matplotlib
+  (venv) > python -m pip install mpld3
+  (venv) > python -m pip install django-pandas
+  (venv) > python -m pip install feedparser
+  (venv) > python -m pip install yfinance
+  (venv) > python -m pip install python-dotenv
+  (venv) > python -m pip install networkx
+  (venv) > python -m pip install statsmodels
+  (venv) > python -m pip install scikit-learn
+  (venv) > python -m pip install pmdarima
+  (venv) > python -m pip install tensorflow
+\end{verbatim}
+
+\textbf{Paso 7. Configurar claves secretas}
+
+Este proyecto requiere dos claves secretas que no están disponibles, pero que se pueden conseguir de manera sencilla.
+
+Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
+
+\begin{itemize}
+
+\item
+\textbf{Paso 7.1. SECRET\_KEY de Django}
+Generar una \texttt{SECRET\_KEY} de \emph{Django} de manera aleatoria desde una terminal en el entorno virtual:
+
+\begin{verbatim}
+  (venv) > python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'`
+\end{verbatim}
+
+
+   Guardar la clave en \texttt{/FAT/.env.example}, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
+
+\begin{verbatim}
+  export SECRET_KEY=clave_larga_123456_clave_larga
+\end{verbatim}
+
+\item
+\textbf{Paso 7.2. Clave de API NewsAPI}
+
+Acceder a \href{https://newsapi.org/}{NewsAPI} y solicitar una clave de acceso con un registro.
+
+   Guardar la clave en \texttt{/FAT/.env.example} - sin usar comillas - nos deberá quedar un archivo con el siguiente texto:
+   
+\begin{verbatim}
+  export SECRET_KEY=clave_larga_123456_clave_larga
+  export NEWS_API_KEY=clave_api_123456_clave_api
+\end{verbatim}
+
+\item
+\textbf{Paso 7.3. Cambiar el nombre de .env.example}
+Cambiar el nombre de \texttt{/FAT/.env.example} por \texttt{/FAT/.env}.
+
+\end{itemize}
+
+
+
+\textbf{Paso 8. Lanzar el servidor}
+
+Como ya tenemos configurado el entorno, sólo queda empezar a utilizarlo:
+
+\begin{verbatim}
+  (venv) > python .\manage.py runserver
+\end{verbatim}
+
+  Hacer click en la ruta local que aparece, normalmente \href{http://127.0.0.1:8000/}{localhost}.
+
+\imagen{img_anex_28.png}{Lanzar el servidor}{0.8}
+
+
+\newpage
+\textbf{Paso 9. ¿Quieres actualizar las bases de datos?}
+
+Es posible actualizar las bases de datos de los índices bursátiles y sus valores cotizados, para tener información con precios de cierre de la última sesión disponible.
+
+Es \textbf{importante} que antes de actualizar compruebes que el servidor no está activo.
+
+Puedes lanzar el \emph{script} \texttt{ActualizarBDs.py}, una vez realizada la comprobación previa, desde la ruta principal del proyecto:
+
+\begin{verbatim}
+  (venv) > python .\util\ActualizarBDs.py
+\end{verbatim}
+
+Este \emph{script} permite actualizar las bases de datos \texttt{dj30}, \texttt{ibex35}, \texttt{ftse100} y \texttt{dax40} con precios de cierre. \textbf{Para que se obtengan precios de cierre es necesario actualizar fuera de horarios de cotización}. Es decir, necesitamos que los mercados estén cerrados y, por ello, en el \emph{script} \texttt{ActualizarBDs.py} se ha configurado un rango de horas permitidas. Esto está pensado para trabajar en un servidor remoto que lanza el \emph{script} de forma automática (con \emph{cron}, por ejemplo), pero si se quieren modificar las horas, sólo es cuestión de cambiar los horarios en el método \texttt{\_permite\_actualizar(logger)}.
+
+Se recomienda hacer actualizaciones en fines de semana o en horarios en los que tanto mercados estadounidenses como europeos estén cerrados.
+
+
+
+\textbf{Paso 10. ¿Quieres crear las bases de datos desde cero?}
+
+Es posible eliminar las bases de datos actuales y crearlas desde cero si se desea, por ejemplo, limpiar toda la información de la base de datos por defecto o si se quiere ampliar la cantidad de datos históricos de los índices bursátiles.
+
+Para realizar esta operación hay que eliminar las migraciones previas:
+
+\begin{verbatim}
+  (venv) > python .\manage.py migrate Analysis zero
+  (venv) > python .\manage.py migrate DashBoard zero
+\end{verbatim}
+
+Además de los comandos anteriores es altamente recomendable eliminar los archivos \texttt{/Analysis/migrations/0001\_initial.py} y \\ \texttt{/DashBoard/migrations/0001\_initial.py}.
+
+Con las migraciones eliminadas, el siguiente paso es eliminar las bases de datos del directorio \texttt{/databases}.
+
+Posteriormente ya podremos crear las nuevas migraciones con:
+
+\begin{verbatim}
+  (venv) > python manage.py makemigrations
+  (venv) > python manage.py migrate
+  (venv) > python manage.py migrate --database=dj30
+  (venv) > python manage.py migrate --database=ibex35
+  (venv) > python manage.py migrate --database=ftse100
+  (venv) > python manage.py migrate --database=dax40
+\end{verbatim}
+
+Por último, hay que lanzar el \emph{script} \texttt{CrearBDs.py}, asegurándonos, como se indica en el paso 9, de no tener el servidor activo y de que los mercados bursátiles están cerrados:
+
+\begin{verbatim}
+  (venv) > python .\util\CrearBDs.py
+\end{verbatim}
+
+
+
+\textbf{Paso 11. ¿Quieres crear un usuario administrador?}
+
+Los usuarios administradores en \emph{Django} tienen la capacidad de gestionar información de la plataforma en un entorno visual agradable, pudiendo crear, eliminar y modificar objetos.
+
+Lo que el administrador podrá ver depende de la configuración establecida en los archivos \texttt{admin.py} de las diferentes aplicaciones.
+
+Para crear un \emph{admin} sólo hay que lanzar el siguiente comando:
+
+\begin{verbatim}
+  (venv) > python manage.py createsuperuser
+\end{verbatim}
+
+
+
+\textbf{Opcional. Dependencias adicionales interesantes}
+
+\begin{itemize}
+
+\item
+Para limpiar las rutas de \texttt{\_pycache\_}:
+
+\begin{verbatim}
+  (venv) > python -m pip install pyclean
+\end{verbatim}
+
+Modo de uso:
+
+\begin{verbatim}
+  (venv) > pyclean .
+\end{verbatim}
+
+\item
+Para testear el código:
+
+\begin{verbatim}
+  (venv) > python -m pip install coverage
+\end{verbatim}
+
+Modo de uso:
+
+\begin{verbatim}
+  (venv) > coverage run manage.py test tests
+  (venv) > coverage html
+\end{verbatim}
+
+
+Consular el informe generado en \texttt{/htmlcov/index.html}.
+
+\item
+Para comprobar la calidad del código:
+
+\begin{verbatim}
+  (venv) > python -m pip install pylint
+\end{verbatim}
+
+Modos de uso:
+
+\begin{verbatim}
+  (venv) > pylint .\DashBoard\views.py
+  (venv) > pylint .\DashBoard
+  (venv) > pylint .
+\end{verbatim}
+
+
+\item
+Para crear documentación del estilo de ReadTheDocs:
+
+\begin{verbatim}
+  (venv) > python -m pip install sphinx
+  (venv) > python -m pip install sphinxcontrib-django
+  (venv) > python -m pip install sphinx_rtd_theme
+  (venv) > python -m pip install recommonmark
+\end{verbatim}
+
+Modo de uso:
+
+\begin{verbatim}
+  cd .\docs\sphinx\
+  (venv) \docs\sphinx\ > .\make.bat html
+\end{verbatim}
+
+En \texttt{/docs/sphinx/\_build/html/index.html} se puede consular la documentación del código generada.
+
+\end{itemize}
+
 
 \section{Pruebas del sistema}

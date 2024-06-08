@@ -87,7 +87,7 @@ En este proyecto se puede encontrar un archivo requirements.txt con todas las de
 
 ### Paso 7. Configurar claves secretas:
 
-Esta herramienta requiere dos claves secretas que no están disponibles pero que son fácilmente conseguibles.
+Esta herramienta requiere dos claves secretas que no están disponibles, pero que son fácilmente conseguibles.
 
 Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
 
@@ -99,15 +99,15 @@ Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
 
    Guardar la clave en `/FAT/.env.example`, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
 
-   `export SECRET_KEY=clave_larga_6v2_ldx_clave_larga`
+   `export SECRET_KEY=clave_larga_123456_clave_larga`
 
  - **Paso 7.2. Clave de API NewsAPI:**
 
-   Acceder a [NewsAPI](https://newsapi.org/) y solicitar una clave de acceso con un registro (puede usarse un '10 minute mail' o similar):
+   Acceder a [NewsAPI](https://newsapi.org/) y solicitar una clave de acceso con un registro (puede usarse un '10 minute mail' o similar).
 
    Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
 
-   `export SECRET_KEY=clave_larga_6v2_ldx_clave_larga`<br>
+   `export SECRET_KEY=clave_larga_123456_clave_larga`<br>
    `export NEWS_API_KEY=clave_api_123456_clave_api`
 
  - **Paso 7.3. Cambiar el nombre de .env.example:**
@@ -117,7 +117,7 @@ Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
 
 ### Paso 8. Lanzar el servidor:
 
-- Como ya tenemos configruado el entorno, sólo queda empezar a utilizarlo:
+- Como ya tenemos configurado el entorno, sólo queda empezar a utilizarlo:
 
   `(venv) > python .\manage.py runserver`
 
