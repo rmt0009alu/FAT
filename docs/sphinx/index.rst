@@ -10,7 +10,9 @@ Welcome to FAT: Financial Analysis Tool's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   intro.md
    modules
+   
 
 Indices and tables
 ==================

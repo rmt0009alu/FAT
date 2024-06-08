@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAT: Financial Analysis Tool &mdash; FAT: Financial Analysis Tool v3.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/documentation_options.js?v=5773a0da"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Analysis" href="modules.html" />
+    <link rel="prev" title="Welcome to FAT: Financial Analysis Tool’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #262b2e" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            FAT: Financial Analysis Tool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> FAT: Financial Analysis Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#u-bienvenidos-a-fat-u"><u>Bienvenidos a FAT</u></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#u-empieza-a-controlar-tus-inversiones-u"><u>Empieza a controlar tus inversiones</u></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#u-documentacion-u"><u>Documentación</u></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#u-instalacion-en-local-u"><u>Instalación en local</u></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#paso-1-descargar-repositorio">Paso 1. Descargar repositorio:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-2-intalar-python">Paso 2. Intalar Python:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-3-instalar-entorno">Paso 3. Instalar entorno:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-4-abrir-directorio-del-respositorio">Paso 4. Abrir directorio del respositorio:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-5-entorno-virtual">Paso 5. Entorno virtual:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-6-instalar-las-dependencias-en-el-entorno-virtual">Paso 6. Instalar las dependencias en el entorno virtual:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-7-configurar-claves-secretas">Paso 7. Configurar claves secretas:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-8-lanzar-el-servidor">Paso 8. Lanzar el servidor:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-9-quieres-actualizar-las-bases-de-datos">Paso 9. ¿Quieres actualizar las bases de datos?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-10-quieres-crear-las-bases-de-datos-desde-cero">Paso 10. ¿Quieres crear las bases de datos desde cero?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paso-11-quieres-crear-un-usuario-administrador">Paso 11. ¿Quieres crear un usuario administrador?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opcional-dependencias-adicionales-interesantes">Opcional. Dependencias adicionales interesantes:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html#module-DashBoard.apps">DashBoard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html#module-FAT.asgi">FAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html#module-FAT.routers.router_bases_datos">FAT.routers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html#module-Lab.apps">Lab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html#module-News.apps">News</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #262b2e" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FAT: Financial Analysis Tool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"> FAT: Financial Analysis Tool</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intro.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="financial-analysis-fat-financial-analysis-tool">
+<h1><img alt="Financial Analysis" src="_images/logo.png" /> FAT: Financial Analysis Tool<a class="headerlink" href="#financial-analysis-fat-financial-analysis-tool" title="Link to this heading">¶</a></h1>
+<section id="u-bienvenidos-a-fat-u">
+<h2><u>Bienvenidos a FAT</u><a class="headerlink" href="#u-bienvenidos-a-fat-u" title="Link to this heading">¶</a></h2>
+<p>Tome decisiones financieras más inteligentes, basadas en información poco convencional y fácil de entender. Los índices bursátiles disponibles son: DJ30, IBEX35, FTSE100 y DAX40. Si es usted desarrollador y quiere añadir nuevos índices se recomienda leer la documentación.</p>
+<p>Entre las principales funcionalidades que podrá encontrar, destacan las siguientes:</p>
+<ul class="simple">
+<li><p>Disponer de un área de usuario para realizar <em>seguimiento de valores</em> y <em>almacenar información relevante sobre su cartera</em>.</p></li>
+<li><p>Comparación de distribuciones de cartera con gráficas de <em>Markowitz</em> y <em>Sharpe ratio</em>.</p></li>
+<li><p>Gráficas interactivas de valores.</p></li>
+<li><p>Comparación con <em>sectores de referencia</em> de valores cotizados.</p></li>
+<li><p>Disponibilidad de <em>grafos de correlaciones con NetworkX</em>.</p></li>
+<li><p>Experimentación con <em>modelos ARIMA</em> para forecasting de series temporales.</p></li>
+<li><p>Experimentación con algoritmo de <em>cruce de medias</em>.</p></li>
+<li><p>Experimentación con <em>modelos de regresión y clasificación</em> para realizar forecasting de series temporales.</p></li>
+<li><p>En caso de que utilice este repositorio podrá utlizar <em>redes LSTM</em> para realizar forecasting de series temporales (funcionalidad no disponible en la web).</p></li>
+</ul>
+</section>
+<section id="u-empieza-a-controlar-tus-inversiones-u">
+<h2><u>Empieza a controlar tus inversiones</u><a class="headerlink" href="#u-empieza-a-controlar-tus-inversiones-u" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>¿Quieres mejorar el control de tus inversiones? <a class="reference external" href="http://takeiteasy.pythonanywhere.com/">Visita FAT</a>.</p></li>
+</ul>
+</section>
+<section id="u-documentacion-u">
+<h2><u>Documentación</u><a class="headerlink" href="#u-documentacion-u" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>¿Quieres saber más sobre el código fuente? <a class="reference external" href="https://fat.readthedocs.io/es/latest/">Read The Docs</a>.</p></li>
+</ul>
+</section>
+<section id="u-instalacion-en-local-u">
+<h2><u>Instalación en local</u><a class="headerlink" href="#u-instalacion-en-local-u" title="Link to this heading">¶</a></h2>
+<p>Aquí se detallan los paso más importantes que hay que dar para utilizar esta herramienta de forma local:</p>
+<section id="paso-1-descargar-repositorio">
+<h3>Paso 1. Descargar repositorio:<a class="headerlink" href="#paso-1-descargar-repositorio" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Descargar el repositorio <a class="reference external" href="https://github.com/rmt0009alu/FAT">FAT</a></p></li>
+</ul>
+</section>
+<section id="paso-2-intalar-python">
+<h3>Paso 2. Intalar Python:<a class="headerlink" href="#paso-2-intalar-python" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Instalar <a class="reference external" href="https://www.python.org/downloads/">Python</a>.</p>
+<p>Para el desarrollo de esta herramienta se ha trabajado con <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.11.5</span></code>.</p>
+</li>
+</ul>
+</section>
+<section id="paso-3-instalar-entorno">
+<h3>Paso 3. Instalar entorno:<a class="headerlink" href="#paso-3-instalar-entorno" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Instalar un entorno de desarrollo del gusto del usuario. Se recomienda el uso de <a class="reference external" href="https://code.visualstudio.com/download">VS Code</a>.</p></li>
+</ul>
+</section>
+<section id="paso-4-abrir-directorio-del-respositorio">
+<h3>Paso 4. Abrir directorio del respositorio:<a class="headerlink" href="#paso-4-abrir-directorio-del-respositorio" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Abrir la ruta donde están los archivos del repositorio desde VS Code (o el editor/entorno deseado).</p></li>
+</ul>
+</section>
+<section id="paso-5-entorno-virtual">
+<h3>Paso 5. Entorno virtual:<a class="headerlink" href="#paso-5-entorno-virtual" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Crear un entorno virtual en el mismo directorio en el que tengamos los archivos del repositorio:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">venv</span></code></p>
+</li>
+</ul>
+</section>
+<section id="paso-6-instalar-las-dependencias-en-el-entorno-virtual">
+<h3>Paso 6. Instalar las dependencias en el entorno virtual:<a class="headerlink" href="#paso-6-instalar-las-dependencias-en-el-entorno-virtual" title="Link to this heading">¶</a></h3>
+<p>En este proyecto se puede encontrar un archivo requirements.txt con todas las dependencias. Pero para facilitar la instalación se recomienda seguir los siguientes pasos, ya que se instalarán las librerías en el orden adecuado y todas las dependencias de terceros estarán disponibles igualmente:</p>
+<ul>
+<li><p>Abrir entorno virtual:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">.\venv\Scripts\activate</span></code></p>
+</li>
+<li><p>Instalar framework, librerías y APIs:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">Django</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plotly==5.18.0</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">newsapi-python</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">matplotlib</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mpld3</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">django-pandas</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">feedparser</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">yfinance</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-dotenv</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">networkx</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">statsmodels</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scikit-learn</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pmdarima</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tensorflow</span></code></p>
+</li>
+</ul>
+</section>
+<section id="paso-7-configurar-claves-secretas">
+<h3>Paso 7. Configurar claves secretas:<a class="headerlink" href="#paso-7-configurar-claves-secretas" title="Link to this heading">¶</a></h3>
+<p>Esta herramienta requiere dos claves secretas que no están disponibles pero que son fácilmente conseguibles.</p>
+<p>Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:</p>
+<ul>
+<li><p><strong>Paso 7.1. SECRET_KEY de Django:</strong></p>
+<p>Generar una <code class="docutils literal notranslate"><span class="pre">SECRET_KEY</span></code> de Django de manera aleatoria desde una terminal en el entorno virtual:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-c</span> <span class="pre">'from</span> <span class="pre">django.core.management.utils</span> <span class="pre">import</span> <span class="pre">get_random_secret_key;</span> <span class="pre">print(get_random_secret_key())'</span></code></p>
+<p>Guardar la clave en <code class="docutils literal notranslate"><span class="pre">/FAT/.env.example</span></code>, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:</p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">SECRET_KEY=clave_larga_6v2_ldx_clave_larga</span></code></p>
+</li>
+<li><p><strong>Paso 7.2. Clave de API NewsAPI:</strong></p>
+<p>Acceder a <a class="reference external" href="https://newsapi.org/">NewsAPI</a> y solicitar una clave de acceso con un registro (puede usarse un ‘10 minute mail’ o similar):</p>
+<p>Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:</p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">SECRET_KEY=clave_larga_6v2_ldx_clave_larga</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">NEWS_API_KEY=clave_api_123456_clave_api</span></code></p>
+</li>
+<li><p><strong>Paso 7.3. Cambiar el nombre de .env.example:</strong></p>
+<p>Cambiar el nombre de <code class="docutils literal notranslate"><span class="pre">/FAT/.env.example</span></code> por <code class="docutils literal notranslate"><span class="pre">/FAT/.env</span></code></p>
+</li>
+</ul>
+</section>
+<section id="paso-8-lanzar-el-servidor">
+<h3>Paso 8. Lanzar el servidor:<a class="headerlink" href="#paso-8-lanzar-el-servidor" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Como ya tenemos configruado el entorno, sólo queda empezar a utilizarlo:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">.\manage.py</span> <span class="pre">runserver</span></code></p>
+<p>Hacer click en la ruta local que aparece, normalmente: <a class="reference external" href="http://127.0.0.1:8000/">127.0.0.1:8000</a></p>
+</li>
+</ul>
+</section>
+<section id="paso-9-quieres-actualizar-las-bases-de-datos">
+<h3>Paso 9. ¿Quieres actualizar las bases de datos?<a class="headerlink" href="#paso-9-quieres-actualizar-las-bases-de-datos" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Es posible actualizar las bases de datos de los índices bursátiles y sus valores cotizados,
+para tener información con precios de cierre de la última sesión disponible.</p>
+<p>Es <strong>IMPORTANTE</strong> que antes de actualizar compruebes que el servidor no está activo.</p>
+<p>Una vez realizada la comprobación previa, puedes lanzar el script <code class="docutils literal notranslate"><span class="pre">ActualizarBDs.py</span></code>
+desde la ruta principal del proyecto:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">.\util\ActualizarBDs.py</span></code></p>
+<p>Este script permite actualizar las bases de datos <em>dj30</em>, <em>ibex35</em>, <em>ftse100</em> y <em>dax40</em> con precios
+de cierre. <strong>PARA QUE SE OBTENGAN PRECIOS DE CIERRE ES NECESARIO ACTUALIZAR FUERA DE HORARIOS DE COTIZACIÓN</strong>.
+Es decir, necesitamos que los mercados estén cerrados y, por ello, en el script
+<code class="docutils literal notranslate"><span class="pre">ActualizarBDs.py</span></code> se ha configurado un rango de horas permitidas. Esto está pensado para
+trabajar en un servidor remoto que lanza el script de forma automática (con cron, por ejemplo), pero
+si se quieren modificar las horas es cuestión de cambiar los horarios en el
+método <code class="docutils literal notranslate"><span class="pre">_permite_actualizar(logger)</span></code>.</p>
+<p>Se recomienda hacer actualizaciones en fines de semana o en horarios en los que tanto mercados estadounidenses como europeos estén cerrados.</p>
+</li>
+</ul>
+</section>
+<section id="paso-10-quieres-crear-las-bases-de-datos-desde-cero">
+<h3>Paso 10. ¿Quieres crear las bases de datos desde cero?<a class="headerlink" href="#paso-10-quieres-crear-las-bases-de-datos-desde-cero" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Es posible eliminar las bases de datos actuales y crearlas desde cero si se desea, por ejemplo, limpiar toda la
+información de la base de datos por defecto o si se quiere ampliar la cantidad de datos históricos de los índices
+bursátiles.</p>
+<p>Para realizar esta operación hay que eliminar las migraciones previas:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">.\manage.py</span> <span class="pre">migrate</span> <span class="pre">Analysis</span> <span class="pre">zero</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">.\manage.py</span> <span class="pre">migrate</span> <span class="pre">DashBoard</span> <span class="pre">zero</span></code></p>
+<p>Además de los comandos anteriores es altamente recomendable eliminar los archivos /Analysis/migrations/0001_initial.py
+y /DashBoard/migrations/0001_initial.py</p>
+<p>Con las migraciones eliminadas, el siguiente paso es eliminar las bases de datos del directorio /databases.</p>
+<p>Posteriormente ya podremos crear las nuevas migraciones con:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">makemigrations</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span> <span class="pre">--database=dj30</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span> <span class="pre">--database=ibex35</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span> <span class="pre">--database=ftse100</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">migrate</span> <span class="pre">--database=dax40</span></code></p>
+<p>Por último, hay que lanzar el script <code class="docutils literal notranslate"><span class="pre">CrearBDs.py</span></code>, asegurnándonos, como se indica en el paso 9, de no tener el
+servidor activo y de que los mercados bursátiles están cerrados:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">.\util\CrearBDs.py</span></code></p>
+</li>
+</ul>
+</section>
+<section id="paso-11-quieres-crear-un-usuario-administrador">
+<h3>Paso 11. ¿Quieres crear un usuario administrador?<a class="headerlink" href="#paso-11-quieres-crear-un-usuario-administrador" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Los usuarios administradores en Django tienen la capacidad de gestionar información de la plataforma en un entorno
+visual agradable, pudiendo crear, eliminar y modificar objetos.</p>
+<p>Lo que el administrador podrá modificar depende de la configuración establecida en los archivos <code class="docutils literal notranslate"><span class="pre">admin.py</span></code> de las diferentes aplicaciones.</p>
+<p>Para crear un <em>admin</em> sólo hay que lanzar el siguiente comando:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">createsuperuser</span></code></p>
+</li>
+</ul>
+</section>
+<section id="opcional-dependencias-adicionales-interesantes">
+<h3>Opcional. Dependencias adicionales interesantes:<a class="headerlink" href="#opcional-dependencias-adicionales-interesantes" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Para limpiar las rutas de <code class="docutils literal notranslate"><span class="pre">_pycache_</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pyclean</span></code></p>
+<p>Modo de uso:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">pyclean</span> <span class="pre">.</span></code></p>
+</li>
+<li><p>Para testear el código:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">coverage</span></code></p>
+<p>Modo de uso:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">coverage</span> <span class="pre">run</span> <span class="pre">manage.py</span> <span class="pre">test</span> <span class="pre">tests</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">coverage</span> <span class="pre">html</span></code></p>
+<p>Consular el informe generado en /htmlcov/index.html</p>
+</li>
+<li><p>Para comprobar la calidad del código:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pylint</span></code></p>
+<p>Modos de uso:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">pylint</span> <span class="pre">.\DashBoard\views.py</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">pylint</span> <span class="pre">.\DashBoard</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">pylint</span> <span class="pre">.</span></code><br></p>
+</li>
+<li><p>Para crear documentación del estilo de ReadTheDocs:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinxcontrib-django</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx_rtd_theme</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">&gt;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">recommonmark</span></code></p>
+<p>Modo de uso:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">.\docs\sphinx\</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">(venv)</span> <span class="pre">\docs\sphinx\</span> <span class="pre">&gt;</span> <span class="pre">.\make.bat</span> <span class="pre">html</span></code></p>
+<p>Consular la documentación del código generada en <code class="docutils literal notranslate"><span class="pre">/docs/sphinx/_build/html/index.html</span></code>.</p>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to FAT: Financial Analysis Tool’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Rodrigo Merino Tovar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
