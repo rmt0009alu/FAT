@@ -2,13 +2,15 @@
 Métodos de vistas para usar con Analysis.
 """
 import re
+# Para el buffer y la imagen del grafo
+import base64
+from io import BytesIO
 import pandas as pd
 import feedparser
+# Para los grafos
+import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from .models import Sectores
-from DashBoard.models import StockComprado
-from util.tickers import Tickers_BDs
 # Para charts dinámicos en lugar de imágenes estáticas
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
@@ -31,13 +33,7 @@ from django.db import IntegrityError
 from django.apps import apps
 # Para usar django-pandas y frames
 from django_pandas.io import read_frame
-# Para los grafos
-import networkx as nx
-# Para el buffer y la imagen del grafo
-from io import BytesIO
-import base64
-# Para generar figuras sin repetir código
-from News.views import _generar_figura
+from util.tickers import Tickers_BDs
 # Para los RSS
 from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100, rss_dax40
 # Para obtener los tickers y los paths de las BDs
@@ -46,6 +42,11 @@ from util.rss.RSS import rss_dj30, rss_ibex35, rss_ftse100, rss_dax40
 from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100
 from util.tickers.Tickers_BDs import tickers_adaptados_dax40, tickers_adaptados_indices, bases_datos_disponibles
 from util.tickers.Tickers_BDs import tickers_adaptados_disponibles, obtener_nombre_bd, tickers_disponibles
+from DashBoard.models import StockComprado
+# Para generar figuras sin repetir código
+from News.views import _generar_figura
+from .models import Sectores
+
 
 
 def signup(request):
@@ -192,7 +193,7 @@ def signin(request):
     if user is not None and user.check_password(password):
         # Hago el login
         login(request, user)
-        
+
         # Actualizo los precios de cierre de los stocks que tenga comprados el usuario
         compras_usuario = StockComprado.objects.filter(usuario=request.user)
         if compras_usuario.exists():
@@ -656,7 +657,7 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
             grafo_correl_negativa.remove_node(ticker)
 
     # Guardo los grafos en una figura (2 filas y 1 columna)
-    fig, axes = plt.subplots(2, 1, figsize=(6, 8))
+    _, axes = plt.subplots(2, 1, figsize=(6, 8))
 
     pos = nx.circular_layout(grafo_correl_positiva)
     nx.draw_networkx(grafo_correl_positiva, pos, with_labels=True, node_size=1000,
@@ -730,7 +731,7 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
 
     # FIGURAS
     # -------
-    fig, axes = plt.subplots(2, 1, figsize=(7, 10))
+    _, axes = plt.subplots(2, 1, figsize=(7, 10))
     buffer = BytesIO()
 
     # FIG 1
@@ -868,7 +869,7 @@ def _grafica_evolucion_sector(ticker):
 
     # FIGURA
     # ------
-    fig = plt.figure(figsize=(7, 5))
+    _ = plt.figure(figsize=(7, 5))
     buffer = BytesIO()
     # Plot de la evolución de las variaciones diarias
     plt.plot(df_ticker['date'], df_ticker['normalizado'], label=ticker.replace("_", "."))
@@ -954,7 +955,7 @@ def _distribucion_retornos_ult_252_sesiones(ticker):
     # Extraigo el nombre de la empresa cotizada
     nombre = df_ticker['name'][0]
 
-    fig = plt.figure(figsize=(7, 5))
+    _ = plt.figure(figsize=(7, 5))
     buffer = BytesIO()
     plt.hist(df_ticker['percent_variance'], bins=10)
     plt.xlabel('Retorno (variación diaria en %)')
