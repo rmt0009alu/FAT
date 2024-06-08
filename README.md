@@ -91,63 +91,74 @@ Esta herramienta requiere dos claves secretas que no están disponibles pero que
 
 Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
 
- - #### **Paso 7.1. SECRET_KEY de Django:**
+ - #### Paso 7.1. SECRET_KEY de Django:
 
- + Generar una SECRET_KEY de Django de manera aleatoria desde una terminal en el entorno virtual:
+   Generar una SECRET_KEY de Django de manera aleatoria desde una terminal en el entorno virtual:
 
    > (venv) > python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 
- + Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
+   Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
 
    > export SECRET_KEY=clave_larga_6v2_ldx_clave_larga
 
- - #### **Paso 7.2. Clave de API NewsAPI:**
+ - #### Paso 7.2. Clave de API NewsAPI:
 
- + Acceder a [NewsAPI](https://newsapi.org/) y solicitar una clave de acceso con un registro (puede usarse un '10 minute mail' o similar):
+   Acceder a [NewsAPI](https://newsapi.org/) y solicitar una clave de acceso con un registro (puede usarse un '10 minute mail' o similar):
 
- + Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
+   Guardar la clave en /FAT/.env.example, sin usar comillas, nos deberá quedar un archivo con el siguiente texto:
 
    > export SECRET_KEY=clave_larga_6v2_ldx_clave_larga
    > export NEWS_API_KEY=clave_api_123456_clave_api
 
  - #### Paso 7.3. Cambiar el nombre de .env.example:
 
- + Cambiar el nombre de /FAT/.env.example por /FAT/.env
+   Cambiar el nombre de /FAT/.env.example por /FAT/.env
 
 
 ### Paso 8. Lanzar el servidor:
 
-Como ya tenemos configruado el entorno, sólo queda empezar a utilizarlo:
+- Como ya tenemos configruado el entorno, sólo queda empezar a utilizarlo:
 
-> (venv) > python .\manage.py runserver
+  > (venv) > python .\manage.py runserver
 
-Hacer click en la ruta local que aparece, normalmente: [127.0.0.1:8000](http://127.0.0.1:8000/)
+  Hacer click en la ruta local que aparece, normalmente: [127.0.0.1:8000](http://127.0.0.1:8000/)
 
-### **Paso 9. Dependencias adicionales interesantes:**
 
-- **Para limpiar las rutas de _pycache_**:
+### Opcional. Dependencias adicionales interesantes:
+
+  - Para limpiar las rutas de _pycache_:
 
   > (venv) > python -m pip install pyclean
+  
   Modo de uso:
+  
   > (venv) > pyclean .
-- **Para testear el código:**
+
+  - Para testear el código:
 
   > (venv) > python -m pip install coverage
+
   Modos de uso:
-  > (venv) > coverage run manage.py test tests
+
+  > (venv) > coverage run manage.py test tests<br>
   > (venv) > coverage html
-- **Para comprobar la calidad del código:**
+
+  - Para comprobar la calidad del código:**
 
   > (venv) > python -m pip install pylint
+  
   Modos de uso:
-  > (venv) > pylint .\DashBoard\views.py
-  > (venv) > pylint .\DashBoard
-  > (venv) > pylint .
-- **Para crear documentación del estilo de ReadTheDocs:**
+  
+  > (venv) > pylint .\DashBoard\views.py<br>
+  > (venv) > pylint .\DashBoard<br>
+  > (venv) > pylint .<br>
 
-  > (venv) > python -m pip install sphinx
-  > (venv) > python -m pip install sphinxcontrib-django
-  > (venv) > python -m pip install sphinx_rtd_theme
+  - Para crear documentación del estilo de ReadTheDocs:**
+
+  > (venv) > python -m pip install sphinx<br>
+  > (venv) > python -m pip install sphinxcontrib-django<br>
+  > (venv) > python -m pip install sphinx_rtd_theme<br>
+
   Modo de uso:
+
   > (venv) > .\make.bat html
-    ```
