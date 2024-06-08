@@ -1,6 +1,6 @@
 # FAT: Financial Analysis Tool
 
-Financial Analysis
+![Financial Analysis](static/Portada.jpg)
 
 ## Bienvenidos a FAT
 
@@ -8,8 +8,8 @@ Tome decisiones financieras más inteligentes, basadas en información poco conv
 
 Entre las principales funcionalidades que podrá encontrar, destacan las siguientes:
 
- - **Disponer de un área de usuario (DashBoard) para realizar seguimiento de valores y almacenar información relevante sobre su cartera.**
- - **Comparación de distribuciones de cartera con gráficas de Markowitz y Sharpe ratio.**
+ - Disponer de un área de usuario (DashBoard) para realizar seguimiento de valores y almacenar información relevante sobre su cartera.
+ - Comparación de distribuciones de cartera con gráficas de Markowitz y Sharpe ratio.
  - Gráficas interactivas de valores. 
  - Comparación con sectores de referencia de valores cotizados. 
  - Disponibilidad de grafos de correlaciones con NetworkX.
@@ -31,7 +31,7 @@ Entre las principales funcionalidades que podrá encontrar, destacan las siguien
 
 Aquí se detallan los paso más importantes que hay que dar para utilizar esta herramienta de forma local:
 
-### **Paso 1.** Descargar repositorio:
+### Paso 1. Descargar repositorio:
 
  - Descargar el repositorio [FAT](https://github.com/rmt0009alu/FAT)
 
