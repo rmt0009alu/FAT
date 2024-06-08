@@ -19,11 +19,11 @@ Entre las principales funcionalidades que podrá encontrar, destacan las siguien
  - En caso de que utilice este repositorio podrá utlizar redes LSTM para realizar forecasting de series temporales (funcionalidad no disponible en la web). 
 
 
-### Get Started
+## Empieza a controlar tus inversiones:
 
  - ¿Quieres mejorar el control de tus inversiones? [Visita FAT](http://takeiteasy.pythonanywhere.com/).
 
-### Documentación
+## Documentación:
 
  - ¿Quieres saber más sobre el código fuente? [Read The Docs](https://fat.readthedocs.io/es/latest/).
 
@@ -31,24 +31,27 @@ Entre las principales funcionalidades que podrá encontrar, destacan las siguien
 
 Aquí se detallan los paso más importantes que hay que dar para utilizar esta herramienta de forma local:
 
-### Paso 1. Descargar repositorio:
+### <span style="color:blue">Paso 1. Descargar repositorio:</span>
 
 Descargar el repositorio [FAT](https://github.com/rmt0009alu/FAT)
 
-
-### Paso 2. Intalar Python:
+<\br>
+### <span style="color:blue">Paso 2. Intalar Python:</span>
 
 Instalar [Python](https://www.python.org/downloads/). 
 
-** Nota: ** Para el desarrollo de esta herramienta se ha trabajado con Python 3.11.5
+Para el desarrollo de esta herramienta se ha trabajado con Python 3.11.5
+
 
 ### Paso 3. Instalar entorno:
 
 Instalar un entorno de desarrollo del gusto del usuario. Se recomienda el uso de [VS Code](https://code.visualstudio.com/download).
 
+
 ### Paso 4. Abrir directorio del respositorio:
 
 Abrir la ruta donde están los archivos del repositorio desde VS Code (o el editor/entorno deseado).
+
 
 ### Paso 5. Entorno virtual:
 
