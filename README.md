@@ -25,7 +25,7 @@ Entre las principales funcionalidades que podrá encontrar, destacan las siguien
 
 ## <u>Documentación</u>
 
-- ¿Quieres saber más sobre el código fuente? [Read The Docs](https://fat.readthedocs.io/es/latest/).
+- ¿Quieres saber más sobre el código fuente? [Read The Docs](https://fat.readthedocs.io/es/latest/intro.html#).
 
 ## <u>Instalación en local</u>
 
