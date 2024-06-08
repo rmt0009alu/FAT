@@ -1,6 +1,6 @@
-# FAT: Financial Analysis Tool
+# ![Financial Analysis](static/logo.png) FAT: Financial Analysis Tool 
 
-![Financial Analysis](static/Portada.jpg)
+
 
 ## Bienvenidos a FAT
 
