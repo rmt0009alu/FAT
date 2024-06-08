@@ -297,9 +297,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._algoritmo_cruce_medias_automaticas"><code class="docutils literal notranslate"><span class="pre">_algoritmo_cruce_medias_automaticas()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._resultados_cruce_medias"><code class="docutils literal notranslate"><span class="pre">_resultados_cruce_medias()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._generar_figura_cruce_medias"><code class="docutils literal notranslate"><span class="pre">_generar_figura_cruce_medias()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Lab.views.estrategia_ML"><code class="docutils literal notranslate"><span class="pre">estrategia_ML()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views.estrategia_machine_learning"><code class="docutils literal notranslate"><span class="pre">estrategia_machine_learning()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._obtener_tickers_relevantes"><code class="docutils literal notranslate"><span class="pre">_obtener_tickers_relevantes()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Lab.views._preprocesado_datos_ML"><code class="docutils literal notranslate"><span class="pre">_preprocesado_datos_ML()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lab.views._preprocesado_datos_ml"><code class="docutils literal notranslate"><span class="pre">_preprocesado_datos_ml()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._regresion_lineal"><code class="docutils literal notranslate"><span class="pre">_regresion_lineal()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Lab.views._clasificacion_regresion_logistica"><code class="docutils literal notranslate"><span class="pre">_clasificacion_regresion_logistica()</span></code></a></li>
 </ul>
@@ -2336,31 +2336,7 @@ en una plantilla HTML.</p>
 <a class="reference external" href="https://docs.djangoproject.com/en/5.0/topics/settings/">https://docs.djangoproject.com/en/5.0/topics/settings/</a></p>
 <p>For the full list of settings and their values, see
 <a class="reference external" href="https://docs.djangoproject.com/en/5.0/ref/settings/">https://docs.djangoproject.com/en/5.0/ref/settings/</a></p>
-<p id="module-FAT.urls">URL configuration for FAT project.</p>
-<dl class="simple">
-<dt>The <cite>urlpatterns</cite> list routes URLs to views. For more information please see:</dt><dd><p><a class="reference external" href="https://docs.djangoproject.com/en/5.0/topics/http/urls/">https://docs.djangoproject.com/en/5.0/topics/http/urls/</a></p>
-</dd>
-</dl>
-<p>Examples:
-Function views</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li><p>Add an import:  from my_app import views</p></li>
-<li><p>Add a URL to urlpatterns:  path(‘’, views.home, name=’home’)</p></li>
-</ol>
-</div></blockquote>
-<dl class="simple">
-<dt>Class-based views</dt><dd><ol class="arabic simple">
-<li><p>Add an import:  from other_app.views import Home</p></li>
-<li><p>Add a URL to urlpatterns:  path(‘’, Home.as_view(), name=’home’)</p></li>
-</ol>
-</dd>
-<dt>Including another URLconf</dt><dd><ol class="arabic simple">
-<li><p>Import the include() function: from django.urls import include, path</p></li>
-<li><p>Add a URL to urlpatterns:  path(‘blog/’, include(‘blog.urls’))</p></li>
-</ol>
-</dd>
-</dl>
+<p id="module-FAT.urls">Configuración de URLs de todo el proyecto FAT.</p>
 <p id="module-FAT.wsgi">WSGI config for FAT project.</p>
 <p>It exposes the WSGI callable as a module-level variable named <code class="docutils literal notranslate"><span class="pre">application</span></code>.</p>
 <p>For more information on this file, see
@@ -3186,7 +3162,7 @@ cierres del valor seleccionado.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="Lab.views._crear_modelo">
-<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_crear_modelo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">look_back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_norm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_norm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._crear_modelo" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_crear_modelo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">look_back</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_norm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_norm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._crear_modelo" title="Link to this definition">¶</a></dt>
 <dd><p>Para crear el modelo de la red, compilarla y entrenarla. 
 Devuelve el modelo de la red ya entrenado.</p>
 <section id="id122">
@@ -3195,7 +3171,7 @@ Devuelve el modelo de la red ya entrenado.</p>
 <div><dl class="simple">
 <dt>look_back<span class="classifier">int</span></dt><dd><p>Número de time_steps que se hacen hacia atrás.</p>
 </dd>
-<dt>X_norm<span class="classifier">numpy.ndarray</span></dt><dd><p>Datos de entrada de la red.</p>
+<dt>x_norm<span class="classifier">numpy.ndarray</span></dt><dd><p>Datos de entrada de la red.</p>
 </dd>
 <dt>y_norm<span class="classifier">numpy.ndarray</span></dt><dd><p>Datos esperados en la salida de la red.</p>
 </dd>
@@ -3461,7 +3437,7 @@ con los mejores retornos posibles según el algoritmo.</p>
 <h2>Returns<a class="headerlink" href="#id137" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><dl class="simple">
-<dt>cruce_medias<span class="classifier">str</span></dt><dd><p>Cadena de datos que guarda la gráfica con el cruce de medias.</p>
+<dt>cruce_medias_var<span class="classifier">str</span></dt><dd><p>Cadena de datos que guarda la gráfica con el cruce de medias.</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -3469,8 +3445,8 @@ con los mejores retornos posibles según el algoritmo.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="Lab.views.estrategia_ML">
-<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">estrategia_ML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.estrategia_ML" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Lab.views.estrategia_machine_learning">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">estrategia_machine_learning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views.estrategia_machine_learning" title="Link to this definition">¶</a></dt>
 <dd><p>Para implementar los mecanismos de trading con técnicas de 
 machine learning.</p>
 <section id="id138">
@@ -3535,8 +3511,8 @@ esta será la clase objetivo.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="Lab.views._preprocesado_datos_ML">
-<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_preprocesado_datos_ML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tickers_unidos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_sesiones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">porcentaje_entren</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._preprocesado_datos_ML" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Lab.views._preprocesado_datos_ml">
+<span class="sig-prename descclassname"><span class="pre">Lab.views.</span></span><span class="sig-name descname"><span class="pre">_preprocesado_datos_ml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tickers_unidos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_sesiones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">porcentaje_entren</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Lab.views._preprocesado_datos_ml" title="Link to this definition">¶</a></dt>
 <dd><p>Para preparar los datos de la estrategia ML con el formato adecuado.</p>
 <section id="id142">
 <h2>Parameters<a class="headerlink" href="#id142" title="Link to this heading">¶</a></h2>
@@ -3555,7 +3531,7 @@ y el índice sobre el que se va a hacer una estimación.</p>
 <section id="id143">
 <h2>Returns<a class="headerlink" href="#id143" title="Link to this heading">¶</a></h2>
 <blockquote>
-<div><dl>
+<div><dl class="simple">
 <dt>Tuple: Tupla con información de resultados de preprocesado</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt>df_retornos<span class="classifier">pandas.core.frame.DataFrame)</span></dt><dd><p>df con los retornos logarítmicos.</p>
@@ -3567,12 +3543,11 @@ y el índice sobre el que se va a hacer una estimación.</p>
 </dd>
 </dl>
 </li>
-</ul>
-<dl class="simple">
+<li><dl class="simple">
 <dt>tam_entrenamiento<span class="classifier">int</span></dt><dd><p>Número de datos dedicados al entrenamiento del modelo.</p>
 </dd>
 </dl>
-<ul class="simple">
+</li>
 <li><dl class="simple">
 <dt>train<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>Subconjunto de entrenamiento de df_retornos.</p>
 </dd>
@@ -3689,13 +3664,14 @@ modelo y estimar la clase objetivo.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">News.apps.</span></span><span class="sig-name descname"><span class="pre">NewsConfig</span></span><a class="headerlink" href="#News.apps.NewsConfig" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
 <p>Configuración de la app de News.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>AppConfig (django.apps): configurador de aplicaciones</dt><dd><p>en Django.</p>
+<section id="id148">
+<h2>Parameters<a class="headerlink" href="#id148" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>AppConfig<span class="classifier">django.apps</span></dt><dd><p>Configurador de aplicaciones en Django.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="News.apps.NewsConfig.default_auto_field">
 <span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#News.apps.NewsConfig.default_auto_field" title="Link to this definition">¶</a></dt>
@@ -3706,6 +3682,7 @@ modelo y estimar la clase objetivo.</p>
 <span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'News'</span></em><a class="headerlink" href="#News.apps.NewsConfig.name" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</section>
 </dd></dl>
 
 <p id="module-News.urls">URLs para usar con News.</p>
@@ -3716,15 +3693,24 @@ modelo y estimar la clase objetivo.</p>
 <dd><p>Para llamar a home.html y mostrar el contenido
 de noticias junto con información de los mejores
 y peores stocks.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>request (django.core.handlers.wsgi.WSGIRequest): solicitud</dt><dd><p>HTTP encapsulada por Django.</p>
+<section id="id149">
+<h2>Parameters<a class="headerlink" href="#id149" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>request<span class="classifier">django.core.handlers.wsgi.WSGIRequest</span></dt><dd><p>Solicitud HTTP encapsulada por Django.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(render): renderiza la plantilla ‘home.html’ con datos de contexto.</p>
+</div></blockquote>
+</section>
+<section id="id150">
+<h2>Returns<a class="headerlink" href="#id150" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>: render</dt><dd><p>Renderiza la plantilla ‘home.html’ con datos de contexto.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -3732,16 +3718,25 @@ y peores stocks.</p>
 <span class="sig-prename descclassname"><span class="pre">News.views.</span></span><span class="sig-name descname"><span class="pre">_mejores_peores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lista_tickers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#News.views._mejores_peores" title="Link to this definition">¶</a></dt>
 <dd><p>Para calcular los mejores y peores valores de la
 última sesión de cada base de datos.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>lista_tickers (list): lista de tickers adaptados de cada bd.
-bd (str): nombre de la bd.</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="simple">
-<dt>(pandas.core.frame.DataFrame): DataFrame con los datos ordenados</dt><dd><p>de los stocks según la variación en la última sesión.</p>
-</dd>
-</dl>
+<section id="id151">
+<h2>Parameters<a class="headerlink" href="#id151" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>lista_tickers<span class="classifier">list</span></dt><dd><p>Lista de tickers adaptados de cada bd.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
+<section id="id152">
+<h2>Returns<a class="headerlink" href="#id152" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>df_ultimos<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>DataFrame con los datos ordenados de los stocks 
+según la variación en la última sesión.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -3750,18 +3745,28 @@ bd (str): nombre de la bd.</p>
 <dd><p>Devuelve una lista con los gráficos de los stocks
 que están en ‘mejores’ y ‘peores’ para mostrarlos
 al usuario en la página principal.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="simple">
-<dt>mejores (pandas.core.frame.DataFrame): DataFrame con</dt><dd><p>los 3 mejores de la bd.</p>
+<section id="id153">
+<h2>Parameters<a class="headerlink" href="#id153" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>mejores<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>DataFrame con los 3 mejores de la bd.</p>
 </dd>
-<dt>peores (pandas.core.frame.DataFrame): DataFrame con</dt><dd><p>los 3 peores de la bd.</p>
+<dt>peores<span class="classifier">pandas.core.frame.DataFrame</span></dt><dd><p>DataFrame con los 3 peores de la bd.</p>
+</dd>
+<dt>bd<span class="classifier">str</span></dt><dd><p>Nombre e la bd.</p>
 </dd>
 </dl>
-<p>bd (str): nombre e la bd.</p>
-</dd>
-<dt>Returns:</dt><dd><p>(list): lista con los gráficos de los mejores y peores.</p>
+</div></blockquote>
+</section>
+<section id="id154">
+<h2>Returns<a class="headerlink" href="#id154" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>figuras: list</dt><dd><p>Lista con los gráficos de los mejores y peores.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
@@ -3769,15 +3774,24 @@ al usuario en la página principal.</p>
 <span class="sig-prename descclassname"><span class="pre">News.views.</span></span><span class="sig-name descname"><span class="pre">_generar_figura</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entradas</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#News.views._generar_figura" title="Link to this definition">¶</a></dt>
 <dd><p>Para generar las figuras de los stocks que están
 entre los mejores/peores del último día.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><dl class="simple">
-<dt>entradas (queryset): los últimos 200 registros del</dt><dd><p>ticker asociado</p>
+<section id="id155">
+<h2>Parameters<a class="headerlink" href="#id155" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>entradas<span class="classifier">django.db.models.query.QuerySet</span></dt><dd><p>Los últimos 200 registros del ticker asociado.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><p>(str): la figura que se crea, codificada en base64.</p>
+</div></blockquote>
+</section>
+<section id="id156">
+<h2>Returns<a class="headerlink" href="#id156" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>figura<span class="classifier">str</span></dt><dd><p>La figura que se crea, codificada en base64.</p>
 </dd>
 </dl>
+</div></blockquote>
+</section>
 </dd></dl>
 
 </section>

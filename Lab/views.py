@@ -1704,7 +1704,7 @@ def _preprocesado_datos_ml(tickers_unidos, num_sesiones, porcentaje_entren):
                 df con los retornos logarítmicos. 
             * df_resultado : pandas.core.frame.DataFrame
                 df con los valores de precios de cierre.
-            tam_entrenamiento : int
+            * tam_entrenamiento : int
                 Número de datos dedicados al entrenamiento del modelo. 
             * train : pandas.core.frame.DataFrame
                 Subconjunto de entrenamiento de df_retornos. 
