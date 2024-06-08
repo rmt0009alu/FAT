@@ -69,20 +69,20 @@ En este proyecto se puede encontrar un archivo requirements.txt con todas las de
 
 - Instalar framework, librerías y APIs:
 
-  > (venv) > python -m pip install Django
-  > (venv) > python -m pip install pandas
-  > (venv) > python -m pip install plotly==5.18.0
-  > (venv) > python -m pip install newsapi-python
-  > (venv) > python -m pip install -U matplotlib
-  > (venv) > python -m pip install mpld3
-  > (venv) > python -m pip install django-pandas
-  > (venv) > python -m pip install feedparser
-  > (venv) > python -m pip install yfinance
-  > (venv) > python -m pip install python-dotenv
-  > (venv) > python -m pip install networkx
-  > (venv) > python -m pip install statsmodels
-  > (venv) > python -m pip install scikit-learn
-  > (venv) > python -m pip install pmdarima
+  > (venv) > python -m pip install Django<br>
+  > (venv) > python -m pip install pandas<br>
+  > (venv) > python -m pip install plotly==5.18.0<br>
+  > (venv) > python -m pip install newsapi-python<br>
+  > (venv) > python -m pip install -U matplotlib<br>
+  > (venv) > python -m pip install mpld3<br>
+  > (venv) > python -m pip install django-pandas<br>
+  > (venv) > python -m pip install feedparser<br>
+  > (venv) > python -m pip install yfinance<br>
+  > (venv) > python -m pip install python-dotenv<br>
+  > (venv) > python -m pip install networkx<br>
+  > (venv) > python -m pip install statsmodels<br>
+  > (venv) > python -m pip install scikit-learn<br>
+  > (venv) > python -m pip install pmdarima<br>
   > (venv) > python -m pip install tensorflow
 
 ### Paso 7. Configurar claves secretas:
