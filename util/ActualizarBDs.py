@@ -22,9 +22,11 @@ def crear_logger():
 
     # Configurar handler con nombre de archivo en el 
     # que almacenar el log
+
     # IMPORTANTE: PARA USO LOCAL ES DISTINTO AL USO EN SERVER:
     # El path por defecto es el de la máquina local
     LOG_PATH = './log'
+    
     # Si no existe ese path es porque estoy en el server
     if not os.path.exists(LOG_PATH):
         LOG_PATH = './FAT/log'

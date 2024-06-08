@@ -2258,3 +2258,150 @@
 2024-06-02 21:51:14,126 - INFO: 
 2024-06-02 21:51:14,126 - INFO: [OK] Tabla actualizada con éxito.
 2024-06-02 21:51:14,133 - INFO: Proceso finalizado.
+2024-06-08 10:30:19,456 - INFO: 
+2024-06-08 10:30:19,456 - INFO: --------------------------------------------------
+2024-06-08 10:30:19,456 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-08 10:30:19,456 - INFO: --------------------------------------------------
+2024-06-08 10:30:22,911 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
+2024-06-08 10:30:23,053 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
+2024-06-08 10:30:23,193 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
+2024-06-08 10:30:23,333 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
+2024-06-08 10:30:23,473 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
+2024-06-08 10:30:23,623 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
+2024-06-08 10:30:23,768 - INFO:  - [Fuera de horario] No se puede actualizar. Cisco Systems, Inc.
+2024-06-08 10:30:23,917 - INFO:  - [Fuera de horario] No se puede actualizar. Chevron Corporation
+2024-06-08 10:30:24,053 - INFO:  - [Fuera de horario] No se puede actualizar. The Walt Disney Company
+2024-06-08 10:30:24,195 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Inc.
+2024-06-08 10:30:24,333 - INFO:  - [Fuera de horario] No se puede actualizar. The Goldman Sachs Group, Inc.
+2024-06-08 10:30:24,469 - INFO:  - [Fuera de horario] No se puede actualizar. The Home Depot, Inc.
+2024-06-08 10:30:24,603 - INFO:  - [Fuera de horario] No se puede actualizar. Honeywell International Inc.
+2024-06-08 10:30:24,746 - INFO:  - [Fuera de horario] No se puede actualizar. International Business Machines Corporation
+2024-06-08 10:30:24,890 - INFO:  - [Fuera de horario] No se puede actualizar. Intel Corporation
+2024-06-08 10:30:25,033 - INFO:  - [Fuera de horario] No se puede actualizar. Johnson & Johnson
+2024-06-08 10:30:25,173 - INFO:  - [Fuera de horario] No se puede actualizar. JPMorgan Chase & Co.
+2024-06-08 10:30:25,318 - INFO:  - [Fuera de horario] No se puede actualizar. The Coca-Cola Company
+2024-06-08 10:30:25,451 - INFO:  - [Fuera de horario] No se puede actualizar. McDonald's Corporation
+2024-06-08 10:30:25,573 - INFO:  - [Fuera de horario] No se puede actualizar. 3M Company
+2024-06-08 10:30:25,693 - INFO:  - [Fuera de horario] No se puede actualizar. Merck & Co., Inc.
+2024-06-08 10:30:25,823 - INFO:  - [Fuera de horario] No se puede actualizar. Microsoft Corporation
+2024-06-08 10:30:25,953 - INFO:  - [Fuera de horario] No se puede actualizar. NIKE, Inc.
+2024-06-08 10:30:26,083 - INFO:  - [Fuera de horario] No se puede actualizar. The Procter & Gamble Company
+2024-06-08 10:30:26,213 - INFO:  - [Fuera de horario] No se puede actualizar. The Travelers Companies, Inc.
+2024-06-08 10:30:26,333 - INFO:  - [Fuera de horario] No se puede actualizar. UnitedHealth Group Incorporated
+2024-06-08 10:30:26,474 - INFO:  - [Fuera de horario] No se puede actualizar. Visa Inc.
+2024-06-08 10:30:26,613 - INFO:  - [Fuera de horario] No se puede actualizar. Verizon Communications Inc.
+2024-06-08 10:30:26,753 - INFO:  - [Fuera de horario] No se puede actualizar. Walgreens Boots Alliance, Inc.
+2024-06-08 10:30:26,891 - INFO:  - [Fuera de horario] No se puede actualizar. Walmart Inc.
+2024-06-08 10:30:27,023 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Jones Industrial Average
+2024-06-08 10:30:27,023 - INFO: 
+2024-06-08 10:30:27,023 - INFO: [OK] Bases de datos actualizadas.
+2024-06-08 10:30:27,023 - INFO: Proceso finalizado.
+
+2024-06-08 10:30:27,033 - INFO: 
+2024-06-08 10:30:27,033 - INFO: --------------------------------------------------
+2024-06-08 10:30:27,038 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-08 10:30:27,038 - INFO: --------------------------------------------------
+2024-06-08 10:30:27,173 - INFO:  - [Fuera de horario] No se puede actualizar. ACS, Actividades de Construcción y Servicios, S.A.
+2024-06-08 10:30:27,313 - INFO:  - [Fuera de horario] No se puede actualizar. Acerinox, S.A.
+2024-06-08 10:30:27,623 - INFO:  - [Fuera de horario] No se puede actualizar. Aena S.M.E., S.A.
+2024-06-08 10:30:27,763 - INFO:  - [Fuera de horario] No se puede actualizar. Amadeus IT Group, S.A.
+2024-06-08 10:30:27,910 - INFO:  - [Fuera de horario] No se puede actualizar. Acciona, S.A.
+2024-06-08 10:30:28,043 - INFO:  - [Fuera de horario] No se puede actualizar. Corporación Acciona Energías Renovables, S.A.
+2024-06-08 10:30:28,184 - INFO:  - [Fuera de horario] No se puede actualizar. Banco Bilbao Vizcaya Argentaria, S.A.
+2024-06-08 10:30:28,333 - INFO:  - [Fuera de horario] No se puede actualizar. Bankinter, S.A.
+2024-06-08 10:30:28,473 - INFO:  - [Fuera de horario] No se puede actualizar. CaixaBank, S.A.
+2024-06-08 10:30:28,593 - INFO:  - [Fuera de horario] No se puede actualizar. Cellnex Telecom, S.A.
+2024-06-08 10:30:28,743 - INFO:  - [Fuera de horario] No se puede actualizar. Inmobiliaria Colonial, SOCIMI, S.A.
+2024-06-08 10:30:28,892 - INFO:  - [Fuera de horario] No se puede actualizar. Endesa, S.A.
+2024-06-08 10:30:29,023 - INFO:  - [Fuera de horario] No se puede actualizar. Enagás, S.A.
+2024-06-08 10:30:29,153 - INFO:  - [Fuera de horario] No se puede actualizar. Fluidra, S.A.
+2024-06-08 10:30:29,293 - INFO:  - [Fuera de horario] No se puede actualizar. Ferrovial SE
+2024-06-08 10:30:29,433 - INFO:  - [Fuera de horario] No se puede actualizar. Grifols, S.A.
+2024-06-08 10:30:29,573 - INFO:  - [Fuera de horario] No se puede actualizar. International Consolidated Airlines Group S.A.
+2024-06-08 10:30:29,705 - INFO:  - [Fuera de horario] No se puede actualizar. Iberdrola, S.A.
+2024-06-08 10:30:29,843 - INFO:  - [Fuera de horario] No se puede actualizar. Indra Sistemas, S.A.
+2024-06-08 10:30:29,978 - INFO:  - [Fuera de horario] No se puede actualizar. Industria de Diseño Textil, S.A.
+2024-06-08 10:30:30,103 - INFO:  - [Fuera de horario] No se puede actualizar. Logista Integral, S.A.
+2024-06-08 10:30:30,233 - INFO:  - [Fuera de horario] No se puede actualizar. Mapfre, S.A.
+2024-06-08 10:30:30,377 - INFO:  - [Fuera de horario] No se puede actualizar. Meliá Hotels International, S.A.
+2024-06-08 10:30:30,514 - INFO:  - [Fuera de horario] No se puede actualizar. MERLIN Properties SOCIMI, S.A.
+2024-06-08 10:30:30,649 - INFO:  - [Fuera de horario] No se puede actualizar. ArcelorMittal S.A.
+2024-06-08 10:30:30,780 - INFO:  - [Fuera de horario] No se puede actualizar. Naturgy Energy Group, S.A.
+2024-06-08 10:30:30,916 - INFO:  - [Fuera de horario] No se puede actualizar. Redeia Corporación, S.A.
+2024-06-08 10:30:31,053 - INFO:  - [Fuera de horario] No se puede actualizar. Repsol, S.A.
+2024-06-08 10:30:31,183 - INFO:  - [Fuera de horario] No se puede actualizar. Laboratorios Farmaceuticos Rovi, S.A.
+2024-06-08 10:30:31,321 - INFO:  - [Fuera de horario] No se puede actualizar. Banco de Sabadell, S.A.
+2024-06-08 10:30:31,455 - INFO:  - [Fuera de horario] No se puede actualizar. Banco Santander, S.A.
+2024-06-08 10:30:31,593 - INFO:  - [Fuera de horario] No se puede actualizar. Sacyr, S.A.
+2024-06-08 10:30:31,733 - INFO:  - [Fuera de horario] No se puede actualizar. Solaria Energía y Medio Ambiente, S.A.
+2024-06-08 10:30:31,867 - INFO:  - [Fuera de horario] No se puede actualizar. Telefónica, S.A.
+2024-06-08 10:30:32,003 - INFO:  - [Fuera de horario] No se puede actualizar. Unicaja Banco, S.A.
+2024-06-08 10:30:32,133 - INFO:  - [Fuera de horario] No se puede actualizar. IBEX 35...
+2024-06-08 10:30:32,133 - INFO: 
+2024-06-08 10:30:32,133 - INFO: [OK] Bases de datos actualizadas.
+2024-06-08 10:30:32,133 - INFO: Proceso finalizado.
+
+2024-06-08 10:30:32,143 - INFO: 
+2024-06-08 10:30:32,143 - INFO: --------------------------------------------------
+2024-06-08 10:30:32,147 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-08 10:30:32,148 - INFO: --------------------------------------------------
+2024-06-08 10:30:32,273 - INFO:  - [Fuera de horario] No se puede actualizar. 3i Group plc
+2024-06-08 10:30:32,416 - INFO:  - [Fuera de horario] No se puede actualizar. Admiral Group plc
+2024-06-08 10:30:32,553 - INFO:  - [Fuera de horario] No se puede actualizar. Airtel Africa Plc
+2024-06-08 10:30:32,698 - INFO:  - [Fuera de horario] No se puede actualizar. Anglo American plc
+2024-06-08 10:30:32,833 - INFO:  - [Fuera de horario] No se puede actualizar. Antofagasta plc
+2024-06-08 10:30:32,973 - INFO:  - [Fuera de horario] No se puede actualizar. Ashtead Group plc
+2024-06-08 10:30:33,123 - INFO:  - [Fuera de horario] No se puede actualizar. Associated British Foods plc
+2024-06-08 10:30:33,393 - INFO:  - [Fuera de horario] No se puede actualizar. AstraZeneca PLC
+2024-06-08 10:30:33,523 - INFO:  - [Fuera de horario] No se puede actualizar. Auto Trader Group plc
+2024-06-08 10:30:33,658 - INFO:  - [Fuera de horario] No se puede actualizar. Aviva plc
+2024-06-08 10:30:33,793 - INFO:  - [Fuera de horario] No se puede actualizar. B&M European Value Retail S.A.
+2024-06-08 10:30:33,935 - INFO:  - [Fuera de horario] No se puede actualizar. BAE Systems plc
+2024-06-08 10:30:34,073 - INFO:  - [Fuera de horario] No se puede actualizar. Barclays PLC
+2024-06-08 10:30:34,224 - INFO:  - [Fuera de horario] No se puede actualizar. Barratt Developments plc
+2024-06-08 10:30:34,368 - INFO:  - [Fuera de horario] No se puede actualizar. Beazley plc
+2024-06-08 10:30:34,503 - INFO:  - [Fuera de horario] No se puede actualizar. The Berkeley Group Holdings plc
+2024-06-08 10:30:34,643 - INFO:  - [Fuera de horario] No se puede actualizar. BP p.l.c.
+2024-06-08 10:30:34,784 - INFO:  - [Fuera de horario] No se puede actualizar. British American Tobacco p.l.c.
+2024-06-08 10:30:34,913 - INFO:  - [Fuera de horario] No se puede actualizar. BT Group plc
+2024-06-08 10:30:35,043 - INFO:  - [Fuera de horario] No se puede actualizar. Bunzl plc
+2024-06-08 10:30:35,187 - INFO:  - [Fuera de horario] No se puede actualizar. Burberry Group plc
+2024-06-08 10:30:35,323 - INFO:  - [Fuera de horario] No se puede actualizar. Centrica plc
+2024-06-08 10:30:35,484 - INFO:  - [Fuera de horario] No se puede actualizar. Coca-Cola HBC AG
+2024-06-08 10:30:35,620 - INFO:  - [Fuera de horario] No se puede actualizar. Compass Group PLC
+2024-06-08 10:30:35,743 - INFO:  - [Fuera de horario] No se puede actualizar. ConvaTec Group PLC
+2024-06-08 10:30:35,873 - INFO:  - [Fuera de horario] No se puede actualizar. Croda International Plc
+2024-06-08 10:30:36,013 - INFO:  - [Fuera de horario] No se puede actualizar. DCC plc
+2024-06-08 10:30:36,137 - INFO:  - [Fuera de horario] No se puede actualizar. Diageo plc
+2024-06-08 10:30:36,273 - INFO:  - [Fuera de horario] No se puede actualizar. Diploma PLC
+2024-06-08 10:30:36,393 - INFO:  - [Fuera de horario] No se puede actualizar. Endeavour Mining plc
+2024-06-08 10:30:36,545 - INFO:  - [Fuera de horario] No se puede actualizar. Entain Plc
+2024-06-08 10:30:36,663 - INFO:  - [Fuera de horario] No se puede actualizar. Experian plc
+2024-06-08 10:30:36,803 - INFO:  - [Fuera de horario] No se puede actualizar. F&C Investment Trust PLC
+2024-06-08 10:30:37,137 - INFO:  - [Fuera de horario] No se puede actualizar. Flutter Entertainment plc
+2024-06-08 10:30:37,283 - INFO:  - [Fuera de horario] No se puede actualizar. Frasers Group Plc
+2024-06-08 10:30:37,583 - INFO: Proceso finalizado.
+
+2024-06-08 10:30:56,068 - INFO: 
+2024-06-08 10:30:56,068 - INFO: --------------------------------------------------
+2024-06-08 10:30:56,068 - INFO: Actualizando bases de datos con los últimos datos:
+2024-06-08 10:30:56,070 - INFO: --------------------------------------------------
+2024-06-08 10:30:58,503 - INFO:  - [Fuera de horario] No se puede actualizar. Apple Inc.
+2024-06-08 10:30:58,643 - INFO:  - [Fuera de horario] No se puede actualizar. Amgen Inc.
+2024-06-08 10:30:58,793 - INFO:  - [Fuera de horario] No se puede actualizar. American Express Company
+2024-06-08 10:30:58,943 - INFO:  - [Fuera de horario] No se puede actualizar. The Boeing Company
+2024-06-08 10:30:59,084 - INFO:  - [Fuera de horario] No se puede actualizar. Caterpillar Inc.
+2024-06-08 10:30:59,223 - INFO:  - [Fuera de horario] No se puede actualizar. Salesforce, Inc.
+2024-06-08 10:30:59,383 - INFO:  - [Fuera de horario] No se puede actualizar. Cisco Systems, Inc.
+2024-06-08 10:30:59,513 - INFO:  - [Fuera de horario] No se puede actualizar. Chevron Corporation
+2024-06-08 10:30:59,635 - INFO:  - [Fuera de horario] No se puede actualizar. The Walt Disney Company
+2024-06-08 10:30:59,773 - INFO:  - [Fuera de horario] No se puede actualizar. Dow Inc.
+2024-06-08 10:30:59,923 - INFO:  - [Fuera de horario] No se puede actualizar. The Goldman Sachs Group, Inc.
+2024-06-08 10:31:00,063 - INFO:  - [Fuera de horario] No se puede actualizar. The Home Depot, Inc.
+2024-06-08 10:31:00,183 - INFO:  - [Fuera de horario] No se puede actualizar. Honeywell International Inc.
+2024-06-08 10:31:00,313 - INFO:  - [Fuera de horario] No se puede actualizar. International Business Machines Corporation
+2024-06-08 10:31:00,453 - INFO:  - [Fuera de horario] No se puede actualizar. Intel Corporation
+2024-06-08 10:31:00,593 - INFO:  - [Fuera de horario] No se puede actualizar. Johnson & Johnson
+2024-06-08 10:31:00,733 - INFO:  - [Fuera de horario] No se puede actualizar. JPMorgan Chase & Co.
+2024-06-08 10:31:00,873 - INFO: Proceso finalizado.
+

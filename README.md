@@ -36,7 +36,7 @@ Aquí se detallan los paso más importantes que hay que dar para utilizar esta h
  - Descargar el repositorio [FAT](https://github.com/rmt0009alu/FAT)
 
  
-### **Paso 2.** Intalar Python:
+### Paso 2. Intalar Python:
 
  - Instalar [Python](https://www.python.org/downloads/). 
 
@@ -122,6 +122,30 @@ Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
   > (venv) > python .\manage.py runserver
 
   Hacer click en la ruta local que aparece, normalmente: [127.0.0.1:8000](http://127.0.0.1:8000/)
+
+
+### Paso 9. ¿Quieres actualizar las bases de datos?
+
+ - Es posible actualizar las bases de datos de los índices bursátiles y sus valores cotizados, 
+   para tener información con precios de cierre de la última sesión disponible. 
+
+   Es **IMPORTANTE** que antes de actualizar compruebes que el servidor no está activo. 
+
+   Una vez realizada la comprobación previa, puedes lanzar el script _ActualizarBDs.py_
+   desde la ruta principal del proyecto. 
+
+   > (venv) > python .\util\ActualizarBDs.py
+   
+   Este script permite actualizar las bases de datos _dj30_, _ibex35_, _ftse100_ y _dax40_ con precios 
+   de cierre. **PARA QUE SE OBTENGAN PRECIOS DE CIERRE ES NECESARIO ACTUALIZAR FUERA DE HORARIOS DE COTIZACIÓN**. 
+   Es decir, necesitamos que los mercados estén cerrados y, por ello, en el script
+   _ActualizarBDs.py_ se ha configurado un rango de horas permitidas. Esto está pensado para 
+   trabajar en un servidor remoto que lanza el script de forma automática (con cron, por ejemplo), pero
+   si se quieren modificar las horas es cuestión de cambiar los horarios en el 
+   método **_permite_actualizar(logger)**.
+
+   Se recomienda hacer actualizaciones en fines de semana o en horarios en los que tanto mercados 
+   estadounidenses como europeos estén cerrados. 
 
 
 ### Opcional. Dependencias adicionales interesantes:
