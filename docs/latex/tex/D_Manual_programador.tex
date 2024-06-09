@@ -380,6 +380,18 @@ Modo de uso:
 Consular el informe generado en \texttt{/htmlcov/index.html}.
 
 \item
+Para realizar tests de interfaz:
+
+\begin{verbatim}
+  (venv) > python -m pip install selenium 
+\end{verbatim}
+
+Modo de uso:
+\begin{verbatim}
+  (venv) > python .\manage.py test .\tests\tests_ui 
+\end{verbatim}
+
+\item
 Para comprobar la calidad del código:
 
 \begin{verbatim}
@@ -487,12 +499,9 @@ Su ejecución se realiza a través de \texttt{coverage} tal y como se indica en 
 
 \subsection{Pruebas de interfaz}
 
-Se han realizado algunas pruebas básicas de interfaz utilizando la librería \emph{selenium}\citep{online:selenium} y el \emph{driver} de \emph{Chrome}. Estos tests se pueden encontrar en el archivo \texttt{tests/tests\_ui/tests\_ui.py} junto con el \emph{chromedriver.exe}\citep{online:chrome_driver} para el navegador web Chrome versión 125.0.xxxx. 
-
-Con estas pruebas se trató de simular interacciones con usuarios, especialmente para funcionalidades de registro, \emph{login} y \emph{logout}. También se probó la interacción con algunos formularios de la web - no todos -. 
+Se han realizado algunas pruebas básicas de interfaz utilizando la librería \emph{selenium}\citep{online:selenium} y el \emph{driver} de \emph{Chrome}. Estos tests se pueden encontrar en el archivo \texttt{/tests/tests\_ui/tests\_ui.py} junto con el \emph{chromedriver.exe}\citep{online:chrome_driver} para el navegador web Chrome versión 125.0.xxxx. 
 
 La batería de pruebas de interfaz es reducida, ya que las diferentes casuísticas estaban recogidas en los tests unitarios, pero han cubierto los siguientes requerimientos:
-
 
 \begin{table}[H]
 \centering
@@ -517,7 +526,8 @@ test\_arima\_manual & RF-5.1 Trabajar con ARIMA. RF-5.1.2 Introducir (p,d,q) de 
 \label{requisitos-test}
 \end{table}
 
-\newpage
+Con estas pruebas se trató de simular interacciones con usuarios, especialmente para funcionalidades de registro, \emph{login} y \emph{logout}. También se probó la interacción con algunos formularios de la web - no todos -. 
+
 Para lanzar estas pruebas se realiza lo siguiente:
 
 \imagen{img_anex_30.png}{Lanzar pruebas de interfaz}{1}

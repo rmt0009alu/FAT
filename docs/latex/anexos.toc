@@ -65,10 +65,10 @@
 \contentsline {section}{\numberline {D.1}Introducción}{81}{section.Alph4.1}%
 \contentsline {section}{\numberline {D.2}Estructura de directorios}{81}{section.Alph4.2}%
 \contentsline {section}{\numberline {D.3}Manual del programador}{83}{section.Alph4.3}%
-\contentsline {section}{\numberline {D.4}Pruebas del sistema}{91}{section.Alph4.4}%
+\contentsline {section}{\numberline {D.4}Pruebas del sistema}{92}{section.Alph4.4}%
 \contentsline {subsection}{Tests unitarios}{92}{section*.52}%
 \contentsline {subsection}{Pruebas de integración}{93}{section*.53}%
-\contentsline {subsection}{Pruebas de interfaz}{93}{section*.54}%
+\contentsline {subsection}{Pruebas de interfaz}{94}{section*.54}%
 \contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{97}{appendix.Alph5}%
 \contentsline {section}{\numberline {E.1}Introducción}{97}{section.Alph5.1}%
 \contentsline {section}{\numberline {E.2}Requisitos de usuarios}{97}{section.Alph5.2}%

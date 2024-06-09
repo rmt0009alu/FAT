@@ -18,6 +18,18 @@ NetworkX developers.
 \newblock \url{https://networkx.org/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
+\bibitem{online:chrome_driver}
+Google Devs.
+\newblock \emph{chromedriver.exe}.
+\newblock \url{https://googlechromelabs.github.io/chrome-for-testing/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{online:selenium}
+Selenium Devs.
+\newblock \emph{Selenium}.
+\newblock \url{https://www.selenium.dev/}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
 \bibitem{online:django_MVT_2}
 Django.
 \newblock \emph{Django documentation}.

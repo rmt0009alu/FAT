@@ -363,12 +363,6 @@ Harry Markowitz.
 \newblock {\em Portfolio selection. Efficient diversification of investments}.
 \newblock Cowles Foundation, 1st edition, 1959.
 
-\bibitem{online:FAT_read_docs}
-Rodrigo Merino.
-\newblock \emph{FAT: Financial Analysis Tool’s documentation}.
-\newblock \url{https://fat.readthedocs.io/es/latest/intro.html#}, 2024.
-\newblock Online; Accedido el 01-Jun-2024.
-
 \bibitem{online:ms_teams}
 Microsoft.
 \newblock \emph{MS Teams}.
@@ -490,19 +484,6 @@ Read the Docs~Inc and contributors.
 \newblock \emph{Read the Docs}.
 \newblock \url{https://docs.readthedocs.io/en/stable/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
-
-\bibitem{online:FAT_web}
-Rodrigo~Merino Tovar.
-\newblock \emph{Herramienta web Financial Analysis Tool}.
-\newblock \url{http://takeiteasy.pythonanywhere.com/}, 2024.
-\newblock Online; Accedido el 10-Abr-2024.
-
-\bibitem{online:FAT_repo}
-Rodrigo~Merino Tovar.
-\newblock \emph{Repositorio de GitHub del Trabajo de Fin de Grado Financial
-  Analysis Tool}.
-\newblock \url{https://github.com/rmt0009alu/FAT}, 2024.
-\newblock Online; Accedido el 10-Abr-2024.
 
 \bibitem{online:texstudio}
 Benito van~der Zander.

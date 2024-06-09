@@ -19,44 +19,44 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
-You've used 118 entries,
+You've used 115 entries,
             2118 wiz_defined-function locations,
-            1010 strings with 18748 characters,
-and the built_in function-call counts, 28497 in all, are:
-= -- 2851
-> -- 1102
+            996 strings with 18301 characters,
+and the built_in function-call counts, 27846 in all, are:
+= -- 2785
+> -- 1081
 < -- 6
-+ -- 462
-- -- 342
-* -- 1076
-:= -- 4855
-add.period$ -- 455
-call.type$ -- 118
-change.case$ -- 525
++ -- 453
+- -- 336
+* -- 1058
+:= -- 4744
+add.period$ -- 443
+call.type$ -- 115
+change.case$ -- 513
 chr.to.int$ -- 0
-cite$ -- 118
-duplicate$ -- 943
-empty$ -- 2645
-format.name$ -- 342
-if$ -- 6197
+cite$ -- 115
+duplicate$ -- 922
+empty$ -- 2579
+format.name$ -- 336
+if$ -- 6053
 int.to.chr$ -- 0
-int.to.str$ -- 118
+int.to.str$ -- 115
 missing$ -- 20
-newline$ -- 694
-num.names$ -- 236
-pop$ -- 930
+newline$ -- 676
+num.names$ -- 230
+pop$ -- 906
 preamble$ -- 1
-purify$ -- 407
+purify$ -- 398
 quote$ -- 0
-skip$ -- 790
+skip$ -- 772
 stack$ -- 0
-substring$ -- 847
-swap$ -- 168
+substring$ -- 832
+swap$ -- 165
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 466
+type$ -- 454
 warning$ -- 0
-while$ -- 259
-width$ -- 121
-write$ -- 1397
+while$ -- 253
+width$ -- 118
+write$ -- 1361

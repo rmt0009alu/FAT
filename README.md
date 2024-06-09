@@ -21,7 +21,9 @@ Entre las principales funcionalidades que podrá encontrar, destacan las siguien
 
 ## <u>Empieza a controlar tus inversiones</u>
 
-- ¿Quieres mejorar el control de tus inversiones? [Visita FAT](http://takeiteasy.pythonanywhere.com/).
+- Este proyecto está especialmente pensado para ser utilizado en un entorno local, 
+  pero se ha dispuesto una página web para que el usuario pueda hacer pruebas antes 
+  de instalarlo en su equipo [Visita FAT](http://takeiteasy.pythonanywhere.com/).
 
 ## <u>Documentación</u>
 
