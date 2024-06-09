@@ -153,24 +153,25 @@ def _mejores_peores(lista_tickers):
     """
     # Inicializar lista vacía para mejorar rendimiento
     data = []
+    df_ultimos = pd.DataFrame()
+    if lista_tickers:
+        for t in lista_tickers:
+            if t not in tickers_adaptados_indices():
+                # Para obtener los modelos de forma dinámica
+                model = apps.get_model('Analysis', t)
+                bd = obtener_nombre_bd(t)
+                # Query de acceso a la BD
+                ultima_entrada = model.objects.using(bd).values('percent_variance', 'ticker').order_by('-date').first()
+                if ultima_entrada:
+                    data.append({
+                        'ticker': ultima_entrada['ticker'],
+                        'bd': bd,
+                        'variacion': ultima_entrada['percent_variance']
+                    })
 
-    for t in lista_tickers:
-        if t not in tickers_adaptados_indices():
-            # Para obtener los modelos de forma dinámica
-            model = apps.get_model('Analysis', t)
-            bd = obtener_nombre_bd(t)
-            # Query de acceso a la BD
-            ultima_entrada = model.objects.using(bd).values('percent_variance', 'ticker').order_by('-date').first()
-            if ultima_entrada:
-                data.append({
-                    'ticker': ultima_entrada['ticker'],
-                    'bd': bd,
-                    'variacion': ultima_entrada['percent_variance']
-                })
-
-    # Crear DataFrame con la lista de diccionarios
-    df_ultimos = pd.DataFrame(data)
-    df_ultimos.sort_values(by='variacion', ascending=False, inplace=True, ignore_index=True)
+        # Crear DataFrame con la lista de diccionarios
+        df_ultimos = pd.DataFrame(data)
+        df_ultimos.sort_values(by='variacion', ascending=False, inplace=True, ignore_index=True)
 
     return df_ultimos
 

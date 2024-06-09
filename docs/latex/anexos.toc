@@ -66,11 +66,14 @@
 \contentsline {section}{\numberline {D.2}Estructura de directorios}{81}{section.Alph4.2}%
 \contentsline {section}{\numberline {D.3}Manual del programador}{83}{section.Alph4.3}%
 \contentsline {section}{\numberline {D.4}Pruebas del sistema}{91}{section.Alph4.4}%
-\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{93}{appendix.Alph5}%
-\contentsline {section}{\numberline {E.1}Introducción}{93}{section.Alph5.1}%
-\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{93}{section.Alph5.2}%
-\contentsline {section}{\numberline {E.3}Instalación}{93}{section.Alph5.3}%
-\contentsline {section}{\numberline {E.4}Manual del usuario}{93}{section.Alph5.4}%
-\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{95}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Introducción}{95}{section.Alph6.1}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{97}{appendix*.52}%
+\contentsline {subsection}{Tests unitarios}{92}{section*.52}%
+\contentsline {subsection}{Pruebas de integración}{93}{section*.53}%
+\contentsline {subsection}{Pruebas de interfaz}{93}{section*.54}%
+\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{97}{appendix.Alph5}%
+\contentsline {section}{\numberline {E.1}Introducción}{97}{section.Alph5.1}%
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{97}{section.Alph5.2}%
+\contentsline {section}{\numberline {E.3}Instalación}{97}{section.Alph5.3}%
+\contentsline {section}{\numberline {E.4}Manual del usuario}{97}{section.Alph5.4}%
+\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{99}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Introducción}{99}{section.Alph6.1}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{101}{appendix*.55}%

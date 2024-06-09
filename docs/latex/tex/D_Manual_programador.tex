@@ -418,3 +418,110 @@ En \texttt{/docs/sphinx/\_build/html/index.html} se puede consular la documentac
 
 
 \section{Pruebas del sistema}
+
+En este trabajo se han realizado múltiples pruebas, creando instancias \emph{adhoc} para los tests en muchos casos. Inicialmente se tomó la decisión de no utilizar \emph{mocks}, de esta manera se simulaba que se realizan pruebas de integración con las bases de datos de forma continua. Esta decisión implica que el rendimiento de los propios tests disminuye, ya que se están creando instancias reales, pero favorece el control de los datos y obliga al desarrollador a entender lo que está ocurriendo en cada momento. 
+
+\subsection{Tests unitarios}
+
+En este trabajo hay 250 tests unitarios, que cubren prácticamente todo el código, como se puede ver en el informe HTML realizado con \texttt{coverage} y que está disponible en \texttt{htmlcov/index.html}:
+
+\imagen{img_anex_29.png}{Número de tests realizados}{1}
+
+Al final del informe de \texttt{coverage} podremos ver el siguiente resultado: 
+
+
+\tablaSmall{Cobertura de código}
+{c|c|c|c|c}
+{tabla_coverage}
+{
+\rowcolor{gray!35}
+\textbf{Module} & \textbf{statements} & \textbf{missing} & \textbf{excluded} & \textbf{coverage} \\
+}
+{
+Total & 4122 & 11 & 0 & 100\% \\
+}
+
+Con estos tests se han realizado:
+
+\begin{itemize}
+\item
+Pruebas de caja blanca, que implican el conocimiento del código:
+\begin{itemize}
+\item 
+Pruebas de interfaces entre modelos y métodos.
+\item
+Pruebas de estructuras de datos locales. 
+\item
+Pruebas de camino básico (en algunos casos).
+\item
+Pruebas de condiciones límite, especialmente para el control de entrada de datos de usuarios, tanto en \emph{login} y registro como para trabajar con las aplicaciones \emph{DashBoard} y \emph{Lab}. 
+\end{itemize}
+
+\item
+Pruebas de caja negra, como si no se conocieran los datos:
+
+De forma intensiva se han probado todos los contextos con los datos a renderizar en cada plantilla, sin tener en cuenta el código interno.
+
+En estas pruebas se incluyen los siguientes conceptos:
+
+\begin{itemize}
+\item 
+Partición de equivalencia: se ha tratado de dividir la entrada en aplicaciones y cada aplicación en vistas, formularios, etc. 
+\item
+Análisis de valores límite. 
+\end{itemize}
+\end{itemize}
+
+Además, se puede comprobar un \emph{log}, que fui realizando para un mejor control y que guarda un comentario de casi todas aquellas pruebas que se van pasando. La estructura del \emph{log} se controla con un \emph{logger} y se pueden comprobar estos datos en el directorio \textbf{/log}.
+
+
+
+\subsection{Pruebas de integración}
+
+Como se ha mencionado en el apartado anterior, se ha tratado de comprobar continuamente la correcta integración con las bases de datos. Pero, de forma adicional, en las fases iniciales del proyecto se realizó una batería básica de tests para comprobar la correcta creación y actualización de las bases de datos, así como el enrutamiento y la configuración general del proyecto.
+
+Estos tests están disponibles en \texttt{/tests/databases} y en \texttt{/tests/FAT}.  
+
+Su ejecución se realiza a través de \texttt{coverage} tal y como se indica en el apartado anterior. 
+
+
+\subsection{Pruebas de interfaz}
+
+Se han realizado algunas pruebas básicas de interfaz utilizando la librería \emph{selenium}\citep{online:selenium} y el \emph{driver} de \emph{Chrome}. Estos tests se pueden encontrar en el archivo \texttt{tests/tests\_ui/tests\_ui.py} junto con el \emph{chromedriver.exe}\citep{online:chrome_driver} para el navegador web Chrome versión 125.0.xxxx. 
+
+Con estas pruebas se trató de simular interacciones con usuarios, especialmente para funcionalidades de registro, \emph{login} y \emph{logout}. También se probó la interacción con algunos formularios de la web - no todos -. 
+
+La batería de pruebas de interfaz es reducida, ya que las diferentes casuísticas estaban recogidas en los tests unitarios, pero han cubierto los siguientes requerimientos:
+
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{>{\ttfamily}lX}
+\toprule
+\textnormal{Test} & Requerimiento \\
+\midrule
+test\_pag\_principal & RF-1 Mostrar portada con información general. \\
+test\_pag\_principal\_artículos & RF-1.1 Mostrar carrusel de noticias generales. \\
+test\_pag\_principal\_mejores\_peores & RF-1.2 Mostrar mejores y peores valores de cada índice. \\
+test\_login & RF-2 Control de usuarios. RF-2.2 Permitir hacer login. \\
+test\_logout & RF-2 Control de usuarios. RF-2.2 Permitir hacer logout. \\
+test\_registro & RF-2 Control de usuarios. RF-2.2 Permitir hacer registro. \\
+test\_mostrar\_tabla\_valores & RF-4 Consultar índice. RF-4.1 Mostrar tabla de valores. \\
+test\_consultar\_un\_valor & RF-4 Consultar índice. RF-4.2 Consultar un valor del índice. \\
+test\_dashboard\_nueva\_compra & RF-3 Gestionar DashBoard. RF-3.1 Crear nuevo valor en cartera. \\
+test\_dashboard\_nuevo\_seguimiento & RF-3 Gestionar DashBoard. RF-3.3 Crear un nuevo valor en seguimiento. \\
+test\_arima\_manual & RF-5.1 Trabajar con ARIMA. RF-5.1.2 Introducir (p,d,q) de forma manual. \\
+\bottomrule
+\end{tabularx}
+\caption{Requerimientos testeados con pruebas de interfaz.}
+\label{requisitos-test}
+\end{table}
+
+\newpage
+Para lanzar estas pruebas se realiza lo siguiente:
+
+\imagen{img_anex_30.png}{Lanzar pruebas de interfaz}{1}
+
+Y el resultado esperado es:
+
+\imagen{img_anex_31.png}{Resultado de pruebas de interfaz}{1}

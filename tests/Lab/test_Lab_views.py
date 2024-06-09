@@ -1,14 +1,18 @@
+import os
 from django.test import TestCase
 from django.http import HttpResponse
 from log.logger.logger import get_logger_configurado
 from datetime import datetime, timezone, timedelta
-from django.http import HttpRequest
 from Lab.forms import ArimaRejillaForm, ArimaManualForm, ArimaAutoForm, LstmForm, EstrategiaMLForm, FormBasico
 from statsmodels.tsa.arima.model import ARIMA
 from sklearn.preprocessing import MinMaxScaler
+# Keras utiliza la librería oneAPI Deep Neural Network Library (oneDNN)
+# https://stackoverflow.com/questions/77921357/warning-while-using-tensorflow-tensorflow-core-util-port-cc113-onednn-custom
+# para optimizar el rendimiento en arquitecturas Intel, pero arroja
+# un warning constantemente. Para eliminarlo:
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
-import keras
 from Lab.views import _preprocesar_p_d_q, _evaluar_modelo_arima_mse, _comprobar_formularios, _validacion_walk_forward_arima, _generar_resultados_arima, _preprocesado_lstm, _crear_modelo, _comprobar_formulario_lstm, _validacion_walk_forward_lstm, _generar_resultados_lstm, cruce_medias, _obtener_tickers_relevantes, _preprocesado_datos_ml
 import pandas as pd
 import numpy as np

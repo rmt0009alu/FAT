@@ -270,7 +270,40 @@ class TestAnalysisViews(TestCase):
     # -------
     # SIGNOUT
     # -------
-    def test_views_signout(self):       
+    def test_views_signout(self):
+        # Instancias de datos para cargar el 'home' de forma adecuada
+        for ticker in tickers_adaptados_dj30():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='USD', sector=f'sector{ticker}'
+            )
+        for ticker in tickers_adaptados_ibex35():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('ibex35').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='EUR', sector=f'sector{ticker}'
+            )
+        for ticker in tickers_adaptados_ftse100():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('ftse100').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='GBp', sector=f'sector{ticker}'
+            )
+        for ticker in tickers_adaptados_dax40():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('dax40').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='EUR', sector=f'sector{ticker}'
+            )       
         # Hago login válido, compruebo que está ok y
         # hago logout comprobando cookie de sesión
         self.client.post('/login/', self.datosUsuarioTest)

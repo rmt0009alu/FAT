@@ -79,32 +79,33 @@
 \contentsline {subsection}{JavaScript}{53}{section*.53}%
 \contentsline {section}{\numberline {4.17}Otras herramientas}{53}{section.4.17}%
 \contentsline {subsection}{python-dotenv}{53}{section*.54}%
-\contentsline {subsection}{Draw.io}{53}{section*.55}%
-\contentsline {subsection}{Mendeley}{53}{section*.56}%
-\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{54}{chapter*.57}%
+\contentsline {subsection}{Selenium}{53}{section*.55}%
+\contentsline {subsection}{Draw.io}{53}{section*.56}%
+\contentsline {subsection}{Mendeley}{53}{section*.57}%
+\contentsline {chapter}{5.\hskip .5em\relax Aspectos relevantes del desarrollo del proyecto}{54}{chapter*.58}%
 \contentsline {section}{\numberline {5.1}Inicio del proyecto}{54}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Metodologías}{55}{section.5.2}%
-\contentsline {subsection}{Ensayo y error en fases tempranas del proyecto}{56}{section*.58}%
-\contentsline {subsection}{Diseño dirigido por pruebas. TDD}{56}{section*.59}%
+\contentsline {subsection}{Ensayo y error en fases tempranas del proyecto}{56}{section*.59}%
+\contentsline {subsection}{Diseño dirigido por pruebas. TDD}{56}{section*.60}%
 \contentsline {section}{\numberline {5.3}Formación}{56}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Obtención y procesamiento de datos}{58}{section.5.4}%
-\contentsline {subsection}{Paso 1. Creación de modelos}{58}{section*.60}%
-\contentsline {subsection}{Paso 2. Enrutamiento a la base de datos adecuada}{59}{section*.61}%
-\contentsline {subsection}{Paso 3. Realizar las migraciones}{59}{section*.62}%
-\contentsline {subsection}{Paso 4. Almacenamiento de los datos}{60}{section*.63}%
+\contentsline {subsection}{Paso 1. Creación de modelos}{58}{section*.61}%
+\contentsline {subsection}{Paso 2. Enrutamiento a la base de datos adecuada}{59}{section*.62}%
+\contentsline {subsection}{Paso 3. Realizar las migraciones}{59}{section*.63}%
+\contentsline {subsection}{Paso 4. Almacenamiento de los datos}{60}{section*.64}%
 \contentsline {section}{\numberline {5.5}División por aplicaciones}{62}{section.5.5}%
 \contentsline {section}{\numberline {5.6}Fuentes de noticias}{63}{section.5.6}%
 \contentsline {section}{\numberline {5.7}Securizar claves de APIs}{63}{section.5.7}%
 \contentsline {section}{\numberline {5.8}Desarrollo backend y frontend de \emph {DashBoard} de usuario}{64}{section.5.8}%
 \contentsline {section}{\numberline {5.9}Desarrollo backend y frontend del \emph {Lab}}{65}{section.5.9}%
-\contentsline {subsection}{Implementación de herramientas para modelo ARIMA}{65}{section*.64}%
-\contentsline {subsection}{Implementación de algoritmos de trading}{67}{section*.65}%
-\contentsline {subsubsection}{Estrategia de cruce de medias}{67}{section*.66}%
-\contentsline {subsubsection}{Estrategia basada en \emph {machine learning}}{68}{section*.67}%
+\contentsline {subsection}{Implementación de herramientas para modelo ARIMA}{65}{section*.65}%
+\contentsline {subsection}{Implementación de algoritmos de trading}{67}{section*.66}%
+\contentsline {subsubsection}{Estrategia de cruce de medias}{67}{section*.67}%
+\contentsline {subsubsection}{Estrategia basada en \emph {machine learning}}{68}{section*.68}%
 \contentsline {section}{\numberline {5.10}Desarrollo de formularios para interactuar con el usuario}{69}{section.5.10}%
 \contentsline {section}{\numberline {5.11}Testing, log de tests y algunos estadísticos relevantes}{70}{section.5.11}%
-\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{72}{chapter*.68}%
-\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{74}{chapter*.69}%
-\contentsline {section}{\numberline {7.1}Conclusiones}{74}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Líneas de trabajo futuras}{75}{section.7.2}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{77}{chapter*.70}%
+\contentsline {chapter}{6.\hskip .5em\relax Trabajos relacionados}{73}{chapter*.69}%
+\contentsline {chapter}{7.\hskip .5em\relax Conclusiones y Líneas de trabajo futuras}{75}{chapter*.70}%
+\contentsline {section}{\numberline {7.1}Conclusiones}{75}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Líneas de trabajo futuras}{76}{section.7.2}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{78}{chapter*.71}%

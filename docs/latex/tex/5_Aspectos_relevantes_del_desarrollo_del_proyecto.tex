@@ -416,10 +416,16 @@ Las comprobaciones se han realizado con \texttt{coverage} y es posible encontrar
 \textbf{Module} & \textbf{statements} & \textbf{missing} & \textbf{excluded} & \textbf{coverage} \\
 }
 {
-Total & 4094 & 7 & 0 & 100\% \\
+Total & 4122 & 11 & 0 & 100\% \\
 }
 
 Además, se puede comprobar un \emph{log}, que fui realizando para un mejor control y que guarda un comentario de todas aquellas pruebas que se van pasando. La estructura del \emph{log} se controla con un \emph{logger} y se pueden comprobar estos datos en el directorio \textbf{log}.
+
+
+Por otro lado, se han realizado algunas pruebas básicas de interfaz utilizando la librería \emph{selenium}\citep{online:selenium} y el \emph{driver} de \emph{Chrome}. Estos tests se pueden encontrar en el archivo \texttt{tests/tests\_ui/tests\_ui.py} junto con el \emph{chromedriver.exe}\citep{online:chrome_driver} para el navegador web Chrome versión 125.0.xxxx. 
+
+Con estas pruebas se trató de simular interacciones con usuarios, especialmente para funcionalidades de registro, \emph{login} y \emph{logout}. También se probó la interacción con algunos formularios de la web - no todos -. Hay información sobre este tipo de pruebas en el \textbf{anexo D.5. Manual de programación}. 
+
 
 Otras métricas relevantes de este trabajo son\footnote{Información extraída con \texttt{pygount} sin contar los archivos estáticos de \emph{Django} ni el directorio del entorno virtual}:
 
@@ -450,7 +456,7 @@ News & 2 & 258 & 23 \\
 Analysis & 16 & 449 & 76 \\
 DashBoard & 14 & 698 & 73 \\
 Lab & 10 & 830 & 77 \\
-static/css & 273 & 5 \\
+static/css & 5 & 273 & 0 \\
 }
 
 

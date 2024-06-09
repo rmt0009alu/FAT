@@ -213,6 +213,15 @@ Aquí se explica cómo conseguirlas y añadirlas al entorno del usuario:
     Consular el informe generado en /htmlcov/index.html
 
 
+  - Para realizar tests de interfaz:
+
+    `(venv) > python -m pip install selenium`
+
+    Modo de uso:
+
+    `(venv) > python .\manage.py test .\tests\tests_ui`
+
+
   - Para comprobar la calidad del código:
 
     `(venv) > python -m pip install pylint`

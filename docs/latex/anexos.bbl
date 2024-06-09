@@ -1,5 +1,17 @@
 \begin{thebibliography}{1}
 
+\bibitem{1998IEEESpecifications}
+{IEEE Recommended Practice for Software Requirements Specifications}.
+\newblock {\em IEEE Std 830-1998}, pages 1--40, 1998.
+
+\bibitem{online:licencia}
+Creatice commons.
+\newblock \emph{Licencia CC BY-NC-SA 4.0}.
+\newblock
+  \url{https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1},
+  2024.
+\newblock Online; Accedido el 04-Jun-2024.
+
 \bibitem{online:networkx}
 NetworkX developers.
 \newblock \emph{NetworkX}.

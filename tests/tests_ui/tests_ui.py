@@ -84,7 +84,7 @@ class PruebasUI(LiveServerTestCase):
         self.driver.quit()
 
 
-    def test_01_pagina_principal(self):
+    def test_pag_principal(self):
         # Navegar a la página del servidor de prueba de Django
         self.driver.get(self.live_server_url)
 
@@ -92,7 +92,7 @@ class PruebasUI(LiveServerTestCase):
         self.assertIn("FAT: Financial Analysis Tool", self.driver.title)
 
 
-    def test_02_pagina_principal_artículos(self):
+    def test_pag_principal_artículos(self):
         # self.client.login(username='testuser', password='testpassword')
         self.driver.get(self.live_server_url + reverse('home'))
         
@@ -118,7 +118,7 @@ class PruebasUI(LiveServerTestCase):
         self.assertTrue(link_leer_mas.get_attribute('href'), "Link de 'lee más' vacío")
 
 
-    def test_03_pagina_principal_mejores_peores(self):
+    def test_pag_principal_mejores_peores(self):
         # Se comprueba el primero únicamente, porque los demás van en la misma lista
         # y usan las mismas plantillas
         self.driver.get(self.live_server_url + reverse('home'))
@@ -131,7 +131,7 @@ class PruebasUI(LiveServerTestCase):
         self.assertTrue(carousel_dj30.is_displayed())
 
     
-    def test_04_login(self):
+    def test_login(self):
         # Usuario de tests
         user = User.objects.create_user(username='testuser', password='testpassword')
 
@@ -151,7 +151,7 @@ class PruebasUI(LiveServerTestCase):
         self.assertIn("DashBoard", self.driver.page_source)
     
     
-    def test_05_logout(self):
+    def test_logout(self):
         # Usuario de tests
         user = User.objects.create_user(username='testuser', password='testpassword')
 
@@ -175,7 +175,7 @@ class PruebasUI(LiveServerTestCase):
         self.assertEqual(self.live_server_url + reverse('home'), self.driver.current_url)
     
     
-    def test_06_registro(self):
+    def test_registro(self):
         self.driver.get(self.live_server_url + reverse('signup'))
 
         # Coger los campos del formulario
@@ -199,7 +199,7 @@ class PruebasUI(LiveServerTestCase):
         self.assertIn("Usuario creado correctamente.", self.driver.page_source)
 
 
-    def test_07_mostrar_tabla_de_valores(self):
+    def test_mostrar_tabla_valores(self):
         lista_dbs = ['dj30', 'ibex35', 'ftse100', 'dax40']
         for idx in lista_dbs:
             url = f"{self.live_server_url}/mapa/{idx}"
@@ -219,7 +219,7 @@ class PruebasUI(LiveServerTestCase):
             filas = tabla_stocks.find_elements(By.TAG_NAME, "tr")[1:]
             self.assertGreater(len(filas), 0)
 
-    def test_08_consultar_un_valor_de_indice(self):
+    def test_consultar_un_valor(self):
         
         # Se crean dos valores del mismo sector y con datos suficientes
         model = apps.get_model('Analysis', 'IBM')
@@ -279,7 +279,7 @@ class PruebasUI(LiveServerTestCase):
         self.assertTrue(grafica_retornos.is_displayed())
     
 
-    def test_09_dashboard_nueva_compra(self):
+    def test_dashboard_nueva_compra(self):
         # Se crea un valor para añadir como compra
         model = apps.get_model('Analysis', 'IBM')
         for i in range(220):
@@ -349,7 +349,7 @@ class PruebasUI(LiveServerTestCase):
     
 
     
-    def test_10_dashboard_nuevo_seguimiento(self):
+    def test_dashboard_nuevo_seguimiento(self):
         # Se crea un valor para añadir como compra
         model = apps.get_model('Analysis', 'IBM')
         for i in range(220):
@@ -412,7 +412,7 @@ class PruebasUI(LiveServerTestCase):
         submit_button.click()
     
     
-    def test_11_arima_manual(self):
+    def test_arima_manual(self):
         user = User.objects.create_user(username='testuser', password='testpassword')
 
         self.driver.get(self.live_server_url + reverse('login'))

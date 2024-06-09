@@ -5,6 +5,8 @@ import pandas as pd
 from datetime import datetime, timezone
 # Para usar los modelos creados de forma dinámica
 from django.apps import apps
+from util.tickers.Tickers_BDs import tickers_adaptados_dj30, tickers_adaptados_ibex35, tickers_adaptados_ftse100, tickers_adaptados_dax40, bases_datos_disponibles
+
 
 
 
@@ -61,6 +63,38 @@ class TestNewsViews(TestCase):
 
 
     def test_views_home_get(self):
+        for ticker in tickers_adaptados_dj30():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('dj30').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='USD', sector=f'sector{ticker}'
+            )
+        for ticker in tickers_adaptados_ibex35():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('ibex35').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='EUR', sector=f'sector{ticker}'
+            )
+        for ticker in tickers_adaptados_ftse100():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('ftse100').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='GBp', sector=f'sector{ticker}'
+            )
+        for ticker in tickers_adaptados_dax40():
+            model = apps.get_model('Analysis', ticker)
+            self.ficticio = model.objects.using('dax40').create(date=datetime(2025, 1, 1, 12, 0, tzinfo=timezone.utc),
+                open=100.0, high=110.0, low=90.0, close=105.0, volume=10000,
+                dividends=1.0, stock_splits=2.0, ticker=ticker, previous_close=100.0,
+                percent_variance=5.0, mm20=102.0, mm50=104.0, mm200=98.0, name=f'nombre{ticker}', 
+                currency='EUR', sector=f'sector{ticker}'
+            )
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200, " - [NO OK] No necesario login para acceder a home")
         self.log.info(" - [OK] No necesario login para acceder a home")

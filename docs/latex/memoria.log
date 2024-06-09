@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  8 JUN 2024 12:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  9 JUN 2024 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1593,7 +1593,7 @@ ws._hay_errores() \T1/lmr/m/n/10 (+20) y
 LaTeX Info: Redefining \. on input line 401.
 LaTeX Info: Redefining \% on input line 401.
 [69]
-<./img/img_18_tests.png, id=1480, 467.49657pt x 242.40562pt>
+<./img/img_18_tests.png, id=1483, 467.49657pt x 242.40562pt>
 File: ./img/img_18_tests.png Graphic file (type png)
 <use ./img/img_18_tests.png>
 Package pdftex.def Info: ./img/img_18_tests.png  used on input line 407.
@@ -1601,19 +1601,21 @@ Package pdftex.def Info: ./img/img_18_tests.png  used on input line 407.
 LaTeX Info: Redefining \. on input line 423.
 LaTeX Info: Redefining \% on input line 423.
  [70 <./img/img_18_tests.png>]
-Overfull \hbox (1.46526pt too wide) in alignment at lines 440--440
+Overfull \hbox (1.46526pt too wide) in alignment at lines 446--446
 [][][][] 
  []
 
 
-Overfull \hbox (1.46526pt too wide) in alignment at lines 454--454
+Overfull \hbox (1.46526pt too wide) in alignment at lines 460--460
 [][][][] 
  []
 
-)
+LaTeX Info: Redefining \. on input line 461.
+LaTeX Info: Redefining \% on input line 461.
+[71])
 LaTeX Info: Redefining \. on input line 556.
 LaTeX Info: Redefining \% on input line 556.
- [71]
+ [72]
 \openout2 = `./tex/6_Trabajos_relacionados.aux'.
 
  (tex/6_Trabajos_relacionados.tex
@@ -1622,7 +1624,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 5.87491pt
 (hyperref)                replaced by space on input line 1.
 
-[72
+[73
 
 
 
@@ -1630,7 +1632,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ])
 LaTeX Info: Redefining \. on input line 557.
 LaTeX Info: Redefining \% on input line 557.
- [73]
+ [74]
 \openout2 = `./tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux'.
 
  (tex/7_Conclusiones_Lineas_de_trabajo_futuras.tex
@@ -1639,7 +1641,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 5.87491pt
 (hyperref)                replaced by space on input line 1.
 
-[74
+[75
 
 
 
@@ -1647,10 +1649,10 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ]
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
- [75])
+ [76])
 LaTeX Info: Redefining \. on input line 558.
 LaTeX Info: Redefining \% on input line 558.
- [76] (memoria.bbl
+ [77] (memoria.bbl
 Underfull \hbox (badness 1137) in paragraph at lines 10--14
 []\T1/lmr/m/n/12 (+20) News API.  \T1/lmr/m/it/12 (+20) News API\T1/lmr/m/n/12 
 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / newsapi . org / docs / client -[]
@@ -1676,7 +1678,7 @@ Underfull \hbox (badness 1028) in paragraph at lines 59--64
 /
  []
 
-[77
+[78
 
 
 
@@ -1728,14 +1730,14 @@ LaTeX Info: Redefining \% on input line 150.
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[78]
+[79]
 Underfull \hbox (badness 2753) in paragraph at lines 151--155
 []\T1/lmr/m/n/12 (+20) Django de-ve-lo-pers.  \T1/lmr/m/it/12 (+20) Djan-go do-
 cu-men-ta-tion\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / docs .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--187
+Underfull \hbox (badness 10000) in paragraph at lines 193--199
 \T1/lmtt/m/n/12 en / 5 . 0 / topics / db / multi -[] db / #topics -[] db -[] mu
 lti -[] db -[] routing$[][]\T1/lmr/m/n/12 (+20) ,
  []
@@ -1746,108 +1748,109 @@ LaTeX Info: Redefining \% on input line 236.
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[79]
-Underfull \hbox (badness 10000) in paragraph at lines 306--312
-\T1/lmtt/m/n/12 / / ocw . mit . edu / courses / 18 -[] s096 -[] topics -[] in -
-[] mathematics -[] with -[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 306--312
-\T1/lmtt/m/n/12 applications -[] in -[] finance -[] fall -[] 2013 / resources /
- lecture -[] 14 -[]
- []
-
-LaTeX Info: Redefining \. on input line 312.
-LaTeX Info: Redefining \% on input line 312.
-
-Overfull \vbox (0.85403pt too high) has occurred while \output is active []
-
-
 [80]
-Underfull \hbox (badness 2521) in paragraph at lines 336--342
-[]\T1/lmr/m/n/12 (+20) José Fran-cis-co Ló-pez.  \T1/lmr/m/it/12 (+20) Si-mu-la
--ción de Mon-te-car-lo\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--342
-\T1/lmtt/m/n/12 / / economipedia . com / definiciones / simulacion -[] de -[] m
-ontecarlo .
- []
-
-
-Underfull \hbox (badness 1694) in paragraph at lines 361--367
-[]\T1/lmr/m/n/12 (+20) Microsoft.  \T1/lmr/m/it/12 (+20) MS Teams\T1/lmr/m/n/12
- (+20) .  [][]$\T1/lmtt/m/n/12 https : / / www . microsoft . com / es -[] es /
- []
-
-LaTeX Info: Redefining \. on input line 386.
-LaTeX Info: Redefining \% on input line 386.
+LaTeX Info: Redefining \. on input line 316.
+LaTeX Info: Redefining \% on input line 316.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [81]
-Underfull \hbox (badness 4454) in paragraph at lines 411--415
-[]\T1/lmr/m/n/12 (+20) pytest-cov con-tri-bu-tors.  \T1/lmr/m/it/12 (+20) Pytes
-t-cov\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / pytest -[] cov .
+Underfull \hbox (badness 10000) in paragraph at lines 318--324
+\T1/lmtt/m/n/12 / / ocw . mit . edu / courses / 18 -[] s096 -[] topics -[] in -
+[] mathematics -[] with -[]
  []
 
-LaTeX Info: Redefining \. on input line 464.
-LaTeX Info: Redefining \% on input line 464.
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--324
+\T1/lmtt/m/n/12 applications -[] in -[] finance -[] fall -[] 2013 / resources /
+ lecture -[] 14 -[]
+ []
+
+
+Underfull \hbox (badness 2521) in paragraph at lines 348--354
+[]\T1/lmr/m/n/12 (+20) José Fran-cis-co Ló-pez.  \T1/lmr/m/it/12 (+20) Si-mu-la
+-ción de Mon-te-car-lo\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--354
+\T1/lmtt/m/n/12 / / economipedia . com / definiciones / simulacion -[] de -[] m
+ontecarlo .
+ []
+
+
+Underfull \hbox (badness 1694) in paragraph at lines 373--379
+[]\T1/lmr/m/n/12 (+20) Microsoft.  \T1/lmr/m/it/12 (+20) MS Teams\T1/lmr/m/n/12
+ (+20) .  [][]$\T1/lmtt/m/n/12 https : / / www . microsoft . com / es -[] es /
+ []
+
+LaTeX Info: Redefining \. on input line 392.
+LaTeX Info: Redefining \% on input line 392.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [82]
-LaTeX Info: Redefining \. on input line 538.
-LaTeX Info: Redefining \% on input line 538.
+Underfull \hbox (badness 4454) in paragraph at lines 423--427
+[]\T1/lmr/m/n/12 (+20) pytest-cov con-tri-bu-tors.  \T1/lmr/m/it/12 (+20) Pytes
+t-cov\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / pytest -[] cov .
+ []
+
+LaTeX Info: Redefining \. on input line 469.
+LaTeX Info: Redefining \% on input line 469.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [83]
-Underfull \hbox (badness 5064) in paragraph at lines 614--618
-[]\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Ja-vaS-cript\T1/lmr/m/
-n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / es . wikipedia . org / wiki /
- []
-
-LaTeX Info: Redefining \. on input line 625.
-LaTeX Info: Redefining \% on input line 625.
+LaTeX Info: Redefining \. on input line 544.
+LaTeX Info: Redefining \% on input line 544.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [84]
-Underfull \hbox (badness 4120) in paragraph at lines 638--644
-[]\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Mo-de-lo au-to-rre-gre
--si-vo in-te-gra-do de me-dia mó-
+Underfull \hbox (badness 5064) in paragraph at lines 626--630
+[]\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Ja-vaS-cript\T1/lmr/m/
+n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / es . wikipedia . org / wiki /
  []
 
-LaTeX Info: Redefining \. on input line 710.
-LaTeX Info: Redefining \% on input line 710.
+LaTeX Info: Redefining \. on input line 631.
+LaTeX Info: Redefining \% on input line 631.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[85])
+[85]
+Underfull \hbox (badness 4120) in paragraph at lines 650--656
+[]\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Mo-de-lo au-to-rre-gre
+-si-vo in-te-gra-do de me-dia mó-
+ []
+
+LaTeX Info: Redefining \. on input line 715.
+LaTeX Info: Redefining \% on input line 715.
+
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[86])
 LaTeX Info: Redefining \. on input line 564.
 LaTeX Info: Redefining \% on input line 564.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[86]
+[87]
 
 pdfTeX warning: pdflatex (file ./img/licencia.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<./img/licencia.pdf, id=1757, 597.23125pt x 845.1575pt>
+<./img/licencia.pdf, id=1770, 597.23125pt x 845.1575pt>
 File: ./img/licencia.pdf Graphic file (type pdf)
 <use ./img/licencia.pdf>
 Package pdftex.def Info: ./img/licencia.pdf  used on input line 572.
 (pdftex.def)             Requested size: 113.81102pt x 161.04585pt.
-[87 <./img/licencia.pdf>]
+[88 <./img/licencia.pdf>]
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
@@ -1885,16 +1888,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: D79051FECEC1ABC5A63B340A7A05E881;9572.
+(rerunfilecheck)             Checksum: D6CB2FC336EA997CDBB367CC101B33F1;9572.
  ) 
 Here is how much of TeX's memory you used:
- 19562 strings out of 474591
- 321008 string characters out of 5745778
+ 19573 strings out of 474591
+ 321234 string characters out of 5745778
  1947533 words of memory out of 5000000
- 40596 multiletter control sequences out of 15000+600000
+ 40603 multiletter control sequences out of 15000+600000
  702206 words of font info for 293 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,12n,93p,1184b,1062s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,12n,93p,1184b,1063s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
@@ -1919,9 +1922,9 @@ ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Us
 ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on memoria.pdf (98 pages, 2579666 bytes).
+Output written on memoria.pdf (99 pages, 2583827 bytes).
 PDF statistics:
- 1974 PDF objects out of 2073 (max. 8388607)
- 435 named destinations out of 1000 (max. 500000)
+ 1988 PDF objects out of 2073 (max. 8388607)
+ 439 named destinations out of 1000 (max. 500000)
  78322 words of extra memory for PDF output out of 89155 (max. 10000000)
 
