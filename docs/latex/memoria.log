@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  9 JUN 2024 18:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  9 JUN 2024 18:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1586,11 +1586,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                replaced by space on input line 1.
 
 [45]
-<./img/img_16_django_MVT.png, id=1188, 426.84468pt x 203.25937pt>
+<./img/img_16_django_MVT.png, id=1188, 753.81625pt x 348.30125pt>
 File: ./img/img_16_django_MVT.png Graphic file (type png)
 <use ./img/img_16_django_MVT.png>
 Package pdftex.def Info: ./img/img_16_django_MVT.png  used on input line 59.
-(pdftex.def)             Requested size: 383.0pt x 182.39207pt.
+(pdftex.def)             Requested size: 383.0pt x 176.96164pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -2081,7 +2081,7 @@ ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Us
 ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on memoria.pdf (107 pages, 2590414 bytes).
+Output written on memoria.pdf (107 pages, 2587752 bytes).
 PDF statistics:
  2012 PDF objects out of 2073 (max. 8388607)
  442 named destinations out of 1000 (max. 500000)

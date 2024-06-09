@@ -72,8 +72,17 @@
 \contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{97}{appendix.Alph5}%
 \contentsline {section}{\numberline {E.1}Introducción}{97}{section.Alph5.1}%
 \contentsline {section}{\numberline {E.2}Requisitos de usuarios}{97}{section.Alph5.2}%
-\contentsline {section}{\numberline {E.3}Instalación}{97}{section.Alph5.3}%
-\contentsline {section}{\numberline {E.4}Manual del usuario}{97}{section.Alph5.4}%
+\contentsline {subsection}{Uso en web}{97}{section*.55}%
+\contentsline {subsection}{Uso en entorno local}{97}{section*.56}%
+\contentsline {section}{\numberline {E.3}Instalación}{98}{section.Alph5.3}%
+\contentsline {section}{\numberline {E.4}Manual del usuario}{98}{section.Alph5.4}%
 \contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{99}{appendix.Alph6}%
 \contentsline {section}{\numberline {F.1}Introducción}{99}{section.Alph6.1}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{101}{appendix*.55}%
+\contentsline {section}{\numberline {F.2}Competencias en sostenibilidad adquiridas}{99}{section.Alph6.2}%
+\contentsline {subsection}{Economía sostenible}{99}{section*.57}%
+\contentsline {subsection}{Innovación y desarrollo tecnológico}{100}{section*.58}%
+\contentsline {section}{\numberline {F.3}Impacto social y ambiental}{100}{section.Alph6.3}%
+\contentsline {subsection}{Educación financiera}{100}{section*.59}%
+\contentsline {subsection}{Licencia libre y repositorio público}{100}{section*.60}%
+\contentsline {subsection}{Documentación del proyecto}{101}{section*.61}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{103}{appendix*.62}%
