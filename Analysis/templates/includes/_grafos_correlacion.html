@@ -2,7 +2,7 @@
 
 <!-- Si el usuario está autenticado muestro info de correlaciones -->
 {% if user.is_authenticated %}
-<p class="barra">Correlaciones</p>
+<p class="barra">Correlaciones (sobre precios de cierre en último año)</p>
 
 <div id="grafos_correlacion" >
   <img src="data:image/png;base64,{{ grafo }}" alt="ImagenGrafo">

@@ -23,4 +23,168 @@ Para utilizar este proyecto en un entorno local lo mejor es seguir los \textbf{p
 
 \section{Manual del usuario}
 
+\subsection{Página principal}
 
+\imagen{img_anex_32_usuario_01.png}{Página principal}{1}
+
+En portada están disponibles unos \emph{carruseles} de noticias que nos muestran información en inglés relacionadas con los principales mercados mundiales. Además, tenemos otros carruseles que permiten ver cuáles han sido los mejores y peores valores de cada índice en la última sesión. 
+
+Desde aquí podemos consultar información detallada de un índice y podemos registrarnos o loguearnos (si ya estamos registrados).
+
+\subsection{Registro y \emph{login}}
+
+Para registrarnos se deberán cumplir unas condiciones mínimas de complejidad de contraseña y de nombre de usuario. En caso de no cumplir los condicionantes el usuario será informado:
+
+\begin{itemize}
+\tightlist
+\item
+Nombre: al menos 5 caracteres. Sólo se permiten números y letras.
+\item
+Contraseña: al menos 8 caracteres. No se permiten contraseñas \emph{habituales}. 
+\end{itemize}
+
+Una vez registrados se nos redirige a la página principal, ya logueados, y se nos abrirán las opciones de \emph{DashBoard} (área de usuario) y \emph{Lab} (laboratorio virtual para experimentar con series temporales):
+
+\imagen{img_anex_33_usuario_02.png}{Proceso de registro}{1}
+
+\newpage
+
+Desde cualquier página de la herramienta tendremos disponible el \emph{login} y el registro si hemos accedido previamente. En cualquier caso, cada vez que nos logueamos, la web nos redirige al \emph{DashBoard} (área personal):
+
+\imagen{img_anex_34_usuario_03.png}{Proceso de \emph{login}}{1}
+
+\subsection{Consultar un índice bursátil}
+
+Desde la página principal, desde el área de usuario, etc. podremos acceder a información sobre cualquiera de los índices disponibles. Sólo hay que hacer \emph{click} en los botones disponibles y se abrirá la ventana con los datos requeridos. 
+
+Los datos que podremos consultar son:
+
+\begin{itemize}
+\tightlist
+\item
+Precios de apertura, cierre, máximo, mínimo y variación de cada uno de los componentes del índice.
+\item
+Gráfica con la evolución del índice en el último año (aproximadamente).
+\item
+Noticias relacionadas con el índice bursátil.
+\end{itemize}
+
+Las noticias se obtienen de \emph{feeds} RSS y es posibles añadir o modificar las fuentes disponibles. Para ello, si tienes la herramienta instalada en local, sólo tienes que modificar el archivo \texttt{/util/rss/RSS.py}. 
+
+\imagen{img_anex_35_usuario_04.png}{Consultar índice bursátil}{1}
+
+
+\subsection{Consultar un valor}
+
+Para poder consultar un valor es necesario estar logueado. Lo habitual será consultar un valor haciendo \emph{click} desde las tablas de los índices. Una vez seleccionamos un valor se nos dirige a la ventana con sus datos, entre los que tenemos la gráfica interactiva:
+
+\imagen{img_anex_36_usuario_05.png}{Consultar valor}{1}
+
+
+También se puede consultar la evolución de precios del último mes y los grafos de correlación, que nos indican qué valores han evolucionado de manera similar en el último año y cuáles lo han hecho de manera \emph{inversa}:
+
+\imagen{img_anex_37_usuario_06.png}{Consultar valor}{1}
+
+Podemos ver más información, como la gráfica comparativa con la evolución del sector\footnote{Se calcula la evolución del sector considerando todos los valores, de todos los índices, disponibles en ese sector.} o la gráfica con la distribución de los retornos en porcentaje diario:
+
+\imagen{img_anex_38_usuario_07.png}{Consultar valor}{1}
+
+Por último, está disponible una sección de comparación con otros valores, para ver cómo han evolucionado, de forma relativa, en el último año:
+
+\imagen{img_anex_39_usuario_08.png}{Consultar valor}{1}
+
+
+\subsection{Utilizar el \emph{DashBoard}}
+
+Para poder acceder al área personal es necesario estar logueados. 
+
+\imagen{img_anex_40_usuario_09.png}{Acceso al \emph{DashBoard}}{0.9}
+
+Como se aprecia en la imagen anterior, al acceder al \emph{DashBoard} la primera vez veremos unas tablas vacías, que nos indican que no tenemos valores en cartera ni valores en seguimiento.
+
+Para añadir valores a nuestra cartera o eliminarlos sólo tenemos que utilizar los botones que aparecen en la parte superior del \emph{DashBoard}. El usuario debe tener en cuenta que los formularios de interacción con esta herramienta tienen valores limitados y, en muchos casos, evitan errores, lo que facilita el control de nuestras inversiones. Por ejemplo, si introducimos mal los datos de compra de un valor, la herramienta no nos lo permitirá:
+
+\imagen{img_anex_41_usuario_10.png}{Acceso al \emph{DashBoard}}{1}
+
+Según vamos añadiendo valores, nuestro \emph{DashBoard} va mostrando información adicional que puede ser de gran utilidad como, por ejemplo, la distribución de nuestra cartera - con los cálculos hechos tomando el euro como moneda de referencia - o la inversión que tenemos por sectores.
+
+Y, por supuesto, podremos ver cómo está evolucionando nuestra cartera de forma individual o colectiva:
+
+\imagen{img_anex_42_usuario_11.png}{Distribución de inversiones y sectores}{1}
+
+\newpage
+También podemos ver cómo está distribuida nuestra cartera por divisas:
+
+\imagen{img_anex_43_usuario_12.png}{Distribución por divisas}{1}
+
+Una de las partes más interesante es que podremos ver la gráfica que nos muestra la relación rentabilidad - riesgo que tenemos en ese momento. Es recomendable revisar el apartado teórico de la memoria adjunta a este proyecto, para comprender qué representan una gráfica de Markowitz y el ratio de Sharpe:
+
+
+\imagen{img_anex_44_usuario_13.png}{Análisis de rentabilidad - riesgo}{1}
+
+Es \textbf{importante} tener en cuenta que los valores utilizados para calcular la rentabilidad - riesgo son datos anuales, \textbf{no} se corresponden con los datos desde el momento de compra de los valores.
+
+
+Para añadir o eliminar valores en seguimiento haremos un proceso similar al anterior:
+
+\imagen{img_anex_45_usuario_14.png}{Añadir un valor en seguimiento}{1}
+
+\newpage
+\subsection{Utilizar el \emph{Lab}}
+
+Para poder acceder al laboratorio virtual es necesario estar logueados y hacer \emph{click} en el botón de \emph{Lab} de la cabecera de la página. Esto nos llevará a la página principal del laboratorio virtual, desde donde podremos seleccionar la opción que más nos interesa para trabajar:
+
+\imagen{img_anex_46_usuario_15.png}{Ventana principal del \emph{Lab}}{1}
+
+En esta ventana podemos ver unos iconos de ayuda, que al pasar el ratón por encima, muestran información de utilidad para que el usuario sepa para qué sirve cada apartado. 
+
+Si queremos trabajar, por ejemplo, con ARIMA y estamos pensando en buscar los mejores parámetros (p,d,q), podemos utilizar el apartado de las funciones ACF y PACF. La interpretación de estas gráficas queda fuera de las intenciones de este manual, pero se puede encontrar información relacionada en el apartado teórico de la memoria asociada de este trabajo:
+
+\imagen{img_anex_47_usuario_16.png}{Usar ACF y PACF}{1}
+
+Si lo que nos interesan es la funcionalidad que calculan los parámetros por nosotros (automáticamente o con búsqueda por rejilla) o queremos introducir unos datos para probar, seguiremos un criterio similar al anterior: 
+
+\begin{itemize}
+\item
+Seleccionar la funcionalidad deseada.
+\item
+Rellenar el formulario con los datos necesarios. 
+\item
+Interpretar la información obtenida (en algunos apartados hay iconos de ayuda que puede aportar información adicional relevante).
+\end{itemize}
+
+
+En los formularios se solicita al usuario un porcentaje de entrenamiento, que corresponde a la cantidad de datos que se utilizarán para entrenar el modelo. En todos los casos las gráficas vienen acompañadas de unas tablas con los errores cometidos en los datos de test. Y se puede ver el resultado que obtendríamos si siguiéramos una estrategia de predicción naíf, que consiste en estimar que en la siguiente sesión el valor será el mismo que en la sesión actual (se puede consultar el icono de ayuda si existen dudas al respecto).
+
+El usuario debe de tener en cuenta que los datos de test corresponden a los últimos datos de la serie temporal. Es decir, si tenemos una serie temporal de 500 sesiones y hemos dedicado el 90\% de los datos a entrenar el modelo, nos quedará un 10\% de datos de test y esos datos será las últimas 50 sesiones. Esto es así por el propio carácter de temporalidad en los datos analizados. 
+
+\newpage
+Por ejemplo, si queremos ver una predicción con un modelo ARIMA automático:
+
+\imagen{img_anex_48_usuario_17.png}{Predicción automática de ARIMA}{1}
+
+\newpage
+Y al enviar el formulario se nos dirige a la página con los resultados:
+
+\imagen{img_anex_49_usuario_18.png}{Resultados de ARIMA}{0.95}
+
+Por otro lado, si lo que queremos es trabajar con funcionalidades de \emph{trading} algorítmico podemos escoger cualquiera de las dos opciones disponibles en el apartado correspondiente:
+
+\begin{itemize}
+\item
+Algoritmo de cruce de medias.
+\item
+Estrategias basadas en \emph{machine learning}. 
+\end{itemize}
+
+
+Cuando se trabaja con el algoritmo de cruce de medias - con formularios similares a los de otras funcionalidades -, el usuario debe de tener en cuenta que la selección de las medias móviles simples se realiza de forma automática, buscando el mejor rendimiento pasado posible. Por tanto, no todos los valores analizados tendrán las mismas medias. Además, si se da la circunstancia de estar en estado de \emph{invertido} \textbf{en la última sesión disponible, se considerará que en esa sesión se cierra la posición para hacer los cálculos de rentabilidad}. Un ejemplo de resultado de este algoritmo es:
+
+\imagen{img_anex_50_usuario_19.png}{Resultados algoritmo de cruce de medias}{0.9}
+
+Por último, si queremos utilizar alguna de las estrategias basadas en \emph{machine learning}, con un modelo de regresión lineal o un modelo de clasificación, tendremos que seleccionar el botón correspondiente en el \emph{Lab}. Una vez seleccionada la opción deseada - de nuevo, a través de formularios que resultarán familiares al usuario - podremos observar los resultados obtenidos:
+
+\imagen{img_anex_51_usuario_20.png}{Resultados estrategia basada en \emph{machine learning}}{1}
+
+
+Para conocer más detalles sobre cómo se utiliza esta última estrategia se recomienda consultar la parte teórica de la memoria y, si el usuario desea, el método \texttt{estrategia\_machine\_learning()} en el archivo \texttt{/Lav/views.py} del código fuente. 

@@ -6,12 +6,12 @@
     
     <!-- Sólo se muestra la comparación en caso de haberla realizado -->
     {% if graficas_comparacion %}
-    <div class="image-container" id="comparar_valores" >
+    <div class="image-container" id="comparar_valores">
         <img src="data:image/png;base64,{{ graficas_comparacion }}" alt="ImagenCompararValores" class="responsive-image">
     </div>
     {% endif %}
 
-    <form method="POST" class="card card-body">
+    <form method="POST" class="card card-body" style="width: 50%;">
         
         <!-- Sólo se muestra mensaje de error en caso de que 
             no exista el ticker introducido -->

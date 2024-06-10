@@ -76,13 +76,19 @@
 \contentsline {subsection}{Uso en entorno local}{97}{section*.56}%
 \contentsline {section}{\numberline {E.3}Instalación}{98}{section.Alph5.3}%
 \contentsline {section}{\numberline {E.4}Manual del usuario}{98}{section.Alph5.4}%
-\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{99}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Introducción}{99}{section.Alph6.1}%
-\contentsline {section}{\numberline {F.2}Competencias en sostenibilidad adquiridas}{99}{section.Alph6.2}%
-\contentsline {subsection}{Economía sostenible}{99}{section*.57}%
-\contentsline {subsection}{Innovación y desarrollo tecnológico}{100}{section*.58}%
-\contentsline {section}{\numberline {F.3}Impacto social y ambiental}{100}{section.Alph6.3}%
-\contentsline {subsection}{Educación financiera}{100}{section*.59}%
-\contentsline {subsection}{Licencia libre y repositorio público}{100}{section*.60}%
-\contentsline {subsection}{Documentación del proyecto}{101}{section*.61}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{103}{appendix*.62}%
+\contentsline {subsection}{Página principal}{98}{section*.57}%
+\contentsline {subsection}{Registro y \emph {login}}{99}{section*.58}%
+\contentsline {subsection}{Consultar un índice bursátil}{100}{section*.59}%
+\contentsline {subsection}{Consultar un valor}{101}{section*.60}%
+\contentsline {subsection}{Utilizar el \emph {DashBoard}}{104}{section*.61}%
+\contentsline {subsection}{Utilizar el \emph {Lab}}{109}{section*.62}%
+\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{117}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Introducción}{117}{section.Alph6.1}%
+\contentsline {section}{\numberline {F.2}Competencias en sostenibilidad adquiridas}{117}{section.Alph6.2}%
+\contentsline {subsection}{Economía sostenible}{117}{section*.63}%
+\contentsline {subsection}{Innovación y desarrollo tecnológico}{118}{section*.64}%
+\contentsline {section}{\numberline {F.3}Impacto social y ambiental}{118}{section.Alph6.3}%
+\contentsline {subsection}{Educación financiera}{118}{section*.65}%
+\contentsline {subsection}{Licencia libre y repositorio público}{118}{section*.66}%
+\contentsline {subsection}{Documentación del proyecto}{119}{section*.67}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{121}{appendix*.68}%

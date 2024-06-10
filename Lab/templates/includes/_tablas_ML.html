@@ -8,17 +8,18 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- En clasificación no muestro los score porque equivalen a los % de las medias de aciertos -->
-                {% if regresion_lineal %}
-                <tr>
+                <!-- En clasificación no muestro los score porque equivalen a los % de las medias de aciertos y en regresión no los muestro porque pueden parecer excesivamente
+                malos, ya que se está trabajando, precisamente, con regresión (valores numéricos) -->
+                
+                <!-- <tr>
                     <td>'Score' en datos de entrenamiento</td>
                     <td>{{ score_entren|floatformat:3 }}</td>
                 </tr>
                 <tr>
                     <td>'Score' en datos de test</td>
                     <td>{{ score_test|floatformat:3 }}</td>
-                </tr>
-                {% endif %}
+                </tr> -->
+
                 <tr>
                     <td>Media de aciertos de tendencia en entrenamiento</td>
                     <td>{{ media_aciertos_entren|floatformat:2 }}%</td>
@@ -43,7 +44,16 @@
                     <td>Retorno logarítimo total con 'buy-and-hold' en test</td>
                     <td>{{ ret_total_buyhold_test|floatformat:3 }}</td>
                 </tr>
-                <tr {% if pred_siguiente == 'BAJISTA' %} style="color: lightcoral;" {% else %} style="color: lightgreen;" {% endif %}>
+            </tbody>
+        </table>
+    </br>
+        <table class="table table-bordered table-hover" style="border: 5px solid #212428;">
+            <tbody>
+                <tr>
+                    <td>Fecha última sesión disponible</td>
+                    <td>{{ ultima_sesion|date:"d/m/Y" }}</td>
+                </tr>
+                <tr class="prediccion-{{ pred_siguiente }}">
                     <td>Predicción para la próxima sesión</td>
                     <td>{{ pred_siguiente }}</td>
                 </tr>
@@ -75,5 +85,12 @@
     }
     .info-table th {
         background-color: #f2f2f2;
+    }
+    .prediccion-BAJISTA td:last-child {
+        background-color: lightcoral;
+    }
+
+    .prediccion-ALCISTA td:last-child {
+        background-color: lightgreen;
     }
 </style>

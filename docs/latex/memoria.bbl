@@ -450,6 +450,14 @@ scikit-learn developers.
 \newblock \url{https://scikit-learn.org/stable/index.html}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
 
+\bibitem{wiki:cross_val_series_temporales}
+scikit-learn developers.
+\newblock \emph{TimeSeriesSplit}.
+\newblock
+  \url{https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html},
+  2024.
+\newblock Online; Accedido el 10-Jun-2024.
+
 \bibitem{paper:Deep_Learning_Survey}
 O.B. Sezer, M.U. Gudelek, and A.M. Ozbayoglu.
 \newblock Deep learning for financial applications: A survey.

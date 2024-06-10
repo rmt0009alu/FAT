@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  9 JUN 2024 18:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  10 JUN 2024 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1956,39 +1956,57 @@ Underfull \hbox (badness 4454) in paragraph at lines 417--421
 t-cov\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / pytest -[] cov .
  []
 
-LaTeX Info: Redefining \. on input line 470.
-LaTeX Info: Redefining \% on input line 470.
+
+Underfull \hbox (badness 4217) in paragraph at lines 454--460
+[]\T1/lmr/m/n/12 (+20) scikit-learn de-ve-lo-pers.  \T1/lmr/m/it/12 (+20) Ti-me
+-Se-riesS-plit\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / scikit -
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 454--460
+\T1/lmtt/m/n/12 learn . org / stable / modules / generated / sklearn . model _
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 454--460
+\T1/lmtt/m/n/12 selection . TimeSeriesSplit . html$[][]\T1/lmr/m/n/12 (+20) , 2
+024.  On-li-ne; Ac-ce-di-do el
+ []
+
+LaTeX Info: Redefining \. on input line 471.
+LaTeX Info: Redefining \% on input line 471.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [88]
-LaTeX Info: Redefining \. on input line 550.
-LaTeX Info: Redefining \% on input line 550.
+LaTeX Info: Redefining \. on input line 546.
+LaTeX Info: Redefining \% on input line 546.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [89]
-Underfull \hbox (badness 5064) in paragraph at lines 607--611
+Underfull \hbox (badness 5064) in paragraph at lines 615--619
 []\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Ja-vaS-cript\T1/lmr/m/
 n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / es . wikipedia . org / wiki /
  []
 
-LaTeX Info: Redefining \. on input line 630.
-LaTeX Info: Redefining \% on input line 630.
+LaTeX Info: Redefining \. on input line 631.
+LaTeX Info: Redefining \% on input line 631.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [90]
-Underfull \hbox (badness 4120) in paragraph at lines 631--637
+Underfull \hbox (badness 4120) in paragraph at lines 639--645
 []\T1/lmr/m/n/12 (+20) Wikipedia.  \T1/lmr/m/it/12 (+20) Mo-de-lo au-to-rre-gre
 -si-vo in-te-gra-do de me-dia mó-
  []
 
-LaTeX Info: Redefining \. on input line 715.
-LaTeX Info: Redefining \% on input line 715.
+LaTeX Info: Redefining \. on input line 717.
+LaTeX Info: Redefining \% on input line 717.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
@@ -2004,7 +2022,7 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 pdfTeX warning: pdflatex (file ./img/licencia.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<./img/licencia.pdf, id=1794, 597.23125pt x 845.1575pt>
+<./img/licencia.pdf, id=1799, 597.23125pt x 845.1575pt>
 File: ./img/licencia.pdf Graphic file (type pdf)
 <use ./img/licencia.pdf>
 Package pdftex.def Info: ./img/licencia.pdf  used on input line 572.
@@ -2050,13 +2068,13 @@ Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: D6CB2FC336EA997CDBB367CC101B33F1;9572.
  ) 
 Here is how much of TeX's memory you used:
- 19569 strings out of 474591
- 321023 string characters out of 5745778
- 1947533 words of memory out of 5000000
- 40596 multiletter control sequences out of 15000+600000
+ 19573 strings out of 474591
+ 321180 string characters out of 5745778
+ 1948533 words of memory out of 5000000
+ 40599 multiletter control sequences out of 15000+600000
  702174 words of font info for 293 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,12n,93p,1184b,1073s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,12n,93p,1184b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
@@ -2081,9 +2099,9 @@ ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Us
 ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on memoria.pdf (107 pages, 2587752 bytes).
+Output written on memoria.pdf (107 pages, 2589356 bytes).
 PDF statistics:
- 2012 PDF objects out of 2073 (max. 8388607)
- 442 named destinations out of 1000 (max. 500000)
+ 2017 PDF objects out of 2073 (max. 8388607)
+ 443 named destinations out of 1000 (max. 500000)
  78322 words of extra memory for PDF output out of 89155 (max. 10000000)
 

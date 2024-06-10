@@ -1,6 +1,6 @@
 #plotly-chart {
-    height: calc(100vh - 100px); /* Adjust 100px for other elements */
-    max-height: 800px; /* Optional maximum height */
+    height: calc(100vh - 100px);
+    max-height: 800px;
 }
 
 

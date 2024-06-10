@@ -1633,6 +1633,8 @@ def estrategia_machine_learning(request):
             context = {
                 'form': EstrategiaMLForm(),
             }
+        context['indice'] = indice
+        context['ultima_sesion'] = df_resultado.tail(1).index[0]
         # Si todo ha ido bien muestro la info. al usuario
         return render(request, "estrategia_basada_en_ML.html", context)
 
@@ -1736,7 +1738,13 @@ def _preprocesado_datos_ml(tickers_unidos, num_sesiones, porcentaje_entren):
     for ticker in df_resultado.columns:
         df_retornos[ticker] = np.log(df_resultado[ticker]).diff()
 
+    # La clase objetivo es el último valor en la lista de tickers.
+    # Aquí es donde se hace el shift() como se explica en la teoría de la memoria
+    indice = tickers_unidos[-1]
+    df_retornos[indice] = df_retornos[indice].shift(-1)
+
     # Elimino la primera fila que tendrá NaN por hacer el diff()
+    # y la última que tendrá NaN por el shift
     df_retornos.dropna(inplace=True)
 
     # Split 70/30 o lo que sea (uso el % indicado por el usuario adaptándolo)
@@ -1788,7 +1796,7 @@ def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_
 
         valores : list
             Lista de los valores que se usan como 'atributos' para entrenar el
-            modelo y estimar la clase objetivo. 
+            modelo y estimar la clase objetivo (aquí no está la clase).
 
 
     Returns
@@ -1796,7 +1804,8 @@ def _regresion_lineal(model, x_train, y_train, x_test, y_test, df_retornos, tam_
         context : dict
             Diccionario con datos del contexto.
     """
-    # Para que en la web vaya más rápido no se hace validación cruzada
+    # Se podría hacer algún tipo de validación cruzada para series temporales
+    # https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html
     model.fit(x_train, y_train)
     score_entren = model.score(x_train, y_train)
     score_test = model.score(x_test, y_test)
@@ -1865,7 +1874,7 @@ def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, 
                                        tam_entrenamiento, clase, df_resultado, valores):
     """Para aplicar un modelo de clasificación siguiendo la idea de que unos valores
     de un índice se comportan como atributos y el valor del día siguiente de ese índice
-    se comporta como clase objetivo. 
+    se comporta como clase objetivo (aquí no está la clase).
 
     Parameters
     ----------
@@ -1911,7 +1920,8 @@ def _clasificacion_regresion_logistica(model, x_train, y_train, x_test, y_test, 
     c_train = y_train > 0
     c_test = y_test > 0
 
-    # Para que en la web vaya más rápido no se hace validación cruzada
+    # Se podría hacer algún tipo de validación cruzada para series temporales
+    # https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html
     model.fit(x_train, c_train)
     score_entren = model.score(x_train, c_train)
     score_test = model.score(x_test, c_test)

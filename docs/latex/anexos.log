@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  9 JUN 2024 19:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  10 JUN 2024 17:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1084,8 +1084,13 @@ Package microtype Info: Character `029' is missing
 
 
 ]
-Overfull \hbox (2.03773pt too wide) detected at line 88
- \T1/lmr/bx/n/12 103
+Overfull \hbox (2.03773pt too wide) detected at line 85
+ \T1/lmr/bx/n/12 117
+ []
+
+
+Overfull \hbox (2.03773pt too wide) detected at line 94
+ \T1/lmr/bx/n/12 121
  []
 
 )
@@ -1264,7 +1269,7 @@ LaTeX Info: Redefining \% on input line 136.
 LaTeX Info: Redefining \. on input line 179.
 LaTeX Info: Redefining \% on input line 179.
  [20]
-<./img/img_anex_01_casos_uso.png, id=838, 954.56625pt x 1021.8175pt>
+<./img/img_anex_01_casos_uso.png, id=878, 954.56625pt x 1021.8175pt>
 File: ./img/img_anex_01_casos_uso.png Graphic file (type png)
 <use ./img/img_anex_01_casos_uso.png>
 Package pdftex.def Info: ./img/img_anex_01_casos_uso.png  used on input line 21
@@ -1974,7 +1979,7 @@ l.466 \include{./tex/B_Requisitos}
 
 
 ]
-<./img/img_anex_02_bases_datos.png, id=1198, 673.51625pt x 432.61626pt>
+<./img/img_anex_02_bases_datos.png, id=1238, 673.51625pt x 432.61626pt>
 File: ./img/img_anex_02_bases_datos.png Graphic file (type png)
 <use ./img/img_anex_02_bases_datos.png>
 Package pdftex.def Info: ./img/img_anex_02_bases_datos.png  used on input line 
@@ -1998,7 +2003,7 @@ l.28 \textbf
 LaTeX Info: Redefining \. on input line 37.
 LaTeX Info: Redefining \% on input line 37.
  [61]
-<./img/img_anex_03_diagrama_ER.png, id=1213, 784.9325pt x 942.52126pt>
+<./img/img_anex_03_diagrama_ER.png, id=1253, 784.9325pt x 942.52126pt>
 File: ./img/img_anex_03_diagrama_ER.png Graphic file (type png)
 <use ./img/img_anex_03_diagrama_ER.png>
 Package pdftex.def Info: ./img/img_anex_03_diagrama_ER.png  used on input line 
@@ -2021,7 +2026,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.40 ...img_anex_03_diagrama_ER.png}{Diagrama E/R}
                                                    <./img/img_anex_03_diagrama_
 ER.png>]
-<./img/img_anex_04_diagrama_relacional.png, id=1220, 777.90625pt x 945.5325pt>
+<./img/img_anex_04_diagrama_relacional.png, id=1260, 777.90625pt x 945.5325pt>
 File: ./img/img_anex_04_diagrama_relacional.png Graphic file (type png)
 <use ./img/img_anex_04_diagrama_relacional.png>
 Package pdftex.def Info: ./img/img_anex_04_diagrama_relacional.png  used on inp
@@ -2044,7 +2049,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.43 ...grama_relacional.png}{Diagrama relacional}
                                                    <./img/img_anex_04_diagrama_
 relacional.png>]
-<./img/img_anex_05_diagrama_secuencia_1.png, id=1227, 643.40375pt x 606.265pt>
+<./img/img_anex_05_diagrama_secuencia_1.png, id=1267, 643.40375pt x 606.265pt>
 File: ./img/img_anex_05_diagrama_secuencia_1.png Graphic file (type png)
 <use ./img/img_anex_05_diagrama_secuencia_1.png>
 Package pdftex.def Info: ./img/img_anex_05_diagrama_secuencia_1.png  used on in
@@ -2063,7 +2068,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.49 ...}{Diagrama de secuencias \emph{DashBoard}}
                                                    <./img/img_anex_05_diagrama_
 secuencia_1.png>]
-<./img/img_anex_06_diagrama_secuencia_2.png, id=1234, 1295.84125pt x 676.5275pt
+<./img/img_anex_06_diagrama_secuencia_2.png, id=1274, 1295.84125pt x 676.5275pt
 >
 File: ./img/img_anex_06_diagrama_secuencia_2.png Graphic file (type png)
 <use ./img/img_anex_06_diagrama_secuencia_2.png>
@@ -2084,7 +2089,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.49 ...}{Diagrama de secuencias \emph{DashBoard}}
                                                    <./img/img_anex_06_diagrama_
 secuencia_2.png>]
-<./img/img_anex_07_diagrama_secuencia_3.png, id=1242, 773.89125pt x 485.815pt>
+<./img/img_anex_07_diagrama_secuencia_3.png, id=1282, 773.89125pt x 485.815pt>
 File: ./img/img_anex_07_diagrama_secuencia_3.png Graphic file (type png)
 <use ./img/img_anex_07_diagrama_secuencia_3.png>
 Package pdftex.def Info: ./img/img_anex_07_diagrama_secuencia_3.png  used on in
@@ -2102,13 +2107,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
                                                   \__shipout_drop_firstpage_...
 l.60 
       <./img/img_anex_07_diagrama_secuencia_3.png>]
-<./img/img_anex_08_diagrama_MVT.png, id=1250, 753.81625pt x 348.30125pt>
+<./img/img_anex_08_diagrama_MVT.png, id=1290, 753.81625pt x 348.30125pt>
 File: ./img/img_anex_08_diagrama_MVT.png Graphic file (type png)
 <use ./img/img_anex_08_diagrama_MVT.png>
 Package pdftex.def Info: ./img/img_anex_08_diagrama_MVT.png  used on input line
  61.
 (pdftex.def)             Requested size: 383.0pt x 176.96164pt.
-<./img/img_anex_09_patrón_repositorio.png, id=1251, 452.69125pt x 532.99126pt>
+<./img/img_anex_09_patrón_repositorio.png, id=1291, 452.69125pt x 532.99126pt>
 
 File: ./img/img_anex_09_patrón_repositorio.png Graphic file (type png)
 <use ./img/img_anex_09_patrón_repositorio.png>
@@ -2150,14 +2155,14 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Info: Redefining \. on input line 117.
 LaTeX Info: Redefining \% on input line 117.
  [69]
-<./img/img_anex_10_diagrama_paquetes_1.png, id=1277, 719.68875pt x 422.57875pt>
+<./img/img_anex_10_diagrama_paquetes_1.png, id=1317, 719.68875pt x 422.57875pt>
 
 File: ./img/img_anex_10_diagrama_paquetes_1.png Graphic file (type png)
 <use ./img/img_anex_10_diagrama_paquetes_1.png>
 Package pdftex.def Info: ./img/img_anex_10_diagrama_paquetes_1.png  used on inp
 ut line 120.
 (pdftex.def)             Requested size: 383.0pt x 224.89418pt.
-<./img/img_anex_11_diagrama_paquetes_2.png, id=1278, 719.68875pt x 322.20375pt>
+<./img/img_anex_11_diagrama_paquetes_2.png, id=1318, 719.68875pt x 322.20375pt>
 
 File: ./img/img_anex_11_diagrama_paquetes_2.png Graphic file (type png)
 <use ./img/img_anex_11_diagrama_paquetes_2.png>
@@ -2182,13 +2187,13 @@ l.133 C
        onfiguración general del proyecto (\emph{settings}) y direccionamien...
  <./img/img_anex_10_diagrama_paquetes_1.png> <./img/img_anex_11_diagrama_paquet
 es_2.png>]
-<./img/img_anex_12_diagrama_paquetes_3.png, id=1287, 719.68875pt x 397.485pt>
+<./img/img_anex_12_diagrama_paquetes_3.png, id=1327, 719.68875pt x 397.485pt>
 File: ./img/img_anex_12_diagrama_paquetes_3.png Graphic file (type png)
 <use ./img/img_anex_12_diagrama_paquetes_3.png>
 Package pdftex.def Info: ./img/img_anex_12_diagrama_paquetes_3.png  used on inp
 ut line 143.
 (pdftex.def)             Requested size: 383.0pt x 211.53941pt.
-<./img/img_anex_13_diagrama_paquetes_4.png, id=1290, 719.68875pt x 416.55624pt>
+<./img/img_anex_13_diagrama_paquetes_4.png, id=1330, 719.68875pt x 416.55624pt>
 
 File: ./img/img_anex_13_diagrama_paquetes_4.png Graphic file (type png)
 <use ./img/img_anex_13_diagrama_paquetes_4.png>
@@ -2205,7 +2210,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.152 ...{Diagrama de paquete \emph{Analysis}.}{1}
                                                    <./img/img_anex_12_diagrama_
 paquetes_3.png>]
-<./img/img_anex_14_diagrama_paquetes_5.png, id=1301, 719.68875pt x 416.55624pt>
+<./img/img_anex_14_diagrama_paquetes_5.png, id=1341, 719.68875pt x 416.55624pt>
 
 File: ./img/img_anex_14_diagrama_paquetes_5.png Graphic file (type png)
 <use ./img/img_anex_14_diagrama_paquetes_5.png>
@@ -2222,7 +2227,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.189 ...Diagrama de paquete \emph{DashBoard}.}{1}
                                                    <./img/img_anex_13_diagrama_
 paquetes_4.png>]
-<./img/img_anex_15_diagrama_paquetes_6.png, id=1310, 719.68875pt x 397.485pt>
+<./img/img_anex_15_diagrama_paquetes_6.png, id=1350, 719.68875pt x 397.485pt>
 File: ./img/img_anex_15_diagrama_paquetes_6.png Graphic file (type png)
 <use ./img/img_anex_15_diagrama_paquetes_6.png>
 Package pdftex.def Info: ./img/img_anex_15_diagrama_paquetes_6.png  used on inp
@@ -2242,7 +2247,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.204 ....png}{Diagrama de paquete \emph{Lab}.}{1}
                                                    <./img/img_anex_14_diagrama_
 paquetes_5.png>]
-<./img/img_anex_16_diagrama_paquetes_7.png, id=1318, 719.68875pt x 282.05376pt>
+<./img/img_anex_16_diagrama_paquetes_7.png, id=1358, 719.68875pt x 282.05376pt>
 
 File: ./img/img_anex_16_diagrama_paquetes_7.png Graphic file (type png)
 <use ./img/img_anex_16_diagrama_paquetes_7.png>
@@ -2266,7 +2271,7 @@ l.221 A
        rchivos para crear y actualizar las bases de datos de los valores. <./im
 g/img_anex_15_diagrama_paquetes_6.png> <./img/img_anex_16_diagrama_paquetes_7.p
 ng>]
-<./img/img_anex_17_diagrama_paquetes_8.png, id=1327, 719.68875pt x 850.17625pt>
+<./img/img_anex_17_diagrama_paquetes_8.png, id=1367, 719.68875pt x 850.17625pt>
 
 File: ./img/img_anex_17_diagrama_paquetes_8.png Graphic file (type png)
 <use ./img/img_anex_17_diagrama_paquetes_8.png>
@@ -2286,14 +2291,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.233 S
        e recomienda el uso de \texttt{coverage} para lanzar los tests. <./img/i
 mg_anex_17_diagrama_paquetes_8.png>]
-<./img/img_anex_18_diagrama_paquetes_9.png, id=1335, 719.68875pt x 282.05376pt>
+<./img/img_anex_18_diagrama_paquetes_9.png, id=1375, 719.68875pt x 282.05376pt>
 
 File: ./img/img_anex_18_diagrama_paquetes_9.png Graphic file (type png)
 <use ./img/img_anex_18_diagrama_paquetes_9.png>
 Package pdftex.def Info: ./img/img_anex_18_diagrama_paquetes_9.png  used on inp
 ut line 240.
 (pdftex.def)             Requested size: 383.0pt x 150.10751pt.
-<./img/img_anex_19_diagrama_paquetes_10.png, id=1336, 719.68875pt x 187.70125pt
+<./img/img_anex_19_diagrama_paquetes_10.png, id=1376, 719.68875pt x 187.70125pt
 >
 File: ./img/img_anex_19_diagrama_paquetes_10.png Graphic file (type png)
 <use ./img/img_anex_19_diagrama_paquetes_10.png>
@@ -2314,14 +2319,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.247 ...iagrama de directorio \emph{htmlcov}.}{1}
                                                    <./img/img_anex_18_diagrama_
 paquetes_9.png>]
-<./img/img_anex_20_diagrama_paquetes_11.png, id=1344, 719.68875pt x 197.73875pt
+<./img/img_anex_20_diagrama_paquetes_11.png, id=1384, 719.68875pt x 197.73875pt
 >
 File: ./img/img_anex_20_diagrama_paquetes_11.png Graphic file (type png)
 <use ./img/img_anex_20_diagrama_paquetes_11.png>
 Package pdftex.def Info: ./img/img_anex_20_diagrama_paquetes_11.png  used on in
 put line 254.
 (pdftex.def)             Requested size: 383.0pt x 105.23552pt.
-<./img/img_anex_21_diagrama_paquetes_12.png, id=1345, 719.68875pt x 699.61375pt
+<./img/img_anex_21_diagrama_paquetes_12.png, id=1385, 719.68875pt x 699.61375pt
 >
 File: ./img/img_anex_21_diagrama_paquetes_12.png Graphic file (type png)
 <use ./img/img_anex_21_diagrama_paquetes_12.png>
@@ -2348,7 +2353,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph3.
 l.271 ...}{Diagrama de directorio \emph{docs}.}{1}
                                                    <./img/img_anex_19_diagrama_
 paquetes_10.png> <./img/img_anex_20_diagrama_paquetes_11.png>]
-<./img/img_anex_22_diagrama_paquetes_13.png, id=1355, 719.68875pt x 167.62625pt
+<./img/img_anex_22_diagrama_paquetes_13.png, id=1395, 719.68875pt x 167.62625pt
 >
 File: ./img/img_anex_22_diagrama_paquetes_13.png Graphic file (type png)
 <use ./img/img_anex_22_diagrama_paquetes_13.png>
@@ -2402,12 +2407,12 @@ LaTeX Info: Redefining \. on input line 132.
 LaTeX Info: Redefining \% on input line 132.
 
 [83]
-<./img/img_anex_23.png, id=1387, 688.07062pt x 292.84406pt>
+<./img/img_anex_23.png, id=1427, 688.07062pt x 292.84406pt>
 File: ./img/img_anex_23.png Graphic file (type png)
 <use ./img/img_anex_23.png>
 Package pdftex.def Info: ./img/img_anex_23.png  used on input line 141.
 (pdftex.def)             Requested size: 383.0pt x 163.00403pt.
-<./img/img_anex_24.png, id=1389, 436.63126pt x 140.77594pt>
+<./img/img_anex_24.png, id=1429, 436.63126pt x 140.77594pt>
 File: ./img/img_anex_24.png Graphic file (type png)
 <use ./img/img_anex_24.png>
 Package pdftex.def Info: ./img/img_anex_24.png  used on input line 145.
@@ -2428,7 +2433,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph4.
 l.151 \textbf{Paso 2. Intalar Python}
                                       <./img/img_anex_23.png> <./img/img_anex_2
 4.png>]
-<./img/img_anex_25.png, id=1398, 740.7675pt x 474.27188pt>
+<./img/img_anex_25.png, id=1438, 740.7675pt x 474.27188pt>
 File: ./img/img_anex_25.png Graphic file (type png)
 <use ./img/img_anex_25.png>
 Package pdftex.def Info: ./img/img_anex_25.png  used on input line 163.
@@ -2443,12 +2448,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph4.
 l.175 E
        s altamente recomendable trabajar con un entorno virtual. Su instalac...
  <./img/img_anex_25.png>]
-<./img/img_anex_26.png, id=1405, 452.4403pt x 118.94438pt>
+<./img/img_anex_26.png, id=1445, 452.4403pt x 118.94438pt>
 File: ./img/img_anex_26.png Graphic file (type png)
 <use ./img/img_anex_26.png>
 Package pdftex.def Info: ./img/img_anex_26.png  used on input line 179.
 (pdftex.def)             Requested size: 383.0pt x 100.68756pt.
-<./img/img_anex_27.png, id=1406, 312.41719pt x 79.04532pt>
+<./img/img_anex_27.png, id=1446, 312.41719pt x 79.04532pt>
 File: ./img/img_anex_27.png Graphic file (type png)
 <use ./img/img_anex_27.png>
 Package pdftex.def Info: ./img/img_anex_27.png  used on input line 201.
@@ -2489,7 +2494,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph4.
 l.244 \begin{verbatim}
                       {C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/enc/d
 vips/lm/lm-mathit.enc} <./img/img_anex_27.png>]
-<./img/img_anex_28.png, id=1422, 331.99031pt x 164.11313pt>
+<./img/img_anex_28.png, id=1462, 331.99031pt x 164.11313pt>
 File: ./img/img_anex_28.png Graphic file (type png)
 <use ./img/img_anex_28.png>
 Package pdftex.def Info: ./img/img_anex_28.png  used on input line 278.
@@ -2512,7 +2517,7 @@ LaTeX Info: Redefining \% on input line 374.
 LaTeX Info: Redefining \. on input line 435.
 LaTeX Info: Redefining \% on input line 435.
  [91]
-<./img/img_anex_29.png, id=1440, 467.49657pt x 242.40562pt>
+<./img/img_anex_29.png, id=1480, 467.49657pt x 242.40562pt>
 File: ./img/img_anex_29.png Graphic file (type png)
 <use ./img/img_anex_29.png>
 Package pdftex.def Info: ./img/img_anex_29.png  used on input line 440.
@@ -2557,12 +2562,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.Alph4.2
                                                   \__shipout_drop_firstpage_...
 l.531 P
        ara lanzar estas pruebas se realiza lo siguiente:]
-<./img/img_anex_30.png, id=1461, 499.11469pt x 143.03438pt>
+<./img/img_anex_30.png, id=1501, 499.11469pt x 143.03438pt>
 File: ./img/img_anex_30.png Graphic file (type png)
 <use ./img/img_anex_30.png>
 Package pdftex.def Info: ./img/img_anex_30.png  used on input line 533.
 (pdftex.def)             Requested size: 383.0pt x 109.7614pt.
-<./img/img_anex_31.png, id=1462, 524.71031pt x 252.945pt>
+<./img/img_anex_31.png, id=1502, 524.71031pt x 252.945pt>
 File: ./img/img_anex_31.png Graphic file (type png)
 <use ./img/img_anex_31.png>
 Package pdftex.def Info: ./img/img_anex_31.png  used on input line 537.
@@ -2591,28 +2596,358 @@ nex_31.png>]
 
 
 
-] [97])
+] [97]
+<./img/img_anex_32_usuario_01.png, id=1523, 652.4375pt x 572.1375pt>
+File: ./img/img_anex_32_usuario_01.png Graphic file (type png)
+<use ./img/img_anex_32_usuario_01.png>
+Package pdftex.def Info: ./img/img_anex_32_usuario_01.png  used on input line 2
+8.
+(pdftex.def)             Requested size: 383.0pt x 335.87328pt.
+LaTeX Info: Redefining \. on input line 34.
+LaTeX Info: Redefining \% on input line 34.
+ [98
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.34 \subsection
+                {Registro y \emph{login}} <./img/img_anex_32_usuario_01.png>]
+<./img/img_anex_33_usuario_02.png, id=1530, 635.37375pt x 425.59pt>
+File: ./img/img_anex_33_usuario_02.png Graphic file (type png)
+<use ./img/img_anex_33_usuario_02.png>
+Package pdftex.def Info: ./img/img_anex_33_usuario_02.png  used on input line 4
+8.
+(pdftex.def)             Requested size: 383.0pt x 256.55084pt.
+LaTeX Info: Redefining \. on input line 50.
+LaTeX Info: Redefining \% on input line 50.
+
+[99
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.50 \newpage
+              <./img/img_anex_33_usuario_02.png>]
+<./img/img_anex_34_usuario_03.png, id=1537, 632.3625pt x 455.7025pt>
+File: ./img/img_anex_34_usuario_03.png Graphic file (type png)
+<use ./img/img_anex_34_usuario_03.png>
+Package pdftex.def Info: ./img/img_anex_34_usuario_03.png  used on input line 5
+4.
+(pdftex.def)             Requested size: 383.0pt x 276.01028pt.
+<./img/img_anex_35_usuario_04.png, id=1538, 629.35126pt x 602.25pt>
+File: ./img/img_anex_35_usuario_04.png Graphic file (type png)
+<use ./img/img_anex_35_usuario_04.png>
+Package pdftex.def Info: ./img/img_anex_35_usuario_04.png  used on input line 7
+4.
+(pdftex.def)             Requested size: 383.0pt x 366.50813pt.
+LaTeX Info: Redefining \. on input line 74.
+LaTeX Info: Redefining \% on input line 74.
+ [100
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.74 ...io_04.png}{Consultar índice bursátil}{1}
+                                                   <./img/img_anex_34_usuario_0
+3.png>]
+<./img/img_anex_36_usuario_05.png, id=1545, 632.3625pt x 755.82375pt>
+File: ./img/img_anex_36_usuario_05.png Graphic file (type png)
+<use ./img/img_anex_36_usuario_05.png>
+Package pdftex.def Info: ./img/img_anex_36_usuario_05.png  used on input line 8
+1.
+(pdftex.def)             Requested size: 383.0pt x 457.788pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 81.
+LaTeX Info: Redefining \% on input line 81.
+[101
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.81 ...nex_36_usuario_05.png}{Consultar valor}{1}
+                                                   <./img/img_anex_35_usuario_0
+4.png>]
+<./img/img_anex_37_usuario_06.png, id=1553, 634.37pt x 371.3875pt>
+File: ./img/img_anex_37_usuario_06.png Graphic file (type png)
+<use ./img/img_anex_37_usuario_06.png>
+Package pdftex.def Info: ./img/img_anex_37_usuario_06.png  used on input line 8
+6.
+(pdftex.def)             Requested size: 383.0pt x 224.22827pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+[102
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.86 ...nex_37_usuario_06.png}{Consultar valor}{1}
+                                                   <./img/img_anex_36_usuario_0
+5.png>]
+<./img/img_anex_38_usuario_07.png, id=1560, 1050.92625pt x 387.69844pt>
+File: ./img/img_anex_38_usuario_07.png Graphic file (type png)
+<use ./img/img_anex_38_usuario_07.png>
+Package pdftex.def Info: ./img/img_anex_38_usuario_07.png  used on input line 9
+0.
+(pdftex.def)             Requested size: 383.0pt x 141.29282pt.
+<./img/img_anex_39_usuario_08.png, id=1561, 638.385pt x 461.725pt>
+File: ./img/img_anex_39_usuario_08.png Graphic file (type png)
+<use ./img/img_anex_39_usuario_08.png>
+Package pdftex.def Info: ./img/img_anex_39_usuario_08.png  used on input line 9
+4.
+(pdftex.def)             Requested size: 383.0pt x 277.016pt.
+
+Underfull \vbox (badness 2057) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+ [103
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.94 ...nex_39_usuario_08.png}{Consultar valor}{1}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.94 ...nex_39_usuario_08.png}{Consultar valor}{1}
+                                                   <./img/img_anex_37_usuario_0
+6.png> <./img/img_anex_38_usuario_07.png>]
+<./img/img_anex_40_usuario_09.png, id=1569, 1050.92625pt x 338.76563pt>
+File: ./img/img_anex_40_usuario_09.png Graphic file (type png)
+<use ./img/img_anex_40_usuario_09.png>
+Package pdftex.def Info: ./img/img_anex_40_usuario_09.png  used on input line 1
+01.
+(pdftex.def)             Requested size: 344.69766pt x 111.11067pt.
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
+ [104
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.105 P
+       ara añadir valores a nuestra cartera o eliminarlos sólo tenemos que...
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.105 P
+       ara añadir valores a nuestra cartera o eliminarlos sólo tenemos que...
+ <./img/img_anex_39_usuario_08.png> <./img/img_anex_40_usuario_09.png>]
+<./img/img_anex_41_usuario_10.png, id=1577, 630.355pt x 645.41125pt>
+File: ./img/img_anex_41_usuario_10.png Graphic file (type png)
+<use ./img/img_anex_41_usuario_10.png>
+Package pdftex.def Info: ./img/img_anex_41_usuario_10.png  used on input line 1
+07.
+(pdftex.def)             Requested size: 383.0pt x 392.14429pt.
+LaTeX Info: Redefining \. on input line 110.
+LaTeX Info: Redefining \% on input line 110.
+
+[105
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.110 
+       <./img/img_anex_41_usuario_10.png>]
+<./img/img_anex_42_usuario_11.png, id=1583, 852.18375pt x 626.34pt>
+File: ./img/img_anex_42_usuario_11.png Graphic file (type png)
+<use ./img/img_anex_42_usuario_11.png>
+Package pdftex.def Info: ./img/img_anex_42_usuario_11.png  used on input line 1
+13.
+(pdftex.def)             Requested size: 383.0pt x 281.50633pt.
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
+ [106
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.115 \newpage
+               <./img/img_anex_42_usuario_11.png>]
+<./img/img_anex_43_usuario_12.png, id=1589, 632.3625pt x 281.05pt>
+File: ./img/img_anex_43_usuario_12.png Graphic file (type png)
+<use ./img/img_anex_43_usuario_12.png>
+Package pdftex.def Info: ./img/img_anex_43_usuario_12.png  used on input line 1
+18.
+(pdftex.def)             Requested size: 383.0pt x 170.2266pt.
+<./img/img_anex_44_usuario_13.png, id=1590, 632.3625pt x 291.0875pt>
+File: ./img/img_anex_44_usuario_13.png Graphic file (type png)
+<use ./img/img_anex_44_usuario_13.png>
+Package pdftex.def Info: ./img/img_anex_44_usuario_13.png  used on input line 1
+23.
+(pdftex.def)             Requested size: 383.0pt x 176.30612pt.
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
+ [107
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+12}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.128 P
+       ara añadir o eliminar valores en seguimiento haremos un proceso simi...
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+13}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.128 P
+       ara añadir o eliminar valores en seguimiento haremos un proceso simi...
+ <./img/img_anex_43_usuario_12.png> <./img/img_anex_44_usuario_13.png>]
+<./img/img_anex_45_usuario_14.png, id=1598, 636.3775pt x 612.2875pt>
+File: ./img/img_anex_45_usuario_14.png Graphic file (type png)
+<use ./img/img_anex_45_usuario_14.png>
+Package pdftex.def Info: ./img/img_anex_45_usuario_14.png  used on input line 1
+30.
+(pdftex.def)             Requested size: 383.0pt x 368.49646pt.
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
+
+[108
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+14}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.132 \newpage
+               <./img/img_anex_45_usuario_14.png>]
+<./img/img_anex_46_usuario_15.png, id=1604, 985.6825pt x 646.415pt>
+File: ./img/img_anex_46_usuario_15.png Graphic file (type png)
+<use ./img/img_anex_46_usuario_15.png>
+Package pdftex.def Info: ./img/img_anex_46_usuario_15.png  used on input line 1
+37.
+(pdftex.def)             Requested size: 383.0pt x 251.17366pt.
+<./img/img_anex_47_usuario_16.png, id=1605, 987.69pt x 1587.9325pt>
+File: ./img/img_anex_47_usuario_16.png Graphic file (type png)
+<use ./img/img_anex_47_usuario_16.png>
+Package pdftex.def Info: ./img/img_anex_47_usuario_16.png  used on input line 1
+43.
+(pdftex.def)             Requested size: 383.0pt x 615.75363pt.
+
+
+LaTeX Warning: Float too large for page by 69.58694pt on input line 143.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+[109
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+15}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.143 ...ex_47_usuario_16.png}{Usar ACF y PACF}{1}
+                                                   <./img/img_anex_46_usuario_1
+5.png>]
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+ [110
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+16}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.143 ...ex_47_usuario_16.png}{Usar ACF y PACF}{1}
+                                                   <./img/img_anex_47_usuario_1
+6.png>]
+LaTeX Info: Redefining \. on input line 161.
+LaTeX Info: Redefining \% on input line 161.
+ [111
+
+]
+<./img/img_anex_48_usuario_17.png, id=1621, 571.13374pt x 582.175pt>
+File: ./img/img_anex_48_usuario_17.png Graphic file (type png)
+<use ./img/img_anex_48_usuario_17.png>
+Package pdftex.def Info: ./img/img_anex_48_usuario_17.png  used on input line 1
+64.
+(pdftex.def)             Requested size: 383.0pt x 390.40167pt.
+LaTeX Info: Redefining \. on input line 166.
+LaTeX Info: Redefining \% on input line 166.
+ [112
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+17}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.166 \newpage
+               <./img/img_anex_48_usuario_17.png>]
+<./img/img_anex_49_usuario_18.png, id=1627, 1006.76125pt x 1397.22pt>
+File: ./img/img_anex_49_usuario_18.png Graphic file (type png)
+<use ./img/img_anex_49_usuario_18.png>
+Package pdftex.def Info: ./img/img_anex_49_usuario_18.png  used on input line 1
+69.
+(pdftex.def)             Requested size: 363.84883pt x 504.96025pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 175.
+LaTeX Info: Redefining \% on input line 175.
+ [113
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+18}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.175 A
+       lgoritmo de cruce de medias. <./img/img_anex_49_usuario_18.png>]
+<./img/img_anex_50_usuario_19.png, id=1634, 636.3775pt x 537.00626pt>
+File: ./img/img_anex_50_usuario_19.png Graphic file (type png)
+<use ./img/img_anex_50_usuario_19.png>
+Package pdftex.def Info: ./img/img_anex_50_usuario_19.png  used on input line 1
+83.
+(pdftex.def)             Requested size: 344.69766pt x 290.87221pt.
+LaTeX Info: Redefining \. on input line 186.
+LaTeX Info: Redefining \% on input line 186.
+
+[114
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+19}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.186 
+       <./img/img_anex_50_usuario_19.png>]
+<./img/img_anex_51_usuario_20.png, id=1640, 569.87906pt x 564.60938pt>
+File: ./img/img_anex_51_usuario_20.png Graphic file (type png)
+<use ./img/img_anex_51_usuario_20.png>
+Package pdftex.def Info: ./img/img_anex_51_usuario_20.png  used on input line 1
+87.
+(pdftex.def)             Requested size: 383.0pt x 379.45798pt.
+)
 LaTeX Info: Redefining \. on input line 469.
 LaTeX Info: Redefining \% on input line 469.
- [98]
+ [115
+pdfTeX warning (ext4): destination with the same identifier (name{figure.Alph5.
+20}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.469 \include{./tex/E_Manual_usuario}
+                                       <./img/img_anex_51_usuario_20.png>]
 \openout2 = `./tex/F_ODS.aux'.
 
- (tex/F_ODS.tex
-Underfull \vbox (badness 1888) has occurred while \output is active []
 
- [99
+(tex/F_ODS.tex [116
 
 
 
 
 ]
+Underfull \vbox (badness 1888) has occurred while \output is active []
+
+ [117]
 LaTeX Info: Redefining \. on input line 39.
 LaTeX Info: Redefining \% on input line 39.
 
-[100])
+[118])
 LaTeX Info: Redefining \. on input line 470.
 LaTeX Info: Redefining \% on input line 470.
- [101] (anexos.bbl [102
+ [119] (anexos.bbl [120
 
 
 
@@ -2628,16 +2963,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--14
 ref = chooser -[] v1$[][]\T1/lmr/m/n/12 (+20) ,
  []
 
-) [103]
+) [121]
 
 pdfTeX warning: pdflatex (file ./img/licencia.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<./img/licencia.pdf, id=1528, 597.23125pt x 845.1575pt>
+<./img/licencia.pdf, id=1691, 597.23125pt x 845.1575pt>
 File: ./img/licencia.pdf Graphic file (type pdf)
 <use ./img/licencia.pdf>
 Package pdftex.def Info: ./img/licencia.pdf  used on input line 483.
 (pdftex.def)             Requested size: 113.81102pt x 161.04585pt.
-[104 <./img/licencia.pdf>]
+[122 <./img/licencia.pdf>]
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
@@ -2672,14 +3007,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `anexos.out' has not changed.
-(rerunfilecheck)             Checksum: 5151478784BA64029828D20853FD5CBA;5387.
+(rerunfilecheck)             Checksum: ACFE9441B90725E74E02C2BDBFF8C213;5387.
  ) 
 Here is how much of TeX's memory you used:
- 21729 strings out of 474591
- 358138 string characters out of 5745778
+ 21978 strings out of 474591
+ 366054 string characters out of 5745778
  2096533 words of memory out of 5000000
- 42748 multiletter control sequences out of 15000+600000
- 674596 words of font info for 238 fonts, out of 8000000 for 9000
+ 42948 multiletter control sequences out of 15000+600000
+ 674790 words of font info for 240 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,13n,95p,1005b,849s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
@@ -2700,9 +3035,9 @@ C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><
 C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C
 :/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C
 :/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on anexos.pdf (112 pages, 1814755 bytes).
+Output written on anexos.pdf (130 pages, 3298759 bytes).
 PDF statistics:
- 1723 PDF objects out of 1728 (max. 8388607)
- 486 named destinations out of 1000 (max. 500000)
- 65963 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1895 PDF objects out of 2073 (max. 8388607)
+ 531 named destinations out of 1000 (max. 500000)
+ 66063 words of extra memory for PDF output out of 74296 (max. 10000000)
 

@@ -51,14 +51,14 @@
 
 {% if regresion_lineal %}
   <div style="width: 80%; margin: 0 auto; text-align: center;">
-    <p class="barra">Resultados regresión lineal</p>
+    <p class="barra">Resultados regresión lineal para el {{ indice }}</p>
   </div>
     {% include 'includes/_tablas_ML.html' %}
 {% endif %}
 
 {% if clasificacion %}
   <div style="width: 80%; margin: 0 auto; text-align: center;">
-    <p class="barra">Resultados clasificación</p>
+    <p class="barra">Resultados clasificación para el {{ indice }}</p>
   </div>
     {% include 'includes/_tablas_ML.html' %}
 {% endif %}

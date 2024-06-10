@@ -575,8 +575,8 @@ def _generar_correlaciones(ticker_objetivo):
     for ticker in tickers:
         bd = obtener_nombre_bd(ticker)
         model = apps.get_model('Analysis', ticker)
-        # Útimas 22 sesiones en precios de cierre, aprox. 1 mes
-        entradas = model.objects.using(bd).order_by('-date')[:22].values('date', 'close')
+        # Útimas 252 sesiones en precios de cierre, aprox. 1 año
+        entradas = model.objects.using(bd).order_by('-date')[:252].values('date', 'close')
         # Convierto a lista de tuplas para separar después
         fechas_cierres = [(ent['date'], ent['close']) for ent in entradas]
         # Separo la info de las tuplas
@@ -608,7 +608,8 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
             sesiones (aprox. un mes).
             
         tickers : list
-            Lista de tickers disponibles.
+            Lista de tickers disponibles (se pueden usar si se quiere trabajar
+            con umbrales de correlación).
 
         ticker_objetivo : str
             Ticker del que se quieren obtener las correlaciones.
@@ -626,24 +627,51 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
     grafo_correl_negativa = nx.Graph()
     grafo_correl_negativa.add_nodes_from(tickers_disponibles())
 
-    # Añado los enlaces con su peso (el valor de correlación)
-    for ticker in tickers:
+    # Obtención de los 10 mayores valores de correlación positiva (se 
+    # ponen 11 porque la mayor correlación positiva será el propio ticker)
+    correl_positivas = matriz_correl.loc[ticker_objetivo].nlargest(11)
+    tickers_correl_positivas = correl_positivas.index.to_list()
+
+    # Obtención de los 10 valores de mayor correlación negativa
+    correl_negativas = matriz_correl.loc[ticker_objetivo].nsmallest(10)
+    tickers_correl_negativas = correl_negativas.index.to_list()
+
+    for ticker in tickers_correl_positivas:
         # Para no generar enlaces recursivos
         if ticker != ticker_objetivo:
             peso_correl = matriz_correl.loc[ticker_objetivo, ticker]
-            # Solo correlación positiva:
-            if peso_correl > 0.75:
-                # Redondeo los pesos para que se vea mejor en el grafo
-                # si lo llego a mostrar
-                grafo_correl_positiva.add_edge(ticker_objetivo.replace("_", "."),
-                                               ticker.replace("_", "."),
-                                               weight=round(peso_correl, 3))
-            if peso_correl < -0.75:
-                # Redondeo los pesos para que se vea mejor en el grafo
-                # si lo llego a mostrar
-                grafo_correl_negativa.add_edge(ticker_objetivo.replace("_", "."),
-                                               ticker.replace("_", "."),
-                                               weight=round(peso_correl, 3))
+            grafo_correl_positiva.add_edge(ticker_objetivo.replace("_", "."),
+                                           ticker.replace("_", "."),
+                                           weight=round(peso_correl, 3))
+    
+    for ticker in tickers_correl_negativas:
+        # Para no generar enlaces recursivos (aunque en corr. negativa no lo habrá)
+        if ticker != ticker_objetivo:
+            peso_correl = matriz_correl.loc[ticker_objetivo, ticker]
+            grafo_correl_negativa.add_edge(ticker_objetivo.replace("_", "."),
+                                           ticker.replace("_", "."),
+                                           weight=round(peso_correl, 3))
+
+    # Para usar umbrales de correlación:
+    # ----------------------------------
+    # Añado los enlaces con su peso (el valor de correlación)
+    # for ticker in tickers:
+    #     # Para no generar enlaces recursivos
+    #     if ticker != ticker_objetivo:
+    #         peso_correl = matriz_correl.loc[ticker_objetivo, ticker]
+    #         # Solo correlación positiva:
+    #         if peso_correl > 0.75:
+    #             # Redondeo los pesos para que se vea mejor en el grafo
+    #             # si lo llego a mostrar
+    #             grafo_correl_positiva.add_edge(ticker_objetivo.replace("_", "."),
+    #                                            ticker.replace("_", "."),
+    #                                            weight=round(peso_correl, 3))
+    #         if peso_correl < -0.75:
+    #             # Redondeo los pesos para que se vea mejor en el grafo
+    #             # si lo llego a mostrar
+    #             grafo_correl_negativa.add_edge(ticker_objetivo.replace("_", "."),
+    #                                            ticker.replace("_", "."),
+    #                                            weight=round(peso_correl, 3))
 
     # Elimino todos aquellos nodos que no tengan un enlace
     for ticker in tickers_disponibles():
@@ -661,14 +689,14 @@ def _crear_grafos(matriz_correl, tickers, ticker_objetivo):
 
     pos = nx.circular_layout(grafo_correl_positiva)
     nx.draw_networkx(grafo_correl_positiva, pos, with_labels=True, node_size=1000,
-                     font_size=8, node_color='skyblue', font_color='black', ax=axes[0])
-    axes[0].set_title("Alta correlación positiva en \núltimo mes (precios de cierre)", fontsize=10)
+                     font_size=8, node_color='lightgreen', font_color='black', ax=axes[0])
+    axes[0].set_title("Valores que han evolucionado \nde manera similar en el último año", fontsize=10)
     axes[0].axis('off')
 
     pos = nx.circular_layout(grafo_correl_negativa)
     nx.draw_networkx(grafo_correl_negativa, pos, with_labels=True, node_size=1000,
-                     font_size=8, node_color='red', font_color='black', ax=axes[1])
-    axes[1].set_title("Alta correlación negativa en \núltimo mes (precios de cierre)", fontsize=10)
+                     font_size=8, node_color='lightcoral', font_color='black', ax=axes[1])
+    axes[1].set_title("Valores que han evolucionado \nde manera inversa en el último año", fontsize=10)
     axes[1].axis('off')
 
     # Aumento la separación vertical entre subplots
@@ -731,7 +759,7 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
 
     # FIGURAS
     # -------
-    _, axes = plt.subplots(2, 1, figsize=(7, 10))
+    _, axes = plt.subplots(1, 2, figsize=(15, 7))
     buffer = BytesIO()
 
     # FIG 1
@@ -767,7 +795,11 @@ def _generar_graficas_comparacion(ticker, ticker_a_comparar):
     axes[1].legend()
 
     # Aumentar distancia vertical entre figuras
-    plt.subplots_adjust(hspace=0.4)
+    # plt.subplots_adjust(hspace=0.4)
+
+    # Ajustar el ancho de las figuras
+    # for ax in axes:
+    #     ax.set_width(0.5)
 
     # Ajusto los bins y etiquetas
     for ax in axes:
@@ -959,7 +991,7 @@ def _distribucion_retornos_ult_252_sesiones(ticker):
     buffer = BytesIO()
     plt.hist(df_ticker['percent_variance'], bins=10)
     plt.xlabel('Retorno (variación diaria en %)')
-    plt.title(f'Distribución de retornos de {nombre} en el último año')
+    plt.title(f'Retornos {nombre}')
     plt.savefig(buffer, format="PNG")
     plt.close()
 
