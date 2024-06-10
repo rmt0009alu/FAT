@@ -1,9 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{1998IEEESpecifications}
-{IEEE Recommended Practice for Software Requirements Specifications}.
-\newblock {\em IEEE Std 830-1998}, pages 1--40, 1998.
-
 \bibitem{online:licencia}
 Creatice commons.
 \newblock \emph{Licencia CC BY-NC-SA 4.0}.
@@ -41,6 +37,11 @@ Pivit Inc.
 \newblock \emph{Zube}.
 \newblock \url{https://zube.io/}, 2024.
 \newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{1998IEEESpecifications}
+Institute of~Electrical and Electronics Engineers.
+\newblock {IEEE Recommended Practice for Software Requirements Specifications}.
+\newblock {\em IEEE Std 830-1998}, pages 1--40, 1998.
 
 \bibitem{wiki:cron}
 Wikipedia.

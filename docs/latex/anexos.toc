@@ -2,93 +2,94 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{\'{I}ndice general}{\es@scroman {i}}{section*.1}%
 \contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iii}}{section*.2}%
-\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {v}}{section*.3}%
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {vi}}{section*.3}%
 \contentsline {appendix}{\chapternumberline {A}Plan de Proyecto Software}{1}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Introducción}{1}{section.Alph1.1}%
 \contentsline {section}{\numberline {A.2}Planificación temporal}{1}{section.Alph1.2}%
 \contentsline {subsection}{Sprints}{2}{section*.4}%
 \contentsline {subsubsection}{Sprint 0. Presentación inicial a tutores del TFG}{2}{section*.5}%
-\contentsline {subsubsection}{Sprint 1. Empezar TFG con selección de herramientas adecuadas}{2}{section*.6}%
-\contentsline {subsubsection}{Sprint 2. Mostrar primeras tablas y gráficos en servidor web}{3}{section*.7}%
-\contentsline {subsubsection}{Sprint 3. Mejorar lógica de web y proteger enlaces con registro. Mostrar gráficos y dar primeros estilos}{4}{section*.8}%
-\contentsline {subsubsection}{Sprint 4. Manejar imágenes estáticas. Añadir base de datos de DJ30 y buscar método para auto-actualizar las BDs}{4}{section*.9}%
-\contentsline {subsubsection}{Sprint 5. Añadir un carrusel de noticias y cambiar el acceso a las BDs. Incorporar tests y mejorar los logs}{5}{section*.10}%
-\contentsline {subsubsection}{Sprint 6. Añadir un \emph {dashboard} para almacenar y controlar una cartera por parte del usuario. Operaciones CRUD en BDs}{5}{section*.11}%
-\contentsline {subsubsection}{Sprint 7. Refactoring y testing. Poder eliminar stocks en seguimiento desde el DashBoard.}{6}{section*.12}%
-\contentsline {subsubsection}{Sprint 8. Correlaciones entre valores con NetworkX}{7}{section*.13}%
-\contentsline {subsubsection}{Sprint 9. Aplicación de modelos. \emph {Forecasting} para series temporales}{8}{section*.14}%
-\contentsline {subsubsection}{Sprint 10. Documentación y limpieza de código y avanzar considerablemente en la memoria.}{8}{section*.15}%
-\contentsline {subsubsection}{Sprint 11. Gráfica de Markowitz con frontera efciente y ratio de Sharpe. Mejoras visuales.}{9}{section*.16}%
-\contentsline {subsubsection}{Sprint 12. Mejorar gráficas ARIMA. Incluir estrategias basadas en \emph {machine learning}}{10}{section*.17}%
-\contentsline {subsubsection}{Sprint 13. Finalizar memoria. Empezar anexos. Correcciones en plantillas y en \emph {cron} de servidor web}{11}{section*.18}%
-\contentsline {section}{\numberline {A.3}Estudio de viabilidad}{11}{section.Alph1.3}%
-\contentsline {subsection}{Viabilidad económica}{11}{section*.19}%
-\contentsline {subsubsection}{Estudio de costes}{12}{section*.20}%
-\contentsline {subsubsection}{Análisis de beneficios}{13}{section*.21}%
-\contentsline {subsection}{Viabilidad legal}{13}{section*.22}%
-\contentsline {subsubsection}{Descargo de responsabilidades}{13}{section*.23}%
-\contentsline {subsubsection}{Licencias \emph {software}}{14}{section*.24}%
-\contentsline {subsubsection}{Consideraciones adicionales}{15}{section*.25}%
-\contentsline {appendix}{\chapternumberline {B}Especificación de Requisitos}{17}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Introducción}{17}{section.Alph2.1}%
-\contentsline {section}{\numberline {B.2}Objetivos generales}{18}{section.Alph2.2}%
-\contentsline {section}{\numberline {B.3}Catálogo de requisitos}{18}{section.Alph2.3}%
-\contentsline {subsection}{Requisitos funcionales}{18}{section*.26}%
-\contentsline {subsection}{Requisitos no funcionales}{21}{section*.27}%
-\contentsline {section}{\numberline {B.4}Especificación de requisitos}{21}{section.Alph2.4}%
-\contentsline {subsection}{Casos de uso}{21}{section*.28}%
-\contentsline {appendix}{\chapternumberline {C}Especificación de diseño}{59}{appendix.Alph3}%
-\contentsline {section}{\numberline {C.1}Introducción}{59}{section.Alph3.1}%
-\contentsline {section}{\numberline {C.2}Diseño de datos}{59}{section.Alph3.2}%
-\contentsline {section}{\numberline {C.3}Diseño procedimental}{64}{section.Alph3.3}%
-\contentsline {subsection}{Diagrama de secuencias \emph {News} y \emph {Analysis}}{64}{section*.31}%
-\contentsline {section}{\numberline {C.4}Diseño arquitectónico}{66}{section.Alph3.4}%
-\contentsline {subsection}{Patrón MVT}{66}{section*.34}%
-\contentsline {subsection}{Patrón \emph {Repository}}{67}{section*.35}%
-\contentsline {subsection}{Patrón \emph {Factory}}{68}{section*.36}%
-\contentsline {subsection}{Patrón \emph {Strategy}}{69}{section*.37}%
-\contentsline {subsection}{Diagramas de paquetes y directorios}{69}{section*.38}%
-\contentsline {subsubsection}{Directorio general de todo el proyecto. Distribución de paquetes}{70}{section*.39}%
-\contentsline {subsubsection}{Paquete \emph {FAT}}{70}{section*.40}%
-\contentsline {subsubsection}{Paquete \emph {News}}{71}{section*.41}%
-\contentsline {subsubsection}{Paquete \emph {Analysis}}{72}{section*.42}%
-\contentsline {subsubsection}{Paquete \emph {DashBoard}}{72}{section*.43}%
-\contentsline {subsection}{Paquete \emph {Lab}}{73}{section*.44}%
-\contentsline {subsection}{Paquete \emph {util}}{74}{section*.45}%
-\contentsline {subsection}{Directorio \emph {tests}}{75}{section*.46}%
-\contentsline {subsection}{Directorio \emph {log}}{76}{section*.47}%
-\contentsline {subsection}{Directorio \emph {htmlcov}}{76}{section*.48}%
-\contentsline {subsection}{Directorio \emph {databases}}{77}{section*.49}%
-\contentsline {subsection}{Directorio \emph {docs}}{77}{section*.50}%
-\contentsline {subsection}{Directorio \emph {.github}}{78}{section*.51}%
-\contentsline {appendix}{\chapternumberline {D}Documentación técnica de programación}{81}{appendix.Alph4}%
-\contentsline {section}{\numberline {D.1}Introducción}{81}{section.Alph4.1}%
-\contentsline {section}{\numberline {D.2}Estructura de directorios}{81}{section.Alph4.2}%
-\contentsline {section}{\numberline {D.3}Manual del programador}{83}{section.Alph4.3}%
-\contentsline {section}{\numberline {D.4}Pruebas del sistema}{92}{section.Alph4.4}%
-\contentsline {subsection}{Tests unitarios}{92}{section*.52}%
-\contentsline {subsection}{Pruebas de integración}{93}{section*.53}%
-\contentsline {subsection}{Pruebas de interfaz}{94}{section*.54}%
-\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{97}{appendix.Alph5}%
-\contentsline {section}{\numberline {E.1}Introducción}{97}{section.Alph5.1}%
-\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{97}{section.Alph5.2}%
-\contentsline {subsection}{Uso en web}{97}{section*.55}%
-\contentsline {subsection}{Uso en entorno local}{97}{section*.56}%
-\contentsline {section}{\numberline {E.3}Instalación}{98}{section.Alph5.3}%
-\contentsline {section}{\numberline {E.4}Manual del usuario}{98}{section.Alph5.4}%
-\contentsline {subsection}{Página principal}{98}{section*.57}%
-\contentsline {subsection}{Registro y \emph {login}}{99}{section*.58}%
-\contentsline {subsection}{Consultar un índice bursátil}{100}{section*.59}%
-\contentsline {subsection}{Consultar un valor}{101}{section*.60}%
-\contentsline {subsection}{Utilizar el \emph {DashBoard}}{104}{section*.61}%
-\contentsline {subsection}{Utilizar el \emph {Lab}}{109}{section*.62}%
-\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{117}{appendix.Alph6}%
-\contentsline {section}{\numberline {F.1}Introducción}{117}{section.Alph6.1}%
-\contentsline {section}{\numberline {F.2}Competencias en sostenibilidad adquiridas}{117}{section.Alph6.2}%
-\contentsline {subsection}{Economía sostenible}{117}{section*.63}%
-\contentsline {subsection}{Innovación y desarrollo tecnológico}{118}{section*.64}%
-\contentsline {section}{\numberline {F.3}Impacto social y ambiental}{118}{section.Alph6.3}%
-\contentsline {subsection}{Educación financiera}{118}{section*.65}%
-\contentsline {subsection}{Licencia libre y repositorio público}{118}{section*.66}%
-\contentsline {subsection}{Documentación del proyecto}{119}{section*.67}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{121}{appendix*.68}%
+\contentsline {subsubsection}{Sprint 1. Empezar TFG con selección de herramientas adecuadas}{3}{section*.6}%
+\contentsline {subsubsection}{Sprint 2. Mostrar primeras tablas y gráficos en servidor web}{4}{section*.7}%
+\contentsline {subsubsection}{Sprint 3. Mejorar lógica de web y proteger enlaces con registro. Mostrar gráficos y dar primeros estilos}{5}{section*.8}%
+\contentsline {subsubsection}{Sprint 4. Manejar imágenes estáticas. Añadir base de datos de DJ30 y buscar método para auto-actualizar las BDs}{6}{section*.9}%
+\contentsline {subsubsection}{Sprint 5. Añadir un carrusel de noticias y cambiar el acceso a las BDs. Incorporar tests y mejorar los logs}{7}{section*.10}%
+\contentsline {subsubsection}{Sprint 6. Añadir un \emph {dashboard} para almacenar y controlar una cartera por parte del usuario. Operaciones CRUD en BDs}{8}{section*.11}%
+\contentsline {subsubsection}{Sprint 7. Refactoring y testing. Poder eliminar stocks en seguimiento desde el DashBoard.}{9}{section*.12}%
+\contentsline {subsubsection}{Sprint 8. Correlaciones entre valores con NetworkX}{10}{section*.13}%
+\contentsline {subsubsection}{Sprint 9. Aplicación de modelos. \emph {Forecasting} para series temporales}{12}{section*.14}%
+\contentsline {subsubsection}{Sprint 10. Documentación y limpieza de código y avanzar considerablemente en la memoria.}{13}{section*.15}%
+\contentsline {subsubsection}{Sprint 11. Gráfica de Markowitz con frontera efciente y ratio de Sharpe. Mejoras visuales.}{14}{section*.16}%
+\contentsline {subsubsection}{Sprint 12. Mejorar gráficas ARIMA. Incluir estrategias basadas en \emph {machine learning}}{15}{section*.17}%
+\contentsline {subsubsection}{Sprint 13. Finalizar memoria. Empezar anexos. Correcciones en plantillas y en \emph {cron} de servidor web}{16}{section*.18}%
+\contentsline {subsubsection}{Sprint 14. Finalizar anexos. Grabar vídeos. Realizar pequeñas mejoras}{17}{section*.19}%
+\contentsline {section}{\numberline {A.3}Estudio de viabilidad}{18}{section.Alph1.3}%
+\contentsline {subsection}{Viabilidad económica}{18}{section*.20}%
+\contentsline {subsubsection}{Estudio de costes}{18}{section*.21}%
+\contentsline {subsubsection}{Análisis de beneficios}{20}{section*.22}%
+\contentsline {subsection}{Viabilidad legal}{20}{section*.23}%
+\contentsline {subsubsection}{Descargo de responsabilidades}{20}{section*.24}%
+\contentsline {subsubsection}{Licencias \emph {software}}{20}{section*.25}%
+\contentsline {subsubsection}{Consideraciones adicionales}{21}{section*.26}%
+\contentsline {appendix}{\chapternumberline {B}Especificación de Requisitos}{23}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Introducción}{23}{section.Alph2.1}%
+\contentsline {section}{\numberline {B.2}Objetivos generales}{24}{section.Alph2.2}%
+\contentsline {section}{\numberline {B.3}Catálogo de requisitos}{24}{section.Alph2.3}%
+\contentsline {subsection}{Requisitos funcionales}{24}{section*.27}%
+\contentsline {subsection}{Requisitos no funcionales}{27}{section*.28}%
+\contentsline {section}{\numberline {B.4}Especificación de requisitos}{27}{section.Alph2.4}%
+\contentsline {subsection}{Casos de uso}{27}{section*.29}%
+\contentsline {appendix}{\chapternumberline {C}Especificación de diseño}{65}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Introducción}{65}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Diseño de datos}{65}{section.Alph3.2}%
+\contentsline {section}{\numberline {C.3}Diseño procedimental}{70}{section.Alph3.3}%
+\contentsline {subsection}{Diagrama de secuencias \emph {News} y \emph {Analysis}}{70}{section*.32}%
+\contentsline {section}{\numberline {C.4}Diseño arquitectónico}{72}{section.Alph3.4}%
+\contentsline {subsection}{Patrón MVT}{72}{section*.35}%
+\contentsline {subsection}{Patrón \emph {Repository}}{73}{section*.36}%
+\contentsline {subsection}{Patrón \emph {Factory}}{74}{section*.37}%
+\contentsline {subsection}{Patrón \emph {Strategy}}{75}{section*.38}%
+\contentsline {subsection}{Diagramas de paquetes y directorios}{75}{section*.39}%
+\contentsline {subsubsection}{Directorio general de todo el proyecto. Distribución de paquetes}{76}{section*.40}%
+\contentsline {subsubsection}{Paquete \emph {FAT}}{76}{section*.41}%
+\contentsline {subsubsection}{Paquete \emph {News}}{77}{section*.42}%
+\contentsline {subsubsection}{Paquete \emph {Analysis}}{78}{section*.43}%
+\contentsline {subsubsection}{Paquete \emph {DashBoard}}{78}{section*.44}%
+\contentsline {subsection}{Paquete \emph {Lab}}{79}{section*.45}%
+\contentsline {subsection}{Paquete \emph {util}}{80}{section*.46}%
+\contentsline {subsection}{Directorio \emph {tests}}{81}{section*.47}%
+\contentsline {subsection}{Directorio \emph {log}}{82}{section*.48}%
+\contentsline {subsection}{Directorio \emph {htmlcov}}{82}{section*.49}%
+\contentsline {subsection}{Directorio \emph {databases}}{83}{section*.50}%
+\contentsline {subsection}{Directorio \emph {docs}}{83}{section*.51}%
+\contentsline {subsection}{Directorio \emph {.github}}{84}{section*.52}%
+\contentsline {appendix}{\chapternumberline {D}Documentación técnica de programación}{87}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Introducción}{87}{section.Alph4.1}%
+\contentsline {section}{\numberline {D.2}Estructura de directorios}{87}{section.Alph4.2}%
+\contentsline {section}{\numberline {D.3}Manual del programador}{89}{section.Alph4.3}%
+\contentsline {section}{\numberline {D.4}Pruebas del sistema}{98}{section.Alph4.4}%
+\contentsline {subsection}{Tests unitarios}{98}{section*.53}%
+\contentsline {subsection}{Pruebas de integración}{99}{section*.54}%
+\contentsline {subsection}{Pruebas de interfaz}{100}{section*.55}%
+\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{103}{appendix.Alph5}%
+\contentsline {section}{\numberline {E.1}Introducción}{103}{section.Alph5.1}%
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{103}{section.Alph5.2}%
+\contentsline {subsection}{Uso en web}{103}{section*.56}%
+\contentsline {subsection}{Uso en entorno local}{103}{section*.57}%
+\contentsline {section}{\numberline {E.3}Instalación}{104}{section.Alph5.3}%
+\contentsline {section}{\numberline {E.4}Manual del usuario}{104}{section.Alph5.4}%
+\contentsline {subsection}{Página principal}{104}{section*.58}%
+\contentsline {subsection}{Registro y \emph {login}}{105}{section*.59}%
+\contentsline {subsection}{Consultar un índice bursátil}{106}{section*.60}%
+\contentsline {subsection}{Consultar un valor}{107}{section*.61}%
+\contentsline {subsection}{Utilizar el \emph {DashBoard}}{110}{section*.62}%
+\contentsline {subsection}{Utilizar el \emph {Lab}}{115}{section*.63}%
+\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{123}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Introducción}{123}{section.Alph6.1}%
+\contentsline {section}{\numberline {F.2}Competencias en sostenibilidad adquiridas}{123}{section.Alph6.2}%
+\contentsline {subsection}{Economía sostenible}{123}{section*.64}%
+\contentsline {subsection}{Innovación y desarrollo tecnológico}{124}{section*.65}%
+\contentsline {section}{\numberline {F.3}Impacto social y ambiental}{124}{section.Alph6.3}%
+\contentsline {subsection}{Educación financiera}{124}{section*.66}%
+\contentsline {subsection}{Licencia libre y repositorio público}{124}{section*.67}%
+\contentsline {subsection}{Documentación del proyecto}{125}{section*.68}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{127}{appendix*.69}%

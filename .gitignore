@@ -17,7 +17,7 @@ VerInfoÚtil.py
 /old
 
 # Para ignorar el archivo de cobertura de tests
-.coverage
+# .coverage
 
 # Para ignorar la carpeta de HTML de 'coverage'
 # /htmlcov

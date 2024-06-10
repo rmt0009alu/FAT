@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  10 JUN 2024 16:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  10 JUN 2024 18:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2068,11 +2068,11 @@ Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: D6CB2FC336EA997CDBB367CC101B33F1;9572.
  ) 
 Here is how much of TeX's memory you used:
- 19573 strings out of 474591
- 321180 string characters out of 5745778
- 1948533 words of memory out of 5000000
+ 19575 strings out of 474591
+ 321204 string characters out of 5745778
+ 1947533 words of memory out of 5000000
  40599 multiletter control sequences out of 15000+600000
- 702174 words of font info for 293 fonts, out of 8000000 for 9000
+ 702271 words of font info for 294 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,12n,93p,1184b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
@@ -2099,7 +2099,7 @@ ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Us
 ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on memoria.pdf (107 pages, 2589356 bytes).
+Output written on memoria.pdf (107 pages, 2589036 bytes).
 PDF statistics:
  2017 PDF objects out of 2073 (max. 8388607)
  443 named destinations out of 1000 (max. 500000)

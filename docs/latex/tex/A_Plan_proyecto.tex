@@ -33,6 +33,8 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 
 \subsubsection{Sprint 0. Presentación inicial a tutores del TFG}
 
+\imagen{sprint_00.png}{Sprint 0}{1}
+
 \begin{itemize}
 \item  
 \textbf{Duración:} 19/10/2023 a 23/10/2023
@@ -61,7 +63,10 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 \end{itemize}
 
 
+
 \subsubsection{Sprint 1. Empezar TFG con selección de herramientas adecuadas}
+
+\imagen{sprint_01.png}{Sprint 1}{1}
 
 \begin{itemize}
 \item  
@@ -99,6 +104,8 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 
 \subsubsection{Sprint 2. Mostrar primeras tablas y gráficos en servidor web}
 
+\imagen{sprint_02.png}{Sprint 2}{1}
+
 \begin{itemize}
 \item  
 \textbf{Duración:} 08/11/2023 a 29/11/2023
@@ -128,6 +135,8 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 
 
 \subsubsection{Sprint 3. Mejorar lógica de web y proteger enlaces con registro. Mostrar gráficos y dar primeros estilos}
+
+\imagen{sprint_03.png}{Sprint 3}{1}
 
 \begin{itemize}
 \item  
@@ -159,6 +168,8 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 
 \subsubsection{Sprint 4. Manejar imágenes estáticas. Añadir base de datos de DJ30 y buscar método para auto-actualizar las BDs}
 
+\imagen{sprint_04.png}{Sprint 4}{0.9}
+
 \begin{itemize}
 \item  
 \textbf{Duración:} 14/12/2023 a 28/12/2023
@@ -185,15 +196,17 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 
 \subsubsection{Sprint 5. Añadir un carrusel de noticias y cambiar el acceso a las BDs. Incorporar tests y mejorar los logs}
 
+\imagen{sprint_05.png}{Sprint 5}{1}
+
 \begin{itemize}
 \item  
 \textbf{Duración:} 04/01/2024 a 18/01/2024
 
 \item
-\textbf{Objetivo:} Añadir noticias relacionadas con los mercados financieros, para hacer un interfaz más útil y agradable para el usuario. Cambiar la lógica de acceso a las bases de datos, para evitar las sentencias en SQL y aprovechar las capacidades del patrón MVT\citep{online:django_MVT_2} de Django. Aplicar primeros tests para mejorar el comportamiento y aumentar la seguridad. 
+\textbf{Objetivo:} Añadir noticias relacionadas con los mercados financieros, para hacer un interfaz más útil. Cambiar la lógica de acceso a las bases de datos, para evitar las sentencias en SQL y aprovechar las capacidades del patrón MVT\citep{online:django_MVT_2} de Django. Aplicar primeros tests. 
 
 \item
-\textbf{Contexto:} Ahora mismo la portada principal de la página es una imagen estática que permite hacer \emph{login}, pero que no aporta la utilidad que se espera de este tipo de aplicaciones. Por ello, parece razonable añadir una zona de noticias relacionadas con los mercados financieros, que hagan la página más dinámica y agradable de usar. Además, aunque tengo diseñados unos pequeños tests, se tiene que mejorar toda la estructura de \emph{testing} y ampliar el \emph{logger}. 
+\textbf{Contexto:} Ahora mismo la portada principal es una imagen estática que permite \emph{login}, pero que no aporta la utilidad. Parece razonable añadir una zona de noticias, que hagan la página más dinámica. Además, aunque tengo diseñados unos pequeños tests, se tiene que mejorar toda la estructura de \emph{testing} y \emph{log}. 
 
 \item
 \textbf{Tareas:}
@@ -206,7 +219,7 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 		\item
 		Mostrar noticas en portada.
 		\item
-		Mostrar información sobre los mejores y peores stocks en portada.
+		Mostrar información sobre los mejores y peores stocks.
 		\item
 		Mejorar el logging para lo que ocurra en esta nueva aplicación.
 		\end{itemize}
@@ -220,26 +233,28 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 
 \subsubsection{Sprint 6. Añadir un \emph{dashboard} para almacenar y controlar una cartera por parte del usuario. Operaciones CRUD en BDs}
 
+\imagen{sprint_06.png}{Sprint 6}{0.85}
+
 \begin{itemize}
 \item  
 \textbf{Duración:} 22/01/2024 a 05/02/2024
 
 \item
-\textbf{Objetivo:} Añadir un área personal que permita realizar el control de una cartera de acciones, con posiciones abiertas y posiciones objetivo. Poder crear informes con la composición de la cartera y mostrar porcentajes de inversión de forma agradable al usuario.   
+\textbf{Objetivo:} Añadir un área personal que permita realizar el control de una cartera de acciones. Poder crear informes con la composición de la cartera y mostrar porcentajes de inversión.   
 
 \item
-\textbf{Contexto:} Aunque un usuario puede consultar los datos de un valor concreto y de su índice de referencia, ahora mismo no puede tener una lista de seguimiento que le permita controlar sus inversiones. Se pretende integrar una nueva aplicación que permita ofrecer un \emph{dashboard} a los usuarios, para que puedan hacer un seguimiento de sus inversiones. 
+\textbf{Contexto:} Aunque un usuario puede consultar los datos de un valor concreto y de su índice de referencia, ahora mismo no puede tener una lista de seguimiento. Se pretende integrar una nueva \emph{app} que permita ofrecer un \emph{dashboard} a los usuarios. 
 
 \item
 \textbf{Tareas:}
 	\begin{itemize}
 	\tightlist
 	\item 
-	Añadir una nueva aplicación al proyecto, que permita controlar un dashboard. 
+	Añadir una nueva \emph{app} que permita controlar un \emph{DashBoard}. 
 		\begin{itemize}
 		\tightlist
 		\item
-		Permitir al usuario almacenar información sobre sus inversiones actuales y futuras. 
+		Permitir almacenar información sobre las inversiones. 
 		\item
 		Mostrar acciones compradas, i.e., posiciones abiertas.
 		\item
@@ -247,7 +262,7 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 		\item
 		Mejorar el \emph{logging} para lo que ocurra en esta nueva aplicación.
 		\item
-		Preparar los tests más relevantes para el control de esta nueva aplicación. 
+		Preparar los tests para el control de esta nueva \emph{app}. 
 		\item
 		Integrar esta aplicación con las actuales. 
 		\end{itemize}
@@ -261,17 +276,17 @@ A continuación se muestra un resumen de los \emph{sprints} que han tenido lugar
 
 \subsubsection{Sprint 7. Refactoring y testing. Poder eliminar stocks en seguimiento desde el DashBoard.}
 
+\imagen{sprint_07.png}{Sprint 7}{0.85}
+
 \begin{itemize}
 \item  
 \textbf{Duración:} 07/02/2024 a 14/02/2024
 
 \item
-\textbf{Objetivo:} Ahora mismo hay bastantes casos sin cubrir con los tests, especialmente en las \emph{views} de las \emph{apps} incorporadas al proyecto. Por ello, se hace necesario, antes de continuar, realizar un testeo exhaustivo para asegurar una buena base en desarrollos posteriores. 
-
-Además, voy a incorporar una nueva funcionalidad dentro del DashBoard, que permitirá al usuario eliminar valores en seguimiento (de manera similar a como se eliminan actualmente los valores en cartera).
+\textbf{Objetivo:} Ahora mismo hay bastantes casos sin cubrir con los tests, especialmente en los \emph{views.py}. Antes de continuar, hay que realizar un testeo exhaustivo para asegurar una buena base en desarrollos posteriores. Además, voy a incorporar una nueva funcionalidad dentro del \emph{DashBoard}, que permitirá eliminar valores en seguimiento.
 
 \item
-\textbf{Contexto:} Tras intentar seguir un enfoque TDD en la creación del DashBoard en el sprint 6, se detecta la necesidad de resolver algunos fallos y cubrir el código, al 100\%, con tests. Además, hay que mejorar el estilo y la calidad del código, así como medir dicha calidad con alguna herramienta que ofrezca información final que justifique las mejoras. 
+\textbf{Contexto:} Tras intentar seguir un enfoque TDD en la creación del DashBoard en el sprint 6, se detecta la necesidad de resolver algunos fallos y cubrir el código, al 100\%, con tests. Además, hay que mejorar el estilo y la calidad del código, así como medir dicha calidad con alguna herramienta que ofrezca información final.
 
 \item
 \textbf{Tareas:}
@@ -280,7 +295,7 @@ Además, voy a incorporar una nueva funcionalidad dentro del DashBoard, que perm
 	\item 
 	Cubrir todas las normas de estilo de \emph{PEP-8} enhancement
 	\item
-	Solucionar problema formularios \emph{DashBoard} con precios de más de 2 decimales.
+	Solucionar problema formularios \emph{DashBoard}.
 	\item
 	Incluir funcionalidad de eliminación de stocks en seguimiento.
 	\item
@@ -297,12 +312,16 @@ Además, voy a incorporar una nueva funcionalidad dentro del DashBoard, que perm
 
 \subsubsection{Sprint 8. Correlaciones entre valores con NetworkX}
 
+\imagen{sprint_08.png}{Sprint 8}{0.85}
+
 \begin{itemize}
 \item  
 \textbf{Duración:} 17/02/2024 a 02/03/2024
 
 \item
-\textbf{Objetivo:} Permitir al usuario comparar la evolución de un valor con respecto al resto, en un tiempo determinado. La idea es mostrar al usuario un grafo creado con \emph{NetworkX}\citep{online:networkx} que permita entender las correlaciones (positiva y negativa) que haya entre diferentes valores. De esta manera se podrá hacer un análisis de diversificación de cartera, ya que tener valores muy correlacionados puede ser indicativo de no tener la cartera bien balanceada. 
+\textbf{Objetivo:} Permitir al usuario comparar la evolución de un valor con respecto al resto, en un tiempo determinado. 
+
+La idea es mostrar al usuario un grafo creado con \emph{NetworkX}\citep{online:networkx} que permita entender las correlaciones (positiva y negativa) que haya entre diferentes valores. De esta manera se podrá hacer un análisis de diversificación de cartera, ya que tener valores muy correlacionados puede ser indicativo de no tener la cartera bien balanceada. 
 
 \item
 \textbf{Contexto:} El usuario puede acceder a la información de un valor pero no puede compararlo con otros. Además, aunque tenga valores comprados o en seguimiento, realmente, ahora mismo, no se le está ofreciendo capacidad analítica, así que hay que proporcionársela. 
@@ -334,8 +353,10 @@ Además, voy a incorporar una nueva funcionalidad dentro del DashBoard, que perm
   	\end{itemize}
 \end{itemize}
 
-
+\newpage
 \subsubsection{Sprint 9. Aplicación de modelos. \emph{Forecasting} para series temporales}
+
+\imagen{sprint_09.png}{Sprint 9}{1}
 
 \begin{itemize}
 \item  
@@ -368,6 +389,8 @@ Además, voy a incorporar una nueva funcionalidad dentro del DashBoard, que perm
 
 
 \subsubsection{Sprint 10. Documentación y limpieza de código y avanzar considerablemente en la memoria.}
+
+\imagen{sprint_10.png}{Sprint 10}{1}
 
 \begin{itemize}
 \item  
@@ -413,6 +436,8 @@ Además, voy a incorporar una nueva funcionalidad dentro del DashBoard, que perm
 
 \subsubsection{Sprint 11. Gráfica de Markowitz con frontera efciente y ratio de Sharpe. Mejoras visuales.}
 
+\imagen{sprint_11.png}{Sprint 11}{1}
+
 \begin{itemize}
 \item  
 \textbf{Duración:} 09/05/2024 a 19/05/2024
@@ -432,11 +457,11 @@ Además, voy a incorporar una nueva funcionalidad dentro del DashBoard, que perm
 	\item 
 	Añadir nuevos métodos que permitan hacer una simulación de Montecarlo con diferentes pesos de valores en una cartera. 
 	\item
-	Añadir nuevos métodos al \emph{DashBoard} para calcular la frontera eficiente. 
+	Nuevos métodos en \emph{DashBoard} para calcular frontera eficiente. 
 	\item
 	Desarrollar las funciones de optimización que permitan calcular la mejor distribución de pesos.
 	\item
-	Preparar los métodos necesarios para mostrar la gráfica de Markowitz junto con la frontera eficiente y las mejores carteras encontradas. 
+	Preparar métodos para mostrar gráfica de Markowitz junto con la frontera eficiente y las mejores carteras encontradas. 
 	\item
 	Implementar los tests necesarios para las nuevas funcionalidades. 
 	\item
@@ -448,15 +473,17 @@ Además, voy a incorporar una nueva funcionalidad dentro del DashBoard, que perm
 	\item
 	Añadir referencias bibliográficas en todos los apartados de la memoria aunque sea a nivel local. 
 	\item
-	Medir la calidad de nuevo código y testear de forma automática con \emph{GitHub actions}. 
+	Medir la calidad y testear con \emph{GitHub actions}. 
 	\item
-	Desplegar nueva documentación de código de forma automática con \emph{Sphinx}. 
+	Desplegar nueva documentación de código con \emph{Sphinx}. 
   	\end{itemize}
 \end{itemize}
 
 
 
 \subsubsection{Sprint 12. Mejorar gráficas ARIMA. Incluir estrategias basadas en \emph{machine learning}}
+
+\imagen{sprint_12.png}{Sprint 12}{0.9}
 
 \begin{itemize}
 \item  
@@ -481,7 +508,7 @@ Además, tengo que terminar la documentación de ARIMA en la memoria y añadir l
 	\item
 	Mejorar gráficas y plantillas HTML para ARIMA.  
 	\item
-	Incluir mejoras de estrategia basada en ML, en lugar de redes LSTM, y documentar. 
+	Incluir mejoras de estrategia basada en ML. 
 	\item
 	Pasar redes LSTM a apartado de posibles mejoras del proyecto. 
 	\item
@@ -495,16 +522,18 @@ Además, tengo que terminar la documentación de ARIMA en la memoria y añadir l
 
 \subsubsection{Sprint 13. Finalizar memoria. Empezar anexos. Correcciones en plantillas y en \emph{cron} de servidor web}
 
+\imagen{sprint_13.png}{Sprint 13}{0.9}
+
 \begin{itemize}
 \item  
 \textbf{Duración:} 31/05/2024 a 04/06/2024
 
 \item
-\textbf{Objetivo:} Finalizar memoria y empezar anexos. Realizar mejoras estéticas. Corregir tarea \emph{cron} de actualización de BDs en servidor web. Realizar la \emph{release} que está pendiente desde el \emph{sprint} anterior, no realizado por falta de comprobaciones. 
+\textbf{Objetivo:} Finalizar memoria y empezar anexos. Realizar mejoras estéticas. Corregir tarea \emph{cron} en servidor web. Realizar la \emph{release} que está pendiente desde el \emph{sprint} anterior.
 
 
 \item
-\textbf{Contexto:} En este momento es posible trabajar con todas las herramientas, pero quedan algunos detalles que mejorar antes de realizar un \emph{release}. Además, es necesario avanzar con la documentación de la memoria (que ya tiene cubierta toda la parte teórica). 
+\textbf{Contexto:} En este momento es posible trabajar con todas las herramientas, pero quedan algunos detalles que mejorar antes de realizar un \emph{release}. Además, es necesario avanzar con la documentación.
 
 
 \item
@@ -512,15 +541,11 @@ Además, tengo que terminar la documentación de ARIMA en la memoria y añadir l
 	\begin{itemize}
 	\tightlist
 	\item 
-	Finalizar sección 5 de memoria.
-	\item
-	Finalizar sección 6 de memoria.
-	\item
-	Finalizar sección 7 de memoria.
+	Finalizar secciones 5, 6 y 7 de memoria.
 	\item
 	Empezar anexos. 
 	\item
-	Mejorar gráficas y plantillas HTML para estrategias basadas en ML. 
+	Mejorar gráficas y plantillas para estrategias basadas en ML. 
 	\item
 	Ampliar tests para cubrir todos los métodos. 
 	\item
@@ -534,7 +559,48 @@ Además, tengo que terminar la documentación de ARIMA en la memoria y añadir l
   	\end{itemize}
 \end{itemize}
 
+\subsubsection{Sprint 14. Finalizar anexos. Grabar vídeos. Realizar pequeñas mejoras}
 
+\imagen{sprint_14.png}{Sprint 14}{0.9}
+
+\begin{itemize}
+\item  
+\textbf{Duración:} 05/06/2024 a 11/06/2024
+
+\item
+\textbf{Objetivo:} Finalizar los anexos, grabar los vídeos y realizar pequeñas mejoras estéticas y de calidad. Realizar la entrega del TFG.. 
+
+
+\item
+\textbf{Contexto:} Se dispone de la última versión del proyecto en \emph{GitHub} y en la web, pero es necesaria la finalización de los anexos y realizar pequeñas mejoras, especialmente en cuanto a calidad de código y documentación de métodos. 
+
+
+\item
+\textbf{Tareas:}
+	\begin{itemize}
+	\tightlist
+	\item 
+	Finalizar aptdo. 2 de anexos. 
+	\item
+	Finalizar aptdo. 3 de anexos. 
+	\item
+	Finalizar aptdo. 4 de anexos. 
+	\item
+	Finalizar aptdo. 5 de anexos. 
+	\item
+	Finalizar aptdo. 6 de anexos. 
+	\item
+	Grabar vídeos.
+	\item
+	Mejoras en calidad de código.
+	\item
+	Mejoras en documentación de métodos.
+	\item
+	Realizar mejoras estéticas si da tiempo: cambiar presentación de datos de un valor individual y mejorar grafos de NetworkX (tarea no prioritaria). 
+	\item
+	Crear un \emph{release} final.
+  	\end{itemize}
+\end{itemize}
 
 
 \section{Estudio de viabilidad}
@@ -581,7 +647,7 @@ Por último, se realiza un análisis de costes de infraestructura (solo asimilab
 
 Los costes totales estimados son:
 
-\tablaSmallSinColores{Costes totales}{l|r}{coste_total}{
+\tablaSmallSinColores{Costes totales}{l|r}{coste_total_estimado}{
 \textbf{Concepto} & \textbf{Coste}\\
 }{
 \textit{Costes en RRHH} & 12.500,00€\\
@@ -610,7 +676,7 @@ En este trabajo se utilizan múltiples librerías de terceros. Además, aunque l
 
 Las licencias asociadas a las librerías y APIs utilizadas, se detallan en la siguiente tabla:
 
-\tablaSmallSinColores{Licencias de terceros}{l|r}{coste_total}{
+\tablaSmallSinColores{Licencias de terceros}{l|r}{licencias_terceros}{
 \textbf{Librería / API} & \textbf{Licencia}\\
 }{
 \textit{Python} & OSI-Open Source\\

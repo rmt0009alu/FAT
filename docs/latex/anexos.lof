@@ -1,59 +1,74 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \addvspace {10pt}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Sprint 0}}{2}{figure.Alph1.1}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Sprint 1}}{3}{figure.Alph1.2}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Sprint 2}}{4}{figure.Alph1.3}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Sprint 3}}{5}{figure.Alph1.4}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Sprint 4}}{6}{figure.Alph1.5}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Sprint 5}}{7}{figure.Alph1.6}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Sprint 6}}{8}{figure.Alph1.7}%
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Sprint 7}}{9}{figure.Alph1.8}%
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Sprint 8}}{10}{figure.Alph1.9}%
+\contentsline {figure}{\numberline {A.10}{\ignorespaces Sprint 9}}{12}{figure.Alph1.10}%
+\contentsline {figure}{\numberline {A.11}{\ignorespaces Sprint 10}}{13}{figure.Alph1.11}%
+\contentsline {figure}{\numberline {A.12}{\ignorespaces Sprint 11}}{14}{figure.Alph1.12}%
+\contentsline {figure}{\numberline {A.13}{\ignorespaces Sprint 12}}{15}{figure.Alph1.13}%
+\contentsline {figure}{\numberline {A.14}{\ignorespaces Sprint 13}}{16}{figure.Alph1.14}%
+\contentsline {figure}{\numberline {A.15}{\ignorespaces Sprint 14}}{17}{figure.Alph1.15}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Diagrama de casos de uso. Fuente: elaboración propia}}{22}{figure.Alph2.1}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Diagrama de casos de uso. Fuente: elaboración propia}}{28}{figure.Alph2.1}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Diseño de bases de datos. Fuente: elaboración propia}}{60}{figure.Alph3.1}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Diagrama E/R}}{62}{figure.Alph3.2}%
-\contentsline {figure}{\numberline {C.3}{\ignorespaces Diagrama relacional}}{63}{figure.Alph3.3}%
-\contentsline {figure}{\numberline {C.4}{\ignorespaces Diagrama de secuencias \emph {News} y \emph {Analysis}}}{64}{figure.Alph3.4}%
-\contentsline {figure}{\numberline {C.5}{\ignorespaces Diagrama de secuencias \emph {DashBoard}}}{65}{figure.Alph3.5}%
-\contentsline {figure}{\numberline {C.6}{\ignorespaces Diagrama de secuencias \emph {Lab}}}{66}{figure.Alph3.6}%
-\contentsline {figure}{\numberline {C.7}{\ignorespaces Diagrama de patrón MVT. Fuente: elaboración propia}}{67}{figure.Alph3.7}%
-\contentsline {figure}{\numberline {C.8}{\ignorespaces Patrón repositorio. Fuente: elaboración propia}}{68}{figure.Alph3.8}%
-\contentsline {figure}{\numberline {C.9}{\ignorespaces Diagrama de paquetes general.}}{70}{figure.Alph3.9}%
-\contentsline {figure}{\numberline {C.10}{\ignorespaces Diagrama de paquete \emph {FAT}.}}{70}{figure.Alph3.10}%
-\contentsline {figure}{\numberline {C.11}{\ignorespaces Diagrama de paquete \emph {News}.}}{71}{figure.Alph3.11}%
-\contentsline {figure}{\numberline {C.12}{\ignorespaces Diagrama de paquete \emph {Analysis}.}}{72}{figure.Alph3.12}%
-\contentsline {figure}{\numberline {C.13}{\ignorespaces Diagrama de paquete \emph {DashBoard}.}}{73}{figure.Alph3.13}%
-\contentsline {figure}{\numberline {C.14}{\ignorespaces Diagrama de paquete \emph {Lab}.}}{74}{figure.Alph3.14}%
-\contentsline {figure}{\numberline {C.15}{\ignorespaces Diagrama de paquete \emph {util}.}}{74}{figure.Alph3.15}%
-\contentsline {figure}{\numberline {C.16}{\ignorespaces Diagrama de directorio \emph {tests}.}}{75}{figure.Alph3.16}%
-\contentsline {figure}{\numberline {C.17}{\ignorespaces Diagrama de directorio \emph {log}.}}{76}{figure.Alph3.17}%
-\contentsline {figure}{\numberline {C.18}{\ignorespaces Diagrama de directorio \emph {htmlcov}.}}{77}{figure.Alph3.18}%
-\contentsline {figure}{\numberline {C.19}{\ignorespaces Diagrama de directorio \emph {databases}.}}{77}{figure.Alph3.19}%
-\contentsline {figure}{\numberline {C.20}{\ignorespaces Diagrama de directorio \emph {docs}.}}{78}{figure.Alph3.20}%
-\contentsline {figure}{\numberline {C.21}{\ignorespaces Diagrama de directorio \emph {.github}.}}{79}{figure.Alph3.21}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Diseño de bases de datos. Fuente: elaboración propia}}{66}{figure.Alph3.1}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Diagrama E/R}}{68}{figure.Alph3.2}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Diagrama relacional}}{69}{figure.Alph3.3}%
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Diagrama de secuencias \emph {News} y \emph {Analysis}}}{70}{figure.Alph3.4}%
+\contentsline {figure}{\numberline {C.5}{\ignorespaces Diagrama de secuencias \emph {DashBoard}}}{71}{figure.Alph3.5}%
+\contentsline {figure}{\numberline {C.6}{\ignorespaces Diagrama de secuencias \emph {Lab}}}{72}{figure.Alph3.6}%
+\contentsline {figure}{\numberline {C.7}{\ignorespaces Diagrama de patrón MVT. Fuente: elaboración propia}}{73}{figure.Alph3.7}%
+\contentsline {figure}{\numberline {C.8}{\ignorespaces Patrón repositorio. Fuente: elaboración propia}}{74}{figure.Alph3.8}%
+\contentsline {figure}{\numberline {C.9}{\ignorespaces Diagrama de paquetes general.}}{76}{figure.Alph3.9}%
+\contentsline {figure}{\numberline {C.10}{\ignorespaces Diagrama de paquete \emph {FAT}.}}{76}{figure.Alph3.10}%
+\contentsline {figure}{\numberline {C.11}{\ignorespaces Diagrama de paquete \emph {News}.}}{77}{figure.Alph3.11}%
+\contentsline {figure}{\numberline {C.12}{\ignorespaces Diagrama de paquete \emph {Analysis}.}}{78}{figure.Alph3.12}%
+\contentsline {figure}{\numberline {C.13}{\ignorespaces Diagrama de paquete \emph {DashBoard}.}}{79}{figure.Alph3.13}%
+\contentsline {figure}{\numberline {C.14}{\ignorespaces Diagrama de paquete \emph {Lab}.}}{80}{figure.Alph3.14}%
+\contentsline {figure}{\numberline {C.15}{\ignorespaces Diagrama de paquete \emph {util}.}}{80}{figure.Alph3.15}%
+\contentsline {figure}{\numberline {C.16}{\ignorespaces Diagrama de directorio \emph {tests}.}}{81}{figure.Alph3.16}%
+\contentsline {figure}{\numberline {C.17}{\ignorespaces Diagrama de directorio \emph {log}.}}{82}{figure.Alph3.17}%
+\contentsline {figure}{\numberline {C.18}{\ignorespaces Diagrama de directorio \emph {htmlcov}.}}{83}{figure.Alph3.18}%
+\contentsline {figure}{\numberline {C.19}{\ignorespaces Diagrama de directorio \emph {databases}.}}{83}{figure.Alph3.19}%
+\contentsline {figure}{\numberline {C.20}{\ignorespaces Diagrama de directorio \emph {docs}.}}{84}{figure.Alph3.20}%
+\contentsline {figure}{\numberline {C.21}{\ignorespaces Diagrama de directorio \emph {.github}.}}{85}{figure.Alph3.21}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {D.1}{\ignorespaces Descargar proyecto en formato .zip}}{84}{figure.Alph4.1}%
-\contentsline {figure}{\numberline {D.2}{\ignorespaces Clonar con \emph {Git} .zip}}{84}{figure.Alph4.2}%
-\contentsline {figure}{\numberline {D.3}{\ignorespaces VS Code}}{85}{figure.Alph4.3}%
-\contentsline {figure}{\numberline {D.4}{\ignorespaces Selección de \emph {interpreter}}}{86}{figure.Alph4.4}%
-\contentsline {figure}{\numberline {D.5}{\ignorespaces Activar entorno virtual}}{87}{figure.Alph4.5}%
-\contentsline {figure}{\numberline {D.6}{\ignorespaces Lanzar el servidor}}{88}{figure.Alph4.6}%
-\contentsline {figure}{\numberline {D.7}{\ignorespaces Número de tests realizados}}{92}{figure.Alph4.7}%
-\contentsline {figure}{\numberline {D.8}{\ignorespaces Lanzar pruebas de interfaz}}{95}{figure.Alph4.8}%
-\contentsline {figure}{\numberline {D.9}{\ignorespaces Resultado de pruebas de interfaz}}{95}{figure.Alph4.9}%
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Descargar proyecto en formato .zip}}{90}{figure.Alph4.1}%
+\contentsline {figure}{\numberline {D.2}{\ignorespaces Clonar con \emph {Git} .zip}}{90}{figure.Alph4.2}%
+\contentsline {figure}{\numberline {D.3}{\ignorespaces VS Code}}{91}{figure.Alph4.3}%
+\contentsline {figure}{\numberline {D.4}{\ignorespaces Selección de \emph {interpreter}}}{92}{figure.Alph4.4}%
+\contentsline {figure}{\numberline {D.5}{\ignorespaces Activar entorno virtual}}{93}{figure.Alph4.5}%
+\contentsline {figure}{\numberline {D.6}{\ignorespaces Lanzar el servidor}}{94}{figure.Alph4.6}%
+\contentsline {figure}{\numberline {D.7}{\ignorespaces Número de tests realizados}}{98}{figure.Alph4.7}%
+\contentsline {figure}{\numberline {D.8}{\ignorespaces Lanzar pruebas de interfaz}}{101}{figure.Alph4.8}%
+\contentsline {figure}{\numberline {D.9}{\ignorespaces Resultado de pruebas de interfaz}}{101}{figure.Alph4.9}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {E.1}{\ignorespaces Página principal}}{98}{figure.Alph5.1}%
-\contentsline {figure}{\numberline {E.2}{\ignorespaces Proceso de registro}}{99}{figure.Alph5.2}%
-\contentsline {figure}{\numberline {E.3}{\ignorespaces Proceso de \emph {login}}}{100}{figure.Alph5.3}%
-\contentsline {figure}{\numberline {E.4}{\ignorespaces Consultar índice bursátil}}{101}{figure.Alph5.4}%
-\contentsline {figure}{\numberline {E.5}{\ignorespaces Consultar valor}}{102}{figure.Alph5.5}%
-\contentsline {figure}{\numberline {E.6}{\ignorespaces Consultar valor}}{103}{figure.Alph5.6}%
-\contentsline {figure}{\numberline {E.7}{\ignorespaces Consultar valor}}{103}{figure.Alph5.7}%
-\contentsline {figure}{\numberline {E.8}{\ignorespaces Consultar valor}}{104}{figure.Alph5.8}%
-\contentsline {figure}{\numberline {E.9}{\ignorespaces Acceso al \emph {DashBoard}}}{104}{figure.Alph5.9}%
-\contentsline {figure}{\numberline {E.10}{\ignorespaces Acceso al \emph {DashBoard}}}{105}{figure.Alph5.10}%
-\contentsline {figure}{\numberline {E.11}{\ignorespaces Distribución de inversiones y sectores}}{106}{figure.Alph5.11}%
-\contentsline {figure}{\numberline {E.12}{\ignorespaces Distribución por divisas}}{107}{figure.Alph5.12}%
-\contentsline {figure}{\numberline {E.13}{\ignorespaces Análisis de rentabilidad - riesgo}}{107}{figure.Alph5.13}%
-\contentsline {figure}{\numberline {E.14}{\ignorespaces Añadir un valor en seguimiento}}{108}{figure.Alph5.14}%
-\contentsline {figure}{\numberline {E.15}{\ignorespaces Ventana principal del \emph {Lab}}}{109}{figure.Alph5.15}%
-\contentsline {figure}{\numberline {E.16}{\ignorespaces Usar ACF y PACF}}{110}{figure.Alph5.16}%
-\contentsline {figure}{\numberline {E.17}{\ignorespaces Predicción automática de ARIMA}}{112}{figure.Alph5.17}%
-\contentsline {figure}{\numberline {E.18}{\ignorespaces Resultados de ARIMA}}{113}{figure.Alph5.18}%
-\contentsline {figure}{\numberline {E.19}{\ignorespaces Resultados algoritmo de cruce de medias}}{114}{figure.Alph5.19}%
-\contentsline {figure}{\numberline {E.20}{\ignorespaces Resultados estrategia basad en \emph {machine learning}}}{115}{figure.Alph5.20}%
+\contentsline {figure}{\numberline {E.1}{\ignorespaces Página principal}}{104}{figure.Alph5.1}%
+\contentsline {figure}{\numberline {E.2}{\ignorespaces Proceso de registro}}{105}{figure.Alph5.2}%
+\contentsline {figure}{\numberline {E.3}{\ignorespaces Proceso de \emph {login}}}{106}{figure.Alph5.3}%
+\contentsline {figure}{\numberline {E.4}{\ignorespaces Consultar índice bursátil}}{107}{figure.Alph5.4}%
+\contentsline {figure}{\numberline {E.5}{\ignorespaces Consultar valor}}{108}{figure.Alph5.5}%
+\contentsline {figure}{\numberline {E.6}{\ignorespaces Consultar valor}}{109}{figure.Alph5.6}%
+\contentsline {figure}{\numberline {E.7}{\ignorespaces Consultar valor}}{109}{figure.Alph5.7}%
+\contentsline {figure}{\numberline {E.8}{\ignorespaces Consultar valor}}{110}{figure.Alph5.8}%
+\contentsline {figure}{\numberline {E.9}{\ignorespaces Acceso al \emph {DashBoard}}}{110}{figure.Alph5.9}%
+\contentsline {figure}{\numberline {E.10}{\ignorespaces Acceso al \emph {DashBoard}}}{111}{figure.Alph5.10}%
+\contentsline {figure}{\numberline {E.11}{\ignorespaces Distribución de inversiones y sectores}}{112}{figure.Alph5.11}%
+\contentsline {figure}{\numberline {E.12}{\ignorespaces Distribución por divisas}}{113}{figure.Alph5.12}%
+\contentsline {figure}{\numberline {E.13}{\ignorespaces Análisis de rentabilidad - riesgo}}{113}{figure.Alph5.13}%
+\contentsline {figure}{\numberline {E.14}{\ignorespaces Añadir un valor en seguimiento}}{114}{figure.Alph5.14}%
+\contentsline {figure}{\numberline {E.15}{\ignorespaces Ventana principal del \emph {Lab}}}{115}{figure.Alph5.15}%
+\contentsline {figure}{\numberline {E.16}{\ignorespaces Usar ACF y PACF}}{116}{figure.Alph5.16}%
+\contentsline {figure}{\numberline {E.17}{\ignorespaces Predicción automática de ARIMA}}{118}{figure.Alph5.17}%
+\contentsline {figure}{\numberline {E.18}{\ignorespaces Resultados de ARIMA}}{119}{figure.Alph5.18}%
+\contentsline {figure}{\numberline {E.19}{\ignorespaces Resultados algoritmo de cruce de medias}}{120}{figure.Alph5.19}%
+\contentsline {figure}{\numberline {E.20}{\ignorespaces Resultados estrategia basada en \emph {machine learning}}}{121}{figure.Alph5.20}%
 \addvspace {10pt}
