@@ -17,10 +17,10 @@ VerInfoÚtil.py
 /old
 
 # Para ignorar el archivo de cobertura de tests
-# .coverage
+.coverage
 
 # Para ignorar la carpeta de HTML de 'coverage'
-# /htmlcov
+/htmlcov
 
 # Para ignorar el archivo en el que tengo variables de entorno
 .env

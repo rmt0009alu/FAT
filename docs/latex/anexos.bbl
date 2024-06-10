@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{online:licencia}
 Creatice commons.
@@ -7,6 +7,15 @@ Creatice commons.
   \url{https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1},
   2024.
 \newblock Online; Accedido el 04-Jun-2024.
+
+\bibitem{online:crue}
+CRUE.
+\newblock \emph{Directrices para la introducción de la Sostenibilidad en el
+  Curriculum}.
+\newblock
+  \url{https://www.crue.org/wp-content/uploads/2020/02/Directrices_Sosteniblidad_Crue2012.pdf},
+  2024.
+\newblock Online; Accedido el 06-Jun-2024.
 
 \bibitem{online:networkx}
 NetworkX developers.
@@ -32,6 +41,12 @@ Django.
 \newblock \url{https://docs.djangoproject.com/en/5.0/faq/general/}, 2023.
 \newblock Online; Accedido el 20-Abr-2024.
 
+\bibitem{online:git}
+Git.
+\newblock \emph{Git}.
+\newblock \url{https://git-scm.com/}, 2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
 \bibitem{online:zube}
 Pivit Inc.
 \newblock \emph{Zube}.
@@ -48,6 +63,33 @@ Wikipedia.
 \newblock \emph{cron (Unix)}.
 \newblock \url{https://es.wikipedia.org/wiki/Cron_(Unix))}, 2024.
 \newblock Online; Accedido el 04-Jun-2024.
+
+\bibitem{wiki:Kanban}
+Wikipedia.
+\newblock \emph{Kanban (desarrollo)}.
+\newblock \url{https://es.wikipedia.org/wiki/Kanban_(desarrollo)}, 2024.
+\newblock Online; Accedido el 20-Abr-2024.
+
+\bibitem{wiki:miktex}
+Wikipedia.
+\newblock \emph{MiKTeX}.
+\newblock \url{https://es.wikipedia.org/wiki/MiKTeX}, 2024.
+\newblock Online; Accedido el 22-Abr-2024.
+
+\bibitem{wiki:ARIMA}
+Wikipedia.
+\newblock \emph{Modelo autorregresivo integrado de media móvil}.
+\newblock
+  \url{https://es.wikipedia.org/wiki/Modelo_autorregresivo_integrado_de_media_m%C3%B3vil},
+  2024.
+\newblock Online; Accedido el 10-Abr-2024.
+
+\bibitem{wiki:ORM}
+Wikipedia.
+\newblock \emph{Object–relational mapping}.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping}, 2024.
+\newblock Online; Accedido el 06-Jun-2024.
 
 \bibitem{wiki:scrum}
 Wikipedia.
