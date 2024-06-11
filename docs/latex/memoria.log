@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  10 JUN 2024 19:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.7)  11 JUN 2024 17:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1117,7 +1117,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 23.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 23.
-<./img/img_01_distribución_retornos.png, id=819, 770.12718pt x 589.4522pt>
+<./img/img_01_distribución_retornos.png, id=820, 770.12718pt x 589.4522pt>
 File: ./img/img_01_distribución_retornos.png Graphic file (type png)
 <use ./img/img_01_distribución_retornos.png>
 Package pdftex.def Info: ./img/img_01_distribución_retornos.png  used on input
@@ -1159,7 +1159,7 @@ Underfull \vbox (badness 1502) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 186.
 LaTeX Info: Redefining \% on input line 186.
  [12]
-<./img/img_02_simulación_montecarlo.png, id=894, 526.96875pt x 376.40625pt>
+<./img/img_02_simulación_montecarlo.png, id=895, 526.96875pt x 376.40625pt>
 File: ./img/img_02_simulación_montecarlo.png Graphic file (type png)
 <use ./img/img_02_simulación_montecarlo.png>
 Package pdftex.def Info: ./img/img_02_simulación_montecarlo.png  used on input
@@ -1193,13 +1193,13 @@ Overfull \vbox (15.35403pt too high) has occurred while \output is active []
 
 
 [15]
-<./img/img_03_frontera_eficiente.png, id=931, 249.93375pt x 250.68657pt>
+<./img/img_03_frontera_eficiente.png, id=932, 249.93375pt x 250.68657pt>
 File: ./img/img_03_frontera_eficiente.png Graphic file (type png)
 <use ./img/img_03_frontera_eficiente.png>
 Package pdftex.def Info: ./img/img_03_frontera_eficiente.png  used on input lin
 e 266.
 (pdftex.def)             Requested size: 287.25pt x 288.14577pt.
-<./img/img_04_montecarlo_frontera_eficiente.png, id=934, 526.96875pt x 349.305p
+<./img/img_04_montecarlo_frontera_eficiente.png, id=935, 526.96875pt x 349.305p
 t>
 File: ./img/img_04_montecarlo_frontera_eficiente.png Graphic file (type png)
 <use ./img/img_04_montecarlo_frontera_eficiente.png>
@@ -1225,7 +1225,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 287--287
 -mi-za en
  []
 
-<./img/img_05_sharpe_ratio.png, id=953, 513.41812pt x 590.95781pt>
+<./img/img_05_sharpe_ratio.png, id=954, 513.41812pt x 590.95781pt>
 File: ./img/img_05_sharpe_ratio.png Graphic file (type png)
 <use ./img/img_05_sharpe_ratio.png>
 Package pdftex.def Info: ./img/img_05_sharpe_ratio.png  used on input line 291.
@@ -1256,7 +1256,7 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [21]
-<./img/img_06_diferenciacion.png, id=986, 505.89pt x 361.35pt>
+<./img/img_06_diferenciacion.png, id=987, 505.89pt x 361.35pt>
 File: ./img/img_06_diferenciacion.png Graphic file (type png)
 <use ./img/img_06_diferenciacion.png>
 Package pdftex.def Info: ./img/img_06_diferenciacion.png  used on input line 38
@@ -1269,7 +1269,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 388.
 LaTeX Info: Redefining \% on input line 388.
 [22]
-<./img/img_07_serie_no_estacionaria.png, id=995, 505.89pt x 337.5009pt>
+<./img/img_07_serie_no_estacionaria.png, id=996, 505.89pt x 337.5009pt>
 File: ./img/img_07_serie_no_estacionaria.png Graphic file (type png)
 <use ./img/img_07_serie_no_estacionaria.png>
 Package pdftex.def Info: ./img/img_07_serie_no_estacionaria.png  used on input 
@@ -1286,7 +1286,7 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [23 <./img/img_06_diferenciacion.png>]
-<./img/img_08_serie_no_estacionaria.png, id=1002, 505.89pt x 361.35pt>
+<./img/img_08_serie_no_estacionaria.png, id=1003, 505.89pt x 361.35pt>
 File: ./img/img_08_serie_no_estacionaria.png Graphic file (type png)
 <use ./img/img_08_serie_no_estacionaria.png>
 Package pdftex.def Info: ./img/img_08_serie_no_estacionaria.png  used on input 
@@ -1306,7 +1306,7 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [25]
-<./img/img_09_p_value_test_adf.png, id=1022, 505.89pt x 336.7782pt>
+<./img/img_09_p_value_test_adf.png, id=1023, 505.89pt x 336.7782pt>
 File: ./img/img_09_p_value_test_adf.png Graphic file (type png)
 <use ./img/img_09_p_value_test_adf.png>
 Package pdftex.def Info: ./img/img_09_p_value_test_adf.png  used on input line 
@@ -1315,13 +1315,13 @@ Package pdftex.def Info: ./img/img_09_p_value_test_adf.png  used on input line
 LaTeX Info: Redefining \. on input line 441.
 LaTeX Info: Redefining \% on input line 441.
  [26 <./img/img_09_p_value_test_adf.png>]
-<./img/img_10_p_value_test_adf.png, id=1030, 505.89pt x 361.35pt>
+<./img/img_10_p_value_test_adf.png, id=1031, 505.89pt x 361.35pt>
 File: ./img/img_10_p_value_test_adf.png Graphic file (type png)
 <use ./img/img_10_p_value_test_adf.png>
 Package pdftex.def Info: ./img/img_10_p_value_test_adf.png  used on input line 
 444.
 (pdftex.def)             Requested size: 344.69766pt x 246.2165pt.
-<./img/img_11_p_value_test_adf.png, id=1031, 505.89pt x 361.35pt>
+<./img/img_11_p_value_test_adf.png, id=1032, 505.89pt x 361.35pt>
 File: ./img/img_11_p_value_test_adf.png Graphic file (type png)
 <use ./img/img_11_p_value_test_adf.png>
 Package pdftex.def Info: ./img/img_11_p_value_test_adf.png  used on input line 
@@ -1344,7 +1344,7 @@ LaTeX Info: Redefining \% on input line 469.
 
 LaTeX Warning: Command \' invalid in math mode on input line 470.
 
-<./img/img_12_acf.png, id=1047, 724.1454pt x 361.35pt>
+<./img/img_12_acf.png, id=1048, 724.1454pt x 361.35pt>
 File: ./img/img_12_acf.png Graphic file (type png)
 <use ./img/img_12_acf.png>
 Package pdftex.def Info: ./img/img_12_acf.png  used on input line 487.
@@ -1359,7 +1359,7 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [29]
-<./img/img_13_pacf.png, id=1056, 724.1454pt x 361.35pt>
+<./img/img_13_pacf.png, id=1057, 724.1454pt x 361.35pt>
 File: ./img/img_13_pacf.png Graphic file (type png)
 <use ./img/img_13_pacf.png>
 Package pdftex.def Info: ./img/img_13_pacf.png  used on input line 498.
@@ -1378,7 +1378,7 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [31 <./img/img_13_pacf.png>]
-<./img/img_14_arima_sin_walk_forward.png, id=1072, 1123.19624pt x 378.66469pt>
+<./img/img_14_arima_sin_walk_forward.png, id=1073, 1123.19624pt x 378.66469pt>
 File: ./img/img_14_arima_sin_walk_forward.png Graphic file (type png)
 <use ./img/img_14_arima_sin_walk_forward.png>
 Package pdftex.def Info: ./img/img_14_arima_sin_walk_forward.png  used on input
@@ -1391,7 +1391,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 551.
 LaTeX Info: Redefining \% on input line 551.
 [32]
-<./img/img_15_arima_con_walk_forward.png, id=1081, 1117.17375pt x 359.09157pt>
+<./img/img_15_arima_con_walk_forward.png, id=1082, 1117.17375pt x 359.09157pt>
 File: ./img/img_15_arima_con_walk_forward.png Graphic file (type png)
 <use ./img/img_15_arima_con_walk_forward.png>
 Package pdftex.def Info: ./img/img_15_arima_con_walk_forward.png  used on input
@@ -1534,7 +1534,7 @@ Underfull \vbox (badness 6412) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 704.
 LaTeX Info: Redefining \% on input line 704.
  [38]
-<./img/img_17_xtrain_ytrain_ml.png, id=1131, 429.85594pt x 126.4725pt>
+<./img/img_17_xtrain_ytrain_ml.png, id=1132, 429.85594pt x 126.4725pt>
 File: ./img/img_17_xtrain_ytrain_ml.png Graphic file (type png)
 <use ./img/img_17_xtrain_ytrain_ml.png>
 Package pdftex.def Info: ./img/img_17_xtrain_ytrain_ml.png  used on input line 
@@ -1586,7 +1586,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                replaced by space on input line 1.
 
 [45]
-<./img/img_16_django_MVT.png, id=1192, 753.81625pt x 348.30125pt>
+<./img/img_16_django_MVT.png, id=1193, 753.81625pt x 348.30125pt>
 File: ./img/img_16_django_MVT.png Graphic file (type png)
 <use ./img/img_16_django_MVT.png>
 Package pdftex.def Info: ./img/img_16_django_MVT.png  used on input line 59.
@@ -1733,7 +1733,7 @@ ws._hay_errores() \T1/lmr/m/n/10 (+20) y
 LaTeX Info: Redefining \. on input line 401.
 LaTeX Info: Redefining \% on input line 401.
 [72]
-<./img/img_18_tests.png, id=1507, 467.49657pt x 242.40562pt>
+<./img/img_18_tests.png, id=1508, 467.49657pt x 242.40562pt>
 File: ./img/img_18_tests.png Graphic file (type png)
 <use ./img/img_18_tests.png>
 Package pdftex.def Info: ./img/img_18_tests.png  used on input line 407.
@@ -1951,7 +1951,7 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
 [87]
-Underfull \hbox (badness 4454) in paragraph at lines 417--421
+Underfull \hbox (badness 4454) in paragraph at lines 423--427
 []\T1/lmr/m/n/12 (+20) pytest-cov con-tri-bu-tors.  \T1/lmr/m/it/12 (+20) Pytes
 t-cov\T1/lmr/m/n/12 (+20) .  [][]$\T1/lmtt/m/n/12 https : / / pytest -[] cov .
  []
@@ -2022,7 +2022,7 @@ Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 pdfTeX warning: pdflatex (file ./img/licencia.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<./img/licencia.pdf, id=1803, 597.23125pt x 845.1575pt>
+<./img/licencia.pdf, id=1804, 597.23125pt x 845.1575pt>
 File: ./img/licencia.pdf Graphic file (type pdf)
 <use ./img/licencia.pdf>
 Package pdftex.def Info: ./img/licencia.pdf  used on input line 572.
@@ -2068,11 +2068,11 @@ Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: D6CB2FC336EA997CDBB367CC101B33F1;9572.
  ) 
 Here is how much of TeX's memory you used:
- 19575 strings out of 474591
- 321202 string characters out of 5745778
+ 19573 strings out of 474591
+ 321184 string characters out of 5745778
  1947533 words of memory out of 5000000
  40599 multiletter control sequences out of 15000+600000
- 702271 words of font info for 294 fonts, out of 8000000 for 9000
+ 702174 words of font info for 293 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,12n,93p,1184b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
@@ -2099,9 +2099,9 @@ ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Us
 ers/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Use
 rs/rodri/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on memoria.pdf (107 pages, 2591025 bytes).
+Output written on memoria.pdf (107 pages, 2591605 bytes).
 PDF statistics:
- 2021 PDF objects out of 2073 (max. 8388607)
+ 2022 PDF objects out of 2073 (max. 8388607)
  443 named destinations out of 1000 (max. 500000)
  78322 words of extra memory for PDF output out of 89155 (max. 10000000)
 

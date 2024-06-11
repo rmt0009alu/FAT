@@ -389,6 +389,12 @@ Vinayak Nishant.
 \newblock \url{https://www.askpython.com/django/django-mvt-architecture}, 2020.
 \newblock Online; Accedido el 20-Abr-2024.
 
+\bibitem{paper:fund_and_tech_analysis}
+Isaac~Kofi Nti, Adebayo~Felix Adekoya, and Benjamin~Asubam Weyori.
+\newblock A systematic review of fundamental and technical analysis of stock
+  market predictions.
+\newblock {\em Springer}, 2020.
+
 \bibitem{online:jinja_doc}
 Pallets.
 \newblock \emph{Jinja}.
@@ -426,12 +432,6 @@ QuantPy.
   \url{https://www.youtube.com/playlist?list=PLqpCwow11-OooQGB3vuiCdsRLQ5i-6AEH},
   2021.
 \newblock Online; Accedido el 31-May-2024.
-
-\bibitem{paper:Empirical_Stock_India}
-Vijayalakshmi Ravi and P.~A. Vijaya.
-\newblock An empirical study on predicting stock prices in the indian stock
-  market using machine learning techniques.
-\newblock {\em Procedia Computer Science}, pages 1155--1160, 2019.
 
 \bibitem{book:libertad_financiera}
 Andrea Redondo.

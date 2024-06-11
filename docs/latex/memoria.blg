@@ -21,42 +21,42 @@ Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
 You've used 116 entries,
             2118 wiz_defined-function locations,
-            1000 strings with 18486 characters,
-and the built_in function-call counts, 28063 in all, are:
-= -- 2807
-> -- 1088
-< -- 6
-+ -- 456
-- -- 338
-* -- 1064
-:= -- 4781
+            998 strings with 18444 characters,
+and the built_in function-call counts, 27872 in all, are:
+= -- 2780
+> -- 1093
+< -- 5
++ -- 458
+- -- 340
+* -- 1056
+:= -- 4768
 add.period$ -- 447
 call.type$ -- 116
-change.case$ -- 517
+change.case$ -- 518
 chr.to.int$ -- 0
 cite$ -- 116
-duplicate$ -- 929
-empty$ -- 2601
-format.name$ -- 338
-if$ -- 6101
+duplicate$ -- 917
+empty$ -- 2583
+format.name$ -- 340
+if$ -- 6047
 int.to.chr$ -- 0
 int.to.str$ -- 116
 missing$ -- 20
 newline$ -- 682
 num.names$ -- 232
-pop$ -- 914
+pop$ -- 915
 preamble$ -- 1
-purify$ -- 401
+purify$ -- 402
 quote$ -- 0
-skip$ -- 778
+skip$ -- 762
 stack$ -- 0
-substring$ -- 837
-swap$ -- 166
-text.length$ -- 6
+substring$ -- 797
+swap$ -- 155
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 458
 warning$ -- 0
-while$ -- 255
+while$ -- 252
 width$ -- 119
-write$ -- 1373
+write$ -- 1372
