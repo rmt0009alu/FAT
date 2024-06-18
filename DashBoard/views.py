@@ -429,8 +429,12 @@ def _evolucion_cartera(compras_usuario):
 
         evol_cartera.append(evol_stock)
 
-        total_inicial += compra.num_acciones * float(compra.precio_compra)
-        total_actual += compra.num_acciones * entrada[0].close
+        if bd == 'ftse100':
+            total_inicial += compra.num_acciones * float(compra.precio_compra) / 100
+            total_actual += compra.num_acciones * entrada[0].close / 100
+        else:
+            total_inicial += compra.num_acciones * float(compra.precio_compra)
+            total_actual += compra.num_acciones * entrada[0].close
 
     # Para evitar DivisionZero
     if total_inicial != 0:
